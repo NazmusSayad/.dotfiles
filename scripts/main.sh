@@ -43,7 +43,7 @@ ghp() {
   git add -A >> /dev/null &&
   git commit -m "$msg" &&
   echo &&
-  git push
+  git push --quiet
 }
 
 ghhr() {
