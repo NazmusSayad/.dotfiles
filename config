@@ -1,5 +1,6 @@
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
+git config --global init.defaultBranch master
 echo "Git config added..."
 
 gh alias set list 'repo list'
