@@ -1,8 +1,7 @@
-if [ `nvm current` == system ]; then
-  rm ~/.nodejs /opt/nodejs -rf
-  nvm install lts/* --use
-  nvm alias default lts/*
-fi
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+rm ~/.nodejs /opt/nodejs -rf
+nvm install node --use
+nvm alias default node
 
 cat ~/temp-custom-scripts/main.sh > ~/.bashrc
 rm ~/temp-custom-scripts -rf
