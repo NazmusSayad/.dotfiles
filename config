@@ -3,18 +3,8 @@ git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
 git config --global init.defaultBranch master
 echo "Git config added..."
 
-gh alias set list 'repo list'
-gh alias set edit 'repo edit'
-gh alias set create 'repo create'
-gh alias set delete 'repo delete'
-gh alias set rename 'repo rename'
-gh alias set archive 'repo archive'
-gh alias set fork 'repo fork'
-gh alias set view 'repo view -w'
-gh alias set sync 'repo sync'
-gh alias set public 'repo edit --visibility public'
-gh alias set private 'repo edit --visibility private'
-echo "GitHub config added..."
-
 npm config set ignore-scripts true
 echo "Npm config added..."
+
+npm i -g npm@latest yarn@latest live-server gitignore code-info
+echo "Npm packages installed..."
