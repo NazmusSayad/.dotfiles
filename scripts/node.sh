@@ -1,5 +1,5 @@
 cat ~/temp-custom-scripts/main.sh > ~/.bashrc
-rm ~/temp-custom-scripts -rf
+# rm ~/temp-custom-scripts -rf
 
 rm ~/.nodejs /opt/nodejs -rf
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
