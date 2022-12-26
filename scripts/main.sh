@@ -23,7 +23,6 @@ alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
 alias ghc="gh repo clone"
-alias nodemon="node --watch"
 
 ghp() {
   local msg="$1"
