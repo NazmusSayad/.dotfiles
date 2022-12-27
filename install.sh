@@ -1,8 +1,8 @@
 #!/bin/sh
 
-cp ./lib/.gitignore ~/.gitignore
-cat ./scripts/main.sh > ~/.bashrc
+cat ./scripts/.bashrc > ~/.bashrc
 
+cp ./lib/.gitignore ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
 mv ./config ./config.sh
