@@ -22,7 +22,6 @@ alias y="yarn"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
-alias ghc="gh repo clone"
 
 ghp() {
   local msg="$1"
@@ -57,4 +56,12 @@ ghhr() {
   git branch -D $msg;
   git branch -m $msg;
   git push -f origin $msg;
+}
+
+ghc() {
+  if [[ $1 == http* ]]; then
+    git clone $*
+  else
+    gh repo clone $*
+  fi
 }
