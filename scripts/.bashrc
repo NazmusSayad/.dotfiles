@@ -16,6 +16,7 @@ __bash_prompt() {
   PS1="${magenta}➜ ${lightblue}\w ${gitbranch}\n${magenta}$ ${resetcolor}"
   unset -f __bash_prompt
 }
+[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 __bash_prompt
 
 alias y="yarn"
