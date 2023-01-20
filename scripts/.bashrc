@@ -25,7 +25,7 @@ alias md="mkdir"
 alias cls="clear"
 
 ghp() {
-  local msg="$1"
+  local msg="$*"
   if [ -z "$msg" ]; then
     read -p '#: ' inputMsg
 
@@ -35,6 +35,7 @@ ghp() {
       msg=$inputMsg
     fi
   fi
+
 
   git status --short
   echo
@@ -46,17 +47,17 @@ ghp() {
 }
 
 ghhr() {
-  local msg="$1"
-  if [ -z "$msg" ]; then
-    msg="master"
+  local branch="$1"
+  if [ -z "$branch" ]; then
+    branch="master"
   fi
-
+  
   git checkout --orphan latest_branch;
   git add -A;
   git commit -am "initial commit";
-  git branch -D $msg;
-  git branch -m $msg;
-  git push -f origin $msg;
+  git branch -D $branch;
+  git branch -m $branch;
+  git push -f origin $branch;
 }
 
 ghc() {
