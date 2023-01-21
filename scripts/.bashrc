@@ -27,15 +27,8 @@ alias cls="clear"
 ghp() {
   local msg="$*"
   if [ -z "$msg" ]; then
-    read -p '#: ' inputMsg
-
-    if [ -z "$inputMsg" ]; then
-      msg=`git status --short --no-renames`
-    else
-      msg=$inputMsg
-    fi
+    msg=`git status --short --no-renames`
   fi
-
 
   git status --short
   echo
