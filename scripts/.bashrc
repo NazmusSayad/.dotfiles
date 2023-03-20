@@ -18,11 +18,19 @@ __bash_prompt() {
 }
 [[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 __bash_prompt
-
 alias y="yarn"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
+
+nvm-ts() {
+  settings=~/.vscode-remote/data/Machine/settings.json
+  first="{\"typescript.tsdk\":\"/usr/local/share/nvm/versions/node/"
+  last="/lib/node_modules/typescript/lib\"}"
+  version=`nvm current`
+  all="${first}${version}${last}"
+  echo $all > $settings
+}
 
 ghp() {
   local msg="$*"
