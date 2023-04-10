@@ -17,11 +17,11 @@ __bash_prompt() {
   unset -f __bash_prompt
 }
 __bash_prompt
-[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 alias y="yarn"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
+[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
 nvm-ts() {
   settings=~/.vscode-remote/data/Machine/settings.json
@@ -42,6 +42,17 @@ ghp() {
   git commit -m "$msg" &&
   echo &&
   git push --quiet
+}
+
+ghr() {
+  local hash="$1"
+  if [ -z "$hash" ]; then
+    echo "You must need to give a <commit_id>"
+    return
+  fi
+  
+  git checkout $hash . &&
+  ghp "$hash restored; ${*:2}"
 }
 
 ghhr() {
