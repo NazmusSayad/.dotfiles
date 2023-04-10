@@ -16,8 +16,8 @@ __bash_prompt() {
   PS1="${magenta}➜ ${lightblue}\w ${gitbranch}\n${magenta}$ ${resetcolor}"
   unset -f __bash_prompt
 }
-[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 __bash_prompt
+[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 alias y="yarn"
 alias ni="touch"
 alias md="mkdir"
@@ -33,11 +33,8 @@ nvm-ts() {
 }
 
 ghp() {
-  local msg="$*"
-  if [ -z "$msg" ]; then
-    msg=`git status --short --no-renames`
-  fi
-
+  local msg=${*:-`git status --short --no-renames`}
+  
   git status --short
   echo
 
@@ -48,11 +45,8 @@ ghp() {
 }
 
 ghhr() {
-  local branch="$1"
-  if [ -z "$branch" ]; then
-    branch="master"
-  fi
-  
+  local branch=${1:-"master"}
+ 
   git checkout --orphan latest_branch;
   git add -A;
   git commit -am "initial commit";
