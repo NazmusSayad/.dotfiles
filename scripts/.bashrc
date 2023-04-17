@@ -30,7 +30,7 @@ tsdk() {
   mkdir $location
   cd $location
   npm init -y
-  npm install typescript@latest
+  npm install typescript@${1:-"latest"}
   data="{\"typescript.tsdk\":\"$location$libPath\"}"
   echo $data > $settings
   exit  
