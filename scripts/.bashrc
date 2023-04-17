@@ -23,13 +23,17 @@ alias md="mkdir"
 alias cls="clear"
 [[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
-nvm-ts() {
+tsdk() {
+  location=/workspaces/typescript
   settings=~/.vscode-remote/data/Machine/settings.json
-  first="{\"typescript.tsdk\":\"/usr/local/share/nvm/versions/node/"
-  last="/lib/node_modules/typescript/lib\"}"
-  version=`nvm current`
-  all="${first}${version}${last}"
-  echo $all > $settings
+  libPath="/node_modules/typescript/lib"
+  mkdir $location
+  cd $location
+  npm init -y
+  npm install typescript@latest
+  data="{\"typescript.tsdk\":\"$location$libPath\"}"
+  echo $data > $settings
+  exit  
 }
 
 ghp() {
