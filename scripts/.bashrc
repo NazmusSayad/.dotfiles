@@ -21,6 +21,7 @@ alias y="yarn"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
+alias live="live-server"
 [[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
 tsdk() {
