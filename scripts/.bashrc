@@ -17,12 +17,16 @@ __bash_prompt() {
   unset -f __bash_prompt
 }
 __bash_prompt
+[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
+
 alias y="yarn"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
+
+alias n="node"
+alias nw="node --watch"
 alias live="live-server"
-[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
 tsdk() {
   location=/workspaces/typescript
