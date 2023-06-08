@@ -25,6 +25,7 @@ alias md="mkdir"
 alias cls="clear"
 
 alias n="node"
+alias nm="nodemon"
 alias nw="node --watch"
 alias live="live-server"
 
