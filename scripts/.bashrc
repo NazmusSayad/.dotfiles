@@ -20,6 +20,7 @@ __bash_prompt
 [[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
 alias y="yarn"
+alias ya="yarn add"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
