@@ -1,4 +1,4 @@
-$PROFILEDIR="E:\$env:USERNAME\Documents\WindowsPowerShell"
+$PROFILEDIR="D:\$env:USERNAME\Documents\WindowsPowerShell"
 $isDirExists=Test-Path $PROFILEDIR
 if($isDirExists -eq $False){
   md $PROFILEDIR
