@@ -26,22 +26,11 @@ alias md="mkdir"
 alias cls="clear"
 
 alias n="node"
-alias nm="nodemon"
 alias nw="node --watch"
+alias tn="ts-node"
+alias tnw="ts-node-dev"
+alias nm="nodemon"
 alias live="live-server"
-
-tsdk() {
-  location=/workspaces/typescript
-  settings=~/.vscode-remote/data/Machine/settings.json
-  libPath="/node_modules/typescript/lib"
-  mkdir $location
-  cd $location
-  npm init -y
-  npm install typescript@${1:-"latest"}
-  data="{\"typescript.tsdk\":\"$location$libPath\"}"
-  echo $data > $settings
-  exit  
-}
 
 ghp() {
   local msg=${*:-`git status --short --no-renames`}
