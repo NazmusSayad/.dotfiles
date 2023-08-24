@@ -1,6 +1,10 @@
 #!/bin/bash
 
 cat ./.bashrc > ~/.bashrc
+cat ./WindowsTerminal.json > ~/AppData/Local/Microsoft/Windows\ Terminal/settings.json
+
+git config --global core.excludesfile ~/default.gitignore
+echo "Default gitignore added"
 
 cp ./default.gitignore ~/default.gitignore
 git config --global core.excludesfile ~/default.gitignore
