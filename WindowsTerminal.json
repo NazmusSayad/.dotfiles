@@ -3,6 +3,9 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
     {
+      "command": "openNewTabDropdown"
+    },
+    {
       "command": {
         "action": "copy",
         "singleLine": false
@@ -14,16 +17,62 @@
       "keys": "ctrl+v"
     },
     {
+      "command": "duplicateTab"
+    },
+    {
       "command": "find",
+      "keys": "ctrl+f"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+shift+d"
+    },
+    {
+      "command": "unbound",
+      "keys": "alt+shift+d"
+    },
+    {
+      "command": "unbound",
       "keys": "ctrl+shift+f"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+shift+t"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+j"
     },
     {
       "command": {
         "action": "splitPane",
         "split": "auto",
         "splitMode": "duplicate"
+      }
+    },
+    {
+      "command": {
+        "action": "nextTab"
+      }
+    },
+    {
+      "command": {
+        "action": "clearBuffer",
+        "clear": "all"
       },
-      "keys": "alt+shift+d"
+      "keys": "ctrl+l"
+    },
+    {
+      "command": {
+        "action": "closeTab"
+      },
+      "keys": "alt+j"
+    },
+    {
+      "command": {
+        "action": "newTab"
+      },
+      "keys": "ctrl+shift+j"
     }
   ],
   "confirmCloseAllTabs": false,
@@ -43,11 +92,19 @@
         "face": "Fira Code",
         "size": 11.0
       },
-      "opacity": 50,
+      "opacity": 100,
       "padding": "5",
-      "useAcrylic": true
+      "scrollbarState": "hidden",
+      "useAcrylic": false
     },
     "list": [
+      {
+        "commandline": "C:/Program Files/Git/bin/bash.exe -i -l",
+        "guid": "{106e7786-90ca-4307-b2e8-7bff52e400dc}",
+        "hidden": false,
+        "icon": "E:/Windows Terminal/bash.png",
+        "name": "Bash"
+      },
       {
         "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -59,39 +116,32 @@
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "hidden": false,
         "name": "Command Prompt"
-      },
-      {
-        "commandline": "C:/Program Files/Git/bin/bash.exe -i -l",
-        "guid": "{106e7786-90ca-4307-b2e8-7bff52e400dc}",
-        "hidden": false,
-        "icon": "E:/Windows Terminal/bash.png",
-        "name": "Bash"
       }
     ]
   },
   "schemes": [
     {
-      "name": "OnnoKicu",
       "background": "#21252C",
-      "black": "#13151A",
-      "blue": "#61AFEF",
-      "brightBlack": "#5A6374",
-      "brightBlue": "#61AFEF",
-      "brightCyan": "#56B6C2",
-      "brightGreen": "#98C379",
+      "black": "#3f4451",
+      "blue": "#4aa5f0",
+      "brightBlack": "#4f5666",
+      "brightBlue": "#4dc4ff",
+      "brightCyan": "#4cd1e0",
+      "brightGreen": "#a5e075",
       "brightPurple": "#C678DD",
-      "brightRed": "#E06C75",
-      "brightWhite": "#DCDFE4",
-      "brightYellow": "#E5C07B",
+      "brightRed": "#ff616e",
+      "brightWhite": "#e6e6e6",
+      "brightYellow": "#f0a45d",
       "cursorColor": "#FFFFFF",
-      "cyan": "#56B6C2",
-      "foreground": "#DCDFE4",
-      "green": "#98C379",
+      "cyan": "#42b3c2",
+      "foreground": "#abb2bf",
+      "green": "#8cc265",
+      "name": "OnnoKicu",
       "purple": "#C678DD",
-      "red": "#E06C75",
+      "red": "#e05561",
       "selectionBackground": "#FFFFFF",
-      "white": "#DCDFE4",
-      "yellow": "#E5C07B"
+      "white": "#d7dae0",
+      "yellow": "#d18f52"
     }
   ],
   "showTabsInTitlebar": true,
@@ -134,6 +184,6 @@
       }
     }
   ],
-  "useAcrylicInTabRow": true,
+  "useAcrylicInTabRow": false,
   "windowingBehavior": "useExisting"
 }
