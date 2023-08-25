@@ -21,7 +21,7 @@ echo "Git config added..."
 npm config set ignore-scripts true
 echo "Npm config added..."
 
-npm i -g npm yarn nodemon ts-node ts-node-dev live-server gitignore code-info
+npm i -g npm yarn nodemon ts-node ts-node-dev live-server gitignore code-info yta
 echo "Npm packages installed..."
 
 source ./.bashrc
