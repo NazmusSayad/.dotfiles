@@ -21,12 +21,15 @@ __bash_prompt
 
 alias y="yarn"
 alias ya="yarn add"
+alias yad="yarn add -D"
 alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
 
 alias n="node"
 alias nw="node --watch"
+alias nd="node --inspect"
+alias ndw="node --inspect --watch"
 alias tn="ts-node"
 alias tnw="ts-node-dev"
 alias nm="nodemon"
