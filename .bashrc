@@ -30,9 +30,7 @@ alias n="node"
 alias nw="node --watch"
 alias nd="node --inspect"
 alias ndw="node --inspect --watch"
-alias tn="ts-node"
-alias tnw="ts-node-dev"
-alias nm="nodemon"
+alias w="nodemon"
 alias live="live-server"
 
 ghp() {
