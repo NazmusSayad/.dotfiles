@@ -102,7 +102,7 @@
         "commandline": "C:/Program Files/Git/bin/bash.exe -i -l",
         "guid": "{106e7786-90ca-4307-b2e8-7bff52e400dc}",
         "hidden": false,
-        "icon": "E:/Windows Terminal/bash.png",
+        "icon": "E:/WindowsTerminal/ProfileIcons/bash.png",
         "name": "Bash"
       },
       {
