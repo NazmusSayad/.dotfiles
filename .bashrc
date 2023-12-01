@@ -41,6 +41,8 @@ alias cls="clear"
 
 alias n="node"
 alias w="nodemon"
+
+alias x="npx"
 alias r="npm run"
 alias pi="npm install"
 alias pu="npm uninstall"
