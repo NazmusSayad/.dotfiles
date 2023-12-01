@@ -39,12 +39,12 @@ alias ni="touch"
 alias md="mkdir"
 alias cls="clear"
 
-alias y="yarn"
-alias ya="yarn add"
-alias yad="yarn add -D"
-
 alias n="node"
 alias w="nodemon"
+alias r="npm run"
+alias pi="npm install"
+alias pu="npm uninstall"
+alias pid="npm install --save-dev"
 alias live="live-server"
 
 ghp() {
