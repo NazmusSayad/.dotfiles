@@ -44,9 +44,9 @@ alias w="nodemon"
 
 alias x="npx"
 alias r="npm run"
-alias pi="npm install"
-alias pu="npm uninstall"
-alias pid="npm install --save-dev"
+alias i="npm install"
+alias u="npm uninstall"
+alias di="npm install --save-dev"
 alias live="live-server"
 
 ghp() {
