@@ -49,7 +49,7 @@ alias u="npm uninstall"
 alias di="npm install --save-dev"
 alias live="live-server"
 
-ghp() {
+gp() {
   local msg=${*:-`git status --short --no-renames`}
   
   git status --short
@@ -61,7 +61,7 @@ ghp() {
   git push --quiet
 }
 
-ghr() {
+gr() {
   local hash="$1"
   if [ -z "$hash" ]; then
     echo "You must need to give a <commit_id>"
@@ -69,10 +69,10 @@ ghr() {
   fi
   
   git checkout $hash . &&
-  ghp "$hash restored; ${*:2}"
+  gp "$hash restored; ${*:2}"
 }
 
-ghhr() {
+ghr() {
   local branch=${1:-"master"}
  
   git checkout --orphan latest_branch;
@@ -83,7 +83,7 @@ ghhr() {
   git push -f origin $branch;
 }
 
-ghc() {
+gc() {
   if [[ $1 == http* ]]; then
     git clone $*
   else
@@ -91,7 +91,20 @@ ghc() {
   fi
 }
 
-PATH=~/.console-ninja/.bin:$PATH
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+gpull() {
+  local src="$1"
+
+  if [ -z "$src" ]; then
+      echo "Error: Please provide the source branch."
+      return 1
+  fi
+
+  if [ ! -d ".git" ]; then
+      echo "Error: Not a Git repository."
+      return 1
+  fi
+
+  local target=$(git rev-parse --abbrev-ref HEAD)
+  git pull origin "$src:$target"
+  return $?
+}
