@@ -15,7 +15,7 @@ _____SHELL_PROMPT_COMMAND() {
   local magenta='\e[35m'
   local lightblue='\[\033[1;34m\]'
   local gray='\e[0m'
-  
+
   local gitbranch='`\
       if [ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ]; then \
           export BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null); \
@@ -34,31 +34,27 @@ _____SHELL_PROMPT_COMMAND() {
 PROMPT_COMMAND="_____SHELL_PROMPT_COMMAND"
 [[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
-alias ps="powershell"
-alias ni="touch"
-alias md="mkdir"
-alias cls="clear"
-
 alias n="node"
-alias w="nodemon"
+alias nw="node --watch"
 
-alias x="npx"
+alias w="nodemon"
 alias r="npm run"
-alias i="npm install"
-alias u="npm uninstall"
-alias di="npm install --save-dev"
-alias live="live-server"
+alias x="npx"
+
+alias nu="npm uninstall"
+alias ni="npm install"
+alias nid="npm install --save-dev"
 
 gp() {
-  local msg=${*:-`git status --short --no-renames`}
-  
+  local msg=${*:-$(git status --short --no-renames)}
+
   git status --short
   echo
 
-  git add -A >> /dev/null &&
-  git commit -m "$msg" &&
-  echo &&
-  git push --quiet
+  git add -A >>/dev/null &&
+    git commit -m "$msg" &&
+    echo &&
+    git push --quiet
 }
 
 gr() {
@@ -67,20 +63,20 @@ gr() {
     echo "You must need to give a <commit_id>"
     return
   fi
-  
+
   git checkout $hash . &&
-  gp "$hash restored; ${*:2}"
+    gp "$hash restored; ${*:2}"
 }
 
 ghr() {
   local branch=${1:-"master"}
- 
-  git checkout --orphan latest_branch;
-  git add -A;
-  git commit -am "initial commit";
-  git branch -D $branch;
-  git branch -m $branch;
-  git push -f origin $branch;
+
+  git checkout --orphan latest_branch
+  git add -A
+  git commit -am "initial commit"
+  git branch -D $branch
+  git branch -m $branch
+  git push -f origin $branch
 }
 
 gc() {
@@ -95,13 +91,13 @@ gpull() {
   local src="$1"
 
   if [ -z "$src" ]; then
-      echo "Error: Please provide the source branch."
-      return 1
+    echo "Error: Please provide the source branch."
+    return 1
   fi
 
   if [ ! -d ".git" ]; then
-      echo "Error: Not a Git repository."
-      return 1
+    echo "Error: Not a Git repository."
+    return 1
   fi
 
   local target=$(git rev-parse --abbrev-ref HEAD)
