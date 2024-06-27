@@ -36,7 +36,7 @@ PROMPT_COMMAND="_____SHELL_PROMPT_COMMAND"
 
 alias n="node"
 alias nw="node --watch"
-alias tw="ts-node-dev"
+alias tw="ts-node-dev --respawn --rs"
 
 alias np="npm-run-all -r false -p"
 alias ns="npm-run-all -r false -s"
