@@ -36,11 +36,12 @@ PROMPT_COMMAND="_____SHELL_PROMPT_COMMAND"
 
 alias n="node"
 alias nw="node --watch"
+alias tw="ts-node-dev"
+
 alias np="npm-run-all -r false -p"
 alias ns="npm-run-all -r false -s"
 alias nc="concurrently -p {name} -t HH:mm:ss.SSS -l 99999"
 
-alias w="nodemon"
 alias r="npm run"
 alias x="npx"
 

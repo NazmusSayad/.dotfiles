@@ -19,4 +19,4 @@ npm config set ignore-scripts true
 echo "Npm config added..."
 
 echo "Installing npm packges globally"
-npm i -g npm nodemon ts-node gitignore code-info netserv npm-run-all concurrently
+npm i -g npm nodemon ts-node ts-node-dev gitignore code-info netserv npm-run-all concurrently
