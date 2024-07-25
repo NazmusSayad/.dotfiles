@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cp ./.bashrc ~/.bashrc -rf
+cp ./.bashrc ~/.bashrc -f
 echo "Bashrc added..."
 
-cp ./default.gitignore ~/default.gitignore -rf
+cp ./default.gitignore ~/default.gitignore -f
 echo "Default gitignore added..."
 
 git config --global user.name "Nazmus Sayad"
@@ -17,6 +17,3 @@ echo "Git config added..."
 
 npm config set ignore-scripts true
 echo "Npm config added..."
-
-echo "Installing npm packges globally"
-npm i -g npm nodemon ts-node ts-node-dev gitignore code-info netserv npm-run-all concurrently

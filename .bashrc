@@ -34,20 +34,12 @@ _____SHELL_PROMPT_COMMAND() {
 PROMPT_COMMAND="_____SHELL_PROMPT_COMMAND"
 [[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
-alias n="node"
-alias nw="node --watch"
-alias tw="ts-node-dev --respawn --rs"
-
-alias np="npm-run-all -r false -p"
-alias ns="npm-run-all -r false -s"
-alias nc="concurrently -p {name} -t HH:mm:ss.SSS -l 99999"
-
 alias r="npm run"
-alias x="npx"
+alias x="npm exec"
 
-alias nu="npm uninstall"
-alias ni="npm install"
-alias nid="npm install --save-dev"
+alias na="npm add"
+alias nr="npm remove"
+alias nad="npm add --save-dev"
 
 gp() {
   local msg=${*:-$(git status --short --no-renames)}
