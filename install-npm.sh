@@ -1,2 +1,2 @@
 echo "Installing npm packges globally"
-npm i -g npm ts-node-dev typescript gitignore code-info netserv npm-run-all concurrently
+npm i -g npm typescript ts-node-dev gitignore code-info netserv
