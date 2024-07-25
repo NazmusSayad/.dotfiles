@@ -36,7 +36,6 @@ PROMPT_COMMAND="_____SHELL_PROMPT_COMMAND"
 
 alias r="npm run"
 alias x="npm exec"
-
 alias na="npm add"
 alias nr="npm remove"
 alias nad="npm add --save-dev"
