@@ -39,6 +39,7 @@ alias x="npm exec"
 alias na="npm add"
 alias nr="npm remove"
 alias nad="npm add --save-dev"
+alias gc="gh repo clone"
 
 gp() {
   local msg=${*:-$(git status --short --no-renames)}
@@ -72,14 +73,6 @@ ghr() {
   git branch -D $branch
   git branch -m $branch
   git push -f origin $branch
-}
-
-gc() {
-  if [[ $1 == http* ]]; then
-    git clone $*
-  else
-    gh repo clone $*
-  fi
 }
 
 gpull() {
