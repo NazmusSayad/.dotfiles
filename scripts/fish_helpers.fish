@@ -13,13 +13,16 @@ alias nu="npm uninstall"
 alias gc="gh repo clone"
 
 function gp
-  set msg (math "$argv" | string trim) 
-  if test -z "$msg"
-      set msg (git status --short --no-renames)
-  end
+    set msg "$argv"
 
-  git status --short
-  echo
+    if test -z "$msg"
+        echo "No message provided, using git status as message:"
+        set msg (git status --short --no-renames)
+    end
 
-  git add -A > /dev/null; and git commit -m "$msg"; and echo; and git push --quiet
+    git status --short
+    git add -A >/dev/null; and git commit -m "$msg"; and echo; and git push --quiet
 end
+
+
+gp
