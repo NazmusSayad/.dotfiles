@@ -20,9 +20,8 @@ function __fish_git_branch
     echo -n "$branch"
 end
 
-echo "HELLO"
 function __fish_git_changes
-    if git ls-files --error-unmatch ":/*" >/dev/null 2>&1
+    if git log --branches --not --remotes ":/*" >/dev/null 2>&1
         set output "$output ✗"
     end
     set output "$output"
