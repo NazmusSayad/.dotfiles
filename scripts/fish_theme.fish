@@ -25,10 +25,9 @@ function __fish_git_changes
         set output "$output ^"
     end
 
-    # if git log --branches --not --remotes ":/*" >/dev/null 2>&1
-    #     echo "Has changes"
-    #     set output "$output ✗"
-    # end
+    if not git diff --quiet; or not git diff --cached --quiet
+        set output "$output *"
+    end
 
     set output "$output"
     echo -n "$output"
