@@ -21,7 +21,7 @@ function __fish_git_branch
 end
 
 function __fish_git_changes
-    if git log --branches --not --remotes ":/*" >/dev/null 2>&1
+    if git log --branches --not --remotes ":/*"  >/dev/null 2>&1
         set output "$output ✗"
     end
     set output "$output"
