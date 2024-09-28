@@ -7,6 +7,8 @@ function gp
     end
 
     git status --short
+    echo
+
     git add -A >/dev/null; and git commit -m "$msg"; and echo; and git push --quiet
 end
 
