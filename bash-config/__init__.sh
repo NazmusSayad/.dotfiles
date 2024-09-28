@@ -32,7 +32,6 @@ _____SHELL_PROMPT_COMMAND() {
 }
 
 PROMPT_COMMAND="_____SHELL_PROMPT_COMMAND"
-[[ -z $REMOTE_GITHUB_TOKEN ]] || export GITHUB_TOKEN=$REMOTE_GITHUB_TOKEN
 
 alias n="node --no-warnings"
 alias nw="node --watch --no-warnings"

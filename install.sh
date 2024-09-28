@@ -1,14 +1,14 @@
-cp ./scripts/.bashrc ~/.bashrc -f
-echo "Bashrc added..."
+#!/usr/bin/env bash
 
-cp ./scripts/config.fish ~/.config/fish/config.fish -f
-cp ./scripts/fish_theme.fish ~/.config/fish/fish_theme.fish -f
-cp ./scripts/fish_aliases.fish ~/.config/fish/fish_aliases.fish -f
-cp ./scripts/fish_helpers.fish ~/.config/fish/fish_helpers.fish -f
-echo "Fish config added..."
+__dirname="$(dirname "$(realpath "$0")")"
+echo "source $__dirname/bash-config/__init__.sh" >~/.bashrc
+echo "Bash config linked"
 
-cp ./scripts/default.gitignore ~/default.gitignore -f
-echo "Default gitignore added..."
+echo "source $__dirname/fish-config/__init__.fish" >~/.config/fish/config.fish
+echo "Fish config linked"
+
+cp ./lib/default.gitignore ~/default.gitignore -f
+echo "Default gitignore added"
 
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
@@ -17,7 +17,7 @@ git config --global init.defaultBranch main
 git config --global --add safe.directory '*'
 git config --global core.excludesfile ~/default.gitignore
 git config --global --add --bool push.autoSetupRemote true
-echo "Git config added..."
+echo "Git config added"
 
 npm config set ignore-scripts true
-echo "Npm config added..."
+echo "Npm config added"
