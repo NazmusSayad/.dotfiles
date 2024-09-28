@@ -24,5 +24,4 @@ function gp
     git add -A >/dev/null; and git commit -m "$msg"; and echo; and git push --quiet
 end
 
-
 gp
