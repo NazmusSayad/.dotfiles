@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "dev": "run ./scripts/fish_helpers.fish --focus ./scripts"
+  }
+}
