@@ -21,12 +21,12 @@ function __fish_git_branch
 end
 
 function __fish_git_changes
-    if test (git log --branches --not --remotes | wc -l) -gt 0
-        set output "$output ^"
+    if not git diff --quiet; or not git diff --cached --quiet
+        set output "$output ✗"
     end
 
-    if not git diff --quiet; or not git diff --cached --quiet
-        set output "$output *"
+    if test (git log --branches --not --remotes | wc -l) -gt 0
+        set output "$output ⬆"
     end
 
     set output "$output"
