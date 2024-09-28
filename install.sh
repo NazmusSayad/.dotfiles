@@ -21,3 +21,6 @@ echo "Git config added"
 
 npm config set ignore-scripts true
 echo "Npm config added"
+
+echo "Press any key to continue..."
+read -n 1
