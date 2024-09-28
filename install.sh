@@ -1,9 +1,12 @@
-#!/bin/bash
-
-cp ./.bashrc ~/.bashrc -f
+cp ./scripts/.bashrc ~/.bashrc -f
 echo "Bashrc added..."
 
-cp ./default.gitignore ~/default.gitignore -f
+cp ./scripts/config.fish ~/.config/fish/config.fish -f
+cp ./scripts/fish_theme.fish ~/.config/fish/fish_theme.fish -f
+cp ./scripts/fish_helpers.fish ~/.config/fish/fish_helpers.fish -f
+echo "Fish config added..."
+
+cp ./scripts/default.gitignore ~/default.gitignore -f
 echo "Default gitignore added..."
 
 git config --global user.name "Nazmus Sayad"
