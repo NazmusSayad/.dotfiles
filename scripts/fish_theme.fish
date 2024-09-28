@@ -45,6 +45,7 @@ function fish_prompt
         set changes_output (__fish_git_changes)
         if test -n $changes_output
             set_color yellow
+            echo "|$changes_output|"
             echo -n " $changes_output"
             set_color normal
         end
