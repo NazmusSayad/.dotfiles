@@ -3,6 +3,7 @@ echo "Bashrc added..."
 
 cp ./scripts/config.fish ~/.config/fish/config.fish -f
 cp ./scripts/fish_theme.fish ~/.config/fish/fish_theme.fish -f
+cp ./scripts/fish_aliases.fish ~/.config/fish/fish_aliases.fish -f
 cp ./scripts/fish_helpers.fish ~/.config/fish/fish_helpers.fish -f
 echo "Fish config added..."
 

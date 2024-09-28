@@ -21,7 +21,7 @@ function __fish_git_branch
 end
 
 function __fish_git_changes
-    if git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
+    if git ls-files --error-unmatch ":/*" >/dev/null 2>&1
         set output "$output ✗"
     end
     set output "$output"
