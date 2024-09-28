@@ -21,10 +21,14 @@ function __fish_git_branch
 end
 
 function __fish_git_changes
-    if git log --branches --not --remotes ":/*" >/dev/null 2>&1
-        echo "Has changes"
-        set output "$output ✗"
+    if test (git log --branches --not --remotes | wc -l) -gt 0
+        set output "$output ^"
     end
+
+    # if git log --branches --not --remotes ":/*" >/dev/null 2>&1
+    #     echo "Has changes"
+    #     set output "$output ✗"
+    # end
 
     set output "$output"
     echo -n "$output"
