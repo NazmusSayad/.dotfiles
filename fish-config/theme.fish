@@ -30,14 +30,13 @@ end
 
 function fish_prompt
     set_color magenta
-    echo -n '⌠ '
-    set_color cyan
+    echo -n "╭ "
     echo -n (__fish_shell_path)
     set_color normal
 
     set branch_output (__fish_git_branch)
     if test -n "$branch_output"
-        echo -n ' ('
+        echo -n " ("
         set_color red
         echo -n "$branch_output"
         set_color normal
@@ -49,11 +48,11 @@ function fish_prompt
             set_color normal
         end
 
-        echo -n ')'
+        echo -n ")"
     end
 
-    echo
+    echo ""
     set_color magenta
-    echo -n '$ '
+    echo -n "╰ "
     set_color normal
 end
