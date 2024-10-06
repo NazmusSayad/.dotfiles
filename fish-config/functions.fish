@@ -1,7 +1,7 @@
 function gp
     if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
         echo "No changes to commit."
-        return
+        return 1
     end
 
     set msg "$argv"
