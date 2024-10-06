@@ -3,12 +3,15 @@ function gp
 
     if test -z "$msg"
         echo "No message provided, using git status as message:"
-        set msg (git status --short --no-renames)
+        set msg (git status --porcelain)
     end
 
-    git status --short
-    echo
+    if test -z "$msg"
+        echo "No changes to commit."
+        return
+    end
 
+    git status --short; and echo
     git add -A >/dev/null; and git commit -m "$msg"; and echo; and git push --quiet
 end
 
