@@ -1,14 +1,13 @@
 function gp
-    set msg "$argv"
-
-    if test -z "$msg"
-        echo "No message provided, using git status as message:"
-        set msg (git status --porcelain)
-    end
-
-    if test -z "$msg"
+    if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
         echo "No changes to commit."
         return
+    end
+
+    set msg "$argv"
+    if test -z "$msg"
+        echo "No message provided, using git status as message."
+        set msg (git status --porcelain)
     end
 
     git status --short; and echo
