@@ -55,6 +55,6 @@ function fish_prompt
 
     echo ""
     set_color magenta
-    echo -n "╚ "
+    echo -n "└ "
     set_color normal
 end
