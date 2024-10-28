@@ -32,7 +32,6 @@ end
 
 function fish_prompt
     set_color magenta
-    # echo -n "╭ "
     echo -n (__fish_shell_path)
     set_color normal
 
@@ -53,8 +52,7 @@ function fish_prompt
         echo -n ")"
     end
 
-    echo ""
     set_color magenta
-    echo -n "└ "
+    echo -en "\n⎩ "
     set_color normal
 end
