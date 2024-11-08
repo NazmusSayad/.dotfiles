@@ -1,7 +1,7 @@
-function gp
+function gac
     if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
         echo "No changes to commit."
-        return
+        return 1
     end
 
     set msg "$argv"
@@ -11,7 +11,17 @@ function gp
     end
 
     git status --short; and echo
-    git add -A >/dev/null; and git commit -m "$msg"; and echo; and git push --quiet
+    git add -A >/dev/null; and git commit -m "$msg"
+end
+
+function gp
+    gac $argv
+    if test $status -eq 0
+        echo -e "Commit successful, pushing to remote...\n"
+        git push
+    else
+        echo "Commit failed or no changes to commit."
+    end
 end
 
 function gr
