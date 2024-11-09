@@ -17,6 +17,7 @@ end
 function gp
     gac $argv
     if test $status -eq 0
+        echo ""
         git push
     else
         echo "Commit failed or no changes to commit."
