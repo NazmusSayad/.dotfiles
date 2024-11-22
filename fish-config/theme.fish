@@ -19,16 +19,13 @@ function __fish_git_branch
 end
 
 function __fish_git_changes
-    if not git diff --quiet; or not git diff --cached --quiet
-        echo -n "✘"
-    else if git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
-        echo -n "✚"
-    end
-
-    if test (git log --branches --not --remotes | wc -l) -gt 0
-        echo -n "➜"
-    end
+  if not git diff --quiet --cached || not git diff --quiet || git ls-files --others --exclude-standard | grep -q "."
+      echo -n "✚"
+  else if git log --branches --not --remotes | grep -q "."
+      echo -n "➜"
+  end
 end
+
 
 function fish_prompt
     set_color magenta
