@@ -48,7 +48,6 @@ function ghr
     git push -f origin $branch
 end
 
-
 function gpull
     set src $argv[1]
 
