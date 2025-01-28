@@ -16,18 +16,28 @@ end
 
 function gp
     gac $argv
-    if test $status -eq 0
-        echo ""
-        git push
-    else
-        echo "Commit failed or no changes to commit."
+    if test $status -ne 0
+        echo "! Commit failed or no changes to commit."
+        return
     end
+
+    echo "> Running lint (if present)..."
+    npm run lint --if-present
+    echo ""
+
+    if test $status -ne 0
+        echo "! Linting failed. Fix the issues before pushing."
+        return
+    end
+
+    git push
 end
+
 
 function gr
     set hash $argv[1]
     if test -z "$hash"
-        echo "You must need to give a <commit_id>"
+        echo "! You must need to give a <commit_id>"
         return
     end
 
@@ -52,12 +62,12 @@ function gpull
     set src $argv[1]
 
     if test -z "$src"
-        echo "Error: Please provide the source branch."
+        echo "! Error: Please provide the source branch."
         return 1
     end
 
     if test ! -d ".git"
-        echo "Error: Not a Git repository."
+        echo "! Error: Not a Git repository."
         return 1
     end
 
