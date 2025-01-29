@@ -21,17 +21,20 @@ function gp
         return
     end
 
-    echo "> Running lint (if present)..."
-    npm run lint --if-present
-    echo ""
+    if test -f package.json
+        echo "> Running lint (if present)..."
+        npm run lint --if-present
+        echo ""
 
-    if test $status -ne 0
-        echo "! Linting failed. Fix the issues before pushing."
-        return
+        if test $status -ne 0
+            echo "! Linting failed. Fix the issues before pushing."
+            return
+        end
     end
 
     git push
 end
+
 
 
 function gr
