@@ -36,8 +36,6 @@ function gp
     git push
 end
 
-
-
 function gr
     set hash $argv[1]
     if test -z "$hash"

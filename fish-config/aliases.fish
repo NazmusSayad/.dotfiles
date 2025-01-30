@@ -11,3 +11,4 @@ alias nid="npm install --save-dev"
 alias nu="npm uninstall"
 
 alias gc="gh repo clone"
+alias gco="git checkout"
