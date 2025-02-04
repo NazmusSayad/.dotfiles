@@ -7,6 +7,7 @@ function gac
     set msg "$argv"
     if test -z "$msg"
         echo "❗ No message provided, using git status as message."
+        echo ""
         set msg (git status --porcelain)
     end
 
