@@ -32,7 +32,7 @@ function gp
         end
     end
 
-    echo ""
+    # echo ""
     git push
 end
 
