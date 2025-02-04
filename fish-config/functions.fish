@@ -1,6 +1,6 @@
 function gac
     if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
-        echo "⚠️ No changes to commit."
+        echo "❌ No changes to commit."
         return 1
     end
 
@@ -17,7 +17,7 @@ end
 function gp
     gac $argv
     if test $status -ne 0
-        echo "⚠️ Commit failed or no changes to commit."
+        echo "❌ Commit failed or no changes to commit."
         return
     end
 
@@ -29,8 +29,6 @@ function gp
         if test $status -ne 0
             echo "❌ Linting failed. Fix the issues before pushing."
             return
-        else
-            echo ""
         end
     end
 
