@@ -22,13 +22,15 @@ function gp
     end
 
     if test -f package.json
+        echo ""
         echo "❗ Running lint (if present)..."
         npm run lint --if-present
-        echo ""
 
         if test $status -ne 0
-            echo "⛔ Linting failed. Fix the issues before pushing."
+            echo "❌ Linting failed. Fix the issues before pushing."
             return
+        else
+            echo ""
         end
     end
 
@@ -39,7 +41,7 @@ end
 function gr
     set hash $argv[1]
     if test -z "$hash"
-        echo "⛔ You must need to give a <commit_id>"
+        echo "❌ You must need to give a <commit_id>"
         return
     end
 
@@ -64,12 +66,12 @@ function gpull
     set src $argv[1]
 
     if test -z "$src"
-        echo "⛔ Please provide the source branch."
+        echo "❌ Please provide the source branch."
         return 1
     end
 
     if test ! -d ".git"
-        echo "⛔ Not a Git repository."
+        echo "❌ Not a Git repository."
         return 1
     end
 
