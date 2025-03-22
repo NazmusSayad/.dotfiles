@@ -1,3 +1,9 @@
+alias gpl="git pull"
+alias gbr="git branch"
+alias gco="git checkout"
+alias gv="gh repo view"
+alias gc="gh repo clone"
+
 alias n="node --no-warnings"
 alias nw="node --watch --no-warnings"
 
@@ -17,7 +23,3 @@ alias bid="bun install --dev"
 
 alias rp="run-p --silent"
 alias rs="run-s --silent"
-
-alias gv="gh repo view"
-alias gc="gh repo clone"
-alias gco="git checkout"
