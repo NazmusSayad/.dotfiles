@@ -15,6 +15,7 @@ function gac
     git add -A >/dev/null; and git commit -m "$msg"
 end
 
+
 function gp
     gac $argv
     if test $status -ne 0
@@ -36,6 +37,19 @@ function gp
     echo ""
     git push
 end
+
+
+function gbc
+    set current (git branch --show-current)
+    set branches (git branch --format="%(refname:short)" | grep -v $current)
+
+    if test (count $branches) -gt 0
+        git branch -d $branches
+    else
+        echo "No other branches to delete"
+    end
+end
+
 
 function git-reset
     set branch $argv[1]
