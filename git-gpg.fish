@@ -1,12 +1,16 @@
 #!/usr/bin/env fish
 
 if not command -sq gpg
+    set_color red
     echo "Error: GPG not installed"
+    set_color normal
     exit 1
 end
 
 if not command -sq git
+    set_color red
     echo "Error: Git not installed"
+    set_color normal
     exit 1
 end
 
@@ -20,8 +24,15 @@ if test -z "$git_email" -o -z "$git_name"
     exit 1
 end
 
-echo "Git user name: $git_name"
-echo "Git user email: $git_email"
+echo -n "Git user name  : "
+set_color blue
+echo "$git_name"
+set_color normal
+
+echo -n "Git user email : "
+set_color blue
+echo "$git_email"
+set_color normal
 
 set -l gpg_keys (gpg --list-secret-keys --keyid-format LONG 2>/dev/null | grep sec)
 if test -z "$gpg_keys"
@@ -52,11 +63,19 @@ git config --global user.signingkey $gpg_key_id
 git config --global commit.gpgsign true
 git config --global gpg.program (which gpg)
 
+echo -n "GPG key ID     : "
+set_color blue
+echo "$gpg_key_id"
+set_color normal
+
+set_color green
 echo "GPG key generated and configured for Git."
-echo "GPG key ID: $gpg_key_id"
+set_color normal
 
 echo ""
 echo ""
+set_color yellow
 gpg --armor --export $gpg_key_id
+set_color normal
 echo ""
 echo ""
