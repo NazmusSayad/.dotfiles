@@ -14,12 +14,11 @@ git config --global core.autocrlf false
 git config --global core.pager cat
 git config --global core.ignorecase false
 
-git config --global commit.gpgSign true
 git config --global init.defaultBranch main
+git config --global core.excludesfile ~/default.gitignore
 
 git config --global --add safe.directory '*'
 git config --global --add --bool push.autoSetupRemote true
-git config --global core.excludesfile ~/default.gitignore
 
 echo "Git config added"
 

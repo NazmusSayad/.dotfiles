@@ -1,3 +1,5 @@
+#!/usr/bin/env fish
+
 __dirname="$(dirname "$(realpath "$0")")"
 # echo "source \"$__dirname/bash-config/__init__.sh\"" >~/.bashrc
 # echo "Bash config linked"

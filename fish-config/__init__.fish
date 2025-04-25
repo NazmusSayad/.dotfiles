@@ -1,5 +1,6 @@
-set -g fish_greeting ''
+#!/usr/bin/env fish
 
+set -g fish_greeting ''
 set __dirname (realpath (dirname (status --current-filename)))
 
 source $__dirname/aliases.fish
