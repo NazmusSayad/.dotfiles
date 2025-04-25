@@ -1,11 +1,15 @@
 alias gpl="git pull"
 alias gbr="git branch"
+alias grs="git restore"
 alias gco="git checkout"
 alias gc="gh repo clone"
 alias gv="gh repo view"
 
 alias n="node --no-warnings"
 alias nw="node --watch --no-warnings"
+
+alias pa="php artisan"
+alias pas="php artisan serve"
 
 alias r="npm run"
 alias nx="npm exec"
