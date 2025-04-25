@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+printf '\e[8;45;80t'
+
 if not command -sq gpg
     set_color red
     echo "Error: GPG not installed"
@@ -79,3 +81,6 @@ gpg --armor --export $gpg_key_id
 set_color normal
 echo ""
 echo ""
+
+echo -n "Press any key to exit..."
+read -n 1 -p "" key

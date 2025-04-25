@@ -1,9 +1,19 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
-source ./install-sh.sh
+# Initialize
+__dirname="$(dirname "$(realpath "$0")")"
+echo "CWD: $__dirname"
+echo ""
 
+# Setting up fish config
+mkdir -p ~/.config/fish
+echo "source \"$__dirname/fish-config/__init__.fish\"" >~/.config/fish/config.fish
+echo "Fish config linked"
+echo ""
+
+# Setting up default gitignore
 cp ./lib/default.gitignore ~/default.gitignore -f
-echo "Default gitignore added"
+echo "gitignore added"
 
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
@@ -22,6 +32,7 @@ git config --global --add --bool push.autoSetupRemote true
 
 echo "Git config added"
 
+# Setting up npm config
 npm config set ignore-scripts true
 echo "Npm config added"
 
