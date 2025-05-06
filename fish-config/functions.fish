@@ -1,4 +1,16 @@
-function gac
+function gbc
+    set current (git branch --show-current)
+    set branches (git branch --format="%(refname:short)" | grep -v $current)
+
+    if test (count $branches) -gt 0
+        git branch -d $branches
+    else
+        echo "No other branches to delete"
+    end
+end
+
+
+function gcommit
     if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
         echo "❌ No changes to commit."
         return 1
@@ -16,7 +28,7 @@ function gac
 end
 
 
-function gp
+function gpush
     gac $argv
     if test $status -ne 0
         echo "❌ Commit failed or no changes to commit."
@@ -39,19 +51,7 @@ function gp
 end
 
 
-function gbc
-    set current (git branch --show-current)
-    set branches (git branch --format="%(refname:short)" | grep -v $current)
-
-    if test (count $branches) -gt 0
-        git branch -d $branches
-    else
-        echo "No other branches to delete"
-    end
-end
-
-
-function git-reset
+function greset
     set branch $argv[1]
     if test -z "$branch"
         set branch master

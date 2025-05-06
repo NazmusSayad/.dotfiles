@@ -1,9 +1,12 @@
-alias gpl="git pull"
-alias gbr="git branch"
-alias grs="git restore"
-alias gco="git checkout"
-alias gc="gh repo clone"
+alias gs="git status"
+alias gr="git restore"
+
+alias gp="git pull"
+alias gb="git branch"
+alias gc="git checkout"
+
 alias gv="gh repo view"
+alias cl="gh repo clone"
 
 alias n="node --no-warnings"
 alias nw="node --watch --no-warnings"
