@@ -20,19 +20,20 @@ function fish_preexec --on-event fish_preexec
 end
 
 function fish_postexec --on-event fish_postexec
-    if test "$__last_cmd" = exit
-        exit 0
-        return
+    set -l last_status $status
+
+    switch "$__last_cmd"
+        case clear
+            return
+
+        case exit
+            exit 0
+            return
     end
 
-    set -l last_status $status
     set -l end_time (date +%s%3N)
     set -l duration_ms (math "$end_time - $__cmd_start_time")
     set -l duration_sec (math "$duration_ms / 1000")
-
-    if test "$__last_cmd" = clear
-        return
-    end
 
     set_color normal
     if test $last_status -ne 0
