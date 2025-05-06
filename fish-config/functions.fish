@@ -3,7 +3,17 @@ function gbc
     set branches (git branch --format="%(refname:short)" | grep -v $current)
 
     if test (count $branches) -gt 0
-        git branch -d $branches
+        echo "The following branches will be deleted:"
+        echo $branches | tr ' ' '\n'
+        echo -n "Press [Enter] to confirm, or any other key to cancel: "
+
+        read -l -n 1 confirm
+        if test -z "$confirm"
+            git branch -d $branches
+        else
+            echo "❌  Cancelled branch deletion."
+            return 1
+        end
     else
         echo "No other branches to delete"
     end
