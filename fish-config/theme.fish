@@ -22,7 +22,7 @@ function __fish_git_changes
     if not git diff --quiet --cached || not git diff --quiet || git ls-files --others --exclude-standard | grep -q "."
         echo -n "✘"
     else if git log --branches --not --remotes | grep -q "."
-        echo -n "✚"
+        echo -n "✔"
     end
 end
 
