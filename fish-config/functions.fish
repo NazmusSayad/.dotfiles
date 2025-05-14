@@ -56,7 +56,7 @@ end
 
 
 function gpush
-    gac $argv
+    gcommit $argv
     if test $status -ne 0
         echo "❌ Commit failed or no changes to commit."
         return
