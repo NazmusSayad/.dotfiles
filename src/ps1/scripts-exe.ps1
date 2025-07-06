@@ -26,12 +26,12 @@
 ##LNzLEpGeC3fMu77Ro2k3hQ==
 ##L97HB5mLAnfMu77Ro2k3hQ==
 ##P8HPCZWEGmaZ7/K1
-##L8/UAdDXTlCDjvPprTB48U3nTm04I9KSt4q0x5O17/7/9SDBTPo=
+##L8/UAdDXTlCDjvOW0A1E0W7DfiYvYdGdsLqi172v/PjlqzHKB58MTDQ=
 ##Kc/BRM3KXxU=
 ##
 ##
 ##fd6a9f26a06ea3bc99616d4851b372ba
 Set-ExecutionPolicy RemoteSigned -Force
-Get-ChildItem -Path ./scripts -Filter *.ps1 | ForEach-Object { & $_.FullName }
+Get-ChildItem -Path ./src/ps1/scripts -Filter *.ps1 | ForEach-Object { & $_.FullName }
 
 Restart-Computer -Force
