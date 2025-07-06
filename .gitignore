@@ -4,3 +4,4 @@ pacakge-lock.json
 yarn.lock
 .DS_Store
 .env
+/scripts-exe.exe
