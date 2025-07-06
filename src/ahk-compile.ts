@@ -44,7 +44,7 @@ const compiledAhkScripts = fs
 
 const vbsScript = [
   ['cmd.exe', '/c'],
-  ...compiledAhkScripts,
+  ...compiledAhkScripts.filter((file) => !path.parse(file).name.startsWith('_')),
   ['C:\\Program Files\\ShareX\\ShareX.exe'],
   ['gpg', '--list-keys'],
 ].map((program) =>

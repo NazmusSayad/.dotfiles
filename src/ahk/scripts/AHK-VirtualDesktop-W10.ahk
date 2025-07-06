@@ -1,9 +1,9 @@
 #NoTrayIcon
 
 Initilized := false
-F23::HandleAutoDesktopSwitch
+F23:: HandleAutoDesktopSwitch
 
-HandleAutoDesktopSwitch() { 
+HandleAutoDesktopSwitch() {
   global Initilized, CurrentDesktop
   If (!Initilized) {
     Initilized := true
@@ -79,7 +79,7 @@ switchDesktopByNumber(TargetDesktop) {
   TargetDiff := TargetDesktop - CurrentDesktop
   If (TargetDiff != 0) {
     SleepTime := Round(100 / Max(TargetDiff, TargetDiff * -1, 1))
-  } 
+  }
 
   While (CurrentDesktop < TargetDesktop) {
     Send "^#{Right}"

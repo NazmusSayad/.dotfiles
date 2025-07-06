@@ -2,7 +2,7 @@ DLLPath := A_ScriptDir . "\..\src\ahk\bin\VirtualDesktopAccessor.dll"
 GetDesktopCount := DllCall.Bind(DLLPath "\GetDesktopCount", "cdecl int")
 GetCurrentDesktop := DllCall.Bind(DLLPath "\GetCurrentDesktopNumber", "cdecl int")
 
-CapsLock::
+F24::
 {
   current := GetCurrentDesktop()
   total := GetDesktopCount()
