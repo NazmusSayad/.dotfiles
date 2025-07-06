@@ -1,0 +1,1 @@
+Get-AppxPackage -AllUsers -PackageTypeFilter Bundle -Name "*Windows.DevHome*” | Remove-AppxPackage -AllUsers

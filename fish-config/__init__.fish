@@ -3,15 +3,7 @@
 set -g fish_term24bit 1
 
 function fish_greeting
-    echo -n "⏰ "
-
-    set_color yellow
-
-    echo -n (date "+%A, %d %B %Y")
-    echo -n " - "
-    echo (date "+%I:%M %p")
-
-    set_color normal
+    clear
 end
 
 function fish_preexec --on-event fish_preexec
