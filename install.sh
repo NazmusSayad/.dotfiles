@@ -11,10 +11,6 @@ echo "source \"$__dirname/fish-config/__init__.fish\"" >~/.config/fish/config.fi
 echo "Fish config linked"
 echo ""
 
-# Setting up default gitignore
-cp ./lib/default.gitignore ~/default.gitignore -f
-echo "gitignore added"
-
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
 

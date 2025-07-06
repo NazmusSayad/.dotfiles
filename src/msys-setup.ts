@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { addToPath, writeEnv } from './env.mjs'
+import { addToPath, writeEnv } from 'env-win'
 
 const MSYS_PATH = path.resolve('C:\\msys64')
 const NSSWITCH_CONFIG_PATH = path.resolve(MSYS_PATH, 'etc/nsswitch.conf')

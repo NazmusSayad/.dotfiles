@@ -1,8 +1,12 @@
 {
   "scripts": {
-    "ahk-compile": "node ./src/ahk/ahk-compile.cjs"
+    "ahk-compile": "tsx ./src/ahk-compile.ts"
   },
   "dependencies": {
     "env-win": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "typescript": "^5.8.3"
   }
 }
