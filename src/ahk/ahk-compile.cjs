@@ -46,7 +46,6 @@ const vbsScript = [
   ['cmd.exe', '/c'],
   ...compiledAhkScripts,
   ['C:\\Program Files\\ShareX\\ShareX.exe'],
-  // ['C:\\Program Files (x86)\\FastStone Capture\\FSCapture.exe', '-Silent'],
   ['gpg', '--list-keys'],
 ].map((program) =>
   [

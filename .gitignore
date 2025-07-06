@@ -1,0 +1,6 @@
+dist
+node_modules
+pacakge-lock.json
+yarn.lock
+.DS_Store
+.env
