@@ -7,7 +7,7 @@ echo ""
 
 # Setting up fish config
 mkdir -p ~/.config/fish
-echo "source \"$__dirname/fish-config/__init__.fish\"" >~/.config/fish/config.fish
+echo "source \"$__dirname/config/fish-config/__init__.fish\"" >~/.config/fish/config.fish
 echo "Fish config linked"
 echo ""
 
