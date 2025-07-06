@@ -10,7 +10,16 @@ if %errorLevel% NEQ 0 (
 cd /d "%~dp0"
 
 echo Running with administrator privileges.
-node ./src/msys2.mjs
+echo.
 
-echo Press any key to exit...
-pause >nul
+echo Running ahk-compile...
+call npm run ahk-compile
+echo ahk-compile exit code: %errorLevel%
+
+echo.
+echo Running msys-setup...
+call npm run msys-setup
+echo msys-setup exit code: %errorLevel%
+
+echo.
+pause
