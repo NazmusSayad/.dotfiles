@@ -1,8 +1,10 @@
-DLLPath := A_ScriptDir . "\..\src\ahk\bin\VirtualDesktopAccessor.dll"
+#NoTrayIcon
+
+DLLPath := A_ScriptDir . "\VirtualDesktopAccessor.dll"
 GetDesktopCount := DllCall.Bind(DLLPath "\GetDesktopCount", "cdecl int")
 GetCurrentDesktop := DllCall.Bind(DLLPath "\GetCurrentDesktopNumber", "cdecl int")
 
-F24::
+F23::
 {
   current := GetCurrentDesktop()
   total := GetDesktopCount()
@@ -10,7 +12,6 @@ F24::
   if (current >= total - 1) {
     Loop total - 1 {
       Send("^#{Left}")
-      Sleep 50
     }
   } else {
     Send("^#{Right}")

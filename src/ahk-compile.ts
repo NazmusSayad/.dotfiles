@@ -2,16 +2,27 @@ import fs from 'fs'
 import path from 'path'
 import { spawnSync } from 'child_process'
 
+const ALLOWED_SCRIPTS = ['AHK-Macro', 'AHK-VirtualDesktop-Flip']
+
 const OUT_DIR = path.join(__dirname, '../build')
-const AHK_ICONS = path.join(__dirname, './ahk/icons')
 const AHK_SCRIPTS = path.join(__dirname, './ahk/scripts')
+const AHK_INCLUDES = path.join(__dirname, './ahk/includes')
 const AHK2ExeBin = path.join(__dirname, './ahk/bin/Ahk2Exe.exe')
 const AHKCompilerBin = path.join(__dirname, './ahk/bin/AutoHotkey64.exe')
 
 if (fs.existsSync(OUT_DIR)) {
   fs.rmSync(OUT_DIR, { recursive: true, force: true })
 }
+
 fs.mkdirSync(OUT_DIR)
+
+fs.readdirSync(AHK_INCLUDES).forEach((file) => {
+  const srcPath = path.join(AHK_INCLUDES, file)
+  const destPath = path.join(OUT_DIR, file)
+  if (fs.statSync(srcPath).isFile()) {
+    fs.copyFileSync(srcPath, destPath)
+  }
+})
 
 const compiledAhkScripts = fs
   .readdirSync(AHK_SCRIPTS)
@@ -20,7 +31,7 @@ const compiledAhkScripts = fs
     const fileName = path.basename(file, '.ahk')
     const inPath = path.join(AHK_SCRIPTS, file)
     const outPath = path.join(OUT_DIR, fileName + '.exe')
-    const iconPath = path.join(AHK_ICONS, fileName + '.ico')
+    const iconPath = path.join(AHK_SCRIPTS, fileName + '.ico')
     const icoExists = fs.existsSync(iconPath)
 
     const spawnArgs = [
@@ -44,7 +55,9 @@ const compiledAhkScripts = fs
 
 const vbsScript = [
   ['cmd.exe', '/c'],
-  ...compiledAhkScripts.filter((file) => !path.parse(file).name.startsWith('_')),
+  ...compiledAhkScripts.filter((file) =>
+    ALLOWED_SCRIPTS.includes(path.basename(file, path.extname(file)))
+  ),
   ['C:\\Program Files\\ShareX\\ShareX.exe'],
   ['gpg', '--list-keys'],
 ].map((program) =>

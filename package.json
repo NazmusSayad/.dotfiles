@@ -1,7 +1,9 @@
 {
   "scripts": {
     "ahk-compile": "tsx ./src/ahk-compile.ts",
-    "msys-setup": "tsx ./src/msys-setup.ts"
+    "msys-setup": "tsx ./src/msys-setup.ts",
+    "ahk-compile-dev": "tsx --watch ./src/ahk-compile.ts",
+    "msys-setup-dev": "tsx --watch ./src/msys-setup.ts"
   },
   "dependencies": {
     "env-win": "^0.0.0"
