@@ -43,16 +43,22 @@ $servicesToDisable = @(
   'WpcMonSvc',
   'UmRdpService',
   'TermService',
+  'TabletInputService',
   'wisvc',
   'WerSvc',
   'StiSvc',
   'dmwappushservice',
   'MicrosoftEdge*',
   'CDPUserSvc*',
-  'OneSyncSvc_*'
+  'IEEtwCollectorService',
+  'OneSyncSvc_*',
+  'WSAIFabricSvc',
+  'SSDPSRV',
+  'ShellHWDetection',
+  'BthAvctpSvc',
+  'HvHost'
 )
 
-# Array of services to set to manual
 $servicesToManual = @(
   'AppIDSvc',
   'AppMgmt',
@@ -92,8 +98,6 @@ $servicesToManual = @(
   'GraphicsPerfSvc',
   'HomeGroupListener',
   'HomeGroupProvider',
-  'HvHost',
-  'IEEtwCollectorService',
   'IKEEXT',
   'InstallService',
   'InventorySvc',
@@ -138,7 +142,6 @@ $servicesToManual = @(
   'SDRSVC',
   'SNMPTRAP',
   'SNMPTrap',
-  'SSDPSRV',
   'SecurityHealthService',
   'Sense',
   'SensorDataService',
@@ -150,7 +153,6 @@ $servicesToManual = @(
   'SstpSvc',
   'StateRepository',
   'StorSvc',
-  'TabletInputService',
   'TapiSrv',
   'TextInputManagementService',
   'TieringEngineService',
