@@ -53,26 +53,38 @@ const compiledAhkScripts = fs
     return outPath
   })
 
-const vbsScript = [
-  ['cmd.exe', '/c'],
-  ...compiledAhkScripts.filter((file) =>
-    ALLOWED_SCRIPTS.includes(path.basename(file, path.extname(file)))
-  ),
-  ['C:\\Program Files\\ShareX\\ShareX.exe'],
-  ['gpg', '--list-keys'],
-].map((program) =>
-  [
-    'Set WshShell = CreateObject("WScript.Shell")',
-    formatProgramForVBS(program),
-    'Set WshShell = Nothing',
-  ].join('\n')
-)
-
-function formatProgramForVBS(program) {
+function formatProgramForVBS(program: string | string[]) {
   const [exe, ...rest] = Array.isArray(program) ? program : [program]
   const literal = rest.length ? `"""${exe}"" ${rest}"` : `"""${exe}"""`
-  return `WshShell.Run ${literal}, 0, False`
+
+  return [
+    'Set WshShell = CreateObject("WScript.Shell")',
+    `WshShell.Run ${literal}, 0, False`,
+    'Set WshShell = Nothing',
+  ].join('\n')
 }
+
+function formatProgramForVBSAsAdmin(program: string) {
+  return [
+    'Set UAC = CreateObject("Shell.Application")',
+    `UAC.ShellExecute "${program}", "", "", "runas", 0`,
+    'Set UAC = Nothing',
+  ].join('\n')
+}
+
+const vbsScript = [
+  formatProgramForVBS(['cmd.exe', '/c']),
+
+  ...[
+    ...compiledAhkScripts.filter((file) =>
+      ALLOWED_SCRIPTS.includes(path.basename(file, path.extname(file)))
+    ),
+
+    'C:\\Program Files\\ShareX\\ShareX.exe',
+  ].map((exe) => formatProgramForVBSAsAdmin(exe)),
+
+  formatProgramForVBS(['gpg', '--list-keys']),
+]
 
 const LAUNCH_VBS_SCRIPT = path.join(OUT_DIR, 'launch.vbs')
 fs.writeFileSync(LAUNCH_VBS_SCRIPT, vbsScript.join('\n\n'))
