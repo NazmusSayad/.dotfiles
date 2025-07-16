@@ -54,9 +54,11 @@ $servicesToDisable = @(
   'OneSyncSvc_*',
   'WSAIFabricSvc',
   'SSDPSRV',
+  'PrintDeviceConfigurationService',
   'ShellHWDetection',
   'BthAvctpSvc',
-  'HvHost'
+  'HvHost',
+  'whesvc'
 )
 
 $servicesToManual = @(
