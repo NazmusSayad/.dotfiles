@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { spawnSync } from 'child_process'
 
-const ALLOWED_SCRIPTS = ['AHK-Macro', 'AHK-VirtualDesktop-Flip']
+const ALLOWED_SCRIPTS = ['AHK-Macro', 'AHK-VirtualDesktop-W11']
 
 const OUT_DIR = path.join(__dirname, '../build')
 const AHK_SCRIPTS = path.join(__dirname, './ahk/scripts')

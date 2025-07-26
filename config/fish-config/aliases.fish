@@ -1,5 +1,6 @@
 alias gs="git status"
-alias gr="git restore"
+alias grs="git restore"
+alias grh="git restore --staged"
 
 alias gp="git pull"
 alias gb="git branch"
