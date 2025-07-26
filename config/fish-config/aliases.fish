@@ -1,16 +1,13 @@
 alias gs="git status"
 alias grs="git restore"
-alias grh="git restore --staged"
+alias grh="git reset --hard"
 
 alias gp="git pull"
 alias gb="git branch"
 alias gc="git checkout"
 
-alias gv="gh repo view"
 alias cl="gh repo clone"
-
-alias n="node --no-warnings"
-alias nw="node --watch --no-warnings"
+alias gv="gh repo view"
 
 alias pa="php artisan"
 alias pas="php artisan serve"
@@ -28,6 +25,3 @@ alias br="bun remove"
 alias bi="bun install"
 alias bad="bun add --dev"
 alias bid="bun install --dev"
-
-alias rp="run-p --silent"
-alias rs="run-s --silent"
