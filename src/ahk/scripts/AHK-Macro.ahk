@@ -2,15 +2,21 @@
 ProcessSetPriority "Realtime"
 A_MaxHotkeysPerInterval := 9999
 
-$#Space::+!F
+#UseHook
+#Space::+!F
 
-$^WheelUp:: {
+#UseHook
+#PrintScreen::#^+PrintScreen
+
+#UseHook
+^WheelUp:: {
   Critical "On"
   KeyWait "Ctrl"
   Send "{WheelUp}"
 }
 
-$^WheelDown:: {
+#UseHook
+^WheelDown:: {
   Critical "On"
   KeyWait "Ctrl"
   Send "{WheelDown}"
