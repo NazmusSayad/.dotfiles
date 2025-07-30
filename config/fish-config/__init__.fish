@@ -20,7 +20,6 @@ function fish_postexec --on-event fish_postexec
 
         case exit
             exit 0
-            return
     end
 
     set -l end_time (date +%s%3N)
@@ -28,18 +27,22 @@ function fish_postexec --on-event fish_postexec
     set -l duration_sec (math "$duration_ms / 1000")
 
     set_color normal
+    set -l msg_text "Executed: $__last_cmd"
+
     if test $last_status -ne 0
         set_color --dim red
-        echo "✘ Code: $last_status"
+        set msg_text "✘ ($last_status)"
     else
         set_color --dim
-        if test $duration_ms -lt 1000
-            echo "✓ Took: $duration_ms"ms
-        else
-            echo "✓ Took: $duration_sec"s
-        end
-
+        set msg_text "✓"
     end
+
+    if test $duration_ms -lt 1000
+        echo "$msg_text $duration_ms"ms
+    else
+        echo "$msg_text $duration_sec"s
+    end
+
     set_color normal
 end
 
