@@ -25,3 +25,5 @@ alias br="bun remove"
 alias bi="bun install"
 alias bad="bun add --dev"
 alias bid="bun install --dev"
+
+alias fs-case="fsutil file setCaseSensitiveInfo . enable recursive"

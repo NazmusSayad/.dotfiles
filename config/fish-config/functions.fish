@@ -91,8 +91,3 @@ function greset
     git branch -m $branch
     git push -f origin $branch
 end
-
-
-function fs-case
-    fsutil file queryCaseSensitiveInfo .
-end
