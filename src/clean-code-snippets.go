@@ -12,8 +12,8 @@ import (
 type Editor struct {
 	Name           string
 	Alias          string
-	ExtensionsPath string
 	Path           string
+	ExtensionsPath string
 }
 
 func findBinPath(bin string) string {
