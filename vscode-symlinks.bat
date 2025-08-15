@@ -24,7 +24,7 @@ mklink "%DST%\keybindings.json" "%SRC%\keybindings.json"
 if exist "%DST%\snippets" rmdir /S /Q "%DST%\snippets"
 mklink /D "%DST%\snippets" "%SRC%\snippets"
 
-if exist "%CURSOR_DST%" rmdir /S /Q "%CURSOR_DST%"
-mklink /D "%CURSOR_DST%" "%VS_SRC%"
+@REM if exist "%CURSOR_DST%" rmdir /S /Q "%CURSOR_DST%"
+@REM mklink /D "%CURSOR_DST%" "%VS_SRC%"
 
 pause
