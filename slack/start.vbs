@@ -1,5 +1,4 @@
-Set WshShell = CreateObject("WScript.Shell")
-Set FSO = CreateObject("Scripting.FileSystemObject")
+Set ObjWMIService = GetObject("winmgmts:")
 
 currentTime = Time()
 currentHour = Hour(currentTime)
@@ -12,14 +11,41 @@ isWithinTimeRange = (currentHour >= 6) And (currentHour < 20)
 isNotWeekend = (currentDay <> 6) And (currentDay <> 7)
 
 ' Check if Slack is already running
-Set objWMIService = GetObject("winmgmts:")
-Set colProcesses = objWMIService.ExecQuery("Select * From Win32_Process Where Name = 'slack.exe'")
-isSlackRunning = (colProcesses.Count > 0)
+Set ColProcesses = ObjWMIService.ExecQuery("Select * From Win32_Process Where Name = 'slack.exe'")
+isSlackRunning = (ColProcesses.Count > 0)
 
 If isWithinTimeRange And isNotWeekend And Not isSlackRunning Then
-  WshShell.Run """C:\Users\Sayad\AppData\Local\slack\app-4.45.69\slack.exe"" --startup --silent", 0, False
+  Set WshShell = CreateObject("WScript.Shell")
+  Set PathObjShell = CreateObject("WScript.Shell")
+  Set PathObjNetwork = CreateObject("WScript.Network")
+  Set PathFSObject = CreateObject("Scripting.FileSystemObject")
+
+  slackPath = "C:\Users\" & PathObjNetwork.UserName & "\AppData\Local\slack"
+  slackBaseExePath = slackPath & "\slack.exe"
+  tempFile = PathFSObject.GetSpecialFolder(2) & "\slack_ver.tmp"
+
+  psCommand = "powershell -NoProfile -WindowStyle Hidden -Command ""(Get-Item '" & slackBaseExePath & "').VersionInfo.ProductVersion | Out-File -Encoding ASCII '" & tempFile & "'"""
+  PathObjShell.Run psCommand, 0, True
+
+  Set file = PathFSObject.OpenTextFile(tempFile, 1)
+  slackVersion = Trim(file.ReadAll)
+  slackVersion = Replace(slackVersion, vbCrLf, "")
+  slackVersion = Replace(slackVersion, vbCr, "")
+  slackVersion = Replace(slackVersion, vbLf, "")
+  slackVersion = Trim(slackVersion)
+
+  file.Close
+  PathFSObject.DeleteFile tempFile
+
+  slackExePath = slackPath & "\app-" & slackVersion & "\slack.exe"
+  WshShell.Run """" & slackExePath & """ --startup --silent", 0, False
+
+  Set file = Nothing
+  Set WshShell = Nothing
+  Set PathObjShell = Nothing
+  Set PathObjNetwork = Nothing
+  Set PathFSObject = Nothing
 End If
 
-Set WshShell = Nothing
-Set FSO = Nothing
-Set objWMIService = Nothing
+Set ObjWMIService = Nothing
+Set ColProcesses = Nothing
