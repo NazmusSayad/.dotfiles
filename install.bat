@@ -23,7 +23,7 @@ git config --global core.autocrlf false
 git config --global core.pager cat
 git config --global core.ignorecase false
 
-git config --global init.defaultBranch master
+git config --global init.defaultBranch main
 git config --global core.excludesfile ~/default.gitignore
 
 git config --global --add safe.directory "*"

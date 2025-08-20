@@ -126,7 +126,7 @@ fs.writeFileSync(
     </IdleSettings>
     <AllowStartOnDemand>true</AllowStartOnDemand>
     <Enabled>true</Enabled>
-    <Hidden>false</Hidden>
+    <Hidden>true</Hidden>
     <RunOnlyIfIdle>false</RunOnlyIfIdle>
     <WakeToRun>false</WakeToRun>
     <ExecutionTimeLimit>PT72H</ExecutionTimeLimit>
