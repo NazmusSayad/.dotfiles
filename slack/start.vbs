@@ -38,7 +38,7 @@ If isWithinTimeRange And isNotWeekend And Not isSlackRunning Then
   PathFSObject.DeleteFile tempFile
 
   slackExePath = slackPath & "\app-" & slackVersion & "\slack.exe"
-  WshShell.Run """" & slackExePath & """ --startup --silent", 0, False
+  WshShell.Run """" & slackExePath & """ --startup", 0, False
 
   Set file = Nothing
   Set WshShell = Nothing
