@@ -5,6 +5,7 @@ alias grh="git reset --hard"
 alias gp="git pull"
 alias gb="git branch"
 alias gc="git checkout"
+alias gcb="git checkout -b"
 
 alias cl="gh repo clone"
 alias gv="gh repo view"
