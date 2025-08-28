@@ -99,7 +99,19 @@ function gpm
         return 1
     end
 
-    git pull origin $argv[1] --no-rebase
+    set target_branch $argv[1]
+    set current_branch (git branch --show-current)
+
+    echo -n "Pulling changes from "
+    set_color red
+    echo -n "$target_branch"
+    set_color normal
+    echo -n " into "
+    set_color blue
+    echo -n "$current_branch"
+    set_color normal
+    echo " (merge)..."
+    git pull origin $target_branch --no-rebase
 end
 
 
@@ -109,7 +121,19 @@ function gpr
         return 1
     end
 
-    git pull origin $argv[1] --rebase
+    set target_branch $argv[1]
+    set current_branch (git branch --show-current)
+
+    echo -n "Pulling changes from "
+    set_color red
+    echo -n "$target_branch"
+    set_color normal
+    echo -n " into "
+    set_color blue
+    echo -n "$current_branch"
+    set_color normal
+    echo " (rebase)..."
+    git pull origin $target_branch --rebase
 end
 
 
