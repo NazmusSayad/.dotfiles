@@ -26,6 +26,3 @@ alias br="bun remove"
 alias bi="bun install"
 alias bad="bun add --dev"
 alias bid="bun install --dev"
-
-alias rm-gpg="rm -f ~/.gnupg/*.lock"
-alias fs-case="fsutil file setCaseSensitiveInfo . enable recursive"

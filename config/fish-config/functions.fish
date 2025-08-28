@@ -91,3 +91,37 @@ function greset
     git branch -m $branch
     git push -f origin $branch
 end
+
+
+function gpm
+    if test (count $argv) -ne 1
+        echo "Usage: gpm <branch>" >&2
+        return 1
+    end
+
+    git pull origin $argv[1] --no-rebase
+end
+
+
+function gpr
+    if test (count $argv) -ne 1
+        echo "Usage: gpr <branch>" >&2
+        return 1
+    end
+
+    git pull origin $argv[1] --rebase
+end
+
+
+function gpg-unlock
+    for pid in (ps aux | grep gpg | grep -v grep | awk '{print $1}')
+        echo "Found GPG process with PID: $pid"
+        kill -9 $pid
+    end
+    rm -f ~/.gnupg/*.lock
+end
+
+
+function fscase
+    fsutil.exe file setCaseSensitiveInfo . enable recursive
+end
