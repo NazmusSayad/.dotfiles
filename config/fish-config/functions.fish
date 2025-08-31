@@ -133,7 +133,7 @@ end
 
 function gr
     set_color red
-    echo "Reset and clean?"
+    echo "Restore and clean?"
 
     set_color normal
     set_color --dim
@@ -143,7 +143,8 @@ function gr
     read -n 1 -P "" --function confirm
 
     if test $status -eq 0 -a -z "$confirm"
-        echo "✅ Done."
+        git restore .
+        git clean -fd
     else
         echo "❌ Cancelled."
     end
