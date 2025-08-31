@@ -17,7 +17,7 @@ function gbc
 
         if test $read_status -ne 0
             set_color green
-            echo "Cancelled branch deletion."
+            echo "Cancelled branch deletion"
             set_color normal
             return 1
         end
@@ -27,7 +27,7 @@ function gbc
             git branch -d $branches
         else
             set_color green
-            echo "Cancelled branch deletion."
+            echo "Cancelled branch deletion"
         end
 
         set_color normal
@@ -39,13 +39,13 @@ end
 
 function gcommit
     if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
-        echo "❌ No changes to commit."
+        echo "❌ No changes to commit"
         return 1
     end
 
     set msg "$argv"
     if test -z "$msg"
-        echo "❗ No message provided, using git status as message."
+        echo "❗ No message provided, using git status as message"
         echo ""
         set msg (git status --porcelain)
     end
@@ -58,7 +58,7 @@ end
 function gpush
     gcommit $argv
     if test $status -ne 0
-        echo "❌ Commit failed or no changes to commit."
+        echo "❌ Commit failed or no changes to commit"
         return
     end
 
@@ -68,7 +68,7 @@ function gpush
         npm run lint --if-present
 
         if test $status -ne 0
-            echo "❌ Linting failed. Fix the issues before pushing."
+            echo "❌ Linting failed. Fix the issues before pushing"
             return
         end
     end
@@ -149,7 +149,7 @@ function grs
 
         if test $read_status -ne 0
             set_color green
-            echo "Cancelled."
+            echo Cancelled
             set_color normal
             return 1
         end
@@ -158,7 +158,7 @@ function grs
             git restore .
         else
             set_color green
-            echo "Cancelled."
+            echo Cancelled
             set_color normal
         end
     else
