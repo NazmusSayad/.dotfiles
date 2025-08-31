@@ -137,6 +137,36 @@ function gpr
 end
 
 
+function grs
+    if test (count $argv) -eq 0
+        echo -n "Press [Enter] to "
+        set_color red
+        echo -n "restore all files"
+        set_color normal
+        echo ", or any other key to cancel: "
+        read -n 1 confirm
+        set read_status $status
+
+        if test $read_status -ne 0
+            set_color green
+            echo "Cancelled."
+            set_color normal
+            return 1
+        end
+
+        if test -z "$confirm"
+            git restore .
+        else
+            set_color green
+            echo "Cancelled."
+            set_color normal
+        end
+    else
+        git restore $argv
+    end
+end
+
+
 function gpg-unlock
     for pid in (ps aux | grep gpg | grep -v grep | awk '{print $1}')
         echo "Found GPG process with PID: $pid"

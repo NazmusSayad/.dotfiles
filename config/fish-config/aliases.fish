@@ -1,5 +1,4 @@
 alias gs="git status"
-alias grs="git restore"
 alias grh="git reset --hard"
 
 alias gp="git pull"
