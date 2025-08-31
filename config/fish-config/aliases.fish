@@ -1,6 +1,3 @@
-alias gs="git status"
-alias grh="git reset --hard"
-
 alias gp="git pull"
 alias gb="git branch"
 alias gc="git checkout"

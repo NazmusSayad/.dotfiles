@@ -3,26 +3,20 @@ function gbc
     set branches (git branch --format="%(refname:short)" | grep -v $current)
 
     if test (count $branches) -gt 0
-        set_color --dim
         echo -n "Branches to delete: "
-        set_color normal
 
         set_color --bold red
         echo (string join ', ' $branches)
         set_color normal
 
-        echo "Press [Enter] to confirm, or any other key to cancel: "
-        read -n 1 confirm
-        set read_status $status
+        set_color normal
+        set_color --dim
+        echo -n "Press [Enter] to confirm, or any other key to cancel: "
+        set_color normal
 
-        if test $read_status -ne 0
-            set_color green
-            echo "Cancelled branch deletion"
-            set_color normal
-            return 1
-        end
+        read -n 1 -P "" --function confirm
 
-        if test -z "$confirm"
+        if test $status -eq 0 -a -z "$confirm"
             set_color --dim red
             git branch -d $branches
         else
@@ -137,32 +131,21 @@ function gpr
 end
 
 
-function grs
-    if test (count $argv) -eq 0
-        echo -n "Press [Enter] to "
-        set_color red
-        echo -n "restore all files"
-        set_color normal
-        echo ", or any other key to cancel: "
-        read -n 1 confirm
-        set read_status $status
+function gr
+    set_color red
+    echo "Reset and clean?"
 
-        if test $read_status -ne 0
-            set_color green
-            echo Cancelled
-            set_color normal
-            return 1
-        end
+    set_color normal
+    set_color --dim
+    echo -n "Press [Enter] to confirm, or any other key to cancel: "
+    set_color normal
 
-        if test -z "$confirm"
-            git restore .
-        else
-            set_color green
-            echo Cancelled
-            set_color normal
-        end
+    read -n 1 -P "" --function confirm
+
+    if test $status -eq 0 -a -z "$confirm"
+        echo "✅ Done."
     else
-        git restore $argv
+        echo "❌ Cancelled."
     end
 end
 
