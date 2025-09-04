@@ -9,22 +9,29 @@ if %errorLevel% NEQ 0 (
 
 setlocal
 set "SRC=%APPDATA%\Code\User"
-set "DST=%APPDATA%\Cursor\User"
-set "VS_SRC=%USERPROFILE%\.vscode"
-set "CURSOR_DST=%USERPROFILE%\.cursor"
+set "DST_1=%APPDATA%\Cursor\User"
+set "DST_2=%APPDATA%\Windsurf\User"
 
-if not exist "%DST%" mkdir "%DST%"
 
-if exist "%DST%\settings.json" del "%DST%\settings.json"
-mklink "%DST%\settings.json" "%SRC%\settings.json"
+if not exist "%DST_1%" mkdir "%DST_1%"
+if not exist "%DST_2%" mkdir "%DST_2%"
 
-if exist "%DST%\keybindings.json" del "%DST%\keybindings.json"
-mklink "%DST%\keybindings.json" "%SRC%\keybindings.json"
+if exist "%DST_1%\settings.json" del "%DST_1%\settings.json"
+mklink "%DST_1%\settings.json" "%SRC%\settings.json"
 
-if exist "%DST%\snippets" rmdir /S /Q "%DST%\snippets"
-mklink /D "%DST%\snippets" "%SRC%\snippets"
+if exist "%DST_2%\settings.json" del "%DST_2%\settings.json"
+mklink "%DST_2%\settings.json" "%SRC%\settings.json"
 
-@REM if exist "%CURSOR_DST%" rmdir /S /Q "%CURSOR_DST%"
-@REM mklink /D "%CURSOR_DST%" "%VS_SRC%"
+if exist "%DST_1%\keybindings.json" del "%DST_1%\keybindings.json"
+mklink "%DST_1%\keybindings.json" "%SRC%\keybindings.json"
+
+if exist "%DST_2%\keybindings.json" del "%DST_2%\keybindings.json"
+mklink "%DST_2%\keybindings.json" "%SRC%\keybindings.json"
+
+if exist "%DST_1%\snippets" rmdir /S /Q "%DST_1%\snippets"
+mklink /D "%DST_1%\snippets" "%SRC%\snippets"
+
+if exist "%DST_2%\snippets" rmdir /S /Q "%DST_2%\snippets"
+mklink /D "%DST_2%\snippets" "%SRC%\snippets"
 
 pause
