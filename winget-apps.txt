@@ -20,3 +20,6 @@ OBSProject.OBSStudio
 Daum.PotPlayer
 9MSMLRH6LZF3
 9NBLGGH68TW4
+Piriform.CCleaner
+Google.Chrome
+Mozilla.Firefox.DeveloperEdition
