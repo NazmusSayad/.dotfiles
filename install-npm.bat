@@ -1,7 +1,7 @@
 @echo off
 
 echo Installing npm packages globally
-npm i -g npm gitignore code-info netserv uni-run npm-run-all tsx
+npm i -g npm code-info netserv uni-run tsx
 
 echo.
 echo Press any key to continue...
