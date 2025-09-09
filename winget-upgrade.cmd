@@ -27,7 +27,7 @@ for /f "usebackq delims=" %%a in ("winget-apps.ini") do (
 for /f "tokens=* delims= " %%a in ("!PACKAGES!") do set PACKAGES=%%a
 
 if not "!PACKAGES!"=="" (
-  winget upgrade !PACKAGES! --no-upgrade --interactive --accept-package-agreements --accept-source-agreements
+  winget upgrade !PACKAGES! --interactive --accept-package-agreements --accept-source-agreements --uninstall-previous
 ) else (
   echo No valid packages found
 )
