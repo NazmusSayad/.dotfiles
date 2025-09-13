@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"dotfiles/config"
 	"dotfiles/src/winget"
 	"fmt"
@@ -30,4 +31,8 @@ func main() {
 	}
 
 	fmt.Println("\nDone!")
+	fmt.Println("Press Enter to exit...")
+	reader := bufio.NewReader(os.Stdin)
+	reader.ReadString('\n')
+	os.Exit(0)
 }

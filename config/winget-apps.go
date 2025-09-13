@@ -31,7 +31,7 @@ var Packages = []Package{
 	{ID: "Python.PythonInstallManager", Name: "Python Installer"},
 	{ID: "CoreyButler.NVMforWindows", Name: "nvm for Windows"},
 	{ID: "Microsoft.VisualStudioCode", Name: "VS Code"},
-	{ID: "Anysphere.Cursor", Name: "Cursor"},
+	{ID: "Anysphere.Cursor", Name: "Cursor", Version: "1.5.11"},
 
 	// Programming Tools
 	{ID: "Git.Git", Name: "Git"},
