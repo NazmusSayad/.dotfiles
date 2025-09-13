@@ -2,11 +2,34 @@ package winget
 
 import (
 	"bufio"
-	"dotfiles/config"
+	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
 )
+
+type WingetPackage struct {
+	ID      string
+	Name    string
+	Version string
+}
+
+func GetWingetPackages(path string) []WingetPackage {
+	f, err := os.Open(path)
+	if err != nil {
+		return []WingetPackage{}
+	}
+
+	defer f.Close()
+
+	var pkgs []WingetPackage
+	dec := json.NewDecoder(f)
+	if err := dec.Decode(&pkgs); err != nil {
+		return []WingetPackage{}
+	}
+
+	return pkgs
+}
 
 func ConfirmIsAdminExec() {
 	psCmd := `if (-not([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }`
@@ -37,7 +60,7 @@ func ConfirmIsAdminExec() {
 	}
 }
 
-func BuildWingetInstallCommands(p config.Package) []string {
+func BuildWingetInstallCommands(p WingetPackage) []string {
 	parts := []string{"winget", "install", p.ID}
 
 	if p.Version != "" {
@@ -47,7 +70,7 @@ func BuildWingetInstallCommands(p config.Package) []string {
 	return append(parts, "--interactive", "--accept-package-agreements", "--accept-source-agreements", "--no-upgrade")
 }
 
-func BuildWingetUpgradeCommands(p config.Package) []string {
+func BuildWingetUpgradeCommands(p WingetPackage) []string {
 	parts := []string{"winget", "upgrade", p.ID}
 
 	if p.Version != "" {

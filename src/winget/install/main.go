@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"dotfiles/config"
 	"dotfiles/src/winget"
 	"fmt"
 	"os"
@@ -11,15 +10,10 @@ import (
 
 func main() {
 	winget.ConfirmIsAdminExec()
+	packages := winget.GetWingetPackages("./config/winget-apps.json")
+	fmt.Println("Installing packages, total:", len(packages))
 
-	if len(config.Packages) == 0 {
-		fmt.Fprintln(os.Stderr, "no packages configured")
-		os.Exit(1)
-	}
-
-	fmt.Println("Installing packages, total:", len(config.Packages))
-
-	for _, p := range config.Packages {
+	for _, p := range packages {
 		fmt.Println("\n- Installing", p.ID)
 		parts := winget.BuildWingetInstallCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
