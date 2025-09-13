@@ -2,27 +2,16 @@ import fs from 'fs'
 import path from 'path'
 import { spawnSync } from 'child_process'
 
-const ALLOWED_SCRIPTS = ['AHK-Macro', 'AHK-VirtualDesktop-W11']
+const ALLOWED_SCRIPTS = ['___AHK-Macro', '___AHK-VirtualDesktop-W11']
 
-const OUT_DIR = path.join(__dirname, '../build')
+const OUT_DIR = path.join(__dirname, '..')
 const AHK_SCRIPTS = path.join(__dirname, './ahk/scripts')
-const AHK_INCLUDES = path.join(__dirname, './ahk/includes')
 const AHK2ExeBin = path.join(__dirname, './ahk/bin/Ahk2Exe.exe')
 const AHKCompilerBin = path.join(__dirname, './ahk/bin/AutoHotkey64.exe')
 
-if (fs.existsSync(OUT_DIR)) {
-  fs.rmSync(OUT_DIR, { recursive: true, force: true })
+if (!fs.existsSync(OUT_DIR)) {
+  fs.mkdirSync(OUT_DIR)
 }
-
-fs.mkdirSync(OUT_DIR)
-
-fs.readdirSync(AHK_INCLUDES).forEach((file) => {
-  const srcPath = path.join(AHK_INCLUDES, file)
-  const destPath = path.join(OUT_DIR, file)
-  if (fs.statSync(srcPath).isFile()) {
-    fs.copyFileSync(srcPath, destPath)
-  }
-})
 
 const compiledAhkScripts = fs
   .readdirSync(AHK_SCRIPTS)
@@ -30,7 +19,7 @@ const compiledAhkScripts = fs
   .map((file) => {
     const fileName = path.basename(file, '.ahk')
     const inPath = path.join(AHK_SCRIPTS, file)
-    const outPath = path.join(OUT_DIR, fileName + '.exe')
+    const outPath = path.join(OUT_DIR, '___' + fileName + '.exe')
     const iconPath = path.join(AHK_SCRIPTS, fileName + '.ico')
     const icoExists = fs.existsSync(iconPath)
 
@@ -86,12 +75,12 @@ const vbsScript = [
   formatProgramForVBS(['gpg', '--list-keys']),
 ]
 
-const LAUNCH_VBS_SCRIPT = path.join(OUT_DIR, 'launch.vbs')
+const LAUNCH_VBS_SCRIPT = path.join(OUT_DIR, '___launch.vbs')
 fs.writeFileSync(LAUNCH_VBS_SCRIPT, vbsScript.join('\n\n'))
 console.log('Compilation complete')
 
 fs.writeFileSync(
-  path.join(OUT_DIR, 'task-init.xml'),
+  path.join(OUT_DIR, '___task-init.xml'),
   `<?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
