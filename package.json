@@ -1,11 +1,9 @@
 {
   "scripts": {
-    "ahk-compile": "tsx ./src/ahk-compile.ts",
     "msys-setup": "tsx ./src/msys-setup.ts",
-    "ahk-compile-dev": "tsx --watch ./src/ahk-compile.ts",
+    "ahk-compile": "tsx ./src/ahk-compile.ts",
     "msys-setup-dev": "tsx --watch ./src/msys-setup.ts",
-    "clean-snippets": "tsx ./src/clean-code-snippets.ts",
-    "clean-snippets-dev": "tsx --watch ./src/clean-code-snippets.ts"
+    "ahk-compile-dev": "tsx --watch ./src/ahk-compile.ts"
   },
   "dependencies": {
     "env-win": "^0.0.0"
