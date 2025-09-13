@@ -1,7 +1,9 @@
 [
+  // Basic
   {
     "ID": "MSYS2.MSYS2",
-    "Name": "MSYS2"
+    "Name": "MSYS2",
+    "Ignore": true
   },
   {
     "ID": "ShareX.ShareX",
@@ -32,6 +34,7 @@
     "Name": "SVG Thumbnail"
   },
 
+  // Productivity
   {
     "ID": "Notion.Notion",
     "Name": "Notion"
@@ -49,6 +52,7 @@
     "Name": "Unified Remote"
   },
 
+  // Browsers
   {
     "ID": "Google.Chrome",
     "Name": "Google Chrome"
@@ -58,6 +62,7 @@
     "Name": "Firefox Developer Edition"
   },
 
+  // Programming Languages
   {
     "ID": "Python.PythonInstallManager",
     "Name": "Python Installer"
@@ -66,6 +71,8 @@
     "ID": "CoreyButler.NVMforWindows",
     "Name": "nvm for Windows"
   },
+
+  // Code Editors
   {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VS Code"
@@ -76,6 +83,7 @@
     "Version": "1.5.11"
   },
 
+  // Development Tools
   {
     "ID": "Git.Git",
     "Name": "Git"
@@ -92,15 +100,16 @@
     "ID": "Postman.Postman",
     "Name": "Postman"
   },
-  {
+  /* {
     "ID": "ApacheFriends.Xampp.8.2",
     "Name": "XAMPP"
-  },
+  }, */
   {
     "ID": "PostgreSQL.PostgreSQL.17",
     "Name": "PostgreSQL"
   },
 
+  // Communication
   {
     "ID": "SlackTechnologies.Slack",
     "Name": "Slack"

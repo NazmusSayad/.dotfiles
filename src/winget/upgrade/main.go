@@ -10,7 +10,7 @@ import (
 
 func main() {
 	winget.ConfirmIsAdminExec()
-	packages := winget.GetWingetPackages("./config/winget-apps.json")
+	packages := winget.GetWingetPackages("./config/winget-apps.jsonc")
 	fmt.Println("Upgrading packages, total:", len(packages))
 
 	for _, p := range packages {

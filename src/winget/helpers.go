@@ -4,14 +4,17 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
+	"regexp"
 )
 
 type WingetPackage struct {
 	ID      string
 	Name    string
 	Version string
+	Ignore  bool
 }
 
 func GetWingetPackages(path string) []WingetPackage {
@@ -19,16 +22,31 @@ func GetWingetPackages(path string) []WingetPackage {
 	if err != nil {
 		return []WingetPackage{}
 	}
-
 	defer f.Close()
 
-	var pkgs []WingetPackage
-	dec := json.NewDecoder(f)
-	if err := dec.Decode(&pkgs); err != nil {
+	data, err := io.ReadAll(f)
+	if err != nil {
 		return []WingetPackage{}
 	}
 
-	return pkgs
+	re := regexp.MustCompile(`(?m)//.*$`)
+	clean := re.ReplaceAll(data, []byte{})
+
+	reBlock := regexp.MustCompile(`(?s)/\*.*?\*/`)
+	clean = reBlock.ReplaceAll(clean, []byte{})
+
+	var pkgs []WingetPackage
+	if err := json.Unmarshal(clean, &pkgs); err != nil {
+		return []WingetPackage{}
+	}
+
+	var result []WingetPackage
+	for _, pkg := range pkgs {
+		if !pkg.Ignore {
+			result = append(result, pkg)
+		}
+	}
+	return result
 }
 
 func ConfirmIsAdminExec() {
