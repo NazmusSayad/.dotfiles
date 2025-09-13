@@ -19,20 +19,15 @@ func main() {
 	fmt.Println("Installing packages, total:", len(config.Packages))
 
 	for _, p := range config.Packages {
+		fmt.Println("\n- Installing", p.ID)
 		parts := winget.BuildWingetInstallCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		cmd.Stdin = os.Stdin
-
-		if err := cmd.Run(); err != nil {
-			if exitErr, ok := err.(*exec.ExitError); ok {
-				os.Exit(exitErr.ExitCode())
-			}
-
-			fmt.Fprintln(os.Stderr, "failed to install", p.ID, ":", err)
-			os.Exit(1)
-		}
+		cmd.Run()
 	}
+
+	fmt.Println("\nDone!")
 }

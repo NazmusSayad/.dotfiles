@@ -19,20 +19,15 @@ func main() {
 	fmt.Println("Upgrading packages, total:", len(config.Packages))
 
 	for _, p := range config.Packages {
+		fmt.Println("\n- Upgrading", p.ID)
 		parts := winget.BuildWingetUpgradeCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		cmd.Stdin = os.Stdin
-
-		if err := cmd.Run(); err != nil {
-			if exitErr, ok := err.(*exec.ExitError); ok {
-				os.Exit(exitErr.ExitCode())
-			}
-
-			fmt.Fprintln(os.Stderr, "failed to upgrade", p.ID, ":", err)
-			os.Exit(1)
-		}
+		cmd.Run()
 	}
+
+	fmt.Println("\nDone!")
 }
