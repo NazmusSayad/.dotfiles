@@ -36,8 +36,12 @@
 
   // Productivity
   {
-    "ID": "Notion.Notion",
-    "Name": "Notion"
+    "ID": "RamenSoftware.Windhawk",
+    "Name": "Windhawk"
+  },
+  {
+    "ID": "Obsidian.Obsidian",
+    "Name": "Obsidian"
   },
   {
     "ID": "OBSProject.OBSStudio",
@@ -71,6 +75,14 @@
     "ID": "CoreyButler.NVMforWindows",
     "Name": "nvm for Windows"
   },
+  {
+    "ID": "Oracle.JDK.24",
+    "Name": "JDK 24"
+  },
+  {
+    "ID": "GoLang.Go",
+    "Name": "Go Language"
+  },
 
   // Code Editors
   {
@@ -91,10 +103,6 @@
   {
     "ID": "GitHub.cli",
     "Name": "GitHub CLI"
-  },
-  {
-    "ID": "GoLang.Go",
-    "Name": "Go"
   },
   {
     "ID": "Postman.Postman",
