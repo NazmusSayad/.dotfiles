@@ -14,6 +14,11 @@ func main() {
 	fmt.Println("Upgrading packages, total:", len(packages))
 
 	for _, p := range packages {
+		if p.IgnoreUpgrade {
+			fmt.Println("\n- Skipping", p.ID)
+			continue
+		}
+
 		fmt.Println("\n- Upgrading", p.ID)
 		parts := winget.BuildWingetUpgradeCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)

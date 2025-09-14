@@ -3,7 +3,7 @@
   {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2",
-    "Ignore": true
+    "IgnoreUpgrade": true
   },
   {
     "ID": "ShareX.ShareX",
@@ -100,10 +100,12 @@
     "ID": "Postman.Postman",
     "Name": "Postman"
   },
-  /* {
+  {
     "ID": "ApacheFriends.Xampp.8.2",
-    "Name": "XAMPP"
-  }, */
+    "Name": "XAMPP",
+    "IgnoreInstall": true,
+    "IgnoreUpgrade": true
+  },
   {
     "ID": "PostgreSQL.PostgreSQL.17",
     "Name": "PostgreSQL"

@@ -11,10 +11,11 @@ import (
 )
 
 type WingetPackage struct {
-	ID      string
-	Name    string
-	Version string
-	Ignore  bool
+	ID            string
+	Name          string
+	Version       string
+	IgnoreInstall bool
+	IgnoreUpgrade bool
 }
 
 func GetWingetPackages(path string) []WingetPackage {
@@ -40,13 +41,7 @@ func GetWingetPackages(path string) []WingetPackage {
 		return []WingetPackage{}
 	}
 
-	var result []WingetPackage
-	for _, pkg := range pkgs {
-		if !pkg.Ignore {
-			result = append(result, pkg)
-		}
-	}
-	return result
+	return pkgs
 }
 
 func ConfirmIsAdminExec() {

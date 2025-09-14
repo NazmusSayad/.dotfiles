@@ -14,6 +14,11 @@ func main() {
 	fmt.Println("Installing packages, total:", len(packages))
 
 	for _, p := range packages {
+		if p.IgnoreInstall {
+			fmt.Println("\n- Skipping", p.ID)
+			continue
+		}
+
 		fmt.Println("\n- Installing", p.ID)
 		parts := winget.BuildWingetInstallCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
