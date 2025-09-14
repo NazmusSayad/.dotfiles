@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	winget.ConfirmIsAdminExec()
+	// winget.ConfirmIsAdminExec()
 	packages := winget.GetWingetPackages("./config/winget-apps.jsonc")
 	fmt.Println("Upgrading packages, total:", len(packages))
 
