@@ -90,5 +90,5 @@ func BuildWingetUpgradeCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	return append(parts, "--interactive", "--accept-package-agreements", "--accept-source-agreements", "--uninstall-previous")
+	return append(parts, "--interactive", "--accept-package-agreements", "--accept-source-agreements")
 }
