@@ -68,12 +68,12 @@
 
   // Programming Languages
   {
-    "ID": "Python.PythonInstallManager",
-    "Name": "Python Installer"
+    "ID": "Volta.Volta",
+    "Name": "Volta"
   },
   {
-    "ID": "CoreyButler.NVMforWindows",
-    "Name": "nvm for Windows"
+    "ID": "Python.PythonInstallManager",
+    "Name": "Python Installer"
   },
   {
     "ID": "Oracle.JDK.24",
