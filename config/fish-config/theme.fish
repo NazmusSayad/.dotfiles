@@ -20,9 +20,9 @@ end
 
 function __fish_git_changes
     if not git diff --quiet --cached || not git diff --quiet || git ls-files --others --exclude-standard | grep -q "."
-        echo -n "✘"
+        echo -n "*"
     else if git log --branches --not --remotes | grep -q "."
-        echo -n "✚"
+        echo -n "+"
     end
 end
 
@@ -33,19 +33,25 @@ function fish_prompt
 
     set branch_output (__fish_git_branch)
     if test -n "$branch_output"
+        set_color --dim
         echo -n " ("
+        set_color normal
+
         set_color red
         echo -n "$branch_output"
         set_color normal
 
         set changes_output (__fish_git_changes)
         if test -n "$changes_output"
-            set_color yellow
-            echo -n " $changes_output"
+            set_color yellow --bold
+            echo -n "$changes_output"
             set_color normal
         end
 
+        set_color --dim
         echo -n ")"
+        set_color normal
+
     end
 
     set_color magenta
