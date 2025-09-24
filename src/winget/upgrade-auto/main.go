@@ -21,7 +21,7 @@ func main() {
 			continue
 		}
 
-		if p.IgnoreUpgrade {
+		if p.IgnoreUpgrade || p.Version != "" {
 			fmt.Println("\n- Skipping", p.ID)
 			continue
 		}
