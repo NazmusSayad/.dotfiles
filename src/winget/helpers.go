@@ -11,9 +11,11 @@ import (
 )
 
 type WingetPackage struct {
-	ID            string
-	Name          string
-	Version       string
+	ID      string
+	Name    string
+	Version string
+
+	Silent        bool
 	IgnoreInstall bool
 	IgnoreUpgrade bool
 }
@@ -80,7 +82,13 @@ func BuildWingetInstallCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	return append(parts, "--interactive", "--accept-package-agreements", "--accept-source-agreements", "--no-upgrade")
+	if p.Silent {
+		parts = append(parts, "--silent")
+	} else {
+		parts = append(parts, "--interactive")
+	}
+
+	return append(parts, "--verbose", "--accept-package-agreements", "--accept-source-agreements", "--no-upgrade")
 }
 
 func BuildWingetUpgradeCommands(p WingetPackage) []string {
@@ -90,5 +98,11 @@ func BuildWingetUpgradeCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	return append(parts, "--interactive", "--accept-package-agreements", "--accept-source-agreements")
+	if p.Silent {
+		parts = append(parts, "--silent")
+	} else {
+		parts = append(parts, "--interactive")
+	}
+
+	return append(parts, "--verbose", "--accept-package-agreements", "--accept-source-agreements")
 }

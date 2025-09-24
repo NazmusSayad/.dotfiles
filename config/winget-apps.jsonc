@@ -19,11 +19,13 @@
   },
   {
     "ID": "9MSMLRH6LZF3",
-    "Name": "Windows Notepad"
+    "Name": "Windows Notepad",
+    "Silent": true
   },
   {
     "ID": "9NBLGGH68TW4",
-    "Name": "Pictureflect Photo Viewer"
+    "Name": "Pictureflect Photo Viewer",
+    "Silent": true
   },
   {
     "ID": "Piriform.CCleaner",
@@ -31,7 +33,8 @@
   },
   {
     "ID": "ThioJoe.SvgThumbnailExtension",
-    "Name": "SVG Thumbnail"
+    "Name": "SVG Thumbnail",
+    "Silent": true
   },
 
   // Productivity
@@ -59,7 +62,8 @@
   // Browsers
   {
     "ID": "Google.Chrome",
-    "Name": "Google Chrome"
+    "Name": "Google Chrome",
+    "Silent": true
   },
   {
     "ID": "Mozilla.Firefox.DeveloperEdition",
@@ -97,11 +101,13 @@
   // Development Tools
   {
     "ID": "Git.Git",
-    "Name": "Git"
+    "Name": "Git",
+    "Silent": true
   },
   {
     "ID": "GitHub.cli",
-    "Name": "GitHub CLI"
+    "Name": "GitHub CLI",
+    "Silent": true
   },
   {
     "ID": "ApacheFriends.Xampp.8.2",
@@ -115,6 +121,7 @@
   // Communication
   {
     "ID": "SlackTechnologies.Slack",
-    "Name": "Slack"
+    "Name": "Slack",
+    "Silent": true
   }
 ]

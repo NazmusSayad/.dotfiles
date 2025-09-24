@@ -16,13 +16,13 @@ func main() {
 	fmt.Println("Found", len(updatablePackages), "packages with available updates")
 
 	for _, p := range packages {
-		if !slices.Contains(updatablePackages, p.ID) {
-			fmt.Println("\n- No updates available for", p.ID)
+		if p.IgnoreUpgrade || p.Version != "" {
+			fmt.Println("\n- Skipping", p.ID)
 			continue
 		}
 
-		if p.IgnoreUpgrade || p.Version != "" {
-			fmt.Println("\n- Skipping", p.ID)
+		if !slices.Contains(updatablePackages, p.ID) {
+			fmt.Println("\n- No updates available for", p.ID)
 			continue
 		}
 
