@@ -30,7 +30,6 @@ function gbc
     end
 end
 
-
 function gcommit
     if not git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" >/dev/null 2>&1
         echo "❌ No changes to commit"
@@ -47,7 +46,6 @@ function gcommit
     git status --short; and echo
     git add -A >/dev/null; and git commit -m "$msg"
 end
-
 
 function gpush
     gcommit $argv
@@ -71,7 +69,6 @@ function gpush
     git push
 end
 
-
 function greset
     set branch $argv[1]
     if test -z "$branch"
@@ -85,7 +82,6 @@ function greset
     git branch -m $branch
     git push -f origin $branch
 end
-
 
 function gpm
     if test (count $argv) -ne 1
@@ -108,7 +104,6 @@ function gpm
     git pull origin $target_branch --no-rebase
 end
 
-
 function gpr
     if test (count $argv) -ne 1
         echo "Usage: gpr <branch>" >&2
@@ -130,7 +125,6 @@ function gpr
     git pull origin $target_branch --rebase
 end
 
-
 function gr
     set_color red
     echo "Restore and clean?"
@@ -150,16 +144,17 @@ function gr
     end
 end
 
-
 function gpg-unlock
     for pid in (ps aux | grep gpg | grep -v grep | awk '{print $1}')
         echo "Found GPG process with PID: $pid"
         kill -9 $pid
     end
-    rm -f ~/.gnupg/*.lock
+
+    for lf in ~/.gnupg/*.lock
+        rm -f $lf
+    end
 end
 
-
-function fscase
+function fs-case
     fsutil.exe file setCaseSensitiveInfo . enable recursive
 end
