@@ -40,10 +40,10 @@ function fish_postexec --on-event fish_postexec
 
     if test $last_status -ne 0
         set_color --dim red
-        echo "⤷ $duration_text ($last_status) ✘"
+        echo "✘ $duration_text ($last_status)"
     else
         set_color --dim
-        echo "⤷ $duration_text (0) ✓"
+        echo "✓ $duration_text (0)"
     end
 
     set_color normal
