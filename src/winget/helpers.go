@@ -15,7 +15,9 @@ type WingetPackage struct {
 	Name    string
 	Version string
 
-	Silent        bool
+	SilentInstall bool
+	SilentUpgrade bool
+
 	IgnoreInstall bool
 	IgnoreUpgrade bool
 }
@@ -82,7 +84,7 @@ func BuildWingetInstallCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	if p.Silent {
+	if p.SilentInstall {
 		parts = append(parts, "--silent")
 	} else {
 		parts = append(parts, "--interactive")
@@ -98,7 +100,7 @@ func BuildWingetUpgradeCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	if p.Silent {
+	if p.SilentUpgrade {
 		parts = append(parts, "--silent")
 	} else {
 		parts = append(parts, "--interactive")

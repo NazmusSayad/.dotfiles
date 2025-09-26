@@ -20,12 +20,14 @@
   {
     "ID": "9MSMLRH6LZF3",
     "Name": "Windows Notepad",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "9NBLGGH68TW4",
     "Name": "Pictureflect Photo Viewer",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "Piriform.CCleaner",
@@ -34,7 +36,8 @@
   {
     "ID": "ThioJoe.SvgThumbnailExtension",
     "Name": "SVG Thumbnail",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
 
   // Productivity
@@ -63,7 +66,8 @@
   {
     "ID": "Google.Chrome",
     "Name": "Google Chrome",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "Mozilla.Firefox.DeveloperEdition",
@@ -73,7 +77,9 @@
   // Programming Languages
   {
     "ID": "Volta.Volta",
-    "Name": "Volta"
+    "Name": "Volta",
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "Python.PythonInstallManager",
@@ -91,29 +97,34 @@
   // Code Editors
   {
     "ID": "Microsoft.VisualStudioCode",
-    "Name": "VS Code"
+    "Name": "VS Code",
+    "SilentUpgrade": true
   },
   {
     "ID": "Anysphere.Cursor",
-    "Name": "Cursor"
+    "Name": "Cursor",
+    "SilentUpgrade": true
   },
 
   // Development Tools
   {
     "ID": "Git.Git",
     "Name": "Git",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "GitHub.cli",
     "Name": "GitHub CLI",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "Postman.Postman",
     "Name": "Postman",
     "IgnoreUpgrade": true,
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
   {
     "ID": "ApacheFriends.Xampp.8.2",
@@ -128,6 +139,7 @@
   {
     "ID": "SlackTechnologies.Slack",
     "Name": "Slack",
-    "Silent": true
+    "SilentInstall": true,
+    "SilentUpgrade": true
   }
 ]
