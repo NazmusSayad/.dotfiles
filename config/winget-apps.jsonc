@@ -110,6 +110,12 @@
     "Silent": true
   },
   {
+    "ID": "Postman.Postman",
+    "Name": "Postman",
+    "IgnoreUpgrade": true,
+    "Silent": true
+  },
+  {
     "ID": "ApacheFriends.Xampp.8.2",
     "Name": "XAMPP"
   },
