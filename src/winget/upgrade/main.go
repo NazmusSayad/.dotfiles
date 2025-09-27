@@ -29,5 +29,5 @@ func main() {
 	}
 
 	fmt.Println("\nDone!")
-	helpers.WaitForEnterAndExit()
+	helpers.WaitForInputAndExit()
 }

@@ -1,9 +1,13 @@
 package main
 
 import (
-	"fmt"
+	helpers "dotfiles/src"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+	helpers.EnsureAdminExecution()
+
+	// TODO: Implement msys-setup
+
+	helpers.WaitForInputAndExit()
 }

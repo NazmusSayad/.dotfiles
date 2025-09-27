@@ -73,7 +73,7 @@ func AddToEnvPath(scope Scope, paths ...string) (string, error) {
 	return WriteEnv(scope, "PATH", newPath)
 }
 
-func ConfirmIsAdminExec() {
+func EnsureAdminExecution() {
 	psCmd := `if (-not([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }`
 	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", psCmd)
 	if err := cmd.Run(); err == nil {
@@ -102,7 +102,7 @@ func ConfirmIsAdminExec() {
 	}
 }
 
-func WaitForEnterAndExit() {
+func WaitForInputAndExit() {
 	fmt.Println("Press Enter to exit...")
 	reader := bufio.NewReader(os.Stdin)
 	reader.ReadString('\n')
