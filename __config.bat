@@ -1,7 +1,6 @@
 @echo off
 setlocal
 
-REM Initialize
 set __dirname=%~dp0
 set __dirname=%__dirname:~0,-1%
 echo CWD: %__dirname%
