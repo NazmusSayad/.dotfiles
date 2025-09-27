@@ -1,8 +1,12 @@
 @echo off
 
 echo.
+echo ^> Compiling ahk compiler...
+call go build -o .\___ahk-compile.exe .\src\ahk\main.go
+
+echo.
 echo ^> Compiling ahk scripts...
-call npm run ahk-compile
+call .\___ahk-compile.exe
 
 echo.
 echo ^> Compiling msys-setup...
