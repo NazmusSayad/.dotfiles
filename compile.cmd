@@ -5,6 +5,10 @@ echo ^> Compiling ahk scripts...
 call npm run ahk-compile
 
 echo.
+echo ^> Compiling msys-setup...
+call go build -o .\___msys-setup.exe .\src\msys-setup\main.go
+
+echo.
 echo ^> Compiling clean-code-snippets...
 call go build -o .\___clean-vscode-snippets.exe .\src\clean-code-snippets\main.go
 
