@@ -1,0 +1,171 @@
+[
+  // Basic
+  {
+    "ID": "MSYS2.MSYS2",
+    "Name": "MSYS2",
+    "SilentInstall": true,
+    "SilentUpgrade": true,
+    "IgnoreUpgrade": true
+  },
+  {
+    "ID": "ShareX.ShareX",
+    "Name": "ShareX"
+  },
+  {
+    "ID": "RARLab.WinRAR",
+    "Name": "WinRAR"
+  },
+  {
+    "ID": "Daum.PotPlayer",
+    "Name": "PotPlayer"
+  },
+  {
+    "ID": "9MSMLRH6LZF3",
+    "Name": "Windows Notepad",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "9NBLGGH68TW4",
+    "Name": "Pictureflect Photo Viewer",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Microsoft.WindowsTerminal",
+    "Name": "Windows Terminal",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Piriform.CCleaner",
+    "Name": "CCleaner"
+  },
+  {
+    "ID": "ThioJoe.SvgThumbnailExtension",
+    "Name": "SVG Thumbnail",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "REALiX.HWiNFO",
+    "Name": "HwInfo",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+
+  // Productivity
+  {
+    "ID": "RamenSoftware.Windhawk",
+    "Name": "Windhawk - Windows Customization Tool",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Obsidian.Obsidian",
+    "Name": "Obsidian",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "OBSProject.OBSStudio",
+    "Name": "OBS Studio",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "PowerSoftware.AnyBurn",
+    "Name": "AnyBurn",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "UnifiedIntents.UnifiedRemote",
+    "Name": "Unified Remote",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+
+  // Browsers
+  {
+    "ID": "Google.Chrome",
+    "Name": "Google Chrome",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+
+  // Programming Languages
+  {
+    "ID": "Volta.Volta",
+    "Name": "Volta",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Python.PythonInstallManager",
+    "Name": "Python Installer",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Oracle.JDK.24",
+    "Name": "JDK 24",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "GoLang.Go",
+    "Name": "Go Language",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+
+  // Code Editors
+  {
+    "ID": "Microsoft.VisualStudioCode",
+    "Name": "VS Code",
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Anysphere.Cursor",
+    "Name": "Cursor",
+    "SilentUpgrade": true
+  },
+
+  // Development Tools
+  {
+    "ID": "Git.Git",
+    "Name": "Git",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "GitHub.cli",
+    "Name": "GitHub CLI",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Postman.Postman",
+    "Name": "Postman",
+    "IgnoreUpgrade": true,
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "ApacheFriends.Xampp.8.2",
+    "Name": "XAMPP"
+  },
+  {
+    "ID": "PostgreSQL.PostgreSQL.17",
+    "Name": "PostgreSQL"
+  },
+
+  // Communication
+  {
+    "ID": "SlackTechnologies.Slack",
+    "Name": "Slack",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  }
+]
