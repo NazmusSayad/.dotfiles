@@ -11,8 +11,8 @@ import (
 
 var scriptPrefix = "___$"
 var allowedScripts = map[string]struct{}{
-	"AHK-Macro":              {},
-	"AHK-VirtualDesktop-W11": {},
+	"AHK-Macro":         {},
+	"AHK-WindowManager": {},
 }
 
 func main() {

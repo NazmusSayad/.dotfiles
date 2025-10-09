@@ -146,13 +146,6 @@
     "SilentUpgrade": true
   },
   {
-    "ID": "Postman.Postman",
-    "Name": "Postman",
-    "IgnoreUpgrade": true,
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
     "ID": "ApacheFriends.Xampp.8.2",
     "Name": "XAMPP"
   },
