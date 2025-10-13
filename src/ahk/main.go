@@ -9,10 +9,10 @@ import (
 	"time"
 )
 
-var scriptPrefix = "___$"
+var scriptPrefix = "___$AHK-"
 var allowedScripts = map[string]struct{}{
-	"AHK-Macro":         {},
-	"AHK-WindowManager": {},
+	"Macro":         {},
+	"WindowManager": {},
 }
 
 func main() {
