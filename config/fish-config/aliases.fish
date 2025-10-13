@@ -15,8 +15,3 @@ alias nx="npm exec"
 alias ni="npm install"
 alias nu="npm uninstall"
 alias nid="npm install --save-dev"
-
-alias ws="winget search"
-alias wi="winget install" 
-alias wu="winget uninstall"
-alias wup="winget upgrade"
