@@ -2,8 +2,10 @@ package winget
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"regexp"
 )
 
@@ -20,17 +22,28 @@ type WingetPackage struct {
 }
 
 func GetWingetPackages(path string) []WingetPackage {
-	f, err := os.Open(path)
+	exePath, e := os.Executable()
+	if e != nil {
+		os.Exit(1)
+	}
+
+	fullPath := filepath.Join(filepath.Dir(exePath), path)
+	fmt.Println("Loading winget packages from", fullPath)
+
+	f, err := os.Open(fullPath)
 	if err != nil {
+		fmt.Println("File opening failed...")
 		return []WingetPackage{}
 	}
 	defer f.Close()
 
 	data, err := io.ReadAll(f)
 	if err != nil {
+		fmt.Println("File reading failed...")
 		return []WingetPackage{}
 	}
 
+	fmt.Println("File loaded successfully...")
 	re := regexp.MustCompile(`(?m)//.*$`)
 	clean := re.ReplaceAll(data, []byte{})
 
