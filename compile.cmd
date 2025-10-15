@@ -17,6 +17,10 @@ echo ^> Compiling clean-code-snippets...
 call go build -o .\___clean-vscode-snippets.exe .\src\clean-code-snippets\main.go
 
 echo.
+echo ^> Compiling winget-setup...
+call go build -o .\___winget-setup.exe .\src\winget\setup\main.go
+
+echo.
 echo ^> Compiling winget-install...
 call go build -o .\___winget-install.exe .\src\winget\install\main.go
 
