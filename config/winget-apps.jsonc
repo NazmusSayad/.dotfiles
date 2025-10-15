@@ -39,7 +39,8 @@
   },
   {
     "ID": "Piriform.CCleaner",
-    "Name": "CCleaner"
+    "Name": "CCleaner",
+    "Version": "6.39"
   },
   {
     "ID": "ThioJoe.SvgThumbnailExtension",
