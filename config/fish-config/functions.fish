@@ -162,6 +162,11 @@ function gpg-unlock # gpg unlock
         kill -9 $pid
     end
 
+    for pid in (ps aux | grep keyboxd | grep -v grep | awk '{print $1}')
+        echo "Found keyboxd process with PID: $pid"
+        kill -9 $pid
+    end
+
     for lf in ~/.gnupg/*.lock
         rm -f $lf
     end
