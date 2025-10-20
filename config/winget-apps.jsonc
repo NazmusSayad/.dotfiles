@@ -147,10 +147,6 @@
     "SilentUpgrade": true
   },
   {
-    "ID": "ApacheFriends.Xampp.8.2",
-    "Name": "XAMPP"
-  },
-  {
     "ID": "PostgreSQL.PostgreSQL.17",
     "Name": "PostgreSQL"
   },
