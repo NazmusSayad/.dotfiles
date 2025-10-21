@@ -1,16 +1,18 @@
-# GitHub CLI Aliases
+# GitHub CLI
 alias c="gh repo clone"
 alias gv="gh repo view"
 alias gw="gh repo view --web"
 
-# Git Aliases
+# Git
 alias gp="git pull"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcb="git checkout -b"
 
-# NPM Aliases
-alias n="npm run"
+# Node Run
+alias r="node --run"
+
+# NPM
 alias nx="npm exec"
 alias np="npm prune"
 alias na="npm add --save"
