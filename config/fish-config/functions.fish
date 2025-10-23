@@ -1,4 +1,4 @@
-function gbc # git branch clean
+function gbc
     set current (git branch --show-current)
     set branches (git branch --format="%(refname:short)" | grep -v $current)
 
@@ -30,7 +30,7 @@ function gbc # git branch clean
     end
 end
 
-function greset # git complete reset
+function greset
     set_color red
     echo "This will reset the entire repository to the latest remote branch."
     set_color normal
@@ -95,49 +95,7 @@ function greset # git complete reset
 
 end
 
-function gpm # git pull merge
-    if test (count $argv) -ne 1
-        echo "Usage: gpm <branch>" >&2
-        return 1
-    end
-
-    set target_branch $argv[1]
-    set current_branch (git branch --show-current)
-
-    echo -n "Pulling changes from "
-    set_color red
-    echo -n "$target_branch"
-    set_color normal
-    echo -n " into "
-    set_color blue
-    echo -n "$current_branch"
-    set_color normal
-    echo " (merge)..."
-    git pull origin $target_branch --no-rebase
-end
-
-function gpr # git pull rebase
-    if test (count $argv) -ne 1
-        echo "Usage: gpr <branch>" >&2
-        return 1
-    end
-
-    set target_branch $argv[1]
-    set current_branch (git branch --show-current)
-
-    echo -n "Pulling changes from "
-    set_color red
-    echo -n "$target_branch"
-    set_color normal
-    echo -n " into "
-    set_color blue
-    echo -n "$current_branch"
-    set_color normal
-    echo " (rebase)..."
-    git pull origin $target_branch --rebase
-end
-
-function gr # git restore
+function gr
     set_color red
     echo "Restore and clean?"
 
@@ -152,11 +110,105 @@ function gr # git restore
         git restore .
         git clean -fd
     else
-        echo "❌ Cancelled."
+        set_color red
+        echo "❌ Aborted."
+        set_color normal
+        return 0
     end
 end
 
-function gpg-unlock # gpg unlock
+function gp
+    set current_branch (git branch --show-current)
+
+    if test (count $argv) -eq 0
+        set_color yellow
+        echo -n "No branch specified, using current branch "
+        set_color normal --dim
+        echo -n "("
+        set_color normal
+        set_color red
+        echo -n "$current_branch"
+        set_color normal --dim
+        echo -n ")"
+        set_color normal
+
+        echo ""
+        read -n 1 -P "Press [Enter] to confirm: " --function confirm
+
+        if test $status -ne 0 -o -n "$confirm"
+            set_color red
+            echo "❌ Aborted."
+            set_color normal
+            return 0
+        end
+
+        set target_branch $current_branch
+    else if test (count $argv) -eq 1
+        set target_branch $argv[1]
+    else
+        echo "Usage: gp [branch]" >&2
+        return 1
+    end
+
+    echo -n "Pulling changes from "
+    set_color red
+    echo -n "$target_branch"
+    set_color normal
+    echo -n " into "
+    set_color blue
+    echo -n "$current_branch"
+    set_color normal
+
+    git pull origin $target_branch
+end
+
+function gpr
+    set current_branch (git branch --show-current)
+
+    if test (count $argv) -eq 0
+        set_color yellow
+        echo -n "No branch specified, using current branch "
+        set_color normal --dim
+        echo -n "("
+        set_color normal
+        set_color red
+        echo -n "$current_branch"
+        set_color normal --dim
+        echo -n ")"
+        set_color normal
+
+        echo ""
+        read -n 1 -P "Press [Enter] to confirm: " --function confirm
+
+        if test $status -ne 0 -o -n "$confirm"
+            set_color red
+            echo "❌ Aborted."
+            set_color normal
+            return 0
+        end
+
+        set target_branch $current_branch
+    else if test (count $argv) -eq 1
+        set target_branch $argv[1]
+    else
+        echo "Usage: gpr [branch]" >&2
+        return 1
+    end
+
+    echo -n "Pulling changes from "
+    set_color red
+    echo -n "$target_branch"
+    set_color normal
+    echo -n " into "
+    set_color blue
+    echo -n "$current_branch"
+    set_color normal
+    echo " (rebase)..."
+
+    git pull origin $target_branch --rebase
+end
+
+function gpg-unlock
     for pid in (ps aux | grep gpg | grep -v grep | awk '{print $1}')
         echo "Found GPG process with PID: $pid"
         kill -9 $pid
@@ -172,6 +224,6 @@ function gpg-unlock # gpg unlock
     end
 end
 
-function fs-case # fsutil.exe file setCaseSensitiveInfo . enable recursive
+function fs-case
     fsutil.exe file setCaseSensitiveInfo . enable recursive
 end

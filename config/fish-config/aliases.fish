@@ -4,12 +4,11 @@ alias gv="gh repo view"
 alias gw="gh repo view --web"
 
 # Git
-alias gp="git pull"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcb="git checkout -b"
 
-# Node Run
+# Node
 alias r="node --run"
 
 # NPM
@@ -17,6 +16,6 @@ alias nx="npm exec"
 alias np="npm prune"
 alias na="npm add --save"
 alias nad="npm add --save-dev"
-alias nr="npm remove --save"
-alias nu="npm update --save"
 alias ni="npm install --save"
+alias nr="npm remove --save"
+alias nup="npm update --save"
