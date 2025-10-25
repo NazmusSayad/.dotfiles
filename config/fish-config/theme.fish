@@ -10,14 +10,6 @@ function __fish_shell_path
     echo -n $dir
 end
 
-function __fish_git_branch
-    if not git rev-parse --is-inside-work-tree >/dev/null 2>&1
-        return
-    end
-
-    echo -n (git symbolic-ref --short HEAD 2>/dev/null; or echo (git rev-parse --short HEAD 2>/dev/null))
-end
-
 function __fish_git_changes
     if not git diff --quiet --cached || not git diff --quiet || git ls-files --others --exclude-standard | grep -q "."
         echo -n "*"
@@ -31,7 +23,7 @@ function fish_prompt
     echo -n (__fish_shell_path)
     set_color normal
 
-    set branch_output (__fish_git_branch)
+    set branch_output (git branch --show-current ^/dev/null)
     if test -n "$branch_output"
         set_color --dim
         echo -n " ("
