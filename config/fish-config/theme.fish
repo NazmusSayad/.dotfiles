@@ -23,7 +23,7 @@ function fish_prompt
     echo -n (__fish_shell_path)
     set_color normal
 
-    set branch_output (git branch --show-current ^/dev/null)
+    set branch_output (git branch --show-current 2>/dev/null)
     if test -n "$branch_output"
         set_color --dim
         echo -n " ("

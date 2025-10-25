@@ -132,6 +132,11 @@
     "Name": "Cursor",
     "SilentUpgrade": true
   },
+  {
+    "ID": "ZedIndustries.Zed",
+    "Name": "Zed",
+    "SilentUpgrade": true
+  },
 
   // Development Tools
   {
