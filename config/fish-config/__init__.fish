@@ -3,7 +3,7 @@
 set -g fish_term24bit 1
 
 function fish_greeting
-    clear
+    # cat $__dirname/__intro__.txt
 end
 
 function fish_preexec --on-event fish_preexec

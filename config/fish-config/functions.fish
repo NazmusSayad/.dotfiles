@@ -121,27 +121,9 @@ function gp
     set current_branch (git branch --show-current)
 
     if test (count $argv) -eq 0
-        set_color yellow
-        echo -n "No branch specified, using current branch "
         set_color normal --dim
-        echo -n "("
+        echo "No branch specified, using current branch"
         set_color normal
-        set_color red
-        echo -n "$current_branch"
-        set_color normal --dim
-        echo -n ")"
-        set_color normal
-
-        echo ""
-        read -n 1 -P "Press [Enter] to confirm: " --function confirm
-
-        if test $status -ne 0 -o -n "$confirm"
-            set_color red
-            echo "❌ Aborted."
-            set_color normal
-            return 0
-        end
-
         set target_branch $current_branch
     else if test (count $argv) -eq 1
         set target_branch $argv[1]
@@ -150,13 +132,16 @@ function gp
         return 1
     end
 
+    set_color normal --dim
     echo -n "Pulling changes from "
-    set_color red
+    set_color blue --dim
     echo -n "$target_branch"
-    set_color normal
+    set_color normal --dim
     echo -n " into "
-    set_color blue
+    set_color red --dim
     echo -n "$current_branch"
+    set_color normal --dim
+    echo " (merge)"
     set_color normal
 
     git pull origin $target_branch
@@ -166,44 +151,28 @@ function gpr
     set current_branch (git branch --show-current)
 
     if test (count $argv) -eq 0
-        set_color yellow
-        echo -n "No branch specified, using current branch "
         set_color normal --dim
-        echo -n "("
+        echo "No branch specified, using current branch"
         set_color normal
-        set_color red
-        echo -n "$current_branch"
-        set_color normal --dim
-        echo -n ")"
-        set_color normal
-
-        echo ""
-        read -n 1 -P "Press [Enter] to confirm: " --function confirm
-
-        if test $status -ne 0 -o -n "$confirm"
-            set_color red
-            echo "❌ Aborted."
-            set_color normal
-            return 0
-        end
-
         set target_branch $current_branch
     else if test (count $argv) -eq 1
         set target_branch $argv[1]
     else
-        echo "Usage: gpr [branch]" >&2
+        echo "Usage: gp [branch]" >&2
         return 1
     end
 
+    set_color normal --dim
     echo -n "Pulling changes from "
-    set_color red
+    set_color blue --dim
     echo -n "$target_branch"
-    set_color normal
+    set_color normal --dim
     echo -n " into "
-    set_color blue
+    set_color red --dim
     echo -n "$current_branch"
+    set_color normal --dim
+    echo " (rebase)"
     set_color normal
-    echo " (rebase)..."
 
     git pull origin $target_branch --rebase
 end
