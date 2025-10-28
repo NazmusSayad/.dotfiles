@@ -22,7 +22,7 @@ alias ni="npm install --save"
 alias nr="npm remove --save"
 alias nup="npm update --save"
 
-# Pnpm
+# pnpm
 alias px="pnpm dlx"
 alias pp="pnpm prune"
 alias pim="pnpm import"
