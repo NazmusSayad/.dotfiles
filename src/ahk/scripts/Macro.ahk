@@ -24,5 +24,8 @@ A_MaxHotkeysPerInterval := 9999
 
 
 ::@me::me@sayad.dev
+::@fake::fake@sayad.dev
+::@junk::junk@sayad.dev
+::@spam::spam@sayad.dev
 ::@no::no-reply@sayad.dev
 ::@mail::247sayad@gmail.com

@@ -18,7 +18,8 @@ function gbc
 
         if test $status -eq 0 -a -z "$confirm"
             set_color --dim red
-            git branch -d $branches
+            git prune --progress
+            git branch -D $branches
         else
             set_color green
             echo "Cancelled branch deletion"
@@ -141,10 +142,11 @@ function gp
     set_color red --dim
     echo -n "$current_branch"
     set_color normal --dim
-    echo " (merge)"
+    echo " (default)"
     set_color normal
 
-    git pull origin $target_branch
+    git prune --progress
+    git pull origin $target_branch --progress
 end
 
 function gpr
@@ -174,7 +176,8 @@ function gpr
     echo " (rebase)"
     set_color normal
 
-    git pull origin $target_branch --rebase
+    git prune --progress
+    git pull origin $target_branch --progress --rebase
 end
 
 function gpg-unlock
