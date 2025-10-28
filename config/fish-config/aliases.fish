@@ -10,12 +10,15 @@ alias gcb="git checkout -b"
 
 # Node
 alias r="node --run"
+alias rd="node --run dev"
+alias rb="node --run build"
 
-# NPM
-alias nx="npm exec"
-alias np="npm prune"
-alias na="npm add --save"
-alias nad="npm add --save-dev"
-alias ni="npm install --save"
-alias nr="npm remove --save"
-alias nup="npm update --save"
+# Node Package Manager
+alias nx="pnpm dlx"
+alias np="pnpm prune"
+alias nim="pnpm import"
+alias na="pnpm add --save"
+alias nad="pnpm add --save-dev"
+alias ni="pnpm install --save"
+alias nr="pnpm remove --save"
+alias nup="pnpm update --save"
