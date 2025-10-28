@@ -1,12 +1,56 @@
 function __fish_shell_path
-    set dir (pwd)
-    if test "$OS" = Windows_NT
+    set -l dir (pwd)
+
+    if string match -q "$HOME/Desktop*" $dir
+        if string match -q "$HOME/Desktop" $dir
+            set dir "🖥️ DESKTOP"
+        else
+            set dir (string replace "$HOME/Desktop/" "🖥️ " $dir)
+        end
+
+    else if string match -q "$HOME/Documents*" $dir
+        if string match -q "$HOME/Documents" $dir
+            set dir "📄 DOCUMENTS"
+        else
+            set dir (string replace "$HOME/Documents/" "📄 " $dir)
+        end
+
+    else if string match -q "$HOME/Downloads*" $dir
+        if string match -q "$HOME/Downloads" $dir
+            set dir "📥 DOWNLOADS"
+        else
+            set dir (string replace "$HOME/Downloads/" "📥 " $dir)
+        end
+
+    else if string match -q "$HOME/Pictures*" $dir
+        if string match -q "$HOME/Pictures" $dir
+            set dir "🖼️ PICTURES"
+        else
+            set dir (string replace "$HOME/Pictures/" "🖼️ " $dir)
+        end
+
+    else if string match -q "$HOME/Videos*" $dir
+        if string match -q "$HOME/Videos" $dir
+            set dir "🎥 VIDEOS"
+        else
+            set dir (string replace "$HOME/Videos/" "🎥 " $dir)
+        end
+
+    else if string match -q "$HOME/Music*" $dir
+        if string match -q "$HOME/Music" $dir
+            set dir "🎵 MUSIC"
+        else
+            set dir (string replace "$HOME/Music/" "🎵 " $dir)
+        end
+
+    else if test "$OS" = Windows_NT
         set win_dir $dir
         set first_part (string sub -s 2 -l 1 $win_dir)
         set first_part_uppercase (string upper $first_part)
         set second_part (string sub -s 4 $win_dir)
         set dir "$first_part_uppercase: $second_part"
     end
+
     echo -n $dir
 end
 
