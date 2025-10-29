@@ -6,6 +6,13 @@ set __dirname=%__dirname:~0,-1%
 echo CWD: %__dirname%
 echo.
 
+if not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
+echo User config directory created
+echo.
+
+copy ".\config\starship.toml" "%USERPROFILE%\.config\starship.toml" >nul
+echo Starship config linked
+echo.
 
 if not exist "%USERPROFILE%\.config\fish" mkdir "%USERPROFILE%\.config\fish"
 echo source "%__dirname%/config/fish-config/__init__.fish" > "%USERPROFILE%\.config\fish\config.fish"
