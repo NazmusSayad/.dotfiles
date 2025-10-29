@@ -1,3 +1,88 @@
+#!/usr/bin/env fish
+
+function fish_greeting
+    # cat $__dirname/__intro__.txt
+end
+
+function fish_preexec --on-event fish_preexec
+    set -g __cmd_start_time (date +%s%N)
+    set -g __last_cmd $argv
+end
+
+function fish_postexec --on-event fish_postexec
+    set -l last_status $status
+
+    switch "$__last_cmd"
+        case clear
+            return
+
+        case exit
+            exit 0
+    end
+
+    set -l end_time (date +%s%N)
+    set -l duration_ns (math "$end_time - $__cmd_start_time")
+    set -l duration_text
+
+    if test $duration_ns -lt 1000000
+        set duration_text "$duration_ns"ns
+    else if test $duration_ns -lt 1000000000
+        set -l duration_ms (printf "%.2f" (math "$duration_ns / 1000000"))
+        set duration_text "$duration_ms"ms
+    else
+        set -l duration_sec (printf "%.2f" (math "$duration_ns / 1000000000"))
+        set duration_text "$duration_sec"s
+    end
+
+    set_color normal
+
+    if test $last_status -ne 0
+        set_color --dim red
+        echo "✘ $duration_text ($last_status)"
+    else
+        set_color --dim
+        echo "✓ $duration_text (0)"
+    end
+
+    set_color normal
+end
+
+# GitHub CLI
+alias c="gh repo clone"
+alias gv="gh repo view"
+alias gw="gh repo view --web"
+
+# Git
+alias gs="git status"
+alias gb="git branch"
+alias gc="git checkout"
+alias gcb="git checkout -b"
+
+# Node
+alias r="node --run"
+alias rd="node --run dev"
+alias rb="node --run build"
+
+# npm
+alias nx="npm exec"
+alias np="npm prune"
+alias na="npm add --save"
+alias nad="npm add --save-dev"
+alias ni="npm install --save"
+alias nr="npm remove --save"
+alias nup="npm update --save"
+
+# pnpm
+alias px="pnpm dlx"
+alias pp="pnpm prune"
+alias pim="pnpm import"
+alias pa="pnpm add --save"
+alias pad="pnpm add --save-dev"
+alias pi="pnpm install --save"
+alias pr="pnpm remove --save"
+alias pup="pnpm update --save"
+
+# Git Branch Cleanup
 function gbc
     set current (git branch --show-current)
     set branches (git branch --format="%(refname:short)" | grep -v $current)
@@ -31,6 +116,7 @@ function gbc
     end
 end
 
+# Git Reset
 function greset
     set_color red
     echo "This will reset the entire repository to the latest remote branch."
@@ -96,6 +182,7 @@ function greset
 
 end
 
+# Git Restore
 function gr
     set_color red
     echo "Restore and clean?"
@@ -118,6 +205,7 @@ function gr
     end
 end
 
+# Git Pull (Default)
 function gp
     set current_branch (git branch --show-current)
 
@@ -149,6 +237,7 @@ function gp
     git pull origin $target_branch --progress
 end
 
+# Git Pull (Rebase)
 function gpr
     set current_branch (git branch --show-current)
 
@@ -180,6 +269,7 @@ function gpr
     git pull origin $target_branch --progress --rebase
 end
 
+# GPG Unlock
 function gpg-unlock
     for pid in (ps aux | grep gpg | grep -v grep | awk '{print $1}')
         echo "Found GPG process with PID: $pid"
@@ -196,6 +286,11 @@ function gpg-unlock
     end
 end
 
+# File System Case
 function fs-case
     fsutil.exe file setCaseSensitiveInfo . enable recursive
+end
+
+if status is-interactive
+    starship init fish | source
 end

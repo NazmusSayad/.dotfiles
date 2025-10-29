@@ -1,4 +1,12 @@
 @echo off
+powershell -Command "if (-not([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }"
+if %errorLevel% NEQ 0 (
+    echo This script requires administrator privileges.
+    echo Press any key to exit...
+    pause >nul
+    exit /b
+)
+
 setlocal
 
 set __dirname=%~dp0
@@ -10,15 +18,19 @@ if not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
 echo User config directory created
 echo.
 
-copy ".\config\starship.toml" "%USERPROFILE%\.config\starship.toml" >nul
+if exist "%USERPROFILE%\.config\starship.toml" del "%USERPROFILE%\.config\starship.toml"
+mklink "%USERPROFILE%\.config\starship.toml" "%__dirname%\config\starship.toml"
 echo Starship config linked
 echo.
 
 if not exist "%USERPROFILE%\.config\fish" mkdir "%USERPROFILE%\.config\fish"
-echo source "%__dirname%/config/fish-config/__init__.fish" > "%USERPROFILE%\.config\fish\config.fish"
-echo Fish config linked
+echo Fish config directory created
 echo.
 
+if exist "%USERPROFILE%\.config\fish\config.fish" del "%USERPROFILE%\.config\fish\config.fish"
+mklink "%USERPROFILE%\.config\fish\config.fish" "%__dirname%\config\fish-config.fish"
+echo Fish config linked
+echo.
 
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"

@@ -15,15 +15,15 @@ style = "blue"
 
 [character]
 success_symbol = "[❯](blue)"
-error_symbol = "[❯](red)"
+error_symbol = "[❯](blue)"
 
 [git_branch]
 format = "[$branch]($style)"
 style = "yellow"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
+style = "red"
 conflicted = "​"
 untracked = "​"
 modified = "​"
