@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-set -g fish_term24bit 1
-
 function fish_greeting
     # cat $__dirname/__intro__.txt
 end
@@ -55,5 +53,6 @@ source $__dirname/aliases.fish
 source $__dirname/functions.fish
 
 if status is-interactive
-    source $__dirname/theme.fish
+    starship init fish | source
+    # source $__dirname/theme.fish
 end
