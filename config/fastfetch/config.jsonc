@@ -1,25 +1,35 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": {
+    "color": "reset_bright_yellow",
+    "percent": {
+      "color": {
+        "red": "reset_black",
+        "green": "reset_black",
+        "yellow": "reset_black"
+      }
+    }
+  },
   "logo": {
-    "type": "file",
-    "source": "~/.config/fastfetch/logo.txt",
+    "type": "auto",
+    "source": "arch",
     "color": {
       "1": "reset_cyan",
-      "2": "reset_cyan",
-      "3": "reset_cyan",
-      "4": "reset_cyan",
-      "5": "reset_cyan",
-      "6": "reset_cyan",
-      "7": "reset_cyan",
-      "8": "reset_cyan",
-      "9": "reset_cyan"
+      "2": "reset_cyan"
     }
   },
   "modules": [
     "break",
     {
       "type": "title",
-      "format": "{#bold_blue}{user-name}{#black}@{#reset_bold_blue}{host-name}"
+      "format": "{#reset_bright_red}{user-name}{#reset_dim_white}@{#reset_bright_red}{host-name}"
+    },
+    {
+      "type": "command",
+      "outputColor": "dim_white",
+      "param": "+'%-I:%M:%S %p, %A %y/%m/%d'",
+      "shell": "date",
+      "key": " "
     },
     "break",
     {
@@ -34,7 +44,8 @@
     "break",
     {
       "type": "memory",
-      "key": " RAM  "
+      "key": " RAM  ",
+      "format": "{used} / {total} {#reset_black}({percentage}{#reset_black})"
     },
     {
       "type": "custom",
@@ -45,7 +56,7 @@
     {
       "type": "disk",
       "key": "  {mountpoint} ",
-      "format": "{size-used} / {size-total} ({size-percentage})"
+      "format": "{size-used} / {size-total} {#reset_black}({size-percentage}{#reset_black})"
     },
     "break",
     {
