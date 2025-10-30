@@ -1,0 +1,43 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": { "type": "file", "source": "~/.config/fastfetch/logo.txt" },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "format": "{#bold_blue}{user-name}{#black}@{#reset_bold_blue}{host-name}"
+    },
+    "break",
+    {
+      "type": "uptime",
+      "key": "Uptime "
+    },
+    {
+      "type": "os",
+      "key": "System ",
+      "format": "{pretty-name}"
+    },
+    "break",
+    {
+      "type": "memory",
+      "key": " RAM  "
+    },
+    {
+      "type": "custom",
+      "key": " CPU  ",
+      "format": "i5-13600K (14C/20T) @ 5.10 GHz"
+    },
+    "break",
+    {
+      "type": "disk",
+      "key": "  {mountpoint} "
+    },
+    "break",
+    {
+      "type": "display",
+      "key": "󰍹  Monitor",
+      "format": "{width}x{height} @ {refresh-rate}hz",
+      "order": "desc"
+    }
+  ]
+}
