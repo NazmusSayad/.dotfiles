@@ -1,0 +1,39 @@
+[
+  {
+    "context": "Editor",
+    "bindings": { "ctrl-shift-k": null }
+  },
+  {
+    "context": "(Editor && showing_completions)",
+    "bindings": { "tab": null }
+  },
+
+  {
+    "context": "Editor",
+    "bindings": { "ctrl-e": "editor::RevealInFileManager" }
+  },
+  {
+    "context": "Editor",
+    "bindings": { "ctrl-shift-delete": "editor::DeleteLine" }
+  },
+  {
+    "context": "showing_completions",
+    "bindings": { "tab": "editor::ContextMenuNext" }
+  },
+  {
+    "context": "showing_completions",
+    "bindings": { "shift-tab": "editor::ContextMenuPrevious" }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "f1": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "f1": "editor::ToggleFold"
+    }
+  }
+]

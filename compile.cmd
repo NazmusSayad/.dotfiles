@@ -21,10 +21,6 @@ echo ^> Compiling fish-greetings...
 call go build -o .\___fish-greetings.exe .\src\fish-greetings\main.go
 
 echo.
-echo ^> Compiling winget-setup...
-call go build -o .\___winget-setup.exe .\src\winget\setup\main.go
-
-echo.
 echo ^> Compiling winget-install...
 call go build -o .\___winget-install.exe .\src\winget\install\main.go
 
