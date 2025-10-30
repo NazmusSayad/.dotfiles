@@ -1,0 +1,124 @@
+{
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [
+    {
+      "command": {
+        "action": "clearBuffer",
+        "clear": "all"
+      },
+      "id": "User.clearBuffer.87C324ED"
+    },
+    {
+      "command": "find",
+      "id": "User.find"
+    }
+  ],
+  "alwaysShowNotificationIcon": false,
+  "autoHideWindow": false,
+  "centerOnLaunch": true,
+  "compatibility.enableUnfocusedAcrylic": false,
+  "compatibility.textMeasurement": "console",
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{a58a681c-27da-4f40-9abf-3d300517889b}",
+  "focusFollowMouse": true,
+  "initialCols": 112,
+  "initialRows": 32,
+  "keybindings": [
+    {
+      "id": "User.clearBuffer.87C324ED",
+      "keys": "ctrl+l"
+    },
+    {
+      "id": "User.find",
+      "keys": "ctrl+f"
+    }
+  ],
+  "launchMode": "default",
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "newTabPosition": "afterCurrentTab",
+  "profiles": {
+    "defaults": {
+      "closeOnExit": "always",
+      "colorScheme": "OnnoKicu",
+      "font": {
+        "cellHeight": "1.65",
+        "face": "FiraCode Nerd Font",
+        "size": 11.5
+      },
+      "historySize": 999999999,
+      "intenseTextStyle": "all"
+    },
+    "list": [
+      {
+        "commandline": "fish.exe",
+        "guid": "{a58a681c-27da-4f40-9abf-3d300517889b}",
+        "hidden": false,
+        "icon": "F:\\___SYSTEM___\\windows\\Assets\\fish.ico",
+        "name": "Fish (MSYS2)"
+      },
+      {
+        "commandline": "bash.exe",
+        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
+        "hidden": false,
+        "icon": "F:\\___SYSTEM___\\windows\\Assets\\bash.ico",
+        "name": "Bash (MSYS2)"
+      },
+      {
+        "commandline": "zsh.exe",
+        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4c}",
+        "hidden": false,
+        "icon": "F:\\___SYSTEM___\\windows\\Assets\\zsh.ico",
+        "name": "Zsh (MSYS2)"
+      },
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "background": "#1E2227",
+      "black": "#4A4F5A",
+      "blue": "#61AFEF",
+      "brightBlack": "#616A7B",
+      "brightBlue": "#93CFFF",
+      "brightCyan": "#82D2DC",
+      "brightGreen": "#C2DEAD",
+      "brightPurple": "#E0A8F1",
+      "brightRed": "#FE808A",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#D1A47A",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#56B6C2",
+      "foreground": "#ABB2BF",
+      "green": "#97C775",
+      "name": "OnnoKicu",
+      "purple": "#C678DD",
+      "red": "#EE5D69",
+      "selectionBackground": "#FFFF00",
+      "white": "#CCCCCC",
+      "yellow": "#B68353"
+    }
+  ],
+  "searchWebDefaultQueryUrl": "https://www.google.com/search?q=%22%s%22",
+  "showTabsFullscreen": true,
+  "tabSwitcherMode": "mru",
+  "tabWidthMode": "equal",
+  "theme": "dark",
+  "themes": [],
+  "warning.confirmCloseAllTabs": false,
+  "windowingBehavior": "useExisting"
+}

@@ -1,0 +1,124 @@
+{
+  "format_on_save": "off",
+  "formatter": "prettier",
+  "gutter": {
+    "min_line_number_digits": 0,
+    "runnables": false,
+    "folds": true,
+    "breakpoints": false,
+    "line_numbers": true
+  },
+  "inline_code_actions": false,
+  "git": {
+    "git_gutter": "hide",
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "restore_on_startup": "none",
+  "prettier": {
+    
+  },
+  "icon_theme": "Material Icon Theme",
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "title_bar": {
+    "show_sign_in": false,
+    "show_menus": false,
+    "show_branch_icon": true
+  },
+  "active_pane_modifiers": {},
+  "debugger": {},
+  "search": {},
+  "diagnostics": {},
+  "status_bar": {
+    "active_language_button": true
+  },
+  "disable_ai": true,
+  "inlay_hints": {
+    "show_background": false
+  },
+  "indent_guides": {
+    "background_coloring": "disabled"
+  },
+  "toolbar": {
+    "agent_review": false,
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "auto_update": false,
+  "session": {},
+  "terminal": {
+    "shell": {
+      "program": "fish"
+    },
+    "line_height": {
+      "custom": 1.45
+    },
+    "blinking": "on",
+    "minimum_contrast": 0,
+    "cursor_shape": "bar",
+    "working_directory": "current_project_directory"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "project_panel": {
+    "dock": "right",
+    "git_status": true,
+    "auto_fold_dirs": false
+  },
+  "base_keymap": "VSCode",
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": false,
+    "show_close_button": "hidden"
+  },
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "vertical_scroll_margin": 2.0,
+  "scroll_beyond_last_line": "off",
+  "minimap": {
+    "show": "never"
+  },
+  "selection_highlight": false,
+  "cursor_blink": true,
+  "autosave": "on_focus_change",
+  "buffer_font_family": "FiraCode Nerd Font",
+  "use_on_type_format": true,
+  "show_whitespaces": "selection",
+  "remove_trailing_whitespace_on_save": false,
+  "tab_size": 2,
+  "edit_predictions": {
+    "disabled_globs": [
+      "**/.env",
+      "**/.env.*",
+      "**/credentials.json",
+      "**/credentials.*.json",
+      "**/secret.json",
+      "**/secrets.json",
+      "**/*.key",
+      "**/*.pem",
+      "**/*.pfx",
+      "**/*.p12",
+      "**/*.crt",
+      "**/*.cer",
+      "**/id_rsa",
+      "**/id_dsa",
+      "**/.ssh/id_*",
+      "**/.*",
+      "**/*.lock",
+      "**/pnpm-lock.yaml",
+      "**/package-lock.json"
+    ]
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15.300000190734863,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark Pro"
+  }
+}
