@@ -11,6 +11,10 @@
     }
   },
   "logo": {
+    "padding": {
+      "left": 0,
+      "right": 5
+    },
     "type": "auto",
     "source": "arch",
     "color": {
@@ -22,7 +26,7 @@
     "break",
     {
       "type": "title",
-      "format": "{#reset_bright_red}{user-name}{#reset_dim_white}@{#reset_bright_red}{host-name}"
+      "format": "{#reset_underline_bright_red}{user-name}{#reset_dim_white}@{#reset_underline_bright_red}{host-name}"
     },
     {
       "type": "command",
@@ -45,7 +49,7 @@
     {
       "type": "memory",
       "key": " RAM  ",
-      "format": "{used} / {total} {#reset_black}({percentage}{#reset_black})"
+      "format": "{used} / {total} {percentage}"
     },
     {
       "type": "custom",
@@ -56,12 +60,20 @@
     {
       "type": "disk",
       "key": "  {mountpoint} ",
-      "format": "{size-used} / {size-total} {#reset_black}({size-percentage}{#reset_black})"
+      "format": "{size-used} / {size-total} {size-percentage}"
     },
     "break",
     {
+      "type": "sound",
+      "key": "  Sound   ",
+      "format": "{volume-percentage-bar} {volume-percentage}",
+      "percent": {
+        "type": ["bar", "num", "num-color"]
+      }
+    },
+    {
       "type": "display",
-      "key": "󰍹  Monitor",
+      "key": "󰍹  Monitor ",
       "format": "{width}x{height} @ {refresh-rate}hz",
       "order": "desc"
     }
