@@ -1,3 +1,5 @@
+<img width="3840" height="2160" alt="image" src="https://github.com/user-attachments/assets/bac949ae-c913-4727-a77f-ea23a694f02b" />
+
 # .dotfiles
 
 This repository contains reproducible automation and configuration to make it fast and consistent to provision a developer workstation. It includes shell configurations, PowerShell/Batch helpers, and small utilities implemented in Go and TypeScript.
