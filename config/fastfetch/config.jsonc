@@ -44,7 +44,8 @@
     "break",
     {
       "type": "disk",
-      "key": "  {mountpoint} "
+      "key": "  {mountpoint} ",
+      "format": "{size-used} / {size-total} ({size-percentage})"
     },
     "break",
     {
