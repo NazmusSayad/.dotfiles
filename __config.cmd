@@ -32,6 +32,16 @@ mklink "%USERPROFILE%\.config\fish\config.fish" "%__dirname%\config\fish-config.
 echo Fish config linked
 echo.
 
+if exist "%USERPROFILE%\.zshrc" del "%USERPROFILE%\.zshrc"
+mklink "%USERPROFILE%\.zshrc" "%__dirname%\config\zsh-config.sh"
+echo Zsh config linked
+echo.
+
+if exist "%USERPROFILE%\.bashrc" del "%USERPROFILE%\.bashrc"
+mklink "%USERPROFILE%\.bashrc" "%__dirname%\config\bash-config.sh"
+echo Bash config linked
+echo.
+
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
 

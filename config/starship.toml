@@ -1,29 +1,22 @@
 add_newline = false
 
-format = """
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_state\
-$git_status\
-$line_break\
-$character"""
+format = "$username$hostname$directory$git_branch$git_state$git_status$line_break$shell"
+
+[shell]
+disabled = false
+format = "[$indicator  ](dimmed white)"
+fish_indicator = ''
+bash_indicator = ''
+zsh_indicator = ''
 
 [directory]
 style = "blue"
 
-[character]
-success_symbol = "[❯](blue)"
-error_symbol = "[❯](blue)"
-
 [git_branch]
-format = "[$branch]($style)"
-style = "yellow"
+format = "[](dimmed) [$branch](yellow)"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
-style = "red"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](red) ($ahead_behind$stashed)](red)"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -33,5 +26,4 @@ deleted = "​"
 stashed = "≡"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+format = '\([$state( $progress_current/$progress_total)]($bright-black)\) '
