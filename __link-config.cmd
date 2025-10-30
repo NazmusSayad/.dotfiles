@@ -18,6 +18,11 @@ if not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
 echo User config directory created
 echo.
 
+if exist "%USERPROFILE%\.config\fastfetch" rmdir /S /Q "%USERPROFILE%\.config\fastfetch"
+mklink /D "%USERPROFILE%\.config\fastfetch" "%__dirname%\config\fastfetch"
+echo Fastfetch config linked
+echo.
+
 if exist "%USERPROFILE%\.config\starship.toml" del "%USERPROFILE%\.config\starship.toml"
 mklink "%USERPROFILE%\.config\starship.toml" "%__dirname%\config\starship.toml"
 echo Starship config linked
