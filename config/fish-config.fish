@@ -293,5 +293,8 @@ end
 
 if status is-interactive
     starship init fish | source
-    fastfetch
+
+    if test "$TERM_PROGRAM" != vscode
+        fastfetch
+    end
 end
