@@ -52,9 +52,9 @@
       "format": "{used} / {total} {percentage}"
     },
     {
-      "type": "custom",
+      "type": "cpu",
       "key": " CPU  ",
-      "format": "i5-13600K (14C/20T) @ 5.10 GHz"
+      "format": "{name~-9} ({cores-physical}C/{cores-logical}T) {#reset_black}{freq-max}"
     },
     "break",
     {
@@ -74,7 +74,7 @@
     {
       "type": "display",
       "key": "󰍹  Monitor ",
-      "format": "{width}x{height} @ {refresh-rate}hz",
+      "format": "{width}x{height} @ {refresh-rate}Hz",
       "order": "desc"
     }
   ]
