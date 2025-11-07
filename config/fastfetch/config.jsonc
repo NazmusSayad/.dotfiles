@@ -12,7 +12,6 @@
   },
   "logo": {
     "padding": {
-      "top": 1,
       "left": 1,
       "right": 5
     },
@@ -20,7 +19,6 @@
     "source": "Windows"
   },
   "modules": [
-    "break",
     {
       "type": "title",
       "format": "{#reset_underline_bright_blue}{user-name}{#reset_dim_white}@{#reset_underline_bright_blue}{host-name}"
