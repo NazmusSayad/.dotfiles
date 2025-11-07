@@ -12,15 +12,12 @@
   },
   "logo": {
     "padding": {
-      "left": 0,
+      "top": 1,
+      "left": 1,
       "right": 5
     },
     "type": "auto",
-    "source": "arch",
-    "color": {
-      "1": "reset_cyan",
-      "2": "reset_cyan"
-    }
+    "source": "Windows"
   },
   "modules": [
     "break",
@@ -63,19 +60,20 @@
       "format": "{size-used} / {size-total} {size-percentage}"
     },
     "break",
-    {
+    /* {
       "type": "sound",
       "key": "  Sound   ",
       "format": "{volume-percentage-bar} {volume-percentage}",
       "percent": {
         "type": ["bar", "num", "num-color"]
       }
-    },
+    }, */
     {
       "type": "display",
       "key": "󰍹  Monitor ",
       "format": "{width}x{height} @ {refresh-rate}Hz",
       "order": "desc"
-    }
+    },
+    "break"
   ]
 }
