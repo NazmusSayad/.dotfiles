@@ -10,6 +10,11 @@ if not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
 echo "> User config directory created..."
 echo.
 
+if exist "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" del "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+mklink "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "%__dirname%\config\windows-terminal.json"
+echo "> Windows Terminal config linked..."
+echo.
+
 if exist "%USERPROFILE%\.config\fastfetch" rmdir /S /Q "%USERPROFILE%\.config\fastfetch"
 mklink /D "%USERPROFILE%\.config\fastfetch" "%__dirname%\config\fastfetch"
 echo "> Fastfetch config linked..."
