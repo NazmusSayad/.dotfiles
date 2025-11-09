@@ -1,0 +1,63 @@
+[
+  // Shell Configs
+  {
+    "source": "./config/zsh-config.sh",
+    "target": "%USERPROFILE%\\.zshrc"
+  },
+  {
+    "source": "./config/bash-config.sh",
+    "target": "%USERPROFILE%\\.bashrc"
+  },
+  {
+    "source": "./config/fish-config.fish",
+    "target": "%USERPROFILE%\\.config\\fish\\config.fish"
+  },
+
+  // Terminal Configs
+  {
+    "source": "./config/windows-terminal.json",
+    "target": "%LOCALAPPDATA%\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+  },
+  {
+    "source": "./config/fastfetch.jsonc",
+    "target": "%USERPROFILE%\\.config\\fastfetch\\config.jsonc"
+  },
+  {
+    "source": "./config/starship.toml",
+    "target": "%USERPROFILE%\\.config\\starship.toml"
+  },
+
+  // Zed Code Editor
+  {
+    "source": "./config/zed",
+    "target": "%APPDATA%\\zed"
+  },
+
+  // VS Code -> Cursor Configs
+  {
+    "source": "%APPDATA%\\Code\\User\\settings.json",
+    "target": "%APPDATA%\\Cursor\\User\\settings.json"
+  },
+  {
+    "source": "%APPDATA%\\Code\\User\\keybindings.json",
+    "target": "%APPDATA%\\Cursor\\User\\keybindings.json"
+  },
+  {
+    "source": "%APPDATA%\\Code\\User\\snippets",
+    "target": "%APPDATA%\\Cursor\\User\\snippets"
+  }
+
+  // VS Code -> Windsurf Configs
+  // {
+  //   "source": "%APPDATA%\\Code\\User\\settings.json",
+  //   "target": "%APPDATA%\\Windsurf\\User\\settings.json"
+  // },
+  // {
+  //   "source": "%APPDATA%\\Code\\User\\keybindings.json",
+  //   "target": "%APPDATA%\\Windsurf\\User\\keybindings.json"
+  // },
+  // {
+  //   "source": "%APPDATA%\\Code\\User\\snippets",
+  //   "target": "%APPDATA%\\Windsurf\\User\\snippets"
+  // }
+]

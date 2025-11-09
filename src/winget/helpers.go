@@ -1,12 +1,11 @@
 package winget
 
 import (
+	helpers "dotfiles/src"
 	"encoding/json"
 	"fmt"
-	"io"
 	"os"
 	"path/filepath"
-	"regexp"
 )
 
 type WingetPackage struct {
@@ -22,36 +21,21 @@ type WingetPackage struct {
 }
 
 func GetWingetPackages(path string) []WingetPackage {
-	exePath, e := os.Executable()
-	if e != nil {
+	cwd, cwdErr := os.Getwd()
+	if cwdErr != nil {
 		os.Exit(1)
 	}
 
-	fullPath := filepath.Join(filepath.Dir(exePath), path)
-	fmt.Println("Loading winget packages from", fullPath)
+	fmt.Printf("CWD: %s\n", cwd)
 
-	f, err := os.Open(fullPath)
+	fullPath := filepath.Join(cwd, path)
+	jsonBytes, err := helpers.ReadJSONWithComments(fullPath)
 	if err != nil {
-		fmt.Println("File opening failed...")
 		return []WingetPackage{}
 	}
-	defer f.Close()
-
-	data, err := io.ReadAll(f)
-	if err != nil {
-		fmt.Println("File reading failed...")
-		return []WingetPackage{}
-	}
-
-	fmt.Println("File loaded successfully...")
-	re := regexp.MustCompile(`(?m)//.*$`)
-	clean := re.ReplaceAll(data, []byte{})
-
-	reBlock := regexp.MustCompile(`(?s)/\*.*?\*/`)
-	clean = reBlock.ReplaceAll(clean, []byte{})
 
 	var pkgs []WingetPackage
-	if err := json.Unmarshal(clean, &pkgs); err != nil {
+	if err := json.Unmarshal(jsonBytes, &pkgs); err != nil {
 		return []WingetPackage{}
 	}
 
