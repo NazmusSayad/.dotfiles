@@ -2,9 +2,14 @@ package helpers
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
+	"path/filepath"
+	"regexp"
+	"runtime"
 	"strings"
 )
 
@@ -102,9 +107,53 @@ func EnsureAdminExecution() {
 	}
 }
 
+func ResolvePath(cwd string, raw string) string {
+	if strings.HasPrefix(raw, ".") {
+		raw = filepath.Join(cwd, raw)
+	}
+
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("cmd", "/C", "echo", raw)
+		var out bytes.Buffer
+		cmd.Stdout = &out
+		cmd.Dir = cwd
+
+		_ = cmd.Run()
+		rawOutput := out.String()
+		return strings.TrimSpace(rawOutput)
+	}
+
+	return os.ExpandEnv(raw)
+}
+
 func WaitForInputAndExit() {
 	fmt.Println("Press Enter to exit...")
 	reader := bufio.NewReader(os.Stdin)
 	reader.ReadString('\n')
 	os.Exit(0)
+}
+
+func ReadJSONWithComments(path string) ([]byte, error) {
+	fmt.Println("JSON:", path)
+
+	f, err := os.Open(path)
+	if err != nil {
+		fmt.Println("JSON: failed to open file")
+		return nil, err
+	}
+	defer f.Close()
+
+	data, err := io.ReadAll(f)
+	if err != nil {
+		fmt.Println("JSON: failed to read file")
+		return nil, err
+	}
+
+	re := regexp.MustCompile(`(?m)//.*$`)
+	clean := re.ReplaceAll(data, []byte{})
+
+	reBlock := regexp.MustCompile(`(?s)/\*.*?\*/`)
+	clean = reBlock.ReplaceAll(clean, []byte{})
+
+	return clean, nil
 }
