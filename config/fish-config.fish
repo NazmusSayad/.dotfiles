@@ -1,18 +1,23 @@
 #!/usr/bin/env fish
 
+if status is-interactive
+    starship init fish | source
+end
+
 function fish_greeting
-    # cat $__dirname/__intro__.txt
+    if test "$TERM_PROGRAM" != vscode
+        fastfetch
+    end
 end
 
-function fish_preexec --on-event fish_preexec
+function ___pre-exec___ --on-event fish_preexec
     set -g __cmd_start_time (date +%s%N)
-    set -g __last_cmd $argv
 end
 
-function fish_postexec --on-event fish_postexec
+function ___post-exec___ --on-event fish_postexec
     set -l last_status $status
 
-    switch "$__last_cmd"
+    switch "$argv"
         case clear
             return
 
@@ -58,12 +63,9 @@ alias gb="git branch"
 alias gc="git checkout"
 alias gcb="git checkout -b"
 
-# Node
+# Node Ecosystem
 alias r="node --run"
-alias rd="node --run dev"
-alias rb="node --run build"
 
-# npm
 alias nx="npm exec"
 alias np="npm prune"
 alias nr="npm remove --save"
@@ -72,7 +74,6 @@ alias nad="npm add --save-dev"
 alias ni="npm install --save"
 alias nup="npm update --save"
 
-# pnpm
 alias px="pnpm dlx"
 alias pp="pnpm prune"
 alias pim="pnpm import"
@@ -289,12 +290,4 @@ end
 # File System Case
 function fs-case
     fsutil.exe file setCaseSensitiveInfo . enable recursive
-end
-
-if status is-interactive
-    starship init fish | source
-
-    if test "$TERM_PROGRAM" != vscode
-        fastfetch
-    end
 end

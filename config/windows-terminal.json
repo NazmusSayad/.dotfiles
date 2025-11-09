@@ -3,22 +3,17 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
     {
-      "command": {
-        "action": "clearBuffer",
-        "clear": "all"
-      },
-      "id": "User.clearBuffer.87C324ED"
+      "command": { "action": "clearBuffer", "clear": "all" },
+      "id": "User.clearBuffer"
     },
-    {
-      "command": "find",
-      "id": "User.find"
-    }
+    { "command": "find", "id": "User.find" }
   ],
   "alwaysShowNotificationIcon": false,
   "autoHideWindow": false,
   "centerOnLaunch": true,
   "compatibility.enableUnfocusedAcrylic": false,
   "compatibility.textMeasurement": "console",
+  "snapToGridOnResize": true,
   "copyFormatting": "none",
   "copyOnSelect": false,
   "defaultProfile": "{a58a681c-27da-4f40-9abf-3d300517889b}",
@@ -26,21 +21,10 @@
   "initialCols": 112,
   "initialRows": 32,
   "keybindings": [
-    {
-      "id": "User.clearBuffer.87C324ED",
-      "keys": "ctrl+l"
-    },
-    {
-      "id": "User.find",
-      "keys": "ctrl+f"
-    }
+    { "id": "User.clearBuffer", "keys": "ctrl+l" },
+    { "id": "User.find", "keys": "ctrl+f" }
   ],
   "launchMode": "default",
-  "newTabMenu": [
-    {
-      "type": "remainingProfiles"
-    }
-  ],
   "newTabPosition": "afterCurrentTab",
   "profiles": {
     "defaults": {
@@ -60,31 +44,31 @@
         "guid": "{a58a681c-27da-4f40-9abf-3d300517889b}",
         "hidden": false,
         "icon": "F:\\___SYSTEM___\\windows\\Assets\\fish.ico",
-        "name": "Fish (MSYS2)"
+        "name": "Fish"
       },
       {
         "commandline": "bash.exe",
         "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
         "hidden": false,
         "icon": "F:\\___SYSTEM___\\windows\\Assets\\bash.ico",
-        "name": "Bash (MSYS2)"
+        "name": "Bash"
       },
       {
         "commandline": "zsh.exe",
         "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4c}",
         "hidden": false,
         "icon": "F:\\___SYSTEM___\\windows\\Assets\\zsh.ico",
-        "name": "Zsh (MSYS2)"
-      },
-      {
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "hidden": false,
-        "name": "Windows PowerShell"
+        "name": "Zsh"
       },
       {
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "hidden": false,
         "name": "Command Prompt"
+      },
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
       }
     ]
   },
@@ -114,7 +98,7 @@
     }
   ],
   "searchWebDefaultQueryUrl": "https://www.google.com/search?q=%22%s%22",
-  "showTabsFullscreen": true,
+  "showTabsFullscreen": false,
   "tabSwitcherMode": "mru",
   "tabWidthMode": "equal",
   "theme": "dark",
