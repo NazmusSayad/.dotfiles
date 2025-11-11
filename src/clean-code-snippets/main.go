@@ -1,6 +1,7 @@
 package main
 
 import (
+	helpers "dotfiles/src"
 	"io/fs"
 	"os"
 	"os/exec"
@@ -102,6 +103,5 @@ func main() {
 		}
 	}
 
-	println("Press Enter to exit...")
-	os.Stdin.Read(make([]byte, 1))
+	helpers.PressAnyKeyOrWaitToExit()
 }
