@@ -86,5 +86,5 @@ func main() {
 		generateSymlink(sourcePath, targetPath)
 	}
 
-	helpers.WaitForInputAndExit()
+	helpers.PressAnyKeyOrWaitToExit()
 }
