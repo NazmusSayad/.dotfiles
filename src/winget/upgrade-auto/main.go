@@ -37,7 +37,7 @@ func main() {
 	}
 
 	fmt.Println("\nDone!")
-	helpers.WaitForInputAndExit()
+	helpers.PressAnyKeyOrWaitToExit()
 }
 
 func getUpdatablePackageIDs() []string {

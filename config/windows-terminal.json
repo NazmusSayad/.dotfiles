@@ -3,17 +3,37 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
     {
-      "command": { "action": "clearBuffer", "clear": "all" },
+      "command": {
+        "action": "clearBuffer",
+        "clear": "all"
+      },
       "id": "User.clearBuffer"
     },
-    { "command": "find", "id": "User.find" }
+    {
+      "command": "find",
+      "id": "User.find"
+    },
+    {
+      "command": "duplicateTab",
+      "id": "User.duplicateTab"
+    },
+    {
+      "command": "paste",
+      "id": "User.paste"
+    },
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "id": "User.copy.224984B4"
+    }
   ],
   "alwaysShowNotificationIcon": false,
   "autoHideWindow": false,
   "centerOnLaunch": true,
   "compatibility.enableUnfocusedAcrylic": false,
   "compatibility.textMeasurement": "console",
-  "snapToGridOnResize": true,
   "copyFormatting": "none",
   "copyOnSelect": false,
   "defaultProfile": "{a58a681c-27da-4f40-9abf-3d300517889b}",
@@ -21,10 +41,265 @@
   "initialCols": 112,
   "initialRows": 32,
   "keybindings": [
-    { "id": "User.clearBuffer", "keys": "ctrl+l" },
-    { "id": "User.find", "keys": "ctrl+f" }
+    {
+      "id": "User.clearBuffer",
+      "keys": "ctrl+l"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+w"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+numpad_minus"
+    },
+    {
+      "id": "User.find",
+      "keys": "ctrl+f"
+    },
+    {
+      "id": null,
+      "keys": "alt+right"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+k"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+d"
+    },
+    {
+      "id": "User.copy.224984B4",
+      "keys": "ctrl+c"
+    },
+    {
+      "id": "User.duplicateTab",
+      "keys": "ctrl+n"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+left"
+    },
+    {
+      "id": "Terminal.ClosePane",
+      "keys": "ctrl+w"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+minus"
+    },
+    {
+      "id": null,
+      "keys": "alt+space"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+plus"
+    },
+    {
+      "id": "User.paste",
+      "keys": "ctrl+v"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+comma"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+numpad_plus"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+4"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+t"
+    },
+    {
+      "id": null,
+      "keys": "alt+down"
+    },
+    {
+      "id": null,
+      "keys": "alt+left"
+    },
+    {
+      "id": null,
+      "keys": "alt+up"
+    },
+    {
+      "id": "Terminal.OpenNewTab",
+      "keys": "ctrl+t"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+1"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+comma"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+5"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+2"
+    },
+    {
+      "id": "Terminal.SelectAll",
+      "keys": "ctrl+a"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+3"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+insert"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+6"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+home"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+7"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+8"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+9"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+comma"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+space"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+numpad0"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+pgup"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+pgdn"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+period"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+m"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+2"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+9"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+4"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+7"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+6"
+    },
+    {
+      "id": null,
+      "keys": "win+sc(41)"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+left"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+1"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+3"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+right"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+5"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+8"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+down"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+end"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+down"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+up"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+up"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+a"
+    },
+    {
+      "id": null,
+      "keys": "enter"
+    },
+    {
+      "id": null,
+      "keys": "shift+insert"
+    }
   ],
   "launchMode": "default",
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
   "newTabPosition": "afterCurrentTab",
   "profiles": {
     "defaults": {
@@ -99,6 +374,7 @@
   ],
   "searchWebDefaultQueryUrl": "https://www.google.com/search?q=%22%s%22",
   "showTabsFullscreen": false,
+  "snapToGridOnResize": true,
   "tabSwitcherMode": "mru",
   "tabWidthMode": "equal",
   "theme": "dark",
