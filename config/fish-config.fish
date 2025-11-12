@@ -5,7 +5,7 @@ if status is-interactive
 end
 
 function fish_greeting
-    if test "$TERM_PROGRAM" != vscode
+    if not set -q TERM_PROGRAM
         fastfetch
     end
 end
