@@ -20,7 +20,6 @@ pnpm config set ci true
 pnpm config set allow-scripts true
 pnpm config set shamefully-hoist true
 pnpm config set auto-install-peers true
-pnpm config set dangerously-allow-all-builds true
 
 echo.
 echo "> Press any key to continue..."
