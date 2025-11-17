@@ -33,4 +33,12 @@ echo ^> Compiling winget-upgrade-auto...
 call go build -o .\___winget-upgrade-auto.exe .\src\winget\upgrade-auto\main.go
 
 echo.
+echo ^> Compiling slack-enable...
+call go build -o .\___slack-enable.exe .\src\slack-enable\main.go
+
+echo.
+echo ^> Compiling slack-disable...
+call go build -o .\___slack-disable.exe .\src\slack-disable\main.go
+
+echo.
 pause
