@@ -35,7 +35,11 @@
 
   // VS Code -> Cursor Configs
   {
-    "source": "./config/cursor-hooks.json",
+    "source": "./config/cursor-hooks",
+    "target": "%USERPROFILE%\\.cursor\\hooks"
+  },
+  {
+    "source": "./config/cursor-hooks/hooks.json",
     "target": "%USERPROFILE%\\.cursor\\hooks.json"
   },
   {
