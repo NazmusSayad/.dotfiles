@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/cmd
 
 # Play a sound after file edit
 if command -v paplay >/dev/null 2>&1; then
