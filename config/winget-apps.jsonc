@@ -89,8 +89,8 @@
 
   // Browsers
   {
-    "ID": "Google.Chrome",
-    "Name": "Google Chrome",
+    "ID": "ImputNet.Helium",
+    "Name": "Helium Browser",
     "SilentInstall": true,
     "SilentUpgrade": true
   },
