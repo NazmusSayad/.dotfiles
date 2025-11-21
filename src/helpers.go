@@ -2,7 +2,6 @@ package helpers
 
 import (
 	"bufio"
-	"bytes"
 	"fmt"
 	"io"
 	"math"
@@ -116,18 +115,8 @@ func ResolvePath(cwd string, raw string) string {
 		raw = filepath.Join(cwd, raw)
 	}
 
-	if runtime.GOOS == "windows" {
-		cmd := exec.Command("cmd", "/C", "echo", raw)
-		var out bytes.Buffer
-		cmd.Stdout = &out
-		cmd.Dir = cwd
-
-		_ = cmd.Run()
-		rawOutput := out.String()
-		return strings.TrimSpace(rawOutput)
-	}
-
-	return os.ExpandEnv(raw)
+	expanded := os.ExpandEnv(raw)
+	return strings.TrimSpace(expanded)
 }
 
 func PressAnyKeyOrWaitToExit() {
