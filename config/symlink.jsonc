@@ -1,10 +1,4 @@
 [
-  // Browser Bookmarks
-  {
-    "source": "../windows/Bookmarks/Bookmarks",
-    "target": "$LOCALAPPDATA\\imput\\Helium\\User Data\\Default\\Bookmarks"
-  },
-
   // Shell Configs
   {
     "source": "./config/zsh-config.sh",
