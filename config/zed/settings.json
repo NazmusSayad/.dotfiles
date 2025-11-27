@@ -1,4 +1,12 @@
 {
+  "agent": {
+    "dock": "left",
+    "model_parameters": []
+  },
+  "git_panel": {
+    "status_style": "icon",
+    "dock": "right"
+  },
   "format_on_save": "off",
   "formatter": "prettier",
   "gutter": {

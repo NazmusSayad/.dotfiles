@@ -26,6 +26,12 @@
     "SilentUpgrade": true
   },
   {
+    "ID": "9WZDNCRFHVN5",
+    "Name": "Windows Calculator",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
     "ID": "9NBLGGH68TW4",
     "Name": "Pictureflect Photo Viewer",
     "SilentInstall": true,
@@ -54,8 +60,18 @@
     "SilentInstall": true,
     "SilentUpgrade": true
   },
-
-  // Productivity
+  {
+    "ID": "qBittorrent.qBittorrent",
+    "Name": "qBittorrent",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "PowerSoftware.AnyBurn",
+    "Name": "AnyBurn",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
   {
     "ID": "RamenSoftware.Windhawk",
     "Name": "Windhawk - Windows Customization Tool",
@@ -71,12 +87,6 @@
   {
     "ID": "OBSProject.OBSStudio",
     "Name": "OBS Studio",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
-    "ID": "PowerSoftware.AnyBurn",
-    "Name": "AnyBurn",
     "SilentInstall": true,
     "SilentUpgrade": true
   },
@@ -103,6 +113,12 @@
     "SilentUpgrade": true
   },
   {
+    "ID": "Oven-sh.Bun",
+    "Name": "Bun",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
     "ID": "Python.PythonInstallManager",
     "Name": "Python Installer",
     "SilentInstall": true,
@@ -121,7 +137,7 @@
     "SilentUpgrade": true
   },
 
-  // Code Editors
+  // Editors & Development Tools
   {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VS Code",
@@ -135,10 +151,9 @@
   {
     "ID": "ZedIndustries.Zed",
     "Name": "Zed",
+    "SilentInstall": true,
     "SilentUpgrade": true
   },
-
-  // Development Tools
   {
     "ID": "Git.Git",
     "Name": "Git",
@@ -152,8 +167,10 @@
     "SilentUpgrade": true
   },
   {
-    "ID": "PostgreSQL.PostgreSQL.17",
-    "Name": "PostgreSQL"
+    "ID": "Docker.DockerDesktop",
+    "Name": "Docker Desktop",
+    "SilentInstall": true,
+    "SilentUpgrade": true
   },
 
   // Communication
