@@ -83,6 +83,10 @@ alias pad="pnpm add --save-dev"
 alias pi="pnpm install --save"
 alias pup="pnpm update --save"
 
+alias dc="docker compose"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
+
 # Git Branch Cleanup
 function gbc
     set current (git branch --show-current)
