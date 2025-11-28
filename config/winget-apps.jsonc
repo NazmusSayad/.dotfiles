@@ -61,12 +61,6 @@
     "SilentUpgrade": true
   },
   {
-    "ID": "qBittorrent.qBittorrent",
-    "Name": "qBittorrent",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
     "ID": "PowerSoftware.AnyBurn",
     "Name": "AnyBurn",
     "SilentInstall": true,
