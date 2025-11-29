@@ -133,6 +133,18 @@
 
   // Editors & Development Tools
   {
+    "ID": "Git.Git",
+    "Name": "Git",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "GitHub.cli",
+    "Name": "GitHub CLI",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VS Code",
     "SilentUpgrade": true
@@ -149,20 +161,8 @@
     "SilentUpgrade": true
   },
   {
-    "ID": "Git.Git",
-    "Name": "Git",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
-    "ID": "GitHub.cli",
-    "Name": "GitHub CLI",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
-    "ID": "Docker.DockerDesktop",
-    "Name": "Docker Desktop",
+    "ID": "Postman.Postman",
+    "Name": "Postman",
     "SilentInstall": true,
     "SilentUpgrade": true,
     "IgnoreInstall": true
