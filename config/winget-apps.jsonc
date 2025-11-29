@@ -1,6 +1,29 @@
 [
   // Basic
   {
+    "ID": "Piriform.CCleaner",
+    "Name": "CCleaner",
+    "Version": "6.39"
+  },
+  {
+    "ID": "9MSMLRH6LZF3",
+    "Name": "Windows Notepad",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "9WZDNCRFHVN5",
+    "Name": "Windows Calculator",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
+    "ID": "Microsoft.WindowsTerminal",
+    "Name": "Windows Terminal",
+    "SilentInstall": true,
+    "SilentUpgrade": true
+  },
+  {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2",
     "SilentInstall": true,
@@ -20,33 +43,10 @@
     "Name": "PotPlayer"
   },
   {
-    "ID": "9MSMLRH6LZF3",
-    "Name": "Windows Notepad",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
-    "ID": "9WZDNCRFHVN5",
-    "Name": "Windows Calculator",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
     "ID": "9NBLGGH68TW4",
     "Name": "Pictureflect Photo Viewer",
     "SilentInstall": true,
     "SilentUpgrade": true
-  },
-  {
-    "ID": "Microsoft.WindowsTerminal",
-    "Name": "Windows Terminal",
-    "SilentInstall": true,
-    "SilentUpgrade": true
-  },
-  {
-    "ID": "Piriform.CCleaner",
-    "Name": "CCleaner",
-    "Version": "6.39"
   },
   {
     "ID": "ThioJoe.SvgThumbnailExtension",
@@ -164,7 +164,8 @@
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
     "SilentInstall": true,
-    "SilentUpgrade": true
+    "SilentUpgrade": true,
+    "IgnoreInstall": true
   },
 
   // Communication
@@ -172,6 +173,7 @@
     "ID": "SlackTechnologies.Slack",
     "Name": "Slack",
     "SilentInstall": true,
-    "SilentUpgrade": true
+    "SilentUpgrade": true,
+    "IgnoreInstall": true
   }
 ]
