@@ -1,0 +1,11 @@
+{
+  "ShowSeconds": 1,
+  "TimeFormat": "hh':'mm':'ss tt",
+  "DateFormat": "ddd',' dd/MM/yy",
+  "WeekdayFormat": "dddd",
+  "WeekdayFormatCustom": "Sun, Mon, Tue, Wed, Thu, Fri, Sat",
+  "TopLine": "%time%",
+  "BottomLine": "%date%",
+  "MiddleLine": "",
+  "TooltipLine": ""
+}
