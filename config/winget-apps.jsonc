@@ -3,36 +3,32 @@
   {
     "ID": "Piriform.CCleaner",
     "Name": "CCleaner",
-    "Version": "6.39"
+    "Version": "6.39",
+    "ManualInstall": true,
+    "ManualUpgrade": true
   },
   {
     "ID": "9MSMLRH6LZF3",
-    "Name": "Windows Notepad",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Windows Notepad"
   },
   {
     "ID": "9WZDNCRFHVN5",
-    "Name": "Windows Calculator",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Windows Calculator"
   },
   {
     "ID": "Microsoft.WindowsTerminal",
-    "Name": "Windows Terminal",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Windows Terminal"
   },
   {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2",
-    "SilentInstall": true,
-    "SilentUpgrade": true,
-    "IgnoreUpgrade": true
+    "SkipUpgrade": true
   },
   {
     "ID": "ShareX.ShareX",
-    "Name": "ShareX"
+    "Name": "ShareX",
+    "ManualInstall": true,
+    "ManualUpgrade": true
   },
   {
     "ID": "RARLab.WinRAR",
@@ -40,140 +36,109 @@
   },
   {
     "ID": "Daum.PotPlayer",
-    "Name": "PotPlayer"
+    "Name": "PotPlayer",
+    "ManualInstall": true,
+    "ManualUpgrade": true
   },
   {
     "ID": "9NBLGGH68TW4",
-    "Name": "Pictureflect Photo Viewer",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Pictureflect Photo Viewer"
   },
   {
     "ID": "ThioJoe.SvgThumbnailExtension",
-    "Name": "SVG Thumbnail",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "SVG Thumbnail"
   },
   {
     "ID": "REALiX.HWiNFO",
-    "Name": "HwInfo",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "HwInfo"
   },
   {
     "ID": "PowerSoftware.AnyBurn",
-    "Name": "AnyBurn",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "AnyBurn"
   },
   {
     "ID": "RamenSoftware.Windhawk",
-    "Name": "Windhawk - Windows Customization Tool",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Windhawk - Windows Customization Tool"
   },
   {
     "ID": "Obsidian.Obsidian",
-    "Name": "Obsidian",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Obsidian"
   },
   {
     "ID": "OBSProject.OBSStudio",
-    "Name": "OBS Studio",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "OBS Studio"
   },
   {
     "ID": "UnifiedIntents.UnifiedRemote",
-    "Name": "Unified Remote",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Unified Remote"
   },
 
-  // Browsers
+  // Browsers/Internet/Web
   {
     "ID": "ImputNet.Helium",
-    "Name": "Helium Browser",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Helium Browser"
+  },
+  {
+    "ID": "qBittorrent.qBittorrent",
+    "Name": "qBittorrent",
+    "SkipInstall": true
   },
 
   // Programming Languages
   {
     "ID": "Volta.Volta",
-    "Name": "Volta",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Volta"
   },
   {
     "ID": "Oven-sh.Bun",
-    "Name": "Bun",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Bun"
   },
   {
     "ID": "Python.PythonInstallManager",
-    "Name": "Python Installer",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Python Installer"
   },
   {
     "ID": "Oracle.JDK.24",
-    "Name": "JDK 24",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "JDK 24"
   },
   {
     "ID": "GoLang.Go",
-    "Name": "Go Language",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Go Language"
   },
 
   // Editors & Development Tools
   {
     "ID": "Git.Git",
     "Name": "Git",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "ManualInstall": true
   },
   {
     "ID": "GitHub.cli",
-    "Name": "GitHub CLI",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "GitHub CLI"
   },
   {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VS Code",
-    "SilentUpgrade": true
+    "ManualInstall": true
   },
   {
     "ID": "Anysphere.Cursor",
     "Name": "Cursor",
-    "SilentUpgrade": true
+    "ManualInstall": true
   },
   {
     "ID": "ZedIndustries.Zed",
-    "Name": "Zed",
-    "SilentInstall": true,
-    "SilentUpgrade": true
+    "Name": "Zed"
   },
   {
     "ID": "Postman.Postman",
     "Name": "Postman",
-    "SilentInstall": true,
-    "SilentUpgrade": true,
-    "IgnoreInstall": true
+    "SkipInstall": true
   },
 
   // Communication
   {
     "ID": "SlackTechnologies.Slack",
-    "Name": "Slack",
-    "SilentInstall": true,
-    "SilentUpgrade": true,
-    "IgnoreInstall": true
+    "Name": "Slack"
   }
 ]

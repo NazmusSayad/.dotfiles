@@ -15,11 +15,11 @@ type WingetPackage struct {
 	Name    string
 	Version string
 
-	SilentInstall bool
-	SilentUpgrade bool
+	ManualInstall bool
+	ManualUpgrade bool
 
-	IgnoreInstall bool
-	IgnoreUpgrade bool
+	SkipInstall bool
+	SkipUpgrade bool
 }
 
 type WingetUpgradeablePackage struct {
@@ -57,10 +57,10 @@ func BuildWingetInstallCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	if p.SilentInstall {
-		parts = append(parts, "--silent")
-	} else {
+	if p.ManualInstall {
 		parts = append(parts, "--interactive")
+	} else {
+		parts = append(parts, "--silent")
 	}
 
 	return append(parts, "--verbose", "--accept-package-agreements", "--accept-source-agreements", "--no-upgrade")
@@ -73,10 +73,10 @@ func BuildWingetUpgradeCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	if p.SilentUpgrade {
-		parts = append(parts, "--silent")
-	} else {
+	if p.ManualUpgrade {
 		parts = append(parts, "--interactive")
+	} else {
+		parts = append(parts, "--silent")
 	}
 
 	return append(parts, "--verbose", "--accept-package-agreements", "--accept-source-agreements")

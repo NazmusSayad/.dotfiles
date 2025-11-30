@@ -63,6 +63,10 @@ alias gb="git branch"
 alias gc="git checkout"
 alias gcb="git checkout -b"
 
+# Helpers
+alias wg="winget"
+alias dc="docker compose"
+
 # Node Ecosystem
 alias r="node --run"
 
@@ -82,10 +86,6 @@ alias pa="pnpm add --save"
 alias pad="pnpm add --save-dev"
 alias pi="pnpm install --save"
 alias pup="pnpm update --save"
-
-alias dc="docker compose"
-alias dcu="docker compose up -d"
-alias dcd="docker compose down"
 
 # Git Branch Cleanup
 function gbc
