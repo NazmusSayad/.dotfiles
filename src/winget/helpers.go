@@ -15,8 +15,8 @@ type WingetPackage struct {
 	Name    string
 	Version string
 
-	ManualInstall bool
-	ManualUpgrade bool
+	InteractiveInstall bool
+	InteractiveUpgrade bool
 
 	SkipInstall bool
 	SkipUpgrade bool
@@ -57,7 +57,7 @@ func BuildWingetInstallCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	if p.ManualInstall {
+	if p.InteractiveInstall {
 		parts = append(parts, "--interactive")
 	} else {
 		parts = append(parts, "--silent")
@@ -73,7 +73,7 @@ func BuildWingetUpgradeCommands(p WingetPackage) []string {
 		parts = append(parts, "--version", p.Version)
 	}
 
-	if p.ManualUpgrade {
+	if p.InteractiveUpgrade {
 		parts = append(parts, "--interactive")
 	} else {
 		parts = append(parts, "--silent")
