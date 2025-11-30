@@ -135,6 +135,13 @@
     "Name": "Postman",
     "SkipInstall": true
   },
+  {
+    "ID": "Docker.DockerDesktop",
+    "Name": "Docker Desktop",
+    "SkipInstall": true,
+    "ManualInstall": true,
+    "ManualUpgrade": true
+  },
 
   // Communication
   {
