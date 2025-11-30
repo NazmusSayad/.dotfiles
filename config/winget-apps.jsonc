@@ -4,8 +4,8 @@
     "ID": "Piriform.CCleaner",
     "Name": "CCleaner",
     "Version": "6.39",
-    "ManualInstall": true,
-    "ManualUpgrade": true
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
   },
   {
     "ID": "9MSMLRH6LZF3",
@@ -27,8 +27,8 @@
   {
     "ID": "ShareX.ShareX",
     "Name": "ShareX",
-    "ManualInstall": true,
-    "ManualUpgrade": true
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
   },
   {
     "ID": "RARLab.WinRAR",
@@ -37,8 +37,8 @@
   {
     "ID": "Daum.PotPlayer",
     "Name": "PotPlayer",
-    "ManualInstall": true,
-    "ManualUpgrade": true
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
   },
   {
     "ID": "9NBLGGH68TW4",
@@ -58,7 +58,8 @@
   },
   {
     "ID": "RamenSoftware.Windhawk",
-    "Name": "Windhawk - Windows Customization Tool"
+    "Name": "Windhawk",
+    "SkipUpgrade": true
   },
   {
     "ID": "Obsidian.Obsidian",
@@ -110,7 +111,7 @@
   {
     "ID": "Git.Git",
     "Name": "Git",
-    "ManualInstall": true
+    "InteractiveInstall": true
   },
   {
     "ID": "GitHub.cli",
@@ -119,12 +120,12 @@
   {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VS Code",
-    "ManualInstall": true
+    "InteractiveInstall": true
   },
   {
     "ID": "Anysphere.Cursor",
     "Name": "Cursor",
-    "ManualInstall": true
+    "InteractiveInstall": true
   },
   {
     "ID": "ZedIndustries.Zed",
@@ -139,8 +140,8 @@
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
     "SkipInstall": true,
-    "ManualInstall": true,
-    "ManualUpgrade": true
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
   },
 
   // Communication
