@@ -3,8 +3,6 @@ Write-Output 'Set Services to Manual: Turns a bunch of system services to manual
 $servicesToDisable = @(
   'AJRouter',
   'Spooler',
-  'LanmanWorkstation',
-  'LanmanServer',
   'AppVClient',
   'AssignedAccessManagerSvc',
   'DiagTrack',
