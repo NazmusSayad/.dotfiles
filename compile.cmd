@@ -1,6 +1,10 @@
 @echo off
 
 echo.
+echo ^> Deleting old compiled files...
+del /Q .\___*.exe 2>nul
+
+echo.
 echo ^> Compiling ahk compiler...
 call go build -o .\___ahk-compile.exe .\src\ahk\main.go
 
