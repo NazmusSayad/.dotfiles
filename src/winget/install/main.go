@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("Installing packages, total:", len(packages))
 
 	for _, p := range packages {
-		if p.IgnoreInstall {
+		if p.SkipInstall {
 			fmt.Println("\n- Skipping", p.ID)
 			continue
 		}

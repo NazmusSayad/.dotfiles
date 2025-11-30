@@ -29,10 +29,6 @@ echo ^> Compiling winget-upgrade...
 call go build -o .\___winget-upgrade.exe .\src\winget\upgrade\main.go
 
 echo.
-echo ^> Compiling winget-upgrade-auto...
-call go build -o .\___winget-upgrade-auto.exe .\src\winget\upgrade-auto\main.go
-
-echo.
 echo ^> Compiling slack-enable...
 call go build -o .\___slack-enable.exe .\src\slack-enable\main.go
 

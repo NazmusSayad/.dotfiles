@@ -6,14 +6,29 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"slices"
 )
 
 func main() {
 	packages := winget.GetWingetPackages("./config/winget-apps.jsonc")
-	fmt.Println("Upgrading packages, total:", len(packages))
+
+	var packageIDs []string
+	upgradeablePackages := winget.GetUpgradeablePackages()
+
+	for _, p := range upgradeablePackages {
+		println("")
+		println("ID:", p.ID)
+		println("Current Version:", p.Version)
+		println("Available Version:", p.Available)
+		packageIDs = append(packageIDs, p.ID)
+	}
 
 	for _, p := range packages {
-		if p.IgnoreUpgrade {
+		if !slices.Contains(packageIDs, p.ID) {
+			continue
+		}
+
+		if p.SkipUpgrade || p.Version != "" {
 			fmt.Println("\n- Skipping", p.ID)
 			continue
 		}
