@@ -299,6 +299,7 @@
         }
     ],
     "launchMode": "default",
+    "minimizeToNotificationArea": false,
     "newTabMenu": 
     [
         {
@@ -347,24 +348,14 @@
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "name": "Command Prompt"
+                "name": "Command Prompt",
+                "startingDirectory": null
             },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "guid": "{eca2532f-0874-5d69-846f-4570468d4cde}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{9314be23-dc22-5f8c-aa21-a2a2983939d9}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
+                "name": "Windows PowerShell",
+                "startingDirectory": null
             }
         ]
     },
@@ -402,5 +393,5 @@
     "theme": "dark",
     "themes": [],
     "warning.confirmCloseAllTabs": false,
-    "windowingBehavior": "useExisting"
+    "windowingBehavior": "useNew"
 }
