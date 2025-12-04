@@ -17,7 +17,7 @@
   },
   {
     "Name": "ShareX",
-    "Path": "C:\\Program Files\\ShareX\\ShareX.exe",
+    "Path": "$PROGRAMFILES/ShareX/ShareX.exe",
     "Admin": true
   },
   {
