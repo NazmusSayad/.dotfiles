@@ -52,5 +52,5 @@ function ___post-exec___ --on-event fish_postexec
     set_color normal
 end
 
-source ~/.scripts/fish/aliases.fish
-source ~/.scripts/fish/functions.fish
+source ~/.dotfiles/config/fish/aliases.fish
+source ~/.dotfiles/config/fish/functions.fish

@@ -1,0 +1,29 @@
+[
+  {
+    "Name": "CMD",
+    "Path": "cmd.exe",
+    "Args": ["/c"],
+    "Admin": false
+  },
+  {
+    "Name": "AHK Macro",
+    "Path": "./___AHK-Macro.exe",
+    "Admin": true
+  },
+  {
+    "Name": "AHK Window Manager",
+    "Path": "./___AHK-WindowManager.exe",
+    "Admin": true
+  },
+  {
+    "Name": "ShareX",
+    "Path": "C:\\Program Files\\ShareX\\ShareX.exe",
+    "Admin": true
+  },
+  {
+    "Name": "GPG Init",
+    "Path": "gpg",
+    "Args": ["--list-keys"],
+    "Admin": false
+  }
+]

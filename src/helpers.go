@@ -8,12 +8,13 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"regexp"
 	"runtime"
 	"strings"
 	"syscall"
 	"time"
 	"unsafe"
+
+	"github.com/tidwall/jsonc"
 )
 
 type Scope string
@@ -187,7 +188,7 @@ func PressAnyKeyOrWaitToExit() {
 	}
 }
 
-func ReadJSONWithComments(path string) ([]byte, error) {
+func ReadJsoncAsJson(path string) ([]byte, error) {
 	fmt.Println("JSON:", path)
 
 	f, err := os.Open(path)
@@ -203,11 +204,5 @@ func ReadJSONWithComments(path string) ([]byte, error) {
 		return nil, err
 	}
 
-	re := regexp.MustCompile(`(?m)//.*$`)
-	clean := re.ReplaceAll(data, []byte{})
-
-	reBlock := regexp.MustCompile(`(?s)/\*.*?\*/`)
-	clean = reBlock.ReplaceAll(clean, []byte{})
-
-	return clean, nil
+	return jsonc.ToJSON(data), nil
 }
