@@ -91,10 +91,6 @@
     "Name": "Volta"
   },
   {
-    "ID": "Oven-sh.Bun",
-    "Name": "Bun"
-  },
-  {
     "ID": "Python.PythonInstallManager",
     "Name": "Python Installer"
   },
