@@ -328,21 +328,21 @@
                 "commandline": "fish.exe",
                 "guid": "{a58a681c-27da-4f40-9abf-3d300517889b}",
                 "hidden": false,
-                "icon": "F:\\___SYSTEM___\\windows\\Assets\\fish.ico",
+                "icon": "%USERPROFILE%\\.dotfiles\\assets\\fish.ico",
                 "name": "Fish"
             },
             {
                 "commandline": "bash.exe",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
                 "hidden": false,
-                "icon": "F:\\___SYSTEM___\\windows\\Assets\\bash.ico",
+                "icon": "%USERPROFILE%\\.dotfiles\\assets\\bash.ico",
                 "name": "Bash"
             },
             {
                 "commandline": "zsh.exe",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4c}",
                 "hidden": false,
-                "icon": "F:\\___SYSTEM___\\windows\\Assets\\zsh.ico",
+                "icon": "%USERPROFILE%\\.dotfiles\\assets\\zsh.ico",
                 "name": "Zsh"
             },
             {
