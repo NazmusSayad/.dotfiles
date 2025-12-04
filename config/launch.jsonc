@@ -3,7 +3,7 @@
     "Name": "CMD",
     "Path": "cmd.exe",
     "Args": ["/c"],
-    "Admin": false
+    "Admin": true
   },
   {
     "Name": "AHK Macro",
@@ -24,6 +24,6 @@
     "Name": "GPG Init",
     "Path": "gpg",
     "Args": ["--list-keys"],
-    "Admin": false
+    "Admin": true
   }
 ]
