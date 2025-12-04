@@ -150,6 +150,7 @@ func slackStartOnTime() {
 	enableTask("task-slack-start")
 	enableTask("task-slack-exit")
 	runScript("start.vbs")
+	runScript("exit.vbs")
 }
 
 func slackDisable() {
