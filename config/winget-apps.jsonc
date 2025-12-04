@@ -73,6 +73,10 @@
     "ID": "UnifiedIntents.UnifiedRemote",
     "Name": "Unified Remote"
   },
+  {
+    "ID": "voidtools.Everything",
+    "Name": "Everything"
+  },
 
   // Browsers/Internet/Web
   {

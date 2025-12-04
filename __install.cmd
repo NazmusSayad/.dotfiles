@@ -1,6 +1,9 @@
 @echo off
 setlocal
 
+echo "> Fish shell config..."
+set fish_color_command magenta
+
 echo "> Setting up git config..."
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
