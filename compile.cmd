@@ -13,10 +13,6 @@ echo ^> Compiling ahk compiler...
 call go build -o ".\___AHK Compile.exe" .\src\ahk\main.go
 
 echo.
-echo ^> Compiling ahk scripts...
-call ".\___AHK Compile.exe"
-
-echo.
 echo ^> Compiling msys-setup...
 call go build -o ".\___MSYS Setup.exe" .\src\msys-setup\main.go
 
@@ -38,11 +34,11 @@ call go build -o ".\___Winget Upgrade.exe" .\src\winget\upgrade\main.go
 
 echo.
 echo ^> Compiling slack-status...
-call go build -o ".\___Slack Status.exe" .\src\slack-status\main.go
+call go build -o ".\___Slack Status.exe" .\src\slack\status\main.go
 
 echo.
 echo ^> Compiling slack-launch...
-call go build -o ".\___Slack Launch.exe" .\src\slack-launch\main.go
+call go build -o ".\___Slack Launch.exe" .\src\slack\launch\main.go
 
 echo.
 pause
