@@ -1,6 +1,10 @@
 [
   // Shell Configs
   {
+    "source": ".",
+    "target": "$USERPROFILE/.dotfiles"
+  },
+  {
     "source": "./config/fish/config.fish",
     "target": "$USERPROFILE/.config/fish/config.fish"
   },
@@ -11,18 +15,6 @@
   {
     "source": "./config/zsh/config.sh",
     "target": "$USERPROFILE/.zshrc"
-  },
-  {
-    "source": "./config/fish",
-    "target": "$USERPROFILE/.scripts/fish"
-  },
-  {
-    "source": "./config/bash",
-    "target": "$USERPROFILE/.scripts/bash"
-  },
-  {
-    "source": "./config/zsh",
-    "target": "$USERPROFILE/.scripts/zsh"
   },
 
   // Terminal Configs

@@ -5,6 +5,10 @@ echo ^> Deleting old compiled files...
 del /Q .\___*.exe 2>nul
 
 echo.
+echo ^> Compiling launch...
+call go build -o ".\___Launch.exe" .\src\launch\main.go
+
+echo.
 echo ^> Compiling ahk compiler...
 call go build -o ".\___AHK Compile.exe" .\src\ahk\main.go
 

@@ -37,7 +37,7 @@ func GetWingetPackages(path string) []WingetPackage {
 	fmt.Printf("CWD: %s\n", cwd)
 
 	fullPath := filepath.Join(cwd, path)
-	jsonBytes, err := helpers.ReadJSONWithComments(fullPath)
+	jsonBytes, err := helpers.ReadJsoncAsJson(fullPath)
 	if err != nil {
 		return []WingetPackage{}
 	}
