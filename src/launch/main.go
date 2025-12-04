@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"syscall"
 )
 
 type LaunchConfig struct {
@@ -21,7 +22,6 @@ func main() {
 	exePath, exePathErr := os.Executable()
 	if exePathErr != nil {
 		fmt.Println("Error getting executable path...")
-		helpers.PressAnyKeyOrWaitToExit()
 		os.Exit(1)
 	}
 
@@ -31,14 +31,12 @@ func main() {
 	data, err := helpers.ReadJsoncAsJson(fullPath)
 	if err != nil {
 		fmt.Println("Error reading JSON file...")
-		helpers.PressAnyKeyOrWaitToExit()
 		os.Exit(1)
 	}
 
 	var launchConfigs []LaunchConfig
 	if err := json.Unmarshal(data, &launchConfigs); err != nil {
 		fmt.Println("Error unmarshalling JSON into LaunchConfig...")
-		helpers.PressAnyKeyOrWaitToExit()
 		os.Exit(1)
 	}
 
@@ -59,9 +57,8 @@ func main() {
 			}
 		} else {
 			cmd := exec.Command(resolvedCommand, config.Args...)
-			cmd.Run()
+			cmd.SysProcAttr = &syscall.SysProcAttr{CreationFlags: syscall.CREATE_NEW_PROCESS_GROUP | 0x00000008}
+			cmd.Start()
 		}
 	}
-
-	helpers.PressAnyKeyOrWaitToExit()
 }
