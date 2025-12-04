@@ -5,9 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
-	"syscall"
 )
 
 type LaunchConfig struct {
@@ -50,15 +48,17 @@ func main() {
 		fmt.Println("Starting: (", config.Admin, ")", config.Name, resolvedCommand)
 
 		if config.Admin {
-			err := helpers.Elevate(resolvedCommand, config.Args...)
+			err := helpers.DetachedElevate(resolvedCommand, config.Args...)
 			if err != nil {
-				fmt.Println("Error elevating", config.Name, err)
+				fmt.Println("Error elevating", config.Name)
 				continue
 			}
 		} else {
-			cmd := exec.Command(resolvedCommand, config.Args...)
-			cmd.SysProcAttr = &syscall.SysProcAttr{CreationFlags: syscall.CREATE_NEW_PROCESS_GROUP | 0x00000008}
-			cmd.Start()
+			err := helpers.DetachedExec(resolvedCommand, config.Args...)
+			if err != nil {
+				fmt.Println("Error executing", config.Name)
+				continue
+			}
 		}
 	}
 }

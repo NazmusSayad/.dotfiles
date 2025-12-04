@@ -1,8 +1,7 @@
 package slack_helpers
 
 import (
-	"os"
-	"os/exec"
+	helpers "dotfiles/src"
 )
 
 func SlackApplicationStart() {
@@ -19,8 +18,8 @@ func SlackApplicationStart() {
 
 	println("Slack Start", runtimePath)
 
-	cmd := exec.Command(runtimePath, "--startup")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Start()
+	err = helpers.DetachedExec(runtimePath, "--startup")
+	if err != nil {
+		println("Error starting Slack")
+	}
 }

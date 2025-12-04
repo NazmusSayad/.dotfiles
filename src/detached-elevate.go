@@ -11,7 +11,7 @@ var (
 	procShellExecW = shell32.NewProc("ShellExecuteW")
 )
 
-func Elevate(exe string, args ...string) error {
+func DetachedElevate(exe string, args ...string) error {
 	verb := syscall.StringToUTF16Ptr("runas")
 	path := syscall.StringToUTF16Ptr(exe)
 
