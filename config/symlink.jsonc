@@ -1,16 +1,28 @@
 [
   // Shell Configs
   {
-    "source": "./config/zsh-config.sh",
-    "target": "$USERPROFILE\\.zshrc"
+    "source": "./config/fish-config.fish",
+    "target": "$USERPROFILE\\.config\\fish\\config.fish"
   },
   {
     "source": "./config/bash-config.sh",
     "target": "$USERPROFILE\\.bashrc"
   },
   {
-    "source": "./config/fish-config.fish",
-    "target": "$USERPROFILE\\.config\\fish\\config.fish"
+    "source": "./config/zsh-config.sh",
+    "target": "$USERPROFILE\\.zshrc"
+  },
+  {
+    "source": "./config/scripts-fish",
+    "target": "$USERPROFILE\\.config\\scripts\\fish"
+  },
+  {
+    "source": "./config/scripts-bash",
+    "target": "$USERPROFILE\\.config\\scripts\\bash"
+  },
+  {
+    "source": "./config/scripts-zsh",
+    "target": "$USERPROFILE\\.config\\scripts\\zsh"
   },
 
   // Terminal Configs
