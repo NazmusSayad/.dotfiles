@@ -19,7 +19,7 @@ This repository contains reproducible automation and configuration to make it fa
     Synchronizes Visual Studio Code preferences, keybindings, and extensions. Includes dedicated helpers to manage code snippets and maintain a unified editing environment.
 
 - **Communication Optimization**
-    Streamlines workspace connectivity with automated tools for managing application states (e.g., Slack presence) to maintain focus and reduce manual context switching.
+    Streamlines workspace connectivity with automated tools for managing application states. Includes intelligent Slack launch management with work-hour scheduling (automatically starts/stops Slack based on Bangladesh time zone), and AHK process management utilities.
 
 - **System Performance**
     Maximizes hardware potential by debloating Windows. Scripts aggressively remove unused pre-installed apps, disable telemetry services, and tune system policies for development workloads.
@@ -46,21 +46,28 @@ This repository contains reproducible automation and configuration to make it fa
     *   Install essential global npm packages (Node, pnpm, yarn, etc.).
 
 3.  **Build Utilities:**
-    Run the `compile.cmd` script. This uses Go to compile the helper utilities located in `src/`. You will see new executables generated in the root directory (prefixed with `___`).
+    Run the `__compile.cmd` script. This uses Go to compile the helper utilities located in `src/` into the `build/` directory.
 
-4.  **Apply Configurations:**
-    *   **Symlinks:** Run `___symlink-config.exe` to link your config files (ensure you run as Administrator).
-    *   **Software:** Run `___winget-install.exe` to install applications defined in `config/winget-apps.jsonc`.
+4.  **Install Dotfiles:**
+    Run the `__install-dotfiles.cmd` script as Administrator. This creates a symbolic link from `%USERPROFILE%\.dotfiles` to your repository and adds the `build/` directory to your system PATH.
+
+5.  **Apply Configurations:**
+    *   **Symlinks:** Run `symlink-config.exe` to link your config files.
+    *   **Software:** Run `winget-install.exe` to install applications defined in `config/winget-apps.jsonc`.
     *   **System Settings:** Review and run the PowerShell scripts in `src/ps1/` as needed (e.g., `settings.ps1`) to apply system optimizations.
+    *   **Slack Management:** Use `slack-status.exe` to configure intelligent Slack launch behavior (Always, Work Hours, or Disabled).
 
 ## Repository Structure
 
+*   `build/`: Compiled Go executables (gitignored).
 *   `config/`: Configuration files for shells, standard apps, and `winget` packages.
 *   `src/`: Source code for Go utilities and PowerShell scripts.
     *   `src/ps1/`: Windows debloating and configuration scripts.
     *   `src/ahk/`: AutoHotkey scripts for window management.
     *   `src/winget/`: Tools for parsing and installing Winget packages.
+    *   `src/slack/`: Slack automation utilities with intelligent launch scheduling.
 *   `lib/`: Shared libraries and binaries.
+*   `__*`: Installation and utility scripts.
 
 ## ⚠️ Disclaimer
 This repository contains scripts that modify system settings and remove default applications. Review all scripts (especially those in `src/ps1/`) before running them to ensure they align with your requirements.
