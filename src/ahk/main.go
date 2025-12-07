@@ -14,7 +14,7 @@ const ahkScriptPrefix = "AHK-"
 
 func main() {
 	baseDir := helpers.ResolvePath("./src/ahk")
-	outputDir := helpers.ResolvePath("./bin/ahk")
+	outputDir := helpers.ResolvePath("./build/ahk")
 	ahkScriptsDir := filepath.Join(baseDir, "scripts")
 	ahk2ExeBin := filepath.Join(baseDir, "bin", "Ahk2Exe.exe")
 	ahkCompilerBin := filepath.Join(baseDir, "bin", "AutoHotkey64.exe")
