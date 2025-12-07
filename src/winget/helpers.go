@@ -25,8 +25,8 @@ type WingetUpgradeablePackage struct {
 	Available string
 }
 
-func GetWingetPackages(path string) []WingetPackage {
-	jsonBytes, err := helpers.ReadJsoncAsJson(path)
+func GetWingetPackages() []WingetPackage {
+	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("./config/winget-apps.jsonc")
 	if err != nil {
 		return []WingetPackage{}
 	}

@@ -10,6 +10,8 @@ import (
 	helpers "dotfiles/src"
 )
 
+const ahkScriptPrefix = "AHK-"
+
 func main() {
 	baseDir := helpers.ResolvePath("./src/ahk")
 	outputDir := helpers.ResolvePath("./bin/ahk")
@@ -36,7 +38,7 @@ func main() {
 
 		fileName := strings.TrimSuffix(entry.Name(), ".ahk")
 		inPath := filepath.Join(ahkScriptsDir, entry.Name())
-		outPath := filepath.Join(outputDir, fileName+".exe")
+		outPath := filepath.Join(outputDir, ahkScriptPrefix+fileName+".exe")
 
 		iconPath := filepath.Join(ahkScriptsDir, fileName+".ico")
 		spawnArgs := []string{"/base", ahkCompilerBin, "/in", inPath, "/out", outPath}
@@ -52,6 +54,5 @@ func main() {
 		fmt.Printf("Compiled: %s\n", entry.Name())
 	}
 
-	fmt.Println("Compilation complete")
-	helpers.PressAnyKeyOrWaitToExit()
+	println("Compilation complete")
 }

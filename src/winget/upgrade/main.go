@@ -3,15 +3,13 @@ package main
 import (
 	helpers "dotfiles/src"
 	"dotfiles/src/winget"
-	"fmt"
 	"os"
 	"os/exec"
 	"slices"
 )
 
 func main() {
-	wingetPackagesPath := helpers.ResolvePath("./config/winget-apps.jsonc")
-	packages := winget.GetWingetPackages(wingetPackagesPath)
+	packages := winget.GetWingetPackages()
 
 	var packageIDs []string
 	upgradeablePackages := winget.GetUpgradeablePackages()
@@ -30,11 +28,11 @@ func main() {
 		}
 
 		if p.SkipUpgrade || p.Version != "" {
-			fmt.Println("\n- Skipping", p.ID)
+			println("\n- Skipping", p.ID)
 			continue
 		}
 
-		fmt.Println("\n- Upgrading", p.ID)
+		println("\n- Upgrading", p.ID)
 		parts := winget.BuildWingetUpgradeCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
@@ -44,6 +42,6 @@ func main() {
 		cmd.Run()
 	}
 
-	fmt.Println("\nDone!")
+	println("\nDone!")
 	helpers.PressAnyKeyOrWaitToExit()
 }

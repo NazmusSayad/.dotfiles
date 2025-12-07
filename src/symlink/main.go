@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"time"
 )
 
 type SymlinkConfig struct {
@@ -18,44 +17,45 @@ func generateSymlink(source string, target string) {
 	fmt.Printf("Symlinking: %s -> %s\n", source, target)
 
 	if _, err := os.Stat(source); os.IsNotExist(err) {
-		fmt.Println("UNEXPECTED: Source not found:", source)
+		println("UNEXPECTED: Source not found:", source)
 		return
 	}
 
 	if _, err := os.Stat(target); !os.IsNotExist(err) {
-		fmt.Println("EXPECTED: Target found, deleting:", target)
+		println("EXPECTED: Target found, deleting:", target)
 
 		removeErr := os.RemoveAll(target)
 		if removeErr != nil {
-			fmt.Println("UNEXPECTED: Error deleting target:", target)
+			println("UNEXPECTED: Error deleting target:", target)
 			return
 		}
 	}
 
 	targetDir := filepath.Dir(target)
 	if _, err := os.Stat(targetDir); os.IsNotExist(err) {
-		fmt.Println("EXPECTED: Target directory not found, creating:", targetDir)
+		println("EXPECTED: Target directory not found, creating:", targetDir)
 
 		mkdirErr := os.MkdirAll(targetDir, 0755)
 		if mkdirErr != nil {
-			fmt.Println("UNEXPECTED: Error creating target directory:", targetDir)
+			println("UNEXPECTED: Error creating target directory:", targetDir)
 			return
 		}
 	}
 
 	err := os.Symlink(source, target)
 	if err != nil {
-		fmt.Println("UNEXPECTED: Error creating symlink", err)
+		println("UNEXPECTED: Error creating symlink", err)
 		return
 	}
 
-	fmt.Println(source, "->", target)
+	println(source, "->", target)
 }
 
-func parseSymlinkConfig(path string) []SymlinkConfig {
-	jsonBytes, err := helpers.ReadJsoncAsJson(path)
+func parseSymlinkConfig() []SymlinkConfig {
+	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("./config/symlink.jsonc")
+
 	if err != nil {
-		fmt.Println("Error reading JSON file...")
+		println("Error reading JSON file...")
 		return []SymlinkConfig{}
 	}
 
@@ -70,12 +70,9 @@ func parseSymlinkConfig(path string) []SymlinkConfig {
 func main() {
 	helpers.EnsureAdminExecution()
 
-	symlinkConfigPath := helpers.ResolvePath("./config/symlink.jsonc")
-	symlinkConfigs := parseSymlinkConfig(symlinkConfigPath)
-
+	symlinkConfigs := parseSymlinkConfig()
 	if len(symlinkConfigs) == 0 {
-		fmt.Println("No symlink configurations found.")
-		time.Sleep(2000)
+		println("No symlink configurations found.")
 		os.Exit(1)
 	}
 
@@ -83,7 +80,7 @@ func main() {
 		sourcePath := helpers.ResolvePath(config.Source)
 		targetPath := helpers.ResolvePath(config.Target)
 
-		fmt.Println("")
+		println("")
 		generateSymlink(sourcePath, targetPath)
 	}
 
