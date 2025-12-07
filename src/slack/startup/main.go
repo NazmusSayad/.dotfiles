@@ -23,5 +23,5 @@ func main() {
 	}
 
 	status := strings.TrimSpace(string(data))
-	slack_helpers.SlackLaunch(status)
+	slack_helpers.SlackLaunch(slack_helpers.SlackStatus(status))
 }

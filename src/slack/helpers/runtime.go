@@ -4,8 +4,16 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
+
+	helpers "dotfiles/src"
 )
+
+func IsSlackRunning() bool {
+	err := exec.Command("powershell", "-NoProfile", "-Command", "Get-Process -Name 'slack' -ErrorAction SilentlyContinue").Run()
+	return err == nil
+}
 
 func GetSlackRuntimePath() (string, error) {
 	slackPath := filepath.Join(os.Getenv("LOCALAPPDATA"), "slack")
@@ -25,7 +33,33 @@ func GetSlackRuntimePath() (string, error) {
 	return runtimePath, nil
 }
 
-func IsSlackRunning() bool {
-	err := exec.Command("powershell", "-NoProfile", "-Command", "Get-Process -Name 'slack' -ErrorAction SilentlyContinue").Run()
-	return err == nil
+func SlackApplicationStart() {
+	if IsSlackRunning() {
+		return
+	}
+
+	runtimePath, err := GetSlackRuntimePath()
+	if err != nil {
+		println("Error: Failed to get application runtime path")
+		return
+	}
+
+	err = helpers.DetachedExec(runtimePath, "--startup")
+	if err != nil {
+		println("Error: Failed to start Slack")
+	}
+}
+
+func SlackApplicationStop() {
+	if !IsSlackRunning() {
+		return
+	}
+
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("taskkill", "/IM", "slack.exe", "/F", "/T")
+		cmd.Run()
+	} else {
+		cmd := exec.Command("pkill", "slack")
+		cmd.Run()
+	}
 }
