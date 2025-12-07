@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"bufio"
+	"encoding/csv"
 	"fmt"
 	"math"
 	"os"
@@ -57,7 +58,48 @@ func EnsureAdminExecution() {
 	}
 }
 
+func GetParentProcessName() (string, error) {
+	ppid := os.Getppid()
+	cmd := exec.Command(
+		"cmd", "/C",
+		"tasklist",
+		"/FI", fmt.Sprintf("PID eq %d", ppid),
+		"/FO", "CSV",
+		"/NH",
+	)
+	out, err := cmd.Output()
+	if err != nil {
+		return "", err
+	}
+
+	line := strings.TrimSpace(string(out))
+	if line == "" || strings.HasPrefix(line, "INFO:") {
+		return "", fmt.Errorf("no result")
+	}
+
+	r := csv.NewReader(strings.NewReader(line))
+	rec, err := r.Read()
+	if err != nil || len(rec) == 0 {
+		return "", fmt.Errorf("parse error")
+	}
+
+	return rec[0], nil
+}
+
+func IsEmbeddedInTerminal() bool {
+	parentProcessName, err := GetParentProcessName()
+	if err != nil || parentProcessName == "" || parentProcessName == "explorer.exe" {
+		return false
+	}
+
+	return true
+}
+
 func PressAnyKeyOrWaitToExit() {
+	if IsEmbeddedInTerminal() {
+		os.Exit(0)
+	}
+
 	const totalSeconds = 5
 	fmt.Printf("Press any key to exit, or wait %d seconds...", totalSeconds)
 	done := make(chan struct{}, 1)
