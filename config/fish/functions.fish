@@ -113,7 +113,41 @@ function gpr
     git pull origin $target_branch --progress --rebase
 end
 
-# Git Reset
+# Git Branch Cleanup
+function gclean
+    set current (git branch --show-current)
+    set branches (git branch --format="%(refname:short)" | grep -v $current)
+
+    if test (count $branches) -gt 0
+        echo -n "Branches to delete: "
+
+        set_color --bold red
+        echo (string join ', ' $branches)
+        set_color normal
+
+        set_color normal
+        set_color --dim
+        echo -n "Press [Enter] to confirm, or any other key to cancel: "
+        set_color normal
+
+        read -n 1 -P "" --function confirm
+
+        if test $status -eq 0 -a -z "$confirm"
+            set_color --dim red
+            git prune --progress
+            git branch -D $branches
+        else
+            set_color green
+            echo "Cancelled branch deletion"
+        end
+
+        set_color normal
+    else
+        echo "No other branches to delete"
+    end
+end
+
+# Git Repository Reset
 function greset
     set_color red
     echo "This will reset the entire repository to the latest remote branch."
@@ -177,40 +211,6 @@ function greset
     git commit -m "Initial commit"
     git push --force --set-upstream origin $current_branch
 
-end
-
-# Git Branch Cleanup
-function gbclean
-    set current (git branch --show-current)
-    set branches (git branch --format="%(refname:short)" | grep -v $current)
-
-    if test (count $branches) -gt 0
-        echo -n "Branches to delete: "
-
-        set_color --bold red
-        echo (string join ', ' $branches)
-        set_color normal
-
-        set_color normal
-        set_color --dim
-        echo -n "Press [Enter] to confirm, or any other key to cancel: "
-        set_color normal
-
-        read -n 1 -P "" --function confirm
-
-        if test $status -eq 0 -a -z "$confirm"
-            set_color --dim red
-            git prune --progress
-            git branch -D $branches
-        else
-            set_color green
-            echo "Cancelled branch deletion"
-        end
-
-        set_color normal
-    else
-        echo "No other branches to delete"
-    end
 end
 
 # GPG Unlock
