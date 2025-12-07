@@ -1,6 +1,9 @@
 package slack_helpers
 
-import "os/exec"
+import (
+	"os/exec"
+	"runtime"
+)
 
 func SlackApplicationStop() {
 	if !IsSlackRunning() {
@@ -9,5 +12,11 @@ func SlackApplicationStop() {
 	}
 
 	println("Slack Stop")
-	exec.Command("powershell", "-NoProfile", "-Command", "Stop-Process -Name 'slack' -Force").Run()
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("taskkill", "/IM", "slack.exe", "/F", "/T")
+		cmd.Run()
+	} else {
+		cmd := exec.Command("pkill", "slack")
+		cmd.Run()
+	}
 }
