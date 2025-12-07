@@ -124,9 +124,5 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 15.300000190734863,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark Pro"
-  }
+  "theme": "One Dark Pro"
 }

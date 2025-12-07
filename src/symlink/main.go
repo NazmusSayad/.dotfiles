@@ -51,9 +51,8 @@ func generateSymlink(source string, target string) {
 	fmt.Println(source, "->", target)
 }
 
-func parseSymlinkConfig(cwd string, path string) []SymlinkConfig {
-	fullPath := filepath.Join(cwd, path)
-	jsonBytes, err := helpers.ReadJsoncAsJson(fullPath)
+func parseSymlinkConfig(path string) []SymlinkConfig {
+	jsonBytes, err := helpers.ReadJsoncAsJson(path)
 	if err != nil {
 		fmt.Println("Error reading JSON file...")
 		return []SymlinkConfig{}
@@ -70,17 +69,12 @@ func parseSymlinkConfig(cwd string, path string) []SymlinkConfig {
 func main() {
 	helpers.EnsureAdminExecution()
 
-	cwd, cwdErr := os.Getwd()
-	if cwdErr != nil {
-		os.Exit(1)
-	}
-
-	fmt.Printf("CWD: %s\n", cwd)
-	symlinkConfigs := parseSymlinkConfig(cwd, "./config/symlink.jsonc")
+	symlinkConfigPath := helpers.ResolvePath("./config/symlink.jsonc")
+	symlinkConfigs := parseSymlinkConfig(symlinkConfigPath)
 
 	for _, config := range symlinkConfigs {
-		sourcePath := helpers.ResolvePath(cwd, config.Source)
-		targetPath := helpers.ResolvePath(cwd, config.Target)
+		sourcePath := helpers.ResolvePath(config.Source)
+		targetPath := helpers.ResolvePath(config.Target)
 
 		fmt.Println("")
 		generateSymlink(sourcePath, targetPath)

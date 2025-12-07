@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"path/filepath"
 )
 
 type LaunchConfig struct {
@@ -17,16 +16,8 @@ type LaunchConfig struct {
 }
 
 func main() {
-	exePath, exePathErr := os.Executable()
-	if exePathErr != nil {
-		fmt.Println("Error getting executable path...")
-		os.Exit(1)
-	}
-
-	cwd := filepath.Dir(exePath)
-	fmt.Printf("CWD: %s\n", cwd)
-	fullPath := filepath.Join(cwd, "./config/launch.jsonc")
-	data, err := helpers.ReadJsoncAsJson(fullPath)
+	launchConfigPath := helpers.ResolvePath("./config/launch.jsonc")
+	data, err := helpers.ReadJsoncAsJson(launchConfigPath)
 	if err != nil {
 		fmt.Println("Error reading JSON file...")
 		os.Exit(1)
@@ -44,7 +35,7 @@ func main() {
 			continue
 		}
 
-		resolvedCommand := helpers.ResolvePath(cwd, config.Path)
+		resolvedCommand := helpers.ResolvePath(config.Path)
 		fmt.Println("Starting: (", config.Admin, ")", config.Name, resolvedCommand)
 
 		if config.Admin {

@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	packages := winget.GetWingetPackages("./config/winget-apps.jsonc")
+	wingetPackagesPath := helpers.ResolvePath("./config/winget-apps.jsonc")
+	packages := winget.GetWingetPackages(wingetPackagesPath)
 
 	var packageIDs []string
 	upgradeablePackages := winget.GetUpgradeablePackages()
