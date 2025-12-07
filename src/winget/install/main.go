@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	packages := winget.GetWingetPackages("./config/winget-apps.jsonc")
+	wingetPackagesPath := helpers.ResolvePath("./config/winget-apps.jsonc")
+	packages := winget.GetWingetPackages(wingetPackagesPath)
 	fmt.Println("Installing packages, total:", len(packages))
 
 	for _, p := range packages {

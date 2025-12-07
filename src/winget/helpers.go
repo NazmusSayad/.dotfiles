@@ -3,10 +3,7 @@ package winget
 import (
 	helpers "dotfiles/src"
 	"encoding/json"
-	"fmt"
-	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 )
 
@@ -29,15 +26,7 @@ type WingetUpgradeablePackage struct {
 }
 
 func GetWingetPackages(path string) []WingetPackage {
-	cwd, cwdErr := os.Getwd()
-	if cwdErr != nil {
-		os.Exit(1)
-	}
-
-	fmt.Printf("CWD: %s\n", cwd)
-
-	fullPath := filepath.Join(cwd, path)
-	jsonBytes, err := helpers.ReadJsoncAsJson(fullPath)
+	jsonBytes, err := helpers.ReadJsoncAsJson(path)
 	if err != nil {
 		return []WingetPackage{}
 	}

@@ -111,12 +111,21 @@ func EnsureAdminExecution() {
 	}
 }
 
-func ResolvePath(cwd string, raw string) string {
-	if strings.HasPrefix(raw, ".") {
-		raw = filepath.Join(cwd, raw)
+func ResolvePath(input string) string {
+	if strings.HasPrefix(input, ".") {
+		dotfilesPath := os.ExpandEnv("$HOME/.dotfiles")
+
+		if _, err := os.Stat(dotfilesPath); err == nil {
+			input = filepath.Join(dotfilesPath, input)
+		} else {
+			cwd, err := os.Getwd()
+			if err == nil {
+				input = filepath.Join(cwd, input)
+			}
+		}
 	}
 
-	expanded := os.ExpandEnv(raw)
+	expanded := os.ExpandEnv(input)
 	return strings.TrimSpace(expanded)
 }
 
