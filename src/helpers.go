@@ -86,6 +86,7 @@ func EnsureAdminExecution() {
 	psCmd := `if (-not([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }`
 	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", psCmd)
 	if err := cmd.Run(); err == nil {
+		fmt.Println("Admin execution not required.")
 		return
 	}
 
@@ -97,16 +98,21 @@ func EnsureAdminExecution() {
 		exePath, e := os.Executable()
 		if e != nil {
 			_, _ = reader.ReadString('\n')
+
+			println("Failed to get executable path.")
+			time.Sleep(2000)
 			os.Exit(1)
 		}
 
 		cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exePath+"' -Verb RunAs")
 		if err := cmd.Run(); err != nil {
-			fmt.Fprintln(os.Stderr, "Failed to relaunch with elevated privileges. Press Enter to exit...")
-			_, _ = reader.ReadString('\n')
+			fmt.Println("Failed to relaunch with elevated privileges.")
+			fmt.Println("Press Enter to exit...")
+			time.Sleep(2000)
 			os.Exit(1)
 		}
 
+		fmt.Println("Relaunched with elevated privileges.")
 		os.Exit(0)
 	}
 }
@@ -118,15 +124,14 @@ func ResolvePath(input string) string {
 		if _, err := os.Stat(dotfilesPath); err == nil {
 			input = filepath.Join(dotfilesPath, input)
 		} else {
-			cwd, err := os.Getwd()
-			if err == nil {
-				input = filepath.Join(cwd, input)
-			}
+			fmt.Println("Error: .dotfiles directory not found.")
+			fmt.Println("Please run __install-dotfiles.cmd to install the dotfiles.")
+			time.Sleep(2000)
+			os.Exit(1)
 		}
 	}
 
-	expanded := os.ExpandEnv(input)
-	return strings.TrimSpace(expanded)
+	return os.ExpandEnv(input)
 }
 
 func PressAnyKeyOrWaitToExit() {

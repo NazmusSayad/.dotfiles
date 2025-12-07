@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Clean Code Snippets",
+    "path": "./bin/clean-code-snippets.exe"
+  },
+  {
+    "name": "Winget Install",
+    "path": "./bin/winget-install.exe"
+  },
+  {
+    "name": "Winget Upgrade",
+    "path": "./bin/winget-upgrade.exe"
+  },
+  {
+    "name": "Slack Status",
+    "path": "./bin/slack-status.exe"
+  },
+  {
+    "name": "Symlink Configure",
+    "path": "./bin/symlink-config.exe"
+  }
+]

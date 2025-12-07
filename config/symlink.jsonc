@@ -1,10 +1,6 @@
 [
   // Shell Configs
   {
-    "source": ".",
-    "target": "$USERPROFILE/.dotfiles"
-  },
-  {
     "source": "./config/fish/config.fish",
     "target": "$USERPROFILE/.config/fish/config.fish"
   },

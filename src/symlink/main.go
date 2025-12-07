@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 type SymlinkConfig struct {
@@ -71,6 +72,12 @@ func main() {
 
 	symlinkConfigPath := helpers.ResolvePath("./config/symlink.jsonc")
 	symlinkConfigs := parseSymlinkConfig(symlinkConfigPath)
+
+	if len(symlinkConfigs) == 0 {
+		fmt.Println("No symlink configurations found.")
+		time.Sleep(2000)
+		os.Exit(1)
+	}
 
 	for _, config := range symlinkConfigs {
 		sourcePath := helpers.ResolvePath(config.Source)
