@@ -6,6 +6,14 @@ import (
 
 var bangladeshTZ = time.FixedZone("GMT+6", 6*60*60)
 
+type SlackStatus string
+
+const (
+	SlackStatusAlways   SlackStatus = "always"
+	SlackStatusWorkTime SlackStatus = "work-hours"
+	SlackStatusDisabled SlackStatus = "disabled"
+)
+
 func isWorkTime() bool {
 	now := time.Now().In(bangladeshTZ)
 	weekday := now.Weekday()
@@ -18,24 +26,22 @@ func isWorkTime() bool {
 	return hour >= 6 && hour < 20
 }
 
-func SlackLaunch(status string) {
+func SlackLaunch(status SlackStatus) {
 	switch status {
-	case "always":
+	case SlackStatusAlways:
+		println("> Starting Slack...")
 		SlackApplicationStart()
 
-	case "never":
+	case SlackStatusDisabled:
+		println("> Stopping Slack...")
 		SlackApplicationStop()
 
-	case "work-hours":
-		now := time.Now().In(bangladeshTZ)
-		println("Current time (BD):", now.Format("2006-01-02 15:04:05 Mon"))
-		println("Work hours: 6AM-8PM, Off: Fri/Sat")
-
+	case SlackStatusWorkTime:
 		if isWorkTime() {
-			println("Starting Slack...")
+			println("> Currently in work time, starting Slack...")
 			SlackApplicationStart()
 		} else {
-			println("Stopping Slack...")
+			println("> Currently not in work time, stopping Slack...")
 			SlackApplicationStop()
 		}
 	}
