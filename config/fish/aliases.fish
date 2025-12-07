@@ -1,13 +1,11 @@
 # GitHub CLI
-alias c="gh repo clone"
 alias gv="gh repo view"
 alias gw="gh repo view --web"
 
 # Git
 alias gs="git status"
-alias gb="git branch"
 alias gc="git checkout"
-alias gcb="git checkout -b"
+alias gb="git checkout -b"
 
 # Helpers
 alias wg="winget"
