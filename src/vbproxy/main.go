@@ -29,13 +29,13 @@ func main() {
 
 	fmt.Printf("Resolved executable: %s (mode: %s)\n", absPath, mode)
 
-	literal := strings.ReplaceAll(absPath, `"`, `""`)
+	program := strings.ReplaceAll(absPath, `"`, `""`)
 
 	var vbscript string
 	if mode == "admin" {
-		vbscript = formatProgramForVBSAsAdmin(literal)
+		vbscript = formatProgramForVBSAsAdmin(program)
 	} else {
-		vbscript = formatProgramForVBS([]string{literal})
+		vbscript = formatProgramForVBS(program, os.Args[3:])
 	}
 
 	println(vbscript)
@@ -59,15 +59,10 @@ func main() {
 	cmd.Run()
 }
 
-func formatProgramForVBS(program []string) string {
-	if len(program) == 0 {
-		return ""
-	}
-	exe := program[0]
-	rest := program[1:]
-	literal := fmt.Sprintf(`"""%s"""`, exe)
-	if len(rest) > 0 {
-		literal = fmt.Sprintf(`"""%s"" %s"`, exe, strings.Join(rest, ","))
+func formatProgramForVBS(program string, programArgs []string) string {
+	literal := fmt.Sprintf(`"""%s"""`, program)
+	if len(programArgs) > 0 {
+		literal = fmt.Sprintf(`"""%s"" %s"`, program, strings.Join(programArgs, ","))
 	}
 	lines := []string{
 		"Set WshShell = CreateObject(\"WScript.Shell\")",
@@ -77,6 +72,7 @@ func formatProgramForVBS(program []string) string {
 	return strings.Join(lines, "\n")
 }
 
+// TODO: Add support for program arguments
 func formatProgramForVBSAsAdmin(program string) string {
 	lines := []string{
 		"Set UAC = CreateObject(\"Shell.Application\")",
