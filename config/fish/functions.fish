@@ -1,3 +1,31 @@
+# Git Clone
+function c
+    set repo_path $argv[1]
+
+    if string match -q -r '^[^/]+(\/[^/]+)?$' "$repo_path"
+        set_color --dim
+        echo "Using GitHub CLI to resolve URL..."
+
+        set url (gh repo view $repo_path --json url -q .url)
+        set exit_code $status
+
+        if test $exit_code -eq 0 -a -n "$url"
+            echo "GitHub URL: $url"
+
+            set_color normal
+            git clone $url $argv[2..-1]
+        else
+            set_color red
+            echo "Failed to resolve GitHub URL, trying to clone directly..."
+
+            set_color normal
+            git clone $argv
+        end
+    else
+        git clone $argv
+    end
+end
+
 # Git Branch Cleanup
 function gbc
     set current (git branch --show-current)
