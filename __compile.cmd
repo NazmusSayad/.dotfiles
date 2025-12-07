@@ -1,8 +1,7 @@
 @echo off
 
-echo.
 echo ^> Deleting old compiled files...
-del .\bin\*.exe 2>nul
+del .\bin /s /q
 
 echo.
 echo ^> Compiling startup...
@@ -44,6 +43,10 @@ call go build -o ".\bin\slack-status.exe" .\src\slack\status\main.go
 echo.
 echo ^> Compiling slack-startup...
 call go build -o ".\bin\slack-startup.exe" .\src\slack\startup\main.go
+
+echo.
+echo ^> Compiling ahk scripts...
+call .\bin\ahk-compile.exe
 
 echo.
 pause

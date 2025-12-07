@@ -7,7 +7,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
-	"time"
 
 	helpers "dotfiles/src"
 )
@@ -31,37 +30,32 @@ func execPsCommand(command string) (string, error) {
 func main() {
 	helpers.EnsureAdminExecution()
 
-	configPath := helpers.ResolvePath("./config/start-menu-apps.jsonc")
-	data, err := helpers.ReadJsoncAsJson(configPath)
+	data, err := helpers.ReadDotfilesConfigJSONC("./config/start-menu-apps.jsonc")
 	if err != nil {
-		fmt.Printf("Failed to read config: %v\n", err)
-		time.Sleep(2000)
+		println("Failed to read config: %v\n", err)
 		os.Exit(1)
 	}
 
 	var apps []AppConfig
 	if err := json.Unmarshal(data, &apps); err != nil {
-		fmt.Printf("Failed to parse config: %v\n", err)
-		time.Sleep(2000)
+		println("Failed to parse config: %v\n", err)
 		os.Exit(1)
 	}
 
 	dest := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
 
 	if err := os.RemoveAll(dest); err != nil && !os.IsNotExist(err) {
-		fmt.Printf("Failed to remove existing directory: %v\n", err)
-		time.Sleep(2000)
+		println("Failed to remove existing directory: %v\n", err)
 		os.Exit(1)
 	}
 
 	if err := os.MkdirAll(dest, 0755); err != nil {
-		fmt.Printf("Failed to create directory: %v\n", err)
-		time.Sleep(2000)
+		println("Failed to create directory: %v\n", err)
 		os.Exit(1)
 	}
 
 	for _, app := range apps {
-		fmt.Printf("Creating shortcut: %s.lnk -> %s\n", app.Name, app.Path)
+		println("Creating shortcut: %s.lnk -> %s\n", app.Name, app.Path)
 
 		shortcutPath := filepath.Join(dest, app.Name+".lnk")
 		targetPath := helpers.ResolvePath(app.Path)
@@ -72,9 +66,9 @@ func main() {
 
 		_, err := execPsCommand(psCmd)
 		if err != nil {
-			fmt.Printf("FAIL: %s.lnk\n", app.Name)
+			println("FAIL: %s.lnk\n", app.Name)
 		} else {
-			fmt.Printf("OK: %s.lnk\n", app.Name)
+			println("OK: %s.lnk\n", app.Name)
 		}
 	}
 

@@ -3,25 +3,14 @@ package helpers
 import (
 	"bufio"
 	"fmt"
-	"io"
 	"math"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"runtime"
 	"strings"
 	"syscall"
 	"time"
 	"unsafe"
-
-	"github.com/tidwall/jsonc"
-)
-
-type Scope string
-
-const (
-	ScopeUser    Scope = "User"
-	ScopeMachine Scope = "Machine"
 )
 
 func execPsCommand(command string) (string, error) {
@@ -35,58 +24,11 @@ func execPsCommand(command string) (string, error) {
 	return strings.TrimSpace(string(output)), nil
 }
 
-func ReadEnv(scope Scope, name string) (string, error) {
-	return execPsCommand(
-		fmt.Sprintf(`[System.Environment]::GetEnvironmentVariable("%s", [System.EnvironmentVariableTarget]::%s)`, name, scope),
-	)
-}
-
-func WriteEnv(scope Scope, name, value string) (string, error) {
-	return execPsCommand(
-		fmt.Sprintf(`[System.Environment]::SetEnvironmentVariable("%s", "%s", [System.EnvironmentVariableTarget]::%s)`, name, value, scope),
-	)
-}
-
-func AddToEnvPath(scope Scope, paths ...string) (string, error) {
-	existingPath, err := ReadEnv(scope, "PATH")
-	if err != nil {
-		return "", err
-	}
-
-	existingPathArray := strings.Split(existingPath, ";")
-	var filteredPaths []string
-	for _, p := range existingPathArray {
-		if p != "" {
-			filteredPaths = append(filteredPaths, p)
-		}
-	}
-
-	pathSet := make(map[string]bool)
-	var uniquePaths []string
-
-	for _, p := range filteredPaths {
-		if !pathSet[p] {
-			pathSet[p] = true
-			uniquePaths = append(uniquePaths, p)
-		}
-	}
-
-	for _, p := range paths {
-		if !pathSet[p] {
-			pathSet[p] = true
-			uniquePaths = append(uniquePaths, p)
-		}
-	}
-
-	newPath := strings.Join(uniquePaths, ";")
-	return WriteEnv(scope, "PATH", newPath)
-}
-
 func EnsureAdminExecution() {
 	psCmd := `if (-not([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }`
 	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", psCmd)
 	if err := cmd.Run(); err == nil {
-		fmt.Println("Admin execution not required.")
+		println("Admin execution not required.")
 		return
 	}
 
@@ -100,38 +42,19 @@ func EnsureAdminExecution() {
 			_, _ = reader.ReadString('\n')
 
 			println("Failed to get executable path.")
-			time.Sleep(2000)
 			os.Exit(1)
 		}
 
 		cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exePath+"' -Verb RunAs")
 		if err := cmd.Run(); err != nil {
-			fmt.Println("Failed to relaunch with elevated privileges.")
-			fmt.Println("Press Enter to exit...")
-			time.Sleep(2000)
+			println("Failed to relaunch with elevated privileges.")
+			println("Press Enter to exit...")
 			os.Exit(1)
 		}
 
-		fmt.Println("Relaunched with elevated privileges.")
+		println("Relaunched with elevated privileges.")
 		os.Exit(0)
 	}
-}
-
-func ResolvePath(input string) string {
-	if strings.HasPrefix(input, ".") {
-		dotfilesPath := os.ExpandEnv("$HOME/.dotfiles")
-
-		if _, err := os.Stat(dotfilesPath); err == nil {
-			input = filepath.Join(dotfilesPath, input)
-		} else {
-			fmt.Println("Error: .dotfiles directory not found.")
-			fmt.Println("Please run __install-dotfiles.cmd to install the dotfiles.")
-			time.Sleep(2000)
-			os.Exit(1)
-		}
-	}
-
-	return os.ExpandEnv(input)
 }
 
 func PressAnyKeyOrWaitToExit() {
@@ -184,7 +107,7 @@ func PressAnyKeyOrWaitToExit() {
 				setConsoleMode := kernel32.NewProc("SetConsoleMode")
 				_, _, _ = setConsoleMode.Call(h, uintptr(orig))
 			}
-			fmt.Println()
+			println()
 			os.Exit(0)
 		case <-ticker.C:
 			remaining := int(math.Ceil(time.Until(deadline).Seconds()))
@@ -194,29 +117,10 @@ func PressAnyKeyOrWaitToExit() {
 					setConsoleMode := kernel32.NewProc("SetConsoleMode")
 					_, _, _ = setConsoleMode.Call(h, uintptr(orig))
 				}
-				fmt.Println()
+				println()
 				os.Exit(0)
 			}
 			fmt.Printf("\rPress any key to exit, or wait %d seconds...", remaining)
 		}
 	}
-}
-
-func ReadJsoncAsJson(path string) ([]byte, error) {
-	fmt.Println("JSON:", path)
-
-	f, err := os.Open(path)
-	if err != nil {
-		fmt.Println("JSON: failed to open file")
-		return nil, err
-	}
-	defer f.Close()
-
-	data, err := io.ReadAll(f)
-	if err != nil {
-		fmt.Println("JSON: failed to read file")
-		return nil, err
-	}
-
-	return jsonc.ToJSON(data), nil
 }
