@@ -40,10 +40,6 @@ echo ^> Compiling slack-startup...
 call go build -o ".\bin\slack-startup.exe" .\src\slack\startup\main.go
 
 echo.
-echo ^> Compiling install...
-call go build -o ".\__install-dotfiles.exe" .\src\install\main.go
-
-echo.
 echo ^> Compiling ahk scripts...
 call .\bin\ahk-compile.exe
 
