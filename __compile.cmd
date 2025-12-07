@@ -8,6 +8,10 @@ echo ^> Compiling windows startup...
 call go build -o ".\build\windows-startup.exe" .\src\startup\main.go
 
 echo.
+echo ^> Compiling vbproxy...
+call go build -o ".\build\vbproxy.exe" .\src\vbproxy\main.go
+
+echo.
 echo ^> Compiling ahk compiler...
 call go build -o ".\build\ahk-compile.exe" .\src\ahk\main.go
 
