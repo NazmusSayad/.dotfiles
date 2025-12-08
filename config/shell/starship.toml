@@ -1,4 +1,5 @@
 add_newline = false
+follow_symlinks = false
 
 format = "$username$hostname$directory$git_branch$git_state$git_status$line_break$shell"
 
