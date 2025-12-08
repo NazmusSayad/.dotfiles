@@ -58,8 +58,7 @@
   },
   {
     "ID": "RamenSoftware.Windhawk",
-    "Name": "Windhawk",
-    "SkipUpgrade": true
+    "Name": "Windhawk"
   },
   {
     "ID": "Obsidian.Obsidian",
