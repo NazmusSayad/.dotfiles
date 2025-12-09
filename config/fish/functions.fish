@@ -28,7 +28,29 @@ end
 
 # Git Checkout
 function gc
-    git checkout -b $argv
+    set branch $argv[1]
+
+    if test -z "$branch"
+        set_color red
+        echo "❌ Branch name required"
+        set_color normal
+        return 1
+    end
+
+    if string match -q -- '-*' "$branch"
+        set_color red
+        echo "❌ Invalid branch name: $branch"
+        set_color normal
+        return 1
+    end
+
+    set remote (git remote | head -n1)
+
+    if git rev-parse --verify --quiet "refs/heads/$branch" >/dev/null || git rev-parse --verify --quiet "refs/remotes/$remote/$branch" >/dev/null
+        git checkout $argv
+    else
+        git checkout -b $argv
+    end
 end
 
 # Git Restore
