@@ -2,11 +2,6 @@
 alias gv="gh repo view"
 alias gw="gh repo view --web"
 
-# Git
-alias gs="git status"
-alias gc="git checkout"
-alias gb="git checkout -b"
-
 # Helpers
 alias wg="winget"
 alias dc="docker compose"

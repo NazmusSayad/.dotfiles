@@ -6,7 +6,7 @@ end
 
 function fish_greeting
     if not set -q TERM_PROGRAM
-        fastfetch
+        # fastfetch
     end
 end
 

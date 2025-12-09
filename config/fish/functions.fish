@@ -26,6 +26,11 @@ function c
     end
 end
 
+# Git Checkout
+function gc
+    git checkout -b $argv
+end
+
 # Git Restore
 function gr
     set_color red
