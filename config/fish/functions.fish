@@ -47,9 +47,13 @@ function gc
     set remote (git remote | head -n1)
 
     if git rev-parse --verify --quiet "refs/heads/$branch" >/dev/null || git rev-parse --verify --quiet "refs/remotes/$remote/$branch" >/dev/null
+        set_color green
         git checkout $argv
+        set_color normal
     else
+        set_color yellow
         git checkout -b $argv
+        set_color normal
     end
 end
 
