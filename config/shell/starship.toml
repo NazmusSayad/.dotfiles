@@ -8,7 +8,6 @@ disabled = false
 format = "[$indicator  ](dimmed white)"
 fish_indicator = ''
 bash_indicator = ''
-zsh_indicator = ''
 
 [directory]
 style = "blue"
