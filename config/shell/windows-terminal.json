@@ -51,10 +51,6 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "id": null,
             "keys": "ctrl+numpad_minus"
         },
         {
@@ -64,6 +60,10 @@
         {
             "id": null,
             "keys": "alt+right"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+w"
         },
         {
             "id": null,
@@ -82,12 +82,12 @@
             "keys": "ctrl+n"
         },
         {
-            "id": null,
-            "keys": "ctrl+alt+left"
-        },
-        {
             "id": "Terminal.ClosePane",
             "keys": "ctrl+w"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+left"
         },
         {
             "id": null,
@@ -95,19 +95,11 @@
         },
         {
             "id": null,
-            "keys": "alt+space"
-        },
-        {
-            "id": null,
             "keys": "alt+shift+plus"
         },
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": null,
-            "keys": "ctrl+comma"
+            "keys": "alt+space"
         },
         {
             "id": null,
@@ -115,11 +107,19 @@
         },
         {
             "id": null,
+            "keys": "ctrl+comma"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": null,
             "keys": "ctrl+numpad_plus"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+4"
+            "keys": "alt+down"
         },
         {
             "id": null,
@@ -127,7 +127,7 @@
         },
         {
             "id": null,
-            "keys": "alt+down"
+            "keys": "ctrl+shift+4"
         },
         {
             "id": null,
@@ -147,7 +147,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+comma"
+            "keys": "ctrl+shift+2"
         },
         {
             "id": null,
@@ -155,7 +155,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+2"
+            "keys": "ctrl+shift+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+3"
         },
         {
             "id": "Terminal.SelectAll",
@@ -163,7 +167,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+3"
+            "keys": "ctrl+shift+6"
         },
         {
             "id": null,
@@ -171,15 +175,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+6"
+            "keys": "ctrl+shift+7"
         },
         {
             "id": null,
             "keys": "ctrl+shift+home"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+7"
         },
         {
             "id": null,
@@ -199,11 +199,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+numpad0"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+pgup"
+            "keys": "ctrl+shift+period"
         },
         {
             "id": null,
@@ -211,7 +207,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+period"
+            "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad0"
         },
         {
             "id": null,
@@ -219,19 +219,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+9"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+4"
+            "keys": "ctrl+alt+2"
         },
         {
             "id": null,
             "keys": "ctrl+alt+7"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+4"
         },
         {
             "id": null,
@@ -243,11 +243,11 @@
         },
         {
             "id": null,
-            "keys": "alt+shift+left"
+            "keys": "ctrl+alt+1"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+1"
+            "keys": "alt+shift+left"
         },
         {
             "id": null,
@@ -255,11 +255,11 @@
         },
         {
             "id": null,
-            "keys": "alt+shift+right"
+            "keys": "ctrl+alt+5"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+5"
+            "keys": "alt+shift+right"
         },
         {
             "id": null,
@@ -355,6 +355,18 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{44997a8a-641d-53f2-8d7d-54d2ccfedfc8}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{7b8fad5f-20a4-50c5-820a-839ee97ea914}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
