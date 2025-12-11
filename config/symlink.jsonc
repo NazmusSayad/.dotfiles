@@ -1,15 +1,15 @@
 [
   // Shell Configs
   {
-    "source": "./config/fish/config.fish",
+    "source": "./config/shell/fish/config.fish",
     "target": "$USERPROFILE/.config/fish/config.fish"
   },
   {
-    "source": "./config/bash/config.sh",
+    "source": "./config/shell/bash/config.sh",
     "target": "$USERPROFILE/.bashrc"
   },
   {
-    "source": "./config/zsh/config.sh",
+    "source": "./config/shell/zsh/config.sh",
     "target": "$USERPROFILE/.zshrc"
   },
 
