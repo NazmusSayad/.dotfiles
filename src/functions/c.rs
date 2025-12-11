@@ -29,7 +29,7 @@ fn main() {
           let url = String::from_utf8_lossy(&output.stdout).trim().to_string();
 
           if !url.is_empty() {
-            println!("GitHub URL: {}", url);
+            println!("{}GitHub URL: {}{}", DIM, url, NORMAL);
 
             let mut cmd = Command::new("git");
             cmd.arg("clone").arg(url);
