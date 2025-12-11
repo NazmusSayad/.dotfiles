@@ -78,7 +78,7 @@ func main() {
 		binDir := filepath.Dir(binPath)
 		extPath := filepath.Clean(binDir + editor.ExtensionsPath)
 
-		if _, err := os.Stat(extPath); os.IsNotExist(err) {
+		if !helpers.IsFileExists(extPath) {
 			println("Extensions path not found for ", editor.Name)
 			println("Path: ", binDir)
 			println("Ext: ", editor.ExtensionsPath)

@@ -50,3 +50,13 @@ func ReadDotfilesConfigJSONC(path string) ([]byte, error) {
 
 	return jsonc.ToJSON(data), nil
 }
+
+func IsFileExists(path string) bool {
+	fi, err := os.Lstat(path)
+	if err != nil {
+		return false
+	}
+
+	_ = fi
+	return true
+}

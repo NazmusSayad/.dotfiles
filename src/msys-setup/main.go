@@ -36,7 +36,7 @@ func main() {
 	reIni := regexp.MustCompile(`(?m)^#MSYS2_PATH_TYPE=inherit`)
 	for _, ini := range MSYS_INIS {
 		iniPath := filepath.Join(MSYS_PATH, ini)
-		if _, err := os.Stat(iniPath); os.IsNotExist(err) {
+		if !helpers.IsFileExists(iniPath) {
 			println("File not found: %s\n", iniPath)
 			continue
 		}
