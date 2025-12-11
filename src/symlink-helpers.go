@@ -14,12 +14,12 @@ type SymlinkConfig struct {
 func GenerateSymlink(source string, target string) {
 	fmt.Printf("Symlinking: %s -> %s\n", source, target)
 
-	if _, err := os.Stat(source); os.IsNotExist(err) {
+	if !IsFileExists(source) {
 		println("UNEXPECTED: Source not found:", source)
 		return
 	}
 
-	if _, err := os.Stat(target); !os.IsNotExist(err) {
+	if IsFileExists(target) {
 		println("EXPECTED: Target found, deleting:", target)
 
 		removeErr := os.RemoveAll(target)
@@ -30,7 +30,7 @@ func GenerateSymlink(source string, target string) {
 	}
 
 	targetDir := filepath.Dir(target)
-	if _, err := os.Stat(targetDir); os.IsNotExist(err) {
+	if !IsFileExists(targetDir) {
 		println("EXPECTED: Target directory not found, creating:", targetDir)
 
 		mkdirErr := os.MkdirAll(targetDir, 0755)
