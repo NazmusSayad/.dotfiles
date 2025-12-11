@@ -12,7 +12,7 @@ alias wg="winget"
 alias dc="docker compose"
 
 # Node Ecosystem
-alias r="node --run"
+alias r="npm run"
 
 alias nx="npm exec"
 alias np="npm prune"
