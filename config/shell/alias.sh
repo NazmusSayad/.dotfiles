@@ -1,3 +1,7 @@
+# Core
+alias ..="cd .."
+alias ...="cd ../.."
+
 # GitHub CLI
 alias gv="gh repo view"
 alias gw="gh repo view --web"
