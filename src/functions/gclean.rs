@@ -1,7 +1,13 @@
 use std::{
-  io::{self, Write},
+  io::{self, Read, Write},
   process::{exit, Command},
 };
+
+const DIM: &str = "\x1b[2m";
+const DIM_RED: &str = "\x1b[2;31m";
+const BOLD_RED: &str = "\x1b[1;31m";
+const GREEN: &str = "\x1b[32m";
+const NORMAL: &str = "\x1b[0m";
 
 fn main() {
   let current = Command::new("git")
@@ -26,28 +32,38 @@ fn main() {
     return;
   }
 
-  println!("Branches to delete: {}", branches.join(", "));
-  print!("Press [Enter] to confirm, or any other key to cancel: ");
+  print!("Branches to delete: ");
+  println!("{}{}{}", BOLD_RED, branches.join(", "), NORMAL);
+
+  print!("{}Press [Enter] to confirm, or any other key to cancel: {}", DIM, NORMAL);
   io::stdout().flush().ok();
 
-  let mut input = String::new();
-  io::stdin().read_line(&mut input).ok();
-  let confirm = input.trim_end_matches(|c| c == '\n' || c == '\r');
+  let mut buf = [0u8; 1];
+  let read = io::stdin().read(&mut buf).unwrap_or(0);
+  let confirm = read == 0 || buf[0] == b'\n' || buf[0] == b'\r';
 
-  if !confirm.is_empty() {
-    println!("Cancelled branch deletion");
+  if !confirm {
+    println!("{}Cancelled branch deletion{}", GREEN, NORMAL);
     return;
   }
 
-  let status = Command::new("git")
-    .args(["prune", "--progress"])
-    .status()
-    .expect("Failed to run git prune");
+  print!("{}", DIM_RED);
+  let status = Command::new("git").args(["prune", "--progress"]).status();
+  print!("{}", NORMAL);
 
-  if !status.success() {
-    exit(status.code().unwrap_or(1));
+  match status {
+    Ok(status) => {
+      if !status.success() {
+        exit(status.code().unwrap_or(1));
+      }
+    }
+    Err(err) => {
+      eprintln!("{}Failed to run git prune: {}{}", BOLD_RED, err, NORMAL);
+      exit(1);
+    }
   }
 
+  print!("{}", DIM_RED);
   let mut cmd = Command::new("git");
   cmd.arg("branch").arg("-D");
 
@@ -55,8 +71,17 @@ fn main() {
     cmd.arg(branch);
   }
 
-  let status = cmd.status().expect("Failed to run git branch -D");
+  let status = cmd.status();
+  print!("{}", NORMAL);
 
-  exit(status.code().unwrap_or(1));
+  match status {
+    Ok(status) => {
+      exit(status.code().unwrap_or(1));
+    }
+    Err(err) => {
+      eprintln!("{}Failed to run git branch -D: {}{}", BOLD_RED, err, NORMAL);
+      exit(1);
+    }
+  }
 }
 

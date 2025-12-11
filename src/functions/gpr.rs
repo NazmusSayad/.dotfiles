@@ -3,6 +3,11 @@ use std::{
   process::{exit, Command},
 };
 
+const DIM: &str = "\x1b[2m";
+const BLUE_DIM: &str = "\x1b[2;34m";
+const RED_DIM: &str = "\x1b[2;31m";
+const NORMAL: &str = "\x1b[0m";
+
 fn main() {
   let args: Vec<String> = env::args().skip(1).collect();
 
@@ -14,7 +19,7 @@ fn main() {
 
   let target_branch = match args.len() {
     0 => {
-      println!("No branch specified, using current branch");
+      println!("{}No branch specified, using current branch{}", DIM, NORMAL);
       current_branch.clone()
     }
     1 => args[0].clone(),
@@ -24,10 +29,12 @@ fn main() {
     }
   };
 
-  println!(
-    "Pulling changes from {} into {} (rebase)",
-    target_branch, current_branch
-  );
+  print!("{}Pulling changes from ", DIM);
+  print!("{}{}", BLUE_DIM, target_branch);
+  print!("{} into ", DIM);
+  print!("{}{}", RED_DIM, current_branch);
+  println!("{} (rebase)", DIM);
+  print!("{}", NORMAL);
 
   let status = Command::new("git")
     .args(["prune", "--progress"])
