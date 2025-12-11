@@ -3,7 +3,6 @@
 set -g fish_color_command magenta
 
 source ~/.dotfiles/config/shell/alias.sh
-source ~/.dotfiles/config/shell/fish/functions.fish
 
 if status is-interactive
     starship init fish | source

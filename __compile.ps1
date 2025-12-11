@@ -21,10 +21,16 @@ foreach ($entry in $goTargets.GetEnumerator()) {
 }
 
 $rustTargets = @{
-    ".\src\functions\fscs.rs" = ".\build\bin\fscs.exe"
+    ".\src\functions\c.rs" = ".\build\bin\c.exe"
+    ".\src\functions\gc.rs" = ".\build\bin\gc.exe"
+    ".\src\functions\gr.rs" = ".\build\bin\gr.exe"
     ".\src\functions\gback.rs" = ".\build\bin\gback.exe"
     ".\src\functions\gp.rs" = ".\build\bin\gp.exe"
     ".\src\functions\gpr.rs" = ".\build\bin\gpr.exe"
+    ".\src\functions\gclean.rs" = ".\build\bin\gclean.exe"
+    ".\src\functions\greset.rs" = ".\build\bin\greset.exe"
+    ".\src\functions\gpg_unlock.rs" = ".\build\bin\gpg-unlock.exe"
+    ".\src\functions\fscs.rs" = ".\build\bin\fscs.exe"
 }
 
 foreach ($entry in $rustTargets.GetEnumerator()) {
