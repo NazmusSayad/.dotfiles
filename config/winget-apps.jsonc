@@ -1,5 +1,5 @@
 [
-  // Basic
+  // Most Important
   {
     "ID": "Piriform.CCleaner",
     "Name": "CCleaner",
@@ -20,68 +20,8 @@
     "Name": "Windows Terminal"
   },
   {
-    "ID": "MSYS2.MSYS2",
-    "Name": "MSYS2",
-    "SkipUpgrade": true
-  },
-  {
-    "ID": "ShareX.ShareX",
-    "Name": "ShareX",
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true
-  },
-  {
-    "ID": "RARLab.WinRAR",
-    "Name": "WinRAR"
-  },
-  {
-    "ID": "Daum.PotPlayer",
-    "Name": "PotPlayer",
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true
-  },
-  {
-    "ID": "9NBLGGH68TW4",
-    "Name": "Pictureflect Photo Viewer"
-  },
-  {
-    "ID": "ThioJoe.SvgThumbnailExtension",
-    "Name": "SVG Thumbnail"
-  },
-  {
-    "ID": "REALiX.HWiNFO",
-    "Name": "HwInfo"
-  },
-  {
-    "ID": "PowerSoftware.AnyBurn",
-    "Name": "AnyBurn"
-  },
-  {
-    "ID": "RamenSoftware.Windhawk",
-    "Name": "Windhawk"
-  },
-  {
-    "ID": "Obsidian.Obsidian",
-    "Name": "Obsidian"
-  },
-  {
-    "ID": "OBSProject.OBSStudio",
-    "Name": "OBS Studio"
-  },
-  {
-    "ID": "UnifiedIntents.UnifiedRemote",
-    "Name": "Unified Remote"
-  },
-
-  // Browsers/Internet/Web
-  {
     "ID": "ImputNet.Helium",
     "Name": "Helium Browser"
-  },
-  {
-    "ID": "qBittorrent.qBittorrent",
-    "Name": "qBittorrent",
-    "SkipInstall": true
   },
 
   // Programming Languages
@@ -114,7 +54,7 @@
   },
   {
     "ID": "Microsoft.VisualStudioCode",
-    "Name": "VS Code",
+    "Name": "VSCode",
     "InteractiveInstall": true
   },
   {
@@ -131,6 +71,49 @@
     "Name": "Postman",
     "SkipInstall": true
   },
+
+  // Media Tools
+  {
+    "ID": "ShareX.ShareX",
+    "Name": "ShareX",
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
+  },
+  {
+    "ID": "Daum.PotPlayer",
+    "Name": "PotPlayer",
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
+  },
+  {
+    "ID": "9NBLGGH68TW4",
+    "Name": "Pictureflect Photo Viewer"
+  },
+  {
+    "ID": "ThioJoe.SvgThumbnailExtension",
+    "Name": "SVG Thumbnail"
+  },
+  {
+    "ID": "Obsidian.Obsidian",
+    "Name": "Obsidian"
+  },
+  {
+    "ID": "OBSProject.OBSStudio",
+    "Name": "OBS Studio"
+  },
+
+  // CLI Tools
+  {
+    "ID": "Starship.Starship",
+    "Name": "Starship"
+  },
+  {
+    "ID": "MSYS2.MSYS2",
+    "Name": "MSYS2",
+    "SkipUpgrade": true
+  },
+
+  // Others
   {
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
@@ -138,10 +121,33 @@
     "InteractiveInstall": true,
     "InteractiveUpgrade": true
   },
-
-  // Communication
   {
     "ID": "SlackTechnologies.Slack",
     "Name": "Slack"
+  },
+  {
+    "ID": "UnifiedIntents.UnifiedRemote",
+    "Name": "Unified Remote"
+  },
+  {
+    "ID": "REALiX.HWiNFO",
+    "Name": "HwInfo"
+  },
+  {
+    "ID": "PowerSoftware.AnyBurn",
+    "Name": "AnyBurn"
+  },
+  {
+    "ID": "RARLab.WinRAR",
+    "Name": "WinRAR"
+  },
+  {
+    "ID": "RamenSoftware.Windhawk",
+    "Name": "Windhawk"
+  },
+  {
+    "ID": "qBittorrent.qBittorrent",
+    "Name": "qBittorrent",
+    "SkipInstall": true
   }
 ]
