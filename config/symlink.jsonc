@@ -8,10 +8,6 @@
     "source": "./config/shell/bash/config.sh",
     "target": "$USERPROFILE/.bashrc"
   },
-  {
-    "source": "./config/shell/zsh/config.sh",
-    "target": "$USERPROFILE/.zshrc"
-  },
 
   // Terminal Configs
   {
