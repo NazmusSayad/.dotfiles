@@ -1,386 +1,396 @@
 {
-  "$help": "https://aka.ms/terminal-documentation",
-  "$schema": "https://aka.ms/terminal-profiles-schema",
-  "actions": [
-    {
-      "command": {
-        "action": "clearBuffer",
-        "clear": "all"
-      },
-      "id": "User.clearBuffer"
-    },
-    {
-      "command": "find",
-      "id": "User.find"
-    },
-    {
-      "command": "duplicateTab",
-      "id": "User.duplicateTab"
-    },
-    {
-      "command": "paste",
-      "id": "User.paste"
-    },
-    {
-      "command": {
-        "action": "copy",
-        "singleLine": false
-      },
-      "id": "User.copy.224984B4"
-    }
-  ],
-  "alwaysShowNotificationIcon": false,
-  "autoHideWindow": false,
-  "centerOnLaunch": true,
-  "compatibility.enableUnfocusedAcrylic": false,
-  "compatibility.textMeasurement": "console",
-  "copyFormatting": "none",
-  "copyOnSelect": false,
-  "defaultProfile": "{a58a681c-27da-4f40-9abf-3d300517889b}",
-  "focusFollowMouse": true,
-  "initialCols": 112,
-  "initialRows": 32,
-  "keybindings": [
-    {
-      "id": "User.clearBuffer",
-      "keys": "ctrl+l"
-    },
-    {
-      "id": null,
-      "keys": "alt+right"
-    },
-    {
-      "id": "User.find",
-      "keys": "ctrl+f"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+numpad_minus"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+w"
-    },
-    {
-      "id": "User.copy.224984B4",
-      "keys": "ctrl+c"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+d"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+k"
-    },
-    {
-      "id": "User.duplicateTab",
-      "keys": "ctrl+n"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+left"
-    },
-    {
-      "id": "Terminal.ClosePane",
-      "keys": "ctrl+w"
-    },
-    {
-      "id": null,
-      "keys": "alt+shift+minus"
-    },
-    {
-      "id": null,
-      "keys": "alt+space"
-    },
-    {
-      "id": null,
-      "keys": "alt+shift+plus"
-    },
-    {
-      "id": "User.paste",
-      "keys": "ctrl+v"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+comma"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+f"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+numpad_plus"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+4"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+t"
-    },
-    {
-      "id": null,
-      "keys": "alt+down"
-    },
-    {
-      "id": null,
-      "keys": "alt+left"
-    },
-    {
-      "id": null,
-      "keys": "alt+up"
-    },
-    {
-      "id": "Terminal.OpenNewTab",
-      "keys": "ctrl+t"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+1"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+comma"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+5"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+2"
-    },
-    {
-      "id": "Terminal.SelectAll",
-      "keys": "ctrl+a"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+3"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+insert"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+6"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+home"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+7"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+8"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+9"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+comma"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+space"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+numpad0"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+pgup"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+pgdn"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+period"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+m"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+2"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+9"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+4"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+7"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+6"
-    },
-    {
-      "id": null,
-      "keys": "win+sc(41)"
-    },
-    {
-      "id": null,
-      "keys": "alt+shift+left"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+1"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+3"
-    },
-    {
-      "id": null,
-      "keys": "alt+shift+right"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+5"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+8"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+down"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+end"
-    },
-    {
-      "id": null,
-      "keys": "alt+shift+down"
-    },
-    {
-      "id": null,
-      "keys": "alt+shift+up"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+up"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+a"
-    },
-    {
-      "id": null,
-      "keys": "enter"
-    },
-    {
-      "id": null,
-      "keys": "shift+insert"
-    }
-  ],
-  "launchMode": "default",
-  "minimizeToNotificationArea": false,
-  "newTabMenu": [
-    {
-      "type": "remainingProfiles"
-    }
-  ],
-  "newTabPosition": "afterCurrentTab",
-  "profiles": {
-    "defaults": {
-      "closeOnExit": "always",
-      "colorScheme": "OnnoKicu",
-      "font": {
-        "cellHeight": "1.65",
-        "face": "FiraCode Nerd Font",
-        "size": 11.5
-      },
-      "historySize": 999999999,
-      "intenseTextStyle": "all"
-    },
-    "list": [
-      {
-        "commandline": "fish.exe",
-        "guid": "{a58a681c-27da-4f40-9abf-3d300517889b}",
-        "hidden": false,
-        "icon": "%USERPROFILE%\\.dotfiles\\assets\\fish.ico",
-        "name": "Fish"
-      },
-      {
-        "commandline": "bash.exe",
-        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
-        "hidden": false,
-        "icon": "%USERPROFILE%\\.dotfiles\\assets\\bash.ico",
-        "name": "Bash"
-      },
-      {
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "hidden": false,
-        "name": "Command Prompt",
-        "startingDirectory": null
-      },
-      {
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "hidden": false,
-        "name": "Windows PowerShell",
-        "startingDirectory": null
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "hidden": false,
-        "name": "Azure Cloud Shell",
-        "source": "Windows.Terminal.Azure"
-      }
-    ]
-  },
-  "schemes": [
-    {
-      "background": "#1E2227",
-      "black": "#4A4F5A",
-      "blue": "#61AFEF",
-      "brightBlack": "#616A7B",
-      "brightBlue": "#93CFFF",
-      "brightCyan": "#82D2DC",
-      "brightGreen": "#C2DEAD",
-      "brightPurple": "#E0A8F1",
-      "brightRed": "#FE808A",
-      "brightWhite": "#FFFFFF",
-      "brightYellow": "#D1A47A",
-      "cursorColor": "#FFFFFF",
-      "cyan": "#56B6C2",
-      "foreground": "#ABB2BF",
-      "green": "#97C775",
-      "name": "OnnoKicu",
-      "purple": "#C678DD",
-      "red": "#EE5D69",
-      "selectionBackground": "#FFFF00",
-      "white": "#CCCCCC",
-      "yellow": "#B68353"
-    }
-  ],
-  "searchWebDefaultQueryUrl": "https://www.google.com/search?q=%22%s%22",
-  "showTabsFullscreen": false,
-  "snapToGridOnResize": true,
-  "tabSwitcherMode": "mru",
-  "tabWidthMode": "equal",
-  "theme": "dark",
-  "themes": [],
-  "warning.confirmCloseAllTabs": false,
-  "windowingBehavior": "useNew"
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "id": "User.clearBuffer"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": "duplicateTab",
+            "id": "User.duplicateTab"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.224984B4"
+        }
+    ],
+    "alwaysShowNotificationIcon": false,
+    "autoHideWindow": false,
+    "centerOnLaunch": true,
+    "compatibility.enableUnfocusedAcrylic": false,
+    "compatibility.textMeasurement": "console",
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{a58a681c-27da-4f40-9abf-3d300517889b}",
+    "focusFollowMouse": true,
+    "initialCols": 112,
+    "initialRows": 32,
+    "keybindings": 
+    [
+        {
+            "id": "User.clearBuffer",
+            "keys": "ctrl+l"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad_minus"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+f"
+        },
+        {
+            "id": null,
+            "keys": "alt+right"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "id": "User.copy.224984B4",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.duplicateTab",
+            "keys": "ctrl+n"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+left"
+        },
+        {
+            "id": "Terminal.ClosePane",
+            "keys": "ctrl+w"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+minus"
+        },
+        {
+            "id": null,
+            "keys": "alt+space"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+plus"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad_plus"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+t"
+        },
+        {
+            "id": null,
+            "keys": "alt+down"
+        },
+        {
+            "id": null,
+            "keys": "alt+left"
+        },
+        {
+            "id": null,
+            "keys": "alt+up"
+        },
+        {
+            "id": "Terminal.OpenNewTab",
+            "keys": "ctrl+t"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+1"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+5"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+2"
+        },
+        {
+            "id": "Terminal.SelectAll",
+            "keys": "ctrl+a"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+3"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+insert"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+6"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+home"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+7"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+8"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+9"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+space"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad0"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+period"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+m"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+9"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+7"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+6"
+        },
+        {
+            "id": null,
+            "keys": "win+sc(41)"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+left"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+3"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+right"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+5"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+8"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+end"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+down"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+up"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+up"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+a"
+        },
+        {
+            "id": null,
+            "keys": "enter"
+        },
+        {
+            "id": null,
+            "keys": "shift+insert"
+        }
+    ],
+    "launchMode": "default",
+    "minimizeToNotificationArea": false,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "newTabPosition": "afterCurrentTab",
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "closeOnExit": "always",
+            "colorScheme": "OnnoKicu",
+            "font": 
+            {
+                "cellHeight": "1.65",
+                "face": "FiraCode Nerd Font",
+                "size": 11.5
+            },
+            "historySize": 999999999,
+            "intenseTextStyle": "all"
+        },
+        "list": 
+        [
+            {
+                "commandline": "fish.exe",
+                "guid": "{a58a681c-27da-4f40-9abf-3d300517889b}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\.dotfiles\\assets\\fish.ico",
+                "name": "Fish"
+            },
+            {
+                "commandline": "bash.exe",
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\.dotfiles\\assets\\bash.ico",
+                "name": "Bash"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt",
+                "startingDirectory": null
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell",
+                "startingDirectory": null
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#1E2227",
+            "black": "#4A4F5A",
+            "blue": "#61AFEF",
+            "brightBlack": "#616A7B",
+            "brightBlue": "#93CFFF",
+            "brightCyan": "#82D2DC",
+            "brightGreen": "#C2DEAD",
+            "brightPurple": "#E0A8F1",
+            "brightRed": "#FE808A",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#D1A47A",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#56B6C2",
+            "foreground": "#ABB2BF",
+            "green": "#97C775",
+            "name": "OnnoKicu",
+            "purple": "#C678DD",
+            "red": "#EE5D69",
+            "selectionBackground": "#FFFF00",
+            "white": "#CCCCCC",
+            "yellow": "#B68353"
+        }
+    ],
+    "searchWebDefaultQueryUrl": "https://www.google.com/search?q=%22%s%22",
+    "showTabsFullscreen": false,
+    "snapToGridOnResize": true,
+    "tabSwitcherMode": "mru",
+    "tabWidthMode": "equal",
+    "theme": "dark",
+    "themes": [],
+    "warning.confirmCloseAllTabs": false,
+    "windowingBehavior": "useNew"
 }
