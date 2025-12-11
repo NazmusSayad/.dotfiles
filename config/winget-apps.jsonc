@@ -41,6 +41,10 @@
     "ID": "GoLang.Go",
     "Name": "Go Language"
   },
+  {
+    "ID": "Google.DartSDK",
+    "Name": "Dart SDK"
+  },
 
   // Editors & Development Tools
   {
@@ -109,8 +113,7 @@
   },
   {
     "ID": "MSYS2.MSYS2",
-    "Name": "MSYS2",
-    "SkipUpgrade": true
+    "Name": "MSYS2"
   },
 
   // Others
