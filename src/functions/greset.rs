@@ -4,8 +4,17 @@ use std::{
   process::{exit, Command},
 };
 
+const RED: &str = "\x1b[31m";
+const GREEN: &str = "\x1b[32m";
+const YELLOW: &str = "\x1b[33m";
+const BLUE: &str = "\x1b[34m";
+const NORMAL: &str = "\x1b[0m";
+
 fn main() {
-  println!("This will reset the entire repository to the latest remote branch.");
+  println!(
+    "{}This will reset the entire repository to the latest remote branch.{}",
+    RED, NORMAL
+  );
   println!("Write 'yes' and press [Enter] to confirm.");
   print!("> ");
   io::stdout().flush().ok();
@@ -14,7 +23,7 @@ fn main() {
   io::stdin().read_line(&mut confirm).ok();
 
   if confirm.trim() != "yes" {
-    println!("Reset aborted");
+    println!("{}Reset aborted{}", GREEN, NORMAL);
     return;
   }
 
@@ -39,8 +48,10 @@ fn main() {
     .map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string())
     .unwrap_or_default();
 
-  println!("> Branch: {}", current_branch);
-  println!("> Remote: {}", remote_url);
+  print!("> Branch: ");
+  println!("{}{}{}", YELLOW, current_branch, NORMAL);
+  print!("> Remote: ");
+  println!("{}{}{}", BLUE, remote_url, NORMAL);
 
   let remote_output = Command::new("git")
     .args(["branch", "-r", "--format=%(refname:short)"])
@@ -50,7 +61,7 @@ fn main() {
   let remote_branches: Vec<String> = String::from_utf8_lossy(&remote_output.stdout)
     .lines()
     .map(|l| l.trim().to_string())
-    .filter(|l| !l.is_empty())
+    .filter(|l| !l.is_empty() && !l.contains("->"))
     .collect();
 
   for rb in remote_branches {
@@ -59,7 +70,8 @@ fn main() {
         continue;
       }
 
-      println!("> Deleting remote branch: {}", name);
+      print!("> Deleting remote branch: ");
+      println!("{}{}{}", RED, name, NORMAL);
 
       let _ = Command::new("git")
         .args(["push", "origin", "--delete", name])
@@ -67,7 +79,7 @@ fn main() {
     }
   }
 
-  println!("> Deleting git folder...");
+  println!("{}> Deleting git folder...{}", RED, NORMAL);
   let _ = fs::remove_dir_all(".git");
 
   let init_arg = format!("--initial-branch={}", current_branch);

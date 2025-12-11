@@ -1,7 +1,13 @@
 use std::{
   env,
+  io::{self, Write},
   process::{exit, Command},
 };
+
+const RED: &str = "\x1b[31m";
+const GREEN: &str = "\x1b[32m";
+const YELLOW: &str = "\x1b[33m";
+const NORMAL: &str = "\x1b[0m";
 
 fn main() {
   let args: Vec<String> = env::args().skip(1).collect();
@@ -9,13 +15,13 @@ fn main() {
   let branch = match args.get(0) {
     Some(v) if !v.is_empty() => v,
     _ => {
-      eprintln!("❌ Branch name required");
+      eprintln!("{}❌ Branch name required{}", RED, NORMAL);
       exit(1);
     }
   };
 
   if branch.starts_with('-') {
-    eprintln!("❌ Invalid branch name: {}", branch);
+    eprintln!("{}❌ Invalid branch name: {}{}", RED, branch, NORMAL);
     exit(1);
   }
 
@@ -52,8 +58,12 @@ fn main() {
   let mut cmd = Command::new("git");
 
   if exists {
+    print!("{}", GREEN);
+    io::stdout().flush().ok();
     cmd.arg("checkout");
   } else {
+    print!("{}", YELLOW);
+    io::stdout().flush().ok();
     cmd.args(["checkout", "-b"]);
   }
 
@@ -61,8 +71,17 @@ fn main() {
     cmd.arg(arg);
   }
 
-  let status = cmd.status().expect("Failed to run git checkout");
+  let status = cmd.status();
+  print!("{}", NORMAL);
 
-  exit(status.code().unwrap_or(1));
+  match status {
+    Ok(status) => {
+      exit(status.code().unwrap_or(1));
+    }
+    Err(err) => {
+      eprintln!("{}Failed to run git checkout: {}{}", RED, err, NORMAL);
+      exit(1);
+    }
+  }
 }
 

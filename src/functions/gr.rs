@@ -1,19 +1,23 @@
 use std::{
-  io::{self, Write},
+  io::{self, Read, Write},
   process::{exit, Command},
 };
 
+const RED: &str = "\x1b[31m";
+const DIM: &str = "\x1b[2m";
+const NORMAL: &str = "\x1b[0m";
+
 fn main() {
-  println!("Restore and clean?");
-  print!("Press [Enter] to confirm, or any other key to cancel: ");
+  println!("{}Restore and clean?{}", RED, NORMAL);
+  print!("{}Press [Enter] to confirm, or any other key to cancel: {}", DIM, NORMAL);
   io::stdout().flush().ok();
 
-  let mut input = String::new();
-  io::stdin().read_line(&mut input).ok();
-  let confirm = input.trim_end_matches(|c| c == '\n' || c == '\r');
+  let mut buf = [0u8; 1];
+  let read = io::stdin().read(&mut buf).unwrap_or(0);
+  let confirm = read == 0 || buf[0] == b'\n' || buf[0] == b'\r';
 
-  if !confirm.is_empty() {
-    eprintln!("❌ Aborted.");
+  if !confirm {
+    eprintln!("{}❌ Aborted.{}", RED, NORMAL);
     return;
   }
 

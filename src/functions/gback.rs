@@ -3,11 +3,14 @@ use std::{
   process::{exit, Command},
 };
 
+const RED: &str = "\x1b[31m";
+const NORMAL: &str = "\x1b[0m";
+
 fn main() {
   let commit = match env::args().nth(1) {
     Some(v) if !v.is_empty() => v,
     _ => {
-      eprintln!("❌ Commit hash required");
+      eprintln!("{}❌ Commit hash required{}", RED, NORMAL);
       exit(1);
     }
   };
