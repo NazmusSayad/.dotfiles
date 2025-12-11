@@ -12,18 +12,6 @@ git config --global core.ignorecase false
 git config --global --add safe.directory "*"
 git config --global --add --bool push.autoSetupRemote true
 
-echo "> Installing shell providers..."
-pacman -S zsh fish bash
-
-echo "> Installing shell helpers..."
-pacman -S mingw-w64-x86_64-starship mingw-w64-clang-x86_64-fastfetch
-
-echo "> Installing helpers..."
-pacman -S mingw-w64-x86_64-ffmpeg
-
-echo "> Fish shell config..."
-set fish_color_command magenta
-
 echo "> Installing npm packages globally..."
 volta install node@latest npm@latest pnpm@latest yarn@latest tsx@latest uni-run@latest code-info@latest netserv@latest
 
