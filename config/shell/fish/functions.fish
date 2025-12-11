@@ -80,6 +80,20 @@ function gr
     end
 end
 
+# Git Back to a specific commit
+function gback
+    set commit_hash $argv[1]
+
+    if test -z "$commit_hash"
+        set_color red
+        echo "❌ Commit hash required"
+        set_color normal
+        return 1
+    end
+
+    git restore --source $commit_hash -- .
+end
+
 # Git Pull (Default)
 function gp
     set current_branch (git branch --show-current)

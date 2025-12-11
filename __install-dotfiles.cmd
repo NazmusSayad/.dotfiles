@@ -34,7 +34,7 @@ if %errorLevel% NEQ 0 (
 :: Set up PATH environment variable
 echo.
 echo Setting up PATH environment variable...
-set "DOTFILES_BIN=%DOTFILES_DIR%\build"
+set "DOTFILES_BIN=%DOTFILES_DIR%\build\bin"
 
 echo %PATH% | find /i "%DOTFILES_BIN%" >nul
 if %errorLevel% EQU 0 (
