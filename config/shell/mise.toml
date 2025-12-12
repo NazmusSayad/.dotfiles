@@ -3,11 +3,12 @@
 gh = "latest"
 ni = "latest"
 
-bun = "latest"
-deno = "latest"
-
 node = "lts"
+deno = "latest"
+bun = "latest"
+
 pnpm = "latest"
+yarn = "latest"
 "npm:tsx" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
@@ -20,7 +21,6 @@ ruby = "latest"
 java = "latest"
 dart = "latest"
 python = "latest"
-yarn = "latest"
 
 [settings]
 os = "windows"
