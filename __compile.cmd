@@ -5,7 +5,8 @@ echo ^> Killing all AHK scripts...
 sudo taskkill /F /IM AHK-*
 
 echo ^> Cleaning build directory...
-rmdir /S /Q ./build
+rmdir .\build\bin /s /q
+rmdir .\build\ahk /s /q
 
 echo ^> Compiling Go scripts...
 go run ./src/compile-scripts/main.go

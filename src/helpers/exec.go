@@ -40,7 +40,7 @@ func EnsureAdminExecution() {
 	}
 
 	if sudoAvailable() {
-		cmd := exec.Command("sudo", exePath)
+		cmd := exec.Command("sudo", "-E", exePath)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 
