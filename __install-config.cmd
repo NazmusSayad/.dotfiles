@@ -17,7 +17,3 @@ call pnpm config set ci true
 call pnpm config set allow-scripts true
 call pnpm config set shamefully-hoist true
 call pnpm config set auto-install-peers true
-
-echo.
-echo ^> Press any key to continue...
-pause >nul
