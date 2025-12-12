@@ -68,6 +68,4 @@ func main() {
 		}
 	}
 	_, _ = helpers.AddToEnvPath(helpers.ScopeMachine, existingBins...)
-
-	helpers.PressAnyKeyOrWaitToExit()
 }

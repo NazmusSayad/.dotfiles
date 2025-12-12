@@ -102,6 +102,4 @@ func main() {
 			println(editor.Name, " Cleared: ", filepath.Base(file))
 		}
 	}
-
-	helpers.PressAnyKeyOrWaitToExit()
 }

@@ -5,7 +5,6 @@ import (
 	"path/filepath"
 	"strings"
 
-	helpers "dotfiles/src/helpers"
 	slack_helpers "dotfiles/src/helpers/slack"
 
 	"github.com/manifoldco/promptui"
@@ -71,6 +70,4 @@ func main() {
 	case 2:
 		writeSlackStatus(slack_helpers.SlackStatusDisabled)
 	}
-
-	helpers.PressAnyKeyOrWaitToExit()
 }
