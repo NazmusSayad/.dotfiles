@@ -6,4 +6,4 @@ rsrc.syso
 package-lock.json
 
 
-/src/test.*
+/src/__lab__/
