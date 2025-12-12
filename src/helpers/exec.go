@@ -53,13 +53,11 @@ func EnsureAdminExecution() {
 		return
 	}
 
-	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exePath+"' -Verb RunAs")
-	if err := cmd.Run(); err != nil {
-		println("Failed to relaunch with elevated privileges.")
-		println("Press Enter to exit...")
-		os.Exit(1)
-	}
+	println("Relaunching with elevated privileges...")
 
-	println("Relaunched with elevated privileges.")
-	os.Exit(0)
+	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exePath+"' -Verb RunAs")
+	err := cmd.Run()
+	if err != nil {
+		println("Failed to relaunch with elevated privileges.")
+	}
 }
