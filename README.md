@@ -68,7 +68,7 @@ This repository contains reproducible automation and configuration to make it fa
   - `src/ahk/`: AutoHotkey scripts for window management.
   - `src/winget/`: Tools for parsing and installing Winget packages.
   - `src/slack/`: Slack automation utilities with intelligent launch scheduling.
-- `lib/`: Shared libraries and binaries.
+- `bin/`: Shared binaries.
 - `__*`: Installation and utility scripts.
 
 ## ⚠️ Disclaimer
