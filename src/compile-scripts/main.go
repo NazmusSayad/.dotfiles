@@ -1,14 +1,12 @@
 package main
 
 import (
+	constants "dotfiles/src"
 	"dotfiles/src/helpers"
 	"os"
 	"os/exec"
 	"path/filepath"
 )
-
-const SCRIPTS_DIR = "./scripts"
-const BUILD_DIR = "./build/bin"
 
 func main() {
 	cwd, err := os.Getwd()
@@ -16,8 +14,8 @@ func main() {
 		panic(err)
 	}
 
-	scriptsDir := filepath.Join(cwd, SCRIPTS_DIR)
-	buildDir := filepath.Join(cwd, BUILD_DIR)
+	scriptsDir := filepath.Join(cwd, constants.SOURCE_DIR_SCRIPTS)
+	buildDir := filepath.Join(cwd, constants.BUILD_DIR_SCRIPTS)
 
 	if !helpers.IsFileExists(buildDir) {
 		os.MkdirAll(buildDir, 0755)
