@@ -1,8 +1,8 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"fmt"
-	"io"
 	"os"
 	"os/exec"
 	"strings"
@@ -34,29 +34,17 @@ func main() {
 		}
 	}
 
-	localRef := exec.Command("git", "rev-parse", "--verify", "--quiet", "refs/heads/"+branch)
-	localRef.Stdout = io.Discard
-	localRef.Stderr = io.Discard
-	localOk := localRef.Run() == nil
-
-	remoteRef := exec.Command("git", "rev-parse", "--verify", "--quiet", "refs/remotes/"+remote+"/"+branch)
-	remoteRef.Stdout = io.Discard
-	remoteRef.Stderr = io.Discard
-	remoteOk := remoteRef.Run() == nil
-
-	var cmd *exec.Cmd
-	if localOk || remoteOk {
-		cmd = exec.Command("git", append([]string{"checkout"}, os.Args[1:]...)...)
+	if isLocalBranchExists(branch) || isRemoteBranchExists(remote, branch) {
+		helpers.ExecWithNativeOutputAndExit("git", append([]string{"checkout"}, os.Args[1:]...)...)
 	} else {
-		cmd = exec.Command("git", append([]string{"checkout", "-b"}, os.Args[1:]...)...)
+		helpers.ExecWithNativeOutputAndExit("git", append([]string{"checkout", "-b"}, os.Args[1:]...)...)
 	}
+}
 
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			os.Exit(ee.ExitCode())
-		}
-		os.Exit(1)
-	}
+func isLocalBranchExists(branch string) bool {
+	return helpers.ExecWithNativeOutput("git", "rev-parse", "--verify", "--quiet", "refs/heads/"+branch) == nil
+}
+
+func isRemoteBranchExists(remote string, branch string) bool {
+	return helpers.ExecWithNativeOutput("git", "rev-parse", "--verify", "--quiet", "refs/remotes/"+remote+"/"+branch) == nil
 }

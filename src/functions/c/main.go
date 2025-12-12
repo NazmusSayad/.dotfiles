@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
@@ -24,7 +25,7 @@ func main() {
 		fmt.Println(aurora.Faint("Using GitHub CLI to resolve URL..."))
 
 		ghCloneCmd := exec.Command("gh", "repo", "view", inputPath, "--json", "url", "-q", ".url")
-		out, err := ghCloneCmd.CombinedOutput()
+		out, err := ghCloneCmd.Output()
 		if err != nil {
 			fmt.Println(aurora.Faint(aurora.Red("Failed to resolve repository with GitHub CLI")))
 		} else {
@@ -40,8 +41,5 @@ func main() {
 		gitCloneArgs = append(gitCloneArgs, os.Args[1:]...)
 	}
 
-	gitCmd := exec.Command("git", gitCloneArgs...)
-	gitCmd.Stdout = os.Stdout
-	gitCmd.Stderr = os.Stderr
-	gitCmd.Run()
+	helpers.ExecWithNativeOutputAndExit("git", gitCloneArgs...)
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
@@ -26,16 +27,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Pulling changes from %s into %s (rebase)\n", targetBranch, currentBranch)
+	fmt.Printf("Pulling changes from %s into %s (rebase)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch))
 
-	exec.Command("git", "prune", "--progress").Run()
-	cmd := exec.Command("git", "pull", "origin", targetBranch, "--progress", "--rebase")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			os.Exit(ee.ExitCode())
-		}
-		os.Exit(1)
-	}
+	helpers.ExecWithNativeOutput("git", "prune", "--progress")
+	helpers.ExecWithNativeOutputAndExit("git", "pull", "origin", targetBranch, "--progress", "--rebase")
 }

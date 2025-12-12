@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
@@ -62,18 +63,9 @@ func main() {
 	fmt.Println(aurora.Red("> Deleting git folder..."))
 	os.RemoveAll(".git")
 
-	exec.Command("git", "init", "--initial-branch="+currentBranch).Run()
-	exec.Command("git", "remote", "add", "origin", remoteURL).Run()
-	exec.Command("git", "add", ".").Run()
-	exec.Command("git", "commit", "-m", "Initial commit").Run()
-
-	cmd := exec.Command("git", "push", "--force", "--set-upstream", "origin", currentBranch)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			os.Exit(ee.ExitCode())
-		}
-		os.Exit(1)
-	}
+	helpers.ExecWithNativeOutput("git", "init", "--initial-branch="+currentBranch)
+	helpers.ExecWithNativeOutput("git", "remote", "add", "origin", remoteURL)
+	helpers.ExecWithNativeOutput("git", "add", ".")
+	helpers.ExecWithNativeOutput("git", "commit", "-m", "Initial commit")
+	helpers.ExecWithNativeOutputAndExit("git", "push", "--force", "--set-upstream", "origin", currentBranch)
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"fmt"
 	"os"
-	"os/exec"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -15,17 +15,9 @@ func main() {
 	}
 
 	if commitHash == "" {
-		fmt.Println(aurora.Red("❌ Commit hash required"))
+		fmt.Println(aurora.Red("Commit hash required"))
 		os.Exit(1)
 	}
 
-	cmd := exec.Command("git", "restore", "--source", commitHash, "--", ".")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			os.Exit(ee.ExitCode())
-		}
-		os.Exit(1)
-	}
+	helpers.ExecWithNativeOutputAndExit("git", "restore", "--source", commitHash, "--", ".")
 }
