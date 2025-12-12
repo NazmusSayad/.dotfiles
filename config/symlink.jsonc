@@ -8,6 +8,10 @@
     "source": "./config/shell/bash/config.sh",
     "target": "$USERPROFILE/.bashrc"
   },
+  {
+    "source": "./config/shell/mise.toml",
+    "target": "$USERPROFILE/.config/mise/config.toml"
+  },
 
   // Terminal Configs
   {

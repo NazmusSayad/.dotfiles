@@ -1,0 +1,14 @@
+[tools]
+
+bun = "latest"
+deno = "latest"
+node = "latest"
+"npm:tsx" = "latest"
+"npm:pnpm" = "latest"
+"npm:uni-run" = "latest"
+"npm:code-info" = "latest"
+
+go = "latest"
+java = "latest"
+rust = "latest"
+python = "latest"
