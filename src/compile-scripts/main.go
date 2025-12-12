@@ -3,7 +3,6 @@ package main
 import (
 	constants "dotfiles/src/constants"
 	"dotfiles/src/helpers"
-	"dotfiles/src/helpers/winsdk"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -40,20 +39,11 @@ func compileScript(script string, sourceDir string, outputDir string) {
 	outputPath := filepath.Join(outputDir, script+".exe")
 
 	sourcePath := filepath.Join(sourceDir, script, "main.go")
-	if helpers.IsFileExists(sourcePath) {
-		buildWithGo(sourcePath, outputPath)
+	if !helpers.IsFileExists(sourcePath) {
+		println("Source file not found", sourcePath)
 		return
 	}
 
-	sourcePathAdmin := filepath.Join(sourceDir, script, "main.admin.go")
-	if helpers.IsFileExists(sourcePathAdmin) {
-		buildWithGo(sourcePathAdmin, outputPath)
-		winsdk.ConvertExeToRunAsAdmin(outputPath)
-		return
-	}
-}
-
-func buildWithGo(sourcePath string, outputPath string) {
 	println("Building with Go", sourcePath, "to", outputPath)
 
 	cmd := exec.Command("go", "build", "-o", outputPath, sourcePath)
