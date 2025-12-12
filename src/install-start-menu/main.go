@@ -14,6 +14,18 @@ func main() {
 	startMenuDir := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
 	escape := func(s string) string { return strings.ReplaceAll(s, "'", "''") }
 
+	proxyPausePath, err := exec.LookPath("proxy-pause")
+	if err != nil {
+		println("proxy-pause not found in PATH")
+		os.Exit(1)
+	}
+
+	if helpers.IsFileExists(startMenuDir) {
+		println("Removing", startMenuDir)
+		os.RemoveAll(startMenuDir)
+	}
+	os.MkdirAll(startMenuDir, 0755)
+
 	entries, err := os.ReadDir(scriptsDir)
 	if err != nil {
 		os.Exit(1)
@@ -25,23 +37,23 @@ func main() {
 		}
 
 		entryName := entry.Name()
-		_, err := exec.LookPath(entry.Name())
+		binPath, err := exec.LookPath(entryName)
 		if err != nil {
 			continue
 		}
 
-		os.MkdirAll(startMenuDir, 0755)
-		println("Installing", entry.Name())
+		println("Installing", entryName)
 
-		shortcutPath := filepath.Join(startMenuDir, entry.Name()+".lnk")
-		targetCommand := "vbproxy user " + entryName
+		shortcutPath := filepath.Join(startMenuDir, entryName+".lnk")
+		targetCommand := `"` + proxyPausePath + `"`
+		arguments := `"` + binPath + `"`
 
 		cmd := exec.Command(
 			"powershell",
 			"-NoProfile",
 			"-NonInteractive",
 			"-Command",
-			"$s='"+escape(targetCommand)+"';$t='"+escape(shortcutPath)+"';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Save()",
+			"$s='"+escape(targetCommand)+"';$a='"+escape(arguments)+"';$t='"+escape(shortcutPath)+"';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Arguments=$a;$sc.Save()",
 		)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr

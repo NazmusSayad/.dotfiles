@@ -9,7 +9,7 @@ import (
 
 func main() {
 	if len(os.Args) < 3 {
-		fmt.Println("Usage: vbproxy <user|admin> <executable>")
+		fmt.Println("Usage: proxy-vbs <user|admin> <executable>")
 		return
 	}
 
