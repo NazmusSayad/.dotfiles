@@ -63,9 +63,25 @@ func main() {
 	fmt.Println(aurora.Red("> Deleting git folder..."))
 	os.RemoveAll(".git")
 
-	helpers.ExecWithNativeOutput("git", "init", "--initial-branch="+currentBranch)
-	helpers.ExecWithNativeOutput("git", "remote", "add", "origin", remoteURL)
-	helpers.ExecWithNativeOutput("git", "add", ".")
-	helpers.ExecWithNativeOutput("git", "commit", "-m", "Initial commit")
-	helpers.ExecWithNativeOutputAndExit("git", "push", "--force", "--set-upstream", "origin", currentBranch)
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"init", "--initial-branch=" + currentBranch},
+	})
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"remote", "add", "origin", remoteURL},
+	})
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"add", "."},
+	})
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"commit", "-m", "Initial commit"},
+	})
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"push", "--force", "--set-upstream", "origin", currentBranch},
+		Exit:    true,
+	})
 }

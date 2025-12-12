@@ -20,6 +20,13 @@ func main() {
 		os.Exit(0)
 	}
 
-	helpers.ExecWithNativeOutput("git", "restore", ".")
-	helpers.ExecWithNativeOutputAndExit("git", "clean", "-fd")
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"restore", "."},
+	})
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"clean", "-fd"},
+		Exit:    true,
+	})
 }

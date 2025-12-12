@@ -15,15 +15,8 @@ func main() {
 		panic(err)
 	}
 
-	functionsDir := filepath.Join(cwd, constants.SOURCE_DIR_FUNCTIONS)
-	scriptsDir := filepath.Join(cwd, constants.SOURCE_DIR_SCRIPTS)
-	buildDir := filepath.Join(cwd, constants.BUILD_DIR_SCRIPTS)
-
-	compileDirectory(scriptsDir, buildDir)
-	compileDirectory(functionsDir, buildDir)
-}
-
-func compileDirectory(sourceDir string, outputDir string) {
+	sourceDir := filepath.Join(cwd, constants.SCRIPTS_SOURCE_DIR)
+	outputDir := filepath.Join(cwd, constants.SCRIPTS_BUILD_BIN_DIR)
 
 	if !helpers.IsFileExists(outputDir) {
 		os.MkdirAll(outputDir, 0755)
