@@ -1,9 +1,3 @@
-/build
-/node_modules
-
-bun.lock
-rsrc.syso
-package-lock.json
-
-
-/src/__lab__/
+.build
+src/__lab__
+node_modules
