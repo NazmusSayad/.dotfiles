@@ -6,9 +6,10 @@ import (
 )
 
 func main() {
+	arguments := os.Args[1:]
 	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
 		Command: "git",
-		Args:    append([]string{"pull"}, os.Args...),
+		Args:    append([]string{"pull"}, arguments...),
 		Exit:    true,
 	})
 }
