@@ -14,50 +14,6 @@ import (
 	"unsafe"
 )
 
-func execPsCommand(command string) (string, error) {
-	cmd := exec.Command("powershell", "-c", command)
-	output, err := cmd.Output()
-
-	if err != nil {
-		return "", fmt.Errorf("powershell command failed: %v", err)
-	}
-
-	return strings.TrimSpace(string(output)), nil
-}
-
-func EnsureAdminExecution() {
-	psCmd := `if (-not([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }`
-	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", psCmd)
-	if err := cmd.Run(); err == nil {
-		println("Admin execution not required.")
-		return
-	}
-
-	reader := bufio.NewReader(os.Stdin)
-	for {
-		fmt.Fprintln(os.Stderr, "This program requires administrator privileges.")
-		fmt.Fprintln(os.Stderr, "Trying to relaunch with elevated privileges...")
-
-		exePath, e := os.Executable()
-		if e != nil {
-			_, _ = reader.ReadString('\n')
-
-			println("Failed to get executable path.")
-			os.Exit(1)
-		}
-
-		cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exePath+"' -Verb RunAs")
-		if err := cmd.Run(); err != nil {
-			println("Failed to relaunch with elevated privileges.")
-			println("Press Enter to exit...")
-			os.Exit(1)
-		}
-
-		println("Relaunched with elevated privileges.")
-		os.Exit(0)
-	}
-}
-
 func GetParentProcessName() (string, error) {
 	ppid := os.Getppid()
 	cmd := exec.Command(
@@ -83,20 +39,16 @@ func GetParentProcessName() (string, error) {
 		return "", fmt.Errorf("parse error")
 	}
 
-	return rec[0], nil
+	return strings.TrimSpace(rec[0]), nil
 }
 
-func IsEmbeddedInTerminal() bool {
-	parentProcessName, err := GetParentProcessName()
-	if err != nil || parentProcessName == "" || parentProcessName == "explorer.exe" {
-		return false
-	}
-
-	return true
+func IsStandaloneProcess() bool {
+	parentProcessName, _ := GetParentProcessName()
+	return parentProcessName == "explorer.exe"
 }
 
 func PressAnyKeyOrWaitToExit() {
-	if IsEmbeddedInTerminal() {
+	if !IsStandaloneProcess() {
 		os.Exit(0)
 	}
 
