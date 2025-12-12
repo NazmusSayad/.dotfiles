@@ -4,3 +4,6 @@
 bun.lock
 rsrc.syso
 package-lock.json
+
+
+/src/test.*
