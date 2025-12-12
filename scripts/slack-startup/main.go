@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	slack_helpers "dotfiles/src/slack/helpers"
+	slack_helpers "dotfiles/src/helpers/slack"
 )
 
 func main() {

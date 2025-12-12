@@ -1,7 +1,7 @@
 package main
 
 import (
-	helpers "dotfiles/src"
+	helpers "dotfiles/src/helpers"
 	"io/fs"
 	"os"
 	"os/exec"

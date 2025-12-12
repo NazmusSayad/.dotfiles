@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"strings"
 
-	helpers "dotfiles/src"
+	helpers "dotfiles/src/helpers"
 )
 
 func IsSlackRunning() bool {

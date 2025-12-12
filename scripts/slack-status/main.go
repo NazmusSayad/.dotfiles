@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	helpers "dotfiles/src"
-	slack_helpers "dotfiles/src/slack/helpers"
+	helpers "dotfiles/src/helpers"
+	slack_helpers "dotfiles/src/helpers/slack"
 
 	"github.com/manifoldco/promptui"
 )
