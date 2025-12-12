@@ -2,7 +2,7 @@
 setlocal
 
 echo ^> Killing all AHK scripts...
-sudo taskkill /F /IM AHK-*
+tasklist /NH | findstr /I "^AHK-" >nul && sudo taskkill /F /IM AHK-*
 
 echo ^> Cleaning build directory...
 rmdir .\.build\bin /s /q
@@ -15,7 +15,3 @@ call go run ./src/compile-go/main.go
 echo.
 echo ^> Compiling AutoHotkey scripts...
 call go run ./src/compile-ahk/main.go
-
-echo.
-echo ^> Press any key to continue...
-pause >nul
