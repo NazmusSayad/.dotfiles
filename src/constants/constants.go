@@ -57,10 +57,10 @@ var SCRIPTS_MAP = map[string]Script{
 	},
 
 	"winget-install": {
-		StartMenuName: "Winget Install",
+		StartMenuName: "WinGet Install",
 	},
 
 	"winget-upgrade": {
-		StartMenuName: "Winget Upgrade",
+		StartMenuName: "WinGet Upgrade",
 	},
 }
