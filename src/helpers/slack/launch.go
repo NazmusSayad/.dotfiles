@@ -1,6 +1,7 @@
 package slack_helpers
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -29,19 +30,19 @@ func isWorkTime() bool {
 func SlackLaunch(status SlackStatus) {
 	switch status {
 	case SlackStatusAlways:
-		println("> Starting Slack...")
+		fmt.Println("> Starting Slack...")
 		SlackApplicationStart()
 
 	case SlackStatusDisabled:
-		println("> Stopping Slack...")
+		fmt.Println("> Stopping Slack...")
 		SlackApplicationStop()
 
 	case SlackStatusWorkTime:
 		if isWorkTime() {
-			println("> Currently in work time, starting Slack...")
+			fmt.Println("> Currently in work time, starting Slack...")
 			SlackApplicationStart()
 		} else {
-			println("> Currently not in work time, stopping Slack...")
+			fmt.Println("> Currently not in work time, stopping Slack...")
 			SlackApplicationStop()
 		}
 	}

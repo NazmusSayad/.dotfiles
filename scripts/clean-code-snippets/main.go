@@ -2,6 +2,7 @@ package main
 
 import (
 	helpers "dotfiles/src/helpers"
+	"fmt"
 	"io/fs"
 	"os"
 	"os/exec"
@@ -79,27 +80,27 @@ func main() {
 		extPath := filepath.Clean(binDir + editor.ExtensionsPath)
 
 		if !helpers.IsFileExists(extPath) {
-			println("Extensions path not found for ", editor.Name)
-			println("Path: ", binDir)
-			println("Ext: ", editor.ExtensionsPath)
-			println("Resolved: ", extPath)
-			println("")
+			fmt.Println("Extensions path not found for ", editor.Name)
+			fmt.Println("Path: ", binDir)
+			fmt.Println("Ext: ", editor.ExtensionsPath)
+			fmt.Println("Resolved: ", extPath)
+			fmt.Println("")
 			continue
 		}
 
 		files, err := getFiles(extPath)
 		if err != nil {
-			println("Failed reading files: ", err)
+			fmt.Println("Failed reading files: ", err)
 			continue
 		}
 
 		for _, file := range files {
 			err := os.WriteFile(file, []byte("{}"), 0644)
 			if err != nil {
-				println("Failed clearing ", file, ": ", err)
+				fmt.Println("Failed clearing ", file, ": ", err)
 				continue
 			}
-			println(editor.Name, " Cleared: ", filepath.Base(file))
+			fmt.Println(editor.Name, " Cleared: ", filepath.Base(file))
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -36,11 +37,11 @@ func renderSlackStatus(label string, status slack_helpers.SlackStatus) {
 
 	switch status {
 	case slack_helpers.SlackStatusAlways:
-		println("> " + label + ": " + aurora.Green("Always On").String())
+		fmt.Println("> " + label + ": " + aurora.Green("Always On").String())
 	case slack_helpers.SlackStatusWorkTime:
-		println("> " + label + ": " + aurora.Yellow("Work Time").String())
+		fmt.Println("> " + label + ": " + aurora.Yellow("Work Time").String())
 	case slack_helpers.SlackStatusDisabled:
-		println("> " + label + ": " + aurora.Red("Disabled").String())
+		fmt.Println("> " + label + ": " + aurora.Red("Disabled").String())
 	}
 }
 

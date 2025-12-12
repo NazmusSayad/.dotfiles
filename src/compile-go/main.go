@@ -3,6 +3,7 @@ package main
 import (
 	constants "dotfiles/src/constants"
 	"dotfiles/src/helpers"
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -47,11 +48,11 @@ func compileScript(script string, sourceDir string, outputDir string) {
 
 	sourcePath := filepath.Join(sourceDir, script, "main.go")
 	if !helpers.IsFileExists(sourcePath) {
-		println("Source file not found", sourcePath)
+		fmt.Println("Source file not found", sourcePath)
 		return
 	}
 
-	println("Building with Go", sourcePath, "to", outputPath)
+	fmt.Println("Building with Go", sourcePath, "to", outputPath)
 
 	cmd := exec.Command("go", "build", "-o", outputPath, sourcePath)
 	cmd.Stdout = os.Stdout

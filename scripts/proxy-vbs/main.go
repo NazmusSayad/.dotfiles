@@ -38,7 +38,7 @@ func main() {
 		vbscript = formatProgramForVBS(program, os.Args[3:])
 	}
 
-	println(vbscript)
+	fmt.Println(vbscript)
 
 	tempFile, err := os.CreateTemp("", "*.vbs")
 	if err != nil {

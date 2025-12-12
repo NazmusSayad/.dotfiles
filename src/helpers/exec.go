@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"bytes"
+	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -21,7 +22,7 @@ func isRunningAsAdmin() bool {
 
 	err := cmd.Run()
 	if err != nil {
-		println("Failed to check if running as admin.")
+		fmt.Println("Failed to check if running as admin.")
 		os.Exit(1)
 	}
 
@@ -35,7 +36,7 @@ func EnsureAdminExecution() {
 
 	exe, exeErr := os.Executable()
 	if exeErr != nil {
-		println("Failed to get executable path.")
+		fmt.Println("Failed to get executable path.")
 		os.Exit(1)
 	}
 
@@ -46,19 +47,19 @@ func EnsureAdminExecution() {
 
 		err := cmd.Run()
 		if err != nil {
-			println("Failed to run sudo.")
+			fmt.Println("Failed to run sudo.")
 			os.Exit(1)
 		}
 
 		os.Exit(0)
 	}
 
-	println("Relaunching with elevated privileges...")
+	fmt.Println("Relaunching with elevated privileges...")
 
 	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exe+"' -Verb RunAs")
 	err := cmd.Run()
 	if err != nil {
-		println("Failed to relaunch with elevated privileges.")
+		fmt.Println("Failed to relaunch with elevated privileges.")
 		os.Exit(1)
 	}
 

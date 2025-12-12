@@ -2,6 +2,7 @@ package main
 
 import (
 	"dotfiles/src/helpers/winget"
+	"fmt"
 	"os"
 	"os/exec"
 	"slices"
@@ -14,10 +15,10 @@ func main() {
 	upgradeablePackages := winget.GetUpgradeablePackages()
 
 	for _, p := range upgradeablePackages {
-		println("")
-		println("ID:", p.ID)
-		println("Current Version:", p.Version)
-		println("Available Version:", p.Available)
+		fmt.Println("")
+		fmt.Println("ID:", p.ID)
+		fmt.Println("Current Version:", p.Version)
+		fmt.Println("Available Version:", p.Available)
 		packageIDs = append(packageIDs, p.ID)
 	}
 
@@ -27,11 +28,11 @@ func main() {
 		}
 
 		if p.SkipUpgrade || p.Version != "" {
-			println("\n- Skipping", p.ID)
+			fmt.Println("\n- Skipping", p.ID)
 			continue
 		}
 
-		println("\n- Upgrading", p.ID)
+		fmt.Println("\n- Upgrading", p.ID)
 		parts := winget.BuildWingetUpgradeCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
@@ -41,5 +42,5 @@ func main() {
 		cmd.Run()
 	}
 
-	println("\nDone!")
+	fmt.Println("\nDone!")
 }

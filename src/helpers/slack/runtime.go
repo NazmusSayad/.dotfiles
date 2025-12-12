@@ -1,6 +1,7 @@
 package slack_helpers
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -40,13 +41,13 @@ func SlackApplicationStart() {
 
 	runtimePath, err := GetSlackRuntimePath()
 	if err != nil {
-		println("Error: Failed to get application runtime path")
+		fmt.Println("Error: Failed to get application runtime path")
 		return
 	}
 
 	err = helpers.DetachedExec(runtimePath, "--startup")
 	if err != nil {
-		println("Error: Failed to start Slack")
+		fmt.Println("Error: Failed to start Slack")
 	}
 }
 

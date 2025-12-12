@@ -1,11 +1,13 @@
 package helpers
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
 	"strings"
 
+	"github.com/logrusorgru/aurora/v4"
 	"github.com/tidwall/jsonc"
 )
 
@@ -13,7 +15,7 @@ func ResolvePath(input string) string {
 	if strings.HasPrefix(input, ".") {
 		homeDir, err := os.UserHomeDir()
 		if err != nil {
-			println("Error: failed to get user home directory:", err)
+			fmt.Println(aurora.Red("Error: failed to get user home directory: " + err.Error()))
 			os.Exit(1)
 		}
 
@@ -22,8 +24,8 @@ func ResolvePath(input string) string {
 		if _, err := os.Stat(dotfilesPath); err == nil {
 			input = filepath.Join(dotfilesPath, input)
 		} else {
-			println("Error: .dotfiles directory not found.")
-			println("Please run __install-dotfiles.cmd to install the dotfiles.")
+			fmt.Println(aurora.Red("Error: .dotfiles directory not found."))
+			fmt.Println(aurora.Yellow("Please run __install-dotfiles.cmd to install the dotfiles."))
 			os.Exit(1)
 		}
 	}
@@ -33,18 +35,18 @@ func ResolvePath(input string) string {
 
 func ReadDotfilesConfigJSONC(path string) ([]byte, error) {
 	resolvedPath := ResolvePath(path)
-	println("JSON:", resolvedPath)
+	fmt.Println(aurora.Faint("JSON: " + resolvedPath))
 
 	f, err := os.Open(resolvedPath)
 	if err != nil {
-		println("JSON: failed to open file")
+		fmt.Println(aurora.Red("JSON: failed to open file"))
 		return nil, err
 	}
 	defer f.Close()
 
 	data, err := io.ReadAll(f)
 	if err != nil {
-		println("JSON: failed to read file")
+		fmt.Println(aurora.Red("JSON: failed to read file"))
 		return nil, err
 	}
 
