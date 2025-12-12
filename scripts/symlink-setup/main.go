@@ -43,6 +43,4 @@ func main() {
 		println("")
 		helpers.GenerateSymlink(sourcePath, targetPath)
 	}
-
-	helpers.PressAnyKeyOrWaitToExit()
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	helpers "dotfiles/src/helpers"
 	"dotfiles/src/helpers/winget"
 	"os"
 	"os/exec"
@@ -28,5 +27,4 @@ func main() {
 	}
 
 	println("\nDone!")
-	helpers.PressAnyKeyOrWaitToExit()
 }
