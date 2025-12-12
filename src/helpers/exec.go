@@ -2,29 +2,17 @@ package helpers
 
 import (
 	"bytes"
-	"fmt"
 	"os"
 	"os/exec"
 	"strings"
 )
-
-func execPsCommand(command string) (string, error) {
-	cmd := exec.Command("powershell", "-c", command)
-	output, err := cmd.Output()
-
-	if err != nil {
-		return "", fmt.Errorf("powershell command failed: %v", err)
-	}
-
-	return strings.TrimSpace(string(output)), nil
-}
 
 func sudoAvailable() bool {
 	_, err := exec.LookPath("sudo")
 	return err == nil
 }
 
-func IsRunningAsAdmin() bool {
+func isRunningAsAdmin() bool {
 	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive",
 		"(New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)")
 
@@ -41,7 +29,7 @@ func IsRunningAsAdmin() bool {
 }
 
 func EnsureAdminExecution() {
-	if IsRunningAsAdmin() {
+	if isRunningAsAdmin() {
 		return
 	}
 
