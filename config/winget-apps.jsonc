@@ -35,6 +35,10 @@
     "InteractiveInstall": true
   },
   {
+    "ID": "GitHub.cli",
+    "Name": "GitHub CLI"
+  },
+  {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VSCode",
     "InteractiveInstall": true

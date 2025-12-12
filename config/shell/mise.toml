@@ -1,12 +1,10 @@
 [tools]
 
-gh = "latest"
-ni = "latest"
-
-node = "lts"
+node = "latest"
 deno = "latest"
 bun = "latest"
 
+ni = "latest"
 pnpm = "latest"
 yarn = "latest"
 "npm:tsx" = "latest"
