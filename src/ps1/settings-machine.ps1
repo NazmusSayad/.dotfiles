@@ -153,3 +153,6 @@ reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskC
 
 # Cursor Policy
 reg.exe add "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Cursor" /v ExtensionGalleryServiceUrl /t REG_SZ /d "https://marketplace.visualstudio.com/_apis/public/gallery" /f
+
+# Enable Windows Sudo
+sudo config --enable default
