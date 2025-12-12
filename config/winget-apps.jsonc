@@ -24,7 +24,7 @@
     "Name": "Helium Browser"
   },
 
-  // Programming Languages
+  // Programming & Development Tools
   {
     "ID": "Volta.Volta",
     "Name": "Volta"
@@ -49,8 +49,18 @@
     "ID": "Google.DartSDK",
     "Name": "Dart SDK"
   },
-
-  // Editors & Development Tools
+  {
+    "ID": "Rustlang.Rustup",
+    "Name": "Rustup",
+    "SkipInstall": true
+  },
+  {
+    "ID": "Microsoft.VisualStudio.BuildTools",
+    "Name": "Visual Studio Build Tools",
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true,
+    "SkipInstall": true
+  },
   {
     "ID": "Git.Git",
     "Name": "Git",
@@ -71,13 +81,29 @@
     "InteractiveInstall": true
   },
   {
-    "ID": "ZedIndustries.Zed",
-    "Name": "Zed"
+    "ID": "ZedIndustries.Zed.Preview",
+    "Name": "Zed Preview",
+    "InteractiveInstall": true
   },
   {
     "ID": "Postman.Postman",
     "Name": "Postman",
     "SkipInstall": true
+  },
+  {
+    "ID": "Starship.Starship",
+    "Name": "Starship"
+  },
+  {
+    "ID": "MSYS2.MSYS2",
+    "Name": "MSYS2"
+  },
+  {
+    "ID": "Docker.DockerDesktop",
+    "Name": "Docker Desktop",
+    "SkipInstall": true,
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true
   },
 
   // Media Tools
@@ -110,24 +136,7 @@
     "Name": "OBS Studio"
   },
 
-  // CLI Tools
-  {
-    "ID": "Starship.Starship",
-    "Name": "Starship"
-  },
-  {
-    "ID": "MSYS2.MSYS2",
-    "Name": "MSYS2"
-  },
-
   // Others
-  {
-    "ID": "Docker.DockerDesktop",
-    "Name": "Docker Desktop",
-    "SkipInstall": true,
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true
-  },
   {
     "ID": "SlackTechnologies.Slack",
     "Name": "Slack"
