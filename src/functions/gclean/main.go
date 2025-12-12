@@ -6,6 +6,8 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
@@ -26,6 +28,7 @@ func main() {
 		if current != "" && strings.Contains(b, current) {
 			continue
 		}
+
 		branches = append(branches, b)
 	}
 
@@ -34,13 +37,17 @@ func main() {
 		return
 	}
 
-	fmt.Print("Branches to delete: ")
-	fmt.Println(strings.Join(branches, ", "))
+	colorfulBranches := branches
+	for i, b := range branches {
+		colorfulBranches[i] = aurora.Red(b).Bold().String()
+	}
 
-	fmt.Print("Press [Enter] to confirm, or any other key to cancel: ")
+	fmt.Println(aurora.Yellow("Branches to delete: "), strings.Join(colorfulBranches, ", "))
+	fmt.Print(aurora.Faint("Press [Enter] to confirm, or any other key to cancel: "))
+
 	line, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 	if strings.TrimRight(line, "\r\n") != "" {
-		fmt.Println("Cancelled branch deletion")
+		fmt.Println(aurora.Green("Cancelled branch deletion"))
 		return
 	}
 
