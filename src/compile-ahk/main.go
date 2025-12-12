@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	constants "dotfiles/src"
+	constants "dotfiles/src/constants"
 	helpers "dotfiles/src/helpers"
 )
 

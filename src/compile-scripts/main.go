@@ -1,7 +1,7 @@
 package main
 
 import (
-	constants "dotfiles/src"
+	constants "dotfiles/src/constants"
 	"dotfiles/src/helpers"
 	"os"
 	"os/exec"
