@@ -31,7 +31,7 @@ func main() {
 					}
 					if digits {
 						fmt.Println("Killing PID", f, "for", kw)
-						exec.Command("sudo", "kill", "-9", f).Run()
+						exec.Command("kill", "-9", f).Run()
 						break
 					}
 				}
