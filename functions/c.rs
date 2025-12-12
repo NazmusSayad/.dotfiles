@@ -19,7 +19,7 @@ fn main() {
   if valid {
     println!("{}Using GitHub CLI to resolve URL...{}", DIM, NORMAL);
 
-    match Command::new("gh")
+    match Command::new("gh.exe")
       .args(["repo", "view", repo_path, "--json", "url", "-q", ".url"])
       .stderr(Stdio::inherit())
       .output()
