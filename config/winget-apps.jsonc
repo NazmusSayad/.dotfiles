@@ -30,24 +30,9 @@
     "Name": "Mise"
   },
   {
-    "ID": "Google.DartSDK",
-    "Name": "Dart SDK"
-  },
-  {
-    "ID": "Microsoft.VisualStudio.BuildTools",
-    "Name": "Visual Studio Build Tools",
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true,
-    "SkipInstall": true
-  },
-  {
     "ID": "Git.Git",
     "Name": "Git",
     "InteractiveInstall": true
-  },
-  {
-    "ID": "GitHub.cli",
-    "Name": "GitHub CLI"
   },
   {
     "ID": "Microsoft.VisualStudioCode",
@@ -83,6 +68,13 @@
     "SkipInstall": true,
     "InteractiveInstall": true,
     "InteractiveUpgrade": true
+  },
+  {
+    "ID": "Microsoft.VisualStudio.BuildTools",
+    "Name": "Visual Studio Build Tools",
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true,
+    "SkipInstall": true
   },
 
   // Media Tools
