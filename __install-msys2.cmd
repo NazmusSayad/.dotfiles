@@ -1,12 +1,12 @@
 @echo off
 setlocal
 
-echo "> Installing shells..."
+echo ^> Installing shells...
 pacman -S --noconfirm bash fish
 
-echo "> Installing fastfetch..."
+echo ^> Installing fastfetch...
 pacman -S --noconfirm mingw-w64-clang-x86_64-fastfetch
 
 echo.
-echo "> Press any key to continue..."
+echo ^> Press any key to continue...
 pause >nul
