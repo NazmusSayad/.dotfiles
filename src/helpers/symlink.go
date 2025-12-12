@@ -14,17 +14,17 @@ type SymlinkConfig struct {
 }
 
 func GenerateSymlink(source string, target string) {
-	fmt.Println(aurora.Green("Symlinking: " + source + " -> " + target))
+	fmt.Println(aurora.Faint("Symlinking: " + source))
 
 	if !IsFileExists(source) {
-		fmt.Println("UNEXPECTED: Source not found: " + source)
+		fmt.Println(aurora.Red("UNEXPECTED: Source not found: " + source))
 		return
 	}
 
 	if IsFileExists(target) {
 		removeErr := os.RemoveAll(target)
 		if removeErr != nil {
-			fmt.Println("UNEXPECTED: Error deleting target: " + target)
+			fmt.Println(aurora.Red("UNEXPECTED: Error deleting target: " + target))
 			return
 		}
 	}
@@ -33,16 +33,16 @@ func GenerateSymlink(source string, target string) {
 	if !IsFileExists(targetDir) {
 		mkdirErr := os.MkdirAll(targetDir, 0755)
 		if mkdirErr != nil {
-			fmt.Println("UNEXPECTED: Error creating target directory: " + targetDir)
+			fmt.Println(aurora.Red("UNEXPECTED: Error creating target directory: " + targetDir))
 			return
 		}
 	}
 
 	err := os.Symlink(source, target)
 	if err != nil {
-		fmt.Println("UNEXPECTED: Error creating symlink: " + err.Error())
+		fmt.Println(aurora.BrightRed("UNEXPECTED: Error creating symlink: " + err.Error()))
 		return
 	}
 
-	fmt.Println(source, "->", target)
+	fmt.Println(aurora.Green("-> " + target))
 }

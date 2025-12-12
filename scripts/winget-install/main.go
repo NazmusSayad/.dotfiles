@@ -5,19 +5,24 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"strconv"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
 	packages := winget.GetWingetPackages()
-	fmt.Println("Installing packages, total:", len(packages))
+	fmt.Println(aurora.Faint("Installing packages, total: " + strconv.Itoa(len(packages))))
 
 	for _, p := range packages {
 		if p.SkipInstall {
-			fmt.Println("\n- Skipping", p.ID)
+			fmt.Println()
+			fmt.Println(aurora.Faint("- Skipping " + p.ID))
 			continue
 		}
 
-		fmt.Println("\n- Installing", p.ID)
+		fmt.Println()
+		fmt.Println(aurora.Faint("- Installing " + p.ID))
 		parts := winget.BuildWingetInstallCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
@@ -27,5 +32,6 @@ func main() {
 		cmd.Run()
 	}
 
-	fmt.Println("\nDone!")
+	fmt.Println()
+	fmt.Println(aurora.Green("Done!"))
 }

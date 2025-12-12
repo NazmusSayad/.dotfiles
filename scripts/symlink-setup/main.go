@@ -43,7 +43,7 @@ func main() {
 		sourcePath := helpers.ResolvePath(config.Source)
 		targetPath := helpers.ResolvePath(config.Target)
 
-		fmt.Println("")
+		fmt.Println()
 		helpers.GenerateSymlink(sourcePath, targetPath)
 	}
 }

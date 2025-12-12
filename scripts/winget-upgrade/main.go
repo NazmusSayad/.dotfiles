@@ -6,6 +6,8 @@ import (
 	"os"
 	"os/exec"
 	"slices"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
@@ -15,10 +17,10 @@ func main() {
 	upgradeablePackages := winget.GetUpgradeablePackages()
 
 	for _, p := range upgradeablePackages {
-		fmt.Println("")
+		fmt.Println()
 		fmt.Println("ID:", p.ID)
-		fmt.Println("Current Version:", p.Version)
-		fmt.Println("Available Version:", p.Available)
+		fmt.Println("Current Version: " + aurora.Red(p.Version).String())
+		fmt.Println("Available Version: " + aurora.Green(p.Available).String())
 		packageIDs = append(packageIDs, p.ID)
 	}
 
@@ -28,11 +30,13 @@ func main() {
 		}
 
 		if p.SkipUpgrade || p.Version != "" {
-			fmt.Println("\n- Skipping", p.ID)
+			fmt.Println()
+			fmt.Println(aurora.Faint("- Skipping " + p.ID))
 			continue
 		}
 
-		fmt.Println("\n- Upgrading", p.ID)
+		fmt.Println()
+		fmt.Println(aurora.Faint("- Upgrading " + p.ID))
 		parts := winget.BuildWingetUpgradeCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
@@ -42,5 +46,6 @@ func main() {
 		cmd.Run()
 	}
 
-	fmt.Println("\nDone!")
+	fmt.Println()
+	fmt.Println(aurora.Green("Done!"))
 }

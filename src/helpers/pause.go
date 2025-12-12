@@ -6,14 +6,20 @@ import (
 	"math"
 	"os"
 	"runtime"
+	"strconv"
 	"syscall"
 	"time"
 	"unsafe"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
+const TOTAL_WAIT_SECONDS = 5
+
 func PressAnyKeyOrWaitToExit() {
-	const totalSeconds = 5
-	fmt.Printf("Press any key to exit, or wait %d seconds...", totalSeconds)
+	fmt.Println()
+	fmt.Printf("%s", aurora.Faint("Press any key to exit, or wait "+strconv.Itoa(TOTAL_WAIT_SECONDS)+" seconds..."))
+
 	done := make(chan struct{}, 1)
 	var h uintptr
 	var orig uint32
@@ -49,7 +55,7 @@ func PressAnyKeyOrWaitToExit() {
 		}()
 	}
 
-	deadline := time.Now().Add(totalSeconds * time.Second)
+	deadline := time.Now().Add(TOTAL_WAIT_SECONDS * time.Second)
 	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()
 
@@ -74,7 +80,8 @@ func PressAnyKeyOrWaitToExit() {
 				fmt.Println()
 				os.Exit(0)
 			}
-			fmt.Printf("\rPress any key to exit, or wait %d seconds...", remaining)
+
+			fmt.Printf("\r%s", aurora.Faint("Press any key to exit, or wait "+strconv.Itoa(remaining)+" seconds..."))
 		}
 	}
 }
