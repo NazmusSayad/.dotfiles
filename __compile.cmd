@@ -10,11 +10,7 @@ rmdir .\build\ahk /s /q
 
 echo.
 echo ^> Compiling Go scripts...
-call go run ./src/compile-scripts/main.go
-
-echo.
-echo ^> Compiling Rust functions...
-call go run ./src/compile-functions/main.go
+call go run ./src/compile-go/main.go
 
 echo.
 echo ^> Compiling AutoHotkey scripts...
