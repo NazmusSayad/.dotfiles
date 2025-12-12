@@ -12,9 +12,6 @@ git config --global core.ignorecase false
 git config --global --add safe.directory "*"
 git config --global --add --bool push.autoSetupRemote true
 
-echo ^> Installing npm packages globally...
-npm install -g npm@latest pnpm@latest yarn@latest tsx@latest uni-run@latest code-info@latest netserv@latest
-
 echo ^> pnpm config settings...
 pnpm config set ci true
 pnpm config set allow-scripts true
