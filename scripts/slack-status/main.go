@@ -7,6 +7,7 @@ import (
 
 	slack_helpers "dotfiles/src/helpers/slack"
 
+	"github.com/logrusorgru/aurora/v4"
 	"github.com/manifoldco/promptui"
 )
 
@@ -35,17 +36,17 @@ func renderSlackStatus(label string, status slack_helpers.SlackStatus) {
 
 	switch status {
 	case slack_helpers.SlackStatusAlways:
-		println("> " + label + ": \033[32mAlways On\033[0m")
+		println("> " + label + ": " + aurora.Green("Always On").String())
 	case slack_helpers.SlackStatusWorkTime:
-		println("> " + label + ": \033[33mWork Time\033[0m")
+		println("> " + label + ": " + aurora.Yellow("Work Time").String())
 	case slack_helpers.SlackStatusDisabled:
-		println("> " + label + ": \033[31mDisabled\033[0m")
+		println("> " + label + ": " + aurora.Red("Disabled").String())
 	}
 }
 
 func main() {
 	initialStatus := readSlackStatus()
-	renderSlackStatus("Slack Status", initialStatus)
+	renderSlackStatus("Current Slack Status", initialStatus)
 
 	prompt := promptui.Select{
 		Label:        "Select when to start Slack",
@@ -53,7 +54,7 @@ func main() {
 		HideHelp:     true,
 		HideSelected: true,
 		Templates: &promptui.SelectTemplates{
-			Active: "\033[32m> {{ . | green }}\033[0m",
+			Active: ("> " + aurora.BrightGreen("{{ . | green }}").String()),
 		},
 	}
 
