@@ -19,6 +19,10 @@ ruby = "latest"
 java = "latest"
 dart = "latest"
 python = "latest"
+rust-analyzer = "latest"
+
+eza = "latest"
+yazi = "latest"
 
 [settings]
 os = "windows"
