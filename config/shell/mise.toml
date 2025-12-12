@@ -5,6 +5,7 @@ deno = "latest"
 node = "latest"
 "npm:tsx" = "latest"
 "npm:pnpm" = "latest"
+"npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
 
