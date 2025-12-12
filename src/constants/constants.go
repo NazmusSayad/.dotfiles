@@ -1,5 +1,7 @@
 package constants
 
+const CACHE_DIR = "./.cache"
+
 const SOURCE_DIR = "./src"
 const SOURCE_DIR_SCRIPTS = "./scripts"
 const SOURCE_DIR_FUNCTIONS = "./functions"
