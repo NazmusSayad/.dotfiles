@@ -26,33 +26,12 @@
 
   // Programming & Development Tools
   {
-    "ID": "Volta.Volta",
-    "Name": "Volta"
-  },
-  {
-    "ID": "Oven-sh.Bun",
-    "Name": "Bun"
-  },
-  {
-    "ID": "Python.PythonInstallManager",
-    "Name": "Python Installer"
-  },
-  {
-    "ID": "Oracle.JDK.24",
-    "Name": "JDK 24"
-  },
-  {
-    "ID": "GoLang.Go",
-    "Name": "Go Language"
+    "ID": "jdx.mise",
+    "Name": "Mise"
   },
   {
     "ID": "Google.DartSDK",
     "Name": "Dart SDK"
-  },
-  {
-    "ID": "Rustlang.Rustup",
-    "Name": "Rustup",
-    "SkipInstall": true
   },
   {
     "ID": "Microsoft.VisualStudio.BuildTools",

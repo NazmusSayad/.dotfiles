@@ -1,5 +1,5 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal
 
 echo ^> Killing all AHK scripts...
 sudo taskkill /F /IM AHK-*
@@ -8,6 +8,7 @@ echo ^> Cleaning build directory...
 rmdir .\build\bin /s /q
 rmdir .\build\ahk /s /q
 
+echo.
 echo ^> Compiling Go scripts...
 go run ./src/compile-scripts/main.go
 
@@ -20,4 +21,5 @@ echo ^> Compiling AutoHotkey scripts...
 go run ./src/compile-ahk/main.go
 
 echo.
-pause
+echo ^> Press any key to continue...
+pause >nul
