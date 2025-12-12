@@ -9,25 +9,24 @@ type ExecCommandOptions struct {
 	Command string
 	Args    []string
 
-	Exit bool
-
-	Stdin  bool
-	Stdout bool
-	Stderr bool
+	Exit     bool
+	NoStdin  bool
+	NoStdout bool
+	NoStderr bool
 }
 
 func ExecNativeCommand(options ExecCommandOptions) error {
 	cmd := exec.Command(options.Command, options.Args...)
 
-	if options.Stdin {
+	if !options.NoStdin {
 		cmd.Stdin = os.Stdin
 	}
 
-	if options.Stdout {
+	if !options.NoStdout {
 		cmd.Stdout = os.Stdout
 	}
 
-	if options.Stderr {
+	if !options.NoStderr {
 		cmd.Stderr = os.Stderr
 	}
 

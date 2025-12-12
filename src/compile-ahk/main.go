@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -48,11 +47,11 @@ func main() {
 			spawnArgs = append(spawnArgs, "/icon", iconPath)
 		}
 
-		cmd := exec.Command(ahk2ExeBin, spawnArgs...)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Stdin = os.Stdin
-		_ = cmd.Run()
+		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+			Command: ahk2ExeBin,
+			Args:    spawnArgs,
+		})
+
 		fmt.Printf("Compiled: %s\n", entry.Name())
 	}
 

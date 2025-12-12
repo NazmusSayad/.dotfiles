@@ -5,8 +5,9 @@ import (
 	"dotfiles/src/helpers"
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
@@ -18,6 +19,7 @@ func main() {
 	sourceDir := filepath.Join(cwd, constants.SCRIPTS_SOURCE_DIR)
 	outputDir := filepath.Join(cwd, constants.SCRIPTS_BUILD_BIN_DIR)
 
+	os.RemoveAll(outputDir)
 	if !helpers.IsFileExists(outputDir) {
 		os.MkdirAll(outputDir, 0755)
 	}
@@ -32,23 +34,24 @@ func main() {
 			continue
 		}
 
-		compileScript(entry.Name(), sourceDir, outputDir)
+		entryName := entry.Name()
+		outputName := constants.SCRIPTS_MAP[entryName].Exe
+		if outputName == "" {
+			outputName = entryName
+		}
+
+		sourcePath := filepath.Join(sourceDir, entryName, "main.go")
+		outputPath := filepath.Join(outputDir, outputName+".exe")
+
+		if !helpers.IsFileExists(sourcePath) {
+			fmt.Println(aurora.Red("Source file not found: " + sourcePath))
+			continue
+		}
+
+		fmt.Println(aurora.Faint("> Building with Go: " + entryName))
+		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+			Command: "go",
+			Args:    []string{"build", "-o", outputPath, sourcePath},
+		})
 	}
-}
-
-func compileScript(script string, sourceDir string, outputDir string) {
-	outputPath := filepath.Join(outputDir, script+".exe")
-
-	sourcePath := filepath.Join(sourceDir, script, "main.go")
-	if !helpers.IsFileExists(sourcePath) {
-		fmt.Println("Source file not found", sourcePath)
-		return
-	}
-
-	fmt.Println("Building with Go", sourcePath, "to", outputPath)
-
-	cmd := exec.Command("go", "build", "-o", outputPath, sourcePath)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Run()
 }

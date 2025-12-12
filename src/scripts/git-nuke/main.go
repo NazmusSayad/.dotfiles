@@ -23,7 +23,10 @@ func main() {
 		return
 	}
 
-	exec.Command("git", "fetch", "--all").Run()
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"fetch", "--all"},
+	})
 
 	remoteURL := ""
 	if out, err := exec.Command("git", "remote", "get-url", "origin").Output(); err == nil {
@@ -54,10 +57,10 @@ func main() {
 		}
 
 		fmt.Printf("> Deleting remote branch: %s\n", rb)
-		cmd := exec.Command("git", "push", "origin", "--delete", rb)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Run()
+		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+			Command: "git",
+			Args:    []string{"push", "origin", "--delete", rb},
+		})
 	}
 
 	fmt.Println(aurora.Red("> Deleting git folder..."))

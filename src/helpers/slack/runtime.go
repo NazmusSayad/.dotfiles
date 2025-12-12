@@ -12,7 +12,11 @@ import (
 )
 
 func IsSlackRunning() bool {
-	err := exec.Command("powershell", "-NoProfile", "-Command", "Get-Process -Name 'slack' -ErrorAction SilentlyContinue").Run()
+	err := helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "powershell",
+		Args:    []string{"-NoProfile", "-Command", "Get-Process -Name 'slack' -ErrorAction SilentlyContinue"},
+	})
+
 	return err == nil
 }
 
