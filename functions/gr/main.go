@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
-	fmt.Println(aurora.Red("Restore and clean?"))
+	fmt.Println(aurora.Red("Restore and clean?").String())
 
-	fmt.Print("Press [Enter] to confirm, or any other key to cancel: ")
+	fmt.Println("Press [Enter] to confirm, or any other key to cancel: ")
 	line, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 	if strings.TrimRight(line, "\r\n") != "" {
-		fmt.Println(aurora.Red("❌ Aborted."))
+		fmt.Println(aurora.Red("❌ Aborted.").String())
 		os.Exit(0)
 	}
 

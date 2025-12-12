@@ -2,6 +2,7 @@ package main
 
 import (
 	helpers "dotfiles/src/helpers"
+	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -37,7 +38,7 @@ func main() {
 	for _, ini := range MSYS_INIS {
 		iniPath := filepath.Join(MSYS_PATH, ini)
 		if !helpers.IsFileExists(iniPath) {
-			println("File not found: %s\n", iniPath)
+			fmt.Println("File not found: %s\n", iniPath)
 			continue
 		}
 
@@ -48,14 +49,14 @@ func main() {
 
 		updated := reIni.ReplaceAll(content, []byte("MSYS2_PATH_TYPE=inherit"))
 		_ = os.WriteFile(iniPath, updated, 0644)
-		println("Updated: %s\n", ini)
+		fmt.Println("Updated: %s\n", ini)
 	}
 
 	if content, err := os.ReadFile(NSSWITCH_CONFIG_PATH); err == nil {
 		reNss := regexp.MustCompile(`(?m)^(db_home|db_shell|db_gecos):\s*.*$`)
 		updated := reNss.ReplaceAllString(string(content), "$1: windows")
 		_ = os.WriteFile(NSSWITCH_CONFIG_PATH, []byte(updated), 0644)
-		println("Updated: nsswitch.conf")
+		fmt.Println("Updated: nsswitch.conf")
 	}
 
 	_, _ = helpers.WriteEnv(helpers.ScopeMachine, "MSYS2_PATH_TYPE", "inherit")

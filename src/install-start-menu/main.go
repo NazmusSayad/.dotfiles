@@ -3,6 +3,7 @@ package main
 import (
 	"dotfiles/src/constants"
 	"dotfiles/src/helpers"
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -16,12 +17,12 @@ func main() {
 
 	proxyPausePath, err := exec.LookPath("proxy-pause")
 	if err != nil {
-		println("proxy-pause not found in PATH")
+		fmt.Println("proxy-pause not found in PATH")
 		os.Exit(1)
 	}
 
 	if helpers.IsFileExists(startMenuDir) {
-		println("Removing", startMenuDir)
+		fmt.Println("Removing", startMenuDir)
 		os.RemoveAll(startMenuDir)
 	}
 	os.MkdirAll(startMenuDir, 0755)
@@ -42,7 +43,7 @@ func main() {
 			continue
 		}
 
-		println("Installing", entryName)
+		fmt.Println("Installing", entryName)
 
 		shortcutPath := filepath.Join(startMenuDir, entryName+".lnk")
 		targetCommand := `"` + proxyPausePath + `"`

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -11,13 +12,13 @@ import (
 func main() {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		println("Error getting user home directory:", err)
+		fmt.Println("Error getting user home directory:", err)
 		os.Exit(1)
 	}
 
 	data, err := os.ReadFile(filepath.Join(homeDir, ".slack-status"))
 	if err != nil {
-		println("Error reading slack status file:", err)
+		fmt.Println("Error reading slack status file:", err)
 		slack_helpers.SlackLaunch("work-hours")
 		os.Exit(1)
 	}

@@ -61,7 +61,7 @@ func PressAnyKeyOrWaitToExit() {
 				setConsoleMode := kernel32.NewProc("SetConsoleMode")
 				_, _, _ = setConsoleMode.Call(h, uintptr(orig))
 			}
-			println()
+			fmt.Println()
 			os.Exit(0)
 		case <-ticker.C:
 			remaining := int(math.Ceil(time.Until(deadline).Seconds()))
@@ -71,7 +71,7 @@ func PressAnyKeyOrWaitToExit() {
 					setConsoleMode := kernel32.NewProc("SetConsoleMode")
 					_, _, _ = setConsoleMode.Call(h, uintptr(orig))
 				}
-				println()
+				fmt.Println()
 				os.Exit(0)
 			}
 			fmt.Printf("\rPress any key to exit, or wait %d seconds...", remaining)

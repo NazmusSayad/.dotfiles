@@ -3,7 +3,10 @@ package main
 import (
 	helpers "dotfiles/src/helpers"
 	"encoding/json"
+	"fmt"
 	"os"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 type SymlinkConfig struct {
@@ -15,7 +18,7 @@ func parseSymlinkConfig() []SymlinkConfig {
 	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("./config/symlink.jsonc")
 
 	if err != nil {
-		println("Error reading JSON file...")
+		fmt.Println(aurora.Red("Error reading JSON file..."))
 		return []SymlinkConfig{}
 	}
 
@@ -32,7 +35,7 @@ func main() {
 
 	symlinkConfigs := parseSymlinkConfig()
 	if len(symlinkConfigs) == 0 {
-		println("No symlink configurations found.")
+		fmt.Println("No symlink configurations found.")
 		os.Exit(1)
 	}
 
@@ -40,7 +43,7 @@ func main() {
 		sourcePath := helpers.ResolvePath(config.Source)
 		targetPath := helpers.ResolvePath(config.Target)
 
-		println("")
+		fmt.Println("")
 		helpers.GenerateSymlink(sourcePath, targetPath)
 	}
 }

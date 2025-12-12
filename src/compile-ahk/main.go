@@ -56,5 +56,5 @@ func main() {
 		fmt.Printf("Compiled: %s\n", entry.Name())
 	}
 
-	println("Compilation complete")
+	fmt.Println("Compilation complete")
 }

@@ -2,21 +2,22 @@ package main
 
 import (
 	"dotfiles/src/helpers/winget"
+	"fmt"
 	"os"
 	"os/exec"
 )
 
 func main() {
 	packages := winget.GetWingetPackages()
-	println("Installing packages, total:", len(packages))
+	fmt.Println("Installing packages, total:", len(packages))
 
 	for _, p := range packages {
 		if p.SkipInstall {
-			println("\n- Skipping", p.ID)
+			fmt.Println("\n- Skipping", p.ID)
 			continue
 		}
 
-		println("\n- Installing", p.ID)
+		fmt.Println("\n- Installing", p.ID)
 		parts := winget.BuildWingetInstallCommands(p)
 		cmd := exec.Command(parts[0], parts[1:]...)
 
@@ -26,5 +27,5 @@ func main() {
 		cmd.Run()
 	}
 
-	println("\nDone!")
+	fmt.Println("\nDone!")
 }
