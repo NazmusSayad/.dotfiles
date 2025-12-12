@@ -40,7 +40,7 @@ func EnsureAdminExecution() {
 	}
 
 	if sudoAvailable() {
-		cmd := exec.Command("sudo", "-E", exePath)
+		cmd := exec.Command("sudo", exePath)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 
@@ -50,7 +50,7 @@ func EnsureAdminExecution() {
 			os.Exit(1)
 		}
 
-		return
+		os.Exit(0)
 	}
 
 	println("Relaunching with elevated privileges...")
@@ -59,5 +59,8 @@ func EnsureAdminExecution() {
 	err := cmd.Run()
 	if err != nil {
 		println("Failed to relaunch with elevated privileges.")
+		os.Exit(1)
 	}
+
+	os.Exit(0)
 }

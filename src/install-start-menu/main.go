@@ -10,10 +10,7 @@ import (
 )
 
 func main() {
-	// helpers.EnsureAdminExecution()
-
 	scriptsDir := helpers.ResolvePath(constants.SOURCE_DIR_SCRIPTS)
-	buildDir := helpers.ResolvePath(constants.BUILD_DIR_SCRIPTS)
 	startMenuDir := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
 	escape := func(s string) string { return strings.ReplaceAll(s, "'", "''") }
 
@@ -27,20 +24,24 @@ func main() {
 			continue
 		}
 
-		source := filepath.Join(buildDir, entry.Name()+".exe")
-		if !helpers.IsFileExists(source) {
+		entryName := entry.Name()
+		_, err := exec.LookPath(entry.Name())
+		if err != nil {
 			continue
 		}
 
 		os.MkdirAll(startMenuDir, 0755)
 		println("Installing", entry.Name())
-		target := filepath.Join(startMenuDir, entry.Name()+".lnk")
+
+		shortcutPath := filepath.Join(startMenuDir, entry.Name()+".lnk")
+		targetCommand := "vbproxy user " + entryName
+
 		cmd := exec.Command(
 			"powershell",
 			"-NoProfile",
 			"-NonInteractive",
 			"-Command",
-			"$s='"+escape(source)+"';$t='"+escape(target)+"';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Save()",
+			"$s='"+escape(targetCommand)+"';$t='"+escape(shortcutPath)+"';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Save()",
 		)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
