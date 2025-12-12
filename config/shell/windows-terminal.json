@@ -34,7 +34,6 @@
     ],
     "alwaysShowNotificationIcon": false,
     "autoHideWindow": false,
-    "centerOnLaunch": true,
     "compatibility.enableUnfocusedAcrylic": false,
     "compatibility.textMeasurement": "console",
     "copyFormatting": "none",
@@ -349,24 +348,6 @@
                 "hidden": false,
                 "name": "Windows PowerShell",
                 "startingDirectory": null
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{44997a8a-641d-53f2-8d7d-54d2ccfedfc8}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{7b8fad5f-20a4-50c5-820a-839ee97ea914}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
