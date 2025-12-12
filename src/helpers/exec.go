@@ -50,7 +50,6 @@ func EnsureAdminExecution() {
 			os.Exit(1)
 		}
 
-		os.Exit(1)
 		return
 	}
 
