@@ -33,14 +33,14 @@ func EnsureAdminExecution() {
 		return
 	}
 
-	exePath, exePathErr := os.Executable()
-	if exePathErr != nil {
+	exe, exeErr := os.Executable()
+	if exeErr != nil {
 		println("Failed to get executable path.")
 		os.Exit(1)
 	}
 
 	if sudoAvailable() {
-		cmd := exec.Command("sudo", exePath)
+		cmd := exec.Command("sudo", exe)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 
@@ -55,7 +55,7 @@ func EnsureAdminExecution() {
 
 	println("Relaunching with elevated privileges...")
 
-	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exePath+"' -Verb RunAs")
+	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive", "-Command", "Start-Process -FilePath '"+exe+"' -Verb RunAs")
 	err := cmd.Run()
 	if err != nil {
 		println("Failed to relaunch with elevated privileges.")
