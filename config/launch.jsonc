@@ -1,5 +1,10 @@
 [
   {
+    "Name": "CTF Monitor",
+    "Path": "ctfmon.exe",
+    "Admin": true
+  },
+  {
     "Name": "CMD",
     "Path": "cmd.exe",
     "Args": ["/c"],
