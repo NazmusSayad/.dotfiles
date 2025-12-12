@@ -13,6 +13,7 @@ func main() {
 	cmd := exec.Command(executable, arguments...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
 	cmd.Run()
 
 	helpers.PressAnyKeyOrWaitToExit()
