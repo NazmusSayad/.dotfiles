@@ -84,7 +84,7 @@ func main() {
 			fmt.Println("Path: ", binDir)
 			fmt.Println("Ext: ", editor.ExtensionsPath)
 			fmt.Println("Resolved: ", extPath)
-			fmt.Println("")
+			fmt.Println()
 			continue
 		}
 
