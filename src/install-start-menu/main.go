@@ -10,10 +10,9 @@ import (
 	"strings"
 )
 
+var escape = func(s string) string { return strings.ReplaceAll(s, "'", "''") }
+
 func main() {
-	scriptsDir := helpers.ResolvePath(constants.SCRIPTS_SOURCE_DIR)
-	startMenuDir := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
-	escape := func(s string) string { return strings.ReplaceAll(s, "'", "''") }
 
 	proxyPausePath, err := exec.LookPath("proxy-pause")
 	if err != nil {
@@ -21,43 +20,32 @@ func main() {
 		os.Exit(1)
 	}
 
+	startMenuDir := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
 	if helpers.IsFileExists(startMenuDir) {
 		fmt.Println("Removing", startMenuDir)
 		os.RemoveAll(startMenuDir)
 	}
 	os.MkdirAll(startMenuDir, 0755)
 
-	entries, err := os.ReadDir(scriptsDir)
-	if err != nil {
-		os.Exit(1)
-	}
-
-	for _, entry := range entries {
-		if !entry.IsDir() {
+	for scriptName, script := range constants.SCRIPTS_MAP {
+		if script.StartMenuName == "" {
 			continue
 		}
 
-		entryName := entry.Name()
-		binPath, err := exec.LookPath(entryName)
-		if err != nil {
-			continue
-		}
+		fmt.Println("> Installing", scriptName, script.StartMenuName)
 
-		fmt.Println("Installing", entryName)
-
-		shortcutPath := filepath.Join(startMenuDir, entryName+".lnk")
+		shortcutPath := filepath.Join(startMenuDir, script.StartMenuName+".lnk")
 		targetCommand := `"` + proxyPausePath + `"`
-		arguments := `"` + binPath + `"`
+		arguments := `"` + scriptName + `"`
 
-		cmd := exec.Command(
-			"powershell",
-			"-NoProfile",
-			"-NonInteractive",
-			"-Command",
-			"$s='"+escape(targetCommand)+"';$a='"+escape(arguments)+"';$t='"+escape(shortcutPath)+"';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Arguments=$a;$sc.Save()",
-		)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Run()
+		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+			Command: "powershell",
+			Args: []string{
+				"-NoProfile",
+				"-NonInteractive",
+				"-Command",
+				"$s='" + escape(targetCommand) + "';$a='" + escape(arguments) + "';$t='" + escape(shortcutPath) + "';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Arguments=$a;$sc.Save()",
+			},
+		})
 	}
 }

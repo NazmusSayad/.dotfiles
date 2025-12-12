@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
@@ -53,10 +54,12 @@ func main() {
 	}
 	tempFile.Close()
 
-	cmd := exec.Command("cscript", tempFile.Name())
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Run()
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "cscript",
+		Args:    []string{tempFile.Name()},
+		Exit:    true,
+	})
+
 }
 
 func formatProgramForVBS(program string, programArgs []string) string {

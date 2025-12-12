@@ -1,10 +1,9 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"dotfiles/src/helpers/winget"
 	"fmt"
-	"os"
-	"os/exec"
 	"slices"
 
 	"github.com/logrusorgru/aurora/v4"
@@ -37,15 +36,11 @@ func main() {
 
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Upgrading " + p.ID))
-		parts := winget.BuildWingetUpgradeCommands(p)
-		cmd := exec.Command(parts[0], parts[1:]...)
 
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Stdin = os.Stdin
-		cmd.Run()
+		args := winget.BuildWingetUpgradeCommands(p)
+		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+			Command: args[0],
+			Args:    args[1:],
+		})
 	}
-
-	fmt.Println()
-	fmt.Println(aurora.Green("Done!"))
 }

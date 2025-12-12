@@ -7,9 +7,8 @@ import (
 
 func main() {
 	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: os.Args[1],
-		Args:    os.Args[2:],
+		Command: "git",
+		Args:    append([]string{"pull"}, os.Args...),
+		Exit:    true,
 	})
-
-	helpers.PressAnyKeyOrWaitToExit()
 }
