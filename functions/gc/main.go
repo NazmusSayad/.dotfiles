@@ -17,12 +17,12 @@ func main() {
 	}
 
 	if branch == "" {
-		fmt.Println(aurora.Red("❌ Branch name required").String())
+		fmt.Println(aurora.Red("❌ Branch name required"))
 		os.Exit(1)
 	}
 
 	if strings.HasPrefix(branch, "-") {
-		fmt.Println(aurora.Red("❌ Invalid branch name: " + branch).String())
+		fmt.Println(aurora.Red("❌ Invalid branch name: " + branch))
 		os.Exit(1)
 	}
 

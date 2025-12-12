@@ -15,7 +15,7 @@ func main() {
 	}
 
 	if commitHash == "" {
-		fmt.Println(aurora.Red("❌ Commit hash required").String())
+		fmt.Println(aurora.Red("❌ Commit hash required"))
 		os.Exit(1)
 	}
 
