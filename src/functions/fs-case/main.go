@@ -1,18 +1,7 @@
 package main
 
-import (
-	"os"
-	"os/exec"
-)
+import "dotfiles/src/helpers"
 
 func main() {
-	cmd := exec.Command("fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			os.Exit(ee.ExitCode())
-		}
-		os.Exit(1)
-	}
+	helpers.ExecWithNativeOutputAndExit("fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive")
 }

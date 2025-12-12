@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
@@ -51,19 +52,7 @@ func main() {
 		return
 	}
 
-	exec.Command("git", "prune", "--progress").Run()
-	cmd := exec.Command("git", append([]string{"branch", "-D"}, branches...)...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	err := cmd.Run()
-	if err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			os.Exit(ee.ExitCode())
-		} else {
-			os.Exit(1)
-		}
-	}
-
+	helpers.ExecWithNativeOutput("git", "prune", "--progress")
+	helpers.ExecWithNativeOutputAndExit("git", append([]string{"branch", "-D"}, branches...)...)
 	fmt.Println(aurora.Green("Branches deleted"))
 }
