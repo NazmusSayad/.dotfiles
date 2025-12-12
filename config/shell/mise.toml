@@ -1,6 +1,7 @@
 [tools]
 
 gh = "latest"
+ni = "latest"
 
 bun = "latest"
 deno = "latest"
@@ -13,11 +14,13 @@ pnpm = "latest"
 "npm:code-info" = "latest"
 
 go = "latest"
-rust = "stable"
-
 php = "latest"
+rust = "stable"
+ruby = "latest"
 java = "latest"
+dart = "latest"
 python = "latest"
+yarn = "latest"
 
 [settings]
 os = "windows"
