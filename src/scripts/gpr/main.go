@@ -27,8 +27,15 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Pulling changes from %s into %s (default)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch))
+	fmt.Printf("Pulling changes from %s into %s (rebase)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch))
 
-	helpers.ExecWithNativeOutput("git", "prune", "--progress")
-	helpers.ExecWithNativeOutputAndExit("git", "pull", "origin", targetBranch, "--progress")
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"prune", "--progress"},
+	})
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"pull", "origin", targetBranch, "--progress", "--rebase"},
+		Exit:    true,
+	})
 }

@@ -41,5 +41,9 @@ func main() {
 		gitCloneArgs = append(gitCloneArgs, os.Args[1:]...)
 	}
 
-	helpers.ExecWithNativeOutputAndExit("git", gitCloneArgs...)
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    gitCloneArgs,
+		Exit:    true,
+	})
 }

@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	scriptsDir := helpers.ResolvePath(constants.SOURCE_DIR_SCRIPTS)
+	scriptsDir := helpers.ResolvePath(constants.SCRIPTS_SOURCE_DIR)
 	startMenuDir := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
 	escape := func(s string) string { return strings.ReplaceAll(s, "'", "''") }
 

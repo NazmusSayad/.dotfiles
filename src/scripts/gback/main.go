@@ -19,5 +19,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	helpers.ExecWithNativeOutputAndExit("git", "restore", "--source", commitHash, "--", ".")
+	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
+		Command: "git",
+		Args:    []string{"restore", "--source", commitHash, "--", "."},
+		Exit:    true,
+	})
 }
