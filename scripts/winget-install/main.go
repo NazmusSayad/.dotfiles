@@ -1,8 +1,8 @@
 package main
 
 import (
-	helpers "dotfiles/src"
-	"dotfiles/src/winget"
+	helpers "dotfiles/src/helpers"
+	"dotfiles/src/helpers/winget"
 	"os"
 	"os/exec"
 )

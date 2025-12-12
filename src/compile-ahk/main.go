@@ -7,24 +7,25 @@ import (
 	"path/filepath"
 	"strings"
 
-	helpers "dotfiles/src"
+	helpers "dotfiles/src/helpers"
 )
 
 const ahkScriptPrefix = "AHK-"
 
 func main() {
-	baseDir := helpers.ResolvePath("./src/ahk")
-	outputDir := helpers.ResolvePath("./build/ahk")
-	ahkScriptsDir := filepath.Join(baseDir, "scripts")
-	ahk2ExeBin := filepath.Join(baseDir, "bin", "Ahk2Exe.exe")
-	ahkCompilerBin := filepath.Join(baseDir, "bin", "AutoHotkey64.exe")
+	srcDir := helpers.ResolvePath("./src/compile-ahk")
+	buildOutputDir := helpers.ResolvePath("./build/ahk")
+
+	ahkScriptsDir := filepath.Join(srcDir, "scripts")
+	ahk2ExeBin := filepath.Join(srcDir, "bin", "Ahk2Exe.exe")
+	ahkCompilerBin := filepath.Join(srcDir, "bin", "AutoHotkey64.exe")
 
 	entries, err := os.ReadDir(ahkScriptsDir)
 	if err != nil {
 		panic(err)
 	}
 
-	if err := os.MkdirAll(outputDir, 0755); err != nil {
+	if err := os.MkdirAll(buildOutputDir, 0755); err != nil {
 		panic(err)
 	}
 
@@ -38,7 +39,7 @@ func main() {
 
 		fileName := strings.TrimSuffix(entry.Name(), ".ahk")
 		inPath := filepath.Join(ahkScriptsDir, entry.Name())
-		outPath := filepath.Join(outputDir, ahkScriptPrefix+fileName+".exe")
+		outPath := filepath.Join(buildOutputDir, ahkScriptPrefix+fileName+".exe")
 
 		iconPath := filepath.Join(ahkScriptsDir, fileName+".ico")
 		spawnArgs := []string{"/base", ahkCompilerBin, "/in", inPath, "/out", outPath}
