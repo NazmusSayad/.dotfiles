@@ -13,10 +13,10 @@ git config --global --add safe.directory "*"
 git config --global --add --bool push.autoSetupRemote true
 
 echo ^> pnpm config settings...
-pnpm config set ci true
-pnpm config set allow-scripts true
-pnpm config set shamefully-hoist true
-pnpm config set auto-install-peers true
+call pnpm config set ci true
+call pnpm config set allow-scripts true
+call pnpm config set shamefully-hoist true
+call pnpm config set auto-install-peers true
 
 echo.
 echo ^> Press any key to continue...
