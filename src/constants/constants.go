@@ -32,6 +32,22 @@ var SCRIPTS_MAP = map[string]Script{
 		Exe: "gpm",
 	},
 
+	"gh-repo-view": {
+		Exe: "ghv",
+	},
+
+	"gh-repo-view-web": {
+		Exe: "ghw",
+	},
+
+	"gh-pr-create": {
+		Exe: "ghp",
+	},
+
+	"docker-compose": {
+		Exe: "dc",
+	},
+
 	"file-sys-case": {
 		Exe: "fscs",
 	},
