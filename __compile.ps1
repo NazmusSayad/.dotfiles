@@ -14,8 +14,16 @@ $goTargets = @{
     ".\src\slack\startup\main.go" = ".\build\bin\slack-startup.exe"
 }
 
+mkdir -p .\build\bin
+
 foreach ($entry in $goTargets.GetEnumerator()) {
     echo ""
+
+    echo "> Copying admin.manifest to $($entry.Value)..."
+    $manifestPath = "$($entry.Value).manifest"
+    Copy-Item -Path ".\admin.manifest" -Destination $manifestPath -Force -Recurse
+    rsrc -manifest $manifestPath -o rsrc.syso
+
     echo "> Compiling $($entry.Key) (Go)..."
     go build -o $entry.Value $entry.Key
 }

@@ -12,7 +12,7 @@ fn main() {
             .find(|field| field.chars().all(|c| c.is_ascii_digit()))
           {
             println!("Found {} process with PID: {}", keyword, pid);
-            let _ = Command::new("kill").args(["-9", pid]).status();
+            let _ = Command::new("sudo").args(["kill", "-9", pid]).status();
           }
         }
       }
@@ -35,4 +35,3 @@ fn main() {
     }
   }
 }
-
