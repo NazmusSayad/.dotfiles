@@ -55,7 +55,7 @@ func main() {
 		HideHelp:     true,
 		HideSelected: true,
 		Templates: &promptui.SelectTemplates{
-			Active: ("> " + aurora.BrightGreen("{{ . | green }}").String()),
+			Active: "> " + aurora.BrightGreen("{{ . | green }}").String(),
 		},
 	}
 

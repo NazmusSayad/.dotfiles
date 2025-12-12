@@ -11,14 +11,14 @@ import (
 )
 
 func main() {
-	fmt.Println(aurora.Red("This will reset the entire repository to the latest remote branch.").String())
+	fmt.Println(aurora.Red("This will reset the entire repository to the latest remote branch."))
 	fmt.Println("Write 'yes' and press [Enter] to confirm.")
 	fmt.Print("> ")
 
 	confirm, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 	confirm = strings.TrimRight(confirm, "\r\n")
 	if confirm != "yes" {
-		fmt.Println(aurora.Green("Reset aborted").String())
+		fmt.Println(aurora.Green("Reset aborted"))
 		return
 	}
 
@@ -59,7 +59,7 @@ func main() {
 		cmd.Run()
 	}
 
-	fmt.Println(aurora.Red("> Deleting git folder...").String())
+	fmt.Println(aurora.Red("> Deleting git folder..."))
 	os.RemoveAll(".git")
 
 	exec.Command("git", "init", "--initial-branch="+currentBranch).Run()

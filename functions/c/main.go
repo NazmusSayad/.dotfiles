@@ -12,7 +12,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println(aurora.Red("Usage: c <repository-path> [additional-arguments]").String())
+		fmt.Println(aurora.Red("Usage: c <repository-path> [additional-arguments]"))
 		os.Exit(1)
 	}
 
@@ -21,15 +21,15 @@ func main() {
 
 	re := regexp.MustCompile(`^[^/]+(/[^/]+)?$`)
 	if re.MatchString(inputPath) {
-		fmt.Println(aurora.Faint("Using GitHub CLI to resolve URL...").String())
+		fmt.Println(aurora.Faint("Using GitHub CLI to resolve URL..."))
 
 		ghCloneCmd := exec.Command("gh", "repo", "view", inputPath, "--json", "url", "-q", ".url")
 		out, err := ghCloneCmd.CombinedOutput()
 		if err != nil {
-			fmt.Println(aurora.Faint(aurora.Red("Failed to resolve repository with GitHub CLI")).String())
+			fmt.Println(aurora.Faint(aurora.Red("Failed to resolve repository with GitHub CLI")))
 		} else {
 			resolvedPath = strings.TrimSpace(string(out))
-			fmt.Println(aurora.Faint(aurora.Green("GitHub URL: " + resolvedPath)).String())
+			fmt.Println(aurora.Faint(aurora.Green("GitHub URL: " + resolvedPath)))
 		}
 	}
 
