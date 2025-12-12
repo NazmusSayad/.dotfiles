@@ -33,13 +33,13 @@ func main() {
 	}
 
 	if len(branches) == 0 {
-		fmt.Println("No other branches to delete")
+		fmt.Println(aurora.Green("No other branches to delete"))
 		return
 	}
 
-	colorfulBranches := branches
-	for i, b := range branches {
-		colorfulBranches[i] = aurora.Red(b).Bold().String()
+	colorfulBranches := []string{}
+	for _, b := range branches {
+		colorfulBranches = append(colorfulBranches, aurora.Red(string(b)).Bold().String())
 	}
 
 	fmt.Println(aurora.Yellow("Branches to delete: "), strings.Join(colorfulBranches, ", "))
@@ -55,10 +55,15 @@ func main() {
 	cmd := exec.Command("git", append([]string{"branch", "-D"}, branches...)...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
+
+	err := cmd.Run()
+	if err != nil {
 		if ee, ok := err.(*exec.ExitError); ok {
 			os.Exit(ee.ExitCode())
+		} else {
+			os.Exit(1)
 		}
-		os.Exit(1)
 	}
+
+	fmt.Println(aurora.Green("Branches deleted"))
 }
