@@ -44,12 +44,12 @@ var SCRIPTS_MAP = map[string]Script{
 		StartMenuName: "Clean Code Snippets",
 	},
 
-	"symlink-setup": {
-		StartMenuName: "Symlink Setup",
+	"msys-setup": {
+		StartMenuName: "MSYS2 Setup",
 	},
 
-	"slack-startup": {
-		StartMenuName: "Slack Startup",
+	"symlink-setup": {
+		StartMenuName: "Symlink Setup",
 	},
 
 	"slack-status": {
