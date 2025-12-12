@@ -2,27 +2,27 @@
 
 # Development Setup for Windows
 
-This repository contains reproducible automation and configuration to make it fast and consistent to provision a developer workstation. It includes shell configurations, PowerShell/Batch helpers, and small utilities implemented in Go.
+This repository contains automation and configuration for provisioning a Windows developer workstation. It includes shell configs, PowerShell/Batch helpers, AutoHotkey tooling, and small Go utilities.
 
 ## Features & Capabilities
 
 - **Windows Configuration**
-  Enhances productivity with custom AutoHotkey scripts for keyboard-centric window management, rapid virtual desktop switching, and tailored input configurations.
+  PowerShell scripts to apply system settings and remove/disable unwanted defaults.
 
 - **Apps, Packages, and Runtimes Management**
-  Automates the lifecycle of software dependencies. Orchestrates installation and updates for system applications and global runtimes, ensuring a reproducible development stack.
+  Winget install/upgrade helpers driven by `config/winget-apps.jsonc`.
 
 - **Shell Experience**
-  Delivers a consistent, Unix-like environment on Windows. Fully configured setups for Bash and Fish include cross-shell prompts, aliases, and modern CLI tools.
+  Configured Bash/Fish/Zsh + Starship, Windows Terminal settings, and common aliases.
 
 - **Code Editor Configuration**
-  Synchronizes Visual Studio Code preferences, keybindings, and extensions. Includes dedicated helpers to manage code snippets and maintain a unified editing environment.
+  Editor configs (e.g. Zed), plus helpers (e.g. code snippet cleanup).
 
 - **Communication Optimization**
-  Streamlines workspace connectivity with automated tools for managing application states. Includes intelligent Slack launch management with work-hour scheduling (automatically starts/stops Slack based on Bangladesh time zone), and AHK process management utilities.
+  Slack helpers (startup + status).
 
 - **System Performance**
-  Maximizes hardware potential by debloating Windows. Scripts aggressively remove unused pre-installed apps, disable telemetry services, and tune system policies for development workloads.
+  Debloat/tuning scripts under `src/ps1/` (review before running).
 
 ## Getting Started
 
@@ -30,7 +30,8 @@ This repository contains reproducible automation and configuration to make it fa
 
 - Windows 10 or Windows 11
 - Git (installed to clone the repository)
-- Go (for compiling the utilities)
+- Go (to compile the utilities; see `go.mod` for the version)
+- MSYS2 (optional, for `pacman`-managed shells/tools)
 
 ### Installation Guide
 
@@ -40,35 +41,41 @@ This repository contains reproducible automation and configuration to make it fa
     git clone https://github.com/NazmusSayad/.dotfiles.git
     ```
 
-2.  **Initial Setup:**
-    Run the `__install.cmd` script as Administrator. This script will:
+2.  **Install Dotfiles (symlink + PATH):**
+    Run `__install-dotfiles.cmd` as Administrator. This links the repo to `%USERPROFILE%\.dotfiles` and adds `%USERPROFILE%\.dotfiles\.build\bin` to the system PATH.
 
-    - Configure global Git settings.
-    - Install the Volta package manager.
-    - Install essential global npm packages (Node, pnpm, yarn, etc.).
+3.  **Compile utilities:**
+    Run `__compile.cmd`. This compiles:
 
-3.  **Build Utilities:**
-    Run the `__compile.cmd` script. This uses Go to compile the helper utilities located in `src/` into the `build/` directory.
+    - Go utilities from `src/scripts/*` and `src/functions/*` into `.build/bin/*.exe`
+    - AutoHotkey scripts via `src/compile-ahk/` into `.build/ahk/`
 
-4.  **Install Dotfiles:**
-    Run the `__install-dotfiles.cmd` script as Administrator. This creates a symbolic link from `%USERPROFILE%\.dotfiles` to your repository and adds the `build/` directory to your system PATH.
+4.  **Optional setup scripts:**
 
-5.  **Apply Configurations:**
-    - **Symlinks:** Run `symlink-config.exe` to link your config files.
-    - **Software:** Run `winget-install.exe` to install applications defined in `config/winget-apps.jsonc`.
-    - **System Settings:** Review and run the PowerShell scripts in `src/ps1/` as needed (e.g., `settings.ps1`) to apply system optimizations.
-    - **Slack Management:** Use `slack-status.exe` to configure intelligent Slack launch behavior (Always, Work Hours, or Disabled).
+    - `__install-config.cmd`: Git + pnpm config.
+    - `__git-gpg.cmd`: Generate/configure a GPG key for Git signing (prints the armored public key).
+    - `__install-msys2.cmd`: Install shells/tools via MSYS2 `pacman`.
+    - `__install-start-menu.cmd`: Install start-menu entries (via `go run ./src/install-start-menu/main.go`).
+    - `__windows-setup.cmd`: Runs every PowerShell script in `src/ps1/` (admin required; reboots at the end).
+
+5.  **Use the tools:**
+    After compilation and PATH setup, the compiled tools are available as `*.exe` in `.build/bin/` (folder name becomes the exe name), e.g.:
+
+    - `winget-install.exe`, `winget-upgrade.exe`
+    - `symlink-setup.exe`
+    - `slack-status.exe`, `slack-startup.exe`
+    - Git helpers like `gclean.exe`, `greset.exe`, `gp.exe`, etc.
 
 ## Repository Structure
 
-- `build/`: Compiled Go executables (gitignored).
+- `.build/`: Build output (binaries and compiled AHK).
 - `config/`: Configuration files for shells, standard apps, and `winget` packages.
-- `src/`: Source code for Go utilities and PowerShell scripts.
+- `src/`: Go utilities and PowerShell scripts.
+  - `src/functions/`: Small command-like Go utilities (compiled to `.build/bin/*.exe`).
+  - `src/scripts/`: Higher-level Go scripts (compiled to `.build/bin/*.exe`).
   - `src/ps1/`: Windows debloating and configuration scripts.
-  - `src/ahk/`: AutoHotkey scripts for window management.
-  - `src/winget/`: Tools for parsing and installing Winget packages.
-  - `src/slack/`: Slack automation utilities with intelligent launch scheduling.
-- `bin/`: Shared binaries.
+  - `src/compile-go/`: Compiles Go utilities into `.build/bin/`.
+  - `src/compile-ahk/`: Compiles bundled AHK scripts into `.build/ahk/`.
 - `__*`: Installation and utility scripts.
 
 ## ⚠️ Disclaimer
