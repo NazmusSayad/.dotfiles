@@ -1,5 +1,7 @@
 [tools]
 
+gh = "latest"
+
 bun = "latest"
 deno = "latest"
 
