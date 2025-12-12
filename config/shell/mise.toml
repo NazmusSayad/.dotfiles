@@ -2,7 +2,8 @@
 
 bun = "latest"
 deno = "latest"
-node = "latest"
+
+node = "lts"
 "npm:tsx" = "latest"
 "npm:pnpm" = "latest"
 "npm:netserv" = "latest"
