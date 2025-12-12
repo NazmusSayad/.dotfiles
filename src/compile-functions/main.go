@@ -6,10 +6,9 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
-)
 
-const FUNCTIONS_DIR = "./functions"
-const BUILD_DIR = "./build/bin"
+	constants "dotfiles/src"
+)
 
 func main() {
 	cwd, err := os.Getwd()
@@ -17,8 +16,8 @@ func main() {
 		panic(err)
 	}
 
-	functionsDir := filepath.Join(cwd, FUNCTIONS_DIR)
-	buildDir := filepath.Join(cwd, BUILD_DIR)
+	functionsDir := filepath.Join(cwd, constants.SOURCE_DIR_FUNCTIONS)
+	buildDir := filepath.Join(cwd, constants.BUILD_DIR_FUNCTIONS)
 
 	if !helpers.IsFileExists(buildDir) {
 		os.MkdirAll(buildDir, 0755)
