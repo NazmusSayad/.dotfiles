@@ -1,12 +1,13 @@
 [tools]
 
-node = "latest"
-deno = "latest"
-bun = "latest"
-
-ni = "latest"
+node = "lts"
 pnpm = "latest"
 yarn = "latest"
+
+ni = "latest"
+bun = "latest"
+deno = "latest"
+
 "npm:tsx" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
