@@ -26,7 +26,6 @@ eza = "latest"
 yazi = "latest"
 
 [settings]
-os = "windows"
 auto_install = false
 exec_auto_install = false
 not_found_auto_install = false
