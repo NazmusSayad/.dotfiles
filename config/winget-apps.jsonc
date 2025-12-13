@@ -50,13 +50,11 @@
   },
   {
     "ID": "ZedIndustries.Zed",
-    "Name": "Zed",
-    "InteractiveInstall": true
+    "Name": "Zed"
   },
   {
     "ID": "Postman.Postman",
-    "Name": "Postman",
-    "SkipInstall": true
+    "Name": "Postman"
   },
   {
     "ID": "Starship.Starship",
@@ -69,9 +67,9 @@
   {
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
-    "SkipInstall": true,
     "InteractiveInstall": true,
-    "InteractiveUpgrade": true
+    "InteractiveUpgrade": true,
+    "SkipInstall": true
   },
   {
     "ID": "Microsoft.VisualStudio.BuildTools",
