@@ -8,5 +8,4 @@ echo ^> Installing fastfetch...
 pacman -S --noconfirm mingw-w64-clang-x86_64-fastfetch
 
 echo.
-echo ^> Press any key to continue...
-pause >nul
+pause
