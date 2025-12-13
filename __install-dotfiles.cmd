@@ -54,5 +54,4 @@ if %errorLevel% EQU 0 (
 
 echo.
 echo SUCCESS: Dotfiles installation completed.
-echo Press any key to exit...
-pause >nul
+pause

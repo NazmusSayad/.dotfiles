@@ -17,3 +17,9 @@ call pnpm config set ci true
 call pnpm config set allow-scripts true
 call pnpm config set shamefully-hoist true
 call pnpm config set auto-install-peers true
+
+echo ^> Symlinking
+call symlink-setup.exe
+
+echo.
+pause

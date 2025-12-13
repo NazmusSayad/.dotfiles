@@ -106,5 +106,4 @@ gpg --armor --export %gpg_key_id%
 echo.
 echo.
 
-echo Press any key to exit...
-pause >nul
+pause
