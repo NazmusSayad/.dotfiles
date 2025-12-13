@@ -14,16 +14,23 @@ deno = "latest"
 "npm:code-info" = "latest"
 
 go = "latest"
+python = "latest"
+
 php = "latest"
+java = "latest"
+
 rust = "stable"
 ruby = "latest"
-java = "latest"
-dart = "latest"
-python = "latest"
 rust-analyzer = "latest"
 
+dart = "latest"
+kotlin = "latest"
+
+fzf = "latest"
+bat = "latest"
 eza = "latest"
 yazi = "latest"
+tokei = "latest"
 
 [settings]
 auto_install = false
