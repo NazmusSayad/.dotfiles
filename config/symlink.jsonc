@@ -8,23 +8,23 @@
     "source": "./config/shell/bash/config.sh",
     "target": "$USERPROFILE/.bashrc"
   },
-  {
-    "source": "./config/shell/mise.toml",
-    "target": "$USERPROFILE/.config/mise/config.toml"
-  },
 
   // Terminal Configs
   {
-    "source": "./config/shell/windows-terminal.json",
-    "target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+    "source": "./config/mise.toml",
+    "target": "$USERPROFILE/.config/mise/config.toml"
   },
   {
-    "source": "./config/shell/fastfetch.jsonc",
+    "source": "./config/starship.toml",
+    "target": "$USERPROFILE/.config/starship.toml"
+  },
+  {
+    "source": "./config/fastfetch.jsonc",
     "target": "$USERPROFILE/.config/fastfetch/config.jsonc"
   },
   {
-    "source": "./config/shell/starship.toml",
-    "target": "$USERPROFILE/.config/starship.toml"
+    "source": "./config/windows-terminal.json",
+    "target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
 
   // Zed Code Editor
