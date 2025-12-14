@@ -44,10 +44,6 @@ var SCRIPTS_MAP = map[string]Script{
 		Exe: "ghp",
 	},
 
-	"docker-compose": {
-		Exe: "dc",
-	},
-
 	"file-sys-case": {
 		Exe: "fscs",
 	},
