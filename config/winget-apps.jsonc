@@ -46,7 +46,8 @@
   {
     "ID": "Anysphere.Cursor",
     "Name": "Cursor",
-    "InteractiveInstall": true
+    "InteractiveInstall": true,
+    "SkipUpgrade": true
   },
   {
     "ID": "ZedIndustries.Zed",
