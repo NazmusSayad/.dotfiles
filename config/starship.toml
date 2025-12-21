@@ -15,15 +15,7 @@ style = "blue"
 [git_branch]
 format = "[](dimmed) [$branch](yellow)"
 
-# [git_status]
-# format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](red) ($ahead_behind$stashed)](red)"
-# conflicted = "​"
-# untracked = "​"
-# modified = "​"
-# staged = "​"
-# renamed = "​"
-# deleted = "​"
-# stashed = "≡"
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($bright-black)\) '
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+modified = "*"
+style = "red"
