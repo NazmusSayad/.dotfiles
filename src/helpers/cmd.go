@@ -10,12 +10,19 @@ type ExecCommandOptions struct {
 	Args    []string
 
 	Exit     bool
+	Silent   bool
 	NoStdin  bool
 	NoStdout bool
 	NoStderr bool
 }
 
 func ExecNativeCommand(options ExecCommandOptions) error {
+	if options.Silent {
+		options.NoStdin = true
+		options.NoStdout = true
+		options.NoStderr = true
+	}
+
 	cmd := exec.Command(options.Command, options.Args...)
 
 	if !options.NoStdin {
