@@ -53,6 +53,7 @@ func isLocalBranchExists(branch string) bool {
 	return helpers.ExecNativeCommand(helpers.ExecCommandOptions{
 		Command: "git",
 		Args:    []string{"rev-parse", "--verify", "--quiet", "refs/heads/" + branch},
+		Silent:  true,
 	}) == nil
 }
 
@@ -60,5 +61,6 @@ func isRemoteBranchExists(remote string, branch string) bool {
 	return helpers.ExecNativeCommand(helpers.ExecCommandOptions{
 		Command: "git",
 		Args:    []string{"rev-parse", "--verify", "--quiet", "refs/remotes/" + remote + "/" + branch},
+		Silent:  true,
 	}) == nil
 }
