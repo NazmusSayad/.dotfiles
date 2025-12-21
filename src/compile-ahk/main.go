@@ -8,6 +8,8 @@ import (
 
 	constants "dotfiles/src/constants"
 	helpers "dotfiles/src/helpers"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 const ahkScriptPrefix = "AHK-"
@@ -52,7 +54,7 @@ func main() {
 			Args:    spawnArgs,
 		})
 
-		fmt.Printf("Compiled: %s\n", entry.Name())
+		fmt.Println(aurora.Faint("Compiled: " + entry.Name()))
 	}
 
 	fmt.Println("Compilation complete")
