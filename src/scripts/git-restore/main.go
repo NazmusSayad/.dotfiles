@@ -24,6 +24,7 @@ func main() {
 		Command: "git",
 		Args:    []string{"restore", "."},
 	})
+
 	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
 		Command: "git",
 		Args:    []string{"clean", "-fd"},
