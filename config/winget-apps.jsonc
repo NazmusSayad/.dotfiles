@@ -62,6 +62,14 @@
     "Name": "Starship"
   },
   {
+    "ID": "Starship.Starship",
+    "Name": "Starship"
+  },
+  {
+    "ID": "Fastfetch-cli.Fastfetch",
+    "Name": "Fastfetch"
+  },
+  {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2"
   },
