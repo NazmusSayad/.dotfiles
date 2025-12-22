@@ -45,19 +45,24 @@ func main() {
 }
 
 func generateVbsScriptAsUser(program string) string {
-	lines := []string{
-		"Set WshShell = CreateObject(\"WScript.Shell\")",
-		"WshShell.Run \"\"\"" + program + "\"\"\", 0, False",
-		"Set WshShell = Nothing",
+	parts := []string{
+		`CreateObject("WScript.Shell").Run`,
+		`"` + program + `"`, // program
+		`0`,                 // hide window
+		`True`,              // wait for completion
 	}
-	return strings.Join(lines, "\n")
+
+	return strings.Join(parts, ", ")
 }
 
 func generateVbsScriptAsAdmin(program string) string {
-	lines := []string{
-		"Set UAC = CreateObject(\"Shell.Application\")",
-		"UAC.ShellExecute \"" + program + "\", \"\", \"\", \"runas\", 0",
-		"Set UAC = Nothing",
+	parts := []string{
+		`CreateObject("Shell.Application").ShellExecute`,
+		`"` + program + `"`, // program
+		`""`,                // arguments
+		`""`,                // working directory
+		`"runas"`,           // verb
+		`0`,                 // hide window
 	}
-	return strings.Join(lines, "\n")
+	return strings.Join(parts, ", ")
 }

@@ -4,6 +4,7 @@
     "fscs",
     "msys",
     "netserv",
+    "runas",
     "USERPROFILE",
     "winget",
     "winsdk"
