@@ -16,15 +16,17 @@ const (
 )
 
 func isWorkTime() bool {
-	now := time.Now().In(constants.SLACK_TIMEZONE)
+	config := ReadSlackConfig()
+
+	now := time.Now().In(constants.RECOMMENDED_TIMEZONE)
 	weekday := now.Weekday()
 	hour := now.Hour()
 
-	if slices.Contains(constants.SLACK_OFFICE_HOUR_WEEKEND, weekday) {
+	if slices.Contains(config.OfficeTimeWeekend, weekday) {
 		return false
 	}
 
-	return hour >= constants.SLACK_OFFICE_HOUR_START && hour < constants.SLACK_OFFICE_HOUR_FINISH
+	return hour >= config.OfficeTimeStart && hour < config.OfficeTimeFinish
 }
 
 func SlackLaunch(status SlackStatus) {
