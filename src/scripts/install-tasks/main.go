@@ -3,6 +3,7 @@ package main
 import (
 	"dotfiles/src/constants"
 	"dotfiles/src/helpers"
+	slack_helpers "dotfiles/src/helpers/slack"
 	"dotfiles/src/utils"
 	"fmt"
 	"os"
@@ -55,10 +56,12 @@ func generateSlackTaskXML() string {
 	actionCommand := "proxy-vbs.exe"
 	actionArguments := "user slack-startup.exe"
 
+	config := slack_helpers.ReadSlackConfig()
+
 	return `<?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
-    <Date>` + time.Now().In(constants.SLACK_TIMEZONE).Format(time.RFC3339) + `</Date>
+    <Date>` + time.Now().In(constants.RECOMMENDED_TIMEZONE).Format(time.RFC3339) + `</Date>
     <Author>Nazmus Sayad</Author>
     <URI>\__SLACK-STARTUP-TASK___</URI>
   </RegistrationInfo>
@@ -75,10 +78,12 @@ func generateSlackTaskXML() string {
         Path="System"&gt;*[System[Provider[@Name='Microsoft-Windows-Power-Troubleshooter'] and
         EventID=1]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
     </EventTrigger>
-    ` + generateCalendarTriggerXML(constants.SLACK_OFFICE_HOUR_START) + `
-    ` + generateCalendarTriggerXML(constants.SLACK_OFFICE_HOUR_START+2) + `
-    ` + generateCalendarTriggerXML(constants.SLACK_OFFICE_HOUR_FINISH) + `
-    ` + generateCalendarTriggerXML(constants.SLACK_OFFICE_HOUR_FINISH+2) + `
+    ` + generateCalendarTriggerXML(config.OfficeTimeStart) + `
+    ` + generateCalendarTriggerXML(config.OfficeTimeStart+1) + `
+    ` + generateCalendarTriggerXML(config.OfficeTimeStart+2) + `
+    ` + generateCalendarTriggerXML(config.OfficeTimeFinish) + `
+    ` + generateCalendarTriggerXML(config.OfficeTimeFinish+1) + `
+    ` + generateCalendarTriggerXML(config.OfficeTimeFinish+2) + `
   </Triggers>
   <Principals>
     <Principal id="Author">
@@ -182,5 +187,5 @@ func generateCalendarTriggerXML(hour int) string {
 }
 
 func formatTimeForCalendarTrigger(hour int, minute int) string {
-	return time.Date(1970, 1, 1, hour, minute, 0, 0, constants.SLACK_TIMEZONE).Format(time.RFC3339)
+	return time.Date(1970, 1, 1, hour, minute, 0, 0, constants.RECOMMENDED_TIMEZONE).Format(time.RFC3339)
 }
