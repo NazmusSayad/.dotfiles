@@ -1,11 +1,11 @@
 package slack_helpers
 
 import (
+	"dotfiles/src/constants"
 	"fmt"
+	"slices"
 	"time"
 )
-
-var bangladeshTZ = time.FixedZone("GMT+6", 6*60*60)
 
 type SlackStatus string
 
@@ -16,15 +16,15 @@ const (
 )
 
 func isWorkTime() bool {
-	now := time.Now().In(bangladeshTZ)
+	now := time.Now().In(constants.SLACK_TIMEZONE)
 	weekday := now.Weekday()
 	hour := now.Hour()
 
-	if weekday == time.Friday || weekday == time.Saturday {
+	if slices.Contains(constants.SLACK_OFFICE_HOUR_WEEKEND, weekday) {
 		return false
 	}
 
-	return hour >= 6 && hour < 20
+	return hour >= constants.SLACK_OFFICE_HOUR_START && hour < constants.SLACK_OFFICE_HOUR_FINISH
 }
 
 func SlackLaunch(status SlackStatus) {
