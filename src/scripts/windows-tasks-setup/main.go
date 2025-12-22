@@ -17,8 +17,8 @@ func main() {
 	helpers.EnsureAdminExecution()
 
 	tasks := map[string]string{
-		"__SLACK TASK___":     generateSlackTaskXML(),
-		"__OS STARTUP TASK__": generateWindowsTaskXML(),
+		constants.STARTUP_TASK_SLACK.TaskName:   generateSlackTaskXML(resolveProgramPath(constants.STARTUP_TASK_SLACK.Program)),
+		constants.STARTUP_TASK_WINDOWS.TaskName: generateWindowsTaskXML(resolveProgramPath(constants.STARTUP_TASK_WINDOWS.Program)),
 	}
 
 	for name, task := range tasks {
@@ -52,10 +52,11 @@ func main() {
 	}
 }
 
-func generateSlackTaskXML() string {
-	actionCommand := "proxy-vbs.exe"
-	actionArguments := "user slack-startup.exe"
+func resolveProgramPath(program string) string {
+	return helpers.ResolvePath(constants.TASKS_RUNNER_BUILD_DIR + "/" + program + ".vbs")
+}
 
+func generateSlackTaskXML(program string) string {
 	config := slack_helpers.ReadSlackConfig()
 
 	return `<?xml version="1.0" encoding="UTF-16"?>
@@ -114,17 +115,13 @@ func generateSlackTaskXML() string {
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>` + actionCommand + `</Command>
-      <Arguments>` + actionArguments + `</Arguments>
+      <Command>` + program + `</Command>
     </Exec>
   </Actions>
 </Task>`
 }
 
-func generateWindowsTaskXML() string {
-	actionCommand := "proxy-vbs.exe"
-	actionArguments := "admin windows-startup.exe"
-
+func generateWindowsTaskXML(program string) string {
 	return `<?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
@@ -169,8 +166,7 @@ func generateWindowsTaskXML() string {
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>` + actionCommand + `</Command>
-      <Arguments>` + actionArguments + `</Arguments>
+      <Command>` + program + `</Command>
     </Exec>
   </Actions>
 </Task>`
