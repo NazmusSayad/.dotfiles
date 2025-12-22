@@ -4,6 +4,7 @@
     "fscs",
     "msys",
     "netserv",
+    "USERPROFILE",
     "winget",
     "winsdk"
   ]

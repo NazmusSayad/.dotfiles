@@ -22,4 +22,8 @@ echo ^> Symlinking
 call symlink-setup.exe
 
 echo.
+echo ^> Installing tasks...
+call windows-tasks-setup.exe
+
+echo.
 pause
