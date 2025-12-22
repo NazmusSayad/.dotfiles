@@ -47,22 +47,22 @@ func main() {
 func generateVbsScriptAsUser(program string) string {
 	parts := []string{
 		`CreateObject("WScript.Shell").Run`,
-		`"` + program + `"`, // program
-		`0`,                 // hide window
-		`True`,              // wait for completion
+		`"` + program + `",`, // program
+		`0,`,                 // hide window
+		`True`,               // wait for completion
 	}
 
-	return strings.Join(parts, ", ")
+	return strings.Join(parts, " ")
 }
 
 func generateVbsScriptAsAdmin(program string) string {
 	parts := []string{
 		`CreateObject("Shell.Application").ShellExecute`,
-		`"` + program + `"`, // program
-		`""`,                // arguments
-		`""`,                // working directory
-		`"runas"`,           // verb
-		`0`,                 // hide window
+		`"` + program + `",`, // program
+		`"",`,                // arguments
+		`"",`,                // working directory
+		`"runas",`,           // verb
+		`0`,                  // hide window
 	}
-	return strings.Join(parts, ", ")
+	return strings.Join(parts, " ")
 }
