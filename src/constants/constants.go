@@ -77,7 +77,7 @@ var SCRIPTS_MAP = map[string]Script{
 		StartMenuName: "WinGet Upgrade",
 	},
 
-	"install-tasks": {
-		StartMenuName: "Install Windows Tasks",
+	"windows-tasks-setup": {
+		StartMenuName: "Windows Tasks Setup",
 	},
 }
