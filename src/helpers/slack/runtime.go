@@ -9,15 +9,13 @@ import (
 	"strings"
 
 	helpers "dotfiles/src/helpers"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func IsSlackRunning() bool {
-	err := helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "powershell",
-		Args:    []string{"-NoProfile", "-Command", "Get-Process -Name 'slack' -ErrorAction SilentlyContinue"},
-	})
-
-	return err == nil
+	cmd := exec.Command("powershell", "-NoProfile", "-Command", "Get-Process -Name 'slack' -ErrorAction SilentlyContinue")
+	return cmd.Run() == nil
 }
 
 func GetSlackRuntimePath() (string, error) {
@@ -40,6 +38,7 @@ func GetSlackRuntimePath() (string, error) {
 
 func SlackApplicationStart() {
 	if IsSlackRunning() {
+		fmt.Println(aurora.Faint("> Slack is already running"))
 		return
 	}
 
@@ -57,6 +56,7 @@ func SlackApplicationStart() {
 
 func SlackApplicationStop() {
 	if !IsSlackRunning() {
+		fmt.Println(aurora.Faint("> Slack is not running"))
 		return
 	}
 
