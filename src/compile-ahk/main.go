@@ -56,6 +56,4 @@ func main() {
 
 		fmt.Println(aurora.Faint("Compiled: " + entry.Name()))
 	}
-
-	fmt.Println("Compilation complete")
 }

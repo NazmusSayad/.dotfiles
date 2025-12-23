@@ -33,6 +33,10 @@ var SCRIPTS_MAP = map[string]Script{
 		Exe: "gpm",
 	},
 
+	"git-diff-stat": {
+		Exe: "gds",
+	},
+
 	"gh-repo-view": {
 		Exe: "ghv",
 	},
