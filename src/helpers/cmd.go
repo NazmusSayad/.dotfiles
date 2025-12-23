@@ -8,6 +8,7 @@ import (
 type ExecCommandOptions struct {
 	Command string
 	Args    []string
+	Env     []string
 
 	Exit     bool
 	Silent   bool
@@ -37,6 +38,12 @@ func ExecNativeCommand(options ExecCommandOptions) error {
 		cmd.Stderr = os.Stderr
 	}
 
+	if len(options.Env) > 0 {
+		cmd.Env = options.Env
+	} else {
+		cmd.Env = os.Environ()
+	}
+
 	err := cmd.Run()
 	if err != nil && options.Exit {
 		if ee, ok := err.(*exec.ExitError); ok {
@@ -47,4 +54,16 @@ func ExecNativeCommand(options ExecCommandOptions) error {
 	}
 
 	return err
+}
+
+func SimulateCommandAlias(alias []string) error {
+	aliasCommand := alias[0]
+	aliasArguments := alias[1:]
+	scriptArguments := os.Args[1:]
+
+	return ExecNativeCommand(ExecCommandOptions{
+		Command: aliasCommand,
+		Args:    append(aliasArguments, scriptArguments...),
+		Exit:    true,
+	})
 }

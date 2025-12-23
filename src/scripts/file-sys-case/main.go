@@ -3,9 +3,5 @@ package main
 import "dotfiles/src/helpers"
 
 func main() {
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "fsutil.exe",
-		Args:    []string{"file", "setCaseSensitiveInfo", ".", "enable", "recursive"},
-		Exit:    true,
-	})
+	helpers.SimulateCommandAlias([]string{"fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive"})
 }

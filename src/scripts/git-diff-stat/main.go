@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	helpers.SimulateCommandAlias([]string{"gh", "repo", "view"})
+	helpers.SimulateCommandAlias([]string{"git", "diff", "--stat"})
 }
