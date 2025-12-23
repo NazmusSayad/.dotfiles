@@ -12,7 +12,6 @@ deno = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
-"npm:live-server" = "latest"
 "npm:@typescript/native-preview" = "latest"
 
 go = "latest"
