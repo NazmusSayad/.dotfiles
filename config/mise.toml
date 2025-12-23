@@ -27,6 +27,7 @@ rust-analyzer = "latest"
 dart = "latest"
 kotlin = "latest"
 
+duf = "latest"
 fzf = "latest"
 bat = "latest"
 eza = "latest"
