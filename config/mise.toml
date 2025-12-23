@@ -1,10 +1,11 @@
 [tools]
 
 node = "lts"
+ni = "latest"
+
 bun = "latest"
 deno = "latest"
 
-"npm:ni" = "latest"
 "npm:tsx" = "latest"
 "npm:yarn" = "latest"
 "npm:pnpm" = "latest"
