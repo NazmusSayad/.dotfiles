@@ -311,7 +311,7 @@
         "defaults": 
         {
             "closeOnExit": "always",
-            "colorScheme": "OnnoKicu",
+            "colorScheme": "One Eye Care",
             "font": 
             {
                 "cellHeight": "1.65",
@@ -371,7 +371,7 @@
             "cyan": "#56B6C2",
             "foreground": "#ABB2BF",
             "green": "#97C775",
-            "name": "OnnoKicu",
+            "name": "One Eye Care",
             "purple": "#C678DD",
             "red": "#EE5D69",
             "selectionBackground": "#FFFF00",
