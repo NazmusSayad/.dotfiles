@@ -62,9 +62,7 @@
   },
   {
     "ID": "Starship.Starship",
-    "Name": "Starship",
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true
+    "Name": "Starship"
   },
   {
     "ID": "Fastfetch-cli.Fastfetch",
