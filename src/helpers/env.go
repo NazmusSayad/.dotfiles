@@ -24,15 +24,28 @@ func execPsCommand(command string) (string, error) {
 	return strings.TrimSpace(string(output)), nil
 }
 
+func psEscape(s string) string {
+	return strings.ReplaceAll(s, `'`, `''`)
+}
+
 func ReadEnv(scope Scope, name string) (string, error) {
 	return execPsCommand(
-		fmt.Sprintf(`[System.Environment]::GetEnvironmentVariable("%s", [System.EnvironmentVariableTarget]::%s)`, name, scope),
+		fmt.Sprintf(
+			"[System.Environment]::GetEnvironmentVariable('%s', [System.EnvironmentVariableTarget]::%s)",
+			psEscape(name),
+			scope,
+		),
 	)
 }
 
 func WriteEnv(scope Scope, name, value string) (string, error) {
 	return execPsCommand(
-		fmt.Sprintf(`[System.Environment]::SetEnvironmentVariable("%s", "%s", [System.EnvironmentVariableTarget]::%s)`, name, value, scope),
+		fmt.Sprintf(
+			"[System.Environment]::SetEnvironmentVariable('%s', '%s', [System.EnvironmentVariableTarget]::%s)",
+			psEscape(name),
+			psEscape(value),
+			scope,
+		),
 	)
 }
 
