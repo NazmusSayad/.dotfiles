@@ -37,6 +37,7 @@ yazi = "latest"
 tokei = "latest"
 zoxide = "latest"
 bottom = "latest"
+lazygit = "latest"
 
 [settings]
 auto_install = false
