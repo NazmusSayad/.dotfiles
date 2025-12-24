@@ -15,10 +15,13 @@ deno = "latest"
 "npm:@typescript/native-preview" = "latest"
 
 go = "latest"
-python = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"go:golang.org/x/tools/cmd/goimports" = "latest"
+"go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
 
 php = "latest"
 java = "latest"
+python = "latest"
 
 rust = "stable"
 ruby = "latest"
