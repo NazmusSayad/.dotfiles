@@ -3,19 +3,38 @@ package slack_helpers
 import (
 	helpers "dotfiles/src/helpers"
 	"encoding/json"
+	"reflect"
+	"strconv"
 	"strings"
 	"time"
 )
 
-type InputSlackConfig struct {
+type inputOfficeTimeOffDays struct {
+	Jan []int
+	Feb []int
+	Mar []int
+	Apr []int
+	May []int
+	Jun []int
+	Jul []int
+	Aug []int
+	Sep []int
+	Oct []int
+	Nov []int
+	Dec []int
+}
+
+type inputSlackConfig struct {
 	OfficeTimeStart   int
 	OfficeTimeFinish  int
 	OfficeTimeWeekend []string
+	OfficeTimeOffDays inputOfficeTimeOffDays
 }
 
 type OutputSlackConfig struct {
 	OfficeTimeStart   int
 	OfficeTimeFinish  int
+	OfficeTimeOffDays []string // format: "month:day"
 	OfficeTimeWeekend []time.Weekday
 }
 
@@ -25,13 +44,30 @@ func ReadSlackConfig() OutputSlackConfig {
 		panic("Error reading slack config")
 	}
 
-	var input InputSlackConfig
+	var input inputSlackConfig
 	if err := json.Unmarshal(jsonBytes, &input); err != nil {
 		panic("Error parsing slack config")
 	}
 
-	weekends := make([]time.Weekday, 0, len(input.OfficeTimeWeekend))
-	for _, day := range input.OfficeTimeWeekend {
+	weekends := generateWeekends(input.OfficeTimeWeekend)
+	offDays := generateOffDays(input.OfficeTimeOffDays)
+
+	return OutputSlackConfig{
+		OfficeTimeStart:   input.OfficeTimeStart,
+		OfficeTimeFinish:  input.OfficeTimeFinish,
+		OfficeTimeWeekend: weekends,
+		OfficeTimeOffDays: offDays,
+	}
+}
+
+func GenerateOffDaysHash(month time.Month, day int) string {
+	return month.String() + " " + strconv.Itoa(day)
+}
+
+func generateWeekends(input []string) []time.Weekday {
+	weekends := make([]time.Weekday, 0, len(input))
+
+	for _, day := range input {
 		switch strings.ToLower(day) {
 		case "sunday":
 			weekends = append(weekends, time.Sunday)
@@ -50,9 +86,20 @@ func ReadSlackConfig() OutputSlackConfig {
 		}
 	}
 
-	return OutputSlackConfig{
-		OfficeTimeStart:   input.OfficeTimeStart,
-		OfficeTimeFinish:  input.OfficeTimeFinish,
-		OfficeTimeWeekend: weekends,
+	return weekends
+}
+
+func generateOffDays(input inputOfficeTimeOffDays) []string {
+	offDays := make([]string, 0)
+
+	for m := time.January; m <= time.December; m++ {
+		shortName := m.String()[:3]
+
+		days := reflect.ValueOf(input).FieldByName(shortName).Interface().([]int)
+		for _, day := range days {
+			offDays = append(offDays, GenerateOffDaysHash(m, day))
+		}
 	}
+
+	return offDays
 }

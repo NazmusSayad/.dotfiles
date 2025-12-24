@@ -15,7 +15,7 @@ const (
 	SlackStatusDisabled SlackStatus = "disabled"
 )
 
-func isWorkTime() bool {
+func isWorkTime() (bool, string) {
 	config := ReadSlackConfig()
 
 	now := time.Now().In(constants.RECOMMENDED_TIMEZONE)
@@ -23,10 +23,16 @@ func isWorkTime() bool {
 	hour := now.Hour()
 
 	if slices.Contains(config.OfficeTimeWeekend, weekday) {
-		return false
+		return false, "Weekend (" + weekday.String() + ")"
 	}
 
-	return hour >= config.OfficeTimeStart && hour < config.OfficeTimeFinish
+	todayHash := GenerateOffDaysHash(now.Month(), now.Day())
+	if slices.Contains(config.OfficeTimeOffDays, todayHash) {
+		return false, "Off day (" + todayHash + ")"
+	}
+
+	isWorkTime := hour >= config.OfficeTimeStart && hour < config.OfficeTimeFinish
+	return isWorkTime, "Not Office Hours"
 }
 
 func SlackLaunch(status SlackStatus) {
@@ -40,11 +46,13 @@ func SlackLaunch(status SlackStatus) {
 		SlackApplicationStop()
 
 	case SlackStatusWorkTime:
-		if isWorkTime() {
-			fmt.Println("> Currently in work time, starting Slack...")
+		isWorkTime, reason := isWorkTime()
+
+		if isWorkTime {
+			fmt.Println("> Currently Office Hours, starting Slack...")
 			SlackApplicationStart()
 		} else {
-			fmt.Println("> Currently not in work time, stopping Slack...")
+			fmt.Println("> Currently " + reason + ", stopping Slack...")
 			SlackApplicationStop()
 		}
 	}
