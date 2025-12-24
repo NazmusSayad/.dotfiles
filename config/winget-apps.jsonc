@@ -47,10 +47,6 @@
     "Name": "GitKraken"
   },
   {
-    "ID": "JesseDuffield.lazygit",
-    "Name": "LazyGit"
-  },
-  {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VSCode",
     "InteractiveInstall": true
