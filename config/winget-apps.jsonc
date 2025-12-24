@@ -93,10 +93,6 @@
     "Name": "Walk - File Manager"
   },
   {
-    "ID": "dundee.gdu",
-    "Name": "GDU - Disk Usage Analyzer"
-  },
-  {
     "ID": " AlDanial.Cloc",
     "Name": "Cloc - Count Lines of Code"
   },
