@@ -39,10 +39,6 @@
     "Name": "GitHub CLI"
   },
   {
-    "ID": "GitHub.GitHubDesktop",
-    "Name": "GitHub Desktop"
-  },
-  {
     "ID": "Axosoft.GitKraken",
     "Name": "GitKraken"
   },
@@ -83,10 +79,6 @@
   {
     "ID": "gsass1.NTop",
     "Name": "NTop - Top-like System Monitor"
-  },
-  {
-    "ID": "mvdan.shfmt",
-    "Name": "Shell Formatter"
   },
   {
     "ID": "bootandy.dust",
