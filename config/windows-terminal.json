@@ -340,6 +340,14 @@
                 "pathTranslationStyle": "msys2"
             },
             {
+                "commandline": "zsh.exe",
+                "guid": "{b2905233-525f-4f8f-a320-58a76bb766b0}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\.dotfiles\\assets\\zsh.ico",
+                "name": "Zsh",
+                "pathTranslationStyle": "msys2"
+            },
+            {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
