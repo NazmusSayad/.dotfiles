@@ -27,12 +27,16 @@ rust-analyzer = "latest"
 dart = "latest"
 kotlin = "latest"
 
+fd = "latest"
 duf = "latest"
 fzf = "latest"
 bat = "latest"
 eza = "latest"
+lsd = "latest"
 yazi = "latest"
 tokei = "latest"
+zoxide = "latest"
+bottom = "latest"
 
 [settings]
 auto_install = false
