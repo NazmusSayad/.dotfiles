@@ -163,6 +163,14 @@
     "Name": "HwInfo"
   },
   {
+    "ID": "Rufus.Rufus",
+    "Name": "Rufus"
+  },
+  {
+    "ID": "Ventoy.Ventoy",
+    "Name": "Ventoy"
+  },
+  {
     "ID": "PowerSoftware.AnyBurn",
     "Name": "AnyBurn"
   },
