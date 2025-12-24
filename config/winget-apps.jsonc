@@ -39,6 +39,18 @@
     "Name": "GitHub CLI"
   },
   {
+    "ID": "GitHub.GitHubDesktop",
+    "Name": "GitHub Desktop"
+  },
+  {
+    "ID": "Axosoft.GitKraken",
+    "Name": "GitKraken"
+  },
+  {
+    "ID": "JesseDuffield.lazygit",
+    "Name": "LazyGit"
+  },
+  {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VSCode",
     "InteractiveInstall": true
@@ -161,14 +173,6 @@
   {
     "ID": "REALiX.HWiNFO",
     "Name": "HwInfo"
-  },
-  {
-    "ID": "Rufus.Rufus",
-    "Name": "Rufus"
-  },
-  {
-    "ID": "Ventoy.Ventoy",
-    "Name": "Ventoy"
   },
   {
     "ID": "PowerSoftware.AnyBurn",
