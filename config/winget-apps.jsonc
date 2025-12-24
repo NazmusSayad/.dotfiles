@@ -46,8 +46,7 @@
   {
     "ID": "Anysphere.Cursor",
     "Name": "Cursor",
-    "InteractiveInstall": true,
-    "SkipUpgrade": true
+    "InteractiveInstall": true
   },
   {
     "ID": "ZedIndustries.Zed",
@@ -62,28 +61,52 @@
     "Name": "Starship"
   },
   {
-    "ID": "Starship.Starship",
-    "Name": "Starship"
-  },
-  {
     "ID": "Fastfetch-cli.Fastfetch",
     "Name": "Fastfetch"
   },
   {
-    "ID": "aristocratos.btop4win",
-    "Name": "BTop4Win"
+    "ID": "o2sh.onefetch",
+    "Name": "Onefetch - Git Information Tool"
   },
   {
-    "ID": "Clement.bottom",
-    "Name": "Bottom"
+    "ID": "aristocratos.btop4win",
+    "Name": "BTop4Win - System Monitor"
   },
   {
     "ID": "gsass1.NTop",
-    "Name": "NTop"
+    "Name": "NTop - Top-like System Monitor"
+  },
+  {
+    "ID": "mvdan.shfmt",
+    "Name": "Shell Formatter"
+  },
+  {
+    "ID": "bootandy.dust",
+    "Name": "Dust - Disk Usage Scanner"
   },
   {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2"
+  },
+  {
+    "ID": "antonmedv.walk",
+    "Name": "Walk - File Manager"
+  },
+  {
+    "ID": "dundee.gdu",
+    "Name": "GDU - Disk Usage Analyzer"
+  },
+  {
+    "ID": " AlDanial.Cloc",
+    "Name": "Cloc - Count Lines of Code"
+  },
+  {
+    "ID": "ElectronCommunity.rcedit",
+    "Name": "rcedit - Resource Editor"
+  },
+  {
+    "ID": "SQLite.SQLite",
+    "Name": "SQLite"
   },
   {
     "ID": "Docker.DockerDesktop",
@@ -154,10 +177,5 @@
   {
     "ID": "RamenSoftware.Windhawk",
     "Name": "Windhawk"
-  },
-  {
-    "ID": "qBittorrent.qBittorrent",
-    "Name": "qBittorrent",
-    "SkipInstall": true
   }
 ]
