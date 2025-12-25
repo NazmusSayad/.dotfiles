@@ -20,6 +20,5 @@ style = "blue"
 format = "[](dimmed) [$branch](yellow)"
 
 [git_status]
-format = '([$all_status$ahead_behind]($style))'
+format = '([$all_status$ahead_behind](red))'
 modified = "*"
-style = "red"
