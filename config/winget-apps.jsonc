@@ -61,6 +61,10 @@
     "Name": "Postman"
   },
   {
+    "ID": "stax76.run-hidden",
+    "Name": "Run Hidden"
+  },
+  {
     "ID": "Starship.Starship",
     "Name": "Starship",
     "InstallerType": "ZIP"
