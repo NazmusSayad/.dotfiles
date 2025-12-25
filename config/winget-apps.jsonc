@@ -61,6 +61,10 @@
     "Name": "Postman"
   },
   {
+    "ID": "Microsoft.PowerShell",
+    "Name": "PowerShell (pwsh)"
+  },
+  {
     "ID": "stax76.run-hidden",
     "Name": "Run Hidden"
   },
