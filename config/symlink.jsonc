@@ -12,6 +12,10 @@
     "source": "./config/shell/zsh-config.sh",
     "target": "$USERPROFILE/.zshrc"
   },
+  {
+    "source": "./config/shell/powershell-config.ps1",
+    "target": "$USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+  },
 
   // Terminal Configs
   {
