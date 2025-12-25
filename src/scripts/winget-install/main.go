@@ -23,10 +23,9 @@ func main() {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Installing " + p.ID))
 
-		args := winget.BuildWingetInstallCommands(p)
 		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: args[0],
-			Args:    args[1:],
+			Command: "winget",
+			Args:    winget.BuildWingetInstallArguments(p),
 		})
 	}
 }
