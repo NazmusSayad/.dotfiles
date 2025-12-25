@@ -7,10 +7,13 @@ import (
 	"strings"
 )
 
+type InstallerType string
+
 type WingetPackage struct {
-	ID      string
-	Name    string
-	Version string
+	ID            string
+	Name          string
+	Version       string
+	InstallerType string
 
 	InteractiveInstall bool
 	InteractiveUpgrade bool
@@ -37,38 +40,6 @@ func GetWingetPackages() []WingetPackage {
 	}
 
 	return pkgs
-}
-
-func BuildWingetInstallCommands(p WingetPackage) []string {
-	parts := []string{"winget", "install", p.ID}
-
-	if p.Version != "" {
-		parts = append(parts, "--version", p.Version)
-	}
-
-	if p.InteractiveInstall {
-		parts = append(parts, "--interactive")
-	} else {
-		parts = append(parts, "--silent")
-	}
-
-	return append(parts, "--verbose", "--accept-package-agreements", "--accept-source-agreements", "--no-upgrade")
-}
-
-func BuildWingetUpgradeCommands(p WingetPackage) []string {
-	parts := []string{"winget", "upgrade", p.ID}
-
-	if p.Version != "" {
-		parts = append(parts, "--version", p.Version)
-	}
-
-	if p.InteractiveUpgrade {
-		parts = append(parts, "--interactive")
-	} else {
-		parts = append(parts, "--silent")
-	}
-
-	return append(parts, "--verbose", "--accept-package-agreements", "--accept-source-agreements")
 }
 
 func GetUpgradeablePackages() []WingetUpgradeablePackage {

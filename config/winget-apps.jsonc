@@ -62,7 +62,8 @@
   },
   {
     "ID": "Starship.Starship",
-    "Name": "Starship"
+    "Name": "Starship",
+    "InstallerType": "ZIP"
   },
   {
     "ID": "Fastfetch-cli.Fastfetch",
