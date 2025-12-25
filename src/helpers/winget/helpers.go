@@ -12,6 +12,7 @@ type InstallerType string
 type WingetPackage struct {
 	ID            string
 	Name          string
+	Scope         string
 	Version       string
 	InstallerType string
 
