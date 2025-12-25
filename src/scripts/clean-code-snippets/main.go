@@ -39,6 +39,7 @@ func findBinPath(bin string) string {
 
 func getFiles(root string) ([]string, error) {
 	var files []string
+
 	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return nil
@@ -48,6 +49,7 @@ func getFiles(root string) ([]string, error) {
 		}
 		return nil
 	})
+
 	return files, err
 }
 
