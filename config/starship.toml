@@ -6,9 +6,11 @@ format = "$username$hostname$directory$git_branch$git_state$git_status$line_brea
 [shell]
 disabled = false
 format = "[$indicator  ](dimmed white)"
+powershell_indicator = ''
+cmd_indicator = ''
 fish_indicator = ''
 bash_indicator = ''
-zsh_indicator = ''
+zsh_indicator = ''
 
 [directory]
 style = "blue"
