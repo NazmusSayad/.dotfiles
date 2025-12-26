@@ -106,10 +106,6 @@
     "Name": "Cloc - Count Lines of Code"
   },
   {
-    "ID": "ElectronCommunity.rcedit",
-    "Name": "rcedit - Resource Editor"
-  },
-  {
     "ID": "SQLite.SQLite",
     "Name": "SQLite"
   },
