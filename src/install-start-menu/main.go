@@ -10,10 +10,11 @@ import (
 	"strings"
 )
 
-var escape = func(s string) string { return strings.ReplaceAll(s, "'", "''") }
+func escape(s string) string {
+	return strings.ReplaceAll(s, "'", "''")
+}
 
 func main() {
-
 	proxyPausePath, err := exec.LookPath("proxy-pause")
 	if err != nil {
 		fmt.Println("proxy-pause not found in PATH")
@@ -25,6 +26,7 @@ func main() {
 		fmt.Println("Removing", startMenuDir)
 		os.RemoveAll(startMenuDir)
 	}
+
 	os.MkdirAll(startMenuDir, 0755)
 
 	for scriptName, script := range constants.SCRIPTS_MAP {
