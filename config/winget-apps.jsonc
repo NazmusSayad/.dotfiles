@@ -45,11 +45,13 @@
   {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VSCode",
+    "Scope": "User",
     "InteractiveInstall": true
   },
   {
     "ID": "Anysphere.Cursor",
     "Name": "Cursor",
+    "Scope": "User",
     "InteractiveInstall": true
   },
   {
