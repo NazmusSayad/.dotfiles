@@ -112,6 +112,11 @@
     "Name": "FFmpeg"
   },
   {
+    "ID": "yt-dlp.yt-dlp",
+    "Name": "yt-dlp - YouTube Downloader",
+    "SkipDependencies": true
+  },
+  {
     "ID": "SQLite.SQLite",
     "Name": "SQLite"
   },

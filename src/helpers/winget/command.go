@@ -15,6 +15,10 @@ func buildWingetOptions(p WingetPackage, interactive bool) []string {
 		parts = append(parts, "--installer-type", p.InstallerType)
 	}
 
+	if p.SkipDependencies {
+		parts = append(parts, "--skip-dependencies")
+	}
+
 	if interactive {
 		parts = append(parts, "--interactive")
 	} else {
