@@ -19,8 +19,9 @@ type WingetPackage struct {
 	InteractiveInstall bool
 	InteractiveUpgrade bool
 
-	SkipInstall bool
-	SkipUpgrade bool
+	SkipInstall      bool
+	SkipUpgrade      bool
+	SkipDependencies bool
 }
 
 type WingetUpgradeablePackage struct {
