@@ -18,7 +18,7 @@ call symlink-setup.exe
 
 echo.
 echo Installing tasks...
-call windows-tasks-setup.exe
+call go run ./src/install-windows-tasks/main.go
 
 echo.
 echo Installing start menu entries...

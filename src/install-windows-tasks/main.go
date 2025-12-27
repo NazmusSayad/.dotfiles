@@ -53,7 +53,7 @@ func main() {
 }
 
 func resolveProgramPath(program string) string {
-	return helpers.ResolvePath(constants.BUILD_TASKS_RUNNER_DIR + "/" + program + ".vbs")
+	return helpers.ResolvePath("@/" + constants.BUILD_TASKS_RUNNER_DIR + "/" + program + ".vbs")
 }
 
 func generateSlackTaskXML(program string) string {
