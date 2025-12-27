@@ -54,8 +54,4 @@ var SCRIPTS_MAP = map[string]Script{
 	"winget-upgrade": {
 		StartMenuName: "WinGet Upgrade",
 	},
-
-	"windows-tasks-setup": {
-		StartMenuName: "Windows Tasks Setup",
-	},
 }
