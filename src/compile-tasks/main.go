@@ -10,8 +10,6 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-const USER_BIN_DIR = "$USERPROFILE/" + constants.SCRIPTS_BUILD_BIN_DIR
-
 var WINDOWS_TASKS = []constants.WindowsTask{
 	constants.STARTUP_TASK_SLACK,
 	constants.STARTUP_TASK_WINDOWS,

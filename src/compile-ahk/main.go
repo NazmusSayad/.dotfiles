@@ -15,8 +15,8 @@ import (
 const ahkScriptPrefix = "AHK-"
 
 func main() {
-	srcDir := helpers.ResolvePath(constants.SOURCE_DIR + "/compile-ahk")
-	buildOutputDir := helpers.ResolvePath(constants.BUILD_DIR + "/ahk")
+	srcDir := filepath.Join(constants.SOURCE_DIR, "/compile-ahk")
+	buildOutputDir := filepath.Join(constants.BUILD_DIR, "/ahk")
 
 	ahkScriptsDir := filepath.Join(srcDir, "scripts")
 	ahk2ExeBin := filepath.Join(srcDir, "bin", "Ahk2Exe.exe")
