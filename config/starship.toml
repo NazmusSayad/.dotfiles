@@ -1,7 +1,12 @@
 add_newline = false
 follow_symlinks = false
 
-format = "$username$hostname$directory$git_branch$git_state$git_status$line_break$shlvl$shell"
+format = "$hostname$sudo$username$directory$git_branch$git_state$git_status$line_break$shlvl$shell"
+
+[sudo]
+disabled = false
+allow_windows = true
+symbol = '👩‍💻 '
 
 [directory]
 style = "blue"
@@ -20,7 +25,7 @@ threshold = 2
 
 [shell]
 disabled = false
-format = "[$indicator](dimmed white)  "
+format = "[$indicator ](dimmed white) "
 powershell_indicator = ''
 pwsh_indicator = ''
 cmd_indicator = ''
