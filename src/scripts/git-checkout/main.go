@@ -35,32 +35,28 @@ func main() {
 	}
 
 	if isLocalBranchExists(branch) || isRemoteBranchExists(remote, branch) {
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "git",
-			Args:    append([]string{"checkout"}, os.Args[1:]...),
-			Exit:    true,
-		})
+		args := append([]string{"git", "checkout"}, os.Args[1:]...)
+		helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
 	} else {
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "git",
-			Args:    append([]string{"checkout", "-b"}, os.Args[1:]...),
-			Exit:    true,
-		})
+		args := append([]string{"git", "checkout", "-b"}, os.Args[1:]...)
+		helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
 	}
 }
 
 func isLocalBranchExists(branch string) bool {
-	return helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"rev-parse", "--verify", "--quiet", "refs/heads/" + branch},
-		Silent:  true,
-	}) == nil
+	return helpers.ExecNativeCommand(
+		[]string{"git", "rev-parse", "--verify", "--quiet", "refs/heads/" + branch},
+		helpers.ExecCommandOptions{
+			Silent: true,
+		},
+	) == nil
 }
 
 func isRemoteBranchExists(remote string, branch string) bool {
-	return helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"rev-parse", "--verify", "--quiet", "refs/remotes/" + remote + "/" + branch},
-		Silent:  true,
-	}) == nil
+	return helpers.ExecNativeCommand(
+		[]string{"git", "rev-parse", "--verify", "--quiet", "refs/remotes/" + remote + "/" + branch},
+		helpers.ExecCommandOptions{
+			Silent: true,
+		},
+	) == nil
 }

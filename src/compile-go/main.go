@@ -48,9 +48,6 @@ func main() {
 		}
 
 		fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName)
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "go",
-			Args:    []string{"build", "-o", outputPath, sourcePath},
-		})
+		helpers.ExecNativeCommand([]string{"go", "build", "-o", outputPath, sourcePath})
 	}
 }

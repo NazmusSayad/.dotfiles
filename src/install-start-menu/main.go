@@ -40,14 +40,12 @@ func main() {
 		targetCommand := `"` + proxyPausePath + `"`
 		arguments := `"` + scriptName + `"`
 
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "powershell",
-			Args: []string{
-				"-NoProfile",
-				"-NonInteractive",
-				"-Command",
-				"$s='" + escape(targetCommand) + "';$a='" + escape(arguments) + "';$t='" + escape(shortcutPath) + "';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Arguments=$a;$sc.Save()",
-			},
+		helpers.ExecNativeCommand([]string{
+			"powershell",
+			"-NoProfile",
+			"-NonInteractive",
+			"-Command",
+			"$s='" + escape(targetCommand) + "';$a='" + escape(arguments) + "';$t='" + escape(shortcutPath) + "';$ws=New-Object -ComObject WScript.Shell;$sc=$ws.CreateShortcut($t);$sc.TargetPath=$s;$sc.Arguments=$a;$sc.Save()",
 		})
 	}
 }

@@ -37,9 +37,6 @@ func main() {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Upgrading " + p.ID))
 
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "winget",
-			Args:    winget.BuildWingetUpgradeArguments(p),
-		})
+		helpers.ExecNativeCommand(append([]string{"winget"}, winget.BuildWingetUpgradeArguments(p)...))
 	}
 }

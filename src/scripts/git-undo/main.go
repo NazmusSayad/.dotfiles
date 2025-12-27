@@ -27,9 +27,8 @@ func main() {
 	commitWord := utils.Ternary(undoCount > 1, "commits", "commit")
 	fmt.Println(aurora.Red("Undoing last " + commitCount + " " + commitWord + "..."))
 
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"reset", "--soft", "HEAD~" + strconv.Itoa(undoCount)},
-		Exit:    true,
-	})
+	helpers.ExecNativeCommand(
+		[]string{"git", "reset", "--soft", "HEAD~" + strconv.Itoa(undoCount)},
+		helpers.ExecCommandOptions{Exit: true},
+	)
 }
