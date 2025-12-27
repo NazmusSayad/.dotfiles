@@ -18,5 +18,9 @@ echo ^> Compiling AutoHotkey scripts...
 call go run ./src/compile-ahk/main.go
 
 echo.
+echo ^> Compiling aliases...
+call go run ./src/compile-alias/main.go
+
+echo.
 echo ^> Compiling Go scripts...
 call go run ./src/compile-go/main.go

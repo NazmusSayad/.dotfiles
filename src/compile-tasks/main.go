@@ -16,7 +16,7 @@ var WINDOWS_TASKS = []constants.WindowsTask{
 }
 
 func main() {
-	if err := os.MkdirAll(constants.TASKS_RUNNER_BUILD_DIR, 0755); err != nil {
+	if err := os.MkdirAll(constants.BUILD_TASKS_RUNNER_DIR, 0755); err != nil {
 		fmt.Println(aurora.Red("Error: failed to create tasks directory: " + err.Error()))
 		os.Exit(1)
 	}
@@ -31,7 +31,7 @@ func main() {
 			script = generateVbsScriptAsUser(program)
 		}
 
-		filename := filepath.Join(constants.TASKS_RUNNER_BUILD_DIR, runner.Program+".vbs")
+		filename := filepath.Join(constants.BUILD_TASKS_RUNNER_DIR, runner.Program+".vbs")
 
 		if err := os.WriteFile(filename, []byte(script), 0644); err != nil {
 			fmt.Println(aurora.Red("Error: failed to write " + filename + ": " + err.Error()))
