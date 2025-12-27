@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
-	aliasCommand := ""
-	aliasArguments := []string{}
-
+	aliasCommand := "{COMMAND}"
+	aliasArguments := []string{"{ARGUMENTS}"}
 	scriptArguments := os.Args[1:]
+
+	println(aliasCommand)
+	println(aliasArguments)
+	println(scriptArguments)
 
 	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
 		Command: aliasCommand,
