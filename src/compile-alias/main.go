@@ -18,13 +18,18 @@ type StructName struct {
 
 var ALIASES = []StructName{
 	{
-		Name:      "fsc",
-		Arguments: []string{"fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive"},
+		Name:      "r",
+		Arguments: []string{"nr"},
 	},
 
 	{
-		Name:      "ghp",
-		Arguments: []string{"gh", "pr", "create", "-B"},
+		Name:      "gp",
+		Arguments: []string{"git", "pull"},
+	},
+
+	{
+		Name:      "gds",
+		Arguments: []string{"git", "diff", "--stat"},
 	},
 
 	{
@@ -38,13 +43,13 @@ var ALIASES = []StructName{
 	},
 
 	{
-		Name:      "gds",
-		Arguments: []string{"git", "diff", "--stat"},
+		Name:      "ghp",
+		Arguments: []string{"gh", "pr", "create", "-B"},
 	},
 
 	{
-		Name:      "gp",
-		Arguments: []string{"git", "pull"},
+		Name:      "fsc",
+		Arguments: []string{"fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive"},
 	},
 }
 
