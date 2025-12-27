@@ -55,15 +55,3 @@ func ExecNativeCommand(options ExecCommandOptions) error {
 
 	return err
 }
-
-func SimulateCommandAlias(alias []string) error {
-	aliasCommand := alias[0]
-	aliasArguments := alias[1:]
-	scriptArguments := os.Args[1:]
-
-	return ExecNativeCommand(ExecCommandOptions{
-		Command: aliasCommand,
-		Args:    append(aliasArguments, scriptArguments...),
-		Exit:    true,
-	})
-}
