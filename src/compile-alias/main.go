@@ -11,48 +11,6 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-type StructName struct {
-	Name      string
-	Arguments []string
-}
-
-var ALIASES = []StructName{
-	{
-		Name:      "r",
-		Arguments: []string{"nr"},
-	},
-
-	{
-		Name:      "gp",
-		Arguments: []string{"git", "pull"},
-	},
-
-	{
-		Name:      "gds",
-		Arguments: []string{"git", "diff", "--stat"},
-	},
-
-	{
-		Name:      "ghv",
-		Arguments: []string{"gh", "repo", "view"},
-	},
-
-	{
-		Name:      "ghw",
-		Arguments: []string{"gh", "repo", "view", "--web"},
-	},
-
-	{
-		Name:      "ghp",
-		Arguments: []string{"gh", "pr", "create", "-B"},
-	},
-
-	{
-		Name:      "fsc",
-		Arguments: []string{"fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive"},
-	},
-}
-
 func main() {
 	TEMPLATE, err := os.ReadFile(filepath.Join(constants.SOURCE_DIR, "compile-alias", "template", "main.go"))
 	if err != nil {
@@ -63,19 +21,19 @@ func main() {
 		os.MkdirAll(constants.BUILD_TEMP_DIR, 0755)
 	}
 
-	for _, alias := range ALIASES {
-		aliasCommand := alias.Arguments[0]
-		aliasArguments := alias.Arguments[1:]
+	for aliasName, aliasArguments := range constants.BIN_ALIASES {
+		aliasCommand := aliasArguments[0]
+		aliasArguments := aliasArguments[1:]
 
 		TEMPLATE_CONTENT := strings.Replace(string(TEMPLATE), "{COMMAND}", aliasCommand, 1)
 		TEMPLATE_CONTENT = strings.Replace(TEMPLATE_CONTENT, "{ARGUMENTS}", strings.Join(aliasArguments, "\", \""), 1)
 
-		tempScriptPath := filepath.Join(constants.BUILD_TEMP_DIR, alias.Name+".go")
+		tempScriptPath := filepath.Join(constants.BUILD_TEMP_DIR, aliasName+".go")
 		if err := os.WriteFile(tempScriptPath, []byte(TEMPLATE_CONTENT), 0644); err != nil {
 			panic(err)
 		}
 
-		buildOutputPath := filepath.Join(constants.BUILD_SCRIPTS_DIR, alias.Name+".exe")
+		buildOutputPath := filepath.Join(constants.BUILD_SCRIPTS_DIR, aliasName+".exe")
 		buildErr := helpers.ExecNativeCommand([]string{
 			"go", "build", "-o", buildOutputPath, tempScriptPath,
 		})
@@ -88,6 +46,6 @@ func main() {
 			panic(buildErr)
 		}
 
-		fmt.Println(aurora.Faint("> Successfully compiled alias: ").String() + alias.Name)
+		fmt.Println(aurora.Faint("> Successfully compiled alias: ").String() + aliasName)
 	}
 }

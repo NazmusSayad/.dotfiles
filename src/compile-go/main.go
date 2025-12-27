@@ -34,7 +34,7 @@ func main() {
 		}
 
 		entryName := entry.Name()
-		outputName := constants.SCRIPTS_MAP[entryName].Exe
+		outputName := constants.BIN_SCRIPTS[entryName].Exe
 		if outputName == "" {
 			outputName = entryName
 		}

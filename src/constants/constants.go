@@ -9,12 +9,26 @@ const BUILD_TEMP_DIR = BUILD_DIR + "/temp"
 const BUILD_SCRIPTS_DIR = BUILD_DIR + "/bin"
 const BUILD_TASKS_RUNNER_DIR = BUILD_DIR + "/tasks"
 
-type Script struct {
+type BinScript struct {
 	Exe           string
 	StartMenuName string
 }
 
-var SCRIPTS_MAP = map[string]Script{
+var BIN_ALIASES = map[string][]string{
+	"r":   {"nr"},
+	"nid": {"ni -D"},
+
+	"gp":  {"git", "pull"},
+	"gds": {"git", "diff", "--stat"},
+
+	"ghv": {"gh", "repo", "view"},
+	"ghw": {"gh", "repo", "view", "--web"},
+	"ghp": {"gh", "pr", "create", "-B"},
+
+	"fsc": {"fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive"},
+}
+
+var BIN_SCRIPTS = map[string]BinScript{
 	"git-clone": {
 		Exe: "c",
 	},

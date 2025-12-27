@@ -29,7 +29,7 @@ func main() {
 
 	os.MkdirAll(startMenuDir, 0755)
 
-	for scriptName, script := range constants.SCRIPTS_MAP {
+	for scriptName, script := range constants.BIN_SCRIPTS {
 		if script.StartMenuName == "" {
 			continue
 		}
