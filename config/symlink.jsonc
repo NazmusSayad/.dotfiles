@@ -1,43 +1,43 @@
 [
   // Shell Configs
   {
-    "source": "./config/shell/fish-config.sh",
+    "source": "@/config/shell/fish-config.sh",
     "target": "$USERPROFILE/.config/fish/config.fish"
   },
   {
-    "source": "./config/shell/bash-config.sh",
+    "source": "@/config/shell/bash-config.sh",
     "target": "$USERPROFILE/.bashrc"
   },
   {
-    "source": "./config/shell/zsh-config.sh",
+    "source": "@/config/shell/zsh-config.sh",
     "target": "$USERPROFILE/.zshrc"
   },
   {
-    "source": "./config/shell/powershell-config.ps1",
+    "source": "@/config/shell/powershell-config.ps1",
     "target": "$USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
   },
 
   // Terminal Configs
   {
-    "source": "./config/mise.toml",
+    "source": "@/config/mise.toml",
     "target": "$USERPROFILE/.config/mise/config.toml"
   },
   {
-    "source": "./config/starship.toml",
+    "source": "@/config/starship.toml",
     "target": "$USERPROFILE/.config/starship.toml"
   },
   {
-    "source": "./config/fastfetch.jsonc",
+    "source": "@/config/fastfetch.jsonc",
     "target": "$USERPROFILE/.config/fastfetch/config.jsonc"
   },
   {
-    "source": "./config/windows-terminal.json",
+    "source": "@/config/windows-terminal.json",
     "target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
 
   // Zed Code Editor
   {
-    "source": "./config/zed",
+    "source": "@/config/zed",
     "target": "$APPDATA/zed"
   },
 
