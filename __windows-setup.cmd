@@ -16,7 +16,7 @@ setlocal enabledelayedexpansion
 
 :: Set execution policy equivalent (batch files run by default)
 :: Execute all PowerShell scripts in the scripts directory
-for %%f in (.\src\ps1\*.ps1) do (
+for %%f in (.\src\ps1-windows\*.ps1) do (
     echo Executing: %%f
     powershell.exe -ExecutionPolicy RemoteSigned -File "%%f"
     if !errorlevel! neq 0 (

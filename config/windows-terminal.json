@@ -327,7 +327,7 @@
                 "commandline": "fish.exe",
                 "guid": "{a58a681c-27da-4f40-9abf-3d300517889b}",
                 "hidden": false,
-                "icon": "%USERPROFILE%\\.dotfiles\\assets\\fish.ico",
+                "icon": "%DOTFILES_DIR%\\assets\\fish.ico",
                 "name": "Fish",
                 "pathTranslationStyle": "msys2"
             },
@@ -335,7 +335,7 @@
                 "commandline": "bash.exe",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
                 "hidden": false,
-                "icon": "%USERPROFILE%\\.dotfiles\\assets\\bash.ico",
+                "icon": "%DOTFILES_DIR%\\assets\\bash.ico",
                 "name": "Bash",
                 "pathTranslationStyle": "msys2"
             },
@@ -343,7 +343,7 @@
                 "commandline": "zsh.exe",
                 "guid": "{b2905233-525f-4f8f-a320-58a76bb766b0}",
                 "hidden": false,
-                "icon": "%USERPROFILE%\\.dotfiles\\assets\\zsh.ico",
+                "icon": "%DOTFILES_DIR%\\assets\\zsh.ico",
                 "name": "Zsh",
                 "pathTranslationStyle": "msys2"
             },
