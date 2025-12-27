@@ -13,13 +13,7 @@ import (
 
 func ResolvePath(input string) string {
 	if strings.HasPrefix(input, ".") {
-		homeDir, err := os.UserHomeDir()
-		if err != nil {
-			fmt.Println(aurora.Red("Error: failed to get user home directory: " + err.Error()))
-			os.Exit(1)
-		}
-
-		dotfilesPath := filepath.Join(homeDir, ".dotfiles")
+		dotfilesPath := os.Getenv("DOTFILES_DIR")
 
 		if _, err := os.Stat(dotfilesPath); err == nil {
 			input = filepath.Join(dotfilesPath, input)
