@@ -49,11 +49,7 @@ func main() {
 			spawnArgs = append(spawnArgs, "/icon", iconPath)
 		}
 
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: ahk2ExeBin,
-			Args:    spawnArgs,
-		})
-
+		helpers.ExecNativeCommand(append([]string{ahk2ExeBin}, spawnArgs...))
 		fmt.Println(aurora.Faint("> Compiled: ").String() + entry.Name())
 	}
 }

@@ -29,13 +29,11 @@ func main() {
 
 	fmt.Printf("Pulling changes from %s into %s (default)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch))
 
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"prune", "--progress"},
-	})
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"pull", "origin", targetBranch, "--progress"},
-		Exit:    true,
-	})
+	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
+	helpers.ExecNativeCommand(
+		[]string{"git", "pull", "origin", targetBranch, "--progress"},
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 }

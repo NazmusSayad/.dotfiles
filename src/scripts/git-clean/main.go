@@ -52,15 +52,13 @@ func main() {
 		return
 	}
 
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"prune", "--progress"},
-	})
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    append([]string{"branch", "-D"}, branches...),
-		Exit:    true,
-	})
+	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
+	helpers.ExecNativeCommand(
+		append([]string{"git", "branch", "-D"}, branches...),
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 
 	fmt.Println(aurora.Green("Branches deleted"))
 }

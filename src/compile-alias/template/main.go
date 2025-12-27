@@ -7,16 +7,12 @@ import (
 
 func main() {
 	aliasCommand := "{COMMAND}"
-	aliasArguments := []string{"{ARGUMENTS}"}
-	scriptArguments := os.Args[1:]
+	scriptArguments := append([]string{"{ARGUMENTS}"}, os.Args[1:]...)
 
-	println(aliasCommand)
-	println(aliasArguments)
-	println(scriptArguments)
-
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: aliasCommand,
-		Args:    append(aliasArguments, scriptArguments...),
-		Exit:    true,
-	})
+	helpers.ExecNativeCommand(
+		append([]string{aliasCommand}, scriptArguments...),
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 }

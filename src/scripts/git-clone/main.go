@@ -34,16 +34,17 @@ func main() {
 		}
 	}
 
-	gitCloneArgs := []string{"clone"}
+	gitCloneArgs := []string{"git", "clone"}
 	if resolvedPath != "" {
 		gitCloneArgs = append(gitCloneArgs, resolvedPath)
 	} else {
 		gitCloneArgs = append(gitCloneArgs, os.Args[1:]...)
 	}
 
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    gitCloneArgs,
-		Exit:    true,
-	})
+	helpers.ExecNativeCommand(
+		gitCloneArgs,
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 }

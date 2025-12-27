@@ -71,9 +71,8 @@ func main() {
 		}
 
 		buildOutputPath := filepath.Join(constants.BUILD_SCRIPTS_DIR, alias.Name+".exe")
-		buildErr := helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "go",
-			Args:    []string{"build", "-o", buildOutputPath, tempScriptPath},
+		buildErr := helpers.ExecNativeCommand([]string{
+			"go", "build", "-o", buildOutputPath, tempScriptPath,
 		})
 
 		if err := os.Remove(tempScriptPath); err != nil {

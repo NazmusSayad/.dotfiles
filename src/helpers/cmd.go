@@ -6,9 +6,7 @@ import (
 )
 
 type ExecCommandOptions struct {
-	Command string
-	Args    []string
-	Env     []string
+	Env []string
 
 	Exit     bool
 	Silent   bool
@@ -17,35 +15,45 @@ type ExecCommandOptions struct {
 	NoStderr bool
 }
 
-func ExecNativeCommand(options ExecCommandOptions) error {
-	if options.Silent {
-		options.NoStdin = true
-		options.NoStdout = true
-		options.NoStderr = true
+func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
+	opts := ExecCommandOptions{}
+	if len(options) > 0 {
+		opts = options[0]
 	}
 
-	cmd := exec.Command(options.Command, options.Args...)
+	command := args[0]
+	if command == "" {
+		panic("command is required")
+	}
 
-	if !options.NoStdin {
+	cmd := exec.Command(command, args[1:]...)
+
+	if opts.Silent {
+		opts.NoStdin = true
+		opts.NoStdout = true
+		opts.NoStderr = true
+	}
+
+	if !opts.NoStdin {
 		cmd.Stdin = os.Stdin
 	}
 
-	if !options.NoStdout {
+	if !opts.NoStdout {
 		cmd.Stdout = os.Stdout
 	}
 
-	if !options.NoStderr {
+	if !opts.NoStderr {
 		cmd.Stderr = os.Stderr
 	}
 
-	if len(options.Env) > 0 {
-		cmd.Env = options.Env
+	if len(opts.Env) > 0 {
+		cmd.Env = opts.Env
 	} else {
 		cmd.Env = os.Environ()
 	}
 
 	err := cmd.Run()
-	if err != nil && options.Exit {
+	if err != nil && opts.Exit {
 		if ee, ok := err.(*exec.ExitError); ok {
 			os.Exit(ee.ExitCode())
 		} else {

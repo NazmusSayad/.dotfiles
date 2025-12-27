@@ -23,10 +23,7 @@ func main() {
 		return
 	}
 
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"fetch", "--all"},
-	})
+	helpers.ExecNativeCommand([]string{"git", "fetch", "--all"})
 
 	remoteURL := ""
 	if out, err := exec.Command("git", "remote", "get-url", "origin").Output(); err == nil {
@@ -57,34 +54,20 @@ func main() {
 		}
 
 		fmt.Printf("> Deleting remote branch: %s\n", rb)
-		helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-			Command: "git",
-			Args:    []string{"push", "origin", "--delete", rb},
-		})
+		helpers.ExecNativeCommand([]string{"git", "push", "origin", "--delete", rb})
 	}
 
 	fmt.Println(aurora.Red("> Deleting git folder..."))
 	os.RemoveAll(".git")
 
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"init", "--initial-branch=" + currentBranch},
-	})
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"remote", "add", "origin", remoteURL},
-	})
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"add", "."},
-	})
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"commit", "-m", "Initial commit"},
-	})
-	helpers.ExecNativeCommand(helpers.ExecCommandOptions{
-		Command: "git",
-		Args:    []string{"push", "--force", "--set-upstream", "origin", currentBranch},
-		Exit:    true,
-	})
+	helpers.ExecNativeCommand([]string{"git", "init", "--initial-branch=" + currentBranch})
+	helpers.ExecNativeCommand([]string{"git", "remote", "add", "origin", remoteURL})
+	helpers.ExecNativeCommand([]string{"git", "add", "."})
+	helpers.ExecNativeCommand([]string{"git", "commit", "-m", "Initial commit"})
+	helpers.ExecNativeCommand(
+		[]string{"git", "push", "--force", "--set-upstream", "origin", currentBranch},
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 }
