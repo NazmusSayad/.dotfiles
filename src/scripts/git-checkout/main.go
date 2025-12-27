@@ -35,11 +35,19 @@ func main() {
 	}
 
 	if isLocalBranchExists(branch) || isRemoteBranchExists(remote, branch) {
-		args := append([]string{"git", "checkout"}, os.Args[1:]...)
-		helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
+		helpers.ExecNativeCommand(
+			append([]string{"git", "checkout"}, os.Args[1:]...),
+			helpers.ExecCommandOptions{
+				Exit: true,
+			},
+		)
 	} else {
-		args := append([]string{"git", "checkout", "-b"}, os.Args[1:]...)
-		helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
+		helpers.ExecNativeCommand(
+			append([]string{"git", "checkout", "-b"}, os.Args[1:]...),
+			helpers.ExecCommandOptions{
+				Exit: true,
+			},
+		)
 	}
 }
 

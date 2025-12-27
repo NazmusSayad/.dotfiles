@@ -30,7 +30,8 @@ func main() {
 		}
 
 		err := helpers.ExecNativeCommand(
-			[]string{"schtasks",
+			[]string{
+				"schtasks",
 				"/create",
 				"/tn", name,
 				"/xml", xmlPath,
