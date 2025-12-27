@@ -15,9 +15,6 @@ type BinScript struct {
 }
 
 var BIN_ALIASES = map[string][]string{
-	"r":   {"nr"},
-	"nid": {"ni -D"},
-
 	"gp":  {"git", "pull"},
 	"gds": {"git", "diff", "--stat"},
 
