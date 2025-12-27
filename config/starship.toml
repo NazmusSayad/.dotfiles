@@ -3,6 +3,21 @@ follow_symlinks = false
 
 format = "$username$hostname$directory$git_branch$git_state$git_status$line_break$shlvl$shell"
 
+[directory]
+style = "blue"
+
+[git_branch]
+format = "[](dimmed) [$branch](yellow)"
+
+[git_status]
+format = '[$all_status$ahead_behind](red)'
+modified = "*"
+
+[shlvl]
+disabled = false
+format = '[\[$shlvl\] ](dimmed red)'
+threshold = 2
+
 [shell]
 disabled = false
 format = "[$indicator  ](dimmed white)"
@@ -12,18 +27,3 @@ cmd_indicator = ''
 fish_indicator = ''
 bash_indicator = ''
 zsh_indicator = ''
-
-[shlvl]
-disabled = false
-format = '[\[$shlvl\] ](dimmed red)'
-threshold = 2
-
-[directory]
-style = "blue"
-
-[git_branch]
-format = "[](dimmed) [$branch](yellow)"
-
-[git_status]
-format = '([$all_status$ahead_behind](red))'
-modified = "*"
