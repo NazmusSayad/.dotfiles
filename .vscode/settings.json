@@ -5,6 +5,7 @@
     "msys",
     "netserv",
     "runas",
+    "shlvl",
     "USERPROFILE",
     "winget",
     "winsdk"
