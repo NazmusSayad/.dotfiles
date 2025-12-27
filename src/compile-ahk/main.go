@@ -54,6 +54,6 @@ func main() {
 			Args:    spawnArgs,
 		})
 
-		fmt.Println(aurora.Faint("Compiled: " + entry.Name()))
+		fmt.Println(aurora.Faint("> Compiled: ").String() + entry.Name())
 	}
 }
