@@ -15,12 +15,12 @@ modified = "*"
 
 [shlvl]
 disabled = false
-format = '[\[$shlvl\] ](dimmed red)'
+format = '[\[$shlvl\]](dimmed red) '
 threshold = 2
 
 [shell]
 disabled = false
-format = "[$indicator  ](dimmed white)"
+format = "[$indicator](dimmed white)  "
 powershell_indicator = ''
 pwsh_indicator = ''
 cmd_indicator = ''
