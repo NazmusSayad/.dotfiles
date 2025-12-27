@@ -17,7 +17,7 @@ func main() {
 	}
 
 	sourceDir := filepath.Join(cwd, constants.SCRIPTS_SOURCE_DIR)
-	outputDir := filepath.Join(cwd, constants.SCRIPTS_BUILD_BIN_DIR)
+	outputDir := filepath.Join(cwd, constants.BUILD_SCRIPTS_DIR)
 
 	os.RemoveAll(outputDir)
 	if !helpers.IsFileExists(outputDir) {

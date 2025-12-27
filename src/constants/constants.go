@@ -4,8 +4,10 @@ const SOURCE_DIR = "./src"
 const BUILD_DIR = "./.build"
 
 const SCRIPTS_SOURCE_DIR = SOURCE_DIR + "/scripts"
-const SCRIPTS_BUILD_BIN_DIR = BUILD_DIR + "/bin"
-const TASKS_RUNNER_BUILD_DIR = BUILD_DIR + "/tasks"
+
+const BUILD_TEMP_DIR = BUILD_DIR + "/temp"
+const BUILD_SCRIPTS_DIR = BUILD_DIR + "/bin"
+const BUILD_TASKS_RUNNER_DIR = BUILD_DIR + "/tasks"
 
 type Script struct {
 	Exe           string
@@ -17,40 +19,12 @@ var SCRIPTS_MAP = map[string]Script{
 		Exe: "c",
 	},
 
-	"git-checkout": {
-		Exe: "gc",
-	},
-
-	"git-pull": {
-		Exe: "gp",
-	},
-
 	"git-pull-rebase": {
 		Exe: "gpr",
 	},
 
 	"git-pull-merge": {
 		Exe: "gpm",
-	},
-
-	"git-diff-stat": {
-		Exe: "gds",
-	},
-
-	"gh-repo-view": {
-		Exe: "ghv",
-	},
-
-	"gh-repo-view-web": {
-		Exe: "ghw",
-	},
-
-	"gh-pr-create": {
-		Exe: "ghp",
-	},
-
-	"file-sys-case": {
-		Exe: "fscs",
 	},
 
 	"gpg-unlock": {
