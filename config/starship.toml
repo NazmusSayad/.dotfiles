@@ -1,7 +1,7 @@
 add_newline = false
 follow_symlinks = false
 
-format = "$username$hostname$directory$git_branch$git_state$git_status$line_break$shell"
+format = "$username$hostname$directory$git_branch$git_state$git_status$line_break$shlvl$shell"
 
 [shell]
 disabled = false
@@ -12,6 +12,11 @@ cmd_indicator = ''
 fish_indicator = ''
 bash_indicator = ''
 zsh_indicator = ''
+
+[shlvl]
+disabled = false
+format = '[\[$shlvl\] ](dimmed red)'
+threshold = 2
 
 [directory]
 style = "blue"
