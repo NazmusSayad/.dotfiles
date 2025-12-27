@@ -30,7 +30,7 @@ type WingetUpgradeablePackage struct {
 }
 
 func GetWingetPackages() []WingetPackage {
-	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("./config/winget-apps.jsonc")
+	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("@/config/winget-apps.jsonc")
 	if err != nil {
 		return []WingetPackage{}
 	}

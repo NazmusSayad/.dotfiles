@@ -16,7 +16,7 @@ type LaunchConfig struct {
 }
 
 func main() {
-	data, err := helpers.ReadDotfilesConfigJSONC("./config/launch.jsonc")
+	data, err := helpers.ReadDotfilesConfigJSONC("@/config/launch.jsonc")
 	if err != nil {
 		fmt.Println("Error reading JSON file...")
 		os.Exit(1)

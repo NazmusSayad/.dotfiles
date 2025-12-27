@@ -15,7 +15,7 @@ type SymlinkConfig struct {
 }
 
 func parseSymlinkConfig() []SymlinkConfig {
-	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("./config/symlink.jsonc")
+	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("@/config/symlink.jsonc")
 
 	if err != nil {
 		fmt.Println(aurora.Red("Error reading JSON file..."))

@@ -39,7 +39,7 @@ type OutputSlackConfig struct {
 }
 
 func ReadSlackConfig() OutputSlackConfig {
-	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("./config/slack-status.jsonc")
+	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("@/config/slack-status.jsonc")
 	if err != nil {
 		panic("Error reading slack config")
 	}
