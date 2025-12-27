@@ -108,6 +108,10 @@
     "Name": "Cloc - Count Lines of Code"
   },
   {
+    "ID": "Gyan.FFmpeg",
+    "Name": "FFmpeg"
+  },
+  {
     "ID": "SQLite.SQLite",
     "Name": "SQLite"
   },
