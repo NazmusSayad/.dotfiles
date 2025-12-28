@@ -74,7 +74,7 @@ This repository contains automation and configuration for provisioning a Windows
   - `src/functions/`: Small command-like Go utilities (compiled to `.build/bin/*.exe`).
   - `src/scripts/`: Higher-level Go scripts (compiled to `.build/bin/*.exe`).
   - `src/ps1/`: Windows debloating and configuration scripts.
-  - `src/compile-go/`: Compiles Go utilities into `.build/bin/`.
+  - `src/compile-scripts/`: Compiles Go utilities into `.build/bin/`.
   - `src/compile-ahk/`: Compiles bundled AHK scripts into `.build/ahk/`.
 - `__*`: Installation and utility scripts.
 

@@ -23,4 +23,4 @@ call go run ./src/compile-alias/main.go
 
 echo.
 echo ^> Compiling Go scripts...
-call go run ./src/compile-go/main.go
+call go run ./src/compile-scripts/main.go
