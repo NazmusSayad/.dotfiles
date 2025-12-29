@@ -13,13 +13,12 @@ func ResolvePath(input string) string {
 	if strings.HasPrefix(input, "@") {
 		dotfilesPath := os.Getenv("DOTFILES_DIR")
 
-		if _, err := os.Stat(dotfilesPath); err == nil {
-			input = filepath.Join(dotfilesPath, input[1:])
-		} else {
-			fmt.Println(aurora.Red("Error: .dotfiles directory not found."))
-			fmt.Println(aurora.Yellow("Please run __install-dotfiles.cmd to install the dotfiles."))
+		if dotfilesPath == "" {
+			fmt.Println(aurora.Red(".dotfiles environment variable is not set."))
 			os.Exit(1)
 		}
+
+		input = filepath.Join(dotfilesPath, input[1:])
 	}
 
 	return os.ExpandEnv(input)
