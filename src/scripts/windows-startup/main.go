@@ -2,9 +2,7 @@ package main
 
 import (
 	helpers "dotfiles/src/helpers"
-	"encoding/json"
 	"fmt"
-	"os"
 )
 
 type LaunchConfig struct {
@@ -16,17 +14,7 @@ type LaunchConfig struct {
 }
 
 func main() {
-	data, err := helpers.ReadDotfilesConfigJSONC("@/config/launch.jsonc")
-	if err != nil {
-		fmt.Println("Error reading JSON file...")
-		os.Exit(1)
-	}
-
-	var launchConfigs []LaunchConfig
-	if err := json.Unmarshal(data, &launchConfigs); err != nil {
-		fmt.Println("Error unmarshalling JSON into LaunchConfig...")
-		os.Exit(1)
-	}
+	launchConfigs := helpers.ReadConfig[[]LaunchConfig]("@/config/launch.jsonc")
 
 	for _, config := range launchConfigs {
 		if config.Skip {

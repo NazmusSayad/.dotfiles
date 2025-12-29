@@ -2,7 +2,6 @@ package winget
 
 import (
 	helpers "dotfiles/src/helpers"
-	"encoding/json"
 	"os/exec"
 	"strings"
 )
@@ -31,17 +30,7 @@ type WingetUpgradeablePackage struct {
 }
 
 func GetWingetPackages() []WingetPackage {
-	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("@/config/winget-apps.jsonc")
-	if err != nil {
-		return []WingetPackage{}
-	}
-
-	var pkgs []WingetPackage
-	if err := json.Unmarshal(jsonBytes, &pkgs); err != nil {
-		return []WingetPackage{}
-	}
-
-	return pkgs
+	return helpers.ReadConfig[[]WingetPackage]("@/config/winget-apps.jsonc")
 }
 
 func GetUpgradeablePackages() []WingetUpgradeablePackage {

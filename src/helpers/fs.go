@@ -2,13 +2,11 @@ package helpers
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/logrusorgru/aurora/v4"
-	"github.com/tidwall/jsonc"
 )
 
 func ResolvePath(input string) string {
@@ -25,26 +23,6 @@ func ResolvePath(input string) string {
 	}
 
 	return os.ExpandEnv(input)
-}
-
-func ReadDotfilesConfigJSONC(path string) ([]byte, error) {
-	resolvedPath := ResolvePath(path)
-	fmt.Println(aurora.Faint("JSON: " + resolvedPath))
-
-	f, err := os.Open(resolvedPath)
-	if err != nil {
-		fmt.Println(aurora.Red("JSON: failed to open file"))
-		return nil, err
-	}
-	defer f.Close()
-
-	data, err := io.ReadAll(f)
-	if err != nil {
-		fmt.Println(aurora.Red("JSON: failed to read file"))
-		return nil, err
-	}
-
-	return jsonc.ToJSON(data), nil
 }
 
 func IsFileExists(path string) bool {
