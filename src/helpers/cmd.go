@@ -22,7 +22,7 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	}
 
 	command := args[0]
-	if command == "" {
+	if len(args) == 0 || command == "" {
 		panic("command is required")
 	}
 

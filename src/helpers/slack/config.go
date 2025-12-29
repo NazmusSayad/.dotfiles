@@ -2,10 +2,13 @@ package slack_helpers
 
 import (
 	helpers "dotfiles/src/helpers"
+	"fmt"
 	"reflect"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 type inputOfficeTimeOffDays struct {
@@ -85,7 +88,18 @@ func generateOffDays(input inputOfficeTimeOffDays) []string {
 	for m := time.January; m <= time.December; m++ {
 		shortName := m.String()[:3]
 
-		days := reflect.ValueOf(input).FieldByName(shortName).Interface().([]int)
+		field := reflect.ValueOf(input).FieldByName(shortName)
+		if !field.IsValid() {
+			fmt.Println(aurora.Red("Error: Invalid field name: " + shortName))
+			continue
+		}
+
+		days, ok := field.Interface().([]int)
+		if !ok {
+			fmt.Println(aurora.Red("Error: Invalid field type: " + shortName))
+			continue
+		}
+
 		for _, day := range days {
 			offDays = append(offDays, GenerateOffDaysHash(m, day))
 		}
