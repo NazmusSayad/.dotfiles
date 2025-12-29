@@ -2,6 +2,7 @@ package main
 
 import (
 	helpers "dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -37,7 +38,7 @@ func main() {
 	reIni := regexp.MustCompile(`(?m)^#MSYS2_PATH_TYPE=inherit`)
 	for _, ini := range MSYS_INIS {
 		iniPath := filepath.Join(MSYS_PATH, ini)
-		if !helpers.IsFileExists(iniPath) {
+		if !utils.IsFileExists(iniPath) {
 			fmt.Println("File not found: %s\n", iniPath)
 			continue
 		}

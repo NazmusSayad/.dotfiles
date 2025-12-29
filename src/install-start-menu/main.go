@@ -3,6 +3,7 @@ package main
 import (
 	"dotfiles/src/constants"
 	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
@@ -22,7 +23,7 @@ func main() {
 	}
 
 	startMenuDir := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "dotfiles")
-	if helpers.IsFileExists(startMenuDir) {
+	if utils.IsFileExists(startMenuDir) {
 		fmt.Println("Removing", startMenuDir)
 		os.RemoveAll(startMenuDir)
 	}

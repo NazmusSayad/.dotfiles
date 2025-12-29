@@ -23,13 +23,3 @@ func ResolvePath(input string) string {
 
 	return os.ExpandEnv(input)
 }
-
-func IsFileExists(path string) bool {
-	fi, err := os.Lstat(path)
-	if err != nil {
-		return false
-	}
-
-	_ = fi
-	return true
-}

@@ -3,6 +3,7 @@ package main
 import (
 	"dotfiles/src/constants"
 	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -17,7 +18,7 @@ func main() {
 		panic(err)
 	}
 
-	if !helpers.IsFileExists(constants.BUILD_TEMP_DIR) {
+	if !utils.IsFileExists(constants.BUILD_TEMP_DIR) {
 		os.MkdirAll(constants.BUILD_TEMP_DIR, 0755)
 	}
 

@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -16,12 +17,12 @@ type SymlinkConfig struct {
 func GenerateSymlink(source string, target string) {
 	fmt.Println(aurora.Faint("Symlinking: " + source))
 
-	if !IsFileExists(source) {
+	if !utils.IsFileExists(source) {
 		fmt.Println(aurora.Red("UNEXPECTED: Source not found: " + source))
 		return
 	}
 
-	if IsFileExists(target) {
+	if utils.IsFileExists(target) {
 		removeErr := os.RemoveAll(target)
 		if removeErr != nil {
 			fmt.Println(aurora.Red("UNEXPECTED: Error deleting target: " + target))
@@ -30,7 +31,7 @@ func GenerateSymlink(source string, target string) {
 	}
 
 	targetDir := filepath.Dir(target)
-	if !IsFileExists(targetDir) {
+	if !utils.IsFileExists(targetDir) {
 		mkdirErr := os.MkdirAll(targetDir, 0755)
 		if mkdirErr != nil {
 			fmt.Println(aurora.Red("UNEXPECTED: Error creating target directory: " + targetDir))

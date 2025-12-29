@@ -1,7 +1,7 @@
 package main
 
 import (
-	helpers "dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"io/fs"
 	"os"
@@ -81,7 +81,7 @@ func main() {
 		binDir := filepath.Dir(binPath)
 		extPath := filepath.Clean(binDir + editor.ExtensionsPath)
 
-		if !helpers.IsFileExists(extPath) {
+		if !utils.IsFileExists(extPath) {
 			fmt.Println("Extensions path not found for ", editor.Name)
 			fmt.Println("Path: ", binDir)
 			fmt.Println("Ext: ", editor.ExtensionsPath)

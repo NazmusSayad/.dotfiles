@@ -3,6 +3,7 @@ package main
 import (
 	constants "dotfiles/src/constants"
 	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -19,7 +20,7 @@ func main() {
 	sourceDir := filepath.Join(cwd, constants.SCRIPTS_SOURCE_DIR)
 	outputDir := filepath.Join(cwd, constants.BUILD_SCRIPTS_DIR)
 
-	if !helpers.IsFileExists(outputDir) {
+	if !utils.IsFileExists(outputDir) {
 		os.MkdirAll(outputDir, 0755)
 	}
 
@@ -42,7 +43,7 @@ func main() {
 		sourcePath := filepath.Join(sourceDir, entryName, "main.go")
 		outputPath := filepath.Join(outputDir, outputName+".exe")
 
-		if !helpers.IsFileExists(sourcePath) {
+		if !utils.IsFileExists(sourcePath) {
 			fmt.Println(aurora.Red("Source file not found: " + sourcePath))
 			continue
 		}
