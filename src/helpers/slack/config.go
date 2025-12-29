@@ -2,7 +2,6 @@ package slack_helpers
 
 import (
 	helpers "dotfiles/src/helpers"
-	"encoding/json"
 	"reflect"
 	"strconv"
 	"strings"
@@ -39,22 +38,13 @@ type OutputSlackConfig struct {
 }
 
 func ReadSlackConfig() OutputSlackConfig {
-	jsonBytes, err := helpers.ReadDotfilesConfigJSONC("@/config/slack-status.jsonc")
-	if err != nil {
-		panic("Error reading slack config")
-	}
-
-	var input inputSlackConfig
-	if err := json.Unmarshal(jsonBytes, &input); err != nil {
-		panic("Error parsing slack config")
-	}
-
-	weekends := generateWeekends(input.OfficeTimeWeekend)
-	offDays := generateOffDays(input.OfficeTimeOffDays)
+	configInput := helpers.ReadConfig[inputSlackConfig]("@/config/slack-status.jsonc")
+	weekends := generateWeekends(configInput.OfficeTimeWeekend)
+	offDays := generateOffDays(configInput.OfficeTimeOffDays)
 
 	return OutputSlackConfig{
-		OfficeTimeStart:   input.OfficeTimeStart,
-		OfficeTimeFinish:  input.OfficeTimeFinish,
+		OfficeTimeStart:   configInput.OfficeTimeStart,
+		OfficeTimeFinish:  configInput.OfficeTimeFinish,
 		OfficeTimeWeekend: weekends,
 		OfficeTimeOffDays: offDays,
 	}
