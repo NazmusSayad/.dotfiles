@@ -31,6 +31,10 @@
     "target": "$USERPROFILE/.config/fastfetch/config.jsonc"
   },
   {
+    "source": "@/config/lsd-config.yaml",
+    "target": "$USERPROFILE/.config/lsd/config.yaml"
+  },
+  {
     "source": "@/config/windows-terminal.json",
     "target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
