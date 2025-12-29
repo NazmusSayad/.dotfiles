@@ -112,9 +112,8 @@
     "Name": "FFmpeg"
   },
   {
-    "ID": "yt-dlp.yt-dlp",
-    "Name": "yt-dlp - YouTube Downloader",
-    "SkipDependencies": true
+    "ID": "mvdan.shfmt",
+    "Name": "Shell Formatter"
   },
   {
     "ID": "SQLite.SQLite",
