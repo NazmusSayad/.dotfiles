@@ -2,82 +2,139 @@
 
 # Development Setup for Windows
 
-This repository contains automation and configuration for provisioning a Windows developer workstation. It includes shell configs, PowerShell/Batch helpers, AutoHotkey tooling, and small Go utilities.
+A complete automation system for setting up and managing your Windows developer workstation. This repository provides everything you need to configure your development environment, manage applications, automate daily tasks, and optimize your workflow.
 
 ## Features & Capabilities
 
-- **Windows Configuration**
-  PowerShell scripts to apply system settings and remove/disable unwanted defaults.
+- **Windows System Configuration**
+  Automatically configure Windows settings, remove bloatware, disable unnecessary services, and optimize your system for development work.
 
-- **Apps, Packages, and Runtimes Management**
-  Winget install/upgrade helpers driven by `config/winget-apps.jsonc`.
+- **Application Management**
+  Install and update all your development tools, applications, and packages using Winget with a simple configuration file. Keep everything up-to-date with one command.
 
-- **Shell Experience**
-  Configured Bash/Fish/Zsh + Starship, Windows Terminal settings, and common aliases.
+- **Enhanced Shell Experience**
+  Pre-configured shell environments (Bash, Fish, Zsh) with Starship prompt, Windows Terminal settings, and convenient command aliases for faster workflow.
 
-- **Code Editor Configuration**
-  Editor configs (e.g. Zed), plus helpers (e.g. code snippet cleanup).
+- **Git Workflow Tools**
+  Streamlined Git commands for common tasks like cloning repositories, checking out branches, pulling changes, and managing your repositories more efficiently.
 
-- **Communication Optimization**
-  Slack helpers (startup + status).
+- **Smart Slack Integration**
+  Automatically start or stop Slack based on your work schedule. Set your office hours, weekends, and off days, and Slack will manage itself accordingly.
 
-- **System Performance**
-  Debloat/tuning scripts under `src/ps1/` (review before running).
+- **Automated Startup Tasks**
+  Configure applications and scripts to run automatically on system startup, with support for both user and administrator privileges.
+
+- **Code Editor Setup**
+  Pre-configured settings for popular editors like Zed, along with helpful utilities for managing your development environment.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Windows 10 or Windows 11
-- Git (installed to clone the repository)
-- Go (to compile the utilities; see `go.mod` for the version)
-- MSYS2 (optional, for `pacman`-managed shells/tools)
+Before you begin, make sure you have:
+
+- **Windows 10 or Windows 11** installed
+- **Git** installed (to clone the repository)
+- **Go** installed (version specified in `go.mod`)
+- **MSYS2** (optional, if you want to use Bash/Fish/Zsh shells)
 
 ### Installation Guide
 
-1.  **Clone the Repository:**
+Follow these steps to set up your development environment:
+
+1.  **Clone the Repository**
+
+    Open PowerShell or Command Prompt and run:
 
     ```shell
     git clone https://github.com/NazmusSayad/.dotfiles.git
+    cd .dotfiles
     ```
 
-2.  **Install Dotfiles (symlink + PATH):**
-    Run `__install-dotfiles.cmd` as Administrator. This links the repo to `%USERPROFILE%\.dotfiles` and adds `%USERPROFILE%\.dotfiles\.build\bin` to the system PATH.
+2.  **Initial Setup**
 
-3.  **Compile utilities:**
-    Run `__compile.cmd`. This compiles:
+    Right-click `__install-dotfiles.cmd` and select "Run as Administrator". This will:
+    - Set up the dotfiles directory
+    - Add the tools to your system PATH so you can use them anywhere
 
-    - Go utilities from `src/scripts/*` and `src/functions/*` into `.build/bin/*.exe`
-    - AutoHotkey scripts via `src/compile-ahk/` into `.build/ahk/`
+3.  **Build All Utilities**
 
-4.  **Optional setup scripts:**
+    Run `__compile.cmd` to build all the tools and scripts. This creates executable files that you'll use for daily tasks.
 
-    - `__install-config.cmd`: Git + pnpm config.
-    - `__git-gpg.cmd`: Generate/configure a GPG key for Git signing (prints the armored public key).
-    - `__install-msys2.cmd`: Install shells/tools via MSYS2 `pacman`.
-    - `__install-start-menu.cmd`: Install start-menu entries (via `go run ./src/install-start-menu/main.go`).
-    - `__windows-setup.cmd`: Runs every PowerShell script in `src/ps1/` (admin required; reboots at the end).
+4.  **Configure Your Environment**
 
-5.  **Use the tools:**
-    After compilation and PATH setup, the compiled tools are available as `*.exe` in `.build/bin/` (folder name becomes the exe name), e.g.:
+    Run `__install-config.cmd` to set up:
+    - Git configuration (name, email, default settings)
+    - Symbolic links for configuration files
+    - Windows scheduled tasks for automatic startup
+    - Start menu shortcuts for quick access
+    - MSYS2 shells and development tools
+    - Go environment variables
 
-    - `winget-install.exe`, `winget-upgrade.exe`
-    - `symlink-setup.exe`
-    - `slack-status.exe`, `slack-startup.exe`
-    - Git helpers like `gclean.exe`, `greset.exe`, `gp.exe`, etc.
+5.  **Optional: Windows System Configuration**
+
+    ⚠️ **Important:** Review the scripts before running this step!
+
+    Run `__windows-setup.cmd` as Administrator to:
+    - Apply Windows system settings
+    - Remove default bloatware applications
+    - Disable unnecessary services
+    - Optimize system performance
+
+    **Note:** This will restart your computer automatically after completion.
+
+6.  **Optional: Additional Setup**
+
+    - `__git-gpg.cmd`: Set up GPG key for Git commit signing
+    - `__install-start-menu.cmd`: Add shortcuts to Windows Start Menu
+
+### Using the Tools
+
+Once installed, you can use these commands from anywhere in your terminal:
+
+**Package Management:**
+- `winget-install` - Install all configured applications
+- `winget-upgrade` - Update all installed packages
+
+**Git Helpers:**
+- `c` - Clone repositories (supports GitHub shorthand)
+- `gc` - Checkout branches (creates if doesn't exist)
+- `gpr` - Pull changes with rebase
+- `gpm` - Pull changes with merge
+- `gp` - Quick git pull
+- `gds` - Git diff with statistics
+
+**Slack Management:**
+- `slack-status` - Change Slack auto-start behavior (Always/Work Hours/Disabled)
+- Slack will automatically start/stop based on your configured work schedule
+
+**System Setup:**
+- `symlink-setup` - Recreate all configuration file symlinks
+- `msys-setup` - Set up MSYS2 development environment
 
 ## Repository Structure
 
-- `.build/`: Build output (binaries and compiled AHK).
-- `config/`: Configuration files for shells, standard apps, and `winget` packages.
-- `src/`: Go utilities and PowerShell scripts.
-  - `src/functions/`: Small command-like Go utilities (compiled to `.build/bin/*.exe`).
-  - `src/scripts/`: Higher-level Go scripts (compiled to `.build/bin/*.exe`).
-  - `src/ps1/`: Windows debloating and configuration scripts.
-  - `src/compile-scripts/`: Compiles Go utilities into `.build/bin/`.
-  - `src/compile-ahk/`: Compiles bundled AHK scripts into `.build/ahk/`.
-- `__*`: Installation and utility scripts.
+- `config/` - All your configuration files:
+  - Shell configurations (Bash, Fish, Zsh, PowerShell)
+  - Application lists for automatic installation
+  - Slack work schedule settings
+  - Windows Terminal and Starship prompt settings
+  - Symlink mappings for configuration files
 
-## ⚠️ Disclaimer
+- `src/scripts/` - Source code for all the command-line tools
 
-This repository contains scripts that modify system settings and remove default applications. Review all scripts (especially those in `src/ps1/`) before running them to ensure they align with your requirements.
+- `src/ps1-windows/` - PowerShell scripts for Windows system configuration (review before running)
+
+- `.build/` - Automatically generated build output (created when you run `__compile.cmd`)
+
+- `__*.cmd` - Setup and installation scripts (run these to get started)
+
+## ⚠️ Important Notes
+
+- **Review Before Running:** The Windows setup scripts (`src/ps1-windows/`) will modify system settings and remove default Windows applications. Please review these scripts before running `__windows-setup.cmd` to ensure they match your preferences.
+
+- **Administrator Rights:** Some scripts require administrator privileges. Windows will prompt you when needed.
+
+- **Backup First:** Consider backing up important data before running system modification scripts.
+
+- **Customization:** All configuration files are in the `config/` directory. Edit these files to customize the setup for your needs, then re-run the appropriate setup scripts.
