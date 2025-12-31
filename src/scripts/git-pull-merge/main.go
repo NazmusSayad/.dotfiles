@@ -39,7 +39,7 @@ func main() {
 
 	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
 	helpers.ExecNativeCommand(
-		[]string{"git", "pull", remote, targetBranch, "--progress"},
+		[]string{"git", "pull", remote, targetBranch, "--progress", "--rebase=false"},
 		helpers.ExecCommandOptions{
 			Exit: true,
 		},
