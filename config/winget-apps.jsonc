@@ -26,6 +26,10 @@
 
   // Programming & Development Tools
   {
+    "ID": "Volta.Volta",
+    "Name": "Volta"
+  },
+  {
     "ID": "jdx.mise",
     "Name": "Mise"
   },

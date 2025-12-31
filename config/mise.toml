@@ -1,17 +1,7 @@
 [tools]
 
-node = "lts"
-ni = "latest"
-
 bun = "latest"
 deno = "latest"
-
-"npm:tsx" = "latest"
-"npm:yarn" = "latest"
-"npm:pnpm" = "latest"
-"npm:netserv" = "latest"
-"npm:uni-run" = "latest"
-"npm:code-info" = "latest"
 
 go = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
