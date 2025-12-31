@@ -4,7 +4,6 @@ import (
 	"dotfiles/src/helpers"
 	"fmt"
 	"os"
-	"os/exec"
 	"strings"
 
 	"github.com/logrusorgru/aurora/v4"
@@ -26,12 +25,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	remote := ""
-	if out, err := exec.Command("git", "remote").Output(); err == nil {
-		s := strings.TrimSpace(string(out))
-		if s != "" {
-			remote = strings.Split(s, "\n")[0]
-		}
+	remote := helpers.GetCurrentGitRemote()
+	if remote == "" {
+		fmt.Println(aurora.Red("No remote found"))
+		os.Exit(1)
 	}
 
 	if isLocalBranchExists(branch) || isRemoteBranchExists(remote, branch) {
