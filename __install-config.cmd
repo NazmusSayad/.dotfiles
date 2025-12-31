@@ -13,7 +13,8 @@ git config --global core.pager cat
 git config --global core.ignorecase false
 git config --global core.editor "code --wait"
 
-echo Symlinking
+echo.
+echo Symlinking...
 call symlink-setup.exe
 
 echo.
@@ -24,33 +25,27 @@ echo.
 echo Installing start menu entries...
 call go run ./src/install-start-menu/main.go
 
-echo Installing MSYS2 shells...
-pacman -S --noconfirm bash fish zsh
-
-echo Installing MSYS2 tools...
-pacman -S --noconfirm nnn ncdu mingw-w64-x86_64-gdu
-
-echo Installing MSYS2 Lua...
-pacman -S --noconfirm lua mingw-w64-ucrt-x86_64-luajit
-
+echo.
 echo Installing Mise...
 mise install
 
-echo Installing Volta...
-volta install node
+echo.
+echo Installing MSYS2 shells...
+pacman -S --noconfirm bash fish zsh
 
-echo Installing Node Package Managers...
-volta install yarn pnpm @antfu/ni
+echo.
+echo Installing MSYS2 tools...
+pacman -S --noconfirm nnn ncdu mingw-w64-x86_64-gdu
 
-echo Installing Npm Tools...
-volta install tsx netserv uni-run code-info
+echo.
+echo Installing MSYS2 Lua...
+pacman -S --noconfirm lua mingw-w64-ucrt-x86_64-luajit
 
-echo Installing AI Tools...
-volta install @anthropic-ai/claude-code @google/gemini-cli @openai/codex
-
+echo.
 echo Setting up GOPATH...
 call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOPATH', (go env GOPATH), 'User')"
 
+echo.
 echo Setting up GOROOT...
 call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOROOT', (go env GOROOT), 'User')"
 
