@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	currentBranch := helpers.GetCurrentGitBranch()
+	currentBranch := helpers.GetCurrentGitBranchOrExit()
 
 	targetBranch := ""
 	if len(os.Args) == 1 {
@@ -26,7 +26,7 @@ func main() {
 		"Pulling changes from %s into %s\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch),
 	)
 
-	remote := helpers.GetCurrentGitRemote()
+	remote := helpers.GetCurrentGitRemoteOrExit()
 	helpers.ExecNativeCommand(
 		[]string{"git", "pull", remote, targetBranch, "--progress"},
 		helpers.ExecCommandOptions{

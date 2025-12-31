@@ -9,7 +9,22 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func GetCurrentGitBranchSafe() string {
+func IsGitRepo() bool {
+	cmd := exec.Command("git", "rev-parse", "--is-inside-work-tree")
+	out, err := cmd.Output()
+
+	if err != nil {
+		return false
+	}
+
+	return strings.TrimSpace(string(out)) == "true"
+}
+
+func GetCurrentGitBranch() string {
+	if !IsGitRepo() {
+		return ""
+	}
+
 	cmd := exec.Command("git", "branch", "--show-current")
 	out, err := cmd.Output()
 
@@ -20,7 +35,11 @@ func GetCurrentGitBranchSafe() string {
 	return strings.TrimSpace(string(out))
 }
 
-func GetCurrentGitRemoteSafe() string {
+func GetCurrentGitRemote() string {
+	if !IsGitRepo() {
+		return ""
+	}
+
 	cmd := exec.Command("git", "remote")
 	out, err := cmd.Output()
 
@@ -31,19 +50,17 @@ func GetCurrentGitRemoteSafe() string {
 	return strings.TrimSpace(string(out))
 }
 
-func GetGitRemoteURLSafe(remote string) string {
-	cmd := exec.Command("git", "remote", "get-url", remote)
-	out, err := cmd.Output()
-
-	if err != nil {
-		return ""
+func InGitRepoOrExit() {
+	if !IsGitRepo() {
+		fmt.Println(aurora.Red("Not a git repository"))
+		os.Exit(1)
 	}
-
-	return strings.TrimSpace(string(out))
 }
 
-func GetCurrentGitBranch() string {
-	branch := GetCurrentGitBranchSafe()
+func GetCurrentGitBranchOrExit() string {
+	InGitRepoOrExit()
+
+	branch := GetCurrentGitBranch()
 	if branch == "" {
 		fmt.Println(aurora.Red("No branch found"))
 		os.Exit(1)
@@ -52,22 +69,14 @@ func GetCurrentGitBranch() string {
 	return branch
 }
 
-func GetCurrentGitRemote() string {
-	remote := GetCurrentGitRemoteSafe()
+func GetCurrentGitRemoteOrExit() string {
+	InGitRepoOrExit()
+
+	remote := GetCurrentGitRemote()
 	if remote == "" {
 		fmt.Println(aurora.Red("No remote found"))
 		os.Exit(1)
 	}
 
 	return remote
-}
-
-func GetGitRemoteURL(remote string) string {
-	url := GetGitRemoteURLSafe(remote)
-	if url == "" {
-		fmt.Println(aurora.Red("No remote URL found"))
-		os.Exit(1)
-	}
-
-	return url
 }

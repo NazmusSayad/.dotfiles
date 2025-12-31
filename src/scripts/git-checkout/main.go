@@ -25,11 +25,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	remote := helpers.GetCurrentGitRemoteSafe()
-	if remote == "" {
-		fmt.Println(aurora.Red("No remote found"))
-		os.Exit(1)
-	}
+	remote := helpers.GetCurrentGitRemoteOrExit()
 
 	if isLocalBranchExists(branch) || isRemoteBranchExists(remote, branch) {
 		helpers.ExecNativeCommand(

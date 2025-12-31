@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	currentBranch := helpers.GetCurrentGitBranch()
+	currentBranch := helpers.GetCurrentGitBranchOrExit()
 
 	branchesOut, _ := exec.Command("git", "branch", `--format=%(refname:short)`).Output()
 	lines := strings.Split(strings.TrimRight(string(branchesOut), "\r\n"), "\n")
