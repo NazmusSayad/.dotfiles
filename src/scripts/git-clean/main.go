@@ -12,10 +12,7 @@ import (
 )
 
 func main() {
-	current := ""
-	if out, err := exec.Command("git", "branch", "--show-current").Output(); err == nil {
-		current = strings.TrimSpace(string(out))
-	}
+	currentBranch := helpers.GetCurrentGitBranch()
 
 	branchesOut, _ := exec.Command("git", "branch", `--format=%(refname:short)`).Output()
 	lines := strings.Split(strings.TrimRight(string(branchesOut), "\r\n"), "\n")
@@ -26,7 +23,7 @@ func main() {
 		if b == "" {
 			continue
 		}
-		if current != "" && strings.Contains(b, current) {
+		if currentBranch != "" && strings.Contains(b, currentBranch) {
 			continue
 		}
 

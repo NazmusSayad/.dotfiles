@@ -1,7 +1,6 @@
 package constants
 
 var BIN_ALIASES = map[string][]string{
-	"gp":  {"git", "pull"},
 	"gds": {"git", "diff", "--stat"},
 
 	"ghv": {"gh", "repo", "view"},

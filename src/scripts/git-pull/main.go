@@ -23,14 +23,12 @@ func main() {
 	}
 
 	fmt.Printf(
-		"Pulling changes from %s into %s (merge)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch),
+		"Pulling changes from %s into %s\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch),
 	)
 
 	remote := helpers.GetCurrentGitRemote()
-
-	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
 	helpers.ExecNativeCommand(
-		[]string{"git", "pull", remote, targetBranch, "--progress", "--rebase=false"},
+		[]string{"git", "pull", remote, targetBranch, "--progress"},
 		helpers.ExecCommandOptions{
 			Exit: true,
 		},
