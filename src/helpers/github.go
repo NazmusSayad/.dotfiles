@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -66,6 +67,8 @@ func getLatestReleaseZipURL(repoURL, pattern string) (Asset, error) {
 
 	for _, asset := range release.Assets {
 		if re.MatchString(asset.Name) {
+			fmt.Println(aurora.Faint("Found file: " + asset.Name))
+			time.Sleep(3 * time.Second)
 			return asset, nil
 		}
 	}
@@ -112,7 +115,8 @@ func WriteGithubReleaseFile(outDir, ghURL, pattern string) error {
 
 	asset, body, err := downloadGithubReleaseFile(outDir, ghURL, pattern)
 	if err != nil {
-		return err
+		fmt.Println(aurora.Red("Error: " + err.Error()))
+		os.Exit(1)
 	}
 
 	filename := filepath.Base(asset.Name)
@@ -130,7 +134,8 @@ func WriteGithubReleaseZipFile(outDir, ghURL, archivePattern, exeName string) er
 
 	_, body, err := downloadGithubReleaseFile(outDir, ghURL, archivePattern)
 	if err != nil {
-		return err
+		fmt.Println(aurora.Red("Error: failed to download file: " + err.Error()))
+		os.Exit(1)
 	}
 
 	zipReader, err := zip.NewReader(bytes.NewReader(body), int64(len(body)))

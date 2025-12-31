@@ -5,9 +5,9 @@ echo ^> Killing all AHK scripts...
 tasklist /NH | findstr /I "^AHK-" >nul && sudo taskkill /F /IM AHK-*
 
 echo ^> Cleaning build directory...
-rmdir .\.build\bin /s /q
-rmdir .\.build\ahk /s /q
-rmdir .\.build\tasks /s /q
+rmdir .\.build\bin /s /q >nul
+rmdir .\.build\ahk /s /q >nul
+rmdir .\.build\tasks /s /q >nul
 
 echo.
 echo ^> Compiling Windows tasks...
