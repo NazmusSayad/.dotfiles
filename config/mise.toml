@@ -2,6 +2,18 @@
 
 bun = "latest"
 deno = "latest"
+node = "latest"
+
+"npm:tsx" = "latest"
+"npm:yarn" = "latest"
+"npm:pnpm" = "latest"
+"npm:netserv" = "latest"
+"npm:uni-run" = "latest"
+"npm:code-info" = "latest"
+"npm:@antfu/ni" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:@google/gemini-cli" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 
 go = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
