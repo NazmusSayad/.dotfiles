@@ -5,6 +5,7 @@ const BUILD_DIR = "./.build"
 
 const SCRIPTS_SOURCE_DIR = SOURCE_DIR + "/scripts"
 
-const BUILD_TEMP_DIR = BUILD_DIR + "/temp"
+const BUILD_TEMP_DIR = BUILD_DIR + "/tmp"
 const BUILD_SCRIPTS_DIR = BUILD_DIR + "/bin"
+const BUILD_LIBRARIES_DIR = BUILD_DIR + "/lib"
 const BUILD_TASKS_RUNNER_DIR = BUILD_DIR + "/tasks"
