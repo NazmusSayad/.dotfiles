@@ -4,17 +4,12 @@ import (
 	"dotfiles/src/helpers"
 	"fmt"
 	"os"
-	"os/exec"
-	"strings"
 
 	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
-	currentBranch := ""
-	if out, err := exec.Command("git", "branch", "--show-current").Output(); err == nil {
-		currentBranch = strings.TrimSpace(string(out))
-	}
+	currentBranch := helpers.GetCurrentGitBranch()
 
 	targetBranch := ""
 	if len(os.Args) == 1 {
@@ -28,14 +23,10 @@ func main() {
 	}
 
 	fmt.Printf(
-		"Pulling changes from %s into %s (default)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch),
+		"Pulling changes from %s into %s (merge)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch),
 	)
 
 	remote := helpers.GetCurrentGitRemote()
-	if remote == "" {
-		fmt.Println(aurora.Red("No remote found"))
-		os.Exit(1)
-	}
 
 	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
 	helpers.ExecNativeCommand(
