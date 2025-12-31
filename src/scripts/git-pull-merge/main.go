@@ -27,11 +27,19 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Pulling changes from %s into %s (default)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch))
+	fmt.Printf(
+		"Pulling changes from %s into %s (default)\n", aurora.Yellow(targetBranch), aurora.Red(currentBranch),
+	)
+
+	remote := helpers.GetCurrentGitRemote()
+	if remote == "" {
+		fmt.Println(aurora.Red("No remote found"))
+		os.Exit(1)
+	}
 
 	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
 	helpers.ExecNativeCommand(
-		[]string{"git", "pull", "origin", targetBranch, "--progress"},
+		[]string{"git", "pull", remote, targetBranch, "--progress"},
 		helpers.ExecCommandOptions{
 			Exit: true,
 		},
