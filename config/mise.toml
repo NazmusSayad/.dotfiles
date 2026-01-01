@@ -42,6 +42,7 @@ tokei = "latest"
 zoxide = "latest"
 bottom = "latest"
 lazygit = "latest"
+ripgrep = "latest"
 
 [settings]
 auto_install = false
