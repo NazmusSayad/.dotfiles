@@ -1,12 +1,12 @@
 [tools]
 
 bun = "latest"
-deno = "latest"
 node = "latest"
+deno = "latest"
+yarn = "latest"
+pnpm = "latest"
 
 "npm:tsx" = "latest"
-"npm:yarn" = "latest"
-"npm:pnpm" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
