@@ -1,2 +1,5 @@
-source $DOTFILES_DIR/config/shell/alias.sh
-eval "$(starship init zsh)"
+if [[ -o interactive ]]; then
+	source $DOTFILES_DIR/config/shell/alias.sh
+	eval "$(starship init zsh)"
+	eval "$(zoxide init zsh)"
+fi
