@@ -26,10 +26,6 @@
 
   // Programming & Development Tools
   {
-    "ID": "jdx.mise",
-    "Name": "Mise"
-  },
-  {
     "ID": "Git.Git",
     "Name": "Git",
     "InteractiveInstall": true
@@ -61,6 +57,26 @@
   {
     "ID": "Postman.Postman",
     "Name": "Postman"
+  },
+  {
+    "ID": "MSYS2.MSYS2",
+    "Name": "MSYS2"
+  },
+  {
+    "ID": "jdx.mise",
+    "Name": "Mise"
+  },
+  {
+    "ID": "DEVCOM.Lua",
+    "Name": "Lua"
+  },
+  {
+    "ID": " DEVCOM.LuaJIT",
+    "Name": "LuaJIT"
+  },
+  {
+    "ID": "mvdan.shfmt",
+    "Name": "Shell Formatter"
   },
   {
     "ID": "Microsoft.PowerShell",
@@ -96,24 +112,8 @@
     "Name": "Dust - Disk Usage Scanner"
   },
   {
-    "ID": "MSYS2.MSYS2",
-    "Name": "MSYS2"
-  },
-  {
     "ID": "antonmedv.walk",
     "Name": "Walk - File Manager"
-  },
-  {
-    "ID": "AlDanial.Cloc",
-    "Name": "Cloc - Count Lines of Code"
-  },
-  {
-    "ID": "Gyan.FFmpeg",
-    "Name": "FFmpeg"
-  },
-  {
-    "ID": "mvdan.shfmt",
-    "Name": "Shell Formatter"
   },
   {
     "ID": "SQLite.SQLite",
