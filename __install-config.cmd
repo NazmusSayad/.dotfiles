@@ -38,10 +38,6 @@ echo Installing MSYS2 tools...
 pacman -S --noconfirm nnn ncdu mingw-w64-x86_64-gdu
 
 echo.
-echo Installing MSYS2 Lua...
-pacman -S --noconfirm lua mingw-w64-ucrt-x86_64-luajit
-
-echo.
 echo Setting up GOPATH...
 call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOPATH', (go env GOPATH), 'User')"
 

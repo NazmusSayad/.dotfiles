@@ -19,16 +19,15 @@ go = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
 
-php = "latest"
 java = "latest"
 python = "latest"
 
-rust = "stable"
-ruby = "latest"
-rust-analyzer = "latest"
-
-dart = "latest"
-kotlin = "latest"
+# php = "latest"
+# ruby = "latest"
+# dart = "latest"
+# kotlin = "latest"
+# rust = "stable"
+# rust-analyzer = "latest"
 
 xh = "latest"
 fd = "latest"
