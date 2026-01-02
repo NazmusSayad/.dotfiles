@@ -1,4 +1,3 @@
-alias z="zoxide"
 alias ..="cd .."
 alias ...="cd ../.."
 
