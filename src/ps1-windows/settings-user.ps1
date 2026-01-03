@@ -162,3 +162,7 @@ reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\
 # Enable Fast Startup
 reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v "StartupDelayInMSec" /t REG_DWORD /d 10 /f
 reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v "WaitForIdleState" /t REG_DWORD /d 0 /f
+
+# Set Scrollbar Size to Small
+reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v ScrollHeight /t REG_SZ /d -120 /f
+reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v ScrollWidth  /t REG_SZ /d -120 /f
