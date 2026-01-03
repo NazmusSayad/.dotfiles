@@ -34,15 +34,8 @@ echo Installing MSYS2 shells...
 pacman -S --noconfirm bash fish zsh
 
 echo.
-echo Installing MSYS2 tools...
-pacman -S --noconfirm nnn ncdu mingw-w64-x86_64-gdu
-
-echo.
-echo Setting up GOPATH...
+echo Setting up GO...
 call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOPATH', (go env GOPATH), 'User')"
-
-echo.
-echo Setting up GOROOT...
 call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOROOT', (go env GOROOT), 'User')"
 
 echo.
