@@ -42,7 +42,7 @@ func main() {
 	hasKeys := strings.Contains(string(listKeysOut), "sec")
 
 	if !hasKeys {
-		fmt.Println(aurora.Yellow("No GPG keys found, generating new key..."))
+		fmt.Println(aurora.Yellow(">> No GPG keys found, generating new key..."))
 
 		batchFilePath := filepath.Join(os.TempDir(), "gpg_batch.txt")
 		batchContent := strings.Join([]string{
@@ -97,5 +97,7 @@ func main() {
 	exportCmd := exec.Command("gpg", "--armor", "--export", gpgKeyID)
 	exportCmd.Stdout = os.Stdout
 	exportCmd.Stderr = os.Stderr
+
+	fmt.Println("")
 	exportCmd.Run()
 }
