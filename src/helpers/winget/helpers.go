@@ -30,7 +30,9 @@ type WingetUpgradeablePackage struct {
 }
 
 func GetWingetPackages() []WingetPackage {
-	return helpers.ReadConfig[[]WingetPackage]("@/config/winget-apps.jsonc")
+	basePackages := helpers.ReadConfig[[]WingetPackage]("@/config/winget-apps.jsonc")
+	devPackages := helpers.ReadConfig[[]WingetPackage]("@/config/winget-dev-apps.jsonc")
+	return append(basePackages, devPackages...)
 }
 
 func GetUpgradeablePackages() []WingetUpgradeablePackage {
