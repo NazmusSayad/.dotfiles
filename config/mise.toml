@@ -11,7 +11,10 @@ pnpm = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
 "npm:@antfu/ni" = "latest"
+
+"npm:opencode-ai" = "latest"
 "npm:@openai/codex" = "latest"
+"npm:@github/copilot" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 
