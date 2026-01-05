@@ -101,6 +101,13 @@
     "SkipInstall": true
   },
   {
+    "ID": "Google.AndroidStudio",
+    "Name": "Android Studio",
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true,
+    "SkipInstall": true
+  },
+  {
     "ID": "Microsoft.VisualStudio.BuildTools",
     "Name": "Visual Studio Build Tools",
     "InteractiveInstall": true,
