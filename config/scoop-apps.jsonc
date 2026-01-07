@@ -45,7 +45,7 @@
     "ID": "btop"
   },
   {
-    "Name": "Ntop - Network Monitor",
+    "Name": "Ntop - System Monitor (top)",
     "Bucket": "main",
     "ID": "ntop"
   },
