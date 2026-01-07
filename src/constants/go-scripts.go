@@ -46,6 +46,18 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenuName: "Slack Status",
 	},
 
+	"scoop-init": {
+		StartMenuName: "Scoop Init",
+	},
+
+	"scoop-install": {
+		StartMenuName: "Scoop Install",
+	},
+
+	"scoop-upgrade": {
+		StartMenuName: "Scoop Upgrade",
+	},
+
 	"winget-install": {
 		StartMenuName: "WinGet Install",
 	},
