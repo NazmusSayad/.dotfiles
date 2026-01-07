@@ -6,6 +6,7 @@ type ScoopConfig struct {
 	ID            string
 	Name          string
 	Bucket        string
+	Version       string
 	SkipHashCheck bool
 }
 

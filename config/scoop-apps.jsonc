@@ -1,17 +1,62 @@
 [
   {
     "Name": "Flutter",
-    "ID": "flutter",
-    "Bucket": "extras"
+    "Bucket": "extras",
+    "ID": "flutter"
+  },
+  {
+    "Name": "Onefetch - Git Information Tool",
+    "Bucket": "extras",
+    "ID": "onefetch"
+  },
+  {
+    "Name": "Shfmt - Shell Script Formatter",
+    "Bucket": "main",
+    "ID": "shfmt"
+  },
+  {
+    "Name": "Fastfetch - System Information Tool",
+    "Bucket": "main",
+    "ID": "fastfetch"
+  },
+  {
+    "Name": "Lua - Scripting Language",
+    "Bucket": "main",
+    "ID": "lua"
+  },
+  {
+    "Name": "LuaJIT - Scripting Language",
+    "Bucket": "main",
+    "ID": "luajit"
+  },
+  {
+    "Name": "Dust - Disk Usage Scanner",
+    "Bucket": "main",
+    "ID": "dust"
+  },
+  {
+    "Name": "Btop - System Monitor",
+    "Bucket": "main",
+    "ID": "btop"
+  },
+  {
+    "Name": "Ntop - Network Monitor",
+    "Bucket": "main",
+    "ID": "ntop"
+  },
+  {
+    "Name": "Walk - File System Walker",
+    "Bucket": "main",
+    "ID": "walk"
   },
   {
     "Name": "FiraCode Nerd Font",
-    "ID": "FiraCode-NF",
-    "Bucket": "nerd-fonts"
+    "Bucket": "nerd-fonts",
+    "ID": "FiraCode-NF"
   },
   {
     "Name": "JetBrainsMono Nerd Font",
-    "ID": "JetBrainsMono-NF",
-    "Bucket": "nerd-fonts"
+    "Bucket": "nerd-fonts",
+    "ID": "JetBrainsMono-NF"
   }
 ]
