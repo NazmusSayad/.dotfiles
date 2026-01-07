@@ -2,7 +2,16 @@
   {
     "Name": "Flutter",
     "ID": "flutter",
-    "Bucket": "extras",
-    "SkipHashCheck": true
+    "Bucket": "extras"
+  },
+  {
+    "Name": "FiraCode Nerd Font",
+    "ID": "FiraCode-NF",
+    "Bucket": "nerd-fonts"
+  },
+  {
+    "Name": "JetBrainsMono Nerd Font",
+    "ID": "JetBrainsMono-NF",
+    "Bucket": "nerd-fonts"
   }
 ]

@@ -2,18 +2,12 @@ package main
 
 import (
 	"dotfiles/src/helpers/scoop"
-	"fmt"
-	"time"
 )
 
 func main() {
-	exports, err := scoop.GetScoopExports()
-	if err != nil {
-		fmt.Println("Error getting scoop exports:", err)
-		return
-	}
+	configs := scoop.ReadScoopConfig()
+	exports := scoop.GetScoopExports()
 
-	for _, app := range exports.Apps {
-		fmt.Println(app.Updated.Format(time.DateTime))
-	}
+	scoop.SyncBuckets(configs, exports)
+	scoop.SyncApps(configs, exports)
 }
