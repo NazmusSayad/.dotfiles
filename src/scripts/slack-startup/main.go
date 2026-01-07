@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	slack_helpers "dotfiles/src/helpers/slack"
+	slack "dotfiles/src/helpers/slack"
 )
 
 func main() {
@@ -19,10 +19,10 @@ func main() {
 	data, err := os.ReadFile(filepath.Join(homeDir, ".slack-status"))
 	if err != nil {
 		fmt.Println("Error reading slack status file:", err)
-		slack_helpers.SlackLaunch("work-hours")
+		slack.SlackLaunch("work-hours")
 		os.Exit(1)
 	}
 
 	status := strings.TrimSpace(string(data))
-	slack_helpers.SlackLaunch(slack_helpers.SlackStatus(status))
+	slack.SlackLaunch(slack.SlackStatus(status))
 }

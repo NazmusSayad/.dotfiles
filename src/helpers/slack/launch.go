@@ -1,4 +1,4 @@
-package slack_helpers
+package slack
 
 import (
 	"dotfiles/src/constants"

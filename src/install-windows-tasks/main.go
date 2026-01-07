@@ -3,7 +3,7 @@ package main
 import (
 	"dotfiles/src/constants"
 	"dotfiles/src/helpers"
-	slack_helpers "dotfiles/src/helpers/slack"
+	slack "dotfiles/src/helpers/slack"
 	"dotfiles/src/utils"
 	"fmt"
 	"os"
@@ -57,7 +57,7 @@ func resolveProgramPath(program string) string {
 }
 
 func generateSlackTaskXML(program string) string {
-	config := slack_helpers.ReadSlackConfig()
+	config := slack.ReadSlackConfig()
 
 	return `<?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
