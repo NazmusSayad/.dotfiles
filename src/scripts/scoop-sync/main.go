@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dotfiles/src/helpers"
 	"dotfiles/src/helpers/scoop"
 	"fmt"
 
@@ -20,5 +21,14 @@ func main() {
 	scoop.SyncApps(configs, exports)
 
 	fmt.Println()
-	fmt.Println(aurora.Green("✅ Scoop installed successfully"))
+	fmt.Println(aurora.Green("Updating scoop..."))
+	helpers.ExecNativeCommand([]string{"scoop", "update"})
+
+	fmt.Println()
+	fmt.Println(aurora.Green("Updating apps..."))
+	helpers.ExecNativeCommand([]string{
+		"scoop", "update", "*", "--no-cache",
+	}, helpers.ExecCommandOptions{
+		Exit: true,
+	})
 }
