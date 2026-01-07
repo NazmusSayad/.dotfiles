@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	slack_helpers "dotfiles/src/helpers/slack"
+	slack "dotfiles/src/helpers/slack"
 
 	"github.com/logrusorgru/aurora/v4"
 	"github.com/manifoldco/promptui"
@@ -17,30 +17,30 @@ func getSlackStatusFilePath() string {
 	return filepath.Join(homeDir, ".slack-status")
 }
 
-func readSlackStatus() slack_helpers.SlackStatus {
+func readSlackStatus() slack.SlackStatus {
 	data, err := os.ReadFile(getSlackStatusFilePath())
 	if err != nil {
-		return slack_helpers.SlackStatusWorkTime
+		return slack.SlackStatusWorkTime
 	}
 
 	status := strings.TrimSpace(string(data))
-	return slack_helpers.SlackStatus(status)
+	return slack.SlackStatus(status)
 }
 
-func writeSlackStatus(status slack_helpers.SlackStatus) {
+func writeSlackStatus(status slack.SlackStatus) {
 	renderSlackStatus("Updating slack status to", status)
 	os.WriteFile(getSlackStatusFilePath(), []byte(status), 0644)
-	slack_helpers.SlackLaunch(status)
+	slack.SlackLaunch(status)
 }
 
-func renderSlackStatus(label string, status slack_helpers.SlackStatus) {
+func renderSlackStatus(label string, status slack.SlackStatus) {
 
 	switch status {
-	case slack_helpers.SlackStatusAlways:
+	case slack.SlackStatusAlways:
 		fmt.Println("> " + label + ": " + aurora.Green("Always On").String())
-	case slack_helpers.SlackStatusWorkTime:
+	case slack.SlackStatusWorkTime:
 		fmt.Println("> " + label + ": " + aurora.Yellow("Work Time").String())
-	case slack_helpers.SlackStatusDisabled:
+	case slack.SlackStatusDisabled:
 		fmt.Println("> " + label + ": " + aurora.Red("Disabled").String())
 	}
 }
@@ -66,10 +66,10 @@ func main() {
 
 	switch result {
 	case 0:
-		writeSlackStatus(slack_helpers.SlackStatusAlways)
+		writeSlackStatus(slack.SlackStatusAlways)
 	case 1:
-		writeSlackStatus(slack_helpers.SlackStatusWorkTime)
+		writeSlackStatus(slack.SlackStatusWorkTime)
 	case 2:
-		writeSlackStatus(slack_helpers.SlackStatusDisabled)
+		writeSlackStatus(slack.SlackStatusDisabled)
 	}
 }
