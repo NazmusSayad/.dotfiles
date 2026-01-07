@@ -10,50 +10,51 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func SyncApps(configs []ScoopConfig, exports Export) {
-	apps := []string{}
-	for _, config := range configs {
-		apps = append(apps, config.ID)
+func SyncApps(configs []ScoopAppConfig, exports Export) {
+	configApps := []string{}
+	availableApps := []string{}
+	unavailableApps := []ScoopAppConfig{}
+	unnecessaryApps := []string{}
+
+	for _, app := range configs {
+		configApps = append(configApps, app.ID)
 	}
 
-	installedApps := []string{}
 	for _, app := range exports.Apps {
-		installedApps = append(installedApps, app.Name)
+		availableApps = append(availableApps, app.Name)
 	}
 
-	missingApps := []ScoopConfig{}
-	for _, config := range configs {
-		if !slices.Contains(installedApps, config.ID) {
-			missingApps = append(missingApps, config)
+	for _, app := range configs {
+		if !slices.Contains(availableApps, app.ID) {
+			unavailableApps = append(unavailableApps, app)
 		}
 	}
 
-	unnecessaryApps := []string{}
-	for _, installedApp := range installedApps {
-		if !slices.Contains(apps, installedApp) {
-			unnecessaryApps = append(unnecessaryApps, installedApp)
+	for _, app := range availableApps {
+		if !slices.Contains(configApps, app) {
+			unnecessaryApps = append(unnecessaryApps, app)
 		}
 	}
 
 	fmt.Println(
-		"Total: "+aurora.Green(strconv.Itoa(len(apps))).String(),
-		aurora.Faint("|").String()+" Installed: "+aurora.Green(strconv.Itoa(len(installedApps))).String(),
-		aurora.Faint("|").String()+" Missing: "+aurora.Green(strconv.Itoa(len(missingApps))).String(),
-		aurora.Faint("|").String()+" Extra: "+aurora.Green(strconv.Itoa(len(unnecessaryApps))).String(),
+		"Total: "+aurora.Green(strconv.Itoa(len(configApps))).String(),
+		aurora.Faint("|").String()+" Available: "+aurora.Green(strconv.Itoa(len(availableApps))).String(),
+		aurora.Faint("|").String()+" Unavailable: "+aurora.Green(strconv.Itoa(len(unavailableApps))).String(),
+		aurora.Faint("|").String()+" Unnecessary: "+aurora.Green(strconv.Itoa(len(unnecessaryApps))).String(),
 	)
 
-	for _, missingApp := range missingApps {
-		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(missingApp.Name).String())
+	for _, app := range unavailableApps {
+		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.Name).String())
 
-		app := utils.Ternary(missingApp.Version != "", missingApp.ID+"@"+missingApp.Version, missingApp.ID)
+		app := utils.Ternary(app.Version != "", app.ID+"@"+app.Version, app.ID)
 		helpers.ExecNativeCommand([]string{"scoop", "install", app})
 
 		fmt.Println()
 	}
 
-	for _, unnecessaryApp := range unnecessaryApps {
-		fmt.Println(aurora.Faint("- Removing app ").String() + aurora.Green(unnecessaryApp).String())
-		helpers.ExecNativeCommand([]string{"scoop", "uninstall", unnecessaryApp})
+	for _, app := range unnecessaryApps {
+		fmt.Println(aurora.Faint("- Removing app ").String() + aurora.Green(app).String())
+		helpers.ExecNativeCommand([]string{"scoop", "uninstall", app})
 		fmt.Println()
 	}
 }
