@@ -14,13 +14,13 @@ echo ^> Compiling AutoHotkey scripts...
 call go run ./src/compile-ahk/main.go
 
 echo.
-echo ^> Compiling Windows tasks...
-call go run ./src/compile-tasks/main.go
-
-echo.
 echo ^> Compiling aliases...
 call go run ./src/compile-alias/main.go
 
 echo.
 echo ^> Compiling Go scripts...
 call go run ./src/compile-scripts/main.go
+
+echo.
+echo ^> Compiling Windows tasks...
+call go run ./src/compile-tasks/main.go
