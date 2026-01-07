@@ -41,18 +41,6 @@
     "Name": "Postman"
   },
   {
-    "ID": "DEVCOM.Lua",
-    "Name": "Lua"
-  },
-  {
-    "ID": " DEVCOM.LuaJIT",
-    "Name": "LuaJIT"
-  },
-  {
-    "ID": "mvdan.shfmt",
-    "Name": "Shell Formatter"
-  },
-  {
     "ID": "Microsoft.PowerShell",
     "Name": "PowerShell (pwsh)"
   },
@@ -64,30 +52,6 @@
     "ID": "Starship.Starship",
     "Name": "Starship",
     "InstallerType": "ZIP"
-  },
-  {
-    "ID": "Fastfetch-cli.Fastfetch",
-    "Name": "Fastfetch"
-  },
-  {
-    "ID": "o2sh.onefetch",
-    "Name": "Onefetch - Git Information Tool"
-  },
-  {
-    "ID": "aristocratos.btop4win",
-    "Name": "BTop4Win - System Monitor"
-  },
-  {
-    "ID": "gsass1.NTop",
-    "Name": "NTop - Top-like System Monitor"
-  },
-  {
-    "ID": "bootandy.dust",
-    "Name": "Dust - Disk Usage Scanner"
-  },
-  {
-    "ID": "antonmedv.walk",
-    "Name": "Walk - File Manager"
   },
   {
     "ID": "SQLite.SQLite",

@@ -9,6 +9,8 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
+var SYSTEM_BUCKETS = []string{"main"}
+
 func SyncBuckets(configs []ScoopConfig, exports Export) {
 	configBuckets := []string{}
 	for _, config := range configs {
@@ -27,18 +29,35 @@ func SyncBuckets(configs []ScoopConfig, exports Export) {
 		}
 	}
 
-	fmt.Println(aurora.Faint("Syncing buckets, total: ").String() + aurora.Green(strconv.Itoa(len(missingBuckets))).String())
+	unnecessaryBuckets := []string{}
+	for _, installedBucket := range installedBuckets {
+		if !slices.Contains(configBuckets, installedBucket) && !slices.Contains(SYSTEM_BUCKETS, installedBucket) {
+			unnecessaryBuckets = append(unnecessaryBuckets, installedBucket)
+		}
+	}
+
+	fmt.Println(
+		"Total: "+aurora.Green(strconv.Itoa(len(configBuckets))).String(),
+		aurora.Faint("|").String()+" Installed: "+aurora.Green(strconv.Itoa(len(installedBuckets))).String(),
+		aurora.Faint("|").String()+" Missing: "+aurora.Green(strconv.Itoa(len(missingBuckets))).String(),
+		aurora.Faint("|").String()+" Extra: "+aurora.Green(strconv.Itoa(len(unnecessaryBuckets))).String(),
+	)
 
 	for _, missingBucket := range missingBuckets {
 		fmt.Println(aurora.Faint("- Installing bucket ").String() + aurora.Green(missingBucket).String())
-		err := helpers.ExecNativeCommand([]string{
+		helpers.ExecNativeCommand([]string{
 			"scoop", "bucket", "add", missingBucket,
+		}, helpers.ExecCommandOptions{
+			Silent: true,
 		})
+	}
 
-		if err != nil {
-			fmt.Println(aurora.Red("Error installing bucket: " + err.Error()))
-		} else {
-			fmt.Println(aurora.Green("Bucket installed successfully"))
-		}
+	for _, unnecessaryBucket := range unnecessaryBuckets {
+		fmt.Println(aurora.Faint("- Removing bucket ").String() + aurora.Green(unnecessaryBucket).String())
+		helpers.ExecNativeCommand([]string{
+			"scoop", "bucket", "rm", unnecessaryBucket,
+		}, helpers.ExecCommandOptions{
+			Silent: true,
+		})
 	}
 }

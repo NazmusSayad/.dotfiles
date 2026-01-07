@@ -2,6 +2,7 @@ package scoop
 
 import (
 	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"slices"
 	"strconv"
@@ -20,23 +21,39 @@ func SyncApps(configs []ScoopConfig, exports Export) {
 		installedApps = append(installedApps, app.Name)
 	}
 
-	missingApps := []string{}
+	missingApps := []ScoopConfig{}
 	for _, config := range configs {
 		if !slices.Contains(installedApps, config.ID) {
-			missingApps = append(missingApps, config.ID)
+			missingApps = append(missingApps, config)
 		}
 	}
 
-	fmt.Println(aurora.Faint("Syncing apps, total: ").String() + aurora.Green(strconv.Itoa(len(missingApps))).String())
+	unnecessaryApps := []string{}
+	for _, installedApp := range installedApps {
+		if !slices.Contains(apps, installedApp) {
+			unnecessaryApps = append(unnecessaryApps, installedApp)
+		}
+	}
+
+	fmt.Println(
+		"Total: "+aurora.Green(strconv.Itoa(len(apps))).String(),
+		aurora.Faint("|").String()+" Installed: "+aurora.Green(strconv.Itoa(len(installedApps))).String(),
+		aurora.Faint("|").String()+" Missing: "+aurora.Green(strconv.Itoa(len(missingApps))).String(),
+		aurora.Faint("|").String()+" Extra: "+aurora.Green(strconv.Itoa(len(unnecessaryApps))).String(),
+	)
 
 	for _, missingApp := range missingApps {
-		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(missingApp).String())
-		err := helpers.ExecNativeCommand([]string{"scoop", "install", missingApp}, helpers.ExecCommandOptions{
-			Silent: true,
-		})
+		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(missingApp.Name).String())
 
-		if err != nil {
-			fmt.Println(aurora.Red("Error installing app: " + err.Error()))
-		}
+		app := utils.Ternary(missingApp.Version != "", missingApp.ID+"@"+missingApp.Version, missingApp.ID)
+		helpers.ExecNativeCommand([]string{"scoop", "install", app})
+
+		fmt.Println()
+	}
+
+	for _, unnecessaryApp := range unnecessaryApps {
+		fmt.Println(aurora.Faint("- Removing app ").String() + aurora.Green(unnecessaryApp).String())
+		helpers.ExecNativeCommand([]string{"scoop", "uninstall", unnecessaryApp})
+		fmt.Println()
 	}
 }
