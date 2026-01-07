@@ -10,12 +10,12 @@ rmdir .\.build\ahk /s /q >nul
 rmdir .\.build\tasks /s /q >nul
 
 echo.
-echo ^> Compiling Windows tasks...
-call go run ./src/compile-tasks/main.go
-
-echo.
 echo ^> Compiling AutoHotkey scripts...
 call go run ./src/compile-ahk/main.go
+
+echo.
+echo ^> Compiling Windows tasks...
+call go run ./src/compile-tasks/main.go
 
 echo.
 echo ^> Compiling aliases...
