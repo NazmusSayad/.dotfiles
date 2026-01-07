@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	configs := scoop.ReadScoopConfig()
+	configs := scoop.ReadScoopAppConfig()
 	exports := scoop.GetScoopExports()
 
 	fmt.Println()

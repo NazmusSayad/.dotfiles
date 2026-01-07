@@ -2,7 +2,7 @@ package scoop
 
 import "dotfiles/src/helpers"
 
-type ScoopConfig struct {
+type ScoopAppConfig struct {
 	ID            string
 	Name          string
 	Bucket        string
@@ -10,6 +10,6 @@ type ScoopConfig struct {
 	SkipHashCheck bool
 }
 
-func ReadScoopConfig() []ScoopConfig {
-	return helpers.ReadConfig[[]ScoopConfig]("@/config/scoop-apps.jsonc")
+func ReadScoopAppConfig() []ScoopAppConfig {
+	return helpers.ReadConfig[[]ScoopAppConfig]("@/config/scoop-apps.jsonc")
 }
