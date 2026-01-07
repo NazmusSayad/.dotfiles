@@ -27,7 +27,6 @@ go = "latest"
 java = "20"
 python = "latest"
 
-# dart = "latest"
 # rust = "stable"
 # rust-analyzer = "latest"
 
