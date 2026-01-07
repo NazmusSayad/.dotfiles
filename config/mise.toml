@@ -1,7 +1,7 @@
 [tools]
 
+node = "24"
 bun = "latest"
-node = "latest"
 deno = "latest"
 
 "npm:tsx" = "latest"
@@ -12,6 +12,7 @@ deno = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
+"npm:firebase-tools" = "latest"
 
 "npm:opencode-ai" = "latest"
 "npm:@openai/codex" = "latest"
@@ -23,18 +24,19 @@ go = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
 
-java = "latest"
+java = "20"
 python = "latest"
+
+# dart = "latest"
+# rust = "stable"
+# rust-analyzer = "latest"
 
 # php = "latest"
 # zig = "latest"
 # ruby = "latest"
-# dart = "latest"
 # kotlin = "latest"
 # erlang = "stable"
 # elixir = "stable"
-# rust = "stable"
-# rust-analyzer = "latest"
 
 xh = "latest"
 fd = "latest"
