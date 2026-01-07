@@ -26,30 +26,18 @@ type Export struct {
 	Apps    []App    `json:"apps"`
 }
 
-func GetScoopExports() (Export, error) {
+func GetScoopExports() Export {
 	cmd := exec.Command("scoop", "export")
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		return Export{}, err
+		panic("Error getting scoop exports: " + err.Error())
 	}
 
 	var export Export
 	err = json.Unmarshal(output, &export)
-	return export, err
-}
-
-func GetScoopApps() ([]App, error) {
-	exports, err := GetScoopExports()
 	if err != nil {
-		return nil, err
+		panic("Error unmarshalling scoop exports: " + err.Error())
 	}
-	return exports.Apps, nil
-}
 
-func GetScoopBuckets() ([]Bucket, error) {
-	exports, err := GetScoopExports()
-	if err != nil {
-		return nil, err
-	}
-	return exports.Buckets, nil
+	return export
 }
