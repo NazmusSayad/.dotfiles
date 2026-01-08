@@ -67,6 +67,10 @@ func GetUpgradeablePackages() []WingetUpgradeablePackage {
 	for _, line := range dataLines {
 		line = strings.TrimSpace(line)
 
+		if len(line) < sourceStartIndex {
+			break
+		}
+
 		upgradeablePackages = append(upgradeablePackages, WingetUpgradeablePackage{
 			ID:        strings.TrimSpace(line[idStartIndex:versionStartIndex]),
 			Version:   strings.TrimSpace(line[versionStartIndex:availableStartIndex]),
