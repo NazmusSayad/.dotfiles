@@ -69,7 +69,8 @@
     "Name": "Android Studio",
     "InteractiveInstall": true,
     "InteractiveUpgrade": true,
-    "SkipInstall": true
+    "SkipInstall": true,
+    "SkipUpgrade": true
   },
   {
     "ID": "Microsoft.VisualStudio.BuildTools",

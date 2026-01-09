@@ -25,7 +25,6 @@ rust = "stable"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
-"npm:firebase-tools" = "latest"
 
 "npm:opencode-ai" = "latest"
 "npm:@openai/codex" = "latest"
