@@ -1,139 +1,113 @@
 [
   // Programming Languages
   {
-    "ID": "dart",
-    "Bucket": "main",
-    "Name": "Dart - Programming Language"
-  },
-  {
-    "ID": "flutter",
-    "Bucket": "extras",
-    "Name": "Flutter - Framework"
-  },
-  {
     "ID": "lua",
-    "Bucket": "main",
     "Name": "Lua - Scripting Language"
   },
   {
     "ID": "luajit",
-    "Bucket": "main",
     "Name": "LuaJIT - Scripting Language"
+  },
+  {
+    "ID": "dart",
+    "Name": "Dart - Programming Language"
+  },
+  {
+    "ID": "extras/flutter",
+    "Name": "Flutter - Framework"
   },
 
   // Visualization Tools
   {
-    "ID": "onefetch",
-    "Bucket": "extras",
-    "Name": "Onefetch - Git Information Tool"
-  },
-  {
-    "ID": "fastfetch",
-    "Bucket": "main",
-    "Name": "Fastfetch - System Information Tool"
-  },
-  {
     "ID": "btop",
-    "Bucket": "main",
     "Name": "Btop - System Monitor"
   },
   {
     "ID": "ntop",
-    "Bucket": "main",
     "Name": "Ntop - System Monitor (top)"
+  },
+  {
+    "ID": "fastfetch",
+    "Name": "Fastfetch - System Information Tool"
+  },
+  {
+    "ID": "extras/onefetch",
+    "Name": "Onefetch - Git Information Tool"
   },
 
   // CLI Tools
   {
     "ID": "shfmt",
-    "Bucket": "main",
     "Name": "Shfmt - Shell Script Formatter"
   },
   {
     "ID": "xh",
-    "Bucket": "main",
     "Name": "XH - HTTP CLI Tool"
   },
   {
     "ID": "fd",
-    "Bucket": "main",
     "Name": "FD - File Finder"
   },
   {
     "ID": "duf",
-    "Bucket": "main",
     "Name": "Duf - Disk Usage Finder"
   },
   {
     "ID": "dust",
-    "Bucket": "main",
     "Name": "Dust - File System Analyzer"
   },
   {
     "ID": "walk",
-    "Bucket": "main",
     "Name": "Walk - File Manager"
   },
   {
     "ID": "fzf",
-    "Bucket": "main",
     "Name": "Fzf - File Finder"
   },
   {
     "ID": "bat",
-    "Bucket": "main",
     "Name": "Bat - File Viewer"
   },
   {
     "ID": "eza",
-    "Bucket": "main",
     "Name": "Eza - File Manager"
   },
   {
     "ID": "lsd",
-    "Bucket": "main",
     "Name": "Lsd - File Manager"
   },
   {
     "ID": "yazi",
-    "Bucket": "main",
     "Name": "Yazi - File Manager"
   },
   {
     "ID": "tokei",
-    "Bucket": "main",
     "Name": "Tokei - Code Statistics"
   },
   {
     "ID": "zoxide",
-    "Bucket": "main",
     "Name": "Zoxide - File Manager"
   },
   {
     "ID": "bottom",
-    "Bucket": "main",
     "Name": "Bottom - System Monitor"
   },
   {
-    "ID": "lazygit",
-    "Bucket": "extras",
-    "Name": "Lazygit - Git GUI"
+    "ID": "ripgrep",
+    "Name": "Ripgrep - File Finder"
   },
   {
-    "ID": "ripgrep",
-    "Bucket": "main",
-    "Name": "Ripgrep - File Finder"
+    "ID": "extras/lazygit",
+    "Name": "Lazygit - Git GUI"
   },
 
   // Fonts
   {
-    "ID": "FiraCode-NF",
-    "Bucket": "nerd-fonts",
+    "ID": "nerd-fonts/FiraCode-NF",
     "Name": "FiraCode Nerd Font"
   },
   {
-    "ID": "JetBrainsMono-NF",
-    "Bucket": "nerd-fonts",
+    "ID": "nerd-fonts/JetBrainsMono-NF",
     "Name": "JetBrainsMono Nerd Font"
   }
 ]
