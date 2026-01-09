@@ -39,4 +39,9 @@ call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('
 call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOROOT', (go env GOROOT), 'User')"
 
 echo.
+echo Setting up antfu/ni environment variables...
+call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('NI_GLOBAL_AGENT', 'npm', 'User')"
+call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('NI_DEFAULT_AGENT', 'pnpm', 'User')"
+
+echo.
 pause
