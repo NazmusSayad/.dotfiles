@@ -1,8 +1,21 @@
 [tools]
 
-node = "24"
+node = "lts"
 bun = "latest"
 deno = "latest"
+
+go = "latest"
+java = "latest"
+python = "latest"
+# php = "latest"
+# zig = "latest"
+# ruby = "latest"
+# kotlin = "latest"
+# erlang = "stable"
+# elixir = "stable"
+
+rust = "stable"
+# rust-analyzer = "latest"
 
 "npm:tsx" = "latest"
 "npm:yarn" = "latest"
@@ -20,22 +33,8 @@ deno = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 
-go = "latest"
-"go:golang.org/x/tools/gopls" = "latest"
-"go:golang.org/x/tools/cmd/goimports" = "latest"
-
-java = "20"
-python = "latest"
-
-# rust = "stable"
-# rust-analyzer = "latest"
-
-# php = "latest"
-# zig = "latest"
-# ruby = "latest"
-# kotlin = "latest"
-# erlang = "stable"
-# elixir = "stable"
+"cargo:du-dust" = "latest"
+"go:github.com/antonmedv/walk" = "latest"
 
 xh = "latest"
 fd = "latest"

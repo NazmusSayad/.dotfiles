@@ -35,11 +35,6 @@
     "ID": "luajit"
   },
   {
-    "Name": "Dust - Disk Usage Scanner",
-    "Bucket": "main",
-    "ID": "dust"
-  },
-  {
     "Name": "Btop - System Monitor",
     "Bucket": "main",
     "ID": "btop"
@@ -48,11 +43,6 @@
     "Name": "Ntop - System Monitor (top)",
     "Bucket": "main",
     "ID": "ntop"
-  },
-  {
-    "Name": "Walk - File System Walker",
-    "Bucket": "main",
-    "ID": "walk"
   },
   {
     "Name": "FiraCode Nerd Font",
