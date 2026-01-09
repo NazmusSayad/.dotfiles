@@ -14,7 +14,7 @@ python = "latest"
 # erlang = "stable"
 # elixir = "stable"
 
-rust = "stable"
+# rust = "stable"
 # rust-analyzer = "latest"
 
 "npm:tsx" = "latest"
@@ -31,23 +31,6 @@ rust = "stable"
 "npm:@github/copilot" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
-
-"cargo:du-dust" = "latest"
-"go:github.com/antonmedv/walk" = "latest"
-
-xh = "latest"
-fd = "latest"
-duf = "latest"
-fzf = "latest"
-bat = "latest"
-eza = "latest"
-lsd = "latest"
-yazi = "latest"
-tokei = "latest"
-zoxide = "latest"
-bottom = "latest"
-lazygit = "latest"
-ripgrep = "latest"
 
 [settings]
 auto_install = false
