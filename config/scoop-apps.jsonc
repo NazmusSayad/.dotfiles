@@ -27,6 +27,10 @@
     "Name": "Ntop - System Monitor (top)"
   },
   {
+    "ID": "bottom",
+    "Name": "Bottom - System Monitor"
+  },
+  {
     "ID": "fastfetch",
     "Name": "Fastfetch - System Information Tool"
   },
@@ -36,6 +40,18 @@
   },
 
   // CLI Tools
+  {
+    "ID": "starship",
+    "Name": "Starship - Prompt"
+  },
+  {
+    "ID": "mise",
+    "Name": "Mise - Package Manager"
+  },
+  {
+    "ID": "zoxide",
+    "Name": "Zoxide - File Manager"
+  },
   {
     "ID": "shfmt",
     "Name": "Shfmt - Shell Script Formatter"
@@ -83,14 +99,6 @@
   {
     "ID": "tokei",
     "Name": "Tokei - Code Statistics"
-  },
-  {
-    "ID": "zoxide",
-    "Name": "Zoxide - File Manager"
-  },
-  {
-    "ID": "bottom",
-    "Name": "Bottom - System Monitor"
   },
   {
     "ID": "ripgrep",
