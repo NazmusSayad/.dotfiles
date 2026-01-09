@@ -22,9 +22,12 @@ python = "latest"
 "npm:pnpm" = "latest"
 "npm:@antfu/ni" = "latest"
 
+"npm:serve" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
+"npm:git-stats" = "latest"
+"npm:npm-name-cli" = "latest"
 
 "npm:opencode-ai" = "latest"
 "npm:@openai/codex" = "latest"

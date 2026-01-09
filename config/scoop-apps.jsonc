@@ -18,6 +18,7 @@
   },
 
   // Visualization Tools
+
   {
     "ID": "btop",
     "Name": "Btop - System Monitor"
@@ -31,11 +32,19 @@
     "Name": "Bottom - System Monitor"
   },
   {
+    "ID": "ctop",
+    "Name": "ctop - Docker Container Monitor"
+  },
+  {
+    "ID": "neofetch",
+    "Name": "Neofetch - System Information Tool"
+  },
+  {
     "ID": "fastfetch",
     "Name": "Fastfetch - System Information Tool"
   },
   {
-    "ID": "extras/onefetch",
+    "ID": "onefetch",
     "Name": "Onefetch - Git Information Tool"
   },
 
@@ -55,6 +64,14 @@
   {
     "ID": "shfmt",
     "Name": "Shfmt - Shell Script Formatter"
+  },
+  {
+    "ID": "tldr",
+    "Name": "Tldr - Documentation Viewer"
+  },
+  {
+    "ID": "rip",
+    "Name": "Rip - Safe File Deleter"
   },
   {
     "ID": "xh",
@@ -97,12 +114,24 @@
     "Name": "Yazi - File Manager"
   },
   {
+    "ID": "scc",
+    "Name": "SCC - Source Code Counter"
+  },
+  {
+    "ID": "cloc",
+    "Name": "Cloc - Source Code Counter"
+  },
+  {
     "ID": "tokei",
     "Name": "Tokei - Code Statistics"
   },
   {
     "ID": "ripgrep",
     "Name": "Ripgrep - File Finder"
+  },
+  {
+    "ID": "figlet",
+    "Name": "figlet - ASCII Art Generator"
   },
   {
     "ID": "extras/lazygit",
