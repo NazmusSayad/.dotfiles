@@ -28,12 +28,15 @@ func main() {
 			Triggers: []helpers.WindowsTaskTrigger{
 				{Type: helpers.WindowsTaskTriggerTypeBoot},
 				{Type: helpers.WindowsTaskTriggerTypeLogon},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart, Minute: 0},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart + 1, Minute: 0},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart + 2, Minute: 0},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish, Minute: 0},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish + 1, Minute: 0},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish + 2, Minute: 0},
+
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart + 1, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart + 2, Minute: 1},
+
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish + 1, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish + 2, Minute: 1},
+
 				{Type: helpers.WindowsTaskTriggerTypeEvent, EventString: `&lt;QueryList&gt;&lt;Query Id="0" Path="System"&gt;&lt;Select
         Path="System"&gt;*[System[Provider[@Name='Microsoft-Windows-Power-Troubleshooter'] and
         EventID=1]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;`},
