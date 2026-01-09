@@ -13,10 +13,6 @@
     "Name": "MSYS2"
   },
   {
-    "ID": "jdx.mise",
-    "Name": "Mise"
-  },
-  {
     "ID": "Axosoft.GitKraken",
     "Name": "GitKraken"
   },
@@ -47,11 +43,6 @@
   {
     "ID": "stax76.run-hidden",
     "Name": "Run Hidden"
-  },
-  {
-    "ID": "Starship.Starship",
-    "Name": "Starship",
-    "InstallerType": "ZIP"
   },
   {
     "ID": "SQLite.SQLite",
