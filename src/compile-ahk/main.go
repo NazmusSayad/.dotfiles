@@ -20,7 +20,6 @@ func main() {
 		return
 	}
 
-	buildOutputDir := filepath.Join(constants.BUILD_DIR, "/ahk")
 	ahkScriptsDir := filepath.Join(constants.SOURCE_DIR, "/compile-ahk/scripts")
 
 	ahk2ExeBin := filepath.Join(constants.BUILD_LIBRARIES_DIR, "Ahk2Exe.exe")
@@ -31,7 +30,7 @@ func main() {
 		panic(err)
 	}
 
-	if err := os.MkdirAll(buildOutputDir, 0755); err != nil {
+	if err := os.MkdirAll(constants.BUILD_AHK_DIR, 0755); err != nil {
 		panic(err)
 	}
 
@@ -45,7 +44,7 @@ func main() {
 
 		fileName := strings.TrimSuffix(entry.Name(), ".ahk")
 		inPath := filepath.Join(ahkScriptsDir, entry.Name())
-		outPath := filepath.Join(buildOutputDir, ahkScriptPrefix+fileName+".exe")
+		outPath := filepath.Join(constants.BUILD_AHK_DIR, ahkScriptPrefix+fileName+".exe")
 
 		iconPath := filepath.Join(ahkScriptsDir, fileName+".ico")
 		spawnArgs := []string{"/base", ahk64CompilerBin, "/in", inPath, "/out", outPath}
