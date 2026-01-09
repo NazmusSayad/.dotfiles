@@ -7,7 +7,6 @@ tasklist /NH | findstr /I "^AHK-" >nul && sudo taskkill /F /IM AHK-*
 echo ^> Cleaning build directory...
 rmdir .\.build\bin /s /q >nul
 rmdir .\.build\ahk /s /q >nul
-rmdir .\.build\tasks /s /q >nul
 
 echo.
 echo ^> Compiling AutoHotkey scripts...
@@ -20,7 +19,3 @@ call go run ./src/compile-alias/main.go
 echo.
 echo ^> Compiling Go scripts...
 call go run ./src/compile-scripts/main.go
-
-echo.
-echo ^> Compiling Windows tasks...
-call go run ./src/compile-tasks/main.go
