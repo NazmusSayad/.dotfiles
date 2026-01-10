@@ -19,48 +19,48 @@ func main() {
 	configAppMap := scoop.GetScoopConfigAppMap(configs)
 	exportAppMap := scoop.GetScoopExportAppMap(exports)
 
-	unavailableBuckets := []string{}
+	missingBuckets := []string{}
 	for _, bucket := range configBucketsList {
 		if !slices.Contains(exportBucketList, bucket) {
-			unavailableBuckets = append(unavailableBuckets, bucket)
+			missingBuckets = append(missingBuckets, bucket)
 		}
 	}
 
-	unavailableApps := []scoop.ScoopAppConfig{}
+	missingApps := []scoop.ScoopAppConfig{}
 	for appId, configApp := range configAppMap {
 		_, isExists := exportAppMap[appId]
 
 		if !isExists {
-			unavailableApps = append(unavailableApps, configApp)
+			missingApps = append(missingApps, configApp)
 		}
 	}
 
-	unavailableBucketsCount := len(unavailableBuckets)
-	if unavailableBucketsCount == 0 {
-		fmt.Println(aurora.Green("No unavailable buckets found"))
+	missingBucketsCount := len(missingBuckets)
+	if missingBucketsCount == 0 {
+		fmt.Println(aurora.Green("No missing buckets found"))
 	} else {
-		fmt.Println("> Unavailable buckets:", aurora.Red(strings.Join(unavailableBuckets, ", ")))
+		fmt.Println("> Missing buckets:", aurora.Red(strings.Join(missingBuckets, ", ")))
 	}
 
-	unavailableAppsCount := len(unavailableApps)
-	if unavailableAppsCount == 0 {
-		fmt.Println(aurora.Green("No unavailable apps found"))
+	missingAppsCount := len(missingApps)
+	if missingAppsCount == 0 {
+		fmt.Println(aurora.Green("No missing apps found"))
 	} else {
 		appNames := []string{}
-		for _, app := range unavailableApps {
+		for _, app := range missingApps {
 			appNames = append(appNames, app.Source+"/"+app.Name)
 		}
 
-		fmt.Println("> Unavailable apps:", aurora.Red(strings.Join(appNames, ", ")))
+		fmt.Println("> Missing apps:", aurora.Red(strings.Join(appNames, ", ")))
 	}
 
-	for _, bucket := range unavailableBuckets {
+	for _, bucket := range missingBuckets {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Installing bucket ").String() + aurora.Green(bucket).String())
 		helpers.ExecNativeCommand([]string{"scoop", "bucket", "add", bucket})
 	}
 
-	for _, app := range unavailableApps {
+	for _, app := range missingApps {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.Source+"/"+app.Name).String())
 		helpers.ExecNativeCommand([]string{"scoop", "install", app.Source + "/" + app.Name})
