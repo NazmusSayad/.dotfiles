@@ -21,6 +21,16 @@
     "Label": "Flutter"
   },
 
+  // Development Tools
+  {
+    "ID": "cloudflared",
+    "Label": "Cloudflare Tunnel"
+  },
+  {
+    "ID": "extras/lazygit",
+    "Label": "Lazygit - Git GUI"
+  },
+
   // Visualization Tools
   {
     "ID": "btop",
@@ -73,28 +83,16 @@
     "Label": "Tldr - TL;DR Documentation"
   },
   {
+    "ID": "ripgrep",
+    "Label": "Ripgrep - File Finder"
+  },
+  {
     "ID": "rip",
     "Label": "Rip - Trash"
   },
   {
-    "ID": "xh",
-    "Label": "XH - HTTP Client"
-  },
-  {
-    "ID": "fd",
-    "Label": "FD - File Finder"
-  },
-  {
-    "ID": "duf",
-    "Label": "Duf - Disk Usage Finder"
-  },
-  {
     "ID": "dust",
     "Label": "Dust - Disk Usage Finder"
-  },
-  {
-    "ID": "walk",
-    "Label": "Walk - File Walker"
   },
   {
     "ID": "fzf",
@@ -105,10 +103,6 @@
     "Label": "Bat - Cat Alternative"
   },
   {
-    "ID": "eza",
-    "Label": "Eza - File Manager"
-  },
-  {
     "ID": "lsd",
     "Label": "Lsd - List Directory Contents"
   },
@@ -117,28 +111,16 @@
     "Label": "Yazi - File Manager"
   },
   {
-    "ID": "scc",
-    "Label": "SCC - Source Code Counter"
-  },
-  {
-    "ID": "cloc",
-    "Label": "Cloc - Count Lines of Code"
-  },
-  {
-    "ID": "tokei",
-    "Label": "Tokei - Count Lines of Code"
-  },
-  {
-    "ID": "ripgrep",
-    "Label": "Ripgrep - File Finder"
-  },
-  {
     "ID": "figlet",
     "Label": "figlet - ASCII Art"
   },
   {
-    "ID": "extras/lazygit",
-    "Label": "Lazygit - Git GUI"
+    "ID": "scc",
+    "Label": "SCC - Source Code Counter"
+  },
+  {
+    "ID": "tokei",
+    "Label": "Tokei - Count Lines of Code"
   },
 
   // Media
