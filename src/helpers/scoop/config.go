@@ -2,6 +2,7 @@ package scoop
 
 import (
 	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
 	"strings"
 
@@ -10,17 +11,18 @@ import (
 
 type ScoopAppInputConfig struct {
 	ID            string
-	Name          string
+	Label         string
 	Version       string
 	SkipHashCheck bool
 }
 
 type ScoopAppConfig struct {
-	ID            string
 	Name          string
-	Bucket        string
+	Source        string
 	Version       string
 	SkipHashCheck bool
+
+	Label string
 }
 
 func ReadScoopAppConfig() []ScoopAppConfig {
@@ -47,14 +49,34 @@ func ReadScoopAppConfig() []ScoopAppConfig {
 		}
 
 		outputConfig = append(outputConfig, ScoopAppConfig{
-			ID:     appId,
-			Bucket: bucketId,
+			Name:   appId,
+			Source: bucketId,
 
-			Name:          app.Name,
+			Label:         app.Label,
 			Version:       app.Version,
 			SkipHashCheck: app.SkipHashCheck,
 		})
 	}
 
 	return outputConfig
+}
+
+func GetScoopConfigAppMap(configs []ScoopAppConfig) map[string]ScoopAppConfig {
+	appMap := make(map[string]ScoopAppConfig)
+
+	for _, app := range configs {
+		appMap[app.Source+"/"+app.Name] = app
+	}
+
+	return appMap
+}
+
+func GetScoopConfigBucketsList(configs []ScoopAppConfig) []string {
+	bucketList := []string{}
+
+	for _, app := range configs {
+		bucketList = append(bucketList, app.Source)
+	}
+
+	return utils.UniqueArray(bucketList)
 }

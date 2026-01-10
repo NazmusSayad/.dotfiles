@@ -2,153 +2,153 @@
   // Programming Languages
   {
     "ID": "lua",
-    "Name": "Lua"
+    "Label": "Lua"
   },
   {
     "ID": "luajit",
-    "Name": "LuaJIT"
+    "Label": "LuaJIT"
   },
   {
     "ID": "dart",
-    "Name": "Dart"
+    "Label": "Dart"
   },
   {
     "ID": "extras/flutter",
-    "Name": "Flutter"
+    "Label": "Flutter"
   },
 
   // Visualization Tools
 
   {
     "ID": "btop",
-    "Name": "Btop - System Monitor"
+    "Label": "Btop - System Monitor"
   },
   {
     "ID": "ntop",
-    "Name": "Ntop - Network Monitor"
+    "Label": "Ntop - Network Monitor"
   },
   {
     "ID": "bottom",
-    "Name": "Bottom - System Monitor"
+    "Label": "Bottom - System Monitor"
   },
   {
     "ID": "ctop",
-    "Name": "ctop - Docker Container Monitor"
+    "Label": "ctop - Docker Container Monitor"
   },
   {
     "ID": "neofetch",
-    "Name": "Neofetch - System Information"
+    "Label": "Neofetch - System Information"
   },
   {
     "ID": "fastfetch",
-    "Name": "Fastfetch - System Information"
+    "Label": "Fastfetch - System Information"
   },
   {
-    "ID": "onefetch",
-    "Name": "Onefetch - Git Information"
+    "ID": "extras/onefetch",
+    "Label": "Onefetch - Git Information"
   },
 
   // CLI Tools
   {
     "ID": "starship",
-    "Name": "Starship - Prompt"
+    "Label": "Starship - Prompt"
   },
   {
     "ID": "mise",
-    "Name": "Mise - CLI Manager"
+    "Label": "Mise - CLI Manager"
   },
   {
     "ID": "zoxide",
-    "Name": "Zoxide - Directory Navigation"
+    "Label": "Zoxide - Directory Navigation"
   },
   {
     "ID": "shfmt",
-    "Name": "Shfmt - Shell Script Formatter"
+    "Label": "Shfmt - Shell Script Formatter"
   },
   {
     "ID": "tldr",
-    "Name": "Tldr - TL;DR Documentation"
+    "Label": "Tldr - TL;DR Documentation"
   },
   {
     "ID": "rip",
-    "Name": "Rip - Trash"
+    "Label": "Rip - Trash"
   },
   {
     "ID": "xh",
-    "Name": "XH - HTTP Client"
+    "Label": "XH - HTTP Client"
   },
   {
     "ID": "fd",
-    "Name": "FD - File Finder"
+    "Label": "FD - File Finder"
   },
   {
     "ID": "duf",
-    "Name": "Duf - Disk Usage Finder"
+    "Label": "Duf - Disk Usage Finder"
   },
   {
     "ID": "dust",
-    "Name": "Dust - Disk Usage Finder"
+    "Label": "Dust - Disk Usage Finder"
   },
   {
     "ID": "walk",
-    "Name": "Walk - File Walker"
+    "Label": "Walk - File Walker"
   },
   {
     "ID": "fzf",
-    "Name": "Fzf - File Finder"
+    "Label": "Fzf - File Finder"
   },
   {
     "ID": "bat",
-    "Name": "Bat - Cat Alternative"
+    "Label": "Bat - Cat Alternative"
   },
   {
     "ID": "eza",
-    "Name": "Eza - File Manager"
+    "Label": "Eza - File Manager"
   },
   {
     "ID": "lsd",
-    "Name": "Lsd - List Directory Contents"
+    "Label": "Lsd - List Directory Contents"
   },
   {
     "ID": "yazi",
-    "Name": "Yazi - File Manager"
+    "Label": "Yazi - File Manager"
   },
   {
     "ID": "scc",
-    "Name": "SCC - Source Code Counter"
+    "Label": "SCC - Source Code Counter"
   },
   {
     "ID": "cloc",
-    "Name": "Cloc - Count Lines of Code"
+    "Label": "Cloc - Count Lines of Code"
   },
   {
     "ID": "tokei",
-    "Name": "Tokei - Count Lines of Code"
+    "Label": "Tokei - Count Lines of Code"
   },
   {
     "ID": "ripgrep",
-    "Name": "Ripgrep - File Finder"
+    "Label": "Ripgrep - File Finder"
   },
   {
     "ID": "figlet",
-    "Name": "figlet - ASCII Art"
+    "Label": "figlet - ASCII Art"
   },
   {
     "ID": "extras/lazygit",
-    "Name": "Lazygit - Git GUI"
+    "Label": "Lazygit - Git GUI"
   },
 
   // Fonts
   {
     "ID": "nerd-fonts/FiraCode-NF",
-    "Name": "FiraCode Nerd Font"
+    "Label": "FiraCode Nerd Font"
   },
   {
     "ID": "nerd-fonts/CommitMono-NF",
-    "Name": "CommitMono Nerd Font"
+    "Label": "CommitMono Nerd Font"
   },
   {
     "ID": "nerd-fonts/JetBrainsMono-NF",
-    "Name": "JetBrainsMono Nerd Font"
+    "Label": "JetBrainsMono Nerd Font"
   }
 ]

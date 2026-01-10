@@ -1,43 +1,58 @@
 package scoop
 
 import (
+	"dotfiles/src/utils"
 	"encoding/json"
 	"os/exec"
-	"time"
 )
 
-type Bucket struct {
-	Name      string
-	Source    string
-	Updated   time.Time
-	Manifests int
+type ScoopBucket struct {
+	Name string
 }
 
-type App struct {
-	Updated time.Time
-	Source  string
-	Info    string
-	Version string
+type ScoopApp struct {
 	Name    string
+	Source  string
+	Version string
 }
 
-type Export struct {
-	Buckets []Bucket `json:"buckets"`
-	Apps    []App    `json:"apps"`
+type ScoopExport struct {
+	Buckets []ScoopBucket `json:"buckets"`
+	Apps    []ScoopApp    `json:"apps"`
 }
 
-func GetScoopExports() Export {
+func GetScoopExports() ScoopExport {
 	cmd := exec.Command("scoop", "export")
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		panic("Error getting scoop exports: " + err.Error())
 	}
 
-	var export Export
+	var export ScoopExport
 	err = json.Unmarshal(output, &export)
 	if err != nil {
 		panic("Error unmarshalling scoop exports: " + err.Error())
 	}
 
 	return export
+}
+
+func GetScoopExportAppMap(export ScoopExport) map[string]ScoopApp {
+	appMap := make(map[string]ScoopApp)
+
+	for _, app := range export.Apps {
+		appMap[app.Source+"/"+app.Name] = app
+	}
+
+	return appMap
+}
+
+func GetScoopExportBucketsList(export ScoopExport) []string {
+	bucketList := []string{}
+
+	for _, bucket := range export.Buckets {
+		bucketList = append(bucketList, bucket.Name)
+	}
+
+	return utils.UniqueArray(bucketList)
 }
