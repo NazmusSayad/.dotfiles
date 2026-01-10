@@ -22,7 +22,6 @@
   },
 
   // Visualization Tools
-
   {
     "ID": "btop",
     "Label": "Btop - System Monitor"
@@ -140,6 +139,16 @@
   {
     "ID": "extras/lazygit",
     "Label": "Lazygit - Git GUI"
+  },
+
+  // Media
+  {
+    "ID": "7zip",
+    "Label": "7zip - File Archiver"
+  },
+  {
+    "ID": "ffmpeg",
+    "Label": "FFmpeg - Video Converter"
   },
 
   // Fonts
