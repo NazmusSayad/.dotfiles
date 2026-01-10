@@ -50,8 +50,12 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenuName: "Scoop Init",
 	},
 
-	"scoop-sync": {
-		StartMenuName: "Scoop Sync",
+	"scoop-install": {
+		StartMenuName: "Scoop Install",
+	},
+
+	"scoop-upgrade": {
+		StartMenuName: "Scoop Upgrade",
 	},
 
 	"winget-install": {

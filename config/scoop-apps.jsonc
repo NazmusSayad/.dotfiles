@@ -9,6 +9,10 @@
     "Label": "LuaJIT"
   },
   {
+    "ID": "gcc",
+    "Label": "GCC - C Compiler"
+  },
+  {
     "ID": "dart",
     "Label": "Dart"
   },

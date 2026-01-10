@@ -11,8 +11,6 @@ python = "latest"
 # zig = "latest"
 # ruby = "latest"
 # kotlin = "latest"
-# erlang = "stable"
-# elixir = "stable"
 
 # rust = "stable"
 # rust-analyzer = "latest"
