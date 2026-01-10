@@ -15,8 +15,9 @@ func main() {
 	configs := scoop.ReadScoopAppConfig()
 
 	configBucketsList := scoop.GetScoopConfigBucketsList(configs)
-	exportBucketList := scoop.GetScoopExportBucketsList(exports)
 	configAppMap := scoop.GetScoopConfigAppMap(configs)
+
+	exportBucketList := scoop.GetScoopExportBucketsList(exports)
 	exportAppMap := scoop.GetScoopExportAppMap(exports)
 
 	unnecessaryBuckets := []string{}
