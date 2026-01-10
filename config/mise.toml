@@ -27,6 +27,9 @@ python = "latest"
 "npm:git-stats" = "latest"
 "npm:npm-name-cli" = "latest"
 
+"npm:vercel" = "latest"
+"npm:netlify-cli" = "latest"
+
 "npm:opencode-ai" = "latest"
 "npm:@openai/codex" = "latest"
 "npm:@github/copilot" = "latest"
