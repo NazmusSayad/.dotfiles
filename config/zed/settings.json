@@ -24,9 +24,7 @@
     }
   },
   "restore_on_startup": "none",
-  "prettier": {
-    
-  },
+  "prettier": {},
   "icon_theme": "Material Icon Theme",
   "tab_bar": {
     "show_nav_history_buttons": false
@@ -94,7 +92,13 @@
   "selection_highlight": false,
   "cursor_blink": true,
   "autosave": "on_focus_change",
-  "buffer_font_family": "FiraCode Nerd Font",
+
+  "buffer_font_family": "CommitMono Nerd Font",
+  "buffer_font_size": 16,
+  "buffer_line_height": {
+    "custom": 1.85
+  },
+
   "use_on_type_format": true,
   "show_whitespaces": "selection",
   "remove_trailing_whitespace_on_save": false,
@@ -122,7 +126,5 @@
       "**/package-lock.json"
     ]
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 15.300000190734863,
   "theme": "One Dark Pro"
 }

@@ -2,19 +2,19 @@
   // Programming Languages
   {
     "ID": "lua",
-    "Name": "Lua - Scripting Language"
+    "Name": "Lua"
   },
   {
     "ID": "luajit",
-    "Name": "LuaJIT - Scripting Language"
+    "Name": "LuaJIT"
   },
   {
     "ID": "dart",
-    "Name": "Dart - Programming Language"
+    "Name": "Dart"
   },
   {
     "ID": "extras/flutter",
-    "Name": "Flutter - Framework"
+    "Name": "Flutter"
   },
 
   // Visualization Tools
@@ -25,7 +25,7 @@
   },
   {
     "ID": "ntop",
-    "Name": "Ntop - System Monitor (top)"
+    "Name": "Ntop - Network Monitor"
   },
   {
     "ID": "bottom",
@@ -37,15 +37,15 @@
   },
   {
     "ID": "neofetch",
-    "Name": "Neofetch - System Information Tool"
+    "Name": "Neofetch - System Information"
   },
   {
     "ID": "fastfetch",
-    "Name": "Fastfetch - System Information Tool"
+    "Name": "Fastfetch - System Information"
   },
   {
     "ID": "onefetch",
-    "Name": "Onefetch - Git Information Tool"
+    "Name": "Onefetch - Git Information"
   },
 
   // CLI Tools
@@ -55,11 +55,11 @@
   },
   {
     "ID": "mise",
-    "Name": "Mise - Package Manager"
+    "Name": "Mise - CLI Manager"
   },
   {
     "ID": "zoxide",
-    "Name": "Zoxide - File Manager"
+    "Name": "Zoxide - Directory Navigation"
   },
   {
     "ID": "shfmt",
@@ -67,15 +67,15 @@
   },
   {
     "ID": "tldr",
-    "Name": "Tldr - Documentation Viewer"
+    "Name": "Tldr - TL;DR Documentation"
   },
   {
     "ID": "rip",
-    "Name": "Rip - Safe File Deleter"
+    "Name": "Rip - Trash"
   },
   {
     "ID": "xh",
-    "Name": "XH - HTTP CLI Tool"
+    "Name": "XH - HTTP Client"
   },
   {
     "ID": "fd",
@@ -87,11 +87,11 @@
   },
   {
     "ID": "dust",
-    "Name": "Dust - File System Analyzer"
+    "Name": "Dust - Disk Usage Finder"
   },
   {
     "ID": "walk",
-    "Name": "Walk - File Manager"
+    "Name": "Walk - File Walker"
   },
   {
     "ID": "fzf",
@@ -99,7 +99,7 @@
   },
   {
     "ID": "bat",
-    "Name": "Bat - File Viewer"
+    "Name": "Bat - Cat Alternative"
   },
   {
     "ID": "eza",
@@ -107,7 +107,7 @@
   },
   {
     "ID": "lsd",
-    "Name": "Lsd - File Manager"
+    "Name": "Lsd - List Directory Contents"
   },
   {
     "ID": "yazi",
@@ -119,11 +119,11 @@
   },
   {
     "ID": "cloc",
-    "Name": "Cloc - Source Code Counter"
+    "Name": "Cloc - Count Lines of Code"
   },
   {
     "ID": "tokei",
-    "Name": "Tokei - Code Statistics"
+    "Name": "Tokei - Count Lines of Code"
   },
   {
     "ID": "ripgrep",
@@ -131,7 +131,7 @@
   },
   {
     "ID": "figlet",
-    "Name": "figlet - ASCII Art Generator"
+    "Name": "figlet - ASCII Art"
   },
   {
     "ID": "extras/lazygit",
@@ -142,6 +142,10 @@
   {
     "ID": "nerd-fonts/FiraCode-NF",
     "Name": "FiraCode Nerd Font"
+  },
+  {
+    "ID": "nerd-fonts/CommitMono-NF",
+    "Name": "CommitMono Nerd Font"
   },
   {
     "ID": "nerd-fonts/JetBrainsMono-NF",
