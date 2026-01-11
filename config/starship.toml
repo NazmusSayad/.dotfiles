@@ -12,7 +12,8 @@ symbol = '👩‍💻 '
 style = "blue"
 
 [git_branch]
-format = "[](dimmed) [$branch](yellow)"
+format = "[$symbol ](dimmed)[$branch](yellow)"
+symbol = ""
 
 [git_status]
 format = '[$all_status$ahead_behind](red)'
@@ -25,10 +26,9 @@ threshold = 2
 
 [shell]
 disabled = false
-format = "[$indicator ](dimmed white) "
-powershell_indicator = ''
-pwsh_indicator = ''
-cmd_indicator = ''
-fish_indicator = ''
+format = "[$indicator ](dimmed) "
 bash_indicator = ''
+fish_indicator = ''
 zsh_indicator = ''
+cmd_indicator = ''
+pwsh_indicator = ''
