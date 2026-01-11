@@ -65,4 +65,8 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"winget-upgrade": {
 		StartMenuName: "WinGet Upgrade",
 	},
+
+	"upgrade-all": {
+		StartMenuName: "Upgrade All",
+	},
 }
