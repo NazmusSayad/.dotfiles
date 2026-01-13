@@ -29,6 +29,7 @@ python = "latest"
 
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
+"npm:firebase-tools" = "latest"
 
 "npm:opencode-ai" = "latest"
 "npm:@openai/codex" = "latest"
