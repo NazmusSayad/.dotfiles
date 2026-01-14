@@ -31,11 +31,7 @@ python = "latest"
 "npm:netlify-cli" = "latest"
 "npm:firebase-tools" = "latest"
 
-"npm:opencode-ai" = "latest"
-# "npm:@openai/codex" = "latest"
-# "npm:@github/copilot" = "latest"
-# "npm:@google/gemini-cli" = "latest"
-# "npm:@anthropic-ai/claude-code" = "latest"
-
-[settings]
-auto_install = false
+codex = "latest"
+gemini = "latest"
+claude = "latest"
+opencode = "latest"
