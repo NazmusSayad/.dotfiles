@@ -1,9 +1,11 @@
 [tools]
 
+# JS/TS
 node = "lts"
 bun = "latest"
 deno = "latest"
 
+# Other Languages
 go = "latest"
 java = "latest"
 python = "latest"
@@ -11,15 +13,16 @@ python = "latest"
 # zig = "latest"
 # ruby = "latest"
 # kotlin = "latest"
-
 # rust = "stable"
 # rust-analyzer = "latest"
 
+# JS Package Managers
 "npm:tsx" = "latest"
 "npm:yarn" = "latest"
 "npm:pnpm" = "latest"
 "npm:@antfu/ni" = "latest"
 
+# CLI Tools
 "npm:serve" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
@@ -27,10 +30,12 @@ python = "latest"
 "npm:git-stats" = "latest"
 "npm:npm-name-cli" = "latest"
 
+# Hosting Tools
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
 "npm:firebase-tools" = "latest"
 
+# AI Tools
 codex = "latest"
 gemini = "latest"
 claude = "latest"
