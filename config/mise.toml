@@ -36,7 +36,7 @@ python = "latest"
 "npm:firebase-tools" = "latest"
 
 # AI Tools
-codex = "latest"
 gemini = "latest"
-claude = "latest"
 opencode = "latest"
+# codex = "latest"
+# claude = "latest"
