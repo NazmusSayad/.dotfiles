@@ -4,6 +4,6 @@ if [[ -o interactive ]]; then
 	eval "$(zoxide init zsh)"
 fi
 
-export GOPATH=$(go env GOPATH)
+export GOBIN=$(go env GOBIN)
 export GOROOT=$(go env GOROOT)
 export JAVA_HOME=$(mise where java)

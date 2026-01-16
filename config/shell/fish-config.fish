@@ -15,6 +15,6 @@ function fish_greeting
     end
 end
 
-set -g GOPATH (go env GOPATH)
+set -g GOBIN (go env GOBIN)
 set -g GOROOT (go env GOROOT)
 set -g JAVA_HOME (mise where java)

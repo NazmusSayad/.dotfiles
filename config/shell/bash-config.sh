@@ -4,6 +4,6 @@ if [[ $- == *i* ]]; then
 	eval "$(zoxide init bash)"
 fi
 
-export GOPATH=$(go env GOPATH)
+export GOBIN=$(go env GOBIN)
 export GOROOT=$(go env GOROOT)
 export JAVA_HOME=$(mise where java)
