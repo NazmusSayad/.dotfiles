@@ -1,4 +1,4 @@
-# detailed-plan
+# Detailed Plan
 
 - Write a comprehensive, step-by-step project plan.
 - Include every required step from start to completion and clearly specify dependencies between steps.
