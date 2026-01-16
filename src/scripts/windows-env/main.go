@@ -59,12 +59,12 @@ func initGoEnv() {
 func initJavaEnv() {
 	javaHomeCmd := exec.Command("mise", "where", "java")
 	javaHomeOutput, err := javaHomeCmd.Output()
-
 	if err != nil {
 		fmt.Println("Error:", err)
-	} else {
-		setEnv("JAVA_HOME", strings.TrimSpace(string(javaHomeOutput)))
+		return
 	}
+
+	setEnv("JAVA_HOME", strings.TrimSpace(string(javaHomeOutput)))
 }
 
 func initAndroidSdkEnv() {
