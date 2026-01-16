@@ -20,6 +20,13 @@ type MiseEnv struct {
 
 func setEnv(name, value string) {
 	fmt.Println(aurora.Blue(name).String(), aurora.Green(value))
+
+	existingValue, ok := os.LookupEnv(name)
+	if ok && existingValue == value {
+		fmt.Println(aurora.Blue(name).String(), aurora.Green("already set"))
+		return
+	}
+
 	helpers.WriteEnv(helpers.ScopeUser, name, value)
 }
 
