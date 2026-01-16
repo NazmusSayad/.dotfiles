@@ -23,7 +23,6 @@
     "ID": "Google.Chrome",
     "Name": "Chrome"
   },
-
   // Media Tools
   {
     "ID": "ShareX.ShareX",
@@ -36,6 +35,10 @@
     "Name": "PotPlayer",
     "InteractiveInstall": true,
     "InteractiveUpgrade": true
+  },
+  {
+    "ID": "Upscayl.Upscayl",
+    "Name": "Upscayl"
   },
   {
     "ID": "9NBLGGH68TW4",
@@ -53,7 +56,6 @@
     "ID": "OBSProject.OBSStudio",
     "Name": "OBS Studio"
   },
-
   // Others
   {
     "ID": "SlackTechnologies.Slack",
