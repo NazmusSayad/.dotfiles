@@ -19,6 +19,14 @@
 
   // Agent Configs
   {
+    "source": "@/config/agents/skills",
+    "target": "$USERPROFILE/.cursor/skills"
+  },
+  {
+    "source": "@/config/agents/skills",
+    "target": "$USERPROFILE/.claude/skills"
+  },
+  {
     "source": "@/config/agents/commands",
     "target": "$USERPROFILE/.cursor/commands"
   },
