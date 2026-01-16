@@ -17,6 +17,20 @@
     "target": "$USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
   },
 
+  // Agent Configs
+  {
+    "source": "@/config/agents/commands",
+    "target": "$USERPROFILE/.cursor/commands"
+  },
+  {
+    "source": "@/config/agents/commands",
+    "target": "$USERPROFILE/.claude/commands"
+  },
+  {
+    "source": "@/config/agents/commands",
+    "target": "$APPDATA/Code/User/prompts"
+  },
+
   // Terminal Configs
   {
     "source": "@/config/mise.toml",
