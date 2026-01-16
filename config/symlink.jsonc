@@ -1,7 +1,7 @@
 [
   // Shell Configs
   {
-    "source": "@/config/shell/fish-config.sh",
+    "source": "@/config/shell/fish-config.fish",
     "target": "$USERPROFILE/.config/fish/config.fish"
   },
   {
