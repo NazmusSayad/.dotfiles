@@ -1,28 +1,33 @@
-add_newline = false
-follow_symlinks = false
-
 format = "$hostname$sudo$username$directory$git_branch$git_state$git_status$line_break$shlvl$shell"
+follow_symlinks = false
+add_newline = false
+
 
 [sudo]
 disabled = false
 allow_windows = true
 symbol = '👩‍💻 '
 
+
 [directory]
 style = "blue"
+
 
 [git_branch]
 format = "[$symbol ](dimmed)[$branch](yellow)"
 symbol = ""
 
+
 [git_status]
 format = '[$all_status$ahead_behind](red)'
 modified = "*"
+
 
 [shlvl]
 disabled = false
 format = '[\[$shlvl\]](dimmed red) '
 threshold = 2
+
 
 [shell]
 disabled = false
