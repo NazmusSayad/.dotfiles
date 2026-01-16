@@ -6,7 +6,7 @@ source $DOTFILES_DIR/config/shell/alias.sh
 
 if status is-interactive
     starship init fish | source
-		zoxide init fish | source
+    zoxide init fish | source
 end
 
 function fish_greeting
