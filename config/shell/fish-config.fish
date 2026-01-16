@@ -2,12 +2,9 @@
 
 set -g fish_color_command magenta
 
-source $DOTFILES_DIR/config/shell/alias.sh
-
-if status is-interactive
-    starship init fish | source
-    zoxide init fish | source
-end
+set -g GOBIN (go env GOBIN)
+set -g GOROOT (go env GOROOT)
+set -g JAVA_HOME (mise where java)
 
 function fish_greeting
     if not set -q TERM_PROGRAM
@@ -15,6 +12,8 @@ function fish_greeting
     end
 end
 
-set -g GOBIN (go env GOBIN)
-set -g GOROOT (go env GOROOT)
-set -g JAVA_HOME (mise where java)
+if status is-interactive
+    source $DOTFILES_DIR/config/shell/alias.sh
+    starship init fish | source
+    zoxide init fish | source
+end
