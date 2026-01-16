@@ -1,10 +1,11 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias r="nr"
 alias nid="ni -D"
 
-alias f="flutter"
-alias fr="flutter run"
-alias fe="flutter emulators"
+alias fl="flutter"
+alias flr="flutter run"
+alias fle="flutter emulators"
