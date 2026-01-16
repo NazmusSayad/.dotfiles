@@ -15,6 +15,8 @@ const (
 
 func execPsCommand(command string) (string, error) {
 	cmd := exec.Command("powershell", "-c", command)
+	cmd.SysProcAttr.HideWindow = true
+
 	output, err := cmd.Output()
 
 	if err != nil {

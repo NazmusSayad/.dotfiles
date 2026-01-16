@@ -27,6 +27,7 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	}
 
 	cmd := exec.Command(command, args[1:]...)
+	cmd.SysProcAttr.HideWindow = true
 
 	if opts.Silent {
 		opts.NoStdin = true
