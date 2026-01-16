@@ -2,8 +2,11 @@ package main
 
 import (
 	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"fmt"
+	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 
 	"github.com/logrusorgru/aurora/v4"
@@ -23,6 +26,7 @@ func setEnv(name, value string) {
 func main() {
 	initGoEnv()
 	initJavaEnv()
+	initAndroidSdkEnv()
 }
 
 func initGoEnv() {
@@ -61,4 +65,15 @@ func initJavaEnv() {
 	} else {
 		setEnv("JAVA_HOME", strings.TrimSpace(string(javaHomeOutput)))
 	}
+}
+
+func initAndroidSdkEnv() {
+	androidSdkPath := filepath.Join(os.Getenv("LOCALAPPDATA"), "Android", "Sdk")
+	if !utils.IsFileExists(androidSdkPath) {
+		fmt.Println("Android SDK not found")
+		return
+	}
+
+	setEnv("ANDROID_HOME", androidSdkPath)
+	setEnv("ANDROID_SDK_ROOT", androidSdkPath)
 }
