@@ -14,3 +14,7 @@ function fish_greeting
         # fastfetch
     end
 end
+
+set -g GOPATH (go env GOPATH)
+set -g GOROOT (go env GOROOT)
+set -g JAVA_HOME (mise where java)

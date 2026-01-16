@@ -3,3 +3,7 @@ if [[ $- == *i* ]]; then
 	eval "$(starship init bash)"
 	eval "$(zoxide init bash)"
 fi
+
+export GOPATH=$(go env GOPATH)
+export GOROOT=$(go env GOROOT)
+export JAVA_HOME=$(mise where java)

@@ -3,3 +3,7 @@ if [[ -o interactive ]]; then
 	eval "$(starship init zsh)"
 	eval "$(zoxide init zsh)"
 fi
+
+export GOPATH=$(go env GOPATH)
+export GOROOT=$(go env GOROOT)
+export JAVA_HOME=$(mise where java)
