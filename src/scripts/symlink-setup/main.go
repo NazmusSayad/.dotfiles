@@ -36,7 +36,8 @@ func main() {
 		}
 
 		sourcePath := helpers.ResolvePath(config.Source)
-		for _, target := range config.Targets {
+
+		for _, target := range targets {
 			targetPath := helpers.ResolvePath(target)
 			helpers.GenerateSymlink(sourcePath, targetPath)
 		}
