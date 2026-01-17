@@ -10,7 +10,7 @@ import (
 )
 
 func ResolvePath(input string) string {
-	if strings.HasPrefix(input, "@") {
+	if strings.HasPrefix(input, "@/") {
 		dotfilesPath := os.Getenv("DOTFILES_DIR")
 
 		if dotfilesPath == "" {
