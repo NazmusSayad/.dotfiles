@@ -22,8 +22,6 @@
   "update.enableWindowsBackgroundUpdates": false,
   "security.workspace.trust.untrustedFiles": "open",
   "window.customTitleBarVisibility": "windowed",
-  "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
-  "antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
   "cursor.cpp.disabledLanguages": [],
   "cursor.composer.textSizeScale": 1.15,
   "cursor.general.gitGraphIndexing": "disabled",

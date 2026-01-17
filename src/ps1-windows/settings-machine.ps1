@@ -151,8 +151,5 @@ reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskC
 # Deleting QueueReporting
 reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{E3176A65-4E44-4ED3-AA73-3283660ACB9C}" /f
 
-# Cursor Policy
-reg.exe add "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Cursor" /v ExtensionGalleryServiceUrl /t REG_SZ /d "https://marketplace.visualstudio.com/_apis/public/gallery" /f
-
 # Enable Windows Sudo
 sudo config --enable default
