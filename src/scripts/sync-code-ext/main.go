@@ -14,8 +14,14 @@ import (
 
 type ExtensionConfig struct {
 	Id      string
+	Version string
 	Include []string
 	Exclude []string
+}
+
+type InstalledExtension struct {
+	Id      string
+	Version string
 }
 
 var executables = []string{
@@ -50,48 +56,62 @@ func main() {
 			continue
 		}
 
+		installedExtMap := make(map[string]InstalledExtension)
+		mismatchedExts := []ExtensionConfig{}
 		missingExts := []ExtensionConfig{}
 		extraExtIds := []string{}
 
+		for _, ext := range installedExtIds {
+			installedExtMap[ext.Id] = ext
+		}
+
 		for _, extension := range installedExtIds {
-			configExt, isInConfig := configExtsMap[extension]
+			configExt, isInConfig := configExtsMap[extension.Id]
 			if !isInConfig || !isIncluded(configExt, executable) || isExcluded(configExt, executable) {
-				extraExtIds = append(extraExtIds, extension)
+				extraExtIds = append(extraExtIds, extension.Id)
 			}
 		}
 
 		for _, configExt := range configExts {
-			isInstalled := slices.Contains(installedExtIds, configExt.Id)
+			installedExt, isInstalled := installedExtMap[configExt.Id]
+			if isInstalled && !isVersionMatched(installedExt.Version, configExt.Version) {
+				mismatchedExts = append(mismatchedExts, configExt)
+			}
 			if !isInstalled && !isExcluded(configExt, executable) && isIncluded(configExt, executable) {
 				missingExts = append(missingExts, configExt)
 			}
 		}
 
-		if len(extraExtIds) == 0 && len(missingExts) == 0 {
+		if len(extraExtIds) == 0 && len(missingExts) == 0 && len(mismatchedExts) == 0 {
 			fmt.Println(aurora.Green("Already up to date"))
 			continue
 		}
 
+		for _, ext := range mismatchedExts {
+			fmt.Println(aurora.Faint("- Installing extension with version"), aurora.Green(ext.Id))
+			helpers.ExecNativeCommand([]string{executable, "--install-extension", ext.Id + "@" + ext.Version})
+		}
+
 		for _, ext := range missingExts {
-			fmt.Println(aurora.Faint("- Installing extension ").String() + aurora.Green(ext.Id).String())
+			fmt.Println(aurora.Faint("- Installing extension "), aurora.Green(ext.Id))
 			helpers.ExecNativeCommand([]string{executable, "--install-extension", ext.Id})
 		}
 
 		for _, id := range extraExtIds {
-			fmt.Println(aurora.Faint("- Uninstalling extension ").String() + aurora.Red(id).String())
+			fmt.Println(aurora.Faint("- Uninstalling extension "), aurora.Red(id))
 			helpers.ExecNativeCommand([]string{executable, "--uninstall-extension", id})
 		}
 	}
 }
 
-func getCodeExtensions(executable string) (error, []string) {
-	cmd := exec.Command(executable, "--list-extensions")
+func getCodeExtensions(executable string) (error, []InstalledExtension) {
+	cmd := exec.Command(executable, "--list-extensions", "--show-versions")
 	output, err := cmd.Output()
 	if err != nil {
 		return err, nil
 	}
 
-	extensions := []string{}
+	extensions := []InstalledExtension{}
 	lines := strings.SplitSeq(string(output), "\n")
 
 	for line := range lines {
@@ -100,7 +120,11 @@ func getCodeExtensions(executable string) (error, []string) {
 			continue
 		}
 
-		extensions = append(extensions, ext)
+		parts := strings.SplitN(ext, "@", 2)
+		extensions = append(extensions, InstalledExtension{
+			Id:      parts[0],
+			Version: utils.Ternary(len(parts) > 1, parts[1], ""),
+		})
 	}
 
 	return nil, extensions
@@ -113,4 +137,12 @@ func isIncluded(configExt ExtensionConfig, executable string) bool {
 
 func isExcluded(configExt ExtensionConfig, executable string) bool {
 	return len(configExt.Exclude) > 0 && slices.Contains(configExt.Exclude, executable)
+}
+
+func isVersionMatched(installedVersion, requiredVersion string) bool {
+	if requiredVersion == "" {
+		return true
+	}
+
+	return installedVersion == requiredVersion
 }
