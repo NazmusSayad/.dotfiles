@@ -25,7 +25,7 @@
 
   // Linters and Formatters
   { "Id": "dbaeumer.vscode-eslint" },
-  { "Id": "esbenp.prettier-vscode" },
+  { "Id": "esbenp.prettier-vscode", "Version": "11.0.2" },
   { "Id": "bmalehorn.vscode-fish", "Exclude": ["antigravity"] },
   { "Id": "bradlc.vscode-tailwindcss" },
   { "Id": "tamasfe.even-better-toml" },
