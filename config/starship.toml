@@ -21,7 +21,7 @@ symbol = ""
 [git_status]
 format = '[$all_status$ahead_behind](red)'
 modified = "*"
-
+stashed = ''
 
 [shlvl]
 disabled = false
