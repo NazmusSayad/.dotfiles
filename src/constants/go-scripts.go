@@ -69,4 +69,8 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"upgrade-all": {
 		StartMenuName: "Upgrade All",
 	},
+
+	"sync-code-ext": {
+		StartMenuName: "Sync Code Extensions",
+	},
 }
