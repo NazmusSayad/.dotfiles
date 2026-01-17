@@ -7,8 +7,9 @@ import (
 )
 
 type SymlinkConfig struct {
-	Source string
-	Target string
+	Source  string
+	Target  string
+	Targets []string
 }
 
 func main() {
@@ -21,10 +22,23 @@ func main() {
 	}
 
 	for _, config := range symlinkConfigs {
-		sourcePath := helpers.ResolvePath(config.Source)
-		targetPath := helpers.ResolvePath(config.Target)
+		targets := []string{}
+		if config.Target != "" {
+			targets = append(targets, config.Target)
+		}
+		if len(config.Targets) > 0 {
+			targets = append(targets, config.Targets...)
+		}
 
-		fmt.Println()
-		helpers.GenerateSymlink(sourcePath, targetPath)
+		if len(targets) == 0 {
+			fmt.Println("No targets found for", config.Source)
+			continue
+		}
+
+		sourcePath := helpers.ResolvePath(config.Source)
+		for _, target := range config.Targets {
+			targetPath := helpers.ResolvePath(target)
+			helpers.GenerateSymlink(sourcePath, targetPath)
+		}
 	}
 }

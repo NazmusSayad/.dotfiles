@@ -1,89 +1,93 @@
 [
   // Shell Configs
   {
-    "source": "@/config/shell/fish-config.fish",
-    "target": "$USERPROFILE/.config/fish/config.fish"
+    "Source": "@/config/shell/fish-config.fish",
+    "Target": "$USERPROFILE/.config/fish/config.fish"
   },
   {
-    "source": "@/config/shell/bash-config.sh",
-    "target": "$USERPROFILE/.bashrc"
+    "Source": "@/config/shell/bash-config.sh",
+    "Target": "$USERPROFILE/.bashrc"
   },
   {
-    "source": "@/config/shell/zsh-config.sh",
-    "target": "$USERPROFILE/.zshrc"
+    "Source": "@/config/shell/zsh-config.sh",
+    "Target": "$USERPROFILE/.zshrc"
   },
   {
-    "source": "@/config/shell/powershell-config.ps1",
-    "target": "$USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+    "Source": "@/config/shell/powershell-config.ps1",
+    "Target": "$USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
   },
 
   // Agent Configs
   {
-    "source": "@/config/agents/skills",
-    "target": "$USERPROFILE/.cursor/skills"
+    "Source": "@/config/agents/skills",
+    "Targets": ["$USERPROFILE/.cursor/skills", "$USERPROFILE/.claude/skills"]
   },
   {
-    "source": "@/config/agents/skills",
-    "target": "$USERPROFILE/.claude/skills"
-  },
-  {
-    "source": "@/config/agents/commands",
-    "target": "$USERPROFILE/.cursor/commands"
-  },
-  {
-    "source": "@/config/agents/commands",
-    "target": "$USERPROFILE/.claude/commands"
-  },
-  {
-    "source": "@/config/agents/commands",
-    "target": "$APPDATA/Code/User/prompts"
+    "Source": "@/config/agents/commands",
+    "Targets": [
+      "$APPDATA/Code/User/prompts",
+      "$USERPROFILE/.cursor/commands",
+      "$USERPROFILE/.claude/commands"
+    ]
   },
 
   // Terminal Configs
   {
-    "source": "@/config/mise.toml",
-    "target": "$USERPROFILE/.config/mise/config.toml"
+    "Source": "@/config/mise.toml",
+    "Target": "$USERPROFILE/.config/mise/config.toml"
   },
   {
-    "source": "@/config/starship.toml",
-    "target": "$USERPROFILE/.config/starship.toml"
+    "Source": "@/config/starship.toml",
+    "Target": "$USERPROFILE/.config/starship.toml"
   },
   {
-    "source": "@/config/fastfetch.jsonc",
-    "target": "$USERPROFILE/.config/fastfetch/config.jsonc"
+    "Source": "@/config/fastfetch.jsonc",
+    "Target": "$USERPROFILE/.config/fastfetch/config.jsonc"
   },
   {
-    "source": "@/config/lsd-config.yaml",
-    "target": "$USERPROFILE/.config/lsd/config.yaml"
+    "Source": "@/config/lsd-config.yaml",
+    "Target": "$USERPROFILE/.config/lsd/config.yaml"
   },
   {
-    "source": "@/config/windows-terminal.json",
-    "target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+    "Source": "@/config/windows-terminal.json",
+    "Target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
 
   // Other Configs
   {
-    "source": "@/config/.nirc",
-    "target": "$USERPROFILE/.nirc"
+    "Source": "@/config/.nirc",
+    "Target": "$USERPROFILE/.nirc"
   },
 
   // Zed Code Editor
   {
-    "source": "@/config/zed",
-    "target": "$APPDATA/zed"
+    "Source": "@/config/zed",
+    "Target": "$APPDATA/zed"
   },
 
-  // VS Code -> Cursor Configs
+  // VS Code -> IDE Configs
   {
-    "source": "$APPDATA/Code/User/settings.json",
-    "target": "$APPDATA/Cursor/User/settings.json"
+    "Source": "@/config/vscode/settings.jsonc",
+    "Targets": [
+      "$APPDATA/Code/User/settings.json",
+      "$APPDATA/Cursor/User/settings.json",
+      "$APPDATA/Antigravity/User/settings.json"
+    ]
   },
   {
-    "source": "$APPDATA/Code/User/keybindings.json",
-    "target": "$APPDATA/Cursor/User/keybindings.json"
+    "Source": "@/config/vscode/keybindings.jsonc",
+    "Targets": [
+      "$APPDATA/Code/User/keybindings.json",
+      "$APPDATA/Cursor/User/keybindings.json",
+      "$APPDATA/Antigravity/User/keybindings.json"
+    ]
   },
   {
-    "source": "$APPDATA/Code/User/snippets",
-    "target": "$APPDATA/Cursor/User/snippets"
+    "Source": "@/config/vscode/snippets",
+    "Targets": [
+      "$APPDATA/Code/User/snippets",
+      "$APPDATA/Cursor/User/snippets",
+      "$APPDATA/Antigravity/User/snippets"
+    ]
   }
 ]

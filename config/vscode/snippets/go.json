@@ -1,0 +1,14 @@
+{
+  "Main Function": {
+    "prefix": "mf",
+    "body": "package main\n\nfunc main() {\n\t${0:$TM_SELECTED_TEXT}\n}"
+  },
+  "Type Struct": {
+    "prefix": "ts",
+    "body": "type ${1:StructName} struct {\n\t$0\n}"
+  },
+  "Type Interface": {
+    "prefix": "ti",
+    "body": "type ${1:InterfaceName} interface {\n\t$0\n}"
+  }
+}

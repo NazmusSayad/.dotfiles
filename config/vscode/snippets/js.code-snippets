@@ -1,0 +1,177 @@
+{
+  "Const": {
+    "prefix": "con",
+    "body": "const ${1:name} = ${0:${TM_SELECTED_TEXT:value}}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Let": {
+    "prefix": "let",
+    "body": "let ${1:name} ${2:= ${0:${TM_SELECTED_TEXT:value}}}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "=> Anonymous Function": {
+    "prefix": "af",
+    "body": "($1) => ${2:{\n\t${0:$TM_SELECTED_TEXT}\n\\}}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "=> Async Anonymous Function": {
+    "prefix": "afa",
+    "body": "async ($1) => ${2:{\n\t${0:$TM_SELECTED_TEXT}\n\\}}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Anonymous Function": {
+    "prefix": "afn",
+    "body": "function($1) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Async Anonymous Function": {
+    "prefix": "afna",
+    "body": "async function($1) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Function": {
+    "prefix": "fn",
+    "body": "function ${1:name}($2) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Async Function": {
+    "prefix": "fna",
+    "body": "async function ${1:name}($2) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "=> Const Function": {
+    "prefix": "cf",
+    "body": "const ${1:name} = ($2) => ${3:{\n\t${0:$TM_SELECTED_TEXT}\n\\}}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "=> Async Const Function": {
+    "prefix": "cfa",
+    "body": "const ${1:name} = async ($2) => ${3:{\n\t${0:$TM_SELECTED_TEXT}\n\\}}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Const Function": {
+    "prefix": "cfn",
+    "body": "const ${1:name} = function($2) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Async Const Function": {
+    "prefix": "cfna",
+    "body": "const ${1:name} = async function($2) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "=> IIFE": {
+    "prefix": "fi",
+    "body": "(() => {\n\t${0:$TM_SELECTED_TEXT}\n})()",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "=> Async IIFE": {
+    "prefix": "fia",
+    "body": "(async () => {\n\t${0:$TM_SELECTED_TEXT}\n})()",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Class": {
+    "prefix": "cls",
+    "body": "class ${1:Name} {\n\tconstructor($2) {\n\t\t${0:$TM_SELECTED_TEXT}\n\t}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Console Clear ⟩_": {
+    "prefix": "cc",
+    "body": "console.clear()",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Console Log ⟩_": {
+    "prefix": "cl",
+    "body": "console.log(${0:$TM_SELECTED_TEXT})",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Console Error ⟩_": {
+    "prefix": "ce",
+    "body": "console.error(${0:$TM_SELECTED_TEXT})",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Console Warn ⟩_": {
+    "prefix": "cw",
+    "body": "console.warn(${0:$TM_SELECTED_TEXT})",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "For Loop": {
+    "prefix": "fl",
+    "body": "for (let ${1:i} = 0; ${1:i} < ${2:10}; ${1:i}++) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "For Of Loop": {
+    "prefix": "fol",
+    "body": "for (const ${2:element} of ${1:iterable}) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "For In Loop": {
+    "prefix": "fil",
+    "body": "for (const key in ${1:obj}) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "While Loop": {
+    "prefix": "wl",
+    "body": "while (${1:condition}) {\n\t${0:$TM_SELECTED_TEXT}\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Do While Loop": {
+    "prefix": "dwl",
+    "body": "do {\n\t${0:$TM_SELECTED_TEXT}\n} while (${1:condition})",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Try Catch": {
+    "prefix": "tc",
+    "body": "try {\n\t${1:$TM_SELECTED_TEXT}\n} catch ${2:(err)} {\n\t$0\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Try Finally": {
+    "prefix": "tf",
+    "body": "try {\n\t${1:$TM_SELECTED_TEXT}\n} finally {\n\t$0\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Try Catch Finally": {
+    "prefix": "tcf",
+    "body": "try {\n\t${1:$TM_SELECTED_TEXT}\n} catch ${2:(err)} {\n\t$3\n} finally{\n\t$0\n}",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Export <- Main Function": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "mf",
+    "body": "export function ${TM_FILENAME_BASE/(-)(.)/${2:/upcase}/g}($1) {\n\t${0:$TM_SELECTED_TEXT}\n}"
+  },
+  "Export <- Async Main Function": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "mfa",
+    "body": "export async function ${TM_FILENAME_BASE/(-)(.)/${2:/upcase}/g}($1) {\n\t${0:$TM_SELECTED_TEXT}\n}"
+  },
+  "Export Default <- Main Function": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "mfd",
+    "body": "export default function ${TM_FILENAME_BASE/(-)(.)/${2:/upcase}/g}($1) {\n\t${0:$TM_SELECTED_TEXT}\n}"
+  },
+  "Export Default <- Async Main Function": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "mfad",
+    "body": "export default async function ${TM_FILENAME_BASE/(-)(.)/${2:/upcase}/g}($1) {\n\t${0:$TM_SELECTED_TEXT}\n}"
+  },
+  "Export <- React Component": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "rc",
+    "body": "export function ${TM_FILENAME_BASE/(^|-)(.)/${2:/upcase}/g}($1) {\n\treturn ${0:${TM_SELECTED_TEXT:<div>$TM_FILENAME_BASE</div>}}\n}"
+  },
+  "Default Export <- React Component": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "rcd",
+    "body": "export default function ${TM_FILENAME_BASE/(^|-)(.)/${2:/upcase}/g}($1) {\n\treturn ${0:${TM_SELECTED_TEXT:<div>$TM_FILENAME_BASE</div>}}\n}"
+  },
+  "React useState": {
+    "prefix": "us",
+    "body": "const [${1:state}, set${1/(.)/${1:/upcase}/}] = useState(${0:$TM_SELECTED_TEXT})",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "React useEffect": {
+    "prefix": "ue",
+    "body": "useEffect(() => {\n\t${0:$TM_SELECTED_TEXT}\n}, [$1])",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
+}

@@ -1,0 +1,54 @@
+[
+  // Core/Themes
+  { "Id": "nazmussayad.editor-context" },
+  { "Id": "nazmussayad.one-eye-care" },
+  { "Id": "pkief.material-icon-theme" },
+
+  // Web Development
+  { "Id": "tobermory.es6-string-html" },
+  { "Id": "formulahendry.auto-rename-tag" },
+  { "Id": "vincaslt.highlight-matching-tag" },
+
+  // Go
+  { "Id": "golang.go" },
+
+  // Dart
+  { "Id": "dart-code.dart-code" },
+  { "Id": "dart-code.flutter" },
+
+  // Python
+  { "Id": "ms-python.python" },
+  { "Id": "ms-python.autopep8" },
+  { "Id": "ms-python.vscode-pylance", "Exclude": ["antigravity"] },
+  { "Id": "ms-python.debugpy", "Include": ["cursor"] },
+  { "Id": "ms-python.vscode-python-envs", "Include": ["cursor"] },
+
+  // Linters and Formatters
+  { "Id": "dbaeumer.vscode-eslint" },
+  { "Id": "esbenp.prettier-vscode" },
+  { "Id": "bmalehorn.vscode-fish", "Exclude": ["antigravity"] },
+  { "Id": "bradlc.vscode-tailwindcss" },
+  { "Id": "tamasfe.even-better-toml" },
+  { "Id": "redhat.vscode-xml" },
+  { "Id": "prisma.prisma" },
+  { "Id": "mikestead.dotenv" },
+  { "Id": "mkhl.shfmt" },
+
+  // GraphQL
+  { "Id": "graphql.vscode-graphql" },
+  { "Id": "graphql.vscode-graphql-syntax" },
+
+  // GitHub Copilot
+  { "Id": "github.copilot", "Include": ["code"] },
+  { "Id": "github.copilot-chat", "Include": ["code"] },
+
+  // Other Extensions
+  { "Id": "gruntfuggly.todo-tree" },
+  { "Id": "usernamehw.errorlens" },
+  { "Id": "wallabyjs.quokka-vscode" },
+  { "Id": "naumovs.color-highlight" },
+  { "Id": "christian-kohler.npm-intellisense" },
+  { "Id": "streetsidesoftware.code-spell-checker" },
+  { "Id": "rioj7.vscode-remove-comments" },
+  { "Id": "wakatime.vscode-wakatime" }
+]
