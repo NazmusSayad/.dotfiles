@@ -20,8 +20,12 @@ symbol = ""
 
 [git_status]
 format = '[$all_status$ahead_behind](red)'
+stashed = '[|](dimmed red)'
+conflicted = "󰦎"
 modified = "*"
-stashed = ''
+renamed = "~"
+behind = "↓"
+ahead = "↑"
 
 [shlvl]
 disabled = false
