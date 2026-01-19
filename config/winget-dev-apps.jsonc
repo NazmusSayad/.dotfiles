@@ -49,6 +49,22 @@
     "Name": "SQLite"
   },
   {
+    "ID": "Microsoft.DotNet.SDK.6",
+    "Name": "DotNet SDK 6"
+  },
+  {
+    "ID": "Microsoft.DotNet.SDK.7",
+    "Name": "DotNet SDK 7"
+  },
+  {
+    "ID": "Microsoft.DotNet.SDK.8",
+    "Name": "DotNet SDK 8"
+  },
+  {
+    "ID": "Microsoft.DotNet.SDK.9",
+    "Name": "DotNet SDK 9"
+  },
+  {
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
     "InteractiveInstall": true,
