@@ -129,6 +129,10 @@
     "Label": "7zip - File Archiver"
   },
   {
+    "ID": "yt-dlp",
+    "Label": "YouTube Downloader"
+  },
+  {
     "ID": "ffmpeg",
     "Label": "FFmpeg - Video Converter"
   },
