@@ -23,6 +23,7 @@
     "ID": "Google.Chrome",
     "Name": "Chrome"
   },
+
   // Media Tools
   {
     "ID": "ShareX.ShareX",
@@ -56,6 +57,7 @@
     "ID": "OBSProject.OBSStudio",
     "Name": "OBS Studio"
   },
+
   // Others
   {
     "ID": "SlackTechnologies.Slack",
