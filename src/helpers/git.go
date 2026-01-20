@@ -50,7 +50,7 @@ func GetCurrentGitRemote() string {
 	return strings.TrimSpace(string(out))
 }
 
-func GetGitRemoteUrl(remote string) string {
+func GetGitRemoteHTTPUrl(remote string) string {
 	if !IsGitRepo() {
 		return ""
 	}
@@ -61,7 +61,17 @@ func GetGitRemoteUrl(remote string) string {
 		return ""
 	}
 
-	return strings.TrimSpace(string(out))
+	url := strings.TrimSpace(string(out))
+
+	if !strings.HasPrefix(url, "https://") {
+		return ""
+	}
+
+	if result, ok := strings.CutSuffix(url, ".git"); ok {
+		return result
+	}
+
+	return url
 }
 
 func InGitRepoOrExit() {
@@ -98,7 +108,7 @@ func GetCurrentGitRemoteOrExit() string {
 func GetGitRemoteUrlOrExit(remote string) string {
 	InGitRepoOrExit()
 
-	url := GetGitRemoteUrl(remote)
+	url := GetGitRemoteHTTPUrl(remote)
 	if url == "" {
 		fmt.Println(aurora.Red("No remote URL found"))
 		os.Exit(1)
