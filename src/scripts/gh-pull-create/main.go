@@ -2,7 +2,6 @@ package main
 
 import (
 	"dotfiles/src/helpers"
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"strings"
@@ -16,14 +15,15 @@ func main() {
 		os.Exit(1)
 	}
 
-	targetBranch := ""
-	if len(os.Args) == 1 {
-		currentBranch := helpers.GetCurrentGitBranchOrExit()
-		targetBranch = currentBranch
+	baseBranch := ""
+	targetBranch := helpers.GetCurrentGitBranchOrExit()
 
-		fmt.Println("Using current branch:", aurora.Yellow(currentBranch).String())
+	if len(os.Args) == 1 {
 	} else if len(os.Args) == 2 {
-		targetBranch = os.Args[1]
+		baseBranch = os.Args[1]
+	} else if len(os.Args) == 3 {
+		baseBranch = os.Args[1]
+		targetBranch = os.Args[2]
 	} else {
 		fmt.Fprintln(os.Stderr, "Usage: ghp [branch]")
 		os.Exit(1)
@@ -33,11 +33,23 @@ func main() {
 	remote := helpers.GetCurrentGitRemoteOrExit()
 	remoteUrl := helpers.GetGitRemoteUrlOrExit(remote)
 
-	url := strings.Join([]string{remoteUrl + "/compare/" + targetBranch + "?expand=1", utils.Ternary(ghUser != "", "&assignees="+ghUser, "")}, "")
-	fmt.Println(aurora.Faint("URL: " + url))
+	branchCompare := ""
+	if baseBranch != "" {
+		branchCompare = baseBranch + "..." + targetBranch
+	} else {
+		branchCompare = targetBranch
+	}
 
-	helpers.ExecNativeCommand(
-		[]string{"rundll32", "url.dll,FileProtocolHandler", url},
-		helpers.ExecCommandOptions{Exit: true},
-	)
+	assignees := ""
+	if ghUser != "" {
+		assignees = "&assignees=" + ghUser
+	}
+
+	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1", assignees}, "")
+	fmt.Println(aurora.Faint("  " + url))
+
+	// helpers.ExecNativeCommand(
+	// 	[]string{"rundll32", "url.dll,FileProtocolHandler", url},
+	// 	helpers.ExecCommandOptions{Exit: true},
+	// )
 }
