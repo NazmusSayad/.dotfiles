@@ -1,21 +1,18 @@
+#UseHook
 #NoTrayIcon
 ProcessSetPriority "Realtime"
 A_MaxHotkeysPerInterval := 9999
 
-#UseHook
 #Space::+!F
 
-#UseHook
 #PrintScreen::#^+PrintScreen
 
-#UseHook
 ^WheelUp:: {
   Critical "On"
   KeyWait "Ctrl"
   Send "{WheelUp}"
 }
 
-#UseHook
 ^WheelDown:: {
   Critical "On"
   KeyWait "Ctrl"
@@ -25,4 +22,5 @@ A_MaxHotkeysPerInterval := 9999
 
 ::@me::me@sayad.dev
 ::@fake::fake@sayad.dev
-::@mail::sayadenv@gmail.com
+::@env::sayadenv@gmail.com
+::@mail::247sayad@gmail.com
