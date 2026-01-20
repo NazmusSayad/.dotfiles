@@ -183,6 +183,10 @@ func GetGitHubUser() string {
 	}
 
 	hostsPath := filepath.Join(appData, "GitHub CLI", "hosts.yml")
+	if !utils.IsFileExists(hostsPath) {
+		return ""
+	}
+
 	data, err := os.ReadFile(hostsPath)
 	if err != nil {
 		return ""
