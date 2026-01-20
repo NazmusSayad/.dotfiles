@@ -1,4 +1,6 @@
+#UseHook
 #NoTrayIcon
+ProcessSetPriority "High"
 
 F23::
 {

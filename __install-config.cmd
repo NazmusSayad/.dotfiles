@@ -34,9 +34,4 @@ echo Installing MSYS2 shells...
 pacman -S --noconfirm bash fish zsh
 
 echo.
-echo Setting up GO...
-call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOPATH', (go env GOPATH), 'User')"
-call powershell.exe -NoProfile -Command "[Environment]::SetEnvironmentVariable('GOROOT', (go env GOROOT), 'User')"
-
-echo.
 pause
