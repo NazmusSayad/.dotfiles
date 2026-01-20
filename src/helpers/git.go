@@ -50,6 +50,20 @@ func GetCurrentGitRemote() string {
 	return strings.TrimSpace(string(out))
 }
 
+func GetGitRemoteUrl(remote string) string {
+	if !IsGitRepo() {
+		return ""
+	}
+
+	cmd := exec.Command("git", "remote", "get-url", remote)
+	out, err := cmd.Output()
+	if err != nil {
+		return ""
+	}
+
+	return strings.TrimSpace(string(out))
+}
+
 func InGitRepoOrExit() {
 	if !IsGitRepo() {
 		fmt.Println(aurora.Red("Not a git repository"))
@@ -79,4 +93,16 @@ func GetCurrentGitRemoteOrExit() string {
 	}
 
 	return remote
+}
+
+func GetGitRemoteUrlOrExit(remote string) string {
+	InGitRepoOrExit()
+
+	url := GetGitRemoteUrl(remote)
+	if url == "" {
+		fmt.Println(aurora.Red("No remote URL found"))
+		os.Exit(1)
+	}
+
+	return url
 }
