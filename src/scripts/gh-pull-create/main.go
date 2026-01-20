@@ -48,8 +48,8 @@ func main() {
 	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1", assignees}, "")
 	fmt.Println(aurora.Faint("  " + url))
 
-	// helpers.ExecNativeCommand(
-	// 	[]string{"rundll32", "url.dll,FileProtocolHandler", url},
-	// 	helpers.ExecCommandOptions{Exit: true},
-	// )
+	helpers.ExecNativeCommand(
+		[]string{"rundll32", "url.dll,FileProtocolHandler", url},
+		helpers.ExecCommandOptions{Exit: true},
+	)
 }
