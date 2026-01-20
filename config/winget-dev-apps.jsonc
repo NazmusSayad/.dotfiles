@@ -85,5 +85,12 @@
     "InteractiveInstall": true,
     "InteractiveUpgrade": true,
     "SkipInstall": true
+  },
+  {
+    "ID": "Microsoft.VisualStudio.2022.BuildTools",
+    "Name": "Visual Studio Build Tools 2022",
+    "InteractiveInstall": true,
+    "InteractiveUpgrade": true,
+    "SkipInstall": true
   }
 ]

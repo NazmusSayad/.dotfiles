@@ -7,7 +7,7 @@ var BIN_ALIASES = map[string][]string{
 
 	"ghv": {"gh", "repo", "view"},
 	"ghw": {"gh", "repo", "view", "--web"},
-	"ghp": {"gh", "pr", "create", "-B"},
+	"ghp": {"gh", "pr", "create", "--assignee", "@me", "--web"},
 
 	"fsc": {"fsutil.exe", "file", "setCaseSensitiveInfo", ".", "enable", "recursive"},
 }
