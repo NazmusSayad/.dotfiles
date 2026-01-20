@@ -26,6 +26,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gpm",
 	},
 
+	"gh-pull-create": {
+		Exe: "ghp",
+	},
+
 	"gpg-unlock": {
 		StartMenuName: "GPG Unlock",
 	},
