@@ -7,6 +7,7 @@ alias r="nr"
 alias nid="ni -D"
 
 alias fl="flutter"
+alias flp="flutter pub"
 alias flr="flutter run"
 alias fle="flutter emulators"
 
