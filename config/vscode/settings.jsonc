@@ -363,14 +363,6 @@
       "icon": "check-circle",
       "background": "#1E88E580"
     },
-    "[ ]": {
-      "icon": "issue-draft",
-      "background": "#64B5F680"
-    },
-    "[x]": {
-      "icon": "issue-closed",
-      "background": "#43A04780"
-    },
     "NOTE": {
       "icon": "note",
       "background": "#8E24AA80"
@@ -401,5 +393,6 @@
     }
   },
   "workbench.layoutControl.enabled": false,
+  "update.releaseTrack": "prerelease",
   "workbench.activityBar.location": "hidden"
 }
