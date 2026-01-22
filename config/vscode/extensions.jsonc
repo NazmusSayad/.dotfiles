@@ -50,5 +50,8 @@
   { "Id": "christian-kohler.npm-intellisense" },
   { "Id": "streetsidesoftware.code-spell-checker" },
   { "Id": "rioj7.vscode-remove-comments" },
-  { "Id": "wakatime.vscode-wakatime" }
+  { "Id": "wakatime.vscode-wakatime" },
+
+  // Cursor Extensions
+  { "Id": "anysphere.cursorpyright", "Include": ["cursor"] }
 ]
