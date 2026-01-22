@@ -393,6 +393,5 @@
     }
   },
   "workbench.layoutControl.enabled": false,
-  "update.releaseTrack": "prerelease",
   "workbench.activityBar.location": "hidden"
 }
