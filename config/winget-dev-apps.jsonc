@@ -30,7 +30,8 @@
   },
   {
     "ID": "ZedIndustries.Zed",
-    "Name": "Zed"
+    "Name": "Zed",
+    "SkipUpgrade": true
   },
   {
     "ID": "Postman.Postman",
@@ -69,7 +70,8 @@
     "Name": "Docker Desktop",
     "InteractiveInstall": true,
     "InteractiveUpgrade": true,
-    "SkipInstall": true
+    "SkipInstall": true,
+    "SkipUpgrade": true
   },
   {
     "ID": "Google.AndroidStudio",

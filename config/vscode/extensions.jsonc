@@ -19,20 +19,22 @@
   // Python
   { "Id": "ms-python.python" },
   { "Id": "ms-python.autopep8" },
-  { "Id": "ms-python.vscode-pylance", "Exclude": ["antigravity"] },
+  { "Id": "ms-python.vscode-pylance" },
   { "Id": "ms-python.debugpy", "Include": ["cursor"] },
   { "Id": "ms-python.vscode-python-envs", "Include": ["cursor"] },
 
   // Linters and Formatters
-  { "Id": "dbaeumer.vscode-eslint" },
   { "Id": "esbenp.prettier-vscode", "Version": "11.0.2" },
-  { "Id": "bmalehorn.vscode-fish", "Exclude": ["antigravity"] },
+  { "Id": "dbaeumer.vscode-eslint" },
+  { "Id": "mkhl.shfmt" },
+
+  // Other Languages
   { "Id": "bradlc.vscode-tailwindcss" },
   { "Id": "tamasfe.even-better-toml" },
+  { "Id": "bmalehorn.vscode-fish" },
   { "Id": "redhat.vscode-xml" },
-  { "Id": "prisma.prisma" },
   { "Id": "mikestead.dotenv" },
-  { "Id": "mkhl.shfmt" },
+  { "Id": "prisma.prisma" },
 
   // GraphQL
   { "Id": "graphql.vscode-graphql" },
