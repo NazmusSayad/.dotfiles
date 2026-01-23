@@ -20,11 +20,6 @@
     "Admin": true
   },
   {
-    "Name": "AHK Window Toggle",
-    "Path": "@/.build/ahk/AHK-WindowHideToggle.exe",
-    "Admin": true
-  },
-  {
     "Name": "AHK Window Manager",
     "Path": "@/.build/ahk/AHK-WindowManager.exe",
     "Admin": true
