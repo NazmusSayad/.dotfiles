@@ -37,17 +37,8 @@ python = "latest"
 
 
 # Hosting Tools
-gcloud = "latest"
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
-"npm:firebase-tools" = "latest"
-
-
-# AI Tools
-gemini = "latest"
-opencode = "latest"
-# codex = "latest"
-# claude = "latest"
 
 
 [settings]
