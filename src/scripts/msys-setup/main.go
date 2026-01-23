@@ -39,7 +39,7 @@ func main() {
 	for _, ini := range MSYS_INIS {
 		iniPath := filepath.Join(MSYS_PATH, ini)
 		if !utils.IsFileExists(iniPath) {
-			fmt.Println("File not found: %s\n", iniPath)
+			fmt.Println("File not found:", iniPath)
 			continue
 		}
 
@@ -50,7 +50,7 @@ func main() {
 
 		updated := reIni.ReplaceAll(content, []byte("MSYS2_PATH_TYPE=inherit"))
 		_ = os.WriteFile(iniPath, updated, 0644)
-		fmt.Println("Updated: %s\n", ini)
+		fmt.Println("Updated:", ini)
 	}
 
 	if content, err := os.ReadFile(NSSWITCH_CONFIG_PATH); err == nil {

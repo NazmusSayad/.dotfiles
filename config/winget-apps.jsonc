@@ -20,6 +20,10 @@
     "Name": "Windows Terminal"
   },
   {
+    "ID": "stax76.run-hidden",
+    "Name": "Run Hidden"
+  },
+  {
     "ID": "Google.Chrome",
     "Name": "Chrome"
   },

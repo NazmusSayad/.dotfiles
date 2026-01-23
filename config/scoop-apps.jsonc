@@ -23,8 +23,28 @@
 
   // Development Tools
   {
+    "ID": "git",
+    "Label": "Git"
+  },
+  {
+    "ID": "gh",
+    "Label": "GitHub CLI"
+  },
+  {
+    "ID": "opencode",
+    "Label": "OpenCode"
+  },
+  {
     "ID": "cloudflared",
     "Label": "Cloudflare Tunnel"
+  },
+  {
+    "ID": "firebase",
+    "Label": "Firebase CLI"
+  },
+  {
+    "ID": "extras/gcloud",
+    "Label": "Google Cloud CLI"
   },
   {
     "ID": "extras/lazygit",

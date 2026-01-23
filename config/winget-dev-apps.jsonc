@@ -1,21 +1,15 @@
 [
-  {
-    "ID": "Git.Git",
-    "Name": "Git",
-    "InteractiveInstall": true
-  },
-  {
-    "ID": "GitHub.cli",
-    "Name": "GitHub CLI"
-  },
+  // Shells
   {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2"
   },
   {
-    "ID": "Axosoft.GitKraken",
-    "Name": "GitKraken"
+    "ID": "Microsoft.PowerShell",
+    "Name": "PowerShell (pwsh)"
   },
+
+  // Code Editors
   {
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VSCode",
@@ -34,21 +28,15 @@
     "SkipUpgrade": true
   },
   {
+    "ID": "Axosoft.GitKraken",
+    "Name": "GitKraken"
+  },
+  {
     "ID": "Postman.Postman",
     "Name": "Postman"
   },
-  {
-    "ID": "Microsoft.PowerShell",
-    "Name": "PowerShell (pwsh)"
-  },
-  {
-    "ID": "stax76.run-hidden",
-    "Name": "Run Hidden"
-  },
-  {
-    "ID": "SQLite.SQLite",
-    "Name": "SQLite"
-  },
+
+  // DotNet SDKs
   {
     "ID": "Microsoft.DotNet.SDK.6",
     "Name": "DotNet SDK 6"
@@ -65,6 +53,8 @@
     "ID": "Microsoft.DotNet.SDK.9",
     "Name": "DotNet SDK 9"
   },
+
+  // VM & Container Tools
   {
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
