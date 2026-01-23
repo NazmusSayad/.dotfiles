@@ -37,6 +37,7 @@ python = "latest"
 
 
 # Hosting Tools
+gcloud = "latest"
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
 "npm:firebase-tools" = "latest"
