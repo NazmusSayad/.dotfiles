@@ -393,5 +393,8 @@
     }
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "AHK++.compiler": {
+    "compilerPath": "./.build/lib/Ahk2Exe.exe"
+  }
 }
