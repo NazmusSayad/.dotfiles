@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "clangarm",
     "fastfetch",
     "Fira",
     "fscs",
@@ -7,8 +8,10 @@
     "logrusorgru",
     "msys",
     "netserv",
+    "NSSWITCH",
     "runas",
     "shlvl",
+    "ucrt",
     "USERPROFILE",
     "winget",
     "winsdk"

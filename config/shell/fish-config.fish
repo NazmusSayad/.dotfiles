@@ -1,6 +1,10 @@
 #!/usr/bin/env fish
 
-set -g fish_color_command magenta
+fish_config theme choose default
+set fish_color_end normal
+set fish_color_quote green
+set fish_color_comment --dim
+set fish_color_command magenta
 
 set -g GOBIN (go env GOBIN)
 set -g GOROOT (go env GOROOT)
