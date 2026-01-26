@@ -39,14 +39,6 @@
     "Label": "Cloudflare Tunnel"
   },
   {
-    "ID": "firebase",
-    "Label": "Firebase CLI"
-  },
-  // {
-  //   "ID": "extras/gcloud",
-  //   "Label": "Google Cloud CLI"
-  // },
-  {
     "ID": "extras/lazygit",
     "Label": "Lazygit - Git GUI"
   },
