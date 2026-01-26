@@ -42,10 +42,10 @@
     "ID": "firebase",
     "Label": "Firebase CLI"
   },
-  {
-    "ID": "extras/gcloud",
-    "Label": "Google Cloud CLI"
-  },
+  // {
+  //   "ID": "extras/gcloud",
+  //   "Label": "Google Cloud CLI"
+  // },
   {
     "ID": "extras/lazygit",
     "Label": "Lazygit - Git GUI"
@@ -161,13 +161,5 @@
   {
     "ID": "nerd-fonts/FiraCode-NF",
     "Label": "FiraCode Nerd Font"
-  },
-  {
-    "ID": "nerd-fonts/CommitMono-NF",
-    "Label": "CommitMono Nerd Font"
-  },
-  {
-    "ID": "nerd-fonts/JetBrainsMono-NF",
-    "Label": "JetBrainsMono Nerd Font"
   }
 ]

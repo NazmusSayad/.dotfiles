@@ -37,9 +37,9 @@ python = "latest"
 
 
 # Hosting Tools
+gcloud = "latest"
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
-
 
 [settings]
 auto_install = false

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
+	"syscall"
 )
 
 type Scope string
@@ -15,7 +16,7 @@ const (
 
 func execPsCommand(command string) (string, error) {
 	cmd := exec.Command("powershell", "-c", command)
-	cmd.SysProcAttr.HideWindow = true
+	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 
 	output, err := cmd.Output()
 

@@ -1,4 +1,5 @@
 {
+  "$schema": "vscode://schemas/settings/user",
   "window.title": "${activeEditorMedium} ╭• ${folderName} •╮",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "One Eye Care - Extreme Eye Care",
@@ -6,10 +7,11 @@
   "editor.lineHeight": 1.8,
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": "'zero','ss02','ss06','cv02','cv14', 'cv26'",
-  "terminal.integrated.fontFamily": "CommitMono Nerd Font",
   "terminal.integrated.fontSize": 15,
-  "terminal.integrated.lineHeight": 1.4,
+  "terminal.integrated.lineHeight": 1.35,
   "terminal.integrated.letterSpacing": -1,
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontLigatures.featureSettings": "'zero','ss02','ss06','cv02','cv14', 'cv26'",
   "workbench.editor.enablePreview": false,
   "material-icon-theme.hidesExplorerArrows": true,
   "material-icon-theme.activeIconPack": "none",
@@ -393,8 +395,8 @@
     }
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden",
   "AHK++.compiler": {
     "compilerPath": "./.build/lib/Ahk2Exe.exe"
-  }
+  },
+  "workbench.activityBar.location": "hidden"
 }

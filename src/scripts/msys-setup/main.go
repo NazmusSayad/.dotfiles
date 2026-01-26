@@ -15,28 +15,32 @@ func main() {
 	const MSYS_PATH = "C:\\msys64"
 	NSSWITCH_CONFIG_PATH := filepath.Join(MSYS_PATH, "etc", "nsswitch.conf")
 
-	MSYS_INIS := []string{
+	MSYS_INI_LIST := []string{
 		"msys2.ini",
-		"clang32.ini",
-		"clang64.ini",
-		"clangarm64.ini",
+		"ucrt64.ini",
+
 		"mingw32.ini",
 		"mingw64.ini",
-		"ucrt64.ini",
+
+		"clang64.ini",
+		"clangarm64.ini",
 	}
 
-	MSYS_BINS := []string{
+	MSYS_BIN_LIST := []string{
 		"usr/bin",
-		"mingw64/bin",
-		"mingw32/bin",
 		"ucrt64/bin",
-		"clang32/bin",
+
+		"mingw32/bin",
+		"mingw64/bin",
+
 		"clang64/bin",
 		"clangarm64/bin",
 	}
 
-	reIni := regexp.MustCompile(`(?m)^#MSYS2_PATH_TYPE=inherit`)
-	for _, ini := range MSYS_INIS {
+	pathTypeRegex := regexp.MustCompile(`(?m)^#MSYS2_PATH_TYPE=inherit`)
+	msysWinSymlinksRegex := regexp.MustCompile(`(?m)^#MSYS=winsymlinks:nativestrict`)
+
+	for _, ini := range MSYS_INI_LIST {
 		iniPath := filepath.Join(MSYS_PATH, ini)
 		if !utils.IsFileExists(iniPath) {
 			fmt.Println("File not found:", iniPath)
@@ -45,10 +49,13 @@ func main() {
 
 		content, err := os.ReadFile(iniPath)
 		if err != nil {
+			fmt.Println("Error reading file:", err)
 			continue
 		}
 
-		updated := reIni.ReplaceAll(content, []byte("MSYS2_PATH_TYPE=inherit"))
+		updated := pathTypeRegex.ReplaceAll(content, []byte("MSYS2_PATH_TYPE=inherit"))
+		updated = msysWinSymlinksRegex.ReplaceAll(updated, []byte("MSYS=winsymlinks:nativestrict"))
+
 		_ = os.WriteFile(iniPath, updated, 0644)
 		fmt.Println("Updated:", ini)
 	}
@@ -60,14 +67,18 @@ func main() {
 		fmt.Println("Updated: nsswitch.conf")
 	}
 
-	_, _ = helpers.WriteEnv(helpers.ScopeMachine, "MSYS2_PATH_TYPE", "inherit")
+	fmt.Println("Adding MSYS2_PATH_TYPE to env")
+	helpers.WriteEnv(helpers.ScopeMachine, "MSYS2_PATH_TYPE", "inherit")
 
 	var existingBins []string
-	for _, rel := range MSYS_BINS {
+	for _, rel := range MSYS_BIN_LIST {
 		full := filepath.Join(MSYS_PATH, rel)
+
 		if info, err := os.Stat(full); err == nil && info.IsDir() {
 			existingBins = append(existingBins, full)
 		}
 	}
+
+	fmt.Println("Adding to PATH:", len(existingBins), "bins")
 	_, _ = helpers.AddToEnvPath(helpers.ScopeMachine, existingBins...)
 }
