@@ -49,7 +49,7 @@ func main() {
 	} else {
 		appNames := []string{}
 		for _, app := range missingApps {
-			appNames = append(appNames, app.Source+"/"+app.Name)
+			appNames = append(appNames, app.ID)
 		}
 
 		fmt.Println("> Missing apps:", aurora.Red(strings.Join(appNames, ", ")))
@@ -63,7 +63,7 @@ func main() {
 
 	for _, app := range missingApps {
 		fmt.Println()
-		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.Source+"/"+app.Name).String())
-		helpers.ExecNativeCommand([]string{"scoop", "install", app.Source + "/" + app.Name})
+		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.ID).String())
+		helpers.ExecNativeCommand([]string{"scoop", "install", app.ID})
 	}
 }

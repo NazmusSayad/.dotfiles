@@ -1,19 +1,19 @@
 [
   // Programming Languages
   {
-    "ID": "lua",
+    "ID": "main/lua",
     "Label": "Lua"
   },
   {
-    "ID": "luajit",
+    "ID": "main/luajit",
     "Label": "LuaJIT"
   },
   {
-    "ID": "gcc",
+    "ID": "main/gcc",
     "Label": "GCC - C Compiler"
   },
   {
-    "ID": "dart",
+    "ID": "main/dart",
     "Label": "Dart"
   },
   {
@@ -23,23 +23,23 @@
 
   // Development Tools
   {
-    "ID": "git",
+    "ID": "main/git",
     "Label": "Git"
   },
   {
-    "ID": "gh",
+    "ID": "main/gh",
     "Label": "GitHub CLI"
   },
   {
-    "ID": "opencode",
+    "ID": "main/opencode",
     "Label": "OpenCode"
   },
   {
-    "ID": "claude-code",
+    "ID": "main/claude-code",
     "Label": "Claude Code"
   },
   {
-    "ID": "cloudflared",
+    "ID": "main/cloudflared",
     "Label": "Cloudflare Tunnel"
   },
   {
@@ -49,27 +49,27 @@
 
   // Visualization Tools
   {
-    "ID": "btop",
+    "ID": "main/btop",
     "Label": "Btop - System Monitor"
   },
   {
-    "ID": "ntop",
+    "ID": "main/ntop",
     "Label": "Ntop - Network Monitor"
   },
   {
-    "ID": "bottom",
+    "ID": "main/bottom",
     "Label": "Bottom - System Monitor"
   },
   {
-    "ID": "ctop",
+    "ID": "main/ctop",
     "Label": "ctop - Docker Container Monitor"
   },
   {
-    "ID": "neofetch",
+    "ID": "main/neofetch",
     "Label": "Neofetch - System Information"
   },
   {
-    "ID": "fastfetch",
+    "ID": "main/fastfetch",
     "Label": "Fastfetch - System Information"
   },
   {
@@ -79,77 +79,77 @@
 
   // CLI Tools
   {
-    "ID": "starship",
+    "ID": "main/starship",
     "Label": "Starship - Prompt"
   },
   {
-    "ID": "mise",
+    "ID": "main/mise",
     "Label": "Mise - CLI Manager"
   },
   {
-    "ID": "zoxide",
+    "ID": "main/zoxide",
     "Label": "Zoxide - Directory Navigation"
   },
   {
-    "ID": "shfmt",
+    "ID": "main/shfmt",
     "Label": "Shfmt - Shell Script Formatter"
   },
   {
-    "ID": "tldr",
+    "ID": "main/tldr",
     "Label": "Tldr - TL;DR Documentation"
   },
   {
-    "ID": "ripgrep",
+    "ID": "main/ripgrep",
     "Label": "Ripgrep - File Finder"
   },
   {
-    "ID": "rip",
+    "ID": "main/rip",
     "Label": "Rip - Trash"
   },
   {
-    "ID": "dust",
+    "ID": "main/dust",
     "Label": "Dust - Disk Usage Finder"
   },
   {
-    "ID": "fzf",
+    "ID": "main/fzf",
     "Label": "Fzf - File Finder"
   },
   {
-    "ID": "bat",
+    "ID": "main/bat",
     "Label": "Bat - Cat Alternative"
   },
   {
-    "ID": "lsd",
+    "ID": "main/lsd",
     "Label": "Lsd - List Directory Contents"
   },
   {
-    "ID": "yazi",
+    "ID": "main/yazi",
     "Label": "Yazi - File Manager"
   },
   {
-    "ID": "figlet",
+    "ID": "main/figlet",
     "Label": "figlet - ASCII Art"
   },
   {
-    "ID": "scc",
+    "ID": "main/scc",
     "Label": "SCC - Source Code Counter"
   },
   {
-    "ID": "tokei",
+    "ID": "main/tokei",
     "Label": "Tokei - Count Lines of Code"
   },
 
   // Media
   {
-    "ID": "7zip",
+    "ID": "main/7zip",
     "Label": "7zip - File Archiver"
   },
   {
-    "ID": "yt-dlp",
+    "ID": "main/yt-dlp",
     "Label": "YouTube Downloader"
   },
   {
-    "ID": "ffmpeg",
+    "ID": "main/ffmpeg",
     "Label": "FFmpeg - Video Converter"
   },
 
