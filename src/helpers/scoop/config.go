@@ -17,6 +17,7 @@ type ScoopAppInputConfig struct {
 }
 
 type ScoopAppConfig struct {
+	ID            string
 	Name          string
 	Source        string
 	Version       string
@@ -30,27 +31,23 @@ func ReadScoopAppConfig() []ScoopAppConfig {
 	outputConfig := []ScoopAppConfig{}
 
 	for _, app := range inputConfig {
-		splitStr := strings.Split(app.ID, "/")
-		bucketId := ""
-		appId := ""
+		appName := ""
+		bucketName := ""
 
-		if len(splitStr) == 0 {
-			appId = app.ID
-			bucketId = "main"
-		} else if len(splitStr) == 1 {
-			appId = app.ID
-			bucketId = "main"
-		} else if len(splitStr) == 2 {
-			bucketId = splitStr[0]
-			appId = splitStr[1]
+		splitStr := strings.Split(app.ID, "/")
+		if len(splitStr) == 2 {
+			bucketName = splitStr[0]
+			appName = splitStr[1]
 		} else {
 			fmt.Println(aurora.Red("Invalid app ID; expected: <bucket>/<app>"))
 			continue
 		}
 
 		outputConfig = append(outputConfig, ScoopAppConfig{
-			Name:   appId,
-			Source: bucketId,
+			ID: app.ID,
+
+			Name:   appName,
+			Source: bucketName,
 
 			Label:         app.Label,
 			Version:       app.Version,
@@ -65,7 +62,7 @@ func GetScoopConfigAppMap(configs []ScoopAppConfig) map[string]ScoopAppConfig {
 	appMap := make(map[string]ScoopAppConfig)
 
 	for _, app := range configs {
-		appMap[app.Source+"/"+app.Name] = app
+		appMap[app.ID] = app
 	}
 
 	return appMap
