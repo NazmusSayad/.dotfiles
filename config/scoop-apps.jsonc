@@ -35,6 +35,10 @@
     "Label": "OpenCode"
   },
   {
+    "ID": "claude-code",
+    "Label": "Claude Code"
+  },
+  {
     "ID": "cloudflared",
     "Label": "Cloudflare Tunnel"
   },

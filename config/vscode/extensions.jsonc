@@ -32,6 +32,7 @@
   { "Id": "bradlc.vscode-tailwindcss" },
   { "Id": "tamasfe.even-better-toml" },
   { "Id": "bmalehorn.vscode-fish" },
+  { "Id": "redhat.vscode-yaml" },
   { "Id": "redhat.vscode-xml" },
   { "Id": "mikestead.dotenv" },
   { "Id": "prisma.prisma" },
@@ -45,6 +46,7 @@
   { "Id": "github.copilot-chat", "Include": ["code"] },
 
   // Other Extensions
+  { "Id": "eamodio.gitlens" },
   { "Id": "gruntfuggly.todo-tree" },
   { "Id": "usernamehw.errorlens" },
   { "Id": "wallabyjs.quokka-vscode" },
