@@ -31,10 +31,6 @@
     "Label": "GitHub CLI"
   },
   {
-    "ID": "main/opencode",
-    "Label": "OpenCode"
-  },
-  {
     "ID": "main/cloudflared",
     "Label": "Cloudflare Tunnel"
   },
