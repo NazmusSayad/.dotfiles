@@ -364,7 +364,6 @@
   "workbench.sideBar.location": "right",
   "chat.commandCenter.enabled": false,
   "chat.editing.confirmEditRequestRetry": false,
-  "chat.agent.maxRequests": 100,
   "chat.detectParticipant.enabled": false,
   "chat.viewSessions.enabled": false,
   "chat.viewWelcome.enabled": false,
