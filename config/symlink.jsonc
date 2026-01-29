@@ -59,13 +59,11 @@
     "Target": "$USERPROFILE/.nirc"
   },
 
-  // Zed Code Editor
-  {
-    "Source": "@/config/zed",
-    "Target": "$APPDATA/zed"
-  },
-
-  // VS Code -> IDE Configs
+  // Code Editor
+  // {
+  //   "Source": "@/config/zed",
+  //   "Target": "$APPDATA/zed"
+  // },
   {
     "Source": "@/config/vscode/settings.jsonc",
     "Targets": [
