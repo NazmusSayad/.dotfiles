@@ -35,7 +35,11 @@ func ReadScoopAppConfig() []ScoopAppConfig {
 		bucketName := ""
 
 		splitStr := strings.Split(app.ID, "/")
-		if len(splitStr) == 2 {
+
+		if len(splitStr) == 1 {
+			appName = splitStr[0]
+			bucketName = "main"
+		} else if len(splitStr) == 2 {
 			bucketName = splitStr[0]
 			appName = splitStr[1]
 		} else {
@@ -44,7 +48,7 @@ func ReadScoopAppConfig() []ScoopAppConfig {
 		}
 
 		outputConfig = append(outputConfig, ScoopAppConfig{
-			ID: app.ID,
+			ID: bucketName + "/" + appName,
 
 			Name:   appName,
 			Source: bucketName,
