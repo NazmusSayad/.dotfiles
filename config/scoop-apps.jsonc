@@ -31,10 +31,6 @@
     "Label": "GitHub CLI"
   },
   {
-    "ID": "aws",
-    "Label": "AWS CLI"
-  },
-  {
     "ID": "cloudflared",
     "Label": "Cloudflare Tunnel"
   },
