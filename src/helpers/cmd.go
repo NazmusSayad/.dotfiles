@@ -3,6 +3,7 @@ package helpers
 import (
 	"os"
 	"os/exec"
+	"strings"
 	"syscall"
 )
 
@@ -14,6 +15,8 @@ type ExecCommandOptions struct {
 	NoStdin  bool
 	NoStdout bool
 	NoStderr bool
+
+	Simulate bool
 }
 
 func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
@@ -28,6 +31,10 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	}
 
 	cmd := exec.Command(command, args[1:]...)
+	if opts.Simulate {
+		cmd = exec.Command("cmd", "/c", strings.Join(args, " "))
+	}
+
 	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 
 	if opts.Silent {

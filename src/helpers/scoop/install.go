@@ -57,12 +57,18 @@ func InstallScoopApps() {
 	for _, bucket := range missingBuckets {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Installing bucket ").String() + aurora.Green(bucket).String())
-		helpers.ExecNativeCommand([]string{"scoop", "bucket", "add", bucket})
+		helpers.ExecNativeCommand(
+			[]string{"scoop", "bucket", "add", bucket},
+			helpers.ExecCommandOptions{Simulate: true},
+		)
 	}
 
 	for _, app := range missingApps {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.ID).String())
-		helpers.ExecNativeCommand([]string{"scoop", "install", app.ID})
+		helpers.ExecNativeCommand(
+			[]string{"scoop", "install", app.ID},
+			helpers.ExecCommandOptions{Simulate: true},
+		)
 	}
 }
