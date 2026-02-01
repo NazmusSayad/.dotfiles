@@ -38,6 +38,10 @@
     "ID": "extras/lazygit",
     "Label": "Lazygit - Git GUI"
   },
+  {
+    "ID": "main/lazydocker",
+    "Label": "LazyDocker - Docker GUI"
+  },
 
   // Visualization Tools
   {
@@ -93,6 +97,10 @@
   {
     "ID": "ripgrep",
     "Label": "Ripgrep - File Finder"
+  },
+  {
+    "ID": "fd",
+    "Label": "Fd - File Finder"
   },
   {
     "ID": "rip",
