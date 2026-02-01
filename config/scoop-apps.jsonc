@@ -83,6 +83,10 @@
     "Label": "Starship - Prompt"
   },
   {
+    "ID": "direnv",
+    "Label": "Direnv - Environment Variable Manager"
+  },
+  {
     "ID": "mise",
     "Label": "Mise - CLI Manager"
   },
