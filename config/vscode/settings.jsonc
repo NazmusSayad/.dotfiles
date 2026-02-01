@@ -177,6 +177,7 @@
   },
   "files.associations": {
     ".env*": "dotenv",
+    ".envrc": "shellscript",
     "*.code-snippets": "jsonc"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",

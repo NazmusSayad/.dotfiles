@@ -10,6 +10,8 @@ set -g GOBIN (go env GOBIN)
 set -g GOROOT (go env GOROOT)
 set -g JAVA_HOME (mise where java)
 
+direnv hook fish | source
+
 function fish_greeting
     if not set -q TERM_PROGRAM
         # fastfetch

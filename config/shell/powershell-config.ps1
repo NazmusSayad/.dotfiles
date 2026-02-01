@@ -37,5 +37,6 @@ function dcd {
   & docker compose down $args
 }
 
+Invoke-Expression "$(direnv hook pwsh)"
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
