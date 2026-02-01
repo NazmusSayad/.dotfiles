@@ -70,8 +70,8 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenuName: "WinGet Upgrade",
 	},
 
-	"upgrade-all": {
-		StartMenuName: "Upgrade All",
+	"packages-sync": {
+		StartMenuName: "Packages Sync",
 	},
 
 	"sync-code-ext": {
