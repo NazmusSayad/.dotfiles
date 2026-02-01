@@ -46,12 +46,12 @@
     "**/id_rsa",
     "**/id_dsa",
     "**/.ssh/id_*",
-    "**/.*",
     "**/*.lock",
     "**/__trash__",
     "**/pnpm-lock.yaml",
     "**/package-lock.json",
-    "!**.cursor"
+    "**/.*",
+    "!**/.*/"
   ],
   "workbench.startupEditor": "none",
   "workbench.enableExperiments": false,

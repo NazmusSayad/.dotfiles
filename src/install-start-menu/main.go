@@ -37,9 +37,9 @@ func main() {
 
 		fmt.Println("> Installing", scriptName, script.StartMenuName)
 
-		shortcutPath := filepath.Join(startMenuDir, script.StartMenuName+".lnk")
 		targetCommand := `"` + proxyPausePath + `"`
-		arguments := `"` + scriptName + `"`
+		shortcutPath := filepath.Join(startMenuDir, script.StartMenuName+".lnk")
+		arguments := `"` + utils.Ternary(script.Exe != "", script.Exe, scriptName) + `"`
 
 		helpers.ExecNativeCommand([]string{
 			"powershell",
