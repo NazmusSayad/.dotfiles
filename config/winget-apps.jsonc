@@ -27,6 +27,10 @@
     "ID": "Google.Chrome",
     "Name": "Chrome"
   },
+  {
+    "ID": "Tonec.InternetDownloadManager",
+    "Name": "Internet Download Manager"
+  },
 
   // Media Tools
   {
