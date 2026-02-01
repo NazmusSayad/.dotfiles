@@ -27,12 +27,4 @@ echo Installing start menu entries...
 call go run ./src/install-start-menu/main.go
 
 echo.
-echo Installing Mise...
-mise install
-
-echo.
-echo Installing MSYS2 shells...
-pacman -S --noconfirm bash fish zsh
-
-echo.
 pause
