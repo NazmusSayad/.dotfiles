@@ -62,11 +62,12 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenuName: "WinGet Upgrade",
 	},
 
-	"packages-sync": {
-		StartMenuName: "Packages Sync",
+	"code-ext-sync": {
+		StartMenuName: "Code Extensions Sync",
 	},
 
-	"sync-code-ext": {
-		StartMenuName: "Sync Code Extensions",
+	"packages-sync": {
+		StartMenuName: "Packages Sync",
+		Exe:           "psy",
 	},
 }
