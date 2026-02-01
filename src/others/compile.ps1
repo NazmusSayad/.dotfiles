@@ -25,7 +25,7 @@ go run ./src/compile-scripts/main.go
 if ($killedAhk.Count -gt 0) {
     Write-Host ""
     Write-Host "> Restarting AHK scripts..."
-    $ahkDir = Join-Path $PSScriptRoot ".build\ahk"
+    $ahkDir = Join-Path $PWD ".build\ahk"
     foreach ($name in $killedAhk) {
         $exe = Join-Path $ahkDir "$name.exe"
         Write-Host "> Restarting: $exe"
