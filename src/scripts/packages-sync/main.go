@@ -44,8 +44,8 @@ func main() {
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Mise..."))
-	helpers.ExecNativeCommand([]string{"mise", "prune"})
-	helpers.ExecNativeCommand([]string{"mise", "cache", "clear"})
+	helpers.ExecNativeCommand([]string{"mise", "prune", "--yes"})
+	helpers.ExecNativeCommand([]string{"mise", "cache", "clear", "--yes"})
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Pacman..."))
