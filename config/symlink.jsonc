@@ -33,6 +33,10 @@
 
   // Terminal Configs
   {
+    "Source": "@/config/direnv.toml",
+    "Target": "$USERPROFILE/.config/direnv/direnv.toml"
+  },
+  {
     "Source": "@/config/mise.toml",
     "Target": "$USERPROFILE/.config/mise/config.toml"
   },
