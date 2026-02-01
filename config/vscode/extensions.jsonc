@@ -24,7 +24,7 @@
   { "Id": "ms-python.vscode-python-envs", "Include": ["cursor"] },
 
   // Linters and Formatters
-  { "Id": "esbenp.prettier-vscode", "Version": "11.0.2" },
+  { "Id": "esbenp.prettier-vscode", "Version": "11.0.3" },
   { "Id": "dbaeumer.vscode-eslint" },
   { "Id": "mkhl.shfmt" },
 
