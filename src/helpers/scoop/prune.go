@@ -1,8 +1,7 @@
-package main
+package scoop
 
 import (
 	"dotfiles/src/helpers"
-	"dotfiles/src/helpers/scoop"
 	"fmt"
 	"slices"
 	"strings"
@@ -10,15 +9,15 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func main() {
-	exports := scoop.GetScoopExports()
-	configs := scoop.ReadScoopAppConfig()
+func PruneScoopApps() {
+	exports := GetScoopExports()
+	configs := ReadScoopAppConfig()
 
-	configBucketsList := scoop.GetScoopConfigBucketsList(configs)
-	configAppMap := scoop.GetScoopConfigAppMap(configs)
+	configBucketsList := GetScoopConfigBucketsList(configs)
+	configAppMap := GetScoopConfigAppMap(configs)
 
-	exportBucketList := scoop.GetScoopExportBucketsList(exports)
-	exportAppMap := scoop.GetScoopExportAppMap(exports)
+	exportBucketList := GetScoopExportBucketsList(exports)
+	exportAppMap := GetScoopExportAppMap(exports)
 
 	unnecessaryBuckets := []string{}
 	for _, bucket := range exportBucketList {
@@ -27,7 +26,7 @@ func main() {
 		}
 	}
 
-	unnecessaryApps := []scoop.ScoopApp{}
+	unnecessaryApps := []ScoopApp{}
 	for appId, exportApp := range exportAppMap {
 		_, isExists := configAppMap[appId]
 
