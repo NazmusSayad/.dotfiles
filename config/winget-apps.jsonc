@@ -29,7 +29,8 @@
   },
   {
     "ID": "Tonec.InternetDownloadManager",
-    "Name": "Internet Download Manager"
+    "Name": "Internet Download Manager",
+    "Version": "6.42.58"
   },
 
   // Media Tools
