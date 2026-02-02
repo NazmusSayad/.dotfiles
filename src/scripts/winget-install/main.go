@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	packages := winget.GetWingetPackages()
+	packages := helpers.ReadConfig[[]winget.WingetPackage]("@/config/winget-apps.jsonc")
 	fmt.Println(aurora.Faint("Installing packages, total: " + strconv.Itoa(len(packages))))
 
 	for _, p := range packages {
