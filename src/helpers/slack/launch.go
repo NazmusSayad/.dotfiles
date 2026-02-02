@@ -22,7 +22,7 @@ func isWorkTime() (bool, string) {
 	weekday := now.Weekday()
 	hour := now.Hour()
 
-	if slices.Contains(config.OfficeTimeWeekend, weekday) {
+	if slices.Contains(config.OfficeTimeWeekends, weekday) {
 		return false, "Weekend (" + weekday.String() + ")"
 	}
 

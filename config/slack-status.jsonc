@@ -1,7 +1,7 @@
 {
   "OfficeTimeStart": 7,
   "OfficeTimeFinish": 21,
-  "OfficeTimeWeekend": ["Friday", "Saturday"],
+  "OfficeTimeWeekends": ["Friday", "Saturday"],
   "OfficeTimeOffDays": {
     "Jan": [],
     "Feb": [21],

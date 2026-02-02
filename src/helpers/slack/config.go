@@ -27,29 +27,29 @@ type inputOfficeTimeOffDays struct {
 }
 
 type inputSlackConfig struct {
-	OfficeTimeStart   int
-	OfficeTimeFinish  int
-	OfficeTimeWeekend []string
-	OfficeTimeOffDays inputOfficeTimeOffDays
+	OfficeTimeStart    int
+	OfficeTimeFinish   int
+	OfficeTimeWeekends []string
+	OfficeTimeOffDays  inputOfficeTimeOffDays
 }
 
 type OutputSlackConfig struct {
-	OfficeTimeStart   int
-	OfficeTimeFinish  int
-	OfficeTimeOffDays []string // format: "month:day"
-	OfficeTimeWeekend []time.Weekday
+	OfficeTimeStart    int
+	OfficeTimeFinish   int
+	OfficeTimeOffDays  []string // format: "month:day"
+	OfficeTimeWeekends []time.Weekday
 }
 
 func ReadSlackConfig() OutputSlackConfig {
 	configInput := helpers.ReadConfig[inputSlackConfig]("@/config/slack-status.jsonc")
-	weekends := generateWeekends(configInput.OfficeTimeWeekend)
+	weekends := generateWeekends(configInput.OfficeTimeWeekends)
 	offDays := generateOffDays(configInput.OfficeTimeOffDays)
 
 	return OutputSlackConfig{
-		OfficeTimeStart:   configInput.OfficeTimeStart,
-		OfficeTimeFinish:  configInput.OfficeTimeFinish,
-		OfficeTimeWeekend: weekends,
-		OfficeTimeOffDays: offDays,
+		OfficeTimeStart:    configInput.OfficeTimeStart,
+		OfficeTimeFinish:   configInput.OfficeTimeFinish,
+		OfficeTimeWeekends: weekends,
+		OfficeTimeOffDays:  offDays,
 	}
 }
 

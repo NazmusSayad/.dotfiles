@@ -1,7 +1,6 @@
 package winget
 
 import (
-	helpers "dotfiles/src/helpers"
 	"os/exec"
 	"strings"
 )
@@ -27,12 +26,6 @@ type WingetUpgradeablePackage struct {
 	ID        string
 	Version   string
 	Available string
-}
-
-func GetWingetPackages() []WingetPackage {
-	basePackages := helpers.ReadConfig[[]WingetPackage]("@/config/winget-apps.jsonc")
-	devPackages := helpers.ReadConfig[[]WingetPackage]("@/config/winget-dev-apps.jsonc")
-	return append(basePackages, devPackages...)
 }
 
 func GetUpgradeablePackages() []WingetUpgradeablePackage {
