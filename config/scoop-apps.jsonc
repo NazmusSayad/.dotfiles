@@ -87,6 +87,10 @@
     "Label": "Direnv - Environment Variable Manager"
   },
   {
+    "ID": "byenow",
+    "Label": "Byenow - Fast Delete"
+  },
+  {
     "ID": "mise",
     "Label": "Mise - CLI Manager"
   },
