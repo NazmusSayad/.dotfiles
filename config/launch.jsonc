@@ -26,19 +26,16 @@
   {
     "Name": "AHK Macro",
     "Path": "@/.build/ahk/AHK-Macro.exe",
-    "Detached": true,
     "Admin": true
   },
   {
     "Name": "AHK Window Manager",
     "Path": "@/.build/ahk/AHK-WindowManager.exe",
-    "Detached": true,
     "Admin": true
   },
   {
     "Name": "ShareX",
     "Path": "$PROGRAMFILES/ShareX/ShareX.exe",
-    "Detached": true,
     "Admin": true
   }
 ]
