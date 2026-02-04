@@ -52,7 +52,6 @@ func SlackApplicationStart() {
 		[]string{runtimePath, "--startup"},
 		helpers.ExecCommandOptions{
 			Detached: true,
-			Simulate: true,
 		},
 	)
 	if err != nil {

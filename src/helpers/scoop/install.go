@@ -59,7 +59,7 @@ func InstallScoopApps() {
 		fmt.Println(aurora.Faint("- Installing bucket ").String() + aurora.Green(bucket).String())
 		helpers.ExecNativeCommand(
 			[]string{"scoop", "bucket", "add", bucket},
-			helpers.ExecCommandOptions{Simulate: true},
+			helpers.ExecCommandOptions{Detached: true},
 		)
 	}
 
@@ -68,7 +68,7 @@ func InstallScoopApps() {
 		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.ID).String())
 		helpers.ExecNativeCommand(
 			[]string{"scoop", "install", app.ID},
-			helpers.ExecCommandOptions{Simulate: true},
+			helpers.ExecCommandOptions{Detached: true},
 		)
 	}
 }
