@@ -130,6 +130,11 @@
     "ID": "Postman.Postman",
     "Name": "Postman"
   },
+  {
+    "ID": "TablePlus.TablePlus",
+    "Name": "TablePlus",
+    "Version": "6.8.1"
+  },
 
   // DotNet SDKs
   {
