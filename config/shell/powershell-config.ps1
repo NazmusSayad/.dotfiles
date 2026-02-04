@@ -1,14 +1,13 @@
-$env:GOBIN = (go env GOBIN)
-$env:GOROOT = (go env GOROOT)
-$env:JAVA_HOME = (mise where java)
+#!/usr/bin/env pwsh
 
+Remove-Item Alias:r -Force -ErrorAction Ignore
 Remove-Item Alias:ni -Force -ErrorAction Ignore
 
-function ni {
-  & flutter pub get $args
+function r {
+  & nr $args
 }
 function nid {
-  & flutter pub get -d $args
+  & ni -D $args
 }
 
 function fl {
@@ -36,6 +35,10 @@ function dcu {
 function dcd {
   & docker compose down $args
 }
+
+$env:GOBIN = (go env GOBIN)
+$env:GOROOT = (go env GOROOT)
+$env:JAVA_HOME = (mise where java)
 
 Invoke-Expression "$(direnv hook pwsh)"
 Invoke-Expression (&starship init powershell)
