@@ -18,6 +18,8 @@
     "Source": "@/config/ai/skills",
     "Targets": [
       "$USERPROFILE/.agents/skills",
+      "$USERPROFILE/.config/agents/skills",
+
       "$USERPROFILE/.cursor/skills",
       "$USERPROFILE/.copilot/skills",
       "$USERPROFILE/.opencode/skills"
@@ -26,6 +28,9 @@
   {
     "Source": "@/config/ai/commands",
     "Targets": [
+      "$USERPROFILE/.agents/commands",
+      "$USERPROFILE/.config/agents/commands",
+
       "$APPDATA/Code/User/prompts",
       "$USERPROFILE/.cursor/commands",
       "$USERPROFILE/.opencode/commands"
@@ -34,16 +39,21 @@
   {
     "Source": "@/config/ai/subagents",
     "Targets": [
+      "$USERPROFILE/.agents/agents",
+      "$USERPROFILE/.config/agents/agents",
+
       "$USERPROFILE/.cursor/agents",
-      "$USERPROFILE/.github/agents",
       "$USERPROFILE/.config/opencode/agents"
     ]
   },
   {
     "Source": "@/config/ai/AGENTS.md",
     "Targets": [
-      "$USERPROFILE/.config/opencode/AGENTS.md",
-      "$USERPROFILE/.github/copilot.instructions.md"
+      "$USERPROFILE/.agents/AGENTS.md",
+      "$USERPROFILE/.config/agents/AGENTS.md",
+
+      "$USERPROFILE/.cursor/AGENTS.md",
+      "$USERPROFILE/.config/opencode/AGENTS.md"
     ]
   },
   {
