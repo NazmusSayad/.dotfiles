@@ -18,7 +18,6 @@ type ExecCommandOptions struct {
 
 	NoWait   bool
 	AsAdmin  bool
-	Simulate bool
 	Detached bool
 }
 
@@ -35,24 +34,18 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	}
 
 	cmd := exec.Command(args[0], args[1:]...)
-	if opts.Simulate && opts.AsAdmin {
-		cmd = exec.Command("sudo", "cmd", "/c", strings.Join(args, " "))
-	} else if opts.Simulate {
+	toAdmin := opts.AsAdmin && !isRunningAsAdmin()
+
+	if toAdmin && opts.Detached {
+		cmd = exec.Command("sudo", "--new-window", "cmd", "/c", strings.Join(args, " "))
+	} else if opts.Detached {
 		cmd = exec.Command("cmd", "/c", strings.Join(args, " "))
-	} else if opts.AsAdmin {
+	} else if toAdmin {
 		cmd = exec.Command("sudo", args...)
 	}
 
-	if opts.Detached {
-		cmd.SysProcAttr = &syscall.SysProcAttr{
-			CreationFlags:    syscall.CREATE_NEW_PROCESS_GROUP | 0x00000008,
-			NoInheritHandles: true,
-			HideWindow:       true,
-		}
-	} else {
-		cmd.SysProcAttr = &syscall.SysProcAttr{
-			HideWindow: true,
-		}
+	cmd.SysProcAttr = &syscall.SysProcAttr{
+		HideWindow: true,
 	}
 
 	if opts.Silent {

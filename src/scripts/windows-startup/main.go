@@ -6,13 +6,12 @@ import (
 )
 
 type LaunchConfig struct {
-	Name     string
-	Path     string
-	Args     []string
-	Skip     bool
-	Wait     bool
-	Admin    bool
-	Detached bool
+	Name  string
+	Path  string
+	Args  []string
+	Skip  bool
+	Wait  bool
+	Admin bool
 }
 
 func main() {
@@ -30,10 +29,8 @@ func main() {
 		helpers.ExecNativeCommand(
 			append([]string{resolvedCommand}, config.Args...),
 			helpers.ExecCommandOptions{
-				Detached: config.Detached,
-				Simulate: config.Detached,
-				AsAdmin:  config.Admin,
-				NoWait:   !config.Wait,
+				AsAdmin: config.Admin,
+				NoWait:  !config.Wait,
 			},
 		)
 	}

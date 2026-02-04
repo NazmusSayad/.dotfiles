@@ -21,7 +21,6 @@
     "Name": "GPG Init",
     "Path": "gpg",
     "Args": ["--list-keys"],
-    "Detached": true,
     "Admin": true
   },
   {
