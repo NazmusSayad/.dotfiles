@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "theme": "system",
+
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "model": "openrouter/moonshotai/kimi-k2.5",
+      "tools": {
+        "bash": true,
+        "edit": true,
+        "write": true
+      }
+    },
+
+    "plan": {
+      "mode": "primary",
+      "model": "openrouter/moonshotai/kimi-k2.5",
+      "tools": {
+        "bash": false,
+        "edit": false,
+        "write": false
+      }
+    }
+  }
+}

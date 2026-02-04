@@ -39,6 +39,10 @@
     "Label": "Cloudflare Tunnel"
   },
   {
+    "ID": "opencode",
+    "Label": "OpenCode CLI"
+  },
+  {
     "ID": "extras/lazygit",
     "Label": "Lazygit - Git GUI"
   },

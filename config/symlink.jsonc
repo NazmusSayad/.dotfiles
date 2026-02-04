@@ -19,16 +19,35 @@
 
   // Agent Configs
   {
-    "Source": "@/config/agents/skills",
-    "Targets": ["$USERPROFILE/.cursor/skills", "$USERPROFILE/.claude/skills"]
+    "Source": "@/config/ai/skills",
+    "Targets": [
+      "$USERPROFILE/.agents/skills",
+      "$USERPROFILE/.cursor/skills",
+      "$USERPROFILE/.opencode/skills"
+    ]
   },
   {
-    "Source": "@/config/agents/commands",
+    "Source": "@/config/ai/commands",
     "Targets": [
       "$APPDATA/Code/User/prompts",
       "$USERPROFILE/.cursor/commands",
-      "$USERPROFILE/.claude/commands"
+      "$USERPROFILE/.opencode/commands"
     ]
+  },
+  {
+    "Source": "@/config/ai/subagents",
+    "Targets": [
+      "$USERPROFILE/.cursor/agents",
+      "$USERPROFILE/.config/opencode/agents"
+    ]
+  },
+  {
+    "Source": "@/config/ai/AGENTS.md",
+    "Targets": ["$USERPROFILE/.config/opencode/AGENTS.md"]
+  },
+  {
+    "Source": "@/config/ai/opencode.json",
+    "Target": "$USERPROFILE/.config/opencode/config.json"
   },
 
   // Terminal Configs
