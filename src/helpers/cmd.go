@@ -16,26 +16,44 @@ type ExecCommandOptions struct {
 	NoStdout bool
 	NoStderr bool
 
+	NoWait   bool
+	AsAdmin  bool
 	Simulate bool
+	Detached bool
 }
 
 func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	opts := ExecCommandOptions{}
 	if len(options) > 0 {
 		opts = options[0]
+	} else if len(options) > 1 {
+		panic("only one options struct is allowed")
 	}
 
-	command := args[0]
-	if len(args) == 0 || command == "" {
+	if len(args) == 0 || args[0] == "" {
 		panic("command is required")
 	}
 
-	cmd := exec.Command(command, args[1:]...)
-	if opts.Simulate {
+	cmd := exec.Command(args[0], args[1:]...)
+	if opts.Simulate && opts.AsAdmin {
+		cmd = exec.Command("sudo", "cmd", "/c", strings.Join(args, " "))
+	} else if opts.Simulate {
 		cmd = exec.Command("cmd", "/c", strings.Join(args, " "))
+	} else if opts.AsAdmin {
+		cmd = exec.Command("sudo", args...)
 	}
 
-	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+	if opts.Detached {
+		cmd.SysProcAttr = &syscall.SysProcAttr{
+			CreationFlags:    syscall.CREATE_NEW_PROCESS_GROUP | 0x00000008,
+			NoInheritHandles: true,
+			HideWindow:       true,
+		}
+	} else {
+		cmd.SysProcAttr = &syscall.SysProcAttr{
+			HideWindow: true,
+		}
+	}
 
 	if opts.Silent {
 		opts.NoStdin = true
@@ -61,7 +79,13 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		cmd.Env = os.Environ()
 	}
 
-	err := cmd.Run()
+	var err error
+	if opts.NoWait {
+		err = cmd.Start()
+	} else {
+		err = cmd.Run()
+	}
+
 	if err != nil && opts.Exit {
 		if ee, ok := err.(*exec.ExitError); ok {
 			os.Exit(ee.ExitCode())
