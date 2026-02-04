@@ -48,7 +48,13 @@ func SlackApplicationStart() {
 		return
 	}
 
-	err = helpers.DetachedExec(runtimePath, "--startup")
+	err = helpers.ExecNativeCommand(
+		[]string{runtimePath, "--startup"},
+		helpers.ExecCommandOptions{
+			Detached: true,
+			Simulate: true,
+		},
+	)
 	if err != nil {
 		fmt.Println("Error: Failed to start Slack")
 	}
