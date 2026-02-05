@@ -49,11 +49,10 @@ func SlackApplicationStart() {
 	}
 
 	err = helpers.ExecNativeCommand(
-		[]string{"cmd", "/c", runtimePath, "--startup"},
+		[]string{runtimePath, "--startup"},
 		helpers.ExecCommandOptions{
 			Detached: true,
 			NoWait:   true,
-			Silent:   true,
 		},
 	)
 	if err != nil {
