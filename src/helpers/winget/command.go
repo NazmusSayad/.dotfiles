@@ -1,6 +1,6 @@
 package winget
 
-func buildWingetOptions(p WingetPackage, interactive bool) []string {
+func BuildWingetOptions(p WingetPackage, interactive bool) []string {
 	parts := []string{"--exact", "--id", p.ID, "--verbose", "--accept-package-agreements", "--accept-source-agreements"}
 
 	if p.Scope != "" {
@@ -26,14 +26,4 @@ func buildWingetOptions(p WingetPackage, interactive bool) []string {
 	}
 
 	return parts
-}
-
-func BuildWingetInstallArguments(p WingetPackage) []string {
-	parts := []string{"install", "--no-upgrade"}
-	return append(parts, buildWingetOptions(p, p.InteractiveInstall)...)
-}
-
-func BuildWingetUpgradeArguments(p WingetPackage) []string {
-	parts := []string{"upgrade"}
-	return append(parts, buildWingetOptions(p, p.InteractiveUpgrade)...)
 }
