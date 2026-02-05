@@ -1,9 +1,8 @@
 package constants
 
 type BinScript struct {
-	Exe             string
-	StartMenuName   string
-	NoProxySimulate bool
+	Exe           string
+	StartMenuName string
 }
 
 var BIN_SCRIPTS = map[string]BinScript{
@@ -48,8 +47,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 	},
 
 	"slack-status": {
-		StartMenuName:   "Slack Status",
-		NoProxySimulate: true,
+		StartMenuName: "Slack Status",
 	},
 
 	"scoop-init": {

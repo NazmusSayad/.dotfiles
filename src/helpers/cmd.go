@@ -5,6 +5,8 @@ import (
 	"os/exec"
 	"strings"
 	"syscall"
+
+	"golang.org/x/sys/windows"
 )
 
 type ExecCommandOptions struct {
@@ -44,8 +46,16 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		cmd = exec.Command("sudo", args...)
 	}
 
-	cmd.SysProcAttr = &syscall.SysProcAttr{
-		HideWindow: true,
+	if opts.Detached {
+		cmd.SysProcAttr = &windows.SysProcAttr{
+			HideWindow:       true,
+			NoInheritHandles: true,
+			CreationFlags:    windows.DETACHED_PROCESS | windows.CREATE_NEW_PROCESS_GROUP,
+		}
+	} else {
+		cmd.SysProcAttr = &syscall.SysProcAttr{
+			HideWindow: true,
+		}
 	}
 
 	if opts.Silent {
