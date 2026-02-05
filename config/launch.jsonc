@@ -34,6 +34,11 @@
     "Admin": true
   },
   {
+    "Name": "AHK Window Manager",
+    "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
+    "Admin": true
+  },
+  {
     "Name": "ShareX",
     "Path": "$PROGRAMFILES/ShareX/ShareX.exe",
     "Admin": true
