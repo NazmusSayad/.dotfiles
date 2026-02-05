@@ -14,6 +14,9 @@ type WingetPackage struct {
 	Version       string
 	InstallerType string
 
+	ForceAdminInstall bool
+	ForceAdminUpgrade bool
+
 	InteractiveInstall bool
 	InteractiveUpgrade bool
 

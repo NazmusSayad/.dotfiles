@@ -37,6 +37,11 @@ func main() {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Upgrading " + p.ID))
 
-		helpers.ExecNativeCommand(append([]string{"winget"}, winget.BuildWingetUpgradeArguments(p)...))
+		helpers.ExecNativeCommand(
+			append([]string{"winget", "upgrade"}, winget.BuildWingetOptions(p, p.InteractiveUpgrade)...),
+			helpers.ExecCommandOptions{
+				AsAdmin: p.ForceAdminUpgrade,
+			},
+		)
 	}
 }

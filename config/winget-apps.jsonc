@@ -158,10 +158,9 @@
   {
     "ID": "Docker.DockerDesktop",
     "Name": "Docker Desktop",
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true,
-    "SkipInstall": true,
-    "SkipUpgrade": true
+    "ForceAdminInstall": true,
+    "ForceAdminUpgrade": true,
+    "InteractiveInstall": true
   },
   {
     "ID": "Google.AndroidStudio",

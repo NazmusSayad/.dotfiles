@@ -23,6 +23,11 @@ func main() {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Installing " + p.ID))
 
-		helpers.ExecNativeCommand(append([]string{"winget"}, winget.BuildWingetInstallArguments(p)...))
+		helpers.ExecNativeCommand(
+			append([]string{"winget", "install", "--no-upgrade"}, winget.BuildWingetOptions(p, p.InteractiveInstall)...),
+			helpers.ExecCommandOptions{
+				AsAdmin: p.ForceAdminInstall,
+			},
+		)
 	}
 }
