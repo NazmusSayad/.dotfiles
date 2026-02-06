@@ -15,10 +15,6 @@ Write-Host "> Compiling AutoHotkey scripts..."
 go run ./src/compile-ahk/main.go
 
 Write-Host ""
-Write-Host "> Compiling aliases..."
-go run ./src/compile-alias/main.go
-
-Write-Host ""
 Write-Host "> Compiling Go scripts..."
 go run ./src/compile-scripts/main.go
 
