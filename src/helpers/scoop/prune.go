@@ -59,7 +59,7 @@ func PruneScoopApps() {
 		fmt.Println(aurora.Faint("- Removing bucket ").String() + aurora.Green(bucket).String())
 		helpers.ExecNativeCommand(
 			[]string{"scoop", "bucket", "rm", bucket},
-			helpers.ExecCommandOptions{Detached: true},
+			helpers.ExecCommandOptions{Simulate: true},
 		)
 	}
 
@@ -68,7 +68,7 @@ func PruneScoopApps() {
 		fmt.Println(aurora.Faint("- Removing app ").String() + aurora.Green(app.Source+"/"+app.Name).String())
 		helpers.ExecNativeCommand(
 			[]string{"scoop", "uninstall", app.Source + "/" + app.Name},
-			helpers.ExecCommandOptions{Detached: true},
+			helpers.ExecCommandOptions{Simulate: true},
 		)
 	}
 }
