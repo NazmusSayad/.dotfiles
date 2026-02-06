@@ -18,8 +18,10 @@ type ExecCommandOptions struct {
 	NoStdout bool
 	NoStderr bool
 
-	NoWait   bool
-	AsAdmin  bool
+	NoWait  bool
+	AsAdmin bool
+
+	Simulate bool
 	Detached bool
 }
 
@@ -35,16 +37,15 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		panic("command is required")
 	}
 
-	cmd := exec.Command(args[0], args[1:]...)
-	toAdmin := opts.AsAdmin && !isRunningAsAdmin()
-
-	if toAdmin && opts.Detached {
-		cmd = exec.Command("sudo", "--new-window", "cmd", "/c", strings.Join(args, " "))
-	} else if opts.Detached {
-		cmd = exec.Command("cmd", "/c", strings.Join(args, " "))
-	} else if toAdmin {
-		cmd = exec.Command("sudo", args...)
+	if opts.Simulate {
+		args = []string{"cmd", "/c", strings.Join(args, " ")}
 	}
+
+	if opts.AsAdmin && !isRunningAsAdmin() {
+		args = append([]string{"sudo"}, args...)
+	}
+
+	cmd := exec.Command(args[0], args[1:]...)
 
 	if opts.Detached {
 		cmd.SysProcAttr = &windows.SysProcAttr{

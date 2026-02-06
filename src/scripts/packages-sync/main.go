@@ -54,5 +54,5 @@ func main() {
 }
 
 func runCommand(commands []string) {
-	helpers.ExecNativeCommand(commands, helpers.ExecCommandOptions{Detached: true})
+	helpers.ExecNativeCommand(commands, helpers.ExecCommandOptions{Simulate: true})
 }
