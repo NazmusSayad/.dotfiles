@@ -329,7 +329,8 @@
                 "size": 11.75
             },
             "historySize": 999999999,
-            "intenseTextStyle": "all"
+            "intenseTextStyle": "all",
+            "padding": "8,4"
         },
         "list": 
         [
