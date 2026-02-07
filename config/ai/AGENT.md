@@ -60,17 +60,17 @@ nun <package>
 Incorrect:
 
 ```sh
-cd ./project && npm run test
+cd ./project && nr test
 ```
 
 Correct:
 
 ```sh
-npm run test
+nr test
 ```
 
 Correct:
 
 ```sh
-cd ./project/subproject && npm run test
+cd ./project/subproject && nr test
 ```
