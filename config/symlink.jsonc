@@ -47,7 +47,7 @@
     ]
   },
   {
-    "Source": "@/config/ai/AGENTS.md",
+    "Source": "@/config/ai/AGENT.md",
     "Targets": [
       "$USERPROFILE/.agents/AGENTS.md",
       "$USERPROFILE/.config/agents/AGENTS.md",
