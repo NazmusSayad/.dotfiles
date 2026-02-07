@@ -35,6 +35,12 @@ func InstallScoopApps() {
 		}
 	}
 
+	if _, isExists := exportAppMap[GIT_APP_ID]; !isExists {
+		fmt.Println()
+		fmt.Println(aurora.Red("Git is required to install other apps"))
+		installScoopApp(GIT_APP_ID)
+	}
+
 	missingBucketsCount := len(missingBuckets)
 	if missingBucketsCount == 0 {
 		fmt.Println(aurora.Green("No missing buckets found"))
@@ -56,19 +62,27 @@ func InstallScoopApps() {
 
 	for _, bucket := range missingBuckets {
 		fmt.Println()
-		fmt.Println(aurora.Faint("- Installing bucket ").String() + aurora.Green(bucket).String())
-		helpers.ExecNativeCommand(
-			[]string{"scoop", "bucket", "add", bucket},
-			helpers.ExecCommandOptions{Simulate: true},
-		)
+		installScoopBucket(bucket)
 	}
 
 	for _, app := range missingApps {
 		fmt.Println()
-		fmt.Println(aurora.Faint("- Installing app ").String() + aurora.Green(app.ID).String())
-		helpers.ExecNativeCommand(
-			[]string{"scoop", "install", app.ID},
-			helpers.ExecCommandOptions{Simulate: true},
-		)
+		installScoopApp(app.ID)
 	}
+}
+
+func installScoopApp(appId string) {
+	fmt.Println(aurora.Faint("- Installing"), aurora.Green(appId))
+	helpers.ExecNativeCommand(
+		[]string{"scoop", "install", appId},
+		helpers.ExecCommandOptions{Simulate: true},
+	)
+}
+
+func installScoopBucket(bucket string) {
+	fmt.Println(aurora.Faint("- Installing"), aurora.Green(bucket))
+	helpers.ExecNativeCommand(
+		[]string{"scoop", "bucket", "add", bucket},
+		helpers.ExecCommandOptions{Simulate: true},
+	)
 }

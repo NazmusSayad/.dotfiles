@@ -28,9 +28,11 @@ func PruneScoopApps() {
 
 	unnecessaryApps := []ScoopApp{}
 	for appId, exportApp := range exportAppMap {
-		_, isExists := configAppMap[appId]
+		if appId == GIT_APP_ID {
+			continue
+		}
 
-		if !isExists {
+		if _, isExists := configAppMap[appId]; !isExists {
 			unnecessaryApps = append(unnecessaryApps, exportApp)
 		}
 	}
@@ -56,7 +58,7 @@ func PruneScoopApps() {
 
 	for _, bucket := range unnecessaryBuckets {
 		fmt.Println()
-		fmt.Println(aurora.Faint("- Removing bucket ").String() + aurora.Green(bucket).String())
+		fmt.Println(aurora.Faint("- Removing bucket"), aurora.Green(bucket))
 		helpers.ExecNativeCommand(
 			[]string{"scoop", "bucket", "rm", bucket},
 			helpers.ExecCommandOptions{Simulate: true},
@@ -65,7 +67,7 @@ func PruneScoopApps() {
 
 	for _, app := range unnecessaryApps {
 		fmt.Println()
-		fmt.Println(aurora.Faint("- Removing app ").String() + aurora.Green(app.Source+"/"+app.Name).String())
+		fmt.Println(aurora.Faint("- Removing app"), aurora.Green(app.Source+"/"+app.Name))
 		helpers.ExecNativeCommand(
 			[]string{"scoop", "uninstall", app.Source + "/" + app.Name},
 			helpers.ExecCommandOptions{Simulate: true},
