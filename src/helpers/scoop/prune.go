@@ -28,7 +28,7 @@ func PruneScoopApps() {
 
 	unnecessaryApps := []ScoopApp{}
 	for appId, exportApp := range exportAppMap {
-		if appId == GIT_APP_ID {
+		if slices.Contains(SCOOP_SYSTEM_APPS, appId) {
 			continue
 		}
 
