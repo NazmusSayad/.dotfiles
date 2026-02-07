@@ -23,10 +23,6 @@
 
   // Development Tools
   {
-    "ID": "git",
-    "Label": "Git"
-  },
-  {
     "ID": "gh",
     "Label": "GitHub CLI"
   },

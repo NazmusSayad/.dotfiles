@@ -18,13 +18,13 @@ type ScoopAppInputConfig struct {
 
 type ScoopAppConfig struct {
 	ID            string
-	Name          string
-	Source        string
+	Label         string
+	Bucket        string
 	Version       string
 	SkipHashCheck bool
-
-	Label string
 }
+
+const GIT_APP_ID = "main/git"
 
 func ReadScoopAppConfig() []ScoopAppConfig {
 	inputConfig := helpers.ReadConfig[[]ScoopAppInputConfig]("@/config/scoop-apps.jsonc")
@@ -48,10 +48,8 @@ func ReadScoopAppConfig() []ScoopAppConfig {
 		}
 
 		outputConfig = append(outputConfig, ScoopAppConfig{
-			ID: bucketName + "/" + appName,
-
-			Name:   appName,
-			Source: bucketName,
+			ID:     bucketName + "/" + appName,
+			Bucket: bucketName,
 
 			Label:         app.Label,
 			Version:       app.Version,
@@ -76,7 +74,7 @@ func GetScoopConfigBucketsList(configs []ScoopAppConfig) []string {
 	bucketList := []string{}
 
 	for _, app := range configs {
-		bucketList = append(bucketList, app.Source)
+		bucketList = append(bucketList, app.Bucket)
 	}
 
 	return utils.UniqueArray(bucketList)
