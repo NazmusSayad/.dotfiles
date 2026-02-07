@@ -43,6 +43,3 @@ python = "latest"
 # Google Cloud Tools
 gcloud = "latest"
 "npm:firebase-tools" = "latest"
-
-[settings]
-auto_install = false
