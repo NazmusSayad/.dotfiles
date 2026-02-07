@@ -34,40 +34,45 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenuName: "GPG Unlock",
 	},
 
-	"clean-code-snippets": {
-		StartMenuName: "Clean Code Snippets",
-	},
-
-	"msys-setup": {
-		StartMenuName: "MSYS2 Setup",
-	},
-
 	"symlink-setup": {
 		StartMenuName: "Symlink Setup",
 	},
 
 	"slack-status": {
 		StartMenuName: "Slack Status",
+		Exe:           "ss",
+	},
+
+	"msys-init": {
+		StartMenuName: "MSYS2 Init",
 	},
 
 	"scoop-init": {
 		StartMenuName: "Scoop Init",
 	},
 
+	"packages-sync": {
+		StartMenuName: "Packages Sync",
+		Exe:           "psy",
+	},
+
 	"winget-install": {
 		StartMenuName: "WinGet Install",
+		Exe:           "wgi",
 	},
 
 	"winget-upgrade": {
 		StartMenuName: "WinGet Upgrade",
+		Exe:           "wgu",
+	},
+
+	"clean-code-snippets": {
+		StartMenuName: "Clean Code Snippets",
+		Exe:           "csc",
 	},
 
 	"code-ext-sync": {
 		StartMenuName: "Code Extensions Sync",
-	},
-
-	"packages-sync": {
-		StartMenuName: "Packages Sync",
-		Exe:           "psy",
+		Exe:           "ces",
 	},
 }
