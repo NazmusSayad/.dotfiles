@@ -24,7 +24,7 @@ type ScoopAppConfig struct {
 	SkipHashCheck bool
 }
 
-const GIT_APP_ID = "main/git"
+var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/git"}
 
 func ReadScoopAppConfig() []ScoopAppConfig {
 	inputConfig := helpers.ReadConfig[[]ScoopAppInputConfig]("@/config/scoop-apps.jsonc")

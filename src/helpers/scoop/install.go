@@ -35,10 +35,12 @@ func InstallScoopApps() {
 		}
 	}
 
-	if _, isExists := exportAppMap[GIT_APP_ID]; !isExists {
-		fmt.Println()
-		fmt.Println(aurora.Red("Git is required to install other apps"))
-		installScoopApp(GIT_APP_ID)
+	for _, app := range SCOOP_SYSTEM_APPS {
+		if _, isExists := exportAppMap[app]; !isExists {
+			fmt.Println()
+			fmt.Println(aurora.Red(app + " is required to install other apps"))
+			installScoopApp(app)
+		}
 	}
 
 	missingBucketsCount := len(missingBuckets)
