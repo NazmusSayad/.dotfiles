@@ -31,6 +31,10 @@
     "Label": "GitHub CLI"
   },
   {
+    "ID": "extras/gitbutler",
+    "Label": "Git But Client"
+  },
+  {
     "ID": "aws",
     "Label": "AWS CLI"
   },
