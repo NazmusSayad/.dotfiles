@@ -3,9 +3,9 @@ name: react
 description: This skill guides how to write good React code.
 ---
 
-# React Styles
+## React Styles
 
-## Do not over declare variables, functions, or components unless it's extremely complex.
+### Do not over declare variables, functions, or components unless it's extremely complex.
 
 ❌ Incorrect:
 
@@ -71,7 +71,7 @@ function MyComponent() {
 }
 ```
 
-## Put pure functions always outside of the component.
+### Put pure functions always outside of the component.
 
 ❌ Incorrect:
 
