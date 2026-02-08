@@ -23,6 +23,12 @@
   { "Id": "ms-python.debugpy", "Include": ["cursor"] },
   { "Id": "ms-python.vscode-python-envs", "Include": ["cursor"] },
 
+  // PHP
+  { "Id": "devsense.composer-php-vscode" },
+  { "Id": "devsense.intelli-php-vscode" },
+  { "Id": "devsense.phptools-vscode" },
+  { "Id": "devsense.profiler-php-vscode" },
+
   // Linters and Formatters
   { "Id": "esbenp.prettier-vscode", "Version": "11.0.3" },
   { "Id": "dbaeumer.vscode-eslint" },

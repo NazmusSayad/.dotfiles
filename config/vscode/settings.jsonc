@@ -92,6 +92,7 @@
     "**/next-env.d.ts": true,
     "**/tsconfig.tsbuildinfo": true
   },
+  "search.quickOpen.includeHistory": false,
   "search.exclude": {
     "**/dist": true,
     "**/{.gitignore,.npmignore}": true,
@@ -216,6 +217,9 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
   },
   "xml.format.preservedNewlines": 1,
   "prisma.hidePrisma6Prompts": true,
