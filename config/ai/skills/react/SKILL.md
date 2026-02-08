@@ -1,6 +1,6 @@
 ---
 name: react
-description: This skill guides how to write good React code.
+description: Applies common React style guides and conventions. Use when writing or reviewing React components, hooks, or JSX, or when the user asks for React style or best practices.
 ---
 
 ## 1. Don't over-declare
