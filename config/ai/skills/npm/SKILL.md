@@ -1,7 +1,9 @@
 ---
 name: npm
-description: This skill guides the use of @antfu/ni to manage npm packages.
+description: Use @antfu/ni to run scripts, install/upgrade/uninstall packages across npm, yarn, and pnpm. Use when running npm/yarn/pnpm commands, installing dependencies, or managing packages.
 ---
+
+Use **@antfu/ni** (ni/nr/nup/nun). It picks the project's package manager automatically.
 
 ## `nr` - run
 
