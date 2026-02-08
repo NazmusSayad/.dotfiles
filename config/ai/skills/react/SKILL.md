@@ -3,9 +3,9 @@ name: react
 description: This skill guides how to write good React code.
 ---
 
-## React Styles
+## 1. Don't over-declare
 
-### Do not over declare variables, functions, or components unless it's extremely complex.
+Do not over-declare variables, functions, or components unless the logic is extremely complex. Prefer inlining when it's simple.
 
 ❌ Incorrect:
 
@@ -28,7 +28,7 @@ function MyComponent() {
 }
 ```
 
-#### Just inline it when it's not extremely complex.
+Inline it when it's not extremely complex.
 
 ✅ Correct:
 
@@ -47,7 +47,7 @@ function MyComponent() {
 }
 ```
 
-#### Can declare functions when it's extremely complex.
+You may declare functions when the logic is extremely complex.
 
 ✅ Correct:
 
@@ -71,7 +71,9 @@ function MyComponent() {
 }
 ```
 
-### Put pure functions always outside of the component.
+## 2. Keep pure functions outside the component
+
+Put pure functions always outside of the component.
 
 ❌ Incorrect:
 
