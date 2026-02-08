@@ -1,11 +1,7 @@
 ---
 name: npm
-description: Use @antfu/ni to manage npm packages.
+description: This skill guides the use of @antfu/ni to manage npm packages.
 ---
-
-This skill guides the use of @antfu/ni to manage npm packages.
-
-The user provides a command to run, install, upgrade, or uninstall a package.
 
 ## `nr` - run
 
