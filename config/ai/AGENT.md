@@ -22,9 +22,9 @@
 
 # Skills
 
-- Use the `npm` skill to work with npm.
-- Use the `react` skill when writing React code.
-- Use the `frontend-design` skill when designing frontend interfaces.
+- Use `npm` skill to work with npm.
+- Use `react` skill when writing React code.
+- Use `frontend-design` skill when designing frontend interfaces.
 
 # CLI/Terminal
 
