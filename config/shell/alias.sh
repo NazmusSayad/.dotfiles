@@ -13,6 +13,10 @@ alias flp="flutter pub"
 alias flr="flutter run"
 alias fle="flutter emulators"
 
+# PHP
+alias pa="php artisan"
+alias pas="php artisan serve"
+
 # Docker
 alias d="docker"
 alias dc="docker compose"
