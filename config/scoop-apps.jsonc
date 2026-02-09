@@ -162,7 +162,11 @@
   },
   {
     "ID": "ffmpeg",
-    "Label": "FFmpeg - Video Converter"
+    "Label": "FFmpeg - Video Manipulation"
+  },
+  {
+    "ID": "imagemagick",
+    "Label": "ImageMagick - Image Manipulation"
   },
 
   // Fonts
