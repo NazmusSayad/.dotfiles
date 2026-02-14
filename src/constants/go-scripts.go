@@ -27,7 +27,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 	},
 
 	"gh-pull-create": {
-		Exe: "ghp",
+		Exe: "gpc",
 	},
 
 	"gpg-unlock": {
