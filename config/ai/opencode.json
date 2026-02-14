@@ -6,7 +6,7 @@
   "agent": {
     "build": {
       "mode": "primary",
-      "model": "openrouter/moonshotai/kimi-k2.5",
+      "model": "openrouter/z-ai/glm-5",
       "tools": {
         "bash": true,
         "edit": true,
@@ -16,7 +16,7 @@
 
     "plan": {
       "mode": "primary",
-      "model": "openrouter/moonshotai/kimi-k2.5",
+      "model": "openrouter/z-ai/glm-5",
       "tools": {
         "bash": false,
         "edit": false,
