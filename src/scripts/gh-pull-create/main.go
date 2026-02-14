@@ -25,7 +25,7 @@ func main() {
 		baseBranch = os.Args[1]
 		targetBranch = os.Args[2]
 	} else {
-		fmt.Fprintln(os.Stderr, "Usage: ghp [branch]")
+		fmt.Fprintln(os.Stderr, "Usage: gpc [branch]")
 		os.Exit(1)
 	}
 
