@@ -51,7 +51,7 @@
     "**/pnpm-lock.yaml",
     "**/package-lock.json",
     "**/.*",
-    "!**/.*/"
+    "!**/.*/",
   ],
   "workbench.startupEditor": "none",
   "workbench.enableExperiments": false,
@@ -66,7 +66,7 @@
   "workbench.editor.preventPinnedEditorClose": "keyboard",
   "workbench.activityBar.orientation": "vertical",
   "workbench.editorAssociations": {
-    "*.svg": "default"
+    "*.svg": "default",
   },
   "window.confirmSaveUntitledWorkspace": false,
   "window.restoreWindows": "one",
@@ -90,30 +90,30 @@
     "**/.next": true,
     "**/node_modules": true,
     "**/next-env.d.ts": true,
-    "**/tsconfig.tsbuildinfo": true
+    "**/tsconfig.tsbuildinfo": true,
   },
   "search.quickOpen.includeHistory": false,
   "search.exclude": {
     "**/dist": true,
     "**/{.gitignore,.npmignore}": true,
     "**/{.vscode,.codespaces,.oryx,.next}": true,
-    "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true
+    "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true,
   },
   "terminal.external.windowsExec": "wt.exe",
   "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.windows": {
     "Fish (MSYS2)": {
-      "path": "fish.exe"
+      "path": "fish.exe",
     },
     "Bash (MSYS2)": {
-      "path": "bash.exe"
+      "path": "bash.exe",
     },
     "Zsh (MSYS2)": {
-      "path": "zsh.exe"
+      "path": "zsh.exe",
     },
     "PowerShell (pwsh)": {
-      "path": "pwsh.exe"
-    }
+      "path": "pwsh.exe",
+    },
   },
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.shellIntegration.decorationsEnabled": "gutter",
@@ -177,49 +177,49 @@
   "editor.quickSuggestions": {
     "comments": true,
     "strings": true,
-    "other": true
+    "other": true,
   },
   "files.associations": {
     ".env*": "dotenv",
     ".envrc": "shellscript",
-    "*.code-snippets": "jsonc"
+    "*.code-snippets": "jsonc",
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[go]": {
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.go",
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
+    "editor.defaultFormatter": "ms-python.autopep8",
   },
   "[dart]": {
-    "editor.defaultFormatter": "Dart-Code.dart-code"
+    "editor.defaultFormatter": "Dart-Code.dart-code",
   },
   "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
+    "editor.defaultFormatter": "Prisma.prisma",
   },
   "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
   },
   "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
+    "editor.defaultFormatter": "redhat.vscode-xml",
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "mkhl.shfmt"
+    "editor.defaultFormatter": "mkhl.shfmt",
   },
   "[fish]": {
-    "editor.defaultFormatter": "bmalehorn.vscode-fish"
+    "editor.defaultFormatter": "bmalehorn.vscode-fish",
   },
   "[go.mod]": {
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.go",
   },
   "[snippets]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[php]": {
-    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode",
   },
   "xml.format.preservedNewlines": 1,
   "prisma.hidePrisma6Prompts": true,
@@ -231,7 +231,7 @@
   "go.survey.prompt": false,
   "go.testExplorer.showOutput": false,
   "go.enableCodeLens": {
-    "runtest": false
+    "runtest": false,
   },
   "prettier.tabWidth": 2,
   "prettier.semi": false,
@@ -254,7 +254,7 @@
   "scm.defaultViewMode": "tree",
   "scm.diffDecorations": "gutter",
   "scm.diffDecorationsGutterPattern": {
-    "added": true
+    "added": true,
   },
   "dart.mcpServer": false,
   "dart.closingLabels": false,
@@ -284,7 +284,7 @@
     "react-icons",
     "@radix-ui",
     "date-fns",
-    "moment"
+    "moment",
   ],
   "typescript.preferences.autoImportFileExcludePatterns": [
     "next/dist/client/router*",
@@ -294,7 +294,7 @@
     "react-icons",
     "@radix-ui",
     "date-fns",
-    "moment"
+    "moment",
   ],
   "yaml.extension.recommendations": false,
   "git.blame.statusBarItem.enabled": false,
@@ -367,7 +367,7 @@
   "cSpell.enabledNotifications": {
     "Lines too Long": false,
     "Average Word Length too Long": false,
-    "Maximum Word Length Exceeded": false
+    "Maximum Word Length Exceeded": false,
   },
   "workbench.navigationControl.enabled": false,
   "workbench.sideBar.location": "right",
@@ -379,9 +379,10 @@
   "chat.tools.terminal.enableAutoApprove": false,
   "chat.extensionTools.enabled": false,
   "chat.agent.thinking.generateTitles": false,
+  "chat.editing.confirmEditRequestRemoval": false,
   "github.copilot.enable": {
     "*": true,
-    "markdown": true
+    "markdown": true,
   },
   "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
@@ -400,59 +401,58 @@
     "THOUGHT",
     "QUESTION",
     "OPTIMIZE",
-    "SUGGESTION"
+    "SUGGESTION",
   ],
   "todo-tree.highlights.defaultHighlight": {
     "type": "tag",
     "fontStyle": "normal",
-    "textDecoration": "underline"
+    "textDecoration": "underline",
   },
   "todo-tree.highlights.customHighlight": {
     "BUG": {
       "icon": "bug",
-      "background": "#E5393580"
+      "background": "#E5393580",
     },
     "HACK": {
       "icon": "tools",
-      "background": "#FB8C0080"
+      "background": "#FB8C0080",
     },
     "FIXME": {
       "icon": "flame",
-      "background": "#F4511E80"
+      "background": "#F4511E80",
     },
     "TODO": {
       "icon": "check-circle",
-      "background": "#1E88E580"
+      "background": "#1E88E580",
     },
     "NOTE": {
       "icon": "note",
-      "background": "#8E24AA80"
+      "background": "#8E24AA80",
     },
     "ISSUE": {
       "icon": "issue-opened",
-      "background": "#C6282880"
+      "background": "#C6282880",
     },
     "REVIEW": {
       "icon": "eye",
-      "background": "#039BE580"
+      "background": "#039BE580",
     },
     "THOUGHT": {
       "icon": "comment-discussion",
-      "background": "#6D4C4180"
+      "background": "#6D4C4180",
     },
     "QUESTION": {
       "icon": "question",
-      "background": "#5E35B180"
+      "background": "#5E35B180",
     },
     "OPTIMIZE": {
       "icon": "telescope",
-      "background": "#00897B80"
+      "background": "#00897B80",
     },
     "SUGGESTION": {
       "icon": "light-bulb",
-      "background": "#FDD83580"
-    }
+      "background": "#FDD83580",
+    },
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden"
 }
