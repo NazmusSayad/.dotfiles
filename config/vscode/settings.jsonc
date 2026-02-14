@@ -455,4 +455,5 @@
     },
   },
   "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
 }
