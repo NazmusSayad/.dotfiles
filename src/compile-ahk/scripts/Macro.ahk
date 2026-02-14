@@ -18,11 +18,11 @@ A_MaxHotkeysPerInterval := 9999
   KeyWait "Ctrl"
   Send "{WheelDown}"
 }
-
-::@me::me@sayad.dev
-::@fake::fake@sayad.dev
-::@env::sayadenv@gmail.com
-::@mail::247sayad@gmail.com
+ 
+#`:: {
+  RunWait 'schtasks /create /tn "WT-Desktop-User" /tr "wt.exe -d \"' A_Desktop '\"" /sc once /st 00:00 /sd 01/01/2000 /f', , "Hide"
+  Run 'schtasks /run /tn "WT-Desktop-User"', , "Hide"
+}
 
 ^#F11:: {
   SoundBeep 1000, 300
@@ -30,7 +30,6 @@ A_MaxHotkeysPerInterval := 9999
 }
 
 ^#!F11:: {
-
   hwnd := WinGetID("A")
   if !hwnd {
     return
@@ -51,3 +50,8 @@ A_MaxHotkeysPerInterval := 9999
     WinSetExStyle "-" WS_EX_APPWINDOW, hwnd
   }
 }
+
+::@me::me@sayad.dev
+::@fake::fake@sayad.dev
+::@env::sayadenv@gmail.com
+::@mail::247sayad@gmail.com
