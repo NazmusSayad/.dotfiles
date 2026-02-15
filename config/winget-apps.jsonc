@@ -73,6 +73,10 @@
     "Name": "Unified Remote"
   },
   {
+    "ID": "AutoHotkey.AutoHotkey",
+    "Name": "Auto Hot key"
+  },
+  {
     "ID": "REALiX.HWiNFO",
     "Name": "HwInfo"
   },

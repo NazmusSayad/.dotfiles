@@ -32,6 +32,7 @@
   // Linters and Formatters
   { "Id": "esbenp.prettier-vscode", "Version": "11.0.3" },
   { "Id": "dbaeumer.vscode-eslint" },
+  { "Id": "mark-wiemer.vscode-autohotkey-plus-plus" },
   { "Id": "mkhl.shfmt" },
 
   // Other Languages
