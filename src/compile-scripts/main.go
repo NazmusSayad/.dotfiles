@@ -35,20 +35,21 @@ func main() {
 		}
 
 		entryName := entry.Name()
-		outputName := constants.BIN_SCRIPTS[entryName].Exe
-		if outputName == "" {
-			outputName = entryName
+		buildScript(sourceDir, outputDir, entryName, entryName)
+
+		scriptEntry, ok := constants.BIN_SCRIPTS[entryName]
+		if ok {
+			buildScript(sourceDir, outputDir, entryName, scriptEntry.Exe)
 		}
-
-		sourcePath := filepath.Join(sourceDir, entryName, "main.go")
-		outputPath := filepath.Join(outputDir, outputName+".exe")
-
-		if !utils.IsFileExists(sourcePath) {
-			fmt.Println(aurora.Red("Source file not found: " + sourcePath))
-			continue
-		}
-
-		fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName + aurora.Faint(" -> ").String() + outputName)
-		helpers.ExecNativeCommand([]string{"go", "build", "-o", outputPath, sourcePath})
 	}
+}
+
+func buildScript(sourceDir string, outputDir string, entryName string, exe string) {
+	sourcePath := filepath.Join(sourceDir, entryName, "main.go")
+	if !utils.IsFileExists(sourcePath) {
+		panic(fmt.Sprintf("Source file not found: %s", sourcePath))
+	}
+
+	fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName + aurora.Faint(" -> ").String() + exe)
+	helpers.ExecNativeCommand([]string{"go", "build", "-o", filepath.Join(outputDir, exe+".exe"), sourcePath})
 }
