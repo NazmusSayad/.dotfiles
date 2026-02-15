@@ -22,7 +22,7 @@ func setEnv(name, value string) {
 	fmt.Println(aurora.Blue(name).String(), aurora.Green(value))
 
 	existingValue, ok := os.LookupEnv(name)
-	if ok && existingValue == value {
+	if ok && existingValue != "" && existingValue == value {
 		fmt.Println(aurora.Blue(name).String(), aurora.Green("already set"))
 		return
 	}
@@ -34,33 +34,18 @@ func main() {
 	initGoEnv()
 	initJavaEnv()
 	initAndroidSdkEnv()
-}
+}    
 
 func initGoEnv() {
-	goBinCmd := exec.Command("go", "env", "GOBIN")
-	goPathCmd := exec.Command("go", "env", "GOPATH")
-	goRootCmd := exec.Command("go", "env", "GOROOT")
+	goPath := getGoEnv("GOPATH", os.Environ())
+	goEnv := getEnvWithoutGoVars() 
+   
+	goBin := getGoEnv("GOBIN", goEnv)
+	goRoot := getGoEnv("GOROOT", goEnv)
 
-	goBinOutput, err := goBinCmd.Output()
-	if err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		setEnv("GOBIN", strings.TrimSpace(string(goBinOutput)))
-	}
-
-	goPathOutput, err := goPathCmd.Output()
-	if err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		setEnv("GOPATH", strings.TrimSpace(string(goPathOutput)))
-	}
-
-	goRootOutput, err := goRootCmd.Output()
-	if err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		setEnv("GOROOT", strings.TrimSpace(string(goRootOutput)))
-	}
+	setEnv("GOPATH", goPath) 
+	setEnv("GOBIN", goBin)
+	setEnv("GOROOT", goRoot)
 }
 
 func initJavaEnv() {
@@ -83,4 +68,32 @@ func initAndroidSdkEnv() {
 
 	setEnv("ANDROID_HOME", androidSdkPath)
 	setEnv("ANDROID_SDK_ROOT", androidSdkPath)
+}
+
+func getGoEnv(name string, env []string) string {
+	cmd := exec.Command("go", "env", name)
+	cmd.Env = env
+
+	output, err := cmd.Output()
+	if err != nil {
+		panic(err)
+	}
+
+	return strings.TrimSpace(string(output))
+}
+
+func getEnvWithoutGoVars() []string {
+	env := os.Environ()
+	filtered := make([]string, 0, len(env))
+
+	for _, item := range env {
+		key, _, ok := strings.Cut(item, "=")
+		if !ok || strings.HasPrefix(key, "GO") {
+			continue
+		}
+
+		filtered = append(filtered, item)
+	}
+
+	return filtered
 }

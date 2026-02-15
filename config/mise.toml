@@ -27,10 +27,6 @@ uv = "latest"
 python = "latest"
 
 
-# Go Tools
-"go:golang.org/x/tools/gopls" = "latest"
-
-
 # CLI Tools
 "npm:serve" = "latest"
 "npm:netserv" = "latest"

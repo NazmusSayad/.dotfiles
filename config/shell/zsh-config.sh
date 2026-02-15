@@ -1,10 +1,7 @@
 #!/usr/bin/env zsh
 
 source $DOTFILES_DIR/config/shell/alias.sh
-
-export GOBIN=$(go env GOBIN)
-export GOROOT=$(go env GOROOT)
-export JAVA_HOME=$(mise where java)
+source $DOTFILES_DIR/config/shell/mise-env.sh
 
 eval "$(direnv hook zsh)"
 

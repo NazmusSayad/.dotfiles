@@ -7,13 +7,16 @@ set fish_color_comment --dim
 set fish_color_command magenta
 
 function fish_greeting
+    # fastfetch
 end
 
 source $DOTFILES_DIR/config/shell/alias.sh
 
-set -g GOBIN (go env GOBIN)
-set -g GOROOT (go env GOROOT)
-set -g JAVA_HOME (mise where java)
+for line in (mise env --dotenv)
+    set -l key (string split -m1 "=" $line)[1]
+    set -l val (string split -m1 "=" $line)[2]
+    set -gx $key $val
+end
 
 direnv hook fish | source
 
