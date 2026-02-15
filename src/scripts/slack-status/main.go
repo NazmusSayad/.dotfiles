@@ -60,7 +60,6 @@ func main() {
 	}
 
 	if fm, ok := final.(model); ok && fm.choice != nil {
-		fmt.Println()
 		writeSlackStatus(*fm.choice)
 	}
 }
@@ -164,7 +163,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		}
 	case tea.WindowSizeMsg:
-		m.list.SetSize(msg.Width, min(msg.Height, 4))
+		m.list.SetSize(msg.Width, min(msg.Height, 5))
 	}
 
 	var cmd tea.Cmd
