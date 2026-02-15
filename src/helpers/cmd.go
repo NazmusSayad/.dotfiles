@@ -19,6 +19,7 @@ type ExecCommandOptions struct {
 	NoStderr bool
 
 	NoWait  bool
+	AsUser  bool
 	AsAdmin bool
 
 	Simulate bool
@@ -37,12 +38,22 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		panic("command is required")
 	}
 
+	if opts.AsUser && opts.AsAdmin {
+		panic("cannot run as user and admin at the same time")
+	}
+
 	if opts.Simulate {
 		args = []string{"cmd", "/c", strings.Join(args, " ")}
 	}
 
-	if opts.AsAdmin && !isRunningAsAdmin() {
+	isAlreadyAsAdmin := isRunningAsAdmin()
+
+	if opts.AsAdmin && !isAlreadyAsAdmin {
 		args = append([]string{"sudo"}, args...)
+	}
+
+	if opts.AsUser && isAlreadyAsAdmin {
+
 	}
 
 	cmd := exec.Command(args[0], args[1:]...)
