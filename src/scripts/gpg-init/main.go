@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
@@ -11,13 +12,12 @@ import (
 )
 
 func main() {
-	if _, gitPathError := exec.LookPath("git"); gitPathError != nil {
+	if !utils.IsCommandInPath("git") {
 		fmt.Println(aurora.Red("Error: Git not installed"))
 		os.Exit(1)
 	}
 
-	gpgPath, gpgPathError := exec.LookPath("gpg")
-	if gpgPathError != nil {
+	if !utils.IsCommandInPath("gpg") {
 		fmt.Println(aurora.Red("Error: GPG not installed"))
 		os.Exit(1)
 	}
@@ -92,7 +92,7 @@ func main() {
 
 	exec.Command("git", "config", "--global", "user.signingkey", gpgKeyID).Run()
 	exec.Command("git", "config", "--global", "commit.gpgsign", "true").Run()
-	exec.Command("git", "config", "--global", "gpg.program", gpgPath).Run()
+	exec.Command("git", "config", "--global", "gpg.program", "gpg.exe").Run()
 
 	exportCmd := exec.Command("gpg", "--armor", "--export", gpgKeyID)
 	exportCmd.Stdout = os.Stdout
