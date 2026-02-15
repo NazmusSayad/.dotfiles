@@ -2,6 +2,7 @@ package scoop
 
 import (
 	"dotfiles/src/helpers"
+	"dotfiles/src/helpers/scoop"
 	"fmt"
 	"slices"
 	"strings"
@@ -9,15 +10,15 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func PruneScoopApps() {
-	exports := GetScoopExports()
-	configs := ReadScoopAppConfig()
+func main() {
+	exports := scoop.GetScoopExports()
+	configs := scoop.ReadScoopAppConfig()
 
-	configBucketsList := GetScoopConfigBucketsList(configs)
-	configAppMap := GetScoopConfigAppMap(configs)
+	configBucketsList := scoop.GetScoopConfigBucketsList(configs)
+	configAppMap := scoop.GetScoopConfigAppMap(configs)
 
-	exportBucketList := GetScoopExportBucketsList(exports)
-	exportAppMap := GetScoopExportAppMap(exports)
+	exportBucketList := scoop.GetScoopExportBucketsList(exports)
+	exportAppMap := scoop.GetScoopExportAppMap(exports)
 
 	unnecessaryBuckets := []string{}
 	for _, bucket := range exportBucketList {
@@ -26,9 +27,9 @@ func PruneScoopApps() {
 		}
 	}
 
-	unnecessaryApps := []ScoopApp{}
+	unnecessaryApps := []scoop.ScoopApp{}
 	for appId, exportApp := range exportAppMap {
-		if slices.Contains(SCOOP_SYSTEM_APPS, appId) {
+		if slices.Contains(scoop.SCOOP_SYSTEM_APPS, appId) {
 			continue
 		}
 

@@ -2,6 +2,7 @@ package scoop
 
 import (
 	"dotfiles/src/helpers"
+	"dotfiles/src/helpers/scoop"
 	"fmt"
 	"slices"
 	"strings"
@@ -9,15 +10,15 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func InstallScoopApps() {
-	exports := GetScoopExports()
-	configs := ReadScoopAppConfig()
+func main() {
+	exports := scoop.GetScoopExports()
+	configs := scoop.ReadScoopAppConfig()
 
-	configBucketsList := GetScoopConfigBucketsList(configs)
-	configAppMap := GetScoopConfigAppMap(configs)
+	configBucketsList := scoop.GetScoopConfigBucketsList(configs)
+	configAppMap := scoop.GetScoopConfigAppMap(configs)
 
-	exportBucketList := GetScoopExportBucketsList(exports)
-	exportAppMap := GetScoopExportAppMap(exports)
+	exportBucketList := scoop.GetScoopExportBucketsList(exports)
+	exportAppMap := scoop.GetScoopExportAppMap(exports)
 
 	missingBuckets := []string{}
 	for _, bucket := range configBucketsList {
@@ -26,7 +27,7 @@ func InstallScoopApps() {
 		}
 	}
 
-	missingApps := []ScoopAppConfig{}
+	missingApps := []scoop.ScoopAppConfig{}
 	for appId, configApp := range configAppMap {
 		_, isExists := exportAppMap[appId]
 
@@ -35,7 +36,7 @@ func InstallScoopApps() {
 		}
 	}
 
-	for _, app := range SCOOP_SYSTEM_APPS {
+	for _, app := range scoop.SCOOP_SYSTEM_APPS {
 		if _, isExists := exportAppMap[app]; !isExists {
 			fmt.Println()
 			fmt.Println(aurora.Red(app + " is required to install other apps"))
@@ -75,16 +76,10 @@ func InstallScoopApps() {
 
 func installScoopApp(appId string) {
 	fmt.Println(aurora.Faint("- Installing"), aurora.Green(appId))
-	helpers.ExecNativeCommand(
-		[]string{"scoop", "install", appId},
-		helpers.ExecCommandOptions{Simulate: true},
-	)
+	helpers.ExecNativeCommand([]string{"scoop", "install", appId})
 }
 
 func installScoopBucket(bucket string) {
 	fmt.Println(aurora.Faint("- Installing"), aurora.Green(bucket))
-	helpers.ExecNativeCommand(
-		[]string{"scoop", "bucket", "add", bucket},
-		helpers.ExecCommandOptions{Simulate: true},
-	)
+	helpers.ExecNativeCommand([]string{"scoop", "bucket", "add", bucket})
 }
