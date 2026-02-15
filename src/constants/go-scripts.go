@@ -34,6 +34,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "ss",
 	},
 
+	"slack-startup": {
+		Exe: "sst",
+	},
+
 	"gpg-unlock": {
 		StartMenu: "GPG Unlock",
 	},
