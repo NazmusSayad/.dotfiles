@@ -18,7 +18,13 @@ func main() {
 }
 
 func initMiseEnv() {
-	miseEnvCmd := exec.Command("mise", "env", "--dotenv")
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	miseEnvCmd := exec.Command("mise", "env", "--dotenv", "--cd", homeDir)
 	miseEnvOutput, err := miseEnvCmd.Output()
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -52,7 +58,7 @@ func setEnv(name, value string) {
 	fmt.Println(aurora.Blue(name).String(), aurora.Green(value))
 
 	existingValue, ok := os.LookupEnv(name)
-	if ok && existingValue != "" && existingValue == value {
+	if ok && existingValue == value {
 		fmt.Println(aurora.Blue(name).String(), aurora.Green("already set"))
 		return
 	}
