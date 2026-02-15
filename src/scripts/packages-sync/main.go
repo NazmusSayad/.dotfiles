@@ -38,7 +38,7 @@ func main() {
 	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Updating Pacman..."))
-	runCommand([]string{"pacman", "--noconfirm", "-Syu"})
+	runCommand([]string{"pacman", "--noconfirm", "-Su"})
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Scoop..."))
