@@ -22,9 +22,9 @@ func main() {
 	fmt.Println()
 
 	items := []list.Item{
-		statusItem{"Always", "Start Slack on login"},
-		statusItem{"Work Time", "Start only during office hours"},
-		statusItem{"Disabled", "Do not start Slack automatically"},
+		statusItem{"Always", "Start Slack on login", slack.SlackStatusAlways},
+		statusItem{"Work Time", "Start only during office hours", slack.SlackStatusWorkTime},
+		statusItem{"Disabled", "Do not start Slack automatically", slack.SlackStatusDisabled},
 	}
 
 	delegate := inlineDelegate{
@@ -112,34 +112,29 @@ func (d inlineDelegate) Render(w io.Writer, m list.Model, index int, item list.I
 	if !ok || m.Width() <= 0 {
 		return
 	}
-	title := i.Title()
+	selected := index == m.Index()
+	prefix := "  "
+	style := d.titleStyle
+	if selected {
+		prefix = d.selectedStyle.Render("✓ ")
+		style = d.selectedStyle
+	}
 	descSuffix := ""
 	if i.description != "" {
 		descSuffix = "  " + i.description
 	}
-	textwidth := m.Width() - 2
-	full := title + descSuffix
-	full = ansi.Truncate(full, textwidth, "")
-	prefix := "  "
-	if index == m.Index() {
-		prefix = d.selectedStyle.Render("✓ ")
-	}
-	style := d.titleStyle
-	if index == m.Index() {
-		style = d.selectedStyle
-	}
-	var line string
-	if len(descSuffix) > 0 && len(full) > len(title) {
-		line = prefix + style.Render(title) + d.descStyle.Render(full[len(title):])
+	full := ansi.Truncate(i.title+descSuffix, m.Width()-2, "")
+	if descSuffix != "" && len(full) > len(i.title) {
+		fmt.Fprint(w, prefix+style.Render(i.title)+d.descStyle.Render(full[len(i.title):]))
 	} else {
-		line = prefix + style.Render(title)
+		fmt.Fprint(w, prefix+style.Render(i.title))
 	}
-	fmt.Fprint(w, line)
 }
 
 type statusItem struct {
 	title       string
 	description string
+	status      slack.SlackStatus
 }
 
 func (i statusItem) Title() string       { return i.title }
@@ -158,22 +153,14 @@ func (m model) Init() tea.Cmd {
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
-		if msg.String() == "enter" {
+		k := msg.String()
+		if k == "enter" {
 			if item, ok := m.list.SelectedItem().(statusItem); ok {
-				var s slack.SlackStatus
-				switch item.title {
-				case "Always":
-					s = slack.SlackStatusAlways
-				case "Work Time":
-					s = slack.SlackStatusWorkTime
-				case "Disabled":
-					s = slack.SlackStatusDisabled
-				}
-				m.choice = &s
+				m.choice = &item.status
 				return m, tea.Quit
 			}
 		}
-		if msg.String() == "q" || msg.String() == "ctrl+c" {
+		if k == "q" || k == "ctrl+c" {
 			return m, tea.Quit
 		}
 	case tea.WindowSizeMsg:
