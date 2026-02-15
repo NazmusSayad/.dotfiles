@@ -117,12 +117,6 @@
     "InteractiveInstall": true
   },
   {
-    "ID": "ZedIndustries.Zed",
-    "Name": "Zed",
-    "SkipInstall": true,
-    "SkipUpgrade": true
-  },
-  {
     "ID": "Postman.Postman",
     "Name": "Postman"
   },
