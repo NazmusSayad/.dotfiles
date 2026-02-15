@@ -1,8 +1,8 @@
 package constants
 
 type BinScript struct {
-	Exe           string
-	StartMenuName string
+	Exe       string
+	StartMenu string
 }
 
 var BIN_SCRIPTS = map[string]BinScript{
@@ -35,43 +35,43 @@ var BIN_SCRIPTS = map[string]BinScript{
 	},
 
 	"gpg-unlock": {
-		StartMenuName: "GPG Unlock",
+		StartMenu: "GPG Unlock",
 	},
 
 	"symlink-setup": {
-		StartMenuName: "Symlink Setup",
+		StartMenu: "Symlink Setup",
 	},
 
 	"msys-init": {
-		StartMenuName: "MSYS2 Init",
+		StartMenu: "MSYS2 Init",
 	},
 
 	"scoop-init": {
-		StartMenuName: "Scoop Init",
+		StartMenu: "Scoop Init",
 	},
 
 	"packages-sync": {
-		StartMenuName: "Packages Sync",
-		Exe:           "psy",
+		StartMenu: "Packages Sync",
+		Exe:       "psy",
 	},
 
 	"winget-install": {
-		StartMenuName: "WinGet Install",
-		Exe:           "wgi",
+		StartMenu: "WinGet Install",
+		Exe:       "wgi",
 	},
 
 	"winget-upgrade": {
-		StartMenuName: "WinGet Upgrade",
-		Exe:           "wgu",
+		StartMenu: "WinGet Upgrade",
+		Exe:       "wgu",
 	},
 
 	"clean-code-snippets": {
-		StartMenuName: "Clean Code Snippets",
-		Exe:           "csc",
+		StartMenu: "Clean Code Snippets",
+		Exe:       "csc",
 	},
 
 	"code-ext-sync": {
-		StartMenuName: "Code Extensions Sync",
-		Exe:           "ces",
+		StartMenu: "Code Extensions Sync",
+		Exe:       "ces",
 	},
 }
