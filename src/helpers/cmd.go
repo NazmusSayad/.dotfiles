@@ -1,6 +1,8 @@
 package helpers
 
 import (
+	"dotfiles/src/utils"
+	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -49,10 +51,20 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	isAlreadyAsAdmin := isRunningAsAdmin()
 
 	if opts.AsAdmin && !isAlreadyAsAdmin {
+		if !utils.IsCommandInPath("sudo") {
+			fmt.Println("sudo not found in PATH")
+			os.Exit(1)
+		}
+
 		args = append([]string{"sudo"}, args...)
 	}
 
 	if opts.AsUser && isAlreadyAsAdmin {
+		if !utils.IsCommandInPath("gsudo") {
+			fmt.Println("gsudo not found in PATH")
+			os.Exit(1)
+		}
+
 		args = append([]string{"gsudo", "--integrity", "Medium"}, args...)
 	}
 
