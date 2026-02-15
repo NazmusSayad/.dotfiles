@@ -2,16 +2,12 @@ package helpers
 
 import (
 	"bytes"
+	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
 	"strings"
 )
-
-func sudoAvailable() bool {
-	_, err := exec.LookPath("sudo")
-	return err == nil
-}
 
 func isRunningAsAdmin() bool {
 	cmd := exec.Command("powershell", "-NoProfile", "-NonInteractive",
@@ -40,14 +36,28 @@ func EnsureAdminExecution() {
 		os.Exit(1)
 	}
 
-	if sudoAvailable() {
+	if utils.IsCommandInPath("sudo") {
 		cmd := exec.Command("sudo", exe)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 
 		err := cmd.Run()
 		if err != nil {
-			fmt.Println("Failed to run sudo.")
+			fmt.Println("Failed to run sudo as admin.")
+			os.Exit(1)
+		}
+
+		os.Exit(0)
+	}
+
+	if utils.IsCommandInPath("gsudo") {
+		cmd := exec.Command("gsudo", exe)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+
+		err := cmd.Run()
+		if err != nil {
+			fmt.Println("Failed to run gsudo as admin.")
 			os.Exit(1)
 		}
 
