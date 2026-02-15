@@ -60,13 +60,15 @@ func main() {
 	}
 
 	fm, ok := final.(model)
-	if !ok || fm.choice == nil {
+	if !ok {
 		panic("failed to cast final to model")
 	}
 
-	if *fm.choice != initialStatus {
-		writeSlackStatus(*fm.choice)
+	if fm.choice == nil || *fm.choice == initialStatus {
+		return
 	}
+
+	writeSlackStatus(*fm.choice)
 }
 
 func getSlackStatusFilePath() string {
@@ -107,6 +109,17 @@ type inlineDelegate struct {
 	descStyle     lipgloss.Style
 }
 
+type statusItem struct {
+	title       string
+	description string
+	status      slack.SlackStatus
+}
+
+type model struct {
+	list   list.Model
+	choice *slack.SlackStatus
+}
+
 func (d inlineDelegate) Height() int                               { return 1 }
 func (d inlineDelegate) Spacing() int                              { return 0 }
 func (d inlineDelegate) Update(msg tea.Msg, m *list.Model) tea.Cmd { return nil }
@@ -135,20 +148,9 @@ func (d inlineDelegate) Render(w io.Writer, m list.Model, index int, item list.I
 	}
 }
 
-type statusItem struct {
-	title       string
-	description string
-	status      slack.SlackStatus
-}
-
 func (i statusItem) Title() string       { return i.title }
 func (i statusItem) Description() string { return i.description }
 func (i statusItem) FilterValue() string { return i.title }
-
-type model struct {
-	list   list.Model
-	choice *slack.SlackStatus
-}
 
 func (m model) Init() tea.Cmd {
 	return nil
