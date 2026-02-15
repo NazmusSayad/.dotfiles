@@ -53,7 +53,7 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	}
 
 	if opts.AsUser && isAlreadyAsAdmin {
-
+		args = append([]string{"runas", "/trustlevel:0x20000"}, args...)
 	}
 
 	cmd := exec.Command(args[0], args[1:]...)
