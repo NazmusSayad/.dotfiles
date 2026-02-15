@@ -31,32 +31,28 @@ func setEnv(name, value string) {
 }
 
 func main() {
-	initGoEnv()
-	initJavaEnv()
+	initMiseEnv()
 	initAndroidSdkEnv()
-}    
-
-func initGoEnv() {
-	goPath := getGoEnv("GOPATH", os.Environ())
-	goEnv := getEnvWithoutGoVars() 
-   
-	goBin := getGoEnv("GOBIN", goEnv)
-	goRoot := getGoEnv("GOROOT", goEnv)
-
-	setEnv("GOPATH", goPath) 
-	setEnv("GOBIN", goBin)
-	setEnv("GOROOT", goRoot)
 }
 
-func initJavaEnv() {
-	javaHomeCmd := exec.Command("mise", "where", "java")
-	javaHomeOutput, err := javaHomeCmd.Output()
+func initMiseEnv() {
+	miseEnvCmd := exec.Command("mise", "env", "--dotenv")
+	miseEnvOutput, err := miseEnvCmd.Output()
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	setEnv("JAVA_HOME", strings.TrimSpace(string(javaHomeOutput)))
+	miseEnvLines := strings.Split(strings.TrimSpace(string(miseEnvOutput)), "\n")
+	for _, line := range miseEnvLines {
+		key, value, ok := strings.Cut(line, "=")
+		if !ok {
+			fmt.Println("Error:", line)
+			continue
+		}
+
+		setEnv(strings.TrimSpace(key), strings.TrimSpace(value))
+	}
 }
 
 func initAndroidSdkEnv() {
@@ -68,32 +64,4 @@ func initAndroidSdkEnv() {
 
 	setEnv("ANDROID_HOME", androidSdkPath)
 	setEnv("ANDROID_SDK_ROOT", androidSdkPath)
-}
-
-func getGoEnv(name string, env []string) string {
-	cmd := exec.Command("go", "env", name)
-	cmd.Env = env
-
-	output, err := cmd.Output()
-	if err != nil {
-		panic(err)
-	}
-
-	return strings.TrimSpace(string(output))
-}
-
-func getEnvWithoutGoVars() []string {
-	env := os.Environ()
-	filtered := make([]string, 0, len(env))
-
-	for _, item := range env {
-		key, _, ok := strings.Cut(item, "=")
-		if !ok || strings.HasPrefix(key, "GO") {
-			continue
-		}
-
-		filtered = append(filtered, item)
-	}
-
-	return filtered
 }
