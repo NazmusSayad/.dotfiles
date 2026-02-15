@@ -123,10 +123,6 @@
     "SkipUpgrade": true
   },
   {
-    "ID": "Axosoft.GitKraken",
-    "Name": "GitKraken"
-  },
-  {
     "ID": "Postman.Postman",
     "Name": "Postman"
   },
