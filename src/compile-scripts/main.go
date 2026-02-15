@@ -37,9 +37,9 @@ func main() {
 		entryName := entry.Name()
 		buildScript(sourceDir, outputDir, entryName, entryName)
 
-		scriptEntry, ok := constants.BIN_SCRIPTS[entryName]
-		if ok {
-			buildScript(sourceDir, outputDir, entryName, scriptEntry.Exe)
+		aliasName := constants.BIN_SCRIPTS[entryName].Exe
+		if aliasName != "" {
+			buildScript(sourceDir, outputDir, entryName, aliasName)
 		}
 	}
 }
