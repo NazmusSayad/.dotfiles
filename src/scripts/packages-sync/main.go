@@ -3,7 +3,6 @@ package main
 import (
 	"dotfiles/src/helpers"
 	"fmt"
-	"strings"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -21,12 +20,8 @@ func main() {
 	runCommand([]string{"pacman", "--noconfirm", "-Sy"})
 	fmt.Println()
 
-	fmt.Println("▼", aurora.Faint("Installing Msys2 packages..."))
-	msys2Packages := helpers.ReadConfig[[]string]("@/config/msys2-packages.jsonc")
-	if len(msys2Packages) > 0 {
-		fmt.Println(aurora.Faint("- Installing"), aurora.Green(strings.Join(msys2Packages, " ")))
-		runCommand(append([]string{"pacman", "--noconfirm", "-S", "--needed"}, msys2Packages...))
-	}
+	fmt.Println("▼", aurora.Faint("Installing Pacman packages..."))
+	runCommand([]string{"msys-install"})
 	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Updating Scoop..."))
