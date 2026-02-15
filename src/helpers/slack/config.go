@@ -41,7 +41,11 @@ type OutputSlackConfig struct {
 }
 
 func ReadSlackConfig() OutputSlackConfig {
-	configInput := helpers.ReadConfig[inputSlackConfig]("@/config/slack-status.jsonc")
+	configInput := helpers.ReadConfig[inputSlackConfig](
+		"@/config/slack-status.jsonc",
+		helpers.ReadConfigOptions{Silent: true},
+	)
+
 	weekends := generateWeekends(configInput.OfficeTimeWeekends)
 	offDays := generateOffDays(configInput.OfficeTimeOffDays)
 

@@ -10,9 +10,22 @@ import (
 	"github.com/tidwall/jsonc"
 )
 
-func ReadConfig[T any](path string) T {
+type ReadConfigOptions struct {
+	Silent bool
+}
+
+func ReadConfig[T any](path string, options ...ReadConfigOptions) T {
+	opts := ReadConfigOptions{}
+	if len(options) > 0 {
+		opts = options[0]
+	} else if len(options) > 1 {
+		panic("only one options struct is allowed")
+	}
+
 	resolvedPath := ResolvePath(path)
-	fmt.Println(aurora.Faint("JSON: " + resolvedPath))
+	if !opts.Silent {
+		fmt.Println(aurora.Faint("JSON: " + resolvedPath))
+	}
 
 	f, err := os.Open(resolvedPath)
 	if err != nil {
