@@ -2,7 +2,6 @@ package main
 
 import (
 	"dotfiles/src/helpers"
-	"dotfiles/src/helpers/scoop"
 	"fmt"
 	"strings"
 
@@ -11,11 +10,15 @@ import (
 
 func main() {
 	fmt.Println("▼", aurora.Faint("Installing Scoop packages..."))
-	scoop.InstallScoopApps()
+	runCommand([]string{"scoop-install"})
 	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
 	runCommand([]string{"mise", "install"})
+	fmt.Println()
+
+	fmt.Println("◯", aurora.Faint("Preparing Pacman..."))
+	runCommand([]string{"pacman", "--noconfirm", "-Sy"})
 	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Msys2 packages..."))
@@ -39,7 +42,7 @@ func main() {
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Scoop..."))
-	scoop.PruneScoopApps()
+	runCommand([]string{"scoop-prune"})
 	runCommand([]string{"scoop", "cache", "rm", "*"})
 	fmt.Println()
 
