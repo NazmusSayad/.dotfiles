@@ -10,7 +10,8 @@
 #PrintScreen::#^+PrintScreen
 
 #`:: {
-  Run 'powershell -Command "Start-Process wt -WorkingDirectory $env:USERPROFILE\\Desktop"', , "Hide"
+  Run 'gsudo --integrity Medium powershell -Command "Start-Process wt -WorkingDirectory $env:USERPROFILE\\Desktop"'
+    , , "Hide"
 }
 
 ^#F11:: {

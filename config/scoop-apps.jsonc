@@ -95,6 +95,10 @@
 
   // CLI Tools
   {
+    "ID": "gsudo",
+    "Label": "Gsudo - Elevated Privileges"
+  },
+  {
     "ID": "starship",
     "Label": "Starship - Prompt"
   },

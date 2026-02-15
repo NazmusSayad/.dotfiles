@@ -25,7 +25,8 @@
   },
   {
     "Name": "AHK Macro",
-    "Path": "@/.build/ahk/AHK-Macro.exe"
+    "Path": "@/.build/ahk/AHK-Macro.exe",
+    "Admin": true
   },
   {
     "Name": "AHK ScrollWheel",
