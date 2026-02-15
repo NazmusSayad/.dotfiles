@@ -1,4 +1,4 @@
-package scoop
+package main
 
 import (
 	"dotfiles/src/helpers"
