@@ -30,17 +30,16 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gpc",
 	},
 
+	"slack-status": {
+		Exe: "ss",
+	},
+
 	"gpg-unlock": {
 		StartMenuName: "GPG Unlock",
 	},
 
 	"symlink-setup": {
 		StartMenuName: "Symlink Setup",
-	},
-
-	"slack-status": {
-		StartMenuName: "Slack Status",
-		Exe:           "ss",
 	},
 
 	"msys-init": {
