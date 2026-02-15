@@ -1,27 +1,16 @@
 #UseHook
 #NoTrayIcon
-ProcessSetPriority "Realtime"
-A_MaxHotkeysPerInterval := 9999
+
+::@me::me@sayad.dev
+::@fake::fake@sayad.dev
+::@env::sayadenv@gmail.com
+::@mail::247sayad@gmail.com
 
 #Space::+!F
-
 #PrintScreen::#^+PrintScreen
 
-^WheelUp:: {
-  Critical "On"
-  KeyWait "Ctrl"
-  Send "{WheelUp}"
-}
-
-^WheelDown:: {
-  Critical "On"
-  KeyWait "Ctrl"
-  Send "{WheelDown}"
-}
- 
 #`:: {
-  RunWait 'schtasks /create /tn "WT-Desktop-User" /tr "wt.exe -d \"' A_Desktop '\"" /sc once /st 00:00 /sd 01/01/2000 /f', , "Hide"
-  Run 'schtasks /run /tn "WT-Desktop-User"', , "Hide"
+  Run 'powershell -Command "Start-Process wt -WorkingDirectory $env:USERPROFILE\\Desktop"', , "Hide"
 }
 
 ^#F11:: {
@@ -50,8 +39,3 @@ A_MaxHotkeysPerInterval := 9999
     WinSetExStyle "-" WS_EX_APPWINDOW, hwnd
   }
 }
-
-::@me::me@sayad.dev
-::@fake::fake@sayad.dev
-::@env::sayadenv@gmail.com
-::@mail::247sayad@gmail.com

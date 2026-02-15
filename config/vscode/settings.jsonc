@@ -368,6 +368,9 @@
     "Average Word Length too Long": false,
     "Maximum Word Length Exceeded": false
   },
+  "AHK++.v2.formatter": {
+    "indentString": "  "
+  },
   "workbench.navigationControl.enabled": false,
   "workbench.sideBar.location": "right",
   "chat.commandCenter.enabled": false,
