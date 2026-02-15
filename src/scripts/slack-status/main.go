@@ -56,10 +56,15 @@ func main() {
 
 	final, err := p.Run()
 	if err != nil {
-		return
+		panic("failed to run program")
 	}
 
-	if fm, ok := final.(model); ok && fm.choice != nil {
+	fm, ok := final.(model)
+	if !ok || fm.choice == nil {
+		panic("failed to cast final to model")
+	}
+
+	if *fm.choice != initialStatus {
 		writeSlackStatus(*fm.choice)
 	}
 }
