@@ -31,14 +31,14 @@ func main() {
 	os.MkdirAll(startMenuDir, 0755)
 
 	for scriptName, script := range constants.BIN_SCRIPTS {
-		if script.StartMenuName == "" {
+		if script.StartMenu == "" {
 			continue
 		}
 
-		fmt.Println("> Installing", scriptName, script.StartMenuName)
+		fmt.Println("> Installing", scriptName, script.StartMenu)
 
 		targetCommand := `"` + proxyPausePath + `"`
-		shortcutPath := filepath.Join(startMenuDir, script.StartMenuName+".lnk")
+		shortcutPath := filepath.Join(startMenuDir, script.StartMenu+".lnk")
 		arguments := `"` + utils.Ternary(script.Exe != "", script.Exe, scriptName) + `"`
 
 		helpers.ExecNativeCommand([]string{
