@@ -17,7 +17,7 @@ func main() {
 
 	for _, config := range launchConfigs {
 		resolvedCommand := helpers.ResolvePath(config.Path)
-		fmt.Println("Starting: (", config.Admin, ")", config.Path, resolvedCommand)
+		fmt.Println("Starting: (", config.Admin, ")", resolvedCommand)
 
 		helpers.ExecNativeCommand(
 			append([]string{resolvedCommand}, config.Args...),
