@@ -21,8 +21,8 @@ type ExecCommandOptions struct {
 	NoStderr bool
 
 	NoWait       bool
-	AsUser       bool
 	AsAdmin      bool
+	AsGsudoUser  bool
 	AsGsudoAdmin bool
 
 	Simulate bool
@@ -41,8 +41,8 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		panic("command is required")
 	}
 
-	if opts.AsUser && opts.AsAdmin {
-		panic("cannot run as user and admin at the same time")
+	if opts.AsGsudoUser && opts.AsAdmin {
+		panic("cannot run as gsudo user and admin at the same time")
 	}
 
 	if opts.Simulate {
@@ -69,7 +69,7 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		}
 	}
 
-	if opts.AsUser && isAlreadyAsAdmin {
+	if opts.AsGsudoUser && isAlreadyAsAdmin {
 		if !utils.IsCommandInPath("gsudo") {
 			fmt.Println("gsudo not found in PATH")
 			os.Exit(1)
