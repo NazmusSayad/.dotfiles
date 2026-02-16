@@ -25,7 +25,7 @@
   },
   {
     "Name": "ShareX",
-    "Path": "sharex",
+    "Path": "~/scoop/apps/sharex/current/ShareX.exe",
     "Admin": true
   },
   {

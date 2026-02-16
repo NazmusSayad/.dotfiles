@@ -29,8 +29,9 @@ func main() {
 		helpers.ExecNativeCommand(
 			append([]string{resolvedCommand}, config.Args...),
 			helpers.ExecCommandOptions{
-				AsAdmin: config.Admin,
-				NoWait:  !config.Wait,
+				AsAdmin:  config.Admin,
+				NoWait:   !config.Wait,
+				Simulate: true,
 			},
 		)
 	}
