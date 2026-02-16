@@ -46,14 +46,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Symlink Setup",
 	},
 
-	"msys-init": {
-		StartMenu: "MSYS2 Init",
-	},
-
-	"scoop-init": {
-		StartMenu: "Scoop Init",
-	},
-
 	"packages-sync": {
 		StartMenu: "Packages Sync",
 		Exe:       "psy",
