@@ -10,7 +10,6 @@ type LaunchConfig struct {
 	Path  string
 	Args  []string
 	Skip  bool
-	Wait  bool
 	Admin bool
 }
 
@@ -29,9 +28,7 @@ func main() {
 		helpers.ExecNativeCommand(
 			append([]string{resolvedCommand}, config.Args...),
 			helpers.ExecCommandOptions{
-				AsAdmin:  config.Admin,
-				NoWait:   !config.Wait,
-				Simulate: true,
+				AsAdmin: config.Admin,
 			},
 		)
 	}

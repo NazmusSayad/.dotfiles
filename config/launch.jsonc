@@ -2,31 +2,17 @@
   {
     "Name": "CTF Monitor",
     "Path": "ctfmon.exe",
-    "Admin": true,
-    "Wait": true
+    "Admin": true
   },
   {
     "Name": "CMD",
     "Path": "cmd.exe",
     "Args": ["/c"],
-    "Admin": true,
-    "Wait": true
+    "Admin": true
   },
   {
     "Name": "Windows Env",
-    "Path": "@/.build/bin/windows-env.exe",
-    "Wait": true
-  },
-  {
-    "Name": "GPG Init",
-    "Path": "gpg",
-    "Args": ["--list-keys"],
-    "Admin": true
-  },
-  {
-    "Name": "ShareX",
-    "Path": "~/scoop/apps/sharex/current/ShareX.exe",
-    "Admin": true
+    "Path": "@/.build/bin/windows-env.exe"
   },
   {
     "Name": "AHK Macro",
@@ -47,5 +33,15 @@
     "Name": "AHK Window Manager",
     "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
     "Admin": true
+  },
+  {
+    "Name": "ShareX",
+    "Path": "~/scoop/apps/sharex/current/ShareX.exe",
+    "Admin": true
+  },
+  {
+    "Name": "GPG Init",
+    "Path": "gpg",
+    "Args": ["--list-keys"]
   }
 ]
