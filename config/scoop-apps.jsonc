@@ -39,24 +39,8 @@
     "Label": "Cloudflare Tunnel"
   },
   {
-    "ID": "codex",
-    "Label": "Codex CLI"
-  },
-  {
-    "ID": "opencode",
-    "Label": "OpenCode CLI"
-  },
-  {
     "ID": "extras/opencode-desktop",
     "Label": "OpenCode Desktop"
-  },
-  {
-    "ID": "copilot-cli",
-    "Label": "GitHub Copilot CLI"
-  },
-  {
-    "ID": "claude-code",
-    "Label": "Claude Code CLI"
   },
   {
     "ID": "extras/lazygit",
