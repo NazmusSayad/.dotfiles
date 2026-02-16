@@ -1,21 +1,25 @@
 package helpers
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/logrusorgru/aurora/v4"
 )
 
 func ResolvePath(input string) string {
+	if strings.HasPrefix(input, "~") {
+		homeDir, err := os.UserHomeDir()
+		if err != nil {
+			panic(err)
+		}
+
+		input = filepath.Join(homeDir, input[1:])
+	}
+
 	if strings.HasPrefix(input, "@/") {
 		dotfilesPath := os.Getenv("DOTFILES_DIR")
-
 		if dotfilesPath == "" {
-			fmt.Println(aurora.Red(".dotfiles environment variable is not set."))
-			os.Exit(1)
+			panic("DOTFILES_DIR environment variable is not set")
 		}
 
 		input = filepath.Join(dotfilesPath, input[1:])

@@ -2,9 +2,7 @@ package slack
 
 import (
 	"fmt"
-	"os"
 	"os/exec"
-	"path/filepath"
 	"runtime"
 	"strings"
 
@@ -19,21 +17,15 @@ func IsSlackRunning() bool {
 }
 
 func GetSlackRuntimePath() (string, error) {
-	slackPath := filepath.Join(os.Getenv("LOCALAPPDATA"), "slack")
-	slackBaseExe := filepath.Join(slackPath, "slack.exe")
-
-	out, err := exec.Command("powershell", "-NoProfile", "-Command", "(Get-Item '"+slackBaseExe+"').VersionInfo.ProductVersion").Output()
+	scoopSlackCmd := exec.Command("scoop", "which", "slack")
+	slackPathOutput, err := scoopSlackCmd.Output()
 	if err != nil {
+		fmt.Println("Error:", err)
 		return "", err
 	}
 
-	productVersion := strings.TrimSpace(string(out))
-	runtimePath := filepath.Join(slackPath, "app-"+productVersion, "slack.exe")
-	if _, err := os.Stat(runtimePath); err != nil {
-		return "", err
-	}
-
-	return runtimePath, nil
+	slackPath := strings.TrimSpace(string(slackPathOutput))
+	return helpers.ResolvePath(slackPath), nil
 }
 
 func SlackApplicationStart() {

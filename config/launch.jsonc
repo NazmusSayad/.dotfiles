@@ -24,6 +24,11 @@
     "Admin": true
   },
   {
+    "Name": "ShareX",
+    "Path": "sharex",
+    "Admin": true
+  },
+  {
     "Name": "AHK Macro",
     "Path": "@/.build/ahk/AHK-Macro.exe",
     "Admin": true
@@ -41,11 +46,6 @@
   {
     "Name": "AHK Window Manager",
     "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
-    "Admin": true
-  },
-  {
-    "Name": "ShareX",
-    "Path": "$PROGRAMFILES/ShareX/ShareX.exe",
     "Admin": true
   }
 ]
