@@ -2,85 +2,81 @@
   // Shell Configs
   {
     "Source": "@/config/shell/fish-config.fish",
-    "Target": "$USERPROFILE/.config/fish/config.fish"
+    "Target": "~/.config/fish/config.fish"
   },
   {
     "Source": "@/config/shell/bash-config.sh",
-    "Target": "$USERPROFILE/.bashrc"
+    "Target": "~/.bashrc"
   },
   {
     "Source": "@/config/shell/zsh-config.sh",
-    "Target": "$USERPROFILE/.zshrc"
+    "Target": "~/.zshrc"
   },
 
   // Agent Configs
   {
     "Source": "@/config/ai/skills",
     "Targets": [
-      "$USERPROFILE/.agents/skills",
-      "$USERPROFILE/.config/agents/skills",
-
-      "$USERPROFILE/.cursor/skills",
-      "$USERPROFILE/.copilot/skills",
-      "$USERPROFILE/.opencode/skills"
+      "~/.agents/skills",
+      "~/.cursor/skills",
+      "~/.copilot/skills",
+      "~/.opencode/skills",
+      "~/.config/agents/skills"
     ]
   },
   {
     "Source": "@/config/ai/commands",
     "Targets": [
-      "$USERPROFILE/.agents/commands",
-      "$USERPROFILE/.config/agents/commands",
-
-      "$APPDATA/Code/User/prompts",
-      "$USERPROFILE/.cursor/commands",
-      "$USERPROFILE/.opencode/commands"
+      "~/.agents/commands",
+      "~/.cursor/commands",
+      "~/.opencode/commands",
+      "~/.config/agents/commands",
+      "$APPDATA/Code/User/prompts"
     ]
   },
   {
     "Source": "@/config/ai/subagents",
     "Targets": [
-      "$USERPROFILE/.agents/agents",
-      "$USERPROFILE/.config/agents/agents",
-
-      "$USERPROFILE/.cursor/agents",
-      "$USERPROFILE/.config/opencode/agents"
+      "~/.agents/agents",
+      "~/.cursor/agents",
+      "~/.config/agents/agents",
+      "~/.config/opencode/agents"
     ]
   },
   {
     "Source": "@/config/ai/AGENT.md",
     "Targets": [
-      "$USERPROFILE/.agents/AGENTS.md",
-      "$USERPROFILE/.config/agents/AGENTS.md",
-
-      "$USERPROFILE/.cursor/AGENTS.md",
-      "$USERPROFILE/.config/opencode/AGENTS.md"
+      "~/.agents/AGENTS.md",
+      "~/.cursor/AGENTS.md",
+      "~/.config/agents/AGENTS.md",
+      "~/.config/opencode/AGENTS.md"
     ]
   },
   {
     "Source": "@/config/ai/opencode.json",
-    "Target": "$USERPROFILE/.config/opencode/config.json"
+    "Target": "~/.config/opencode/config.json"
   },
 
   // Terminal Configs
   {
     "Source": "@/config/direnv.toml",
-    "Target": "$USERPROFILE/.config/direnv/direnv.toml"
+    "Target": "~/.config/direnv/direnv.toml"
   },
   {
     "Source": "@/config/mise.toml",
-    "Target": "$USERPROFILE/.config/mise/config.toml"
+    "Target": "~/.config/mise/config.toml"
   },
   {
     "Source": "@/config/starship.toml",
-    "Target": "$USERPROFILE/.config/starship.toml"
+    "Target": "~/.config/starship.toml"
   },
   {
     "Source": "@/config/fastfetch.jsonc",
-    "Target": "$USERPROFILE/.config/fastfetch/config.jsonc"
+    "Target": "~/.config/fastfetch/config.jsonc"
   },
   {
     "Source": "@/config/lsd-config.yaml",
-    "Target": "$USERPROFILE/.config/lsd/config.yaml"
+    "Target": "~/.config/lsd/config.yaml"
   },
   {
     "Source": "@/config/windows-terminal.json",
@@ -90,7 +86,7 @@
   // Other Configs
   {
     "Source": "@/config/.nirc",
-    "Target": "$USERPROFILE/.nirc"
+    "Target": "~/.nirc"
   },
 
   // Code Editor
