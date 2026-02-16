@@ -17,8 +17,7 @@
   {
     "Path": "gpg",
     "Args": ["--list-keys"],
-    "Admin": true,
-    "Wait": true
+    "Admin": true
   },
   {
     "Path": "~/scoop/apps/sharex/current/ShareX.exe",
