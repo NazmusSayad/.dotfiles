@@ -35,6 +35,3 @@ alias ghw="gh repo view --web"
 # Windows
 alias fs-case="fsutil.exe file setCaseSensitiveInfo . enable recursive"
 alias fix-ports="sudo net stop winnat"
-
-# Tools
-alias oc="opencode"
