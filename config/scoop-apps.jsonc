@@ -47,6 +47,10 @@
     "Label": "OpenCode CLI"
   },
   {
+    "ID": "extras/opencode-desktop",
+    "Label": "OpenCode Desktop"
+  },
+  {
     "ID": "copilot-cli",
     "Label": "GitHub Copilot CLI"
   },
@@ -81,19 +85,15 @@
     "Label": "ctop - Docker Container Monitor"
   },
   {
-    "ID": "neofetch",
-    "Label": "Neofetch - System Information"
-  },
-  {
     "ID": "fastfetch",
     "Label": "Fastfetch - System Information"
   },
-  {
-    "ID": "extras/onefetch",
-    "Label": "Onefetch - Git Information"
-  },
 
   // CLI Tools
+  {
+    "ID": "pwsh",
+    "Label": "PowerShell (pwsh)"
+  },
   {
     "ID": "gsudo",
     "Label": "Gsudo - Elevated Privileges"
@@ -171,7 +171,29 @@
     "Label": "Tokei - Count Lines of Code"
   },
 
-  // Media
+  // Fonts
+  {
+    "ID": "nerd-fonts/FiraCode-NF",
+    "Label": "FiraCode Nerd Font"
+  },
+
+  // System and Media Tools
+  {
+    "ID": "extras/hwinfo",
+    "Label": "HwInfo"
+  },
+  {
+    "ID": "extras/anyburn",
+    "Label": "AnyBurn"
+  },
+  {
+    "ID": "extras/winrar",
+    "Label": "WinRAR"
+  },
+  {
+    "ID": "extras/sharex",
+    "Label": "ShareX"
+  },
   {
     "ID": "yt-dlp",
     "Label": "YouTube Downloader"
@@ -189,13 +211,7 @@
     "Label": "ImageMagick - Image Manipulation"
   },
 
-  // Fonts
-  {
-    "ID": "nerd-fonts/FiraCode-NF",
-    "Label": "FiraCode Nerd Font"
-  },
-
-  // Others
+  // Communication Tools
   {
     "ID": "extras/slack",
     "Label": "Slack"

@@ -35,20 +35,10 @@
 
   // Media Tools
   {
-    "ID": "ShareX.ShareX",
-    "Name": "ShareX",
-    "InteractiveInstall": true,
-    "InteractiveUpgrade": true
-  },
-  {
     "ID": "Daum.PotPlayer",
     "Name": "PotPlayer",
     "InteractiveInstall": true,
     "InteractiveUpgrade": true
-  },
-  {
-    "ID": "Upscayl.Upscayl",
-    "Name": "Upscayl"
   },
   {
     "ID": "9NBLGGH68TW4",
@@ -73,18 +63,6 @@
     "Name": "Auto Hot key"
   },
   {
-    "ID": "REALiX.HWiNFO",
-    "Name": "HwInfo"
-  },
-  {
-    "ID": "PowerSoftware.AnyBurn",
-    "Name": "AnyBurn"
-  },
-  {
-    "ID": "RARLab.WinRAR",
-    "Name": "WinRAR"
-  },
-  {
     "ID": "RamenSoftware.Windhawk",
     "Name": "Windhawk"
   },
@@ -93,10 +71,6 @@
   {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2"
-  },
-  {
-    "ID": "Microsoft.PowerShell",
-    "Name": "PowerShell (pwsh)"
   },
 
   // Code Editors
