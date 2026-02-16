@@ -1,27 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-
+  "autoupdate": false,
   "theme": "system",
 
   "agent": {
     "build": {
-      "mode": "primary",
-      "model": "openrouter/z-ai/glm-5",
-      "tools": {
-        "bash": true,
-        "edit": true,
-        "write": true
-      }
+      "model": "openrouter/z-ai/glm-5"
     },
 
     "plan": {
-      "mode": "primary",
-      "model": "openrouter/z-ai/glm-5",
-      "tools": {
-        "bash": false,
-        "edit": false,
-        "write": false
-      }
+      "model": "openrouter/z-ai/glm-5"
     }
   }
 }
