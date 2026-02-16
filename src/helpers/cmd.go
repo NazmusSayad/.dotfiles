@@ -20,9 +20,10 @@ type ExecCommandOptions struct {
 	NoStdout bool
 	NoStderr bool
 
-	NoWait  bool
-	AsUser  bool
-	AsAdmin bool
+	NoWait       bool
+	AsUser       bool
+	AsAdmin      bool
+	AsGsudoAdmin bool
 
 	Simulate bool
 	Detached bool
@@ -51,12 +52,21 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 	isAlreadyAsAdmin := isRunningAsAdmin()
 
 	if opts.AsAdmin && !isAlreadyAsAdmin {
-		if !utils.IsCommandInPath("sudo") {
-			fmt.Println("sudo not found in PATH")
-			os.Exit(1)
-		}
+		if opts.AsGsudoAdmin {
+			if !utils.IsCommandInPath("gsudo") {
+				fmt.Println("gsudo not found in PATH")
+				os.Exit(1)
+			}
 
-		args = append([]string{"sudo"}, args...)
+			args = append([]string{"gsudo"}, args...)
+		} else {
+			if !utils.IsCommandInPath("sudo") {
+				fmt.Println("sudo not found in PATH")
+				os.Exit(1)
+			}
+
+			args = append([]string{"sudo"}, args...)
+		}
 	}
 
 	if opts.AsUser && isAlreadyAsAdmin {
