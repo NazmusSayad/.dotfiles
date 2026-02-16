@@ -1,47 +1,43 @@
 [
   {
-    "Name": "CTF Monitor",
     "Path": "ctfmon.exe",
-    "Admin": true
+    "Admin": true,
+    "Wait": true
   },
   {
-    "Name": "CMD",
     "Path": "cmd.exe",
     "Args": ["/c"],
-    "Admin": true
+    "Admin": true,
+    "Wait": true
   },
   {
-    "Name": "Windows Env",
-    "Path": "@/.build/bin/windows-env.exe"
+    "Path": "@/.build/bin/windows-env.exe",
+    "Wait": true
   },
   {
-    "Name": "AHK Macro",
-    "Path": "@/.build/ahk/AHK-Macro.exe",
-    "Admin": true
+    "Path": "gpg",
+    "Args": ["--list-keys"],
+    "Admin": true,
+    "Wait": true
   },
   {
-    "Name": "AHK ScrollWheel",
-    "Path": "@/.build/ahk/AHK-ScrollWheel.exe",
-    "Admin": true
-  },
-  {
-    "Name": "AHK Window Manager",
-    "Path": "@/.build/ahk/AHK-WindowManager.exe",
-    "Admin": true
-  },
-  {
-    "Name": "AHK Window Manager",
-    "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
-    "Admin": true
-  },
-  {
-    "Name": "ShareX",
     "Path": "~/scoop/apps/sharex/current/ShareX.exe",
     "Admin": true
   },
   {
-    "Name": "GPG Init",
-    "Path": "gpg",
-    "Args": ["--list-keys"]
+    "Path": "@/.build/ahk/AHK-Macro.exe",
+    "Admin": true
+  },
+  {
+    "Path": "@/.build/ahk/AHK-ScrollWheel.exe",
+    "Admin": true
+  },
+  {
+    "Path": "@/.build/ahk/AHK-WindowManager.exe",
+    "Admin": true
+  },
+  {
+    "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
+    "Admin": true
   }
 ]
