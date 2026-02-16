@@ -1,0 +1,70 @@
+## Development Tools
+- lua
+- luajit
+- dart
+- extras/flutter
+
+- dum # node script runner
+- gcc
+- shfmt
+
+- gh
+- extras/lazygit
+- extras/gitbutler
+
+- aws
+- cloudflared
+- main/lazydocker
+
+## AI Tools
+- extras/opencode-desktop
+
+## Visualization Tools
+- extras/hwinfo
+- hyperfine
+- fastfetch
+- bottom
+- btop
+- ntop
+- ctop
+
+## Shells
+- mise
+- pwsh
+- gsudo
+- direnv
+- zoxide
+- starship
+
+## System Tools
+- nircmd
+
+## File System Tools
+- byenow
+- ripgrep
+- fd
+- duf
+- rip
+- dust
+- fzf
+- bat
+- lsd
+- yazi
+
+## Code Analysis and Documentation Tools
+- scc
+- tokei
+- tldr
+
+## Media Tools
+- extras/anyburn
+- extras/winrar
+- extras/sharex
+- ffmpeg
+- yt-dlp
+
+## Fonts
+- nerd-fonts/FiraCode-NF
+
+## Communication Tools
+- extras/slack
