@@ -193,5 +193,11 @@
   {
     "ID": "nerd-fonts/FiraCode-NF",
     "Label": "FiraCode Nerd Font"
+  },
+
+  // Others
+  {
+    "ID": "extras/slack",
+    "Label": "Slack"
   }
 ]

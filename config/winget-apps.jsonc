@@ -65,10 +65,6 @@
 
   // Others
   {
-    "ID": "SlackTechnologies.Slack",
-    "Name": "Slack"
-  },
-  {
     "ID": "UnifiedIntents.UnifiedRemote",
     "Name": "Unified Remote"
   },
