@@ -10,31 +10,25 @@ import (
 )
 
 type ScoopAppInputConfig struct {
-	ID            string
-	Label         string
-	Version       string
-	SkipHashCheck bool
+	ID    string
+	Label string
 }
 
 type ScoopAppConfig struct {
-	ID            string
-	Label         string
-	Bucket        string
-	Version       string
-	SkipHashCheck bool
+	ID     string
+	Bucket string
 }
 
 var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/git"}
 
 func ReadScoopAppConfig() []ScoopAppConfig {
-	inputConfig := helpers.ReadConfig[[]ScoopAppInputConfig]("@/config/scoop-apps.jsonc")
+	inputConfig := helpers.ReadConfig[[]string]("@/config/scoop-apps.yaml")
 	outputConfig := []ScoopAppConfig{}
 
 	for _, app := range inputConfig {
 		appName := ""
 		bucketName := ""
-
-		splitStr := strings.Split(app.ID, "/")
+		splitStr := strings.Split(app, "/")
 
 		if len(splitStr) == 1 {
 			appName = splitStr[0]
@@ -50,10 +44,6 @@ func ReadScoopAppConfig() []ScoopAppConfig {
 		outputConfig = append(outputConfig, ScoopAppConfig{
 			ID:     bucketName + "/" + appName,
 			Bucket: bucketName,
-
-			Label:         app.Label,
-			Version:       app.Version,
-			SkipHashCheck: app.SkipHashCheck,
 		})
 	}
 
