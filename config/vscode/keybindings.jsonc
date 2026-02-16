@@ -392,7 +392,7 @@
     "when": "hasSpeechProvider && !editorReadonly && !speechToTextInProgress"
   },
   {
-    "key": "ctrl+alt+`",
+    "key": "alt+`",
     "command": "workbench.action.terminal.openNativeConsole"
   },
   {
@@ -401,12 +401,17 @@
     "when": "!terminalCount"
   },
   {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalViewShowing"
+  },
+  {
     "key": "ctrl+`",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminalCount"
   },
   {
-    "key": "alt+`",
+    "key": "ctrl+alt+`",
     "command": "workbench.action.terminal.kill",
     "when": "terminalViewShowing"
   },
