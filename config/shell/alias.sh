@@ -33,5 +33,6 @@ alias ghv="gh repo view"
 alias ghw="gh repo view --web"
 
 # Windows
-alias fs-case="fsutil.exe file setCaseSensitiveInfo . enable recursive"
+alias ex="explorer"
 alias fix-ports="sudo net stop winnat"
+alias fix-fs-case="fsutil file setCaseSensitiveInfo . enable recursive"
