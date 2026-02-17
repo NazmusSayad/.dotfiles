@@ -1,12 +1,11 @@
 ## Development Tools
 - lua
 - luajit
-- dart
-- extras/flutter
-
-- dum # node script runner
 - gcc
 - shfmt
+
+- dart
+- extras/flutter
 
 - gh
 - extras/lazygit

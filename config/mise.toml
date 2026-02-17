@@ -36,6 +36,10 @@ python = "latest"
 "npm:npm-name-cli" = "latest"
 
 
+# MY Fun Tools
+"npm:butcss" = "latest"
+
+
 # Hosting Tools
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
