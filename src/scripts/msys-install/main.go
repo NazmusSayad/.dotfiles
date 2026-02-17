@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	msys2Packages := helpers.ReadConfig[[]string]("@/config/msys2-packages.jsonc")
+	msys2Packages := helpers.ReadConfig[[]string]("@/config/msys2-packages.yaml")
 	if len(msys2Packages) > 0 {
 		fmt.Println(aurora.Faint("- Installing"), aurora.Green(strings.Join(msys2Packages, " ")))
 		helpers.ExecNativeCommand(append([]string{"pacman", "--noconfirm", "-S", "--needed"}, msys2Packages...))
