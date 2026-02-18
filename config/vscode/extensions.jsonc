@@ -2,6 +2,7 @@
   // Core/Themes
   { "Id": "nazmussayad.editor-context" },
   { "Id": "nazmussayad.one-eye-care" },
+  { "Id": "nazmussayad.rm-comments" },
   { "Id": "pkief.material-icon-theme" },
 
   // Web Development
@@ -61,7 +62,6 @@
   { "Id": "naumovs.color-highlight" },
   { "Id": "christian-kohler.npm-intellisense" },
   { "Id": "streetsidesoftware.code-spell-checker" },
-  { "Id": "rioj7.vscode-remove-comments" },
   { "Id": "wakatime.vscode-wakatime" },
 
   // Cursor Extensions
