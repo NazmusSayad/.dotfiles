@@ -158,7 +158,6 @@
   "editor.smartSelect.selectLeadingAndTrailingWhitespace": false,
   "editor.scrollbar.verticalScrollbarSize": 8,
   "editor.scrollbar.horizontalScrollbarSize": 8,
-  "editor.multiCursorModifier": "ctrlCmd",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.hover.above": false,
   "editor.detectIndentation": false,
