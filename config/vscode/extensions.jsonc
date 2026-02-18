@@ -30,7 +30,7 @@
   { "Id": "devsense.profiler-php-vscode" },
 
   // Linters and Formatters
-  { "Id": "esbenp.prettier-vscode", "Version": "11.0.3" },
+  { "Id": "esbenp.prettier-vscode" },
   { "Id": "dbaeumer.vscode-eslint" },
   { "Id": "mark-wiemer.vscode-autohotkey-plus-plus" },
   { "Id": "mkhl.shfmt" },
@@ -48,7 +48,8 @@
   { "Id": "graphql.vscode-graphql" },
   { "Id": "graphql.vscode-graphql-syntax" },
 
-  // GitHub Copilot
+  // AI Tools
+  { "Id": "openai.chatgpt" },
   { "Id": "github.copilot", "Include": ["code"] },
   { "Id": "github.copilot-chat", "Include": ["code"] },
 
