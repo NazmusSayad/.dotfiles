@@ -424,7 +424,7 @@
   },
   {
     "key": "alt+/",
-    "command": "remove-comments.removeAllComments",
+    "command": "rm-comments.removeAllComments",
     "when": "editorTextFocus && !editorReadonly"
   },
 
