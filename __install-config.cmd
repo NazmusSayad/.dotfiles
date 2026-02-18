@@ -27,8 +27,4 @@ echo Installing start menu entries...
 call go run ./src/install-start-menu/main.go
 
 echo.
-echo Installing context menu entries...
-call go run ./src/install-context-menu/main.go
-
-echo.
 pause

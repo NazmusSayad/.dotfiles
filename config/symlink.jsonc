@@ -73,8 +73,6 @@
     "Targets": [
       "$APPDATA/Code/User/settings.json",
       "$APPDATA/Cursor/User/settings.json",
-      "~/scoop/persist/vscode/data/user-data/User/settings.json",
-      "~/scoop/persist/cursor/data/user-data/User/settings.json"
     ]
   },
   {
@@ -82,8 +80,6 @@
     "Targets": [
       "$APPDATA/Code/User/keybindings.json",
       "$APPDATA/Cursor/User/keybindings.json",
-      "~/scoop/persist/vscode/data/user-data/User/keybindings.json",
-      "~/scoop/persist/cursor/data/user-data/User/keybindings.json"
     ]
   },
   {
@@ -91,8 +87,6 @@
     "Targets": [
       "$APPDATA/Code/User/snippets",
       "$APPDATA/Cursor/User/snippets",
-      "~/scoop/persist/vscode/data/user-data/User/snippets",
-      "~/scoop/persist/cursor/data/user-data/User/snippets"
     ]
   }
 ]
