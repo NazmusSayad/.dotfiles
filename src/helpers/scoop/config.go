@@ -19,7 +19,7 @@ type ScoopAppConfig struct {
 	Bucket string
 }
 
-var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/git"}
+var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/git", "main/innounp"}
 
 func ReadScoopAppConfig() []ScoopAppConfig {
 	inputConfig := helpers.ReadConfig[[]string]("@/config/scoop-apps.yaml")
