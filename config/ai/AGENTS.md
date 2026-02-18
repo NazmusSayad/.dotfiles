@@ -29,24 +29,4 @@
 # CLI/Terminal
 
 - Run terminal commands only when instructed.
-- Never prefix terminal commands with `cd`. Use `cd` only when entering a subdirectory.
-
-## Example
-
-Incorrect:
-
-```sh
-cd ./project && nr test
-```
-
-Correct:
-
-```sh
-nr test
-```
-
-Correct:
-
-```sh
-cd ./project/subproject && nr test
-```
+- Always use `bash` shell to run terminal commands.
