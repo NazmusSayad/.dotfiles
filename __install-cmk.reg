@@ -1,0 +1,41 @@
+Windows Registry Editor Version 5.00
+
+
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open in VSCode]
+@="Open in Code"
+"Icon"="C:\\Users\\Sayad\\scoop\\apps\\vscode\\current\\Code.exe"
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open in VSCode\command]
+@="\"C:\\Users\\Sayad\\scoop\\apps\\vscode\\current\\Code.exe\" \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open in VSCode]
+@="Open in Code"
+"Icon"="C:\\Users\\Sayad\\scoop\\apps\\vscode\\current\\Code.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open in VSCode\command]
+@="\"C:\\Users\\Sayad\\scoop\\apps\\vscode\\current\\Code.exe\" \"%V\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open in VSCode]
+@="Open in Code"
+"Icon"="C:\\Users\\Sayad\\scoop\\apps\\vscode\\current\\Code.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open in VSCode\command]
+@="\"C:\\Users\\Sayad\\scoop\\apps\\vscode\\current\\Code.exe\" \"%V\""
+
+
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open in Cursor]
+@="Open in Cursor"
+"Icon"="C:\\Users\\Sayad\\scoop\\apps\\cursor\\current\\Cursor.exe"
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open in Cursor\command]
+@="\"C:\\Users\\Sayad\\scoop\\apps\\cursor\\current\\Cursor.exe\" \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open in Cursor]
+@="Open in Cursor"
+"Icon"="C:\\Users\\Sayad\\scoop\\apps\\cursor\\current\\Cursor.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open in Cursor\command]
+@="\"C:\\Users\\Sayad\\scoop\\apps\\cursor\\current\\Cursor.exe\" \"%V\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open in Cursor]
+@="Open in Cursor"
+"Icon"="C:\\Users\\Sayad\\scoop\\apps\\cursor\\current\\Cursor.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open in Cursor\command]
+@="\"C:\\Users\\Sayad\\scoop\\apps\\cursor\\current\\Cursor.exe\" \"%V\""

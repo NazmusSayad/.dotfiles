@@ -826,45 +826,5 @@
   {
     "key": "ctrl+e",
     "command": "revealFileInOS"
-  },
-  {
-    "key": "ctrl+alt+1",
-    "command": "editor.action.acceptCursorTabSuggestion",
-    "when": "cpp.shouldAcceptTab"
-  },
-  {
-    "key": "ctrl+alt+2",
-    "command": "editor.action.accessibleViewAcceptInlineCompletion",
-    "when": "accessibleViewIsShown && accessibleViewCurrentProviderId == 'inlineCompletions'"
-  },
-  {
-    "key": "ctrl+alt+3",
-    "command": "editor.action.inlineSuggest.commit",
-    "when": "inInlineEditsPreviewEditor"
-  },
-  {
-    "key": "ctrl+alt+4",
-    "command": "editor.action.inlineDiffs.acceptPartialEdit",
-    "when": "editorTextFocus && inlineDiffs.activeEditorWithDiffs"
-  },
-  {
-    "key": "ctrl+alt+5",
-    "command": "acceptAlternativeSelectedSuggestion",
-    "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-  },
-  {
-    "key": "ctrl+alt+6",
-    "command": "acceptSelectedSuggestion",
-    "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
-  },
-  {
-    "key": "tab",
-    "command": "jumpToNextSnippetPlaceholder",
-    "when": "hasNextTabstop && inSnippetMode && textInputFocus"
-  },
-  {
-    "key": "shift+tab",
-    "command": "jumpToPrevSnippetPlaceholder",
-    "when": "hasNextTabstop && inSnippetMode && textInputFocus"
   }
 ]
