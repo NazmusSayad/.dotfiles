@@ -12,31 +12,29 @@
     "Source": "@/config/shell/zsh-config.sh",
     "Target": "~/.zshrc"
   },
+
   // Agent Configs
   {
+    "Source": "@/config/ai/AGENT.md",
+    "Targets": ["~/.config/opencode/AGENTS.md"]
+  },
+  {
     "Source": "@/config/ai/skills",
-    "Targets": ["~/.cursor/skills", "~/.opencode/skills"]
+    "Targets": ["~/.agents/skills", "~/.cursor/skills", "~/.opencode/skills"]
   },
   {
     "Source": "@/config/ai/commands",
-    "Targets": [
-      "~/.cursor/commands",
-      "~/.opencode/commands",
-      "$APPDATA/Code/User/prompts"
-    ]
+    "Targets": ["~/.cursor/commands", "~/.opencode/commands"]
   },
   {
     "Source": "@/config/ai/subagents",
     "Targets": ["~/.cursor/agents", "~/.config/opencode/agents"]
   },
   {
-    "Source": "@/config/ai/AGENT.md",
-    "Targets": ["~/.cursor/AGENTS.md", "~/.config/opencode/AGENTS.md"]
-  },
-  {
     "Source": "@/config/ai/opencode.json",
     "Target": "~/.config/opencode/config.json"
   },
+
   // Terminal Configs
   {
     "Source": "@/config/direnv.toml",
@@ -62,31 +60,30 @@
     "Source": "@/config/windows-terminal.json",
     "Target": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
+
   // Other Configs
   {
     "Source": "@/config/.nirc",
     "Target": "~/.nirc"
   },
+
   // Code Editor
   {
     "Source": "@/config/vscode/settings.jsonc",
     "Targets": [
       "$APPDATA/Code/User/settings.json",
-      "$APPDATA/Cursor/User/settings.json",
+      "$APPDATA/Cursor/User/settings.json"
     ]
   },
   {
     "Source": "@/config/vscode/keybindings.jsonc",
     "Targets": [
       "$APPDATA/Code/User/keybindings.json",
-      "$APPDATA/Cursor/User/keybindings.json",
+      "$APPDATA/Cursor/User/keybindings.json"
     ]
   },
   {
     "Source": "@/config/vscode/snippets",
-    "Targets": [
-      "$APPDATA/Code/User/snippets",
-      "$APPDATA/Cursor/User/snippets",
-    ]
+    "Targets": ["$APPDATA/Code/User/snippets", "$APPDATA/Cursor/User/snippets"]
   }
 ]
