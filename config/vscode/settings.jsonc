@@ -392,6 +392,8 @@
   "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
   "explorer.confirmPasteNative": false,
+  "explorer.copyRelativePathSeparator": "/",
+  "explorer.copyPathSeparator": "/",
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
