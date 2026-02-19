@@ -1,33 +1,50 @@
 ---
 name: npm
-description: Use @antfu/ni to run scripts, install/upgrade/uninstall packages across npm, yarn, and pnpm. Use when running npm/yarn/pnpm commands, installing dependencies, or managing packages.
+description: Run npm scripts and install, update, remove, and manage npm packages. Use this skill whenever you need to run npm scripts or manage packages.
 ---
 
-Use **@antfu/ni** (ni/nr/nup/nun). It picks the project's package manager automatically.
+This skill guides npm scripts in real projects and helps run scripts, add packages, update versions, remove packages, and check available updates.
 
-## `nr` - run
+## Run scripts
+
+Use `nr` to run npm scripts.
 
 ```bash
 nr dev --port=3000
 nr build
 ```
 
-## `ni` - install
+## Install packages
+
+Use `ni` to install packages.
 
 ```bash
 ni <package>
 ni -D <package>
 ```
 
-## `nup` - upgrade
+## Upgrade packages
+
+Use `nup` to upgrade dependencies.
 
 ```bash
 nup
 nup <package>
 ```
 
-## `nun` - uninstall
+## Remove packages
+
+Use `nun` to uninstall packages.
 
 ```bash
 nun <package>
+```
+
+## Check available updates
+
+Use `taze` to query dependency updates.
+
+```bash
+taze
+taze [default|major|minor|patch|latest|newest|next]
 ```
