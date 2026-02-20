@@ -19,20 +19,20 @@
     "Targets": ["~/.config/opencode/AGENTS.md"]
   },
   {
-    "Source": "@/config/ai/skills",
-    "Targets": ["~/.agents/skills", "~/.cursor/skills", "~/.opencode/skills"]
-  },
-  {
-    "Source": "@/config/ai/commands",
-    "Targets": ["~/.cursor/commands", "~/.opencode/commands"]
+    "Source": "@/config/ai/opencode.json",
+    "Target": "~/.config/opencode/config.json"
   },
   {
     "Source": "@/config/ai/subagents",
     "Targets": ["~/.cursor/agents", "~/.config/opencode/agents"]
   },
   {
-    "Source": "@/config/ai/opencode.json",
-    "Target": "~/.config/opencode/config.json"
+    "Source": "@/config/ai/skills",
+    "Targets": ["~/.agents/skills", "~/.cursor/skills"]
+  },
+  {
+    "Source": "@/config/ai/commands",
+    "Targets": ["~/.cursor/commands", "~/.config/opencode/commands"]
   },
 
   // Terminal Configs
