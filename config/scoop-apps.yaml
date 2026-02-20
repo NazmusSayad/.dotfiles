@@ -1,8 +1,8 @@
 ## Development Tools
 - lua
 - luajit
-- gcc
 - shfmt
+- gcc
 
 - dart
 - extras/flutter
@@ -13,7 +13,7 @@
 
 - aws
 - cloudflared
-- main/lazydocker
+- lazydocker
 
 ## AI Tools
 - codex
@@ -30,7 +30,6 @@
 
 ## Shells
 - mise
-- pwsh
 - gsudo
 - direnv
 - zoxide
@@ -40,8 +39,8 @@
 - nircmd
 
 ## File System Tools
-- byenow
 - ripgrep
+- byenow
 - fd
 - duf
 - rip
@@ -60,6 +59,7 @@
 - extras/anyburn
 - extras/winrar
 - extras/sharex
+- imagemagick
 - ffmpeg
 - yt-dlp
 
