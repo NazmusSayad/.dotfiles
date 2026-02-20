@@ -1,50 +1,50 @@
 ---
 name: npm
-description: Run npm scripts and install, update, remove, manage npm packages. Use this skill whenever you need to run npm scripts (dev, test, build, etc.) or manage packages.
+description: Run npm scripts and install, update, remove, and manage npm packages. Use this skill whenever you need to run npm scripts (dev, test, build, etc.). Use this skill when you need to install, update, remove, or manage npm packages.
 ---
 
-This skill guides npm scripts in real projects and helps run scripts, add packages, update versions, remove packages, and check available updates.
+This skill guides npm scripts in real projects and helps run scripts, install packages, update versions, remove packages, and check available updates.
 
 ## Run scripts
 
-Use `nr` to run npm scripts.
+Use `nr` to run npm scripts (dev, test, build, etc.).
 
-```bash
+```sh
 nr dev --port=3000
 nr build
 ```
 
 ## Install packages
 
-Use `ni` to install packages.
+Use `ni` to install packages (dependencies, devDependencies, etc.).
 
-```bash
+```sh
 ni <package>
 ni -D <package>
 ```
 
 ## Upgrade packages
 
-Use `nup` to upgrade dependencies.
+Use `nup` to upgrade packages (dependencies, devDependencies, etc.).
 
-```bash
+```sh
 nup
 nup <package>
 ```
 
 ## Remove packages
 
-Use `nun` to uninstall packages.
+Use `nun` to uninstall packages (dependencies, devDependencies, etc.).
 
-```bash
+```sh
 nun <package>
 ```
 
 ## Check available updates
 
-Use `taze` to query dependency updates.
+Use `taze` to query package updates (dependencies, devDependencies, etc.).
 
-```bash
+```sh
 taze
 taze [default|major|minor|patch|latest|newest|next]
 ```
