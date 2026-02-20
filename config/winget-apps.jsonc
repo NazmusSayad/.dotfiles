@@ -70,7 +70,9 @@
   // Shells
   {
     "ID": "MSYS2.MSYS2",
-    "Name": "MSYS2"
+    "Name": "MSYS2",
+    "ForceAdminInstall": true,
+    "ForceAdminUpgrade": true
   },
 
   // Code Editors
@@ -85,6 +87,7 @@
     "ID": "Anysphere.Cursor",
     "Name": "Cursor",
     "Scope": "User",
+    "SkipInstall": true,
     "InteractiveInstall": true
   },
   {
