@@ -20,6 +20,10 @@
     "Name": "Windows Terminal"
   },
   {
+    "ID": "Microsoft.PowerShell",
+    "Name": "PowerShell (pwsh)"
+  },
+  {
     "ID": "stax76.run-hidden",
     "Name": "Run Hidden"
   },
@@ -59,10 +63,6 @@
     "Name": "Unified Remote"
   },
   {
-    "ID": "AutoHotkey.AutoHotkey",
-    "Name": "Auto Hot key"
-  },
-  {
     "ID": "RamenSoftware.Windhawk",
     "Name": "Windhawk"
   },
@@ -78,6 +78,7 @@
     "ID": "Microsoft.VisualStudioCode",
     "Name": "VSCode",
     "Scope": "User",
+    "SkipInstall": true,
     "InteractiveInstall": true
   },
   {
