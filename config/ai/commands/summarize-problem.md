@@ -1,6 +1,6 @@
 # Summarize the Problem
 
-Explain the actual problem we were trying to solve.
+Explain the actual problem you were trying to solve.
 
 ### Ignore everything related to:
 
