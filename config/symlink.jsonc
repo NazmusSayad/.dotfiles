@@ -15,7 +15,7 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/AGENTS.md",
+    "Source": "@/config/ai/README.md",
     "Targets": ["~/.config/opencode/AGENTS.md"]
   },
   {
