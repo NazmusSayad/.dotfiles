@@ -9,14 +9,14 @@ Do not over-declare variables, functions, or components unless the logic is extr
 
 ❌ Incorrect:
 
-```jsx
-import { useState } from 'react'
+```tsx
+import { useState } from "react";
 
 function MyComponent() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   function handleIncrement() {
-    setCount(count + 1)
+    setCount(count + 1);
   }
 
   return (
@@ -24,7 +24,7 @@ function MyComponent() {
       <p>Count: {count}</p>
       <button onClick={handleIncrement}>Increment</button>
     </div>
-  )
+  );
 }
 ```
 
@@ -32,18 +32,18 @@ Inline it when it's not extremely complex.
 
 ✅ Correct:
 
-```jsx
-import { useState } from 'react'
+```tsx
+import { useState } from "react";
 
 function MyComponent() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
-  )
+  );
 }
 ```
 
@@ -51,15 +51,15 @@ You may declare functions when the logic is extremely complex.
 
 ✅ Correct:
 
-```jsx
-import { useState } from 'react'
+```tsx
+import { useState } from "react";
 
 function MyComponent() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   function handleIncrement() {
     // YOUR EXTREMELY COMPLEX LOGIC HERE
-    setCount(count + 1)
+    setCount(count + 1);
   }
 
   return (
@@ -67,25 +67,25 @@ function MyComponent() {
       <p>Count: {count}</p>
       <button onClick={handleIncrement}>Increment</button>
     </div>
-  )
+  );
 }
 ```
 
 ## 2. Keep pure functions outside the component
 
-Put pure functions always outside of the component.
+Pure utility functions must be declared outside React components.
 
 ❌ Incorrect:
 
-```jsx
-import { useState } from 'react'
+```tsx
+import { useState } from "react";
 
 function MyComponent() {
-  const [text, setText] = useState('')
+  const [text, setText] = useState("");
 
   function processDisplayText(text: string) {
     // ...
-    return text.toUpperCase()
+    return text.toUpperCase();
   }
 
   return (
@@ -93,28 +93,28 @@ function MyComponent() {
       <p>Text: {processDisplayText(text)}</p>
       <input onChange={(e) => setText(e.target.value)} />
     </div>
-  )
+  );
 }
 ```
 
 ✅ Correct:
 
-```jsx
-import { useState } from 'react'
+```tsx
+import { useState } from "react";
 
 function processDisplayText(text: string) {
   // ...
-  return text.toUpperCase()
+  return text.toUpperCase();
 }
 
 function MyComponent() {
-  const [text, setText] = useState('')
+  const [text, setText] = useState("");
 
   return (
     <div>
       <p>Text: {processDisplayText(text)}</p>
       <input onChange={(e) => setText(e.target.value)} />
     </div>
-  )
+  );
 }
 ```
