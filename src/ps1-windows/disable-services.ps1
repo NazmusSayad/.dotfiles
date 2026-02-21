@@ -50,6 +50,8 @@ $servicesToDisable = @(
   'CDPUserSvc*',
   'IEEtwCollectorService',
   'OneSyncSvc_*',
+  'CDPUserSvc_*',
+  'CloudBackupRestoreSvc_*',
   'WSAIFabricSvc',
   'SSDPSRV',
   'PrintDeviceConfigurationService',
