@@ -14,12 +14,14 @@ deno = "latest"
 # Other Languages
 go = "latest"
 java = "latest"
+
+rust = "stable"
+rust-analyzer = "latest"
+
 # php = "latest"
 # zig = "latest"
 # ruby = "latest"
 # kotlin = "latest"
-# rust = "stable"
-# rust-analyzer = "latest"
 
 
 # Python
