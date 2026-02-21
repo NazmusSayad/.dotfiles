@@ -36,6 +36,10 @@
   { "Id": "mark-wiemer.vscode-autohotkey-plus-plus" },
   { "Id": "mkhl.shfmt" },
 
+  // Rust
+  { "Id": "rust-lang.rust" },
+  { "Id": "rust-lang.rust-analyzer" },
+
   // Other Languages
   { "Id": "bradlc.vscode-tailwindcss" },
   { "Id": "tamasfe.even-better-toml" },
