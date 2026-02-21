@@ -50,6 +50,10 @@
 - lsd
 - yazi
 
+## Workflow Tools
+- make
+- just
+
 ## Code Analysis and Documentation Tools
 - scc
 - tokei
