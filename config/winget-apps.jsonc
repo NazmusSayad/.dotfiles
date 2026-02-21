@@ -24,6 +24,11 @@
     "Name": "PowerShell (pwsh)"
   },
   {
+    "ID": "Git.Git",
+    "Name": "Git",
+    "InteractiveInstall": true
+  },
+  {
     "ID": "stax76.run-hidden",
     "Name": "Run Hidden"
   },

@@ -3,9 +3,5 @@
   "autoupdate": false,
   "autoshare": false,
   "share": "disabled",
-  "theme": "system",
-  "permission": {
-    "bash": "ask",
-    "external_directory": "ask"
-  }
+  "theme": "system"
 }
