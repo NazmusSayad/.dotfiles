@@ -1,8 +1,4 @@
 {
-  "cursor/noInlineDiffs": false,
-  "cursor/unifiedAppLayout": "editor",
-  "cursor/defaultLayoutMode": "legacy-editor",
-
   "workbench.statusbar.hidden": [
     "status.notifications",
     "WallabyJs.quokka-vscode",
@@ -22,17 +18,6 @@
     "golang.go.Go",
     "tamasfe.even-better-toml"
   ],
-  "workbench.explorer.views.state.hidden": [
-    { "id": "outline", "isHidden": true },
-    { "id": "timeline", "isHidden": true },
-    { "id": "workbench.explorer.openEditorsView", "isHidden": true },
-    { "id": "workbench.explorer.emptyView", "isHidden": false },
-    { "id": "npm", "isHidden": true },
-    { "id": "workbench.explorer.fileView", "isHidden": false },
-    { "id": "dartDependencyTree", "isHidden": false },
-    { "id": "go.explorer", "isHidden": true },
-    { "id": "go.package.outline", "isHidden": true }
-  ],
   "workbench.scm.views.state.hidden": [
     { "id": "workbench.scm.repositories", "isHidden": true },
     { "id": "workbench.scm", "isHidden": false },
@@ -47,6 +32,17 @@
     { "id": "gitlens.views.contributors", "isHidden": false },
     { "id": "gitlens.views.scm.grouped", "isHidden": true },
     { "id": "bugbot", "isHidden": true }
+  ],
+  "workbench.explorer.views.state.hidden": [
+    { "id": "outline", "isHidden": true },
+    { "id": "timeline", "isHidden": true },
+    { "id": "workbench.explorer.openEditorsView", "isHidden": true },
+    { "id": "workbench.explorer.emptyView", "isHidden": false },
+    { "id": "npm", "isHidden": true },
+    { "id": "workbench.explorer.fileView", "isHidden": false },
+    { "id": "dartDependencyTree", "isHidden": false },
+    { "id": "go.explorer", "isHidden": true },
+    { "id": "go.package.outline", "isHidden": true }
   ],
   "workbench.view.extensions.state.hidden": [
     { "id": "workbench.views.extensions.installed", "isHidden": false },
