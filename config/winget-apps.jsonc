@@ -33,8 +33,11 @@
   },
   {
     "ID": "Tonec.InternetDownloadManager",
-    "Name": "Internet Download Manager",
-    "Version": "6.42.58"
+    "Name": "Internet Download Manager"
+  },
+  {
+    "ID": "qBittorrent.qBittorrent",
+    "Name": "qBittorrent"
   },
 
   // Media Tools
