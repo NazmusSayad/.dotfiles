@@ -121,7 +121,8 @@
     "esbenp.prettier-vscode.prettier.status",
     "golang.go.Go",
     "tamasfe.even-better-toml",
-    "rust-lang.rust-analyzer"
+    "rust-lang.rust-analyzer",
+    "redhat.vscode-yaml"
   ],
   "workbench.view.extensions.state.hidden": [
     {
