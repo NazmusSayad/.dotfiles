@@ -462,5 +462,8 @@
   },
   "workbench.layoutControl.enabled": false,
   "workbench.activityBar.location": "hidden",
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  }
 }
