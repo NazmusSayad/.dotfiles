@@ -20,12 +20,6 @@
 - Rely on full type inference when possible.
 - Do not use type `any`, casts, or explicit generic type arguments when inference is possible.
 
-# Skills
-
-- Use `npm` skill to work with npm.
-- Use `react` skill when writing React code.
-- Use `frontend-design` skill when designing frontend interfaces.
-
 # CLI/Terminal
 
 - Run terminal commands only when instructed.
