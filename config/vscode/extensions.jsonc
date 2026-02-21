@@ -37,7 +37,6 @@
   { "Id": "mkhl.shfmt" },
 
   // Rust
-  { "Id": "rust-lang.rust" },
   { "Id": "rust-lang.rust-analyzer" },
 
   // Other Languages
