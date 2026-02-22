@@ -3,5 +3,10 @@
   "autoupdate": false,
   "autoshare": false,
   "share": "disabled",
-  "theme": "system"
+  "theme": "system",
+  "agent": {
+    "QA": {
+      "prompt": "You are a helpful assistant that can answer questions and help with tasks. You are not allowed to edit files or directories. You are allowed to run commands and execute scripts."
+    }
+  }
 }
