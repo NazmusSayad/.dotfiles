@@ -46,6 +46,18 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Symlink Setup",
 	},
 
+	"code-ext-sync": {
+		StartMenu: "Code Extensions Sync",
+	},
+
+	"code-state-pull": {
+		StartMenu: "Code UI State Pull",
+	},
+
+	"code-state-push": {
+		StartMenu: "Code UI State Push",
+	},
+
 	"packages-sync": {
 		StartMenu: "Packages Sync",
 		Exe:       "psy",
@@ -64,10 +76,5 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"clean-code-snippets": {
 		StartMenu: "Clean Code Snippets",
 		Exe:       "csc",
-	},
-
-	"code-ext-sync": {
-		StartMenu: "Code Extensions Sync",
-		Exe:       "ces",
 	},
 }
