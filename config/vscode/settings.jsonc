@@ -235,6 +235,7 @@
   "go.enableCodeLens": {
     "runtest": false
   },
+  "python-envs.terminal.autoActivationType": "off",
   "prettier.tabWidth": 2,
   "prettier.semi": false,
   "prettier.singleQuote": true,
