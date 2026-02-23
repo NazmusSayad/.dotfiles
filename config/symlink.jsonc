@@ -15,7 +15,7 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/README.md",
+    "Source": "@/config/ai/README_AGENTS.md",
     "Targets": ["~/.config/opencode/AGENTS.md"]
   },
   {
@@ -33,16 +33,16 @@
 
   // Terminal Configs
   {
-    "Source": "@/config/direnv.toml",
-    "Target": "~/.config/direnv/direnv.toml"
-  },
-  {
     "Source": "@/config/mise.toml",
     "Target": "~/.config/mise/config.toml"
   },
   {
     "Source": "@/config/starship.toml",
     "Target": "~/.config/starship.toml"
+  },
+  {
+    "Source": "@/config/direnv.toml",
+    "Target": "~/.config/direnv/direnv.toml"
   },
   {
     "Source": "@/config/fastfetch.jsonc",
