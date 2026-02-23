@@ -250,8 +250,8 @@
   "git.showPushSuccessNotification": true,
   "git.openRepositoryInParentFolders": "never",
   "git.ignoreRebaseWarning": true,
-  "scm.inputMinLineCount": 3,
-  "scm.inputMaxLineCount": 10,
+  "scm.inputMinLineCount": 7,
+  "scm.inputMaxLineCount": 7,
   "scm.defaultViewMode": "tree",
   "scm.diffDecorations": "gutter",
   "scm.diffDecorationsGutterPattern": {
