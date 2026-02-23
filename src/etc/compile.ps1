@@ -30,3 +30,6 @@ if ($killedAhk.Count -gt 0) {
         }
     }
 }
+
+Write-Host ""
+Write-Host "Done!"
