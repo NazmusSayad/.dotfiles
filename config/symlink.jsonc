@@ -59,7 +59,11 @@
 
   // Other Configs
   {
-    "Source": "@/config/.nirc",
+    "Source": "@/config/uni-run.json",
+    "Target": "~/.uni-run.json"
+  },
+  {
+    "Source": "@/config/nirc",
     "Target": "~/.nirc"
   },
 
