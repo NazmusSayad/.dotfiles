@@ -2,7 +2,6 @@ package main
 
 import (
 	"dotfiles/src/helpers"
-	slack "dotfiles/src/helpers/slack"
 	"dotfiles/src/utils"
 	"fmt"
 	"os"
@@ -15,7 +14,6 @@ import (
 func main() {
 	helpers.EnsureAdminExecution()
 
-	slackConfig := slack.ReadSlackConfig()
 	runHidden, err := exec.LookPath("run-hidden.exe")
 	if err != nil {
 		panic(err)
@@ -29,13 +27,30 @@ func main() {
 				{Type: helpers.WindowsTaskTriggerTypeBoot},
 				{Type: helpers.WindowsTaskTriggerTypeLogon},
 
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart, Minute: 1},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart + 1, Minute: 1},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeStart + 2, Minute: 1},
-
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish, Minute: 1},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish + 1, Minute: 1},
-				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: slackConfig.OfficeTimeFinish + 2, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 0, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 1, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 2, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 3, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 4, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 5, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 6, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 7, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 8, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 9, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 10, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 11, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 12, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 13, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 14, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 15, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 16, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 17, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 18, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 19, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 20, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 21, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 22, Minute: 1},
+				{Type: helpers.WindowsTaskTriggerTypeDaily, Hour: 23, Minute: 1},
 
 				{Type: helpers.WindowsTaskTriggerTypeEvent, EventString: `&lt;QueryList&gt;&lt;Query Id="0" Path="System"&gt;&lt;Select
         Path="System"&gt;*[System[Provider[@Name='Microsoft-Windows-Power-Troubleshooter'] and
