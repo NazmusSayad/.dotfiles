@@ -31,7 +31,7 @@
 		},
 		{
 			"id": "dartDependencyTree",
-			"isHidden": false
+			"isHidden": true
 		},
 		{
 			"id": "go.explorer",
