@@ -1,8 +1,3 @@
-# Files
-
-- If no file is specified, prioritize the currently opened file.
-- Modify existing files only. Do not create new files or directories unless instructed.
-
 # Code Style and Best Practices
 
 - Keep code minimal, direct, and readable.
@@ -19,19 +14,3 @@
 
 - Rely on full type inference when possible.
 - Do not use type `any`, casts, or explicit generic type arguments when inference is possible.
-
-# CLI/Terminal
-
-- Run terminal commands only when instructed.
-- Always use `bash` shell to run terminal commands.
-- Use Unix-style paths when referencing files and directories.
-
-### Example
-
-```bash
-# ❌ Incorrect
-cd C:\\Users\\Sayad\\Desktop
-
-# ✅ Correct
-cd /c/Users/Sayad/Desktop
-```
