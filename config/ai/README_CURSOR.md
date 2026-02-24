@@ -7,22 +7,22 @@
 
 - Keep code minimal, direct, and readable.
 - Do not add comments unless explicitly instructed.
-- Do not use hacks, workarounds, magic values, or undocumented behaviors.
+- Do not use hacks, workarounds, magic values, or undocumented behavior.
 - Implement logic in the most straightforward, explicit way supported by the language or framework.
 
-### Avoid Abstractions and Over Declarations
+### Avoid Abstractions and Over-Declaration
 
-- Prefer the most direct, inline implementation.
-- Add helpers, extra variables, or abstractions only when they reduce meaningful duplication.
+- Prefer direct, inline implementations.
+- Introduce helpers, extra variables, or abstractions only when they remove meaningful duplication.
 
 ### TypeScript Rules
 
-- Rely on full type inference when possible.
-- Do not use type `any`, casts, or explicit generic type arguments when inference is possible.
+- Rely on type inference whenever possible.
+- Do not use `any`, casts, or explicit generic type arguments when inference is sufficient.
 
-## Must Use Skills
+## Important Skills
 
-- Always use `npm` skill to run npm scripts, install, update, remove, and manage npm packages.
+- Must use `npm` skill to: run, execute, install, update, remove npm packages
 
 ## CLI/Terminal
 
