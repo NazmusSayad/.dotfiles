@@ -18,3 +18,7 @@
 ## Important Skills
 
 - Must use `npm` skill to: run, execute, install, update, remove npm packages
+
+## Shell
+
+- Use unix-style path notation.
