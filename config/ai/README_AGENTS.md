@@ -22,4 +22,4 @@
 ## CLI/Shell/Terminal
 
 - Use `bash` for all shell/terminal commands.
-- Use Unix-style paths when referencing files/directories
+- Use Unix-style paths when referencing files/directories.
