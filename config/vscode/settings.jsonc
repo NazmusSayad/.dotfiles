@@ -223,6 +223,9 @@
   "[php]": {
     "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
   },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
   "xml.format.preservedNewlines": 1,
   "prisma.hidePrisma6Prompts": true,
   "quokka.showOutputOnStart": false,
@@ -236,6 +239,7 @@
     "runtest": false
   },
   "python-envs.terminal.autoActivationType": "off",
+  "python.defaultInterpreterPath": "c:\\Users\\Sayad\\AppData\\Local\\mise\\installs\\python\\3.14.3\\python.exe",
   "prettier.tabWidth": 2,
   "prettier.semi": false,
   "prettier.singleQuote": true,
@@ -463,8 +467,5 @@
   },
   "workbench.layoutControl.enabled": false,
   "workbench.activityBar.location": "hidden",
-  "redhat.telemetry.enabled": false,
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  }
+  "redhat.telemetry.enabled": false
 }
