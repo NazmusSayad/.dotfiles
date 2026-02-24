@@ -1,226 +1,227 @@
 {
-	"cursor/autoOpenLocalhostUrls": false,
-	"cursor/defaultLayoutMode": "legacy-editor",
-	"cursor/jumpOnDiffAccept": false,
-	"cursor/noInlineDiffs": false,
-	"cursor/unifiedAppLayout": "editor",
-	"workbench.explorer.views.state.hidden": [
-		{
-			"id": "outline",
-			"isHidden": true
-		},
-		{
-			"id": "timeline",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.explorer.openEditorsView",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.explorer.emptyView",
-			"isHidden": false
-		},
-		{
-			"id": "npm",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.explorer.fileView",
-			"isHidden": false
-		},
-		{
-			"id": "dartDependencyTree",
-			"isHidden": true
-		},
-		{
-			"id": "go.explorer",
-			"isHidden": true
-		},
-		{
-			"id": "go.package.outline",
-			"isHidden": true
-		},
-		{
-			"id": "make",
-			"isHidden": true
-		},
-		{
-			"id": "makefile.outline",
-			"isHidden": false
-		},
-		{
-			"id": "rustDependencies",
-			"isHidden": true
-		}
-	],
-	"workbench.scm.views.state.hidden": [
-		{
-			"id": "workbench.scm.repositories",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.scm",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.scm.history",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.repositories",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.commits",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.branches",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.remotes",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.stashes",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.tags",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.worktrees",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.contributors",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.scm.grouped",
-			"isHidden": true
-		},
-		{
-			"id": "bugbot",
-			"isHidden": true
-		}
-	],
-	"workbench.statusbar.hidden": [
-		"status.notifications",
-		"WallabyJs.quokka-vscode",
-		"Cursor Tab",
-		"WakaTime.vscode-wakatime.com.wakatime.teamother",
-		"WakaTime.vscode-wakatime.com.wakatime.teamyou",
-		"WakaTime.vscode-wakatime.com.wakatime.statusbar",
-		"status.workspaceName",
-		"status.host",
-		"GraphQL.vscode-graphql",
-		"status.languageStatus",
-		"status.editor.indentation",
-		"status.editor.encoding",
-		"status.editor.eol",
-		"status.editor.mode",
-		"esbenp.prettier-vscode.prettier.status",
-		"golang.go.Go",
-		"tamasfe.even-better-toml",
-		"rust-lang.rust-analyzer",
-		"redhat.vscode-yaml"
-	],
-	"workbench.view.extensions.state.hidden": [
-		{
-			"id": "workbench.views.extensions.installed",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchOutdated",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.workspaceRecommendations",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.popular",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchRecentlyUpdated",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.otherRecommendations",
-			"isHidden": false
-		},
-		{
-			"id": "extensions.recommendedList",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.enabled",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.disabled",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.marketplace",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchInstalled",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchEnabled",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchDisabled",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchBuiltin",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchWorkspaceUnsupported",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.builtinFeatureExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.builtinThemeExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.builtinProgrammingLanguageExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.untrustedUnsupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.untrustedPartiallySupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.virtualUnsupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.virtualPartiallySupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.deprecatedExtensions",
-			"isHidden": false
-		}
-	]
+  "cursor/autoOpenLocalhostUrls": false,
+  "cursor/defaultLayoutMode": "legacy-editor",
+  "cursor/jumpOnDiffAccept": false,
+  "cursor/noInlineDiffs": false,
+  "cursor/unifiedAppLayout": "editor",
+  "workbench.explorer.views.state.hidden": [
+    {
+      "id": "outline",
+      "isHidden": true
+    },
+    {
+      "id": "timeline",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.explorer.openEditorsView",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.explorer.emptyView",
+      "isHidden": false
+    },
+    {
+      "id": "npm",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.explorer.fileView",
+      "isHidden": false
+    },
+    {
+      "id": "dartDependencyTree",
+      "isHidden": true
+    },
+    {
+      "id": "go.explorer",
+      "isHidden": true
+    },
+    {
+      "id": "go.package.outline",
+      "isHidden": true
+    },
+    {
+      "id": "make",
+      "isHidden": true
+    },
+    {
+      "id": "makefile.outline",
+      "isHidden": false
+    },
+    {
+      "id": "rustDependencies",
+      "isHidden": true
+    }
+  ],
+  "workbench.scm.views.state.hidden": [
+    {
+      "id": "workbench.scm.repositories",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.scm",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.scm.history",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.repositories",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.commits",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.branches",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.remotes",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.stashes",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.tags",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.worktrees",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.contributors",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.scm.grouped",
+      "isHidden": true
+    },
+    {
+      "id": "bugbot",
+      "isHidden": true
+    }
+  ],
+  "workbench.statusbar.hidden": [
+    "status.notifications",
+    "WallabyJs.quokka-vscode",
+    "Cursor Tab",
+    "WakaTime.vscode-wakatime.com.wakatime.teamother",
+    "WakaTime.vscode-wakatime.com.wakatime.teamyou",
+    "WakaTime.vscode-wakatime.com.wakatime.statusbar",
+    "status.workspaceName",
+    "status.host",
+    "GraphQL.vscode-graphql",
+    "status.languageStatus",
+    "status.editor.indentation",
+    "status.editor.encoding",
+    "status.editor.eol",
+    "status.editor.mode",
+    "esbenp.prettier-vscode.prettier.status",
+    "golang.go.Go",
+    "tamasfe.even-better-toml",
+    "rust-lang.rust-analyzer",
+    "redhat.vscode-yaml",
+    "status.scm.provider"
+  ],
+  "workbench.view.extensions.state.hidden": [
+    {
+      "id": "workbench.views.extensions.installed",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchOutdated",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.workspaceRecommendations",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.popular",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchRecentlyUpdated",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.otherRecommendations",
+      "isHidden": false
+    },
+    {
+      "id": "extensions.recommendedList",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.enabled",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.disabled",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.marketplace",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchInstalled",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchEnabled",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchDisabled",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchBuiltin",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchWorkspaceUnsupported",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.builtinFeatureExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.builtinThemeExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.builtinProgrammingLanguageExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.untrustedUnsupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.untrustedPartiallySupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.virtualUnsupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.virtualPartiallySupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.deprecatedExtensions",
+      "isHidden": false
+    }
+  ]
 }
