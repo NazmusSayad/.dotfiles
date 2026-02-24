@@ -42,19 +42,19 @@ nup
 nup <package>
 ```
 
+### Query package updates
+
+Run `taze` to check for available updates for packages.
+
+```sh
+taze
+taze [default|major|minor|patch|latest|newest|next]
+```
+
 ## Remove packages
 
 Use `nun` to uninstall packages (dependencies, devDependencies, etc.).
 
 ```sh
 nun <package>
-```
-
-## Check available updates
-
-Use `taze` to query package updates (dependencies, devDependencies, etc.).
-
-```sh
-taze
-taze [default|major|minor|patch|latest|newest|next]
 ```
