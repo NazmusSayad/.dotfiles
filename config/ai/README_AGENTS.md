@@ -19,6 +19,7 @@
 
 - Must use `npm` skill to: run, execute, install, update, remove npm packages
 
-## Shell
+## CLI/Shell/Terminal
 
-- Use unix-style path notation.
+- Always use `bash` shell to run terminal commands.
+- Use Unix-style paths when referencing files and directories.
