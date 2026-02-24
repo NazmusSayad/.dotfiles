@@ -7,6 +7,10 @@ alias .....="cd ../../../.."
 alias r="nr"
 alias nid="ni -D"
 
+# Toolchain
+alias j="just"
+alias m="make"
+
 # Flutter
 alias fl="flutter"
 alias flp="flutter pub"
