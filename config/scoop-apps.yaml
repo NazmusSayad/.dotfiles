@@ -50,8 +50,10 @@
 - yazi
 
 ## Workflow Tools
+- llvm
 - make
 - just
+- cmake
 
 ## Code Analysis and Documentation Tools
 - scc
