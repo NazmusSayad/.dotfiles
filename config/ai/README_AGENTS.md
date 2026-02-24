@@ -21,5 +21,5 @@
 
 ## CLI/Shell/Terminal
 
-- Always use `bash` shell to run terminal commands.
-- Use Unix-style paths when referencing files and directories.
+- Use `bash` for all shell/terminal commands.
+- Use Unix-style paths when referencing files/directories
