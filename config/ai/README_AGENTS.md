@@ -17,4 +17,4 @@
 
 ## Important Skills
 
-- Always use the `npm` skill for npm scripts and npm package management tasks.
+- Must use `npm` skill to: run, execute, install, update, remove npm packages
