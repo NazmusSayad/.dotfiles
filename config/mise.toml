@@ -46,6 +46,11 @@ python = "latest"
 "npm:vercel" = "latest"
 "npm:netlify-cli" = "latest"
 
+
 # Google Cloud Tools
 gcloud = "latest"
 "npm:firebase-tools" = "latest"
+
+
+# Other Tools
+"pipx:mbake" = "latest"
