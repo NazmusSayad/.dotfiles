@@ -18,6 +18,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gp",
 	},
 
+	"git-pull-all": {
+		Exe: "gpa",
+	},
+
 	"git-pull-rebase": {
 		Exe: "gpr",
 	},
