@@ -77,8 +77,6 @@ func main() {
 }
 
 func renderSlackStatus(label string, status slack.SlackStatus) {
-	slack.WriteSlackStartupConfig(status)
-
 	switch status {
 	case slack.SlackStatusAlways:
 		fmt.Println("> " + label + ": " + aurora.Green("Always On").String())
@@ -88,6 +86,7 @@ func renderSlackStatus(label string, status slack.SlackStatus) {
 		fmt.Println("> " + label + ": " + aurora.Red("Disabled").String())
 	}
 
+	slack.WriteSlackStartupConfig(status)
 	slack.SlackLaunch(status)
 }
 
