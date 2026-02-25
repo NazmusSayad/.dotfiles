@@ -467,5 +467,11 @@
   },
   "workbench.layoutControl.enabled": false,
   "redhat.telemetry.enabled": false,
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "[justfile]": {
+    "editor.defaultFormatter": "NazmusSayad.just-make"
+  },
+  "[makefile]": {
+    "editor.defaultFormatter": "NazmusSayad.just-make"
+  }
 }
