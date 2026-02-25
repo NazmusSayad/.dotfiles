@@ -73,10 +73,12 @@ func main() {
 		return
 	}
 
-	slack.WriteSlackStartupConfig(*fm.choice)
+	renderSlackStatus("Updating slack status to", *fm.choice)
 }
 
 func renderSlackStatus(label string, status slack.SlackStatus) {
+	slack.WriteSlackStartupConfig(status)
+
 	switch status {
 	case slack.SlackStatusAlways:
 		fmt.Println("> " + label + ": " + aurora.Green("Always On").String())
@@ -85,6 +87,8 @@ func renderSlackStatus(label string, status slack.SlackStatus) {
 	case slack.SlackStatusDisabled:
 		fmt.Println("> " + label + ": " + aurora.Red("Disabled").String())
 	}
+
+	slack.SlackLaunch(status)
 }
 
 type inlineDelegate struct {

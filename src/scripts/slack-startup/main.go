@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
-	slack.SlackLaunch(slack.GetSlackStartupConfig())
+	config := slack.GetSlackStartupConfig()
+	slack.SlackLaunch(config)
 }
