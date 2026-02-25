@@ -1,12 +1,12 @@
 #UseHook
-#NoTrayIcon
+#NoTrayIcon 
 
 ::@me::me@sayad.dev
 ::@fake::fake@sayad.dev
 ::@env::<redacted>
 ::@mail::<redacted>
 
-#Space::+!F
+^+Space::+!F
 #PrintScreen::#^+PrintScreen
 
 #`:: {
