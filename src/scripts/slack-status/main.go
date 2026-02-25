@@ -3,9 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"os"
-	"path/filepath"
-	"strings"
 
 	slack "dotfiles/src/helpers/slack"
 	"dotfiles/src/utils"
@@ -25,7 +22,7 @@ func formatOfficeTime() string {
 }
 
 func main() {
-	initialStatus := readSlackStatus()
+	initialStatus := slack.GetSlackStartupConfig()
 	renderSlackStatus("Current Slack Status", initialStatus)
 	fmt.Println()
 
@@ -76,28 +73,7 @@ func main() {
 		return
 	}
 
-	writeSlackStatus(*fm.choice)
-}
-
-func getSlackStatusFilePath() string {
-	homeDir, _ := os.UserHomeDir()
-	return filepath.Join(homeDir, ".slack-status")
-}
-
-func readSlackStatus() slack.SlackStatus {
-	data, err := os.ReadFile(getSlackStatusFilePath())
-	if err != nil {
-		return slack.SlackStatusWorkTime
-	}
-
-	status := strings.TrimSpace(string(data))
-	return slack.SlackStatus(status)
-}
-
-func writeSlackStatus(status slack.SlackStatus) {
-	renderSlackStatus("Updating slack status to", status)
-	os.WriteFile(getSlackStatusFilePath(), []byte(status), 0644)
-	slack.SlackLaunch(status)
+	slack.WriteSlackStartupConfig(*fm.choice)
 }
 
 func renderSlackStatus(label string, status slack.SlackStatus) {
