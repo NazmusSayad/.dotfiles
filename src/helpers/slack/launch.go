@@ -17,7 +17,7 @@ const (
 	SlackStatusDisabled SlackStatus = "disabled"
 )
 
-const SlackStatusEnvName = "SLACK_STARTUP"
+const SlackStatusEnvName = "SLACK_STARTUP_CONFIG"
 
 func GetSlackStartupConfig() SlackStatus {
 	value := os.Getenv(SlackStatusEnvName)
