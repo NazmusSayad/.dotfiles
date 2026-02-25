@@ -2,7 +2,9 @@ package slack
 
 import (
 	"dotfiles/src/constants"
+	"dotfiles/src/helpers"
 	"fmt"
+	"os"
 	"slices"
 	"time"
 )
@@ -14,6 +16,21 @@ const (
 	SlackStatusWorkTime SlackStatus = "work-hours"
 	SlackStatusDisabled SlackStatus = "disabled"
 )
+
+const SlackStatusEnvName = "SLACK_STARTUP"
+
+func GetSlackStartupConfig() SlackStatus {
+	value := os.Getenv(SlackStatusEnvName)
+	if value == "" {
+		return SlackStatusWorkTime
+	}
+
+	return SlackStatus(value)
+}
+
+func WriteSlackStartupConfig(config SlackStatus) {
+	helpers.WriteEnv(helpers.ScopeUser, SlackStatusEnvName, string(config))
+}
 
 func isWorkTime() (bool, string) {
 	config := ReadSlackConfig()
