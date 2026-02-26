@@ -6,7 +6,7 @@
 ::@env::<redacted>
 ::@mail::<redacted>
 
-^+Space::+!F
+#Space::+!F
 #PrintScreen::#^+PrintScreen
 
 #`:: {
