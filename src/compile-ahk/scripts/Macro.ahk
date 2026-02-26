@@ -6,7 +6,7 @@
 ::@env::sayadenv@gmail.com
 ::@mail::247sayad@gmail.com
 
-^+Space::+!F
+#Space::+!F
 #PrintScreen::#^+PrintScreen
 
 #`:: {
