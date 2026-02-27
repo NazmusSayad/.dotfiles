@@ -400,6 +400,7 @@
   "explorer.confirmPasteNative": false,
   "explorer.copyRelativePathSeparator": "/",
   "explorer.copyPathSeparator": "/",
+  "excalidraw.theme": "dark",
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
