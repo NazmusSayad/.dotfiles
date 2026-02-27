@@ -3,5 +3,46 @@
   "autoupdate": false,
   "autoshare": false,
   "share": "disabled",
-  "theme": "system"
+
+  "username": "Nazmus Sayad",
+
+  "agent": {
+    "QA": {
+      "prompt": "You are a helpful assistant that can answer questions and help with tasks. You are not allowed to edit files or directories. You are not allowed to use external directories. You are extremely careful with your actions and you are not allowed to make any mistakes. Remember, code is the source of truth and you must never make any changes to the code without the user's permission.",
+      "permission": {
+        "edit": "deny",
+        "external_directory": "deny"
+      }
+    }
+  },
+
+  "provider": {
+    "openrouter": {
+      "whitelist": ["moonshotai/kimi-k2.5"]
+    },
+
+    "openai": {
+      "whitelist": ["gpt-5.3-codex"]
+    },
+
+    "kilo": {
+      "whitelist": [
+        "z-ai/glm-5",
+        "moonshotai/kimi-k2.5",
+        "deepseek/deepseek-v3.2",
+        "minimax/minimax-m2.5:free"
+      ]
+    },
+
+    "github-copilot": {
+      "whitelist": [
+        "gpt-5.3-codex",
+        "gpt-5.2-codex",
+        "claude-sonnet-4.6",
+        "gemini-3.1-pro-preview"
+      ]
+    }
+  },
+
+  "enabled_providers": ["github-copilot", "openrouter", "kilo", "openai"]
 }
