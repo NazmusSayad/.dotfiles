@@ -749,7 +749,7 @@
     "when": "editor.cursor && editorFocus && !composerBarIsVisible && !editorHasPromptBar"
   },
 
-  // Explorer Management
+  // Explorer & File Management
   {
     "key": "ctrl+m e",
     "command": "-workbench.files.action.focusOpenEditorsView",
@@ -826,5 +826,14 @@
   {
     "key": "ctrl+e",
     "command": "revealFileInOS"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "copyRelativeFilePath"
   }
 ]
