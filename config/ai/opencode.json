@@ -6,16 +6,6 @@
 
   "username": "Nazmus Sayad",
 
-  "agent": {
-    "QA": {
-      "prompt": "You are a helpful assistant that can answer questions and help with tasks. You are not allowed to edit files or directories. You are not allowed to use external directories. You are extremely careful with your actions and you are not allowed to make any mistakes. Remember, code is the source of truth and you must never make any changes to the code without the user's permission.",
-      "permission": {
-        "edit": "deny",
-        "external_directory": "deny"
-      }
-    }
-  },
-
   "provider": {
     "openrouter": {
       "whitelist": ["moonshotai/kimi-k2.5"]
