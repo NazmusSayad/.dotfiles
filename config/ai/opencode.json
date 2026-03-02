@@ -7,21 +7,8 @@
   "username": "Nazmus Sayad",
 
   "provider": {
-    "openrouter": {
-      "whitelist": ["moonshotai/kimi-k2.5"]
-    },
-
     "openai": {
-      "whitelist": ["gpt-5.3-codex"]
-    },
-
-    "kilo": {
-      "whitelist": [
-        "z-ai/glm-5",
-        "moonshotai/kimi-k2.5",
-        "deepseek/deepseek-v3.2",
-        "minimax/minimax-m2.5:free"
-      ]
+      "whitelist": ["gpt-5.3-codex", "gpt-codex-spark"]
     },
 
     "github-copilot": {
@@ -31,8 +18,19 @@
         "claude-sonnet-4.6",
         "gemini-3.1-pro-preview"
       ]
+    },
+
+    "kilo": {
+      "whitelist": [
+        "z-ai/glm-5",
+        "moonshotai/kimi-k2.5",
+        "deepseek/deepseek-v3.2",
+        "qwen/qwen3.5-397b-a17b",
+        "minimax/minimax-m2.5:free",
+        "google/gemini-3-flash-preview"
+      ]
     }
   },
 
-  "enabled_providers": ["github-copilot", "openrouter", "kilo", "openai"]
+  "enabled_providers": ["openai", "github-copilot", "kilo"]
 }
