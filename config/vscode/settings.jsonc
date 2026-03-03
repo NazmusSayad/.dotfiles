@@ -469,5 +469,6 @@
       "background": "#FDD83580"
     }
   },
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "workbench.activityBar.location": "hidden"
 }
