@@ -26,14 +26,6 @@
       "isHidden": true
     },
     {
-      "id": "workbench.explorer.fileView",
-      "isHidden": false
-    },
-    {
-      "id": "dartDependencyTree",
-      "isHidden": true
-    },
-    {
       "id": "go.explorer",
       "isHidden": true
     },
@@ -42,15 +34,55 @@
       "isHidden": true
     },
     {
-      "id": "make",
-      "isHidden": true
-    },
-    {
-      "id": "makefile.outline",
+      "id": "workbench.explorer.fileView",
       "isHidden": false
     },
     {
       "id": "rustDependencies",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.home",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.launchpad",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.drafts",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.workspaces",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.commitDetails",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.pullRequest",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.lineHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.fileHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.timeline",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.searchAndCompare",
+      "isHidden": false
+    },
+    {
+      "id": "dartDependencyTree",
       "isHidden": true
     }
   ],
@@ -102,35 +134,36 @@
     {
       "id": "gitlens.views.scm.grouped",
       "isHidden": true
-    },
-    {
-      "id": "bugbot",
-      "isHidden": true
     }
   ],
   "workbench.statusbar.hidden": [
     "status.notifications",
+    "GraphQL.vscode-graphql",
     "WallabyJs.quokka-vscode",
-    "Cursor Tab",
+    "chat.statusBarEntry",
+    "status.editor.mode",
+    "status.languageStatus",
+    "status.editor.eol",
+    "status.editor.encoding",
+    "status.editor.indentation",
     "WakaTime.vscode-wakatime.com.wakatime.teamother",
     "WakaTime.vscode-wakatime.com.wakatime.teamyou",
-    "WakaTime.vscode-wakatime.com.wakatime.statusbar",
-    "status.workspaceName",
     "status.host",
-    "GraphQL.vscode-graphql",
-    "status.languageStatus",
-    "status.editor.indentation",
-    "status.editor.encoding",
-    "status.editor.eol",
-    "status.editor.mode",
-    "esbenp.prettier-vscode.prettier.status",
+    "eamodio.gitlens.gitlens.graph",
+    "WakaTime.vscode-wakatime.com.wakatime.statusbar",
     "golang.go.Go",
+    "status.scm.provider",
     "tamasfe.even-better-toml",
-    "rust-lang.rust-analyzer",
-    "redhat.vscode-yaml",
-    "status.scm.provider"
+    "Dart-Code.dart-code.dartStatusFlutterDevice",
+    "DEVSENSE.phptools-vscode.phptools.license",
+    "esbenp.prettier-vscode.prettier.status",
+    "redhat.vscode-yaml"
   ],
   "workbench.view.extensions.state.hidden": [
+    {
+      "id": "workbench.views.extensions.marketplaceAccess",
+      "isHidden": false
+    },
     {
       "id": "workbench.views.extensions.installed",
       "isHidden": false
@@ -161,6 +194,18 @@
     },
     {
       "id": "workbench.views.extensions.enabled",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.mcp.installed",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.default.marketplace",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.default.welcomeView",
       "isHidden": true
     },
     {
@@ -221,6 +266,14 @@
     },
     {
       "id": "workbench.views.extensions.deprecatedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.marketplace",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.welcomeView",
       "isHidden": false
     }
   ]
