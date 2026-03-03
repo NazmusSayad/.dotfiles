@@ -65,6 +65,7 @@
   "workbench.list.smoothScrolling": true,
   "workbench.editor.preventPinnedEditorClose": "keyboard",
   "workbench.activityBar.orientation": "vertical",
+  "workbench.layoutControl.enabled": false,
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
@@ -381,6 +382,7 @@
   },
   "workbench.navigationControl.enabled": false,
   "workbench.sideBar.location": "right",
+  "chat.agentsControl.enabled": false,
   "chat.commandCenter.enabled": false,
   "chat.editing.confirmEditRequestRetry": false,
   "chat.detectParticipant.enabled": false,
@@ -467,7 +469,5 @@
       "background": "#FDD83580"
     }
   },
-  "workbench.layoutControl.enabled": false,
-  "redhat.telemetry.enabled": false,
-  "workbench.activityBar.location": "hidden"
+  "redhat.telemetry.enabled": false
 }
