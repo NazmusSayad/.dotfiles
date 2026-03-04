@@ -232,6 +232,9 @@
   "quokka.showOutputOnStart": false,
   "quokka.showStartViewOnFeatureRelease": false,
   "json.schemaDownload.enable": true,
+  "json.schemaDownload.trustedDomains": {
+    "*": true
+  },
   "go.lintOnSave": "off",
   "go.showWelcome": false,
   "go.survey.prompt": false,
