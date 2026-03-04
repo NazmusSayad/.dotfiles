@@ -235,6 +235,7 @@
   "json.schemaDownload.trustedDomains": {
     "*": true
   },
+  "redhat.telemetry.enabled": false,
   "go.lintOnSave": "off",
   "go.showWelcome": false,
   "go.survey.prompt": false,
@@ -243,7 +244,7 @@
     "runtest": false
   },
   "python-envs.terminal.autoActivationType": "off",
-  "python.defaultInterpreterPath": "c:\\Users\\Sayad\\AppData\\Local\\mise\\installs\\python\\3.14.3\\python.exe",
+  "python.defaultInterpreterPath": "python.exe",
   "prettier.tabWidth": 2,
   "prettier.semi": false,
   "prettier.singleQuote": true,
@@ -385,6 +386,7 @@
   },
   "workbench.navigationControl.enabled": false,
   "workbench.sideBar.location": "right",
+  "chat.agent.maxRequests": 999,
   "chat.agentsControl.enabled": false,
   "chat.commandCenter.enabled": false,
   "chat.editing.confirmEditRequestRetry": false,
@@ -394,13 +396,15 @@
   "chat.tools.terminal.enableAutoApprove": false,
   "chat.extensionTools.enabled": false,
   "chat.agent.thinking.generateTitles": false,
+  "chat.useClaudeMdFile": false,
+  "chat.checkpoints.showFileChanges": true,
   "chat.editing.confirmEditRequestRemoval": false,
+  "workbench.activityBar.location": "hidden",
+  "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.enable": {
     "*": true,
     "markdown": true
   },
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
   "explorer.confirmPasteNative": false,
   "explorer.copyRelativePathSeparator": "/",
@@ -471,7 +475,5 @@
       "icon": "light-bulb",
       "background": "#FDD83580"
     }
-  },
-  "redhat.telemetry.enabled": false,
-  "workbench.activityBar.location": "hidden"
+  }
 }
