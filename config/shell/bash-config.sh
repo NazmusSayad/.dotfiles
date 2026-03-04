@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 source $DOTFILES_DIR/config/shell/alias.sh
-source $DOTFILES_DIR/config/shell/mise-env.sh
 
 eval "$(direnv hook bash)"
+eval "$(mise env --dotenv)"
 
 if [[ $- == *i* ]]; then
 	eval "$(starship init bash)"
