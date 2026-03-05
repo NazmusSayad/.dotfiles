@@ -1,6 +1,6 @@
 {
   "$schema": "vscode://schemas/settings/user",
-  "window.title": "${activeEditorMedium} ╭• ${folderName} •╮",
+  "window.title": "╭• ${folderName} •╮ ${activeEditorMedium}",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "One Eye Care - Extreme Eye Care",
   "editor.fontSize": 15.3,
