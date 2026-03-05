@@ -8,7 +8,7 @@
 
   "provider": {
     "openai": {
-      "whitelist": ["gpt-5.3-codex"]
+      "whitelist": ["gpt-5.4", "gpt-5.3-codex"]
     },
 
     "github-copilot": {
