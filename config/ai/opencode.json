@@ -12,7 +12,12 @@
     },
 
     "github-copilot": {
-      "whitelist": ["gpt-5.3-codex", "gpt-5.2-codex", "gemini-3.1-pro-preview"]
+      "whitelist": [
+        "gpt-5.3-codex",
+        "gpt-5.2-codex",
+        "claude-sonnet-4.6",
+        "gemini-3.1-pro-preview"
+      ]
     },
 
     "kilo": {
