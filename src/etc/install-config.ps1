@@ -13,6 +13,9 @@ git config --global core.editor "cursor --wait"
 
 Write-Host ""
 Write-Host "> Symlinking..."
+go run ./src/scripts/symlink-setup/main.go
+
+Write-Host ""
 Write-Host "> Installing tasks..."
 go run ./src/install-windows-tasks/main.go
 
