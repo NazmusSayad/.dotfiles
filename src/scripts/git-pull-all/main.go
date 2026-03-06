@@ -1,8 +1,9 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
 	"fmt"
+
+	"dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
 )

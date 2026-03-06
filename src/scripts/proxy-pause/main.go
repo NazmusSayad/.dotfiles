@@ -1,8 +1,9 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
 	"os"
+
+	"dotfiles/src/helpers"
 )
 
 func main() {

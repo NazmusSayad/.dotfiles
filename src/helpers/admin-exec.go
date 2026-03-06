@@ -2,11 +2,12 @@ package helpers
 
 import (
 	"bytes"
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
 	"strings"
+
+	"dotfiles/src/utils"
 )
 
 func isRunningAsAdmin() bool {

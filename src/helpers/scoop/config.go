@@ -1,10 +1,11 @@
 package scoop
 
 import (
-	"dotfiles/src/helpers"
-	"dotfiles/src/utils"
 	"fmt"
 	"strings"
+
+	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )

@@ -1,10 +1,11 @@
 package helpers
 
 import (
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -32,7 +33,7 @@ func GenerateSymlink(source string, target string) {
 
 	targetDir := filepath.Dir(target)
 	if !utils.IsFileExists(targetDir) {
-		mkdirErr := os.MkdirAll(targetDir, 0755)
+		mkdirErr := os.MkdirAll(targetDir, 0o755)
 		if mkdirErr != nil {
 			fmt.Println(aurora.Red("UNEXPECTED: Error creating target directory: " + targetDir))
 			return

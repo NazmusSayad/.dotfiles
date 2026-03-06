@@ -1,9 +1,10 @@
 package main
 
 import (
-	helpers "dotfiles/src/helpers"
 	"fmt"
 	"os"
+
+	helpers "dotfiles/src/helpers"
 )
 
 type SymlinkConfig struct {

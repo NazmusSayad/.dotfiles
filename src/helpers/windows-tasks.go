@@ -1,9 +1,10 @@
 package helpers
 
 import (
-	"dotfiles/src/constants"
 	"strings"
 	"time"
+
+	"dotfiles/src/constants"
 )
 
 type WindowsTaskRunLevel string

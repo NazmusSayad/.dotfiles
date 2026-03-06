@@ -1,12 +1,13 @@
 package slack
 
 import (
-	helpers "dotfiles/src/helpers"
 	"fmt"
 	"reflect"
 	"strconv"
 	"strings"
 	"time"
+
+	helpers "dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
 )

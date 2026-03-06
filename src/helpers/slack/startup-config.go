@@ -1,13 +1,16 @@
 package slack
 
 import (
+	"os"
+
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/utils"
-	"os"
 )
 
-const SlackStatusFileName = "~/.slack-startup-config"
-const DefaultSlackStartupConfig = SlackStatusWorkTime
+const (
+	SlackStatusFileName       = "~/.slack-startup-config"
+	DefaultSlackStartupConfig = SlackStatusWorkTime
+)
 
 var resolvedPath = helpers.ResolvePath(SlackStatusFileName)
 
@@ -25,5 +28,5 @@ func GetSlackStartupConfig() SlackStatus {
 }
 
 func WriteSlackStartupConfig(config SlackStatus) {
-	os.WriteFile(resolvedPath, []byte(config), 0644)
+	os.WriteFile(resolvedPath, []byte(config), 0o644)
 }

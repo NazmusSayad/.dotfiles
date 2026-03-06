@@ -1,10 +1,11 @@
 package slack
 
 import (
-	"dotfiles/src/constants"
 	"fmt"
 	"slices"
 	"time"
+
+	"dotfiles/src/constants"
 )
 
 type SlackStatus string

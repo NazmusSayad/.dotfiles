@@ -1,11 +1,12 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
-	"dotfiles/src/helpers/scoop"
 	"fmt"
 	"slices"
 	"strings"
+
+	"dotfiles/src/helpers"
+	"dotfiles/src/helpers/scoop"
 
 	"github.com/logrusorgru/aurora/v4"
 )

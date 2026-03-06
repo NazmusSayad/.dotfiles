@@ -1,12 +1,13 @@
 package main
 
 import (
-	helpers "dotfiles/src/helpers"
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
+
+	helpers "dotfiles/src/helpers"
+	"dotfiles/src/utils"
 )
 
 func main() {
@@ -56,14 +57,14 @@ func main() {
 		updated := pathTypeRegex.ReplaceAll(content, []byte("MSYS2_PATH_TYPE=inherit"))
 		updated = msysWinSymlinksRegex.ReplaceAll(updated, []byte("MSYS=winsymlinks:nativestrict"))
 
-		_ = os.WriteFile(iniPath, updated, 0644)
+		_ = os.WriteFile(iniPath, updated, 0o644)
 		fmt.Println("Updated:", ini)
 	}
 
 	if content, err := os.ReadFile(NSSWITCH_CONFIG_PATH); err == nil {
 		reNss := regexp.MustCompile(`(?m)^(db_home|db_shell|db_gecos):\s*.*$`)
 		updated := reNss.ReplaceAllString(string(content), "$1: windows")
-		_ = os.WriteFile(NSSWITCH_CONFIG_PATH, []byte(updated), 0644)
+		_ = os.WriteFile(NSSWITCH_CONFIG_PATH, []byte(updated), 0o644)
 		fmt.Println("Updated: nsswitch.conf")
 	}
 

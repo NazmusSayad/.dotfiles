@@ -1,11 +1,12 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"strconv"
+
+	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )

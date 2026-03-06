@@ -1,7 +1,6 @@
 package main
 
 import (
-	"dotfiles/src/utils"
 	"fmt"
 	"io/fs"
 	"os"
@@ -9,6 +8,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	"dotfiles/src/utils"
 )
 
 type Editor struct {
@@ -97,7 +98,7 @@ func main() {
 		}
 
 		for _, file := range files {
-			err := os.WriteFile(file, []byte("{}"), 0644)
+			err := os.WriteFile(file, []byte("{}"), 0o644)
 			if err != nil {
 				fmt.Println("Failed clearing ", file, ": ", err)
 				continue

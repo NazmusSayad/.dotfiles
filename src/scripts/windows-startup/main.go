@@ -1,8 +1,9 @@
 package main
 
 import (
-	helpers "dotfiles/src/helpers"
 	"fmt"
+
+	helpers "dotfiles/src/helpers"
 )
 
 type LaunchConfig struct {

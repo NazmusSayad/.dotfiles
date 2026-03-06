@@ -13,5 +13,5 @@ func WriteUTF16LE(path string, s string) error {
 		b[2+i*2] = byte(v)
 		b[3+i*2] = byte(v >> 8)
 	}
-	return os.WriteFile(path, b, 0644)
+	return os.WriteFile(path, b, 0o644)
 }

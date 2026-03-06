@@ -2,11 +2,12 @@ package main
 
 import (
 	"bufio"
-	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
 	"strings"
+
+	"dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
 )

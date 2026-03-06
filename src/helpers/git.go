@@ -12,7 +12,6 @@ import (
 func IsGitRepo() bool {
 	cmd := exec.Command("git", "rev-parse", "--is-inside-work-tree")
 	out, err := cmd.Output()
-
 	if err != nil {
 		return false
 	}
@@ -27,7 +26,6 @@ func GetCurrentGitBranch() string {
 
 	cmd := exec.Command("git", "branch", "--show-current")
 	out, err := cmd.Output()
-
 	if err != nil {
 		return ""
 	}
@@ -42,7 +40,6 @@ func GetCurrentGitRemote() string {
 
 	cmd := exec.Command("git", "remote")
 	out, err := cmd.Output()
-
 	if err != nil {
 		return ""
 	}

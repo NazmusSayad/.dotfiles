@@ -34,7 +34,7 @@ func ConvertExeToRunAsAdmin(exe string) error {
 `
 
 	manifestPath := filepath.Join(filepath.Dir(exe), "admin.manifest")
-	if err := os.WriteFile(manifestPath, []byte(manifest), 0644); err != nil {
+	if err := os.WriteFile(manifestPath, []byte(manifest), 0o644); err != nil {
 		return err
 	}
 
