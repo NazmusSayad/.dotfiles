@@ -13,6 +13,7 @@
 
     "github-copilot": {
       "whitelist": [
+        "gpt-5.4",
         "gpt-5.3-codex",
         "claude-opus-4.6",
         "claude-sonnet-4.6",
@@ -24,10 +25,9 @@
       "whitelist": [
         "z-ai/glm-5",
         "moonshotai/kimi-k2.5",
-        "deepseek/deepseek-v3.2",
-        "qwen/qwen3.5-397b-a17b",
         "minimax/minimax-m2.5:free",
-        "google/gemini-3-flash-preview"
+        "google/gemini-3-flash-preview",
+        "google/gemini-3.1-flash-lite-preview"
       ]
     }
   },
