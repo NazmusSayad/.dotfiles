@@ -1,22 +1,23 @@
-## Development Tools
+# Development Tools
 - gcc
-- extras/fvm
+- flutter
 
 - gh
 - act
 - extras/lazygit
 - extras/gitbutler
 
+# Cloud Tools
 - aws
 - ngrok
 - lazydocker
 - cloudflared
 
-## AI Tools
+# AI Tools
 - codex
 - extras/opencode-desktop
 
-## Visualization Tools
+# Visualization Tools
 - extras/hwinfo
 - hyperfine
 - fastfetch
@@ -25,17 +26,17 @@
 - ntop
 - ctop
 
-## Shells
+# Shells
 - mise
 - gsudo
 - direnv
 - zoxide
 - starship
 
-## System Tools
+# System Tools
 - nircmd
 
-## File System Tools
+# File System Tools
 - ripgrep
 - byenow
 - fd
@@ -47,18 +48,18 @@
 - lsd
 - yazi
 
-## Workflow Tools
+# Workflow Tools
 - llvm
 - make
 - just
 - cmake
 
-## Code Analysis and Documentation Tools
+# Code Analysis and Documentation Tools
 - scc
 - tokei
 - tldr
 
-## Media Tools
+# Media Tools
 - extras/anyburn
 - extras/winrar
 - extras/sharex
@@ -66,11 +67,11 @@
 - ffmpeg
 - yt-dlp
 
-## Graphical Tools
+# Graphical Tools
 - vulkan
 
-## Fonts
+# Fonts
 - nerd-fonts/FiraCode-NF
 
-## Communication Tools
+# Communication Tools
 - extras/slack
