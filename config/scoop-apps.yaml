@@ -1,11 +1,9 @@
 ## Development Tools
+- gcc
 - lua
 - luajit
 - shfmt
-- gcc
-
-- dart
-- extras/flutter
+- extras/fvm
 
 - gh
 - act
@@ -13,8 +11,9 @@
 - extras/gitbutler
 
 - aws
-- cloudflared
+- ngrok
 - lazydocker
+- cloudflared
 
 ## AI Tools
 - codex
