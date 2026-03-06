@@ -14,24 +14,28 @@ deno = "latest"
 "npm:taze" = "latest"
 
 
-# Other Languages
-go = "latest"
-java = "latest"
+# Python
+uv = "latest"
+python = "latest"
 
+
+# GO
+go = "latest"
+"aqua:mvdan/gofumpt" = "latest"
+
+
+# Rust
 rust = "stable"
 rust-analyzer = "latest"
 
+
 # php = "latest"
 # zig = "latest"
+# java = "latest"
 # ruby = "latest"
 # kotlin = "latest"
 # "conda:lua" = "latest"
 # "conda:luajit" = "latest"
-
-
-# Python
-uv = "latest"
-python = "latest"
 
 
 # CLI Tools
@@ -59,6 +63,7 @@ gcloud = "latest"
 
 # Other Tools
 "pipx:mbake" = "latest"
+"aqua:mvdan/sh" = "latest"
 
 [settings]
 experimental = true
