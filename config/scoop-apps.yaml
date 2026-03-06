@@ -1,7 +1,5 @@
 ## Development Tools
 - gcc
-- lua
-- luajit
 - shfmt
 - extras/fvm
 
