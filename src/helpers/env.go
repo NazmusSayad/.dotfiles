@@ -21,7 +21,6 @@ func execPsCommand(command string) (string, error) {
 	}
 
 	output, err := cmd.Output()
-
 	if err != nil {
 		return "", fmt.Errorf("powershell command failed: %v", err)
 	}

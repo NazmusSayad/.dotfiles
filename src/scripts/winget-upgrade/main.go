@@ -1,10 +1,11 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
-	"dotfiles/src/helpers/winget"
 	"fmt"
 	"slices"
+
+	"dotfiles/src/helpers"
+	"dotfiles/src/helpers/winget"
 
 	"github.com/logrusorgru/aurora/v4"
 )

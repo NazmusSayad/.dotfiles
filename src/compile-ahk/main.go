@@ -30,7 +30,7 @@ func main() {
 		panic(err)
 	}
 
-	if err := os.MkdirAll(constants.BUILD_AHK_DIR, 0755); err != nil {
+	if err := os.MkdirAll(constants.BUILD_AHK_DIR, 0o755); err != nil {
 		panic(err)
 	}
 
@@ -69,7 +69,6 @@ func downloadFromReleases() error {
 		"AutoHotkey_.*",
 		"AutoHotkey64.exe",
 	)
-
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return err

@@ -1,12 +1,13 @@
 package helpers
 
 import (
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
 	"strings"
 	"syscall"
+
+	"dotfiles/src/utils"
 
 	"golang.org/x/sys/windows"
 )

@@ -109,5 +109,5 @@ func writeState(path string, config StateConfig) error {
 	if err != nil {
 		return err
 	}
-	return os.WriteFile(path, append(data, '\n'), 0644)
+	return os.WriteFile(path, append(data, '\n'), 0o644)
 }

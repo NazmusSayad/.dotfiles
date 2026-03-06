@@ -1,12 +1,13 @@
 package main
 
 import (
-	constants "dotfiles/src/constants"
-	"dotfiles/src/helpers"
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"path/filepath"
+
+	constants "dotfiles/src/constants"
+	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -21,7 +22,7 @@ func main() {
 	outputDir := filepath.Join(cwd, constants.BUILD_SCRIPTS_DIR)
 
 	if !utils.IsFileExists(outputDir) {
-		os.MkdirAll(outputDir, 0755)
+		os.MkdirAll(outputDir, 0o755)
 	}
 
 	entries, err := os.ReadDir(sourceDir)

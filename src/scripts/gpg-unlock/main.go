@@ -1,12 +1,13 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"dotfiles/src/helpers"
 )
 
 func main() {

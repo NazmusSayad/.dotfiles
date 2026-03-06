@@ -1,9 +1,10 @@
 package scoop
 
 import (
-	"dotfiles/src/utils"
 	"encoding/json"
 	"os/exec"
+
+	"dotfiles/src/utils"
 )
 
 type ScoopBucket struct {

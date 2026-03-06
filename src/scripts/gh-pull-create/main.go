@@ -1,10 +1,11 @@
 package main
 
 import (
-	"dotfiles/src/helpers"
 	"fmt"
 	"os"
 	"strings"
+
+	"dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
 )

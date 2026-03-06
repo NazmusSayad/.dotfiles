@@ -1,14 +1,15 @@
 package main
 
 import (
-	"dotfiles/src/constants"
-	"dotfiles/src/helpers"
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"dotfiles/src/constants"
+	"dotfiles/src/helpers"
+	"dotfiles/src/utils"
 )
 
 func escape(s string) string {
@@ -28,7 +29,7 @@ func main() {
 		os.RemoveAll(startMenuDir)
 	}
 
-	os.MkdirAll(startMenuDir, 0755)
+	os.MkdirAll(startMenuDir, 0o755)
 
 	for scriptName, script := range constants.BIN_SCRIPTS {
 		if script.StartMenu == "" {

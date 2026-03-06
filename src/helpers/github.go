@@ -3,7 +3,6 @@ package helpers
 import (
 	"archive/zip"
 	"bytes"
-	"dotfiles/src/utils"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -13,6 +12,8 @@ import (
 	"regexp"
 	"strings"
 	"time"
+
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 	"gopkg.in/yaml.v3"
@@ -83,7 +84,7 @@ func downloadGithubReleaseFile(outDir, ghURL, pattern string) (Asset, []byte, er
 		return Asset{}, nil, err
 	}
 
-	if err := os.MkdirAll(outDir, 0755); err != nil {
+	if err := os.MkdirAll(outDir, 0o755); err != nil {
 		return Asset{}, nil, err
 	}
 
@@ -121,7 +122,7 @@ func WriteGithubReleaseFile(outDir, ghURL, pattern string) error {
 	}
 
 	filename := filepath.Base(asset.Name)
-	return os.WriteFile(filepath.Join(outDir, filename), body, 0644)
+	return os.WriteFile(filepath.Join(outDir, filename), body, 0o644)
 }
 
 func WriteGithubReleaseZipFile(outDir, ghURL, archivePattern, exeName string) error {

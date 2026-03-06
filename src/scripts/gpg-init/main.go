@@ -1,12 +1,13 @@
 package main
 
 import (
-	"dotfiles/src/utils"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -57,7 +58,7 @@ func main() {
 			"",
 		}, "\n")
 
-		fileWriteErr := os.WriteFile(batchFilePath, []byte(batchContent), 0644)
+		fileWriteErr := os.WriteFile(batchFilePath, []byte(batchContent), 0o644)
 		if fileWriteErr != nil {
 			fmt.Println(aurora.Red("Error: failed to write batch file: " + fileWriteErr.Error()))
 			os.Exit(1)

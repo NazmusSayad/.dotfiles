@@ -45,7 +45,6 @@ func valueToStore(raw json.RawMessage) string {
 
 func syncState(file string, config StateConfig) {
 	db, err := sql.Open("sqlite", "file:"+file)
-
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "UNEXPECTED: open db: %v\n", err)
 		os.Exit(1)
