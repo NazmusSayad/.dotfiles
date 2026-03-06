@@ -21,7 +21,7 @@ python = "latest"
 
 # GO
 go = "latest"
-"aqua:mvdan/gofumpt" = "latest"
+gofumpt = "latest"
 
 
 # Rust
@@ -62,7 +62,6 @@ gcloud = "latest"
 
 
 # Other Tools
-"pipx:mbake" = "latest"
 "aqua:mvdan/sh" = "latest"
 
 [settings]
