@@ -1,45 +1,44 @@
 [
-  // Core/Themes
+  /* Core/Themes */
   { "Id": "nazmussayad.editor-context" },
   { "Id": "nazmussayad.one-eye-care" },
   { "Id": "nazmussayad.rm-comments" },
   { "Id": "pkief.material-icon-theme" },
 
-  // Web Development
+  /* Web Development */
   { "Id": "tobermory.es6-string-html" },
   { "Id": "formulahendry.auto-rename-tag" },
   { "Id": "vincaslt.highlight-matching-tag" },
 
-  // Go
+  /* Go */
   { "Id": "golang.go" },
 
-  // Dart
-  { "Id": "dart-code.dart-code" },
-  { "Id": "dart-code.flutter" },
+  /* Dart */
+  // { "Id": "dart-code.dart-code" },
+  // { "Id": "dart-code.flutter" },
 
-  // Python
+  /* Python */
   { "Id": "ms-python.python" },
   { "Id": "ms-python.autopep8" },
   { "Id": "ms-python.vscode-pylance" },
   { "Id": "ms-python.debugpy", "Include": ["cursor"] },
   { "Id": "ms-python.vscode-python-envs", "Include": ["cursor"] },
 
-  // PHP
-  { "Id": "devsense.composer-php-vscode" },
-  { "Id": "devsense.intelli-php-vscode" },
-  { "Id": "devsense.phptools-vscode" },
-  { "Id": "devsense.profiler-php-vscode" },
+  /* PHP */
+  // { "Id": "devsense.composer-php-vscode" },
+  // { "Id": "devsense.intelli-php-vscode" },
+  // { "Id": "devsense.phptools-vscode" },
+  // { "Id": "devsense.profiler-php-vscode" },
 
-  // Linters and Formatters
+  /* Linters and Formatters */
   { "Id": "esbenp.prettier-vscode" },
   { "Id": "dbaeumer.vscode-eslint" },
-  { "Id": "mark-wiemer.vscode-autohotkey-plus-plus" },
   { "Id": "mkhl.shfmt" },
 
-  // Rust
+  /* Rust */
   { "Id": "rust-lang.rust-analyzer" },
 
-  // Other Languages
+  /* Other Languages */
   { "Id": "bradlc.vscode-tailwindcss" },
   { "Id": "tamasfe.even-better-toml" },
   { "Id": "bmalehorn.vscode-fish" },
@@ -48,15 +47,15 @@
   { "Id": "mikestead.dotenv" },
   { "Id": "prisma.prisma" },
 
-  // GraphQL
+  /* GraphQL */
   { "Id": "graphql.vscode-graphql" },
   { "Id": "graphql.vscode-graphql-syntax" },
 
-  // AI Tools
+  /* AI Tools */
   { "Id": "github.copilot", "Include": ["code"] },
   { "Id": "github.copilot-chat", "Include": ["code"] },
 
-  // Other Extensions
+  /* Other Extensions */
   { "Id": "eamodio.gitlens" },
   { "Id": "gruntfuggly.todo-tree" },
   { "Id": "usernamehw.errorlens" },
@@ -65,8 +64,5 @@
   { "Id": "pomdtr.excalidraw-editor" },
   { "Id": "christian-kohler.npm-intellisense" },
   { "Id": "streetsidesoftware.code-spell-checker" },
-  { "Id": "wakatime.vscode-wakatime" },
-
-  // Cursor Extensions
-  { "Id": "anysphere.cursorpyright", "Include": ["cursor"] }
+  { "Id": "wakatime.vscode-wakatime" }
 ]
