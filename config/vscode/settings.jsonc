@@ -236,6 +236,7 @@
     "*": true
   },
   "redhat.telemetry.enabled": false,
+  "go.formatTool": "gofumpt",
   "go.lintOnSave": "off",
   "go.showWelcome": false,
   "go.survey.prompt": false,
