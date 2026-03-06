@@ -399,7 +399,6 @@
   "chat.useClaudeMdFile": false,
   "chat.checkpoints.showFileChanges": true,
   "chat.editing.confirmEditRequestRemoval": false,
-  "workbench.activityBar.location": "hidden",
   "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.enable": {
     "*": true,
@@ -475,5 +474,6 @@
       "icon": "light-bulb",
       "background": "#FDD83580"
     }
-  }
+  },
+  "workbench.activityBar.location": "hidden"
 }
