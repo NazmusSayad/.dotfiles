@@ -23,3 +23,4 @@
 
 - Use `bash` for all shell/terminal commands.
 - Use Unix-style paths when referencing files/directories.
+- You should not write any scripts to write/modify contents.
