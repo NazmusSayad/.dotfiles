@@ -6,104 +6,113 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"strings"
 
 	"dotfiles/src/utils"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
-type Editor struct {
-	Name           string
-	Alias          string
-	Path           string
-	ExtensionsPath string
+var EDITORS_LIST = []Editor{
+	{
+		Name: "VSCode",
+		Path: getCodeBasedRoot("code"),
+	},
+	{
+		Name: "VSCode Insiders",
+		Path: getCodeBasedRoot("code-insiders"),
+	},
+	{
+		Name: "Cursor",
+		Path: getCursorBasedRoot("cursor"),
+	},
 }
 
-func findBinPath(bin string) string {
-	cmd := "which"
-	if runtime.GOOS == "windows" {
-		cmd = "where"
-	}
-	out, err := exec.Command(cmd, bin).Output()
+func getCodeBasedRoot(bin string) string {
+	source, err := exec.LookPath(bin)
 	if err != nil {
 		return ""
 	}
-	lines := strings.Split(string(out), "\n")
-	for _, line := range lines {
-		trimmed := strings.TrimSpace(line)
-		if trimmed != "" {
-			return trimmed
+
+	rootDir := filepath.Join(source, "../../")
+	entries, err := os.ReadDir(rootDir)
+	if err != nil {
+		return ""
+	}
+
+	sourceHash := ""
+	for _, entry := range entries {
+		if entry.IsDir() && entry.Name() != "bin" {
+			sourceHash = entry.Name()
+			break
 		}
 	}
-	return ""
+	if sourceHash == "" {
+		return ""
+	}
+
+	return filepath.Join(rootDir, sourceHash)
 }
 
-func getFiles(root string) ([]string, error) {
-	var files []string
+func getCursorBasedRoot(bin string) string {
+	binPath, err := exec.LookPath(bin)
+	if err != nil {
+		return ""
+	}
 
-	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
+	return filepath.Join(binPath, "../../../../")
+}
+
+func cleanupSnippets(editor Editor) {
+	fmt.Println(">", aurora.Blue(editor.Name))
+
+	if !utils.IsFileExists(editor.Path) {
+		fmt.Println("Root dir not found:", aurora.Faint(editor.Path))
+		return
+	}
+
+	extensionsDir := filepath.Clean(editor.Path + "/resources/app/extensions")
+	if !utils.IsFileExists(extensionsDir) {
+		fmt.Println("Extensions dir not found:", aurora.Faint(editor.Path))
+		return
+	}
+
+	var files []string
+	err := filepath.WalkDir(extensionsDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return nil
 		}
+
 		if !d.IsDir() && strings.HasSuffix(strings.ToLower(path), ".code-snippets") {
 			files = append(files, path)
 		}
+
 		return nil
 	})
+	if err != nil {
+		fmt.Println(aurora.Red("Failed to walk through extensions dir"))
+		return
+	}
 
-	return files, err
+	for _, file := range files {
+		err := os.WriteFile(file, []byte("{}"), 0o644)
+		if err != nil {
+			fmt.Println("! 	Failed clearing ", file, ": ", err)
+			return
+		}
+
+		fmt.Println("✔️", aurora.Green(filepath.Base(file)))
+	}
 }
 
 func main() {
-	editors := []Editor{
-		{
-			Name:           "VSCode",
-			Alias:          "code",
-			ExtensionsPath: "../../resources/app/extensions",
-		},
-		{
-			Name:           "VSCode Insiders",
-			Alias:          "code-insiders",
-			ExtensionsPath: "../../resources/app/extensions",
-		},
-		{
-			Name:           "Cursor",
-			Alias:          "cursor",
-			ExtensionsPath: "../../../../resources/app/extensions",
-		},
+	for _, editor := range EDITORS_LIST {
+		cleanupSnippets(editor)
+		fmt.Println()
 	}
+}
 
-	for _, editor := range editors {
-		binPath := findBinPath(editor.Alias)
-		if binPath == "" {
-			continue
-		}
-
-		binDir := filepath.Dir(binPath)
-		extPath := filepath.Clean(binDir + editor.ExtensionsPath)
-
-		if !utils.IsFileExists(extPath) {
-			fmt.Println("Extensions path not found for ", editor.Name)
-			fmt.Println("Path: ", binDir)
-			fmt.Println("Ext: ", editor.ExtensionsPath)
-			fmt.Println("Resolved: ", extPath)
-			fmt.Println()
-			continue
-		}
-
-		files, err := getFiles(extPath)
-		if err != nil {
-			fmt.Println("Failed reading files: ", err)
-			continue
-		}
-
-		for _, file := range files {
-			err := os.WriteFile(file, []byte("{}"), 0o644)
-			if err != nil {
-				fmt.Println("Failed clearing ", file, ": ", err)
-				continue
-			}
-			fmt.Println(editor.Name, " Cleared: ", filepath.Base(file))
-		}
-	}
+type Editor struct {
+	Name string
+	Path string
 }
