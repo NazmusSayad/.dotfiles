@@ -294,6 +294,7 @@
     "lucide-react",
     "lucide-icons",
     "react-icons",
+    "@hugeicons*",
     "@radix-ui",
     "date-fns",
     "moment"
@@ -304,6 +305,7 @@
     "lucide-react",
     "lucide-icons",
     "react-icons",
+    "@hugeicons*",
     "@radix-ui",
     "date-fns",
     "moment"
