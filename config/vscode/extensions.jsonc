@@ -44,7 +44,6 @@
   { "Id": "bmalehorn.vscode-fish" },
   { "Id": "redhat.vscode-yaml" },
   { "Id": "redhat.vscode-xml" },
-  { "Id": "mikestead.dotenv" },
   { "Id": "prisma.prisma" },
 
   /* GraphQL */
