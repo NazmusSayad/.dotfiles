@@ -1,4 +1,4 @@
-# Explain Changes
+# Summarize What Changed
 
 Explain what was done, what existed previously, how it is different now, and how these changes help solve the problem.
 

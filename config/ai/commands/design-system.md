@@ -1,4 +1,4 @@
-# project-design-system
+# Design System
 
 ## Explore & Extract Design System
 
