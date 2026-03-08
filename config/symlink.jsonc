@@ -23,6 +23,10 @@
     "Target": "~/.config/opencode/config.json"
   },
   {
+    "Source": "@/config/ai/agents",
+    "Target": "~/.config/opencode/agents"
+  },
+  {
     "Source": "@/config/ai/skills",
     "Targets": ["~/.agents/skills", "~/.cursor/skills"]
   },
