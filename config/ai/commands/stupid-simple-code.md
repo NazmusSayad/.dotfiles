@@ -1,4 +1,4 @@
-# NO ABSTRACTIONS
+# Stupid Simple Code
 
 ## Instructions
 

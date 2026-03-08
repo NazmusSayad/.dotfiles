@@ -1,4 +1,4 @@
-# Execute Implementation Plan
+# Execute Plan
 
 ## Approach
 

@@ -1,4 +1,4 @@
-# Debug The Code
+# Debug Code
 
 Analyze the code as-is and point out what is wrong and why.
 

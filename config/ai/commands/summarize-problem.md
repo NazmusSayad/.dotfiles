@@ -1,4 +1,4 @@
-# Summarize the Problem
+# Summarize Problem
 
 Explain the actual problem you were trying to solve.
 
