@@ -40,10 +40,9 @@
 - ripgrep
 - byenow
 - fd
-- duf
 - rip
-- dust
 - fzf
+- dust
 - bat
 - lsd
 - yazi
