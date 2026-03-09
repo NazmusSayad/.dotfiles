@@ -20,7 +20,8 @@ async function restrictScriptExecution(rawCmd: unknown) {
     throw new Error(
       [
         "Script or code snippet execution is not allowed for security reasons.",
-        "Please use a different tool to complete the task. If there isn't any other way, then notify the user.",
+        "Please USE A DIFFERENT TOOL to complete the task. If there isn't any other way, then notify the user.",
+        "DO NOT WRITE A SCRIPT OR CODE SNIPPET TO EXECUTE THE TASK. INSTEAD, EXPLAIN TO THE USER HOW THEY CAN DO IT THEMSELVES.",
         "DO NOT TRY TO EXECUTE SCRIPTS OR CODE SNIPPETS DIRECTLY."
       ].join("\n")
     );
