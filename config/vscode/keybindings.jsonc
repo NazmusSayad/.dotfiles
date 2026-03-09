@@ -719,6 +719,11 @@
     "when": "!terminalFocus"
   },
   {
+    "key": "ctrl+alt+.",
+    "command": "-workbench.action.chat.openModelPicker",
+    "when": "chatIsEnabled && inChatInput"
+  },
+  {
     "key": "ctrl+;",
     "command": "workbench.panel.chat.view.copilot.focus",
     "when": "editor.vscode && !chatInputHasFocus"
@@ -747,6 +752,11 @@
     "key": "alt+;",
     "command": "aipopup.action.modal.generate",
     "when": "editor.cursor && editorFocus && !composerBarIsVisible && !editorHasPromptBar"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "workbench.action.chat.openModelPicker",
+    "when": "editor.vscode && chatIsEnabled && inChatInput"
   },
 
   // Explorer & File Management
