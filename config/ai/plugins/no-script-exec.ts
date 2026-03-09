@@ -19,10 +19,9 @@ async function restrictScriptExecution(rawCmd: unknown) {
   if (cmd.startsWith("node -e") || cmd.startsWith("python -c")) {
     throw new Error(
       [
-        "Script or code snippet execution is not allowed for security reasons.",
-        "Please USE A DIFFERENT TOOL to complete the task. If there isn't any other way, then notify the user.",
-        "DO NOT WRITE A SCRIPT OR CODE SNIPPET TO EXECUTE THE TASK. INSTEAD, EXPLAIN TO THE USER HOW THEY CAN DO IT THEMSELVES.",
-        "DO NOT TRY TO EXECUTE SCRIPTS OR CODE SNIPPETS DIRECTLY."
+        "SCRIPT OR CODE SNIPPET EXECUTION IS NOT ALLOWED for security reasons.",
+        "Please USE A DIFFERENT TOOL to complete the task. If other tool can't do this, then NOTIFY THE USER.",
+        "DO NOT TRY TO WRITE THIS SNIPPET AS FILE AND THEN RUN. NOTIFY THE USER how he can do it himself, but DO NOT TRY TO EXECUTE IT YOURSELF."
       ].join("\n")
     );
   }
