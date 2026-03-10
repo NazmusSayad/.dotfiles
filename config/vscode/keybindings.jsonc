@@ -754,9 +754,9 @@
     "when": "editor.cursor && editorFocus && !composerBarIsVisible && !editorHasPromptBar"
   },
   {
-    "key": "ctrl+'",
+    "key": "ctrl+/",
     "command": "workbench.action.chat.openModelPicker",
-    "when": "editor.vscode && chatIsEnabled && inChatInput"
+    "when": "chatIsEnabled && editor.vscode && inChatInput"
   },
 
   // Explorer & File Management
