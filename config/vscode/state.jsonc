@@ -250,6 +250,20 @@
       "visible": false
     }
   ],
+  "workbench.auxiliarybar.pinnedPanels": [
+    {
+      "id": "workbench.panel.chat",
+      "order": 1,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.viewContainer.agentSessions",
+      "order": 6,
+      "pinned": true,
+      "visible": false
+    }
+  ],
   "workbench.explorer.views.state.hidden": [
     {
       "id": "outline",
@@ -334,6 +348,67 @@
     {
       "id": "kilo-code.SidebarProvider",
       "isHidden": false
+    }
+  ],
+  "workbench.panel.pinnedPanels": [
+    {
+      "id": "workbench.panel.markers",
+      "order": 0,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.panel.output",
+      "order": 1,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.panel.repl",
+      "order": 2,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "terminal",
+      "order": 3,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.panel.testResults",
+      "order": 3,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "~remote.forwardedPortsContainer",
+      "order": 5,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlensPanel",
+      "order": 6,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.cspellPanel",
+      "order": 7,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.quokka-output",
+      "order": 8,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "refactorPreview",
+      "pinned": true,
+      "visible": false
     }
   ],
   "workbench.scm.views.state.hidden": [
