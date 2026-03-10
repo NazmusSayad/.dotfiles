@@ -41,7 +41,7 @@ func main() {
 		colorfulBranches = append(colorfulBranches, aurora.Red(string(b)).Bold().String())
 	}
 
-	fmt.Println(aurora.Yellow("Branches to delete: "), strings.Join(colorfulBranches, ", "))
+	fmt.Println(aurora.Yellow("Branches to delete:"), strings.Join(colorfulBranches, ", "))
 	fmt.Print(aurora.Faint("Press [Enter] to confirm, or any other key to cancel: "))
 
 	line, _ := bufio.NewReader(os.Stdin).ReadString('\n')
