@@ -1,9 +1,4 @@
 {
-  "cursor/autoOpenLocalhostUrls": false,
-  "cursor/defaultLayoutMode": "legacy-editor",
-  "cursor/jumpOnDiffAccept": false,
-  "cursor/noInlineDiffs": false,
-  "cursor/unifiedAppLayout": "editor",
   "workbench.explorer.views.state.hidden": [
     {
       "id": "outline",

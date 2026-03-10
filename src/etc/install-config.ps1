@@ -9,7 +9,7 @@ git config --global core.eol lf
 git config --global core.autocrlf false
 git config --global core.pager cat
 git config --global core.ignorecase false
-git config --global core.editor "cursor --wait"
+git config --global core.editor "code --wait"
 
 Write-Host ""
 Write-Host "> Symlinking..."

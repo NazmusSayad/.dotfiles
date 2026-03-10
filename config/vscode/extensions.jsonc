@@ -21,8 +21,6 @@
   { "Id": "ms-python.python" },
   { "Id": "ms-python.autopep8" },
   { "Id": "ms-python.vscode-pylance" },
-  { "Id": "ms-python.debugpy", "Include": ["cursor"] },
-  { "Id": "ms-python.vscode-python-envs", "Include": ["cursor"] },
 
   /* PHP */
   // { "Id": "devsense.composer-php-vscode" },
