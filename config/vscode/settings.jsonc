@@ -288,7 +288,7 @@
   "js/ts.preferences.jsxAttributeCompletionStyle": "braces",
   "js/ts.preferences.preferTypeOnlyAutoImports": true,
   "js/ts.preferences.autoImportFileExcludePatterns": [
-    "next/dist/client/router*",
+    "next/dist*",
     "next/router*",
     "lucide-react",
     "lucide-icons",
