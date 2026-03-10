@@ -1,4 +1,190 @@
 {
+  "workbench.activity.pinnedViewlets2": [
+    {
+      "id": "workbench.view.explorer",
+      "order": 0,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.search",
+      "order": 1,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.scm",
+      "order": 2,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.debug",
+      "order": 3,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.remote",
+      "order": 4,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extensions",
+      "order": 4,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.chat.sessions",
+      "order": 6,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.test",
+      "order": 6,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.references-view",
+      "order": 7,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.flutter",
+      "order": 8,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlens",
+      "order": 8,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.flutterPropertyEditorContainer",
+      "order": 9,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlensInspect",
+      "order": 9,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarDevToolsContainer",
+      "order": 10,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlensPatch",
+      "order": 10,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarDevToolsInspectorContainer",
+      "order": 11,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.github-copilot-completions-debugger-panel",
+      "order": 11,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.copilot-chat",
+      "order": 11,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.context-inspector",
+      "order": 12,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.todo-tree-container",
+      "order": 13,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.python",
+      "order": 20,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.PowerShell",
+      "order": 17,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.prismaActivitybar",
+      "order": 14,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarDevToolsDeepLinksContainer",
+      "order": 12,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.cspell-info-explorer",
+      "order": 16,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarWidgetPreviewContainer",
+      "order": 13,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.cspell-regexp-explorer",
+      "order": 17,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.wallaby",
+      "order": 18,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.rustSyntaxTreeContainer",
+      "order": 15,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.sync",
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.editSessions",
+      "pinned": true,
+      "visible": false
+    }
+  ],
   "workbench.explorer.views.state.hidden": [
     {
       "id": "outline",
@@ -34,7 +220,7 @@
     },
     {
       "id": "rustDependencies",
-      "isHidden": false
+      "isHidden": true
     },
     {
       "id": "gitlens.views.home",
@@ -79,6 +265,10 @@
     {
       "id": "dartDependencyTree",
       "isHidden": true
+    },
+    {
+      "id": "kilo-code.SidebarProvider",
+      "isHidden": false
     }
   ],
   "workbench.scm.views.state.hidden": [
@@ -153,6 +343,32 @@
     "DEVSENSE.phptools-vscode.phptools.license",
     "esbenp.prettier-vscode.prettier.status",
     "redhat.vscode-yaml"
+  ],
+  "workbench.view.extension.gitlensInspect.state.hidden": [
+    {
+      "id": "gitlens.views.commitDetails",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.pullRequest",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.lineHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.fileHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.timeline",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.searchAndCompare",
+      "isHidden": true
+    }
   ],
   "workbench.view.extensions.state.hidden": [
     {
@@ -269,6 +485,22 @@
     },
     {
       "id": "workbench.views.mcp.welcomeView",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.agentPlugins.installed",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.agentPlugins.default.marketplace",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.restartRequired",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.agentPlugins.marketplace",
       "isHidden": false
     }
   ]
