@@ -352,6 +352,12 @@
   ],
   "workbench.panel.pinnedPanels": [
     {
+      "id": "terminal",
+      "order": 3,
+      "pinned": true,
+      "visible": false
+    },
+    {
       "id": "workbench.panel.markers",
       "order": 0,
       "pinned": true,
@@ -370,12 +376,6 @@
       "visible": false
     },
     {
-      "id": "terminal",
-      "order": 3,
-      "pinned": true,
-      "visible": false
-    },
-    {
       "id": "workbench.panel.testResults",
       "order": 3,
       "pinned": true,
@@ -390,13 +390,13 @@
     {
       "id": "workbench.view.extension.gitlensPanel",
       "order": 6,
-      "pinned": true,
+      "pinned": false,
       "visible": false
     },
     {
       "id": "workbench.view.extension.cspellPanel",
       "order": 7,
-      "pinned": true,
+      "pinned": false,
       "visible": false
     },
     {
