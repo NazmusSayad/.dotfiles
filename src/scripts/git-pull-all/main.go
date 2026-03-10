@@ -29,7 +29,7 @@ func getGitBranches() []string {
 	for b := range lines {
 		b = strings.TrimSpace(b)
 		if b != "" {
-			branches = append(branches, b)
+			branches = append(branches, aurora.Red(b).Bold().String())
 		}
 	}
 
