@@ -1,507 +1,572 @@
 {
-	"workbench.activity.pinnedViewlets2": [
-		{
-			"id": "workbench.view.explorer",
-			"order": 0,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.search",
-			"order": 1,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.scm",
-			"order": 2,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.debug",
-			"order": 3,
-			"pinned": false,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.remote",
-			"order": 4,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.gitlensInspect",
-			"order": 9,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extensions",
-			"order": 4,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.chat.sessions",
-			"order": 6,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.test",
-			"order": 6,
-			"pinned": false,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.references-view",
-			"order": 7,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.flutter",
-			"order": 8,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.gitlens",
-			"order": 8,
-			"pinned": false,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.flutterPropertyEditorContainer",
-			"order": 9,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.sidebarDevToolsContainer",
-			"order": 10,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.gitlensPatch",
-			"order": 10,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.sidebarDevToolsInspectorContainer",
-			"order": 11,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.github-copilot-completions-debugger-panel",
-			"order": 11,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.copilot-chat",
-			"order": 11,
-			"pinned": false,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.context-inspector",
-			"order": 12,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.todo-tree-container",
-			"order": 13,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.python",
-			"order": 20,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.PowerShell",
-			"order": 17,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.prismaActivitybar",
-			"order": 14,
-			"pinned": false,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.sidebarDevToolsDeepLinksContainer",
-			"order": 12,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.cspell-info-explorer",
-			"order": 16,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.sidebarWidgetPreviewContainer",
-			"order": 13,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.cspell-regexp-explorer",
-			"order": 17,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.wallaby",
-			"order": 18,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.extension.rustSyntaxTreeContainer",
-			"order": 15,
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.sync",
-			"pinned": true,
-			"visible": false
-		},
-		{
-			"id": "workbench.view.editSessions",
-			"pinned": true,
-			"visible": false
-		}
-	],
-	"workbench.explorer.views.state.hidden": [
-		{
-			"id": "outline",
-			"isHidden": true
-		},
-		{
-			"id": "timeline",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.explorer.openEditorsView",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.explorer.emptyView",
-			"isHidden": false
-		},
-		{
-			"id": "npm",
-			"isHidden": true
-		},
-		{
-			"id": "go.explorer",
-			"isHidden": true
-		},
-		{
-			"id": "go.package.outline",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.explorer.fileView",
-			"isHidden": false
-		},
-		{
-			"id": "rustDependencies",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.home",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.launchpad",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.drafts",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.workspaces",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.commitDetails",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.pullRequest",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.lineHistory",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.fileHistory",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.timeline",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.searchAndCompare",
-			"isHidden": false
-		},
-		{
-			"id": "dartDependencyTree",
-			"isHidden": true
-		},
-		{
-			"id": "kilo-code.SidebarProvider",
-			"isHidden": false
-		}
-	],
-	"workbench.scm.views.state.hidden": [
-		{
-			"id": "workbench.scm.repositories",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.scm",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.scm.history",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.repositories",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.commits",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.branches",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.remotes",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.stashes",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.tags",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.worktrees",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.contributors",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.scm.grouped",
-			"isHidden": true
-		}
-	],
-	"workbench.statusbar.hidden": [
-		"status.notifications",
-		"GraphQL.vscode-graphql",
-		"WallabyJs.quokka-vscode",
-		"chat.statusBarEntry",
-		"status.editor.mode",
-		"status.languageStatus",
-		"status.editor.eol",
-		"status.editor.encoding",
-		"status.editor.indentation",
-		"WakaTime.vscode-wakatime.com.wakatime.teamother",
-		"WakaTime.vscode-wakatime.com.wakatime.teamyou",
-		"status.host",
-		"eamodio.gitlens.gitlens.graph",
-		"WakaTime.vscode-wakatime.com.wakatime.statusbar",
-		"golang.go.Go",
-		"status.scm.provider",
-		"tamasfe.even-better-toml",
-		"Dart-Code.dart-code.dartStatusFlutterDevice",
-		"DEVSENSE.phptools-vscode.phptools.license",
-		"esbenp.prettier-vscode.prettier.status",
-		"redhat.vscode-yaml"
-	],
-	"workbench.view.extension.gitlensInspect.state.hidden": [
-		{
-			"id": "gitlens.views.commitDetails",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.pullRequest",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.lineHistory",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.fileHistory",
-			"isHidden": false
-		},
-		{
-			"id": "gitlens.views.timeline",
-			"isHidden": true
-		},
-		{
-			"id": "gitlens.views.searchAndCompare",
-			"isHidden": true
-		}
-	],
-	"workbench.view.extensions.state.hidden": [
-		{
-			"id": "workbench.views.extensions.marketplaceAccess",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.installed",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchOutdated",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.workspaceRecommendations",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.popular",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchRecentlyUpdated",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.otherRecommendations",
-			"isHidden": false
-		},
-		{
-			"id": "extensions.recommendedList",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.enabled",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.mcp.installed",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.mcp.default.marketplace",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.mcp.default.welcomeView",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.disabled",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.marketplace",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchInstalled",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchEnabled",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchDisabled",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchBuiltin",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.searchWorkspaceUnsupported",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.builtinFeatureExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.builtinThemeExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.builtinProgrammingLanguageExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.untrustedUnsupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.untrustedPartiallySupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.virtualUnsupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.virtualPartiallySupportedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.extensions.deprecatedExtensions",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.mcp.marketplace",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.mcp.welcomeView",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.agentPlugins.installed",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.agentPlugins.default.marketplace",
-			"isHidden": true
-		},
-		{
-			"id": "workbench.views.extensions.restartRequired",
-			"isHidden": false
-		},
-		{
-			"id": "workbench.views.agentPlugins.marketplace",
-			"isHidden": false
-		}
-	]
+  "chat/selectedTools": {
+    "toolEntries": [
+      ["runSubagent", true],
+      ["copilot_createDirectory", true],
+      ["copilot_createFile", true],
+      ["copilot_createNewJupyterNotebook", false],
+      ["copilot_editFiles", true],
+      ["copilot_editNotebook", false],
+      ["await_terminal", false],
+      ["create_and_run_task", false],
+      ["get_terminal_output", false],
+      ["kill_terminal", false],
+      ["run_in_terminal", false],
+      ["copilot_runNotebookCell", false],
+      ["runTests", false],
+      ["copilot_testFailure", false],
+      ["copilot_getNotebookSummary", false],
+      ["copilot_getErrors", true],
+      ["copilot_readFile", true],
+      ["terminal_last_command", false],
+      ["terminal_selection", false],
+      ["copilot_getChangedFiles", true],
+      ["copilot_searchCodebase", true],
+      ["copilot_findFiles", true],
+      ["copilot_listDirectory", true],
+      ["copilot_getSearchResults", true],
+      ["copilot_findTextInFiles", true],
+      ["copilot_listCodeUsages", true],
+      ["manage_todo_list", true],
+      ["copilot_askQuestions", true],
+      ["vscode_searchExtensions_internal", false],
+      ["copilot_getProjectSetupInfo", false],
+      ["copilot_installExtension", false],
+      ["copilot_createNewWorkspace", false],
+      ["copilot_openSimpleBrowser", false],
+      ["copilot_runVscodeCommand", false],
+      ["copilot_getVSCodeAPI", false],
+      ["copilot_fetchWebPage", false],
+      ["copilot_githubRepo", false],
+      ["mcp_pylance_mcp_s_pylanceDocString", false],
+      ["mcp_pylance_mcp_s_pylanceDocuments", false],
+      ["mcp_pylance_mcp_s_pylanceFileSyntaxErrors", false],
+      ["mcp_pylance_mcp_s_pylanceImports", false],
+      ["mcp_pylance_mcp_s_pylanceInstalledTopLevelModules", false],
+      ["mcp_pylance_mcp_s_pylanceInvokeRefactoring", false],
+      ["mcp_pylance_mcp_s_pylancePythonEnvironments", false],
+      ["mcp_pylance_mcp_s_pylanceRunCodeSnippet", false],
+      ["mcp_pylance_mcp_s_pylanceSettings", false],
+      ["mcp_pylance_mcp_s_pylanceSyntaxErrors", false],
+      ["mcp_pylance_mcp_s_pylanceUpdatePythonEnvironment", false],
+      ["mcp_pylance_mcp_s_pylanceWorkspaceRoots", false],
+      ["mcp_pylance_mcp_s_pylanceWorkspaceUserFiles", false]
+    ],
+    "toolSetEntries": [
+      ["agent", true],
+      ["toolset:GitHub.copilot-chat/edit", false],
+      ["execute", false],
+      ["read", false],
+      ["toolset:GitHub.copilot-chat/search", true],
+      ["vscode", false],
+      ["toolset:GitHub.copilot-chat/web", false],
+      ["ms-python.vscode-pylance/pylance mcp server", false]
+    ],
+    "version": 2
+  },
+  "workbench.activity.pinnedViewlets2": [
+    {
+      "id": "workbench.view.explorer",
+      "order": 0,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.search",
+      "order": 1,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.scm",
+      "order": 2,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.debug",
+      "order": 3,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.remote",
+      "order": 4,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlensInspect",
+      "order": 9,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extensions",
+      "order": 4,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.chat.sessions",
+      "order": 6,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.test",
+      "order": 6,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.references-view",
+      "order": 7,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.flutter",
+      "order": 8,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlens",
+      "order": 8,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.flutterPropertyEditorContainer",
+      "order": 9,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarDevToolsContainer",
+      "order": 10,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.gitlensPatch",
+      "order": 10,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarDevToolsInspectorContainer",
+      "order": 11,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.github-copilot-completions-debugger-panel",
+      "order": 11,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.copilot-chat",
+      "order": 11,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.context-inspector",
+      "order": 12,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.todo-tree-container",
+      "order": 13,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.python",
+      "order": 20,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.PowerShell",
+      "order": 17,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.prismaActivitybar",
+      "order": 14,
+      "pinned": false,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarDevToolsDeepLinksContainer",
+      "order": 12,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.cspell-info-explorer",
+      "order": 16,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.sidebarWidgetPreviewContainer",
+      "order": 13,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.cspell-regexp-explorer",
+      "order": 17,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.wallaby",
+      "order": 18,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.extension.rustSyntaxTreeContainer",
+      "order": 15,
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.sync",
+      "pinned": true,
+      "visible": false
+    },
+    {
+      "id": "workbench.view.editSessions",
+      "pinned": true,
+      "visible": false
+    }
+  ],
+  "workbench.explorer.views.state.hidden": [
+    {
+      "id": "outline",
+      "isHidden": true
+    },
+    {
+      "id": "timeline",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.explorer.openEditorsView",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.explorer.emptyView",
+      "isHidden": false
+    },
+    {
+      "id": "npm",
+      "isHidden": true
+    },
+    {
+      "id": "go.explorer",
+      "isHidden": true
+    },
+    {
+      "id": "go.package.outline",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.explorer.fileView",
+      "isHidden": false
+    },
+    {
+      "id": "rustDependencies",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.home",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.launchpad",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.drafts",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.workspaces",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.commitDetails",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.pullRequest",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.lineHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.fileHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.timeline",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.searchAndCompare",
+      "isHidden": false
+    },
+    {
+      "id": "dartDependencyTree",
+      "isHidden": true
+    },
+    {
+      "id": "kilo-code.SidebarProvider",
+      "isHidden": false
+    }
+  ],
+  "workbench.scm.views.state.hidden": [
+    {
+      "id": "workbench.scm.repositories",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.scm",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.scm.history",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.repositories",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.commits",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.branches",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.remotes",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.stashes",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.tags",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.worktrees",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.contributors",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.scm.grouped",
+      "isHidden": true
+    }
+  ],
+  "workbench.statusbar.hidden": [
+    "status.notifications",
+    "GraphQL.vscode-graphql",
+    "WallabyJs.quokka-vscode",
+    "chat.statusBarEntry",
+    "status.editor.mode",
+    "status.languageStatus",
+    "status.editor.eol",
+    "status.editor.encoding",
+    "status.editor.indentation",
+    "WakaTime.vscode-wakatime.com.wakatime.teamother",
+    "WakaTime.vscode-wakatime.com.wakatime.teamyou",
+    "status.host",
+    "eamodio.gitlens.gitlens.graph",
+    "WakaTime.vscode-wakatime.com.wakatime.statusbar",
+    "golang.go.Go",
+    "status.scm.provider",
+    "tamasfe.even-better-toml",
+    "Dart-Code.dart-code.dartStatusFlutterDevice",
+    "DEVSENSE.phptools-vscode.phptools.license",
+    "esbenp.prettier-vscode.prettier.status",
+    "redhat.vscode-yaml"
+  ],
+  "workbench.view.extension.gitlensInspect.state.hidden": [
+    {
+      "id": "gitlens.views.commitDetails",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.pullRequest",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.lineHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.fileHistory",
+      "isHidden": false
+    },
+    {
+      "id": "gitlens.views.timeline",
+      "isHidden": true
+    },
+    {
+      "id": "gitlens.views.searchAndCompare",
+      "isHidden": true
+    }
+  ],
+  "workbench.view.extensions.state.hidden": [
+    {
+      "id": "workbench.views.extensions.marketplaceAccess",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.installed",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchOutdated",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.workspaceRecommendations",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.popular",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchRecentlyUpdated",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.otherRecommendations",
+      "isHidden": false
+    },
+    {
+      "id": "extensions.recommendedList",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.enabled",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.mcp.installed",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.default.marketplace",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.default.welcomeView",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.disabled",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.marketplace",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchInstalled",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchEnabled",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchDisabled",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchBuiltin",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.searchWorkspaceUnsupported",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.builtinFeatureExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.builtinThemeExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.builtinProgrammingLanguageExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.untrustedUnsupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.untrustedPartiallySupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.virtualUnsupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.virtualPartiallySupportedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.extensions.deprecatedExtensions",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.marketplace",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.mcp.welcomeView",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.agentPlugins.installed",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.agentPlugins.default.marketplace",
+      "isHidden": true
+    },
+    {
+      "id": "workbench.views.extensions.restartRequired",
+      "isHidden": false
+    },
+    {
+      "id": "workbench.views.agentPlugins.marketplace",
+      "isHidden": false
+    }
+  ]
 }
