@@ -61,8 +61,5 @@ gcloud = "latest"
 "npm:firebase-tools" = "latest"
 
 
-# Other Tools
-"aqua:mvdan/sh" = "latest"
-
 [settings]
 experimental = true
