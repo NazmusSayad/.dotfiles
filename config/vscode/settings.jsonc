@@ -470,6 +470,5 @@
       "icon": "light-bulb",
       "background": "#FDD83580"
     }
-  },
-  "workbench.activityBar.location": "hidden"
+  }
 }

@@ -16,6 +16,11 @@
 - Prefer type inference whenever possible.
 - Do not use `any`, casts, or explicit generic type arguments when inference is sufficient.
 
+## Important Skills
+
+- Must use `react` skill when writing react code.
+- Must use `npm` skill to: run, execute, install, update, remove npm packages
+
 ## CLI / Shell / Terminal
 
 - Use `bash` for all shell commands.

@@ -3,7 +3,7 @@ name: react
 description: Applies common React style guides and conventions. Use when writing or reviewing React components, hooks, or JSX, or when the user asks for React style or best practices.
 ---
 
-## 1. Don't over-declare
+### Don't over-declare
 
 Do not over-declare variables, functions, or components unless the logic is extremely complex. Prefer inlining when it's simple.
 
@@ -71,7 +71,7 @@ function MyComponent() {
 }
 ```
 
-## 2. Keep pure functions outside the component
+### Keep pure functions outside the component
 
 Pure utility functions must be declared outside React components.
 
@@ -115,6 +115,96 @@ function MyComponent() {
       <p>Text: {processDisplayText(text)}</p>
       <input onChange={(e) => setText(e.target.value)} />
     </div>
+  );
+}
+```
+
+### Tailwind Classes
+
+Prefer direct inline Tailwind classes in JSX. Do not extract them into variables or helpers. Only extract when the same classes are reused extensively or the logic becomes very complex.
+
+❌ Incorrect:
+
+```tsx
+function MyComponent() {
+  const containerClasses = "flex flex-col gap-4 p-6 bg-white rounded-lg";
+  const buttonClasses =
+    "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600";
+
+  return (
+    <div className={containerClasses}>
+      <h1>Title</h1>
+      <button className={buttonClasses}>Click me</button>
+    </div>
+  );
+}
+```
+
+✅ Correct:
+
+```tsx
+function MyComponent() {
+  return (
+    <div className="flex flex-col gap-4 p-6 bg-white rounded-lg">
+      <h1>Title</h1>
+      <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+✅ Correct (complex classes, still direct):
+
+```tsx
+function Form({ isSubmitting, hasError }: FormProps) {
+  return (
+    <form className="space-y-6 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm transition-all duration-200 hover:shadow-md">
+      <fieldset
+        disabled={isSubmitting}
+        className="disabled:opacity-50 disabled:pointer-events-none transition-opacity duration-200"
+      >
+        <input
+          className={`w-full rounded-lg border-2 px-4 py-2 transition-colors ${
+            hasError
+              ? "border-red-500 bg-red-50 focus:border-red-600 focus:ring-red-200"
+              : "border-gray-300 focus:border-blue-500 focus:ring-blue-200"
+          } focus:outline-none focus:ring-4`}
+        />
+      </fieldset>
+    </form>
+  );
+}
+```
+
+✅ Correct (using `cn` utility with && conditions):
+
+```tsx
+import { cn } from "@/lib/utils"; // or from "clsx", "classnames"
+
+function Form({ isSubmitting, hasError }: FormProps) {
+  return (
+    <form
+      className={cn(
+        "space-y-6 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm transition-all duration-200 hover:shadow-md"
+      )}
+    >
+      <fieldset
+        disabled={isSubmitting}
+        className={cn(
+          "disabled:opacity-50 disabled:pointer-events-none transition-opacity duration-200"
+        )}
+      >
+        <input
+          className={cn(
+            "w-full rounded-lg border-2 px-4 py-2 transition-colors focus:outline-none focus:ring-4 border-gray-300 focus:border-blue-500 focus:ring-blue-200",
+            hasError &&
+              "border-red-500 bg-red-50 focus:border-red-600 focus:ring-red-200"
+          )}
+        />
+      </fieldset>
+    </form>
   );
 }
 ```
