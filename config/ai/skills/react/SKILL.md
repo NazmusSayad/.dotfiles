@@ -1,6 +1,6 @@
 ---
 name: react
-description: Applies common React style guides and conventions. Use when writing or reviewing React components, hooks, or JSX, or when the user asks for React style or best practices.
+description: React code style, conventions, best practices, and patterns for building clean, efficient, and scalable applications. Use when writing or reviewing React components, hooks, and JSX.
 ---
 
 ### Don't over-declare
@@ -178,27 +178,20 @@ function Form({ isSubmitting, hasError }: FormProps) {
 }
 ```
 
-✅ Correct (using `cn` utility with && conditions):
+✅ Correct (using `cn` or similar utility, if available in the project):
 
 ```tsx
 import { cn } from "@/lib/utils"; // or from "clsx", "classnames"
 
-function Form({ isSubmitting, hasError }: FormProps) {
+function Form() {
   return (
-    <form
-      className={cn(
-        "space-y-6 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm transition-all duration-200 hover:shadow-md"
-      )}
-    >
-      <fieldset
-        disabled={isSubmitting}
-        className={cn(
-          "disabled:opacity-50 disabled:pointer-events-none transition-opacity duration-200"
-        )}
-      >
+    <form className="space-y-6 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm transition-all duration-200 hover:shadow-md">
+      <fieldset className="disabled:opacity-50 disabled:pointer-events-none transition-opacity duration-200">
         <input
           className={cn(
             "w-full rounded-lg border-2 px-4 py-2 transition-colors focus:outline-none focus:ring-4 border-gray-300 focus:border-blue-500 focus:ring-blue-200",
+            hasWarning &&
+              "border-yellow-500 bg-yellow-50 focus:border-yellow-600 focus:ring-yellow-200",
             hasError &&
               "border-red-500 bg-red-50 focus:border-red-600 focus:ring-red-200"
           )}
