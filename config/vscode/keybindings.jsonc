@@ -227,6 +227,14 @@
     "command": "workbench.view.scm"
   },
   {
+    "key": "ctrl+shift+f12",
+    "command": "workbench.view.extension.gitlensInspect"
+  },
+  {
+    "key": "ctrl+alt+f12",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
     "key": "shift+f1 1",
     "command": "editor.foldLevel1",
     "when": "textInputFocus"
@@ -275,10 +283,6 @@
     "key": "ctrl+shift+f1",
     "command": "editor.foldAllExcept",
     "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+alt+f12",
-    "command": "workbench.action.toggleActivityBarVisibility"
   },
   {
     "key": "ctrl+f11",
