@@ -1,8 +1,8 @@
 # Development Tools
 - gcc
-- fvm
 - scc
 - shfmt
+- extras/fvm
 
 - gh
 - aws
