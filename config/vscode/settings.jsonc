@@ -377,7 +377,6 @@
     "indentString": "  "
   },
   "workbench.navigationControl.enabled": false,
-  "workbench.sideBar.location": "right",
   "chat.agent.maxRequests": 999,
   "chat.agentsControl.enabled": false,
   "chat.commandCenter.enabled": false,
