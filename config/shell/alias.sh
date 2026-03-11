@@ -12,10 +12,10 @@ alias j="just"
 alias m="make"
 
 # Flutter
-alias fl="flutter"
-alias flp="flutter pub"
-alias flr="flutter run"
-alias fle="flutter emulators"
+alias fl="fvm flutter"
+alias flp="fvm flutter pub"
+alias flr="fvm flutter run"
+alias fle="fvm flutter emulators"
 
 # PHP
 alias pa="php artisan"
@@ -39,4 +39,4 @@ alias ghw="gh repo view --web"
 # Windows
 alias ex="explorer"
 alias fix-ports="sudo net stop winnat"
-alias fix-fs-case="fsutil file setCaseSensitiveInfo . enable recursive"
+alias fix-fs-case="sudo fsutil file setCaseSensitiveInfo . enable recursive"
