@@ -50,6 +50,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Symlink Setup",
 	},
 
+	"code-init": {
+		StartMenu: "Code Init",
+	},
+
 	"code-ext-sync": {
 		StartMenu: "Code Extensions Sync",
 	},
