@@ -383,9 +383,7 @@
   "chat.commandCenter.enabled": false,
   "chat.editing.confirmEditRequestRetry": false,
   "chat.detectParticipant.enabled": false,
-  "chat.viewSessions.enabled": false,
   "chat.viewWelcome.enabled": false,
-  "chat.tools.terminal.enableAutoApprove": false,
   "chat.extensionTools.enabled": false,
   "chat.agent.thinking.generateTitles": false,
   "chat.useClaudeMdFile": false,
@@ -395,6 +393,10 @@
   "github.copilot.enable": {
     "*": true,
     "markdown": true
+  },
+  "accessibility.signals.chatUserActionRequired": {
+    "announcement": "off",
+    "sound": "on"
   },
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
   "explorer.confirmPasteNative": false,

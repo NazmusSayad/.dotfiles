@@ -31,10 +31,6 @@
     "Targets": ["~/.config/opencode/commands"]
   },
   {
-    "Source": "@/config/ai/plugins",
-    "Target": "~/.config/opencode/plugins"
-  },
-  {
     "Source": "@/config/ai/agents",
     "Target": "~/.config/opencode/agents"
   },
