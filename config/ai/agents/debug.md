@@ -1,6 +1,6 @@
 ---
 description: Finds and diagnoses the root cause of issues
-temperature: 0.25
+temperature: 0.2
 tools:
   write: false
   edit: false
