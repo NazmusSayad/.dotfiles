@@ -13,9 +13,6 @@ alias m="make"
 
 # Flutter
 alias fl="fvm flutter"
-alias flp="fvm flutter pub"
-alias flr="fvm flutter run"
-alias fle="fvm flutter emulators"
 
 # PHP
 alias pa="php artisan"
