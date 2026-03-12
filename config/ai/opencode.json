@@ -23,6 +23,10 @@
       ]
     },
 
+    "openrouter": {
+      "whitelist": ["openrouter/hunter-alpha", "openrouter/healer-alpha"]
+    },
+
     "kilo": {
       "whitelist": [
         "z-ai/glm-5",
@@ -34,5 +38,5 @@
     }
   },
 
-  "enabled_providers": ["openai", "github-copilot", "kilo"]
+  "enabled_providers": ["openai", "github-copilot", "openrouter", "kilo"]
 }
