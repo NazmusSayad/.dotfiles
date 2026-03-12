@@ -8,6 +8,8 @@
 
   "plugin": ["opencode-wakatime"],
 
+  "enabled_providers": ["openai", "github-copilot", "openrouter", "kilo"],
+
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.4", "gpt-5.3-codex"]
@@ -24,7 +26,7 @@
     },
 
     "openrouter": {
-      "whitelist": ["openrouter/hunter-alpha", "openrouter/healer-alpha"]
+      "whitelist": []
     },
 
     "kilo": {
@@ -36,7 +38,5 @@
         "google/gemini-3.1-flash-lite-preview"
       ]
     }
-  },
-
-  "enabled_providers": ["openai", "github-copilot", "openrouter", "kilo"]
+  }
 }
