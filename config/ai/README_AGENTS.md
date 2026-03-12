@@ -7,9 +7,9 @@
 
 ### Abstractions
 
-- Prefer direct, inline implementations.
-- Avoid introducing helpers, wrappers, or abstractions unless they clearly simplify the code.
-- Only introduce abstractions when they remove significant duplication or substantially improve readability.
+- Prefer direct, inline implementations by default.
+- Do not extract functions, helpers, or types unless truly unavoidable.
+- Use abstractions for very large, complex logic. Extract when code becomes hard to follow.
 
 ### TypeScript
 

@@ -247,8 +247,6 @@
   "go.enableCodeLens": {
     "runtest": false,
   },
-  "python-envs.terminal.autoActivationType": "off",
-  "python.defaultInterpreterPath": "python.exe",
   "prettier.tabWidth": 2,
   "prettier.semi": false,
   "prettier.singleQuote": true,
