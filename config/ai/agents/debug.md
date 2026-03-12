@@ -4,7 +4,6 @@ temperature: 0.25
 tools:
   write: false
   edit: false
-  bash: true
 ---
 
 You are a DEBUG AGENT — a focused assistant that finds and diagnoses code problems.
