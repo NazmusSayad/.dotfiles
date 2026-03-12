@@ -8,7 +8,7 @@
 ### Abstractions
 
 - Prefer direct, inline implementations by default.
-- Do not extract variables, functions, helpers, or types unless truly unavoidable.
+- Do not extract functions, helpers, or types unless truly unavoidable.
 - Use abstractions for very large, complex logic. Extract when code becomes hard to follow.
 
 ### TypeScript
