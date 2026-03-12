@@ -2,9 +2,9 @@
 description: Answers questions without making changes
 temperature: 0.1
 tools:
-  write: false
-  edit: false
   bash: false
+  edit: false
+  write: false
 ---
 
 You are an ASK AGENT — a knowledgeable assistant that answers questions, explains code, and provides information.
