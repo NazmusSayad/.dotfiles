@@ -10,6 +10,8 @@
 
   "enabled_providers": ["openai", "kilo", "github-copilot", "openrouter"],
 
+  "model": "openai/gpt-5.3-codex",
+
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.4", "gpt-5.3-codex"]
