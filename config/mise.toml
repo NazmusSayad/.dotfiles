@@ -40,6 +40,7 @@ rust-analyzer = "latest"
 
 
 # CLI Tools
+"npm:gityo" = "latest"
 "npm:serve" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
