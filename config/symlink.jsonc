@@ -19,10 +19,6 @@
     "Targets": ["~/.agents/skills"]
   },
   {
-    "Source": "@/config/ai/opencode.json",
-    "Target": "~/.config/opencode/config.json"
-  },
-  {
     "Source": "@/config/ai/README_AGENTS.md",
     "Targets": ["~/.config/opencode/AGENTS.md"]
   },
@@ -33,6 +29,18 @@
   {
     "Source": "@/config/ai/agents",
     "Target": "~/.config/opencode/agents"
+  },
+  {
+    "Source": "@/config/ai/opencode.json",
+    "Target": "~/.config/opencode/config.json"
+  },
+  {
+    "Source": "@/.local/auth.json",
+    "Target": "~/.local/share/opencode/auth.json"
+  },
+  {
+    "Source": "@/config/ai/opencode.dat",
+    "Target": "$APPDATA/ai.opencode.desktop/default.dat"
   },
 
   // Terminal Configs
