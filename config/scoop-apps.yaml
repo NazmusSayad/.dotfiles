@@ -43,10 +43,9 @@
 - fd
 
 # Workflow Tools
+- cmake
 - make
 - just
-- cmake
-- llvm
 
 # Media Tools
 - extras/anyburn
