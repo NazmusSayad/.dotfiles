@@ -75,12 +75,18 @@
     "Name": "Windhawk"
   },
 
-  // Shells
+  // Shells & Development Tools
   {
     "ID": "MSYS2.MSYS2",
     "Name": "MSYS2",
     "ForceAdminInstall": true,
     "ForceAdminUpgrade": true
+  },
+  {
+    "ID": "LLVM.LLVM",
+    "Name": "LLVM",
+    "Version": "21.1.8",
+    "SkipInstall": true
   },
 
   // Code Editors
