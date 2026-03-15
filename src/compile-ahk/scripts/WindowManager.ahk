@@ -2,14 +2,14 @@
 #NoTrayIcon
 ProcessSetPriority "High"
 
-RAlt & F23::AltTab
-LAlt & F23::AltTab
+RAlt & F19::AltTab
+LAlt & F19::AltTab
 
-F23:: {
+F19:: {
   Send("{Alt down}")
   Send("{Tab}")
 }
 
-F23 up:: {
+F19 up:: {
   Send("{Alt up}")
 }

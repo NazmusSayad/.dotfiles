@@ -1,7 +1,7 @@
 #NoTrayIcon
 
 Initilized := false
-^F23:: HandleAutoDesktopSwitch
+^F19:: HandleAutoDesktopSwitch
 
 HandleAutoDesktopSwitch() {
   global Initilized, CurrentDesktop
