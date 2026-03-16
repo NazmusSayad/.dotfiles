@@ -39,7 +39,7 @@
     "Target": "~/.local/share/opencode/auth.json"
   },
   {
-    "Source": "@/config/ai/opencode.dat",
+    "Source": "@/.local/opencode.dat",
     "Target": "$APPDATA/ai.opencode.desktop/default.dat"
   },
 
