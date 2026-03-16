@@ -8,7 +8,7 @@
 
   "plugin": ["opencode-wakatime"],
 
-  "enabled_providers": ["openai", "kilo", "github-copilot", "openrouter"],
+  "enabled_providers": ["openai", "kilo"],
 
   "provider": {
     "openai": {
@@ -18,20 +18,13 @@
     "kilo": {
       "whitelist": [
         "z-ai/glm-5",
+        "z-ai/glm-5-turbo",
         "moonshotai/kimi-k2.5",
         "minimax/minimax-m2.5:free",
         "google/gemini-3-flash-preview",
         "google/gemini-3.1-flash-lite-preview",
         "google/gemini-3.1-pro-preview-customtools"
       ]
-    },
-
-    "github-copilot": {
-      "whitelist": []
-    },
-
-    "openrouter": {
-      "whitelist": []
     }
   }
 }
