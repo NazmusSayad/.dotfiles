@@ -485,7 +485,9 @@
     "Dart-Code.dart-code.dartStatusFlutterDevice",
     "DEVSENSE.phptools-vscode.phptools.license",
     "esbenp.prettier-vscode.prettier.status",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "ms-python.python.python.selectedInterpreterDisplay",
+    "rust-lang.rust-analyzer"
   ],
   "workbench.view.extension.gitlensInspect.state.hidden": [
     {
