@@ -31,6 +31,7 @@
   /* Linters and Formatters */
   { "Id": "esbenp.prettier-vscode" },
   { "Id": "dbaeumer.vscode-eslint" },
+  { "Id": "oxc.oxc-vscode" },
   { "Id": "mkhl.shfmt" },
 
   /* Rust */
@@ -42,14 +43,13 @@
   { "Id": "bmalehorn.vscode-fish" },
   { "Id": "redhat.vscode-yaml" },
   { "Id": "redhat.vscode-xml" },
-  { "Id": "prisma.prisma" },
+  // { "Id": "prisma.prisma" },
 
   /* GraphQL */
   { "Id": "graphql.vscode-graphql" },
   { "Id": "graphql.vscode-graphql-syntax" },
 
   /* AI Tools */
-  { "Id": "github.copilot", "Include": ["code"] },
   { "Id": "github.copilot-chat", "Include": ["code"] },
 
   /* Other Extensions */
