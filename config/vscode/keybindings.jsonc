@@ -219,7 +219,7 @@
   },
   {
     "key": "f12",
-    "command": "workbench.action.closeSidebar",
+    "command": "workbench.view.scm",
     "when": "sideBarFocus && (explorerViewletFocus || focusedView == 'workbench.explorer.emptyView')"
   },
   {
@@ -229,6 +229,10 @@
   {
     "key": "ctrl+shift+f12",
     "command": "workbench.view.extension.gitlensInspect"
+  },
+  {
+    "key": "alt+f12",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
     "key": "ctrl+alt+f12",
