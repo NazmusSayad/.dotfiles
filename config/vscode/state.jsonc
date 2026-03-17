@@ -487,7 +487,8 @@
     "esbenp.prettier-vscode.prettier.status",
     "redhat.vscode-yaml",
     "ms-python.python.python.selectedInterpreterDisplay",
-    "rust-lang.rust-analyzer"
+    "rust-lang.rust-analyzer",
+    "oxc.oxc-vscode"
   ],
   "workbench.view.extension.gitlensInspect.state.hidden": [
     {
