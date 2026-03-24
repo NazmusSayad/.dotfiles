@@ -8,11 +8,15 @@
 
   "plugin": ["opencode-wakatime"],
 
-  "enabled_providers": ["openai", "kilo"],
+  "enabled_providers": ["openai", "openrouter", "kilo"],
 
   "provider": {
     "openai": {
-      "whitelist": ["gpt-5.4", "gpt-5.3-codex"]
+      "whitelist": ["gpt-5.4", "gpt-5.4-mini", "gpt-5.3-codex"]
+    },
+
+    "openrouter": {
+      "whitelist": ["minimax/minimax-m2.7"]
     },
 
     "kilo": {
@@ -21,6 +25,7 @@
         "z-ai/glm-5-turbo",
         "moonshotai/kimi-k2.5",
         "minimax/minimax-m2.5:free",
+        "minimax/minimax-m2.7",
         "google/gemini-3-flash-preview",
         "google/gemini-3.1-flash-lite-preview",
         "google/gemini-3.1-pro-preview-customtools"
