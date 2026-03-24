@@ -3,6 +3,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# AI
+alias cx="codex"
+alias oc="opencode"
+alias cc="claude-code"
+
 # npm
 alias r="nr"
 alias nid="ni -D"
