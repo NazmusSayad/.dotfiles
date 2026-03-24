@@ -1,6 +1,7 @@
 ---
 description: Answers questions without making changes
 temperature: 0.1
+mode: "subagent"
 tools:
   bash: false
   edit: false
