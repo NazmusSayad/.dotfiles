@@ -7,9 +7,6 @@
   "username": "Sayad",
 
   "plugin": ["opencode-wakatime"],
-
-  "enabled_providers": ["openai", "openrouter", "kilo"],
-
   "command": {
     "build": {
       "agent": "build",
@@ -18,6 +15,11 @@
     }
   },
 
+  "experimental": {
+    "continue_loop_on_deny": true
+  },
+
+  "enabled_providers": ["openai", "openrouter", "kilo"],
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.4", "gpt-5.4-mini", "gpt-5.3-codex"]
