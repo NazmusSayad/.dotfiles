@@ -49,11 +49,5 @@ rust-analyzer = "latest"
 "npm:npm-name-cli" = "latest"
 
 
-# Cloud Tools
-gcloud = "latest"
-"npm:wrangler" = "latest"
-"npm:firebase-tools" = "latest"
-
-
 [settings]
 experimental = true
