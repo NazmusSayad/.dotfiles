@@ -9,7 +9,7 @@
 
 - Prefer direct, inline implementations by default.
 - Do not extract functions, helpers, or types unless truly unavoidable.
-- Use abstractions for very large, complex logic. Extract when code becomes hard to follow.
+- Only use abstractions for very large, complex logic. Extract when code becomes hard to follow.
 
 ### TypeScript
 
@@ -25,4 +25,3 @@
 
 - Use `bash` for all shell commands.
 - Use Unix-style paths when referencing files or directories.
-- Do not write scripts to modify file contents. Use proper tools instead.
