@@ -10,6 +10,14 @@
 
   "enabled_providers": ["openai", "openrouter", "kilo"],
 
+  "command": {
+    "build-based-on-plan": {
+      "agent": "build",
+      "description": "Follow the plan and start implementation",
+      "template": "Follow the plan exactly, step by step, without changing or skipping anything. ## Standards\n\n- No hacks. Use proven, robust approaches only.\n- If code feels fragile or wrong, fix it properly.\n- Validate each significant change before continuing.\n- Maintain existing code style and conventions."
+    }
+  },
+
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.4", "gpt-5.4-mini", "gpt-5.3-codex"]
