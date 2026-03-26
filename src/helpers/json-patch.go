@@ -40,12 +40,23 @@ func MergeJSONObject(prev string, next string) (string, error) {
 		mergedByKey[entry.Key] = entry
 	}
 
+	prevByKey := map[string]objectEntry{}
+	for _, entry := range prevEntries {
+		prevByKey[entry.Key] = entry
+	}
+
 	ordered := []objectEntry{}
 	seen := map[string]bool{}
 
 	for _, entry := range prevEntries {
 		mergedEntry, ok := mergedByKey[entry.Key]
 		if !ok {
+			continue
+		}
+
+		if jsonEqual(entry.Val, mergedEntry.Val) {
+			ordered = append(ordered, entry)
+			seen[entry.Key] = true
 			continue
 		}
 
@@ -70,6 +81,7 @@ func MergeJSONObject(prev string, next string) (string, error) {
 	indent := detectIndent(prev)
 	closingIndent := detectClosingIndent(prev)
 	indentUnit := detectIndentUnit(indent, closingIndent)
+	separator := detectSeparator(prev)
 
 	if len(ordered) == 0 {
 		if stringsHasNewline(prev) {
@@ -84,13 +96,13 @@ func MergeJSONObject(prev string, next string) (string, error) {
 	out.WriteByte('\n')
 
 	for i, entry := range ordered {
-		formatted, err := indentValue(entry.Val, indent, indentUnit)
+		formatted, err := indentValue(entry.Val, indent, indentUnit, prevByKey[entry.Key].Val)
 		if err != nil {
 			return "", err
 		}
 
 		if i > 0 {
-			out.WriteString(",\n")
+			out.WriteString(separator)
 		}
 
 		out.WriteString(indent)
@@ -179,7 +191,11 @@ func parseObjectEntries(raw []byte) ([]objectEntry, error) {
 	}
 }
 
-func indentValue(raw []byte, prefix string, indentUnit string) (string, error) {
+func indentValue(raw []byte, prefix string, indentUnit string, prev []byte) (string, error) {
+	if len(prev) > 0 && jsonEqual(prev, raw) {
+		return string(prev), nil
+	}
+
 	var formatted bytes.Buffer
 	if err := json.Indent(&formatted, raw, "", indentUnit); err == nil {
 		return strings.ReplaceAll(formatted.String(), "\n", "\n"+prefix), nil
@@ -198,6 +214,38 @@ func detectIndentUnit(indent string, closingIndent string) string {
 	}
 
 	return "  "
+}
+
+func detectSeparator(input string) string {
+	if strings.Contains(input, ",\n\n") {
+		return ",\n\n"
+	}
+
+	return ",\n"
+}
+
+func jsonEqual(left []byte, right []byte) bool {
+	var leftValue any
+	if err := json.Unmarshal(left, &leftValue); err != nil {
+		return bytes.Equal(left, right)
+	}
+
+	var rightValue any
+	if err := json.Unmarshal(right, &rightValue); err != nil {
+		return bytes.Equal(left, right)
+	}
+
+	leftJSON, err := json.Marshal(leftValue)
+	if err != nil {
+		return bytes.Equal(left, right)
+	}
+
+	rightJSON, err := json.Marshal(rightValue)
+	if err != nil {
+		return bytes.Equal(left, right)
+	}
+
+	return bytes.Equal(leftJSON, rightJSON)
 }
 
 func detectIndent(input string) string {

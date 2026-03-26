@@ -13,43 +13,43 @@ import (
 	"github.com/tidwall/jsonc"
 )
 
-type kiloModelsResponse struct {
-	Data []kiloModel `json:"data"`
-}
-
-type providerConfig struct {
+type opencodeProviderConfig struct {
 	ID        string   `json:"id"`
 	APIURL    string   `json:"apiURL"`
 	ModelsURL string   `json:"modelsURL"`
 	Models    []string `json:"models"`
 }
 
-type kiloModel struct {
-	ID            string       `json:"id"`
-	Name          string       `json:"name"`
-	Opencode      kiloOpencode `json:"opencode"`
-	ContextLength int          `json:"context_length"`
+type openAiCompatibleModelsResponse struct {
+	Data []openAiCompatibleModel `json:"data"`
 }
 
-type kiloOpencode struct {
+type openAiCompatibleModel struct {
+	ID            string               `json:"id"`
+	Name          string               `json:"name"`
+	ContextLength int                  `json:"context_length"`
+	Opencode      kiloOptionalOpencode `json:"opencode"`
+}
+
+type kiloOptionalOpencode struct {
 	Family   string                     `json:"family"`
 	Variants map[string]json.RawMessage `json:"variants"`
 }
 
-type opencodeModel struct {
+type opencodeOutputModel struct {
 	ID       string                     `json:"id"`
 	Name     string                     `json:"name"`
-	Limit    *opencodeModelLimit        `json:"limit,omitempty"`
+	Limit    *opencodeOutputLimit       `json:"limit,omitempty"`
 	Family   string                     `json:"family,omitempty"`
 	Variants map[string]json.RawMessage `json:"variants,omitempty"`
 }
 
-type opencodeModelLimit struct {
+type opencodeOutputLimit struct {
 	Context int `json:"context"`
 	Output  int `json:"output"`
 }
 
-type opencodeProvider struct {
+type opencodeOutputProvider struct {
 	API    string          `json:"api,omitempty"`
 	Models json.RawMessage `json:"models"`
 }
@@ -64,7 +64,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var providerConfigs []providerConfig
+	var providerConfigs []opencodeProviderConfig
 	if err := json.Unmarshal(jsonc.ToJSON(providerConfigContent), &providerConfigs); err != nil {
 		fmt.Println("failed to decode provider config:", err)
 		os.Exit(1)
@@ -95,10 +95,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	currentManagedProviders := map[string]opencodeProvider{}
+	currentManagedProviders := map[string]opencodeOutputProvider{}
 	for providerID, providerRaw := range providers {
 		if strings.HasSuffix(providerID, managedProviderSuffix) {
-			var provider opencodeProvider
+			var provider opencodeOutputProvider
 			if err := json.Unmarshal(providerRaw, &provider); err != nil {
 				fmt.Println("failed to decode managed provider:", err)
 				os.Exit(1)
@@ -108,7 +108,7 @@ func main() {
 		}
 	}
 
-	desiredManagedProviders := map[string]opencodeProvider{}
+	desiredManagedProviders := map[string]opencodeOutputProvider{}
 	for _, providerConfig := range providerConfigs {
 		providerID := providerConfig.ID
 		if !strings.HasSuffix(providerID, managedProviderSuffix) {
@@ -138,7 +138,7 @@ func main() {
 			os.Exit(1)
 		}
 
-		desiredManagedProviders[providerID] = opencodeProvider{
+		desiredManagedProviders[providerID] = opencodeOutputProvider{
 			API:    providerConfig.APIURL,
 			Models: json.RawMessage(patchedModels),
 		}
@@ -193,7 +193,7 @@ func main() {
 	fmt.Println("updated", configPath)
 }
 
-func fetchModels(providerConfig providerConfig) (map[string]opencodeModel, error) {
+func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutputModel, error) {
 	resp, err := http.Get(providerConfig.ModelsURL)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch %s models: %w", providerConfig.ID, err)
@@ -209,20 +209,20 @@ func fetchModels(providerConfig providerConfig) (map[string]opencodeModel, error
 		return nil, fmt.Errorf("failed to read %s response body: %w", providerConfig.ID, err)
 	}
 
-	var payload kiloModelsResponse
+	var payload openAiCompatibleModelsResponse
 	if err := json.Unmarshal(body, &payload); err != nil {
 		return nil, fmt.Errorf("failed to decode %s response: %w", providerConfig.ID, err)
 	}
 
-	models := map[string]opencodeModel{}
+	models := map[string]opencodeOutputModel{}
 	for _, model := range payload.Data {
 		if !contains(providerConfig.Models, model.ID) {
 			continue
 		}
 
-		entry := opencodeModel{ID: model.ID, Name: model.Name}
+		entry := opencodeOutputModel{ID: model.ID, Name: model.Name}
 		if model.ContextLength > 0 {
-			entry.Limit = &opencodeModelLimit{Context: model.ContextLength, Output: model.ContextLength}
+			entry.Limit = &opencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
 		}
 
 		if model.Opencode.Family != "" {
