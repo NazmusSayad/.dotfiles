@@ -155,6 +155,12 @@ func TestMergeJSONObjectFormatting(t *testing.T) {
 			next: "{}",
 			want: "{}",
 		},
+		{
+			name: "preserves unchanged nested key order",
+			prev: "{\n  \"openrouter*\": {\n    \"api\": \"https://openrouter.ai/api/v1\",\n    \"name\": \"Openrouter+\",\n    \"models\": {\n      \"A\": {\n        \"id\": \"a\",\n        \"name\": \"A\"\n      },\n      \"B\": {\n        \"id\": \"b\",\n        \"name\": \"B\"\n      }\n    }\n  }\n}",
+			next: "{\n  \"openrouter*\": {\n    \"api\": \"https://openrouter.ai/api/v1\",\n    \"name\": \"Openrouter+\",\n    \"models\": {\n      \"A\": {\n        \"id\": \"a\",\n        \"name\": \"A\"\n      }\n    }\n  }\n}",
+			want: "{\n  \"openrouter*\": {\n    \"api\": \"https://openrouter.ai/api/v1\",\n    \"name\": \"Openrouter+\",\n    \"models\": {\n      \"A\": {\n        \"id\": \"a\",\n        \"name\": \"A\"\n      }\n    }\n  }\n}",
+		},
 	}
 
 	for _, tt := range tests {
