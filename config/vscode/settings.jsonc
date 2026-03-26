@@ -377,6 +377,7 @@
   },
   "workbench.navigationControl.enabled": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.browser.showInTitleBar": false,
   "chat.agent.maxRequests": 999,
   "chat.agentsControl.enabled": false,
   "chat.commandCenter.enabled": false,
