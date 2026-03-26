@@ -57,7 +57,7 @@ type opencodeOutputProvider struct {
 const managedProviderSuffix = "+"
 
 func main() {
-	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.jsonc")
+	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.json")
 	providerConfigContent, err := os.ReadFile(providerConfigPath)
 	if err != nil {
 		fmt.Println("failed to read provider config:", err)
