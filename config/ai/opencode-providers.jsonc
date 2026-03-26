@@ -1,0 +1,17 @@
+[
+  {
+    "id": "Kilo+",
+    "apiURL": "https://api.kilo.ai/api/gateway/models",
+    "models": [
+      "z-ai/glm-5",
+      "z-ai/glm-5-turbo",
+
+      "minimax/minimax-m2.5",
+      "minimax/minimax-m2.5:free",
+
+      "minimax/minimax-m2.7",
+
+      "moonshotai/kimi-k2.5"
+    ]
+  }
+]
