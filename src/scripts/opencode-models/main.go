@@ -14,10 +14,11 @@ import (
 )
 
 type opencodeProviderConfig struct {
-	ID        string   `json:"id"`
-	APIURL    string   `json:"apiURL"`
-	ModelsURL string   `json:"modelsURL"`
-	Models    []string `json:"models"`
+	ID           string   `json:"id"`
+	BaseURL      string   `json:"apiURL"`
+	ModelsURL    string   `json:"modelsURL"`
+	HasTurboMode bool     `json:"hasTurboMode"`
+	Models       []string `json:"models"`
 }
 
 type openAiCompatibleModelsResponse struct {
@@ -139,7 +140,7 @@ func main() {
 		}
 
 		desiredManagedProviders[providerID] = opencodeOutputProvider{
-			API:    providerConfig.APIURL,
+			API:    providerConfig.BaseURL,
 			Models: json.RawMessage(patchedModels),
 		}
 	}
