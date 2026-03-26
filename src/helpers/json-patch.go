@@ -196,6 +196,15 @@ func indentValue(raw []byte, prefix string, indentUnit string, prev []byte) (str
 		return string(prev), nil
 	}
 
+	if len(prev) > 0 && isJSONObject(prev) && isJSONObject(raw) {
+		merged, err := MergeJSONObject(string(prev), string(raw))
+		if err != nil {
+			return "", err
+		}
+
+		return merged, nil
+	}
+
 	var formatted bytes.Buffer
 	if err := json.Indent(&formatted, raw, "", indentUnit); err == nil {
 		return strings.ReplaceAll(formatted.String(), "\n", "\n"+prefix), nil
@@ -246,6 +255,11 @@ func jsonEqual(left []byte, right []byte) bool {
 	}
 
 	return bytes.Equal(leftJSON, rightJSON)
+}
+
+func isJSONObject(raw []byte) bool {
+	var value map[string]json.RawMessage
+	return json.Unmarshal(raw, &value) == nil
 }
 
 func detectIndent(input string) string {
