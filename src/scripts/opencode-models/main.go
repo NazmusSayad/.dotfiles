@@ -11,6 +11,7 @@ import (
 
 	"dotfiles/src/helpers"
 
+	"github.com/logrusorgru/aurora/v4"
 	"github.com/tidwall/jsonc"
 )
 
@@ -64,6 +65,7 @@ func main() {
 	providerConfigs := helpers.ReadConfig[map[string]opencodeProviderConfig](providerConfigPath)
 
 	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
+	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
 	config, err := os.ReadFile(configPath)
 	if err != nil {
 		fmt.Println("failed to read opencode config:", err)
@@ -103,11 +105,15 @@ func main() {
 		}
 	}
 
+	fmt.Println()
+
 	desiredManagedProviders := map[string]opencodeOutputProvider{}
 	for providerID, providerConfig := range providerConfigs {
 		if !strings.HasSuffix(providerID, managedProviderSuffix) {
 			providerID += managedProviderSuffix
 		}
+
+		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerConfig.Name).String())
 
 		models, err := fetchModels(providerConfig)
 		if err != nil {
@@ -137,6 +143,8 @@ func main() {
 			Name:   providerConfig.Name,
 			Models: json.RawMessage(patchedModels),
 		}
+
+		fmt.Println()
 	}
 
 	finalProviders := map[string]json.RawMessage{}
@@ -180,15 +188,18 @@ func main() {
 	updatedConfig = append(updatedConfig, updatedProviderRaw...)
 	updatedConfig = append(updatedConfig, config[providerIndex+len(providerRaw):]...)
 
+	fmt.Println(aurora.Green("Writing the updated OpenCode configuration...").String())
 	if err := os.WriteFile(configPath, updatedConfig, 0o644); err != nil {
 		fmt.Println("failed to write opencode config:", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("updated", configPath)
+	fmt.Println(aurora.Green("Updated OpenCode configuration successfully.").String())
 }
 
 func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutputModel, error) {
+	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerConfig.ModelsURL).String())
+
 	resp, err := http.Get(providerConfig.ModelsURL)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch %s models: %w", providerConfig.Name, err)
