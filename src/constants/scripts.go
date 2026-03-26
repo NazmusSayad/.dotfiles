@@ -66,6 +66,14 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Code UI State Push",
 	},
 
+	"clean-code-snippets": {
+		StartMenu: "Clean Code Snippets",
+	},
+
+	"opencode-models": {
+		StartMenu: "OpenCode Models Sync",
+	},
+
 	"packages-sync": {
 		StartMenu: "Packages Sync",
 		Exe:       "psy",
@@ -79,10 +87,5 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"winget-upgrade": {
 		StartMenu: "WinGet Upgrade",
 		Exe:       "wgu",
-	},
-
-	"clean-code-snippets": {
-		StartMenu: "Clean Code Snippets",
-		Exe:       "csc",
 	},
 }
