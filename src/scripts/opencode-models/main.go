@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"slices"
 	"strings"
 
 	"dotfiles/src/helpers"
@@ -217,11 +218,15 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 
 	models := map[string]opencodeOutputModel{}
 	for _, model := range payload.Data {
-		if !contains(providerConfig.Models, model.ID) {
+		if !slices.Contains(providerConfig.Models, model.ID) {
 			continue
 		}
 
 		entry := opencodeOutputModel{ID: model.ID, Name: model.Name}
+		if providerConfig.HasTurboMode && strings.LastIndex(model.ID, ":") <= strings.LastIndex(model.ID, "/") {
+			entry.ID += ":turbo"
+		}
+
 		if model.ContextLength > 0 {
 			entry.Limit = &opencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
 		}
@@ -238,14 +243,4 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 	}
 
 	return models, nil
-}
-
-func contains(items []string, value string) bool {
-	for _, item := range items {
-		if item == value {
-			return true
-		}
-	}
-
-	return false
 }
