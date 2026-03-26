@@ -16,6 +16,7 @@ import (
 
 type opencodeProviderConfig struct {
 	ID           string   `json:"id"`
+	Name         string   `json:"name"`
 	BaseURL      string   `json:"apiURL"`
 	ModelsURL    string   `json:"modelsURL"`
 	HasTurboMode bool     `json:"hasTurboMode"`
@@ -52,11 +53,12 @@ type opencodeOutputLimit struct {
 }
 
 type opencodeOutputProvider struct {
-	API    string          `json:"api,omitempty"`
-	Models json.RawMessage `json:"models"`
+	API            string          `json:"api,omitempty"`
+	DisplayName    string          `json:"name,omitempty"`
+	ProviderModels json.RawMessage `json:"models"`
 }
 
-const managedProviderSuffix = "+"
+const managedProviderSuffix = "*"
 
 func main() {
 	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.json")
@@ -130,8 +132,8 @@ func main() {
 		}
 
 		existingModels := "{}"
-		if existing, ok := currentManagedProviders[providerID]; ok && len(existing.Models) > 0 {
-			existingModels = string(existing.Models)
+		if existing, ok := currentManagedProviders[providerID]; ok && len(existing.ProviderModels) > 0 {
+			existingModels = string(existing.ProviderModels)
 		}
 
 		patchedModels, err := helpers.MergeJSONObject(existingModels, string(desiredModels))
@@ -141,8 +143,9 @@ func main() {
 		}
 
 		desiredManagedProviders[providerID] = opencodeOutputProvider{
-			API:    providerConfig.BaseURL,
-			Models: json.RawMessage(patchedModels),
+			API:            providerConfig.BaseURL,
+			DisplayName:    providerConfig.Name,
+			ProviderModels: json.RawMessage(patchedModels),
 		}
 	}
 
