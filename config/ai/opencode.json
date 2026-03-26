@@ -119,7 +119,7 @@
       "api": "https://openrouter.ai/api/v1",
       "models": {
         "MiniMax: MiniMax M2.5": {
-          "id": "minimax/minimax-m2.5",
+          "id": "minimax/minimax-m2.5:turbo",
           "limit": {
             "context": 196608,
             "output": 196608
@@ -127,7 +127,7 @@
           "name": "MiniMax: MiniMax M2.5"
         },
         "MiniMax: MiniMax M2.7": {
-          "id": "minimax/minimax-m2.7",
+          "id": "minimax/minimax-m2.7:turbo",
           "limit": {
             "context": 204800,
             "output": 204800
@@ -135,7 +135,7 @@
           "name": "MiniMax: MiniMax M2.7"
         },
         "MoonshotAI: Kimi K2.5": {
-          "id": "moonshotai/kimi-k2.5",
+          "id": "moonshotai/kimi-k2.5:turbo",
           "limit": {
             "context": 262144,
             "output": 262144
@@ -155,7 +155,7 @@
           }
         },
         "Z.ai: GLM 5": {
-          "id": "z-ai/glm-5",
+          "id": "z-ai/glm-5:turbo",
           "limit": {
             "context": 80000,
             "output": 80000
@@ -175,7 +175,7 @@
           }
         },
         "Z.ai: GLM 5 Turbo": {
-          "id": "z-ai/glm-5-turbo",
+          "id": "z-ai/glm-5-turbo:turbo",
           "limit": {
             "context": 202752,
             "output": 202752
