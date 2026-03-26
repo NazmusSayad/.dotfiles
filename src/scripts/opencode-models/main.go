@@ -53,9 +53,9 @@ type opencodeOutputLimit struct {
 }
 
 type opencodeOutputProvider struct {
-	API            string          `json:"api,omitempty"`
-	DisplayName    string          `json:"name,omitempty"`
-	ProviderModels json.RawMessage `json:"models"`
+	API    string          `json:"api,omitempty"`
+	Name   string          `json:"name,omitempty"`
+	Models json.RawMessage `json:"models"`
 }
 
 const managedProviderSuffix = "*"
@@ -132,8 +132,8 @@ func main() {
 		}
 
 		existingModels := "{}"
-		if existing, ok := currentManagedProviders[providerID]; ok && len(existing.ProviderModels) > 0 {
-			existingModels = string(existing.ProviderModels)
+		if existing, ok := currentManagedProviders[providerID]; ok && len(existing.Models) > 0 {
+			existingModels = string(existing.Models)
 		}
 
 		patchedModels, err := helpers.MergeJSONObject(existingModels, string(desiredModels))
@@ -143,9 +143,9 @@ func main() {
 		}
 
 		desiredManagedProviders[providerID] = opencodeOutputProvider{
-			API:            providerConfig.BaseURL,
-			DisplayName:    providerConfig.Name,
-			ProviderModels: json.RawMessage(patchedModels),
+			API:    providerConfig.BaseURL,
+			Name:   providerConfig.Name,
+			Models: json.RawMessage(patchedModels),
 		}
 	}
 
