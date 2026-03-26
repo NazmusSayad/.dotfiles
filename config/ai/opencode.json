@@ -27,8 +27,8 @@
     },
 
     "kilo*": {
-      "name": "Kilo+",
       "api": "https://api.kilo.ai/api/gateway",
+      "name": "Kilo+",
       "models": {
         "MiniMax: MiniMax M2.5": {
           "id": "minimax/minimax-m2.5",
@@ -74,6 +74,22 @@
             }
           }
         },
+        "Xiaomi: MiMo-V2-Omni (free)": {
+          "id": "xiaomi/mimo-v2-omni:free",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "name": "Xiaomi: MiMo-V2-Omni (free)"
+        },
+        "Xiaomi: MiMo-V2-Pro (free)": {
+          "id": "xiaomi/mimo-v2-pro:free",
+          "limit": {
+            "context": 1048576,
+            "output": 1048576
+          },
+          "name": "Xiaomi: MiMo-V2-Pro (free)"
+        },
         "Z.ai: GLM 5": {
           "id": "z-ai/glm-5",
           "limit": {
@@ -118,8 +134,8 @@
     },
 
     "openrouter*": {
-      "name": "Openrouter+",
       "api": "https://openrouter.ai/api/v1",
+      "name": "Openrouter+",
       "models": {
         "MiniMax: MiniMax M2.5": {
           "id": "minimax/minimax-m2.5:turbo",
@@ -156,6 +172,22 @@
               }
             }
           }
+        },
+        "Xiaomi: MiMo-V2-Omni": {
+          "id": "xiaomi/mimo-v2-omni:turbo",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "name": "Xiaomi: MiMo-V2-Omni"
+        },
+        "Xiaomi: MiMo-V2-Pro": {
+          "id": "xiaomi/mimo-v2-pro:turbo",
+          "limit": {
+            "context": 1048576,
+            "output": 1048576
+          },
+          "name": "Xiaomi: MiMo-V2-Pro"
         },
         "Z.ai: GLM 5": {
           "id": "z-ai/glm-5:turbo",
