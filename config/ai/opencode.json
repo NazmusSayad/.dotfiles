@@ -19,27 +19,20 @@
     "continue_loop_on_deny": true
   },
 
-  "enabled_providers": ["openai", "openrouter", "kilo"],
+  "enabled_providers": ["openai", "kilo-custom"],
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.4", "gpt-5.4-mini", "gpt-5.3-codex"]
     },
 
-    "openrouter": {
-      "whitelist": ["minimax/minimax-m2.7"]
-    },
-
-    "kilo": {
-      "whitelist": [
-        "z-ai/glm-5",
-        "z-ai/glm-5-turbo",
-        "moonshotai/kimi-k2.5",
-        "minimax/minimax-m2.5:free",
-        "minimax/minimax-m2.7",
-        "google/gemini-3-flash-preview",
-        "google/gemini-3.1-flash-lite-preview",
-        "google/gemini-3.1-pro-preview-customtools"
-      ]
+    "kilo-custom": {
+      "api": "https://api.kilo.ai/api/gateway",
+      "models": {
+        "Kilo Auto Frontier": {
+          "id": "kilo-auto/frontier",
+          "name": "Kilo Auto Frontier"
+        }
+      }
     }
   }
 }
