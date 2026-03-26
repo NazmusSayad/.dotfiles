@@ -1,7 +1,8 @@
 [
   {
-    "id": "Kilo+",
-    "apiURL": "https://api.kilo.ai/api/gateway/models",
+    "id": "Kilo",
+    "apiURL": "https://api.kilo.ai/api/gateway",
+    "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "models": [
       "z-ai/glm-5",
       "z-ai/glm-5-turbo",
@@ -16,8 +17,9 @@
   },
 
   {
-    "id": "Openrouter+",
+    "id": "Openrouter",
     "apiURL": "https://openrouter.ai/api/v1",
+    "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "models": [
       "z-ai/glm-5",
       "z-ai/glm-5-turbo",
