@@ -15,7 +15,6 @@ import (
 )
 
 type opencodeProviderConfig struct {
-	ID           string   `json:"id"`
 	Name         string   `json:"name"`
 	BaseURL      string   `json:"apiURL"`
 	ModelsURL    string   `json:"modelsURL"`
@@ -68,7 +67,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var providerConfigs []opencodeProviderConfig
+	var providerConfigs map[string]opencodeProviderConfig
 	if err := json.Unmarshal(jsonc.ToJSON(providerConfigContent), &providerConfigs); err != nil {
 		fmt.Println("failed to decode provider config:", err)
 		os.Exit(1)
@@ -81,8 +80,10 @@ func main() {
 		os.Exit(1)
 	}
 
+	configJSON := jsonc.ToJSON(config)
+
 	var root map[string]json.RawMessage
-	if err := json.Unmarshal(config, &root); err != nil {
+	if err := json.Unmarshal(configJSON, &root); err != nil {
 		fmt.Println("failed to decode opencode config:", err)
 		os.Exit(1)
 	}
@@ -113,8 +114,12 @@ func main() {
 	}
 
 	desiredManagedProviders := map[string]opencodeOutputProvider{}
-	for _, providerConfig := range providerConfigs {
-		providerID := providerConfig.ID
+	for providerID, providerConfig := range providerConfigs {
+		if providerID == "" {
+			fmt.Println("failed to decode provider config: missing provider key")
+			os.Exit(1)
+		}
+
 		if !strings.HasSuffix(providerID, managedProviderSuffix) {
 			providerID += managedProviderSuffix
 		}
@@ -201,22 +206,22 @@ func main() {
 func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutputModel, error) {
 	resp, err := http.Get(providerConfig.ModelsURL)
 	if err != nil {
-		return nil, fmt.Errorf("failed to fetch %s models: %w", providerConfig.ID, err)
+		return nil, fmt.Errorf("failed to fetch %s models: %w", providerConfig.Name, err)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("failed to fetch %s models: %s", providerConfig.ID, resp.Status)
+		return nil, fmt.Errorf("failed to fetch %s models: %s", providerConfig.Name, resp.Status)
 	}
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read %s response body: %w", providerConfig.ID, err)
+		return nil, fmt.Errorf("failed to read %s response body: %w", providerConfig.Name, err)
 	}
 
 	var payload openAiCompatibleModelsResponse
 	if err := json.Unmarshal(body, &payload); err != nil {
-		return nil, fmt.Errorf("failed to decode %s response: %w", providerConfig.ID, err)
+		return nil, fmt.Errorf("failed to decode %s response: %w", providerConfig.Name, err)
 	}
 
 	models := map[string]opencodeOutputModel{}
