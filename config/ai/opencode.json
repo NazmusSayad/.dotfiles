@@ -19,31 +19,18 @@
     "continue_loop_on_deny": true
   },
 
-  "enabled_providers": ["openai", "kilo-custom"],
+  "enabled_providers": ["openai", "Kilo+"],
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.4", "gpt-5.4-mini", "gpt-5.3-codex"]
     },
 
-    "kilo-custom": {
+    "Kilo+": {
       "api": "https://api.kilo.ai/api/gateway",
-      "whitelist": [
-        "z-ai/glm-5",
-        "z-ai/glm-5-turbo",
-
-        "minimax/minimax-m2.5",
-        "minimax/minimax-m2.7",
-        "minimax/minimax-m2.5:free",
-
-        "moonshotai/kimi-k2.5",
-
-        "xiaomi/mimo-v2-pro:free",
-        "xiaomi/mimo-v2-omni:free"
-      ],
 
       "models": {
         "MiniMax: MiniMax M2.5": {
-          "id": "minimax/minimax-m2.5:turbo",
+          "id": "minimax/minimax-m2.5",
           "name": "MiniMax: MiniMax M2.5",
           "limit": {
             "context": 196608,
@@ -59,7 +46,7 @@
           }
         },
         "MiniMax: MiniMax M2.7": {
-          "id": "minimax/minimax-m2.7:turbo",
+          "id": "minimax/minimax-m2.7",
           "name": "MiniMax: MiniMax M2.7",
           "limit": {
             "context": 204800,
@@ -67,7 +54,7 @@
           }
         },
         "MoonshotAI: Kimi K2.5": {
-          "id": "moonshotai/kimi-k2.5:turbo",
+          "id": "moonshotai/kimi-k2.5",
           "name": "MoonshotAI: Kimi K2.5",
           "limit": {
             "context": 262144,
@@ -86,24 +73,8 @@
             }
           }
         },
-        "Xiaomi: MiMo-V2-Omni (free)": {
-          "id": "xiaomi/mimo-v2-omni:free",
-          "name": "Xiaomi: MiMo-V2-Omni (free)",
-          "limit": {
-            "context": 262144,
-            "output": 262144
-          }
-        },
-        "Xiaomi: MiMo-V2-Pro (free)": {
-          "id": "xiaomi/mimo-v2-pro:free",
-          "name": "Xiaomi: MiMo-V2-Pro (free)",
-          "limit": {
-            "context": 1048576,
-            "output": 1048576
-          }
-        },
         "Z.ai: GLM 5": {
-          "id": "z-ai/glm-5:turbo",
+          "id": "z-ai/glm-5",
           "name": "Z.ai: GLM 5",
           "limit": {
             "context": 80000,
@@ -123,7 +94,7 @@
           }
         },
         "Z.ai: GLM 5 Turbo": {
-          "id": "z-ai/glm-5-turbo:turbo",
+          "id": "z-ai/glm-5-turbo",
           "name": "Z.ai: GLM 5 Turbo",
           "limit": {
             "context": 202752,

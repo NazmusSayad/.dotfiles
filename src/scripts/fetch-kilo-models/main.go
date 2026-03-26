@@ -7,9 +7,6 @@ import (
 	"net/http"
 	"os"
 	"slices"
-	"strings"
-
-	"dotfiles/src/helpers"
 )
 
 type kiloModelsResponse struct {
@@ -41,15 +38,19 @@ type opencodeModelLimit struct {
 	Output  int `json:"output"`
 }
 
-type opencodeConfig struct {
-	Provider struct {
-		KiloCustom struct {
-			Whitelist []string `json:"whitelist"`
-		} `json:"kilo-custom"`
-	} `json:"provider"`
-}
-
 func main() {
+	whitelist := []string{
+		"z-ai/glm-5",
+		"z-ai/glm-5-turbo",
+
+		"minimax/minimax-m2.5",
+		"minimax/minimax-m2.5:free",
+
+		"minimax/minimax-m2.7",
+
+		"moonshotai/kimi-k2.5",
+	}
+
 	resp, err := http.Get("https://api.kilo.ai/api/gateway/models")
 	if err != nil {
 		fmt.Println("failed to fetch models:", err)
@@ -86,27 +87,16 @@ func main() {
 		return 0
 	})
 
-	config := helpers.ReadConfig[opencodeConfig]("@/config/ai/opencode.json", helpers.ReadConfigOptions{Silent: true})
-	whitelist := map[string]struct{}{}
-
-	for _, id := range config.Provider.KiloCustom.Whitelist {
-		whitelist[id] = struct{}{}
-	}
-
 	models := map[string]opencodeModel{}
 
 	for _, model := range payload.Data {
-		if _, ok := whitelist[model.ID]; !ok {
+		if !slices.Contains(whitelist, model.ID) {
 			continue
 		}
 
 		entry := opencodeModel{
 			ID:   model.ID,
 			Name: model.Name,
-		}
-
-		if !strings.Contains(model.ID, ":") {
-			entry.ID += ":turbo"
 		}
 
 		if model.ContextLength > 0 {
