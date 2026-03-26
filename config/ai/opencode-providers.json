@@ -1,6 +1,7 @@
 [
   {
-    "id": "Kilo",
+    "id": "kilo-custom",
+    "name": "Kilo+",
     "apiURL": "https://api.kilo.ai/api/gateway",
     "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "models": [
@@ -16,7 +17,8 @@
   },
 
   {
-    "id": "Openrouter",
+    "id": "openrouter-custom",
+    "name": "Openrouter+",
     "apiURL": "https://openrouter.ai/api/v1",
     "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "hasTurboMode": true,
