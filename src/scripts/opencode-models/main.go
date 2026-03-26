@@ -115,11 +115,6 @@ func main() {
 
 	desiredManagedProviders := map[string]opencodeOutputProvider{}
 	for providerID, providerConfig := range providerConfigs {
-		if providerID == "" {
-			fmt.Println("failed to decode provider config: missing provider key")
-			os.Exit(1)
-		}
-
 		if !strings.HasSuffix(providerID, managedProviderSuffix) {
 			providerID += managedProviderSuffix
 		}
