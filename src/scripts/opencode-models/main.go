@@ -229,6 +229,7 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 		entry := opencodeOutputModel{ID: model.ID, Name: model.Name}
 		if providerConfig.HasTurboMode && strings.LastIndex(model.ID, ":") <= strings.LastIndex(model.ID, "/") {
 			entry.ID += ":turbo"
+			entry.Name += " ⚡"
 		}
 
 		if model.ContextLength > 0 {
