@@ -9,12 +9,10 @@
 
       "moonshotai/kimi-k2.5",
 
-      "minimax/minimax-m2.5",
       "minimax/minimax-m2.5:free",
       "minimax/minimax-m2.7",
 
-      "xiaomi/mimo-v2-pro:free",
-      "xiaomi/mimo-v2-omni:free"
+      "xiaomi/mimo-v2-pro:free"
     ]
   },
 
@@ -30,10 +28,7 @@
       "moonshotai/kimi-k2.5",
 
       "minimax/minimax-m2.5",
-      "minimax/minimax-m2.7",
-
-      "xiaomi/mimo-v2-pro",
-      "xiaomi/mimo-v2-omni"
+      "minimax/minimax-m2.7"
     ]
   }
 }
