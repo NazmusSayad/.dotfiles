@@ -18,7 +18,11 @@
   "mcp": {
     "chrome-devtools": {
       "type": "local",
-      "command": ["chrome-devtools-mcp"]
+      "command": [
+        "chrome-devtools-mcp",
+        "--viewport=1440x1080",
+        "--headless=true"
+      ]
     }
   },
 
