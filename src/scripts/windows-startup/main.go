@@ -5,11 +5,14 @@ import (
 	"os"
 
 	helpers "dotfiles/src/helpers"
+	"dotfiles/src/utils"
 )
 
 type LaunchConfig struct {
 	Path string
 	Args []string
+
+	Dir  string
 	Wait bool
 
 	AsUser  bool
@@ -23,6 +26,9 @@ func main() {
 		resolvedCommand := helpers.ResolvePath(config.Path)
 		fmt.Println("Starting: (", config.AsAdmin, ")", resolvedCommand)
 
+		resolvedWorkingDir := utils.Ternary(config.Dir != "", helpers.ResolvePath(config.Dir), "")
+		fmt.Println("Working dir:", resolvedWorkingDir)
+
 		resolvedArguments := make([]string, len(config.Args))
 		for i, arg := range config.Args {
 			resolvedArguments[i] = os.ExpandEnv(arg)
@@ -32,6 +38,7 @@ func main() {
 			append([]string{resolvedCommand}, resolvedArguments...),
 			helpers.ExecCommandOptions{
 				NoWait:      !config.Wait,
+				Dir:         resolvedWorkingDir,
 				AsAdmin:     config.AsAdmin,
 				AsGsudoUser: config.AsUser,
 			},

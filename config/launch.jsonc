@@ -60,6 +60,7 @@
   {
     "Path": "run-hidden",
     "AsUser": true,
+    "Dir": "~/Desktop",
     "Args": ["opencode", "serve", "--mdns", "--port", "10100"]
   },
   {
