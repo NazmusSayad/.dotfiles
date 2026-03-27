@@ -36,6 +36,10 @@
             "context": 204800,
             "output": 204800
           },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "MiniMax: MiniMax M2.5 (free)"
         },
         "MiniMax: MiniMax M2.7": {
@@ -44,7 +48,11 @@
             "context": 204800,
             "output": 204800
           },
-          "name": "MiniMax: MiniMax M2.7"
+          "name": "MiniMax: MiniMax M2.7",
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          }
         },
         "MoonshotAI: Kimi K2.5": {
           "id": "moonshotai/kimi-k2.5",
@@ -64,6 +72,10 @@
                 "enabled": true
               }
             }
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           }
         },
         "Xiaomi: MiMo-V2-Pro (free)": {
@@ -72,7 +84,11 @@
             "context": 1048576,
             "output": 1048576
           },
-          "name": "Xiaomi: MiMo-V2-Pro (free)"
+          "name": "Xiaomi: MiMo-V2-Pro (free)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
         },
         "Z.ai: GLM 5": {
           "id": "z-ai/glm-5",
@@ -92,6 +108,10 @@
                 "enabled": true
               }
             }
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           }
         },
         "Z.ai: GLM 5 Turbo": {
@@ -112,6 +132,10 @@
                 "enabled": true
               }
             }
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           }
         }
       }
@@ -127,7 +151,11 @@
             "context": 196608,
             "output": 196608
           },
-          "name": "MiniMax: MiniMax M2.5 ⚡"
+          "name": "MiniMax: MiniMax M2.5 ⚡",
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          }
         },
         "MiniMax: MiniMax M2.7": {
           "id": "minimax/minimax-m2.7:turbo",
@@ -135,7 +163,11 @@
             "context": 204800,
             "output": 204800
           },
-          "name": "MiniMax: MiniMax M2.7 ⚡"
+          "name": "MiniMax: MiniMax M2.7 ⚡",
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          }
         },
         "MoonshotAI: Kimi K2.5": {
           "id": "moonshotai/kimi-k2.5:turbo",
@@ -155,6 +187,10 @@
                 "enabled": true
               }
             }
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           }
         },
         "Z.ai: GLM 5": {
@@ -175,6 +211,10 @@
                 "enabled": true
               }
             }
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           }
         },
         "Z.ai: GLM 5 Turbo": {
@@ -195,6 +235,10 @@
                 "enabled": true
               }
             }
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           }
         }
       }
