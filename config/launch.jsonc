@@ -1,4 +1,5 @@
 [
+  // OS Core
   {
     "Path": "ctfmon.exe",
     "AsAdmin": true,
@@ -19,10 +20,14 @@
     "Args": ["--list-keys"],
     "AsAdmin": true
   },
+
+  // Utility Apps
   {
     "Path": "~/scoop/apps/sharex/current/ShareX.exe",
     "AsAdmin": true
   },
+
+  // AHK Scripts
   {
     "Path": "@/.build/ahk/AHK-Macro.exe",
     "AsAdmin": true
@@ -40,6 +45,7 @@
     "AsAdmin": true
   },
 
+  // Background Services
   {
     "Path": "run-hidden",
     "Args": ["opencode", "serve", "--port", "10100"],
@@ -50,7 +56,6 @@
     "Args": ["cloudflared", "tunnel", "run", "local-tunnel"],
     "AsUser": true
   },
-
   {
     "Path": "run-hidden",
     "Args": [
