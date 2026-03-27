@@ -62,7 +62,7 @@
     "AsUser": true,
     "Args": [
       "opencode",
-      "web",
+      "serve",
       "--hostname",
       "<redacted>",
       "--port",
