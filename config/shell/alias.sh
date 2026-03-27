@@ -4,9 +4,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # AI
-alias cx="codex"
 alias oc="opencode"
-alias cc="claude-code"
+alias ocd="~/scoop/apps/opencode-desktop/current/OpenCode"
 
 # npm
 alias r="nr"
