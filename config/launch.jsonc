@@ -60,7 +60,6 @@
   {
     "Path": "run-hidden",
     "AsUser": true,
-    "Dir": "~/Desktop",
     "Args": ["opencode", "serve", "--port", "10100"]
   },
   {
