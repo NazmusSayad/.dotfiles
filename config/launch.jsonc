@@ -1,13 +1,13 @@
 [
   {
     "Path": "ctfmon.exe",
-    "Admin": true,
+    "AsAdmin": true,
     "Wait": true
   },
   {
     "Path": "cmd.exe",
     "Args": ["/c"],
-    "Admin": true,
+    "AsAdmin": true,
     "Wait": true
   },
   {
@@ -17,30 +17,31 @@
   {
     "Path": "gpg",
     "Args": ["--list-keys"],
-    "Admin": true
+    "AsAdmin": true
   },
   {
     "Path": "~/scoop/apps/sharex/current/ShareX.exe",
-    "Admin": true
+    "AsAdmin": true
   },
   {
     "Path": "@/.build/ahk/AHK-Macro.exe",
-    "Admin": true
+    "AsAdmin": true
   },
   {
     "Path": "@/.build/ahk/AHK-ScrollWheel.exe",
-    "Admin": true
+    "AsAdmin": true
   },
   {
     "Path": "@/.build/ahk/AHK-WindowManager.exe",
-    "Admin": true
+    "AsAdmin": true
   },
   {
     "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
-    "Admin": true
+    "AsAdmin": true
   },
   {
     "Path": "run-hidden",
+    "AsUser": true,
     "Args": [
       "F:\\__WINBIN__\\netserv\\netserv.exe",
       "ftp",
@@ -58,6 +59,7 @@
   },
   {
     "Path": "run-hidden",
+    "AsUser": true,
     "Args": [
       "opencode",
       "web",

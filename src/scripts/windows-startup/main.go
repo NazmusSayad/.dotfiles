@@ -8,10 +8,12 @@ import (
 )
 
 type LaunchConfig struct {
-	Path  string
-	Args  []string
-	Wait  bool
-	Admin bool
+	Path string
+	Args []string
+	Wait bool
+
+	AsUser  bool
+	AsAdmin bool
 }
 
 func main() {
@@ -19,7 +21,7 @@ func main() {
 
 	for _, config := range launchConfigs {
 		resolvedCommand := helpers.ResolvePath(config.Path)
-		fmt.Println("Starting: (", config.Admin, ")", resolvedCommand)
+		fmt.Println("Starting: (", config.AsAdmin, ")", resolvedCommand)
 
 		resolvedArguments := make([]string, len(config.Args))
 		for i, arg := range config.Args {
@@ -29,8 +31,9 @@ func main() {
 		helpers.ExecNativeCommand(
 			append([]string{resolvedCommand}, resolvedArguments...),
 			helpers.ExecCommandOptions{
-				AsAdmin: config.Admin,
-				NoWait:  !config.Wait,
+				NoWait:      !config.Wait,
+				AsAdmin:     config.AsAdmin,
+				AsGsudoUser: config.AsUser,
 			},
 		)
 	}
