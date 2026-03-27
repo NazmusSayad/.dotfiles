@@ -20,7 +20,7 @@
       "type": "local",
       "command": [
         "chrome-devtools-mcp",
-        "--viewport=1440x1080",
+        "--viewport=1440x900x1",
         "--headless=true"
       ]
     }
