@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	helpers "dotfiles/src/helpers"
 )
@@ -20,8 +21,13 @@ func main() {
 		resolvedCommand := helpers.ResolvePath(config.Path)
 		fmt.Println("Starting: (", config.Admin, ")", resolvedCommand)
 
+		resolvedArguments := make([]string, len(config.Args))
+		for i, arg := range config.Args {
+			resolvedArguments[i] = os.ExpandEnv(arg)
+		}
+
 		helpers.ExecNativeCommand(
-			append([]string{resolvedCommand}, config.Args...),
+			append([]string{resolvedCommand}, resolvedArguments...),
 			helpers.ExecCommandOptions{
 				AsAdmin: config.Admin,
 				NoWait:  !config.Wait,
