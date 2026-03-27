@@ -26,13 +26,12 @@ func main() {
 		resolvedCommand := helpers.ResolvePath(config.Path)
 		fmt.Println("Starting: (", config.AsAdmin, ")", resolvedCommand)
 
-		resolvedWorkingDir := utils.Ternary(config.Dir != "", helpers.ResolvePath(config.Dir), "")
-		fmt.Println("Working dir:", resolvedWorkingDir)
-
 		resolvedArguments := make([]string, len(config.Args))
 		for i, arg := range config.Args {
 			resolvedArguments[i] = os.ExpandEnv(arg)
 		}
+
+		resolvedWorkingDir := utils.Ternary(config.Dir != "", helpers.ResolvePath(config.Dir), "")
 
 		helpers.ExecNativeCommand(
 			append([]string{resolvedCommand}, resolvedArguments...),
