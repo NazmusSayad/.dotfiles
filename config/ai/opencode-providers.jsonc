@@ -10,25 +10,27 @@
       "moonshotai/kimi-k2.5",
 
       "minimax/minimax-m2.5:free",
-      "minimax/minimax-m2.7",
 
-      "xiaomi/mimo-v2-pro:free"
-    ]
-  },
+      "xiaomi/mimo-v2-pro:free",
+      "xiaomi/mimo-v2-omni:free",
 
-  "openrouter": {
-    "name": "Openrouter+",
-    "apiURL": "https://openrouter.ai/api/v1",
-    "modelsURL": "https://api.kilo.ai/api/gateway/models",
-    "hasTurboMode": true,
-    "models": [
-      "z-ai/glm-5",
-      "z-ai/glm-5-turbo",
-
-      "moonshotai/kimi-k2.5",
-
-      "minimax/minimax-m2.5",
-      "minimax/minimax-m2.7"
+      "google/gemini-3.1-pro-preview-customtools"
     ]
   }
+
+  // "openrouter": {
+  //   "name": "Openrouter+",
+  //   "apiURL": "https://openrouter.ai/api/v1",
+  //   "modelsURL": "https://api.kilo.ai/api/gateway/models",
+  //   "hasTurboMode": true,
+  //   "models": [
+  //     "z-ai/glm-5",
+  //     "z-ai/glm-5-turbo",
+
+  //     "moonshotai/kimi-k2.5",
+
+  //     "minimax/minimax-m2.5",
+  //     "minimax/minimax-m2.7"
+  //   ]
+  // }
 }

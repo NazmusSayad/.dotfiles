@@ -70,7 +70,10 @@ type opencodeOutputProvider struct {
 	Models json.RawMessage `json:"models"`
 }
 
-const managedProviderSuffix = "*"
+var (
+	managedProviderSuffix = "*"
+	allowedModalities     = []string{"text", "audio", "image", "video", "pdf"}
+)
 
 func main() {
 	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.jsonc")
@@ -240,7 +243,7 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 
 		entry := opencodeOutputModel{ID: model.ID, Name: model.Name}
 		if providerConfig.HasTurboMode && strings.LastIndex(model.ID, ":") <= strings.LastIndex(model.ID, "/") {
-			entry.ID += ":turbo"
+			entry.ID += ":nitro"
 			entry.Name += " ⚡"
 		}
 
@@ -248,10 +251,13 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 			entry.Limit = &opencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
 		}
 
-		if len(model.Architecture.InputModalities) > 0 || len(model.Architecture.OutputModalities) > 0 {
+		supportedInputModalities := filterLLMModalities(model.Architecture.InputModalities)
+		supportedOutputModalities := filterLLMModalities(model.Architecture.OutputModalities)
+
+		if len(supportedInputModalities) > 0 && len(supportedOutputModalities) > 0 {
 			entry.Modalities = &opencodeOutputModalities{
-				Input:  model.Architecture.InputModalities,
-				Output: model.Architecture.OutputModalities,
+				Input:  supportedInputModalities,
+				Output: supportedOutputModalities,
 			}
 		}
 
@@ -267,4 +273,15 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 	}
 
 	return models, nil
+}
+
+func filterLLMModalities(modalities []string) []string {
+	var filtered []string
+	for _, m := range modalities {
+		if slices.Contains(allowedModalities, m) {
+			filtered = append(filtered, m)
+		}
+	}
+
+	return filtered
 }
