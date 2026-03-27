@@ -26,7 +26,7 @@
     "continue_loop_on_deny": true
   },
 
-  "enabled_providers": ["openai", "kilo*", "openrouter*"],
+  "enabled_providers": ["openai", "kilo*"],
 
   "provider": {
     "openai": {
@@ -37,6 +37,44 @@
       "api": "https://api.kilo.ai/api/gateway",
       "name": "Kilo+",
       "models": {
+        "Google: Gemini 3.1 Pro Preview Custom Tools": {
+          "id": "google/gemini-3.1-pro-preview-customtools",
+          "limit": {
+            "context": 1048576,
+            "output": 1048576
+          },
+          "modalities": {
+            "input": ["text", "audio", "image", "video"],
+            "output": ["text"]
+          },
+          "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
+          "variants": {
+            "high": {
+              "reasoning": {
+                "effort": "high",
+                "enabled": true
+              }
+            },
+            "low": {
+              "reasoning": {
+                "effort": "low",
+                "enabled": true
+              }
+            },
+            "medium": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            },
+            "xhigh": {
+              "reasoning": {
+                "effort": "xhigh",
+                "enabled": true
+              }
+            }
+          }
+        },
         "MiniMax: MiniMax M2.5 (free)": {
           "id": "minimax/minimax-m2.5:free",
           "limit": {
@@ -49,23 +87,15 @@
           },
           "name": "MiniMax: MiniMax M2.5 (free)"
         },
-        "MiniMax: MiniMax M2.7": {
-          "id": "minimax/minimax-m2.7",
-          "limit": {
-            "context": 204800,
-            "output": 204800
-          },
-          "name": "MiniMax: MiniMax M2.7",
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
-          }
-        },
         "MoonshotAI: Kimi K2.5": {
           "id": "moonshotai/kimi-k2.5",
           "limit": {
             "context": 262144,
             "output": 262144
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           },
           "name": "MoonshotAI: Kimi K2.5",
           "variants": {
@@ -79,11 +109,19 @@
                 "enabled": true
               }
             }
+          }
+        },
+        "Xiaomi: MiMo-V2-Omni (free)": {
+          "id": "xiaomi/mimo-v2-omni:free",
+          "limit": {
+            "context": 262144,
+            "output": 262144
           },
           "modalities": {
             "input": ["text", "image"],
             "output": ["text"]
-          }
+          },
+          "name": "Xiaomi: MiMo-V2-Omni (free)"
         },
         "Xiaomi: MiMo-V2-Pro (free)": {
           "id": "xiaomi/mimo-v2-pro:free",
@@ -91,17 +129,21 @@
             "context": 1048576,
             "output": 1048576
           },
-          "name": "Xiaomi: MiMo-V2-Pro (free)",
           "modalities": {
             "input": ["text", "image"],
             "output": ["text"]
-          }
+          },
+          "name": "Xiaomi: MiMo-V2-Pro (free)"
         },
         "Z.ai: GLM 5": {
           "id": "z-ai/glm-5",
           "limit": {
             "context": 80000,
             "output": 80000
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           },
           "name": "Z.ai: GLM 5",
           "variants": {
@@ -115,10 +157,6 @@
                 "enabled": true
               }
             }
-          },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
           }
         },
         "Z.ai: GLM 5 Turbo": {
@@ -126,6 +164,10 @@
           "limit": {
             "context": 202752,
             "output": 202752
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           },
           "name": "Z.ai: GLM 5 Turbo",
           "variants": {
@@ -139,113 +181,6 @@
                 "enabled": true
               }
             }
-          },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
-          }
-        }
-      }
-    },
-
-    "openrouter*": {
-      "api": "https://openrouter.ai/api/v1",
-      "name": "Openrouter+",
-      "models": {
-        "MiniMax: MiniMax M2.5": {
-          "id": "minimax/minimax-m2.5:turbo",
-          "limit": {
-            "context": 196608,
-            "output": 196608
-          },
-          "name": "MiniMax: MiniMax M2.5 ⚡",
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
-          }
-        },
-        "MiniMax: MiniMax M2.7": {
-          "id": "minimax/minimax-m2.7:turbo",
-          "limit": {
-            "context": 204800,
-            "output": 204800
-          },
-          "name": "MiniMax: MiniMax M2.7 ⚡",
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
-          }
-        },
-        "MoonshotAI: Kimi K2.5": {
-          "id": "moonshotai/kimi-k2.5:turbo",
-          "limit": {
-            "context": 262144,
-            "output": 262144
-          },
-          "name": "MoonshotAI: Kimi K2.5 ⚡",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "enabled": true
-              }
-            }
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          }
-        },
-        "Z.ai: GLM 5": {
-          "id": "z-ai/glm-5:turbo",
-          "limit": {
-            "context": 80000,
-            "output": 80000
-          },
-          "name": "Z.ai: GLM 5 ⚡",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "enabled": true
-              }
-            }
-          },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
-          }
-        },
-        "Z.ai: GLM 5 Turbo": {
-          "id": "z-ai/glm-5-turbo:turbo",
-          "limit": {
-            "context": 202752,
-            "output": 202752
-          },
-          "name": "Z.ai: GLM 5 Turbo ⚡",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "enabled": true
-              }
-            }
-          },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
           }
         }
       }
