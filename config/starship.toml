@@ -35,4 +35,4 @@ threshold = 2
 
 [shell]
 disabled = false
-format = "[ ](dimmed) "
+format = "[❱](dimmed) "
