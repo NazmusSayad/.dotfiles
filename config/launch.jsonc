@@ -55,23 +55,22 @@
       "--password",
       "$NETSERV_SERVER_PASSWORD"
     ]
-  }
+  },
 
-  // OpenCode Isn't ready yet, but we will need this soon.
-  // {
-  //   "Path": "run-hidden",
-  //   "AsUser": true,
-  //   "Args": ["opencode", "serve", "--port", "10100"]
-  // },
-  // {
-  //   "Path": "ngrok",
-  //   "AsUser": true,
-  //   "Args": [
-  //     "http",
-  //     "10100",
-  //     "--basic-auth",
-  //     "$NGROK_OPENCODE_USERNAME:$NGROK_OPENCODE_PASSWORD",
-  //     "--pooling-enabled"
-  //   ]
-  // }
+  {
+    "Path": "run-hidden",
+    "AsUser": true,
+    "Args": ["opencode", "serve", "--port", "10100"]
+  },
+  {
+    "Path": "run-hidden",
+    "AsUser": true,
+    "Args": [
+      "cloudflared",
+      "tunnel",
+      "--config",
+      "$DOTFILES_DIR/.local/cloudflared.yml",
+      "run"
+    ]
+  }
 ]
