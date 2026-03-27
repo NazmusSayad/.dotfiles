@@ -69,8 +69,6 @@
     "Args": [
       "http",
       "10100",
-      "--url",
-      "https://cany-graig-schmalzier.ngrok-free.dev",
       "--basic-auth",
       "$NGROK_OPENCODE_USERNAME:$NGROK_OPENCODE_PASSWORD",
       "--pooling-enabled"
