@@ -5,7 +5,7 @@ source $DOTFILES_DIR/config/shell/alias.sh
 eval "$(direnv hook zsh)"
 eval "$(mise env --dotenv)"
 
-if [[ -o interactive ]]; then
+if [[ -o interactive ]] && [[ "$OPENCODE_TERMINAL" != "1" ]]; then
 	eval "$(starship init zsh)"
 	eval "$(zoxide init zsh)"
 fi
