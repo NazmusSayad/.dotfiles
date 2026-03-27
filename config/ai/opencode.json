@@ -15,6 +15,13 @@
     }
   },
 
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["chrome-devtools-mcp"]
+    }
+  },
+
   "experimental": {
     "continue_loop_on_deny": true
   },

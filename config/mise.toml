@@ -47,6 +47,7 @@ rust-analyzer = "latest"
 "npm:code-info" = "latest"
 "npm:git-stats" = "latest"
 "npm:npm-name-cli" = "latest"
+"npm:chrome-devtools-mcp" = "latest"
 
 
 [settings]
