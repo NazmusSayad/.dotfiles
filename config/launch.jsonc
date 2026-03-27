@@ -60,13 +60,19 @@
   {
     "Path": "run-hidden",
     "AsUser": true,
+    "Args": ["opencode", "serve", "--mdns", "--port", "10100"]
+  },
+  {
+    "Path": "ngrok",
+    "AsUser": true,
     "Args": [
-      "opencode",
-      "serve",
-      "--hostname",
-      "192.168.0.100",
-      "--port",
-      "10100"
+      "http",
+      "10100",
+      "--url",
+      "https://cany-graig-schmalzier.ngrok-free.dev",
+      "--basic-auth",
+      "$NGROK_OPENCODE_USERNAME:$NGROK_OPENCODE_PASSWORD",
+      "--pooling-enabled"
     ]
   }
 ]
