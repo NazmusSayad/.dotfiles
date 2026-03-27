@@ -13,6 +13,7 @@ import (
 )
 
 type ExecCommandOptions struct {
+	Dir string
 	Env []string
 
 	Exit     bool
@@ -109,6 +110,10 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 
 	if !opts.NoStderr {
 		cmd.Stderr = os.Stderr
+	}
+
+	if opts.Dir != "" {
+		cmd.Dir = opts.Dir
 	}
 
 	if len(opts.Env) > 0 {
