@@ -143,7 +143,7 @@
             "context": 196608,
             "output": 196608
           },
-          "name": "MiniMax: MiniMax M2.5"
+          "name": "MiniMax: MiniMax M2.5 ⚡"
         },
         "MiniMax: MiniMax M2.7": {
           "id": "minimax/minimax-m2.7:turbo",
@@ -151,7 +151,7 @@
             "context": 204800,
             "output": 204800
           },
-          "name": "MiniMax: MiniMax M2.7"
+          "name": "MiniMax: MiniMax M2.7 ⚡"
         },
         "MoonshotAI: Kimi K2.5": {
           "id": "moonshotai/kimi-k2.5:turbo",
@@ -159,7 +159,7 @@
             "context": 262144,
             "output": 262144
           },
-          "name": "MoonshotAI: Kimi K2.5",
+          "name": "MoonshotAI: Kimi K2.5 ⚡",
           "variants": {
             "instant": {
               "reasoning": {
@@ -179,7 +179,7 @@
             "context": 262144,
             "output": 262144
           },
-          "name": "Xiaomi: MiMo-V2-Omni"
+          "name": "Xiaomi: MiMo-V2-Omni ⚡"
         },
         "Xiaomi: MiMo-V2-Pro": {
           "id": "xiaomi/mimo-v2-pro:turbo",
@@ -187,7 +187,7 @@
             "context": 1048576,
             "output": 1048576
           },
-          "name": "Xiaomi: MiMo-V2-Pro"
+          "name": "Xiaomi: MiMo-V2-Pro ⚡"
         },
         "Z.ai: GLM 5": {
           "id": "z-ai/glm-5:turbo",
@@ -195,7 +195,7 @@
             "context": 80000,
             "output": 80000
           },
-          "name": "Z.ai: GLM 5",
+          "name": "Z.ai: GLM 5 ⚡",
           "variants": {
             "instant": {
               "reasoning": {
@@ -215,7 +215,7 @@
             "context": 202752,
             "output": 202752
           },
-          "name": "Z.ai: GLM 5 Turbo",
+          "name": "Z.ai: GLM 5 Turbo ⚡",
           "variants": {
             "instant": {
               "reasoning": {
