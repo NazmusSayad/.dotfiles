@@ -1,8 +1,7 @@
 #UseHook
 #NoTrayIcon 
 
-::@me::me@sayad.dev
-::@fake::fake@sayad.dev
+::@fake::fake@sayad.cc
 ::@env::sayadenv@gmail.com
 ::@mail::247sayad@gmail.com
 
