@@ -28,10 +28,16 @@ type openAiCompatibleModelsResponse struct {
 }
 
 type openAiCompatibleModel struct {
-	ID            string               `json:"id"`
-	Name          string               `json:"name"`
-	ContextLength int                  `json:"context_length"`
-	Opencode      kiloOptionalOpencode `json:"opencode"`
+	ID            string                       `json:"id"`
+	Name          string                       `json:"name"`
+	ContextLength int                          `json:"context_length"`
+	Architecture  openAiCompatibleArchitecture `json:"architecture"`
+	Opencode      kiloOptionalOpencode         `json:"opencode"`
+}
+
+type openAiCompatibleArchitecture struct {
+	InputModalities  []string `json:"input_modalities"`
+	OutputModalities []string `json:"output_modalities"`
 }
 
 type kiloOptionalOpencode struct {
@@ -40,11 +46,17 @@ type kiloOptionalOpencode struct {
 }
 
 type opencodeOutputModel struct {
-	ID       string                     `json:"id"`
-	Name     string                     `json:"name"`
-	Limit    *opencodeOutputLimit       `json:"limit,omitempty"`
-	Family   string                     `json:"family,omitempty"`
-	Variants map[string]json.RawMessage `json:"variants,omitempty"`
+	ID         string                     `json:"id"`
+	Name       string                     `json:"name"`
+	Limit      *opencodeOutputLimit       `json:"limit,omitempty"`
+	Modalities *opencodeOutputModalities  `json:"modalities,omitempty"`
+	Family     string                     `json:"family,omitempty"`
+	Variants   map[string]json.RawMessage `json:"variants,omitempty"`
+}
+
+type opencodeOutputModalities struct {
+	Input  []string `json:"input"`
+	Output []string `json:"output"`
 }
 
 type opencodeOutputLimit struct {
@@ -234,6 +246,13 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 
 		if model.ContextLength > 0 {
 			entry.Limit = &opencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
+		}
+
+		if len(model.Architecture.InputModalities) > 0 || len(model.Architecture.OutputModalities) > 0 {
+			entry.Modalities = &opencodeOutputModalities{
+				Input:  model.Architecture.InputModalities,
+				Output: model.Architecture.OutputModalities,
+			}
 		}
 
 		if model.Opencode.Family != "" {
