@@ -1,8 +1,7 @@
 #UseHook
 #NoTrayIcon 
 
-::@me::me@sayad.dev
-::@fake::fake@sayad.dev
+::@fake::<redacted>
 ::@env::<redacted>
 ::@mail::<redacted>
 
