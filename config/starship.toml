@@ -35,9 +35,4 @@ threshold = 2
 
 [shell]
 disabled = false
-format = "[$indicator ](dimmed) "
-bash_indicator = ''
-fish_indicator = ''
-zsh_indicator = ''
-cmd_indicator = ''
-pwsh_indicator = ''
+format = "[ ](dimmed) "

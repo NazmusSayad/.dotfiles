@@ -42,6 +42,7 @@
   {
     "Path": "run-hidden",
     "AsUser": true,
+    "Dir": "F:\\__WINBIN__\\netserv\\start",
     "Args": [
       "F:\\__WINBIN__\\netserv\\netserv.exe",
       "ftp",
@@ -49,8 +50,6 @@
       "192.168.0.100",
       "--port",
       "65432",
-      "--root",
-      "F:\\__WINBIN__\\netserv\\start",
       "--username",
       "$NETSERV_SERVER_USERNAME",
       "--password",

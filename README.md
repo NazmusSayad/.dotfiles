@@ -13,7 +13,7 @@ A complete automation system for setting up and managing your Windows developer 
   Install and update all your development tools, applications, and packages using Winget with a simple configuration file. Keep everything up-to-date with one command.
 
 - **Enhanced Shell Experience**
-  Pre-configured shell environments (Bash, Fish, Zsh) with Starship prompt, Windows Terminal settings, and convenient command aliases for faster workflow.
+  Pre-configured shell environments (Bash, Fish) with Starship prompt, Windows Terminal settings, and convenient command aliases for faster workflow.
 
 - **Git Workflow Tools**
   Streamlined Git commands for common tasks like cloning repositories, checking out branches, pulling changes, and managing your repositories more efficiently.
@@ -36,7 +36,7 @@ Before you begin, make sure you have:
 - **Windows 10 or Windows 11** installed
 - **Git** installed (to clone the repository)
 - **Go** installed (version specified in `go.mod`)
-- **MSYS2** (optional, if you want to use Bash/Fish/Zsh shells)
+- **MSYS2** (optional, if you want to use Bash/Fish shells)
 
 ### Installation Guide
 
@@ -115,7 +115,7 @@ Once installed, you can use these commands from anywhere in your terminal:
 ## Repository Structure
 
 - `config/` - All your configuration files:
-  - Shell configurations (Bash, Fish, Zsh, PowerShell)
+  - Shell configurations (Bash, Fish, PowerShell)
   - Application lists for automatic installation
   - Slack work schedule settings
   - Windows Terminal and Starship prompt settings

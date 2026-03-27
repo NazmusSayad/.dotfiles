@@ -112,9 +112,6 @@
     "Bash (MSYS2)": {
       "path": "bash.exe"
     },
-    "Zsh (MSYS2)": {
-      "path": "zsh.exe"
-    },
     "PowerShell (pwsh)": {
       "path": "pwsh.exe"
     }
@@ -379,7 +376,7 @@
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.browser.showInTitleBar": false,
   "chat.agent.maxRequests": 999,
-  "chat.agentsControl.enabled": false,
+  "chat.agentsControl.enabled": "hidden",
   "chat.commandCenter.enabled": false,
   "chat.editing.confirmEditRequestRetry": false,
   "chat.detectParticipant.enabled": false,

@@ -8,10 +8,7 @@
     "Source": "@/config/shell/bash-config.sh",
     "Target": "~/.bashrc"
   },
-  {
-    "Source": "@/config/shell/zsh-config.sh",
-    "Target": "~/.zshrc"
-  },
+  
 
   // Agent Configs
   {
