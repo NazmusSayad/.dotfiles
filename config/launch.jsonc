@@ -41,8 +41,6 @@
   },
   {
     "Path": "run-hidden",
-    "AsUser": true,
-    "Dir": "F:\\__WINBIN__\\netserv\\start",
     "Args": [
       "F:\\__WINBIN__\\netserv\\netserv.exe",
       "ftp",
@@ -54,23 +52,19 @@
       "$NETSERV_SERVER_USERNAME",
       "--password",
       "$NETSERV_SERVER_PASSWORD"
-    ]
+    ],
+    "Dir": "F:\\__WINBIN__\\netserv\\start",
+    "AsUser": true
   },
 
   {
     "Path": "run-hidden",
-    "AsUser": true,
-    "Args": ["opencode", "serve", "--port", "10100"]
+    "Args": ["opencode", "serve", "--port", "10100"],
+    "AsUser": true
   },
   {
     "Path": "run-hidden",
-    "AsUser": true,
-    "Args": [
-      "cloudflared",
-      "tunnel",
-      "--config",
-      "$DOTFILES_DIR/.local/cloudflared.yml",
-      "run"
-    ]
+    "Args": ["cloudflared", "tunnel", "run", "local-tunnel"],
+    "AsUser": true
   }
 ]
