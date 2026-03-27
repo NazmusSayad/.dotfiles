@@ -11,7 +11,8 @@
 
 # AI Tools
 - codex
-- opencode
+# - opencode
+- extras/opencode-desktop
 
 # Visualization Tools
 - extras/onefetch
