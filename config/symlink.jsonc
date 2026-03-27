@@ -8,7 +8,6 @@
     "Source": "@/config/shell/bash-config.sh",
     "Target": "~/.bashrc"
   },
-  
 
   // Agent Configs
   {
