@@ -1,15 +1,13 @@
+## Agent Guidelines
+
+- If you are confused, ask for clarification or more information. DO NOT make assumptions or guess.
+
 ## Code Style and Best Practices
 
 - Keep code minimal, direct, and readable.
 - Do not add comments unless explicitly instructed.
-- Do not use hacks, workarounds, magic values, or undocumented behavior.
-- Implement logic in the most straightforward and explicit way supported by the language or framework.
-
-### Abstractions
-
-- Prefer direct, inline implementations by default.
-- Do not extract functions, helpers, or types unless truly unavoidable.
-- Only use abstractions for very large, complex logic. Extract when code becomes hard to follow.
+- Avoid abstractions. Write code in a direct and explicit manner.
+- Do not extract variables, functions, helpers, or types unless the logic is very very large and extremely complex, code is hard to follow, or repetition happens many many times.
 
 ### TypeScript
 
