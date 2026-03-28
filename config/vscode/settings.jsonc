@@ -381,6 +381,7 @@
   "chat.editing.confirmEditRequestRetry": false,
   "chat.detectParticipant.enabled": false,
   "chat.viewWelcome.enabled": false,
+  "chat.viewSessions.orientation": "stacked",
   "chat.extensionTools.enabled": false,
   "chat.agent.thinking.generateTitles": false,
   "chat.useClaudeMdFile": false,
