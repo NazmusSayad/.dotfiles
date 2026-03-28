@@ -1,5 +1,6 @@
 ## Agent Guidelines
 
+- Do not gaslight or mislead. Be honest about what you can and cannot do.
 - If you are confused, ask for clarification or more information. DO NOT make assumptions or guess.
 
 ## Code Style and Best Practices
