@@ -53,6 +53,7 @@
   { "Id": "github.copilot-chat", "Include": ["code"] },
 
   /* Other Extensions */
+  { "Id": "prisma.prisma" },
   { "Id": "eamodio.gitlens" },
   { "Id": "gruntfuggly.todo-tree" },
   { "Id": "usernamehw.errorlens" },
