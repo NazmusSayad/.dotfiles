@@ -1,5 +1,4 @@
 [
-  // OS Core
   {
     "Path": "ctfmon.exe",
     "AsAdmin": true,
@@ -21,13 +20,11 @@
     "AsAdmin": true
   },
 
-  // Utility Apps
   {
     "Path": "~/scoop/apps/sharex/current/ShareX.exe",
     "AsAdmin": true
   },
 
-  // AHK Scripts
   {
     "Path": "@/.build/ahk/AHK-Macro.exe",
     "AsAdmin": true
@@ -45,7 +42,6 @@
     "AsAdmin": true
   },
 
-  // OpenCode server with Cloudflared, Disabled for now.
   /* {
     "Path": "run-hidden",
     "Args": ["opencode", "serve", "--port", "10100"],
@@ -57,7 +53,6 @@
     "AsUser": true
   }, */
 
-  // Background Services
   {
     "Path": "run-hidden",
     "Args": [
