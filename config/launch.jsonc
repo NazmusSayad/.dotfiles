@@ -45,8 +45,8 @@
     "AsAdmin": true
   },
 
-  // Background Services
-  {
+  // OpenCode server with Cloudflared, Disabled for now.
+  /* {
     "Path": "run-hidden",
     "Args": ["opencode", "serve", "--port", "10100"],
     "AsUser": true
@@ -55,7 +55,9 @@
     "Path": "run-hidden",
     "Args": ["cloudflared", "tunnel", "run", "local-tunnel"],
     "AsUser": true
-  },
+  }, */
+
+  // Background Services
   {
     "Path": "run-hidden",
     "Args": [
