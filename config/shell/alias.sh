@@ -39,5 +39,5 @@ alias ghw="gh repo view --web"
 
 # Windows
 alias ex="explorer"
-alias fix-ports="sudo net stop winnat"
-alias fix-fs-case="sudo fsutil file setCaseSensitiveInfo . enable recursive"
+alias ports-fix="sudo net stop winnat"
+alias case-fix-win="sudo fsutil file setCaseSensitiveInfo . enable recursive"
