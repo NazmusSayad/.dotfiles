@@ -7,13 +7,6 @@
   "username": "Sayad",
 
   "plugin": ["opencode-wakatime"],
-  "command": {
-    "build": {
-      "agent": "build",
-      "description": "Follow the plan and start implementation",
-      "template": "Follow the plan exactly, step by step, without changing or skipping anything.\n\n## Rules\n- No hacks. Use proven, robust approaches only.\n- If code feels fragile or wrong, fix it properly.\n- Maintain existing code style and conventions."
-    }
-  },
 
   "mcp": {
     "chrome-devtools": {
