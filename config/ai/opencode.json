@@ -99,12 +99,14 @@
           "variants": {
             "instant": {
               "reasoning": {
-                "enabled": false
+                "enabled": false,
+                "effort": "none"
               }
             },
             "thinking": {
               "reasoning": {
-                "enabled": true
+                "enabled": true,
+                "effort": "medium"
               }
             }
           }
@@ -119,7 +121,21 @@
             "input": ["text", "image"],
             "output": ["text"]
           },
-          "name": "Xiaomi: MiMo-V2-Omni (free)"
+          "name": "Xiaomi: MiMo-V2-Omni (free)",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         },
         "Xiaomi: MiMo-V2-Pro (free)": {
           "id": "xiaomi/mimo-v2-pro:free",
@@ -131,7 +147,21 @@
             "input": ["text", "image"],
             "output": ["text"]
           },
-          "name": "Xiaomi: MiMo-V2-Pro (free)"
+          "name": "Xiaomi: MiMo-V2-Pro (free)",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         },
         "Z.ai: GLM 5": {
           "id": "z-ai/glm-5",
@@ -147,12 +177,14 @@
           "variants": {
             "instant": {
               "reasoning": {
-                "enabled": false
+                "enabled": false,
+                "effort": "none"
               }
             },
             "thinking": {
               "reasoning": {
-                "enabled": true
+                "enabled": true,
+                "effort": "medium"
               }
             }
           }
@@ -171,12 +203,14 @@
           "variants": {
             "instant": {
               "reasoning": {
-                "enabled": false
+                "enabled": false,
+                "effort": "none"
               }
             },
             "thinking": {
               "reasoning": {
-                "enabled": true
+                "enabled": true,
+                "effort": "medium"
               }
             }
           }
