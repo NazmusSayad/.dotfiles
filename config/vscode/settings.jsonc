@@ -349,6 +349,7 @@
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "editor.inlayHints.fontSize": 14,
   "editor.inlayHints.padding": true,
+  "editor.inlineSuggest.edits.allowCodeShifting": "never",
   "css.lint.duplicateProperties": "warning",
   "scss.lint.duplicateProperties": "warning",
   "security.workspace.trust.enabled": false,
