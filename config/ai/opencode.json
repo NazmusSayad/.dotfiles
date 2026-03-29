@@ -1,29 +1,9 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "autoupdate": false,
-  "autoshare": false,
-  "share": "disabled",
-
-  "username": "Sayad",
-
-  "plugin": ["opencode-wakatime"],
-
-  "mcp": {
-    "chrome-devtools": {
-      "type": "local",
-      "enabled": false,
-      "command": [
-        "chrome-devtools-mcp",
-        "--viewport=1440x900x1",
-        "--headless=true"
-      ]
-    }
-  },
-
   "experimental": {
     "continue_loop_on_deny": true
   },
 
+  "model": "openai/gpt-5.3-codex",
   "enabled_providers": ["openai", "kilo*"],
 
   "provider": {
@@ -217,5 +197,25 @@
         }
       }
     }
-  }
+  },
+
+  "plugin": ["opencode-wakatime"],
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "enabled": false,
+      "command": [
+        "chrome-devtools-mcp",
+        "--viewport=1440x900x1",
+        "--headless=true"
+      ]
+    }
+  },
+
+  "username": "Sayad",
+
+  "share": "disabled",
+  "autoshare": false,
+  "autoupdate": false,
+  "$schema": "https://opencode.ai/config.json"
 }
