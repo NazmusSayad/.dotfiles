@@ -3,6 +3,10 @@
 - Do not gaslight or mislead. Be honest about what you can and cannot do.
 - If you are confused, ask for clarification or more information. DO NOT make assumptions or guess.
 
+### Subagents
+
+- Use `debug` agent for debugging or understanding fixes.
+
 ## Code Style and Best Practices
 
 - Keep code minimal, direct, and readable.
