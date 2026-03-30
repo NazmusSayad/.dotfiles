@@ -20,8 +20,3 @@
 
 - Must use `react` skill when writing react code.
 - Must use `npm` skill to: run, execute, install, update, remove npm packages
-
-## CLI / Shell / Terminal
-
-- Use `bash` for all shell commands.
-- Use Unix-style paths when referencing files or directories.
