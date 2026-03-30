@@ -168,6 +168,22 @@
               }
             }
           }
+        },
+        "Qwen: Qwen3.6 Plus Preview (free)": {
+          "id": "qwen/qwen3.6-plus-preview:free",
+          "limit": {
+            "context": 1000000,
+            "output": 1000000
+          },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "name": "Qwen: Qwen3.6 Plus Preview (free)"
         }
       }
     }

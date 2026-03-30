@@ -13,7 +13,9 @@
       "xiaomi/mimo-v2-omni:free",
 
       "z-ai/glm-5",
-      "z-ai/glm-5-turbo"
+      "z-ai/glm-5-turbo",
+
+      "qwen/qwen3.6-plus-preview:free"
     ]
   }
 
