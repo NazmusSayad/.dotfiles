@@ -30,7 +30,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	ghUser := helpers.GetGitHubUser()
 	remote := helpers.GetCurrentGitRemoteOrExit()
 	remoteUrl := helpers.GetGitRemoteUrlOrExit(remote)
 
@@ -41,12 +40,7 @@ func main() {
 		branchCompare = targetBranch
 	}
 
-	assignees := ""
-	if ghUser != "" {
-		assignees = "&assignees=" + ghUser
-	}
-
-	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1", assignees}, "")
+	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1"}, "")
 	fmt.Println(aurora.Faint("  " + url))
 
 	helpers.ExecNativeCommand(

@@ -16,7 +16,6 @@ import (
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
-	"gopkg.in/yaml.v3"
 )
 
 type Asset struct {
@@ -175,42 +174,4 @@ func WriteGithubReleaseZipFile(outDir, ghURL, archivePattern, exeName string) er
 
 type GhHostConfig struct {
 	User string `yaml:"user"`
-}
-
-func GetGitHubUser() string {
-	appData := os.Getenv("APPDATA")
-	if appData == "" {
-		return ""
-	}
-
-	hostsPath := filepath.Join(appData, "GitHub CLI", "hosts.yml")
-	if !utils.IsFileExists(hostsPath) {
-		return ""
-	}
-
-	data, err := os.ReadFile(hostsPath)
-	if err != nil {
-		return ""
-	}
-
-	var hosts map[string]GhHostConfig
-	if err := yaml.Unmarshal(data, &hosts); err != nil {
-		return ""
-	}
-
-	if config, ok := hosts["github.com"]; ok {
-		return config.User
-	}
-
-	return ""
-}
-
-func GetGitHubUserOrExit() string {
-	user := GetGitHubUser()
-	if user == "" {
-		fmt.Println(aurora.Red("No GitHub user found"))
-		os.Exit(1)
-	}
-
-	return user
 }
