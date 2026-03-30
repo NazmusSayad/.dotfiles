@@ -15,44 +15,6 @@
       "api": "https://api.kilo.ai/api/gateway",
       "name": "Kilo+",
       "models": {
-        "Google: Gemini 3.1 Pro Preview Custom Tools": {
-          "id": "google/gemini-3.1-pro-preview-customtools",
-          "limit": {
-            "context": 1048576,
-            "output": 1048576
-          },
-          "modalities": {
-            "input": ["text", "audio", "image", "video"],
-            "output": ["text"]
-          },
-          "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
-          "variants": {
-            "high": {
-              "reasoning": {
-                "effort": "high",
-                "enabled": true
-              }
-            },
-            "low": {
-              "reasoning": {
-                "effort": "low",
-                "enabled": true
-              }
-            },
-            "medium": {
-              "reasoning": {
-                "effort": "medium",
-                "enabled": true
-              }
-            },
-            "xhigh": {
-              "reasoning": {
-                "effort": "xhigh",
-                "enabled": true
-              }
-            }
-          }
-        },
         "MiniMax: MiniMax M2.5 (free)": {
           "id": "minimax/minimax-m2.5:free",
           "limit": {

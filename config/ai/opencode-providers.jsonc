@@ -4,9 +4,6 @@
     "apiURL": "https://api.kilo.ai/api/gateway",
     "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "models": [
-      "z-ai/glm-5",
-      "z-ai/glm-5-turbo",
-
       "moonshotai/kimi-k2.5",
 
       "minimax/minimax-m2.7",
@@ -15,7 +12,8 @@
       "xiaomi/mimo-v2-pro:free",
       "xiaomi/mimo-v2-omni:free",
 
-      "google/gemini-3.1-pro-preview-customtools"
+      "z-ai/glm-5",
+      "z-ai/glm-5-turbo"
     ]
   }
 
