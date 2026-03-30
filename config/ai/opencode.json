@@ -65,6 +65,18 @@
           },
           "name": "MiniMax: MiniMax M2.5 (free)"
         },
+        "MiniMax: MiniMax M2.7": {
+          "id": "minimax/minimax-m2.7",
+          "limit": {
+            "context": 204800,
+            "output": 204800
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "MiniMax: MiniMax M2.7"
+        },
         "MoonshotAI: Kimi K2.5": {
           "id": "moonshotai/kimi-k2.5",
           "limit": {
@@ -79,14 +91,14 @@
           "variants": {
             "instant": {
               "reasoning": {
-                "enabled": false,
-                "effort": "none"
+                "effort": "none",
+                "enabled": false
               }
             },
             "thinking": {
               "reasoning": {
-                "enabled": true,
-                "effort": "medium"
+                "effort": "medium",
+                "enabled": true
               }
             }
           }
@@ -157,14 +169,14 @@
           "variants": {
             "instant": {
               "reasoning": {
-                "enabled": false,
-                "effort": "none"
+                "effort": "none",
+                "enabled": false
               }
             },
             "thinking": {
               "reasoning": {
-                "enabled": true,
-                "effort": "medium"
+                "effort": "medium",
+                "enabled": true
               }
             }
           }
@@ -183,14 +195,14 @@
           "variants": {
             "instant": {
               "reasoning": {
-                "enabled": false,
-                "effort": "none"
+                "effort": "none",
+                "enabled": false
               }
             },
             "thinking": {
               "reasoning": {
-                "enabled": true,
-                "effort": "medium"
+                "effort": "medium",
+                "enabled": true
               }
             }
           }
