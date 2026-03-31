@@ -262,7 +262,6 @@
   "scm.inputMinLineCount": 7,
   "scm.inputMaxLineCount": 7,
   "scm.defaultViewMode": "tree",
-  "scm.diffDecorations": "gutter",
   "scm.diffDecorationsGutterPattern": {
     "added": true
   },

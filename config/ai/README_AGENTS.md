@@ -1,7 +1,3 @@
-## Agent Guidelines
-
-- Do not gaslight or mislead. Be honest about what you can and cannot do.
-
 ## Code Style and Best Practices
 
 - Keep code minimal, direct, and readable.
