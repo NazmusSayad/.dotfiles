@@ -42,17 +42,6 @@
     "AsAdmin": true
   },
 
-  /* {
-    "Path": "run-hidden",
-    "Args": ["opencode", "serve", "--port", "10100"],
-    "AsUser": true
-  },
-  {
-    "Path": "run-hidden",
-    "Args": ["cloudflared", "tunnel", "run", "local-tunnel"],
-    "AsUser": true
-  }, */
-
   {
     "Path": "run-hidden",
     "Args": [
