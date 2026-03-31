@@ -70,12 +70,14 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Clean Code Snippets",
 	},
 
-	"opencode-server": {
-		StartMenu: "OpenCode Server",
-	},
-
 	"opencode-models": {
 		StartMenu: "OpenCode Models Sync",
+		Exe:       "ocm",
+	},
+
+	"opencode-server": {
+		StartMenu: "OpenCode Server",
+		Exe:       "ocs",
 	},
 
 	"packages-sync": {
