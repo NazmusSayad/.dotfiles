@@ -8,6 +8,13 @@
     "Source": "@/config/shell/bash-config.sh",
     "Target": "~/.bashrc"
   },
+  {
+    "Source": "@/config/shell/powershell.ps1",
+    "Targets": [
+      "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
+      "~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
+    ]
+  },
 
   // Agent Configs
   {
