@@ -5,6 +5,7 @@ alias .....="cd ../../../.."
 
 # AI
 alias oc="opencode"
+alias ocs="opencode-server"
 alias ocd="~/scoop/apps/opencode-desktop/current/OpenCode"
 
 # npm
