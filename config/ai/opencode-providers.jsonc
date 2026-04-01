@@ -14,24 +14,9 @@
 
       "z-ai/glm-5",
       "z-ai/glm-5-turbo",
+      "z-ai/glm-5v-turbo",
 
       "qwen/qwen3.6-plus-preview:free"
     ]
   }
-
-  // "openrouter": {
-  //   "name": "Openrouter+",
-  //   "apiURL": "https://openrouter.ai/api/v1",
-  //   "modelsURL": "https://api.kilo.ai/api/gateway/models",
-  //   "hasTurboMode": true,
-  //   "models": [
-  //     "z-ai/glm-5",
-  //     "z-ai/glm-5-turbo",
-
-  //     "moonshotai/kimi-k2.5",
-
-  //     "minimax/minimax-m2.5",
-  //     "minimax/minimax-m2.7"
-  //   ]
-  // }
 }
