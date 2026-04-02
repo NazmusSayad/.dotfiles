@@ -19,7 +19,7 @@ for line in (mise env --dotenv)
     set -gx $key $val
 end
 
-if status is-interactive; and test "$OPENCODE_TERMINAL" != "1"
+if status is-interactive
     starship init fish | source
     zoxide init fish | source
 end
