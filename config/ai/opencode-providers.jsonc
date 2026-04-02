@@ -4,13 +4,15 @@
     "apiURL": "https://api.kilo.ai/api/gateway",
     "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "models": [
+      "kilo-auto/free",
+
       "moonshotai/kimi-k2.5",
 
+      "minimax/minimax-m2.5",
       "minimax/minimax-m2.7",
-      "minimax/minimax-m2.5:free",
 
-      "xiaomi/mimo-v2-pro:free",
-      "xiaomi/mimo-v2-omni:free",
+      "xiaomi/mimo-v2-pro",
+      "xiaomi/mimo-v2-omni",
 
       "z-ai/glm-5",
       "z-ai/glm-5-turbo",

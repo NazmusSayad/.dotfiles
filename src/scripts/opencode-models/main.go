@@ -236,10 +236,13 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 	}
 
 	models := map[string]opencodeOutputModel{}
+	matchedModelIDs := map[string]bool{}
 	for _, model := range payload.Data {
 		if !slices.Contains(providerConfig.Models, model.ID) {
 			continue
 		}
+
+		matchedModelIDs[model.ID] = true
 
 		entry := opencodeOutputModel{ID: model.ID, Name: model.Name}
 		if providerConfig.HasTurboMode && strings.LastIndex(model.ID, ":") <= strings.LastIndex(model.ID, "/") {
@@ -270,6 +273,14 @@ func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutp
 		}
 
 		models[model.Name] = entry
+	}
+
+	for _, modelID := range providerConfig.Models {
+		if matchedModelIDs[modelID] {
+			continue
+		}
+
+		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q\n", aurora.Red("error:").String(), modelID, providerConfig.Name)
 	}
 
 	return models, nil
