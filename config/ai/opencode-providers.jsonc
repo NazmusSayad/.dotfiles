@@ -16,7 +16,7 @@
       "z-ai/glm-5-turbo",
       "z-ai/glm-5v-turbo",
 
-      "qwen/qwen3.6-plus-preview:free"
+      "qwen/qwen3.6-plus:free"
     ]
   }
 }
