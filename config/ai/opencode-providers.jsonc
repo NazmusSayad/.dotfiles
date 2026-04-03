@@ -8,17 +8,16 @@
 
       "moonshotai/kimi-k2.5",
 
+      "qwen/qwen3.6-plus:free",
+
       "minimax/minimax-m2.5",
       "minimax/minimax-m2.7",
 
       "xiaomi/mimo-v2-pro",
       "xiaomi/mimo-v2-omni",
 
-      "z-ai/glm-5",
       "z-ai/glm-5-turbo",
-      "z-ai/glm-5v-turbo",
-
-      "qwen/qwen3.6-plus:free"
+      "z-ai/glm-5v-turbo"
     ]
   }
 }

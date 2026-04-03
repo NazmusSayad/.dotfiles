@@ -12,276 +12,202 @@
     },
 
     "kilo*": {
-      "api": "https://api.kilo.ai/api/gateway",
       "name": "Kilo+",
+      "api": "https://api.kilo.ai/api/gateway",
       "models": {
-  "MiniMax: MiniMax M2.7": {
-    "id": "minimax/minimax-m2.7",
-    "limit": {
-      "context": 204800,
-      "output": 204800
-    },
-    "modalities": {
-      "input": [
-        "text"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "MiniMax: MiniMax M2.7"
-  },
-  "MoonshotAI: Kimi K2.5": {
-    "id": "moonshotai/kimi-k2.5",
-    "limit": {
-      "context": 262144,
-      "output": 262144
-    },
-    "modalities": {
-      "input": [
-        "text",
-        "image"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "MoonshotAI: Kimi K2.5",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
-        }
-      }
-    }
-  },
-  "Qwen: Qwen3.6 Plus (free)": {
-    "id": "qwen/qwen3.6-plus:free",
-    "limit": {
-      "context": 1000000,
-      "output": 1000000
-    },
-    "modalities": {
-      "input": [
-        "text",
-        "image",
-        "video"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Qwen: Qwen3.6 Plus (free)",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
-        }
-      }
-    }
-  },
-  "Z.ai: GLM 5": {
-    "id": "z-ai/glm-5",
-    "limit": {
-      "context": 80000,
-      "output": 80000
-    },
-    "modalities": {
-      "input": [
-        "text"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Z.ai: GLM 5",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
-        }
-      }
-    }
-  },
-  "Z.ai: GLM 5 Turbo": {
-    "id": "z-ai/glm-5-turbo",
-    "limit": {
-      "context": 202752,
-      "output": 202752
-    },
-    "modalities": {
-      "input": [
-        "text"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Z.ai: GLM 5 Turbo",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
-        }
-      }
-    }
-  },
-  "Z.ai: GLM 5V Turbo": {
-    "id": "z-ai/glm-5v-turbo",
-    "limit": {
-      "context": 202752,
-      "output": 202752
-    },
-    "modalities": {
-      "input": [
-        "image",
-        "text",
-        "video"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Z.ai: GLM 5V Turbo",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
-        }
-      }
-    }
-  },
-  "Kilo Auto Free": {
-    "id": "kilo-auto/free",
-    "limit": {
-      "context": 204800,
-      "output": 204800
-    },
-    "modalities": {
-      "input": [
-        "text"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Kilo Auto Free"
-  },
-  "Xiaomi: MiMo-V2-Omni": {
-    "id": "xiaomi/mimo-v2-omni",
-    "limit": {
-      "context": 262144,
-      "output": 262144
-    },
-    "modalities": {
-      "input": [
-        "text",
-        "audio",
-        "image",
-        "video"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Xiaomi: MiMo-V2-Omni",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
+        "Kilo Auto Free": {
+          "id": "kilo-auto/free",
+          "limit": {
+            "context": 204800,
+            "output": 204800
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Kilo Auto Free"
+        },
+        "MiniMax: MiniMax M2.5": {
+          "id": "minimax/minimax-m2.5",
+          "limit": {
+            "context": 196608,
+            "output": 196608
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "MiniMax: MiniMax M2.5"
+        },
+        "MiniMax: MiniMax M2.7": {
+          "id": "minimax/minimax-m2.7",
+          "limit": {
+            "context": 204800,
+            "output": 204800
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "MiniMax: MiniMax M2.7"
+        },
+        "MoonshotAI: Kimi K2.5": {
+          "id": "moonshotai/kimi-k2.5",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "MoonshotAI: Kimi K2.5",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
+        },
+        "Qwen: Qwen3.6 Plus (free)": {
+          "id": "qwen/qwen3.6-plus:free",
+          "limit": {
+            "context": 1000000,
+            "output": 1000000
+          },
+          "modalities": {
+            "input": ["text", "image", "video"],
+            "output": ["text"]
+          },
+          "name": "Qwen: Qwen3.6 Plus (free)",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
+        },
+        "Xiaomi: MiMo-V2-Omni": {
+          "id": "xiaomi/mimo-v2-omni",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "modalities": {
+            "input": ["text", "audio", "image", "video"],
+            "output": ["text"]
+          },
+          "name": "Xiaomi: MiMo-V2-Omni",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
+        },
+        "Xiaomi: MiMo-V2-Pro": {
+          "id": "xiaomi/mimo-v2-pro",
+          "limit": {
+            "context": 1048576,
+            "output": 1048576
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Xiaomi: MiMo-V2-Pro",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
+        },
+        "Z.ai: GLM 5 Turbo": {
+          "id": "z-ai/glm-5-turbo",
+          "limit": {
+            "context": 202752,
+            "output": 202752
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Z.ai: GLM 5 Turbo",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
+        },
+        "Z.ai: GLM 5V Turbo": {
+          "id": "z-ai/glm-5v-turbo",
+          "limit": {
+            "context": 202752,
+            "output": 202752
+          },
+          "modalities": {
+            "input": ["image", "text", "video"],
+            "output": ["text"]
+          },
+          "name": "Z.ai: GLM 5V Turbo",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         }
       }
-    }
-  },
-  "Xiaomi: MiMo-V2-Pro": {
-    "id": "xiaomi/mimo-v2-pro",
-    "limit": {
-      "context": 1048576,
-      "output": 1048576
-    },
-    "modalities": {
-      "input": [
-        "text"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "Xiaomi: MiMo-V2-Pro",
-    "variants": {
-      "instant": {
-        "reasoning": {
-          "effort": "none",
-          "enabled": false
-        }
-      },
-      "thinking": {
-        "reasoning": {
-          "effort": "medium",
-          "enabled": true
-        }
-      }
-    }
-  },
-  "MiniMax: MiniMax M2.5": {
-    "id": "minimax/minimax-m2.5",
-    "limit": {
-      "context": 196608,
-      "output": 196608
-    },
-    "modalities": {
-      "input": [
-        "text"
-      ],
-      "output": [
-        "text"
-      ]
-    },
-    "name": "MiniMax: MiniMax M2.5"
-  }
-}
     }
   },
 
