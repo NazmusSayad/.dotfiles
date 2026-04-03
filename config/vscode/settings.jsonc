@@ -386,6 +386,7 @@
   "chat.useClaudeMdFile": false,
   "chat.checkpoints.showFileChanges": true,
   "chat.editing.confirmEditRequestRemoval": false,
+  "chat.tips.enabled": false,
   "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.enable": {
     "*": true,
