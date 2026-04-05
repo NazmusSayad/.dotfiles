@@ -54,5 +54,9 @@ java = "latest"
 "npm:chrome-devtools-mcp" = "latest"
 
 
+# Cloud Tools
+gcloud = "latest"
+firebase = "latest"
+
 [settings]
 experimental = true
