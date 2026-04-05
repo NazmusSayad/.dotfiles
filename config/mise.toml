@@ -30,7 +30,8 @@ rust = "stable"
 rust-analyzer = "latest"
 
 
-# Java
+# Mobile Apps
+dart = "latest"
 java = "latest"
 # kotlin = "latest"
 

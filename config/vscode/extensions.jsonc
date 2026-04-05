@@ -14,8 +14,8 @@
   { "Id": "golang.go" },
 
   /* Dart */
-  // { "Id": "dart-code.dart-code" },
-  // { "Id": "dart-code.flutter" },
+  { "Id": "dart-code.dart-code" },
+  { "Id": "dart-code.flutter" },
 
   /* Python */
   { "Id": "ms-python.python" },
