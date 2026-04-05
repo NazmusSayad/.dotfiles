@@ -30,11 +30,14 @@ rust = "stable"
 rust-analyzer = "latest"
 
 
+# Java
+java = "latest"
+# kotlin = "latest"
+
+
 # php = "latest"
 # zig = "latest"
-# java = "latest"
 # ruby = "latest"
-# kotlin = "latest"
 # "conda:lua" = "latest"
 # "conda:luajit" = "latest"
 
