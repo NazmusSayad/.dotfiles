@@ -1,3 +1,4 @@
+Remove-Item Alias:r -Force -ErrorAction Ignore
 Remove-Item Alias:ni -Force -ErrorAction Ignore
 
 if ($PSVersionTable.PSEdition -eq 'Core') {
