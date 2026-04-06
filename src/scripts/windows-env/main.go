@@ -14,8 +14,19 @@ import (
 )
 
 func main() {
+	initOS()
 	initMiseEnv()
 	initAndroidSdkEnv()
+}
+
+func initOS() {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	setEnv("HOME", homeDir)
 }
 
 func initMiseEnv() {

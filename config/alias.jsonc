@@ -7,7 +7,7 @@
   // OpenCode
   "oc": "opencode",
   "ocs": "opencode-server",
-  "ocd": "$USERPROFILE/scoop/apps/opencode-desktop/current/OpenCode",
+  "ocd": "$HOME/scoop/apps/opencode-desktop/current/OpenCode",
 
   // Node/NPM
   "r": "nr",
