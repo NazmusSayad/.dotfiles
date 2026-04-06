@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"strings"
 
 	"dotfiles/src/helpers"
@@ -23,12 +24,12 @@ func main() {
 	switch shell {
 	case "sh":
 		for name, cmd := range aliases {
-			output.WriteString("alias " + name + "=\"" + resolveUnixCMD(cmd) + "\"\n")
+			output.WriteString("alias " + name + "=\"" + cygpath(cmd, "-u") + "\"\n")
 		}
 
 	case "pwsh":
 		for name, cmd := range aliases {
-			output.WriteString("function " + name + " { " + resolveWindowsCMD(cmd) + " @args }\n")
+			output.WriteString("function " + name + " { " + cygpath(cmd, "-w") + " @args }\n")
 		}
 
 	default:
@@ -39,10 +40,17 @@ func main() {
 	fmt.Print(output.String())
 }
 
-func resolveUnixCMD(cmd string) string {
-	return os.ExpandEnv(cmd)
-}
+func cygpath(input string, mode string) string {
+	expanded := os.ExpandEnv(input)
+	if expanded == input {
+		return input
+	}
 
-func resolveWindowsCMD(cmd string) string {
-	return os.ExpandEnv(cmd)
+	cmd := exec.Command("cygpath", mode, expanded)
+	out, err := cmd.Output()
+	if err != nil {
+		return expanded
+	}
+
+	return strings.TrimSpace(string(out))
 }
