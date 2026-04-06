@@ -40,7 +40,3 @@ modified = "*"
 renamed = "~"
 behind = "↓"
 ahead = "↑"
-
-
-[character]
-format = "$symbol "
