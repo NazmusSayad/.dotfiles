@@ -48,7 +48,7 @@
     ],
     "focusFollowMouse": true,
     "initialCols": 102,
-    "initialRows": 36,
+    "initialRows": 38,
     "keybindings": 
     [
         {
@@ -57,11 +57,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+numpad_minus"
+            "keys": "alt+right"
         },
         {
             "id": "User.find",
@@ -69,19 +65,23 @@
         },
         {
             "id": null,
-            "keys": "alt+right"
+            "keys": "ctrl+numpad_minus"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": "User.copy.224984B4",
+            "keys": "ctrl+c"
         },
         {
             "id": null,
             "keys": "ctrl+shift+d"
         },
         {
-            "id": "User.copy.224984B4",
-            "keys": "ctrl+c"
+            "id": null,
+            "keys": "ctrl+shift+k"
         },
         {
             "id": "User.duplicateTab",
