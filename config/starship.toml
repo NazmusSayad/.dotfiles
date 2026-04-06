@@ -1,6 +1,21 @@
-format = "$hostname$sudo$username$directory$git_branch$git_state$git_status$line_break$shlvl$shell"
+format = "$shell$shlvl$sudo$hostname$username$directory$git_branch$git_state$git_status$line_break$character"
 follow_symlinks = false
 add_newline = false
+
+
+[shell]
+disabled = false
+format = "[$indicator ](dimmed) "
+bash_indicator = ''
+fish_indicator = ''
+zsh_indicator = ''
+cmd_indicator = ''
+pwsh_indicator = ''
+
+[shlvl]
+disabled = false
+format = '[\[$shlvl\]](dimmed red) '
+threshold = 2
 
 
 [sudo]
@@ -17,7 +32,6 @@ style = "blue"
 format = "[$symbol ](dimmed)[$branch](yellow)"
 symbol = ""
 
-
 [git_status]
 format = '[$all_status$ahead_behind](red)'
 stashed = '[|](dimmed red)'
@@ -27,12 +41,6 @@ renamed = "~"
 behind = "↓"
 ahead = "↑"
 
-[shlvl]
-disabled = false
-format = '[\[$shlvl\]](dimmed red) '
-threshold = 2
 
-
-[shell]
-disabled = false
-format = "[❱](dimmed) "
+[character]
+format = "$symbol "
