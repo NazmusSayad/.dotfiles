@@ -1,0 +1,47 @@
+{
+  "..": "cd ..",
+  "...": "cd ../..",
+  "....": "cd ../../..",
+  ".....": "cd ../../../..",
+
+  // OpenCode
+  "oc": "opencode",
+  "ocs": "opencode-server",
+  "ocd": "~/scoop/apps/opencode-desktop/current/OpenCode",
+
+  // Node/NPM
+  "r": "nr",
+  "nid": "ni -D",
+
+  // Toolchain
+  "j": "just",
+  "m": "make",
+
+  // Flutter
+  "fl": "fvm flutter",
+
+  // PHP
+  "pa": "php artisan",
+  "pas": "php artisan serve",
+
+  // Docker
+  "dc": "docker compose",
+  "dcu": "docker compose up -d",
+  "dcd": "docker compose down",
+  "dcr": "docker compose restart",
+
+  // Git
+  "gc": "git checkout",
+  "gcn": "git checkout -b",
+  "gds": "git diff --stat",
+
+  // GitHub
+  "ghv": "gh repo view",
+  "ghw": "gh repo view --web",
+
+  // Windows
+  "ex": "explorer",
+  "next-clean": "rm -rf .next",
+  "ports-fix": "sudo net stop winnat",
+  "case-fix-win": "sudo fsutil file setCaseSensitiveInfo . enable recursive"
+}

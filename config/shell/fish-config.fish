@@ -10,9 +10,9 @@ function fish_greeting
     # fastfetch
 end
 
-source $DOTFILES_DIR/config/shell/alias.sh
-
+shell-alias sh | source
 direnv hook fish | source
+
 for line in (mise env --dotenv)
     set -l key (string split -m1 "=" $line)[1]
     set -l val (string split -m1 "=" $line)[2]
