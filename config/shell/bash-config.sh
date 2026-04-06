@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-source $DOTFILES_DIR/config/shell/alias.sh
-
+eval "$(shell-alias sh)"
 eval "$(direnv hook bash)"
 eval "$(mise env --dotenv)"
 
