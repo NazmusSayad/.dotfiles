@@ -1,15 +1,7 @@
 {
-  "fireworks": {
-    "name": "Fireworks+",
-    "apiURL": "https://api.fireworks.ai/inference/v1",
-    "modelsURL": "https://api.fireworks.ai/inference/v1/models",
-    "models": []
-  },
-
   "kilo": {
     "name": "Kilo+",
     "apiURL": "https://api.kilo.ai/api/gateway",
-    "modelsURL": "https://api.kilo.ai/api/gateway/models",
     "models": [
       "kilo-auto/free",
 
@@ -26,5 +18,11 @@
       "z-ai/glm-5-turbo",
       "z-ai/glm-5v-turbo"
     ]
+  },
+
+  "fireworks": {
+    "name": "Fireworks+",
+    "apiURL": "https://api.fireworks.ai/inference/v1",
+    "models": ["accounts/fireworks/models/kimi-k2p5"]
   }
 }

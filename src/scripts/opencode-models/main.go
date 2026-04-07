@@ -229,9 +229,14 @@ func main() {
 }
 
 func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map[string]opencodeOutputModel, error) {
-	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerConfig.ModelsURL).String())
+	modelsURL := providerConfig.ModelsURL
+	if modelsURL == "" {
+		modelsURL = strings.TrimRight(providerConfig.BaseURL, "/") + "/models"
+	}
 
-	req, err := http.NewRequest("GET", providerConfig.ModelsURL, nil)
+	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(modelsURL).String())
+
+	req, err := http.NewRequest("GET", modelsURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request for %s models: %w", providerConfig.Name, err)
 	}
@@ -268,7 +273,12 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 
 		matchedModelIDs[model.ID] = true
 
-		entry := opencodeOutputModel{ID: model.ID, Name: model.Name}
+		modelName := model.Name
+		if modelName == "" {
+			modelName = model.ID
+		}
+
+		entry := opencodeOutputModel{ID: model.ID, Name: modelName}
 		if providerConfig.HasTurboMode && strings.LastIndex(model.ID, ":") <= strings.LastIndex(model.ID, "/") {
 			entry.ID += ":nitro"
 			entry.Name += " ⚡"
@@ -296,7 +306,7 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 			entry.Variants = model.Opencode.Variants
 		}
 
-		models[model.Name] = entry
+		models[modelName] = entry
 	}
 
 	for _, modelID := range providerConfig.Models {
