@@ -211,6 +211,36 @@
               }
             }
           }
+        },
+        "Z.ai: GLM 5.1 (new)": {
+          "id": "z-ai/glm-5.1",
+          "limit": {
+            "context": 202752,
+            "output": 202752
+          },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "name": "Z.ai: GLM 5.1 (new)",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         }
       },
       "name": "Kilo+"
