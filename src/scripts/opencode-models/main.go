@@ -314,7 +314,10 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 			continue
 		}
 
-		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q\n", aurora.Red("error:").String(), modelID, providerConfig.Name)
+		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerConfig.Name)
+
+		entry := opencodeOutputModel{ID: modelID, Name: modelID}
+		models[modelID] = entry
 	}
 
 	return models, nil
