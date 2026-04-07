@@ -234,6 +234,14 @@
             "output": 202752
           },
           "name": "accounts/fireworks/models/glm-5"
+        },
+        "accounts/fireworks/models/minimax-m2p5": {
+          "id": "accounts/fireworks/models/minimax-m2p5",
+          "name": "accounts/fireworks/models/minimax-m2p5"
+        },
+        "accounts/fireworks/models/qwen3p6-plus": {
+          "id": "accounts/fireworks/models/qwen3p6-plus",
+          "name": "accounts/fireworks/models/qwen3p6-plus"
         }
       },
       "name": "Fireworks+"
