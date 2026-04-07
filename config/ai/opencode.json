@@ -3,10 +3,16 @@
     "continue_loop_on_deny": true
   },
 
-  "model": "openai/gpt-5.3-codex",
-  "enabled_providers": ["openai", "kilo*"],
+  // "model": "openai/gpt-5.3-codex",
+  "model": "github-copilot/gpt-5.3-codex",
+
+  "enabled_providers": ["github-copilot", "openai", "kilo*"],
 
   "provider": {
+    "github-copilot": {
+      "whitelist": ["gpt-5.3-codex"]
+    },
+
     "openai": {
       "whitelist": ["gpt-5.3-codex", "gpt-5.4"]
     },
