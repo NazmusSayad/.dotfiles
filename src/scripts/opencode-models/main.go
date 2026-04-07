@@ -15,6 +15,13 @@ import (
 	"github.com/tidwall/jsonc"
 )
 
+type authProvider struct {
+	Type string `json:"type"`
+	Key  string `json:"key"`
+}
+
+type authConfig map[string]authProvider
+
 type opencodeProviderConfig struct {
 	Name         string   `json:"name"`
 	BaseURL      string   `json:"apiURL"`
@@ -71,13 +78,16 @@ type opencodeOutputProvider struct {
 }
 
 var (
-	managedProviderSuffix = "*"
+	managedProviderSuffix = "+"
 	allowedModalities     = []string{"text", "audio", "image", "video", "pdf"}
 )
 
 func main() {
 	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.jsonc")
 	providerConfigs := helpers.ReadConfig[map[string]opencodeProviderConfig](providerConfigPath)
+
+	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
+	authConfig := helpers.ReadConfig[authConfig](authConfigPath)
 
 	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
 	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
@@ -130,10 +140,16 @@ func main() {
 
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerConfig.Name).String())
 
-		models, err := fetchModels(providerConfig)
+		var providerAuth *authProvider
+		if auth, ok := authConfig[providerID]; ok {
+			providerAuth = &auth
+		}
+
+		models, err := fetchModels(providerConfig, providerAuth)
 		if err != nil {
 			fmt.Println(err)
-			os.Exit(1)
+			fmt.Println()
+			continue
 		}
 
 		desiredModels, err := json.Marshal(models)
@@ -212,10 +228,18 @@ func main() {
 	fmt.Println(aurora.Green("Updated OpenCode configuration successfully.").String())
 }
 
-func fetchModels(providerConfig opencodeProviderConfig) (map[string]opencodeOutputModel, error) {
+func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map[string]opencodeOutputModel, error) {
 	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerConfig.ModelsURL).String())
 
-	resp, err := http.Get(providerConfig.ModelsURL)
+	req, err := http.NewRequest("GET", providerConfig.ModelsURL, nil)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create request for %s models: %w", providerConfig.Name, err)
+	}
+	if auth != nil && auth.Type == "api" && auth.Key != "" {
+		req.Header.Set("Authorization", "Bearer "+auth.Key)
+	}
+
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch %s models: %w", providerConfig.Name, err)
 	}
