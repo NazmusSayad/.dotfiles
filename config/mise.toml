@@ -52,7 +52,10 @@ java = "latest"
 "npm:code-info" = "latest"
 "npm:git-stats" = "latest"
 "npm:npm-name-cli" = "latest"
+
+# MCP
 "npm:chrome-devtools-mcp" = "latest"
+"npm:@hugeicons/mcp-server" = "latest"
 
 
 # Cloud Tools

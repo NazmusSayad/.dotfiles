@@ -258,6 +258,12 @@
         "--viewport=1440x900x1",
         "--headless=true"
       ]
+    },
+
+    "hugeicons": {
+      "type": "local",
+      "enabled": false,
+      "command": ["hugeicons-mcp"]
     }
   },
 
