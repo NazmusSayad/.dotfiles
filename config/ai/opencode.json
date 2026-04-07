@@ -3,10 +3,9 @@
     "continue_loop_on_deny": true
   },
 
-  "model": "github-copilot/gpt-5.3-codex",
-  // "model": "openai/gpt-5.3-codex",
+  "model": "openai/gpt-5.3-codex",
 
-  "enabled_providers": ["openai", "github-copilot", "fireworks+", "kilo+"],
+  "enabled_providers": ["openai", "fireworks+", "kilo+"],
 
   "provider": {
     "openai": {
@@ -219,12 +218,8 @@
             "output": 202752
           },
           "modalities": {
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
+            "input": ["text"],
+            "output": ["text"]
           },
           "name": "Z.ai: GLM 5.1 (new)",
           "variants": {
