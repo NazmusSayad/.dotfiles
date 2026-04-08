@@ -18,6 +18,7 @@
 
     "kilo+": {
       "api": "https://api.kilo.ai/api/gateway",
+      "name": "Kilo+",
       "models": {
         "Kilo Auto Free": {
           "id": "kilo-auto/free",
@@ -81,8 +82,8 @@
             }
           }
         },
-        "Qwen: Qwen3.6 Plus (free)": {
-          "id": "qwen/qwen3.6-plus:free",
+        "Qwen: Qwen3.6 Plus": {
+          "id": "qwen/qwen3.6-plus",
           "limit": {
             "context": 1000000,
             "output": 1000000
@@ -91,21 +92,7 @@
             "input": ["text", "image", "video"],
             "output": ["text"]
           },
-          "name": "Qwen: Qwen3.6 Plus (free)",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "effort": "none",
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "effort": "medium",
-                "enabled": true
-              }
-            }
-          }
+          "name": "Qwen: Qwen3.6 Plus"
         },
         "Xiaomi: MiMo-V2-Omni": {
           "id": "xiaomi/mimo-v2-omni",
@@ -185,32 +172,6 @@
             }
           }
         },
-        "Z.ai: GLM 5V Turbo": {
-          "id": "z-ai/glm-5v-turbo",
-          "limit": {
-            "context": 202752,
-            "output": 202752
-          },
-          "modalities": {
-            "input": ["image", "text", "video"],
-            "output": ["text"]
-          },
-          "name": "Z.ai: GLM 5V Turbo",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "effort": "none",
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "effort": "medium",
-                "enabled": true
-              }
-            }
-          }
-        },
         "Z.ai: GLM 5.1 (new)": {
           "id": "z-ai/glm-5.1",
           "limit": {
@@ -236,40 +197,97 @@
               }
             }
           }
+        },
+        "Z.ai: GLM 5V Turbo": {
+          "id": "z-ai/glm-5v-turbo",
+          "limit": {
+            "context": 202752,
+            "output": 202752
+          },
+          "modalities": {
+            "input": ["image", "text", "video"],
+            "output": ["text"]
+          },
+          "name": "Z.ai: GLM 5V Turbo",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         }
-      },
-      "name": "Kilo+"
+      }
     },
 
     "fireworks+": {
       "api": "https://api.fireworks.ai/inference/v1",
+      "name": "Fireworks+",
       "models": {
-        "accounts/fireworks/models/kimi-k2p5": {
-          "id": "accounts/fireworks/models/kimi-k2p5",
+        "Fireworks: GLM 5.1": {
+          "id": "accounts/fireworks/models/glm-5p1",
           "limit": {
-            "context": 262144,
-            "output": 262144
+            "context": 202752,
+            "output": 202752
           },
-          "name": "accounts/fireworks/models/kimi-k2p5"
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Fireworks: GLM 5.1"
         },
-        "accounts/fireworks/models/glm-5": {
+        "Fireworks: GLM-5": {
           "id": "accounts/fireworks/models/glm-5",
           "limit": {
             "context": 202752,
             "output": 202752
           },
-          "name": "accounts/fireworks/models/glm-5"
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Fireworks: GLM-5"
         },
-        "accounts/fireworks/models/minimax-m2p5": {
+        "Fireworks: Kimi K2.5": {
+          "id": "accounts/fireworks/models/kimi-k2p5",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "Fireworks: Kimi K2.5"
+        },
+        "Fireworks: MiniMax-M2.5": {
           "id": "accounts/fireworks/models/minimax-m2p5",
-          "name": "accounts/fireworks/models/minimax-m2p5"
+          "limit": {
+            "context": 196608,
+            "output": 196608
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Fireworks: MiniMax-M2.5"
         },
-        "accounts/fireworks/models/qwen3p6-plus": {
+        "Fireworks: Qwen3.6 Plus": {
           "id": "accounts/fireworks/models/qwen3p6-plus",
-          "name": "accounts/fireworks/models/qwen3p6-plus"
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "Fireworks: Qwen3.6 Plus"
         }
-      },
-      "name": "Fireworks+"
+      }
     }
   },
 
