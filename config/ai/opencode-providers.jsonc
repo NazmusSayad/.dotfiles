@@ -5,9 +5,9 @@
     "models": [
       "kilo-auto/free",
 
-      "moonshotai/kimi-k2.5",
+      "qwen/qwen3.6-plus",
 
-      "qwen/qwen3.6-plus:free",
+      "moonshotai/kimi-k2.5",
 
       "minimax/minimax-m2.5",
       "minimax/minimax-m2.7",
@@ -24,6 +24,8 @@
   "fireworks": {
     "name": "Fireworks+",
     "apiURL": "https://api.fireworks.ai/inference/v1",
+    "modelBaseURL": "https://api.fireworks.ai/v1",
+    "modelPrefix": "Fireworks: ",
     "models": [
       "accounts/fireworks/models/glm-5",
       "accounts/fireworks/models/glm-5p1",

@@ -23,11 +23,22 @@ type authProvider struct {
 type authConfig map[string]authProvider
 
 type opencodeProviderConfig struct {
-	Name         string   `json:"name"`
-	BaseURL      string   `json:"apiURL"`
-	ModelsURL    string   `json:"modelsURL"`
-	HasTurboMode bool     `json:"hasTurboMode"`
-	Models       []string `json:"models"`
+	Name    string `json:"name"`
+	BaseURL string `json:"apiURL"`
+
+	ModelsURL    string `json:"modelsURL"`
+	ModelPrefix  string `json:"modelPrefix"`
+	ModelBaseURL string `json:"modelBaseURL"`
+
+	HasTurboMode bool `json:"hasTurboMode"`
+
+	Models []string `json:"models"`
+}
+
+type unknownModelDetailsResponse struct {
+	DisplayName        string `json:"displayName"`
+	ContextLength      int    `json:"contextLength"`
+	SupportsImageInput bool   `json:"supportsImageInput"`
 }
 
 type openAiCompatibleModelsResponse struct {
@@ -145,7 +156,14 @@ func main() {
 			providerAuth = &auth
 		}
 
-		models, err := fetchModels(providerConfig, providerAuth)
+		models := map[string]opencodeOutputModel{}
+
+		if providerConfig.ModelBaseURL != "" {
+			models, err = fetchUnknownModels(providerConfig, providerAuth)
+		} else {
+			models, err = fetchModels(providerConfig, providerAuth)
+		}
+
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println()
@@ -315,12 +333,85 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 		}
 
 		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerConfig.Name)
-
-		entry := opencodeOutputModel{ID: modelID, Name: modelID}
-		models[modelID] = entry
+		models[modelID] = opencodeOutputModel{ID: modelID, Name: modelID}
 	}
 
 	return models, nil
+}
+
+func fetchUnknownModels(providerConfig opencodeProviderConfig, auth *authProvider) (map[string]opencodeOutputModel, error) {
+	models := map[string]opencodeOutputModel{}
+	for _, modelID := range providerConfig.Models {
+		entry := opencodeOutputModel{ID: modelID, Name: modelID}
+		details, err := fetchUnknownModelDetails(providerConfig, auth, modelID)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%s failed to fetch model details for %q from provider %q: %v\n", aurora.Yellow("warn:").String(), modelID, providerConfig.Name, err)
+		} else {
+			if details.DisplayName != "" {
+				entry.Name = details.DisplayName
+			}
+
+			if details.ContextLength > 0 {
+				entry.Limit = &opencodeOutputLimit{Context: details.ContextLength, Output: details.ContextLength}
+			}
+
+			if details.SupportsImageInput {
+				entry.Modalities = &opencodeOutputModalities{
+					Input:  []string{"text", "image"},
+					Output: []string{"text"},
+				}
+			} else {
+				entry.Modalities = &opencodeOutputModalities{
+					Input:  []string{"text"},
+					Output: []string{"text"},
+				}
+			}
+		}
+
+		if providerConfig.ModelPrefix != "" {
+			entry.Name = providerConfig.ModelPrefix + entry.Name
+		}
+
+		models[entry.Name] = entry
+	}
+
+	return models, nil
+}
+
+func fetchUnknownModelDetails(providerConfig opencodeProviderConfig, auth *authProvider, modelID string) (unknownModelDetailsResponse, error) {
+	modelDetailsURL := strings.TrimRight(providerConfig.ModelBaseURL, "/") + "/" + modelID
+	fmt.Printf("%s %s\n", aurora.Yellow("Fetching model details from").String(), aurora.Faint(modelDetailsURL).String())
+
+	req, err := http.NewRequest("GET", modelDetailsURL, nil)
+	if err != nil {
+		return unknownModelDetailsResponse{}, fmt.Errorf("failed to create request: %w", err)
+	}
+
+	if auth != nil && auth.Type == "api" && auth.Key != "" {
+		req.Header.Set("Authorization", "Bearer "+auth.Key)
+	}
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return unknownModelDetailsResponse{}, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return unknownModelDetailsResponse{}, fmt.Errorf("%s", resp.Status)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return unknownModelDetailsResponse{}, fmt.Errorf("failed to read response body: %w", err)
+	}
+
+	var details unknownModelDetailsResponse
+	if err := json.Unmarshal(body, &details); err != nil {
+		return unknownModelDetailsResponse{}, fmt.Errorf("failed to decode response: %w", err)
+	}
+
+	return details, nil
 }
 
 func filterLLMModalities(modalities []string) []string {
