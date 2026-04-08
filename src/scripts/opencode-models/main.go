@@ -284,6 +284,7 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 
 	models := map[string]opencodeOutputModel{}
 	matchedModelIDs := map[string]bool{}
+
 	for _, model := range payload.Data {
 		if !slices.Contains(providerConfig.Models, model.ID) {
 			continue
