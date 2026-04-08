@@ -303,6 +303,10 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 			entry.Name += " ⚡"
 		}
 
+		if providerConfig.ModelPrefix != "" {
+			entry.Name = providerConfig.ModelPrefix + entry.Name
+		}
+
 		if model.ContextLength > 0 {
 			entry.Limit = &opencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
 		}
@@ -325,7 +329,7 @@ func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map
 			entry.Variants = model.Opencode.Variants
 		}
 
-		models[modelName] = entry
+		models[entry.ID] = entry
 	}
 
 	for _, modelID := range providerConfig.Models {
@@ -373,7 +377,7 @@ func fetchUnknownModels(providerConfig opencodeProviderConfig, auth *authProvide
 			entry.Name = providerConfig.ModelPrefix + entry.Name
 		}
 
-		models[entry.Name] = entry
+		models[entry.ID] = entry
 	}
 
 	return models, nil
