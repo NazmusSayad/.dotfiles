@@ -1,6 +1,6 @@
 {
 	"devDependencies": {
-		"@opencode-ai/plugin": "^1.2.22",
-		"@types/node": "^25.3.5"
+		"@opencode-ai/plugin": "^1.4.0",
+		"@types/node": "^25.5.2"
 	}
 }
