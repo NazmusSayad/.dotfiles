@@ -89,10 +89,24 @@
             "output": 1000000
           },
           "modalities": {
-            "input": ["text", "image", "video"],
+            "input": ["text", "image"],
             "output": ["text"]
           },
-          "name": "Qwen: Qwen3.6 Plus"
+          "name": "Qwen: Qwen3.6 Plus",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         },
         "xiaomi/mimo-v2-omni": {
           "id": "xiaomi/mimo-v2-omni",
