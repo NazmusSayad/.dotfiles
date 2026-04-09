@@ -5,14 +5,12 @@ description: Install, update, remove and manage npm packages; run scripts and ex
 
 ## Commands
 
-| Command                       | Description                   | Example                             |
-| ----------------------------- | ----------------------------- | ----------------------------------- |
-| `x ni`                        | Install dependencies          | `x ni`                              |
-| `x ni <pkg>`, `x ni -D <pkg>` | Add dependency, devDependency | `x ni react`, `x ni -D types/react` |
-| `x nup`, `x nup <pkg>`        | Upgrade dependencies          | `x nup`, `x nup react`              |
-| `x nun <pkg>`                 | Uninstall dependency          | `x nun <pkg>`                       |
-| `x nr <script>`               | Run script                    | `x nr test`                         |
-| `x nlx <pkg>`                 | Execute package (`npx`)       | `x nlx <package>`                   |
-| `x taze`                      | Check package updates         | `x taze major`                      |
-
-**NOTE:** All the commands will be prefixed with `x`.
+| Command                   | Description                   | Example                         |
+| ------------------------- | ----------------------------- | ------------------------------- |
+| `ni`                      | Install dependencies          | `ni`                            |
+| `ni <pkg>`, `ni -D <pkg>` | Add dependency, devDependency | `ni react`, `ni -D types/react` |
+| `nup`, `nup <pkg>`        | Upgrade dependencies          | `nup`, `nup react`              |
+| `nun <pkg>`               | Uninstall dependency          | `nun <pkg>`                     |
+| `nr <script>`             | Run script                    | `nr test`                       |
+| `nlx <pkg>`               | Execute package (`npx`)       | `nlx <package>`                 |
+| `taze`                    | Check package updates         | `taze major`                    |
