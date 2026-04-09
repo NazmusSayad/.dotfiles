@@ -1,6 +1,6 @@
 ---
 name: react
-description: React code style, conventions, best practices, and patterns for building clean, efficient, and scalable applications. Use when writing or reviewing React components, hooks, and JSX.
+description: React code style, conventions, best practices, and patterns for building clean, efficient, and scalable applications. Must use when writing or reviewing React components, hooks, and JSX.
 ---
 
 ### Don't over-declare
