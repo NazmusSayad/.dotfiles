@@ -11,6 +11,7 @@
   {
     "Source": "@/config/shell/powershell.ps1",
     "Targets": [
+      "~/Documents/PowerShell/profile.ps1",
       "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
       "~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
     ]
