@@ -13,4 +13,3 @@
 ## Agent Skills
 
 - Must use `react` skill when writing react code.
-- Must use `npm` skill to: run, execute, install, update, remove npm packages
