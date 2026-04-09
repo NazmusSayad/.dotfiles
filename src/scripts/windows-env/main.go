@@ -27,6 +27,14 @@ func initOS() {
 	}
 
 	setEnv("HOME", homeDir)
+
+	bashPath, err := exec.LookPath("bash")
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	setEnv("SHELL", bashPath)
 }
 
 func initMiseEnv() {
