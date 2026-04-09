@@ -1,6 +1,6 @@
 ---
 name: npm
-description: Run or execute npm scripts and install, update, remove, and manage npm packages. Use this skill whenever you need to run npm scripts (npm run dev, npm run build, etc.) or execute npm packages (npx tsc, npx eslint, etc.). Use this skill when you need to install, update, remove, or manage npm packages.
+description: Run or execute npm scripts and install, update, remove, and manage npm packages. Use this skill when you need to install, update, remove, or manage npm packages. Use this skill whenever you need to run npm scripts (npm run dev, npm run build, etc.) or execute npm packages (npx tsc, npx eslint, etc.).
 ---
 
 This skill guides npm scripts in real projects and helps run scripts, install packages, update versions, remove packages, and check available updates.
