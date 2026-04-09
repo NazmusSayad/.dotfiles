@@ -1,6 +1,6 @@
 ---
 name: npm
-description: Run or execute npm scripts and install, update, remove, and manage npm packages. Use this skill whenever handling dependencies or npm/npx workflows.
+description: Install, update, remove and manage npm packages; run scripts and execute packages via npx. Use this skill instead of npm, pnpm, yarn, or bun for dependency and workflow management.
 ---
 
 ## Commands
