@@ -17,5 +17,6 @@ description: Install, update, remove and manage npm packages; run scripts and ex
 
 ## Rules
 
-- `taze` is not an npm package. Never run it with `nlx` or `npx`.
 - Never use `npm`, `pnpm`, `yarn`, or `bun` directly for dependency or workflow management. Always use the commands listed above.
+- NEVER upgrade **major** versions of dependencies without explicit instructions. Always ask for confirmation before doing so.
+- `taze` is not an npm package. Never run it with `nlx` or `npx`.
