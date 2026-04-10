@@ -9,10 +9,9 @@ rm -rf ~/.local/state/opencode
 rm -rf ~/.bun/install/cache
 
 rm -rf ~/AppData/Roaming/OpenCode
+rm -rf ~/AppData/Roaming/@opencode-ai
 rm -rf ~/AppData/Local/ai.opencode.desktop
 rm -rf ~/AppData/Roaming/ai.opencode.desktop
 
 call sudo symlink-setup.exe
-
-echo Done!
-pause
+proxy-pause echo "Done!"
