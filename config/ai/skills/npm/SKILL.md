@@ -15,9 +15,13 @@ description: Install, update, remove and manage npm packages; run scripts and ex
 | `nlx <pkg>`               | Execute npm package (`npx`)   | `nlx eslint`                     |
 | `taze`                    | Check package updates         | `taze major`                     |
 
-## Guidelines
+## Rules
 
 - For dependency and script operations, use the commands mentioned above.
 - Never use `npm`, `pnpm`, `yarn`, or `bun` unless explicitly instructed.
-- `taze` is not an npm package, it's a standalone tool; do not run it via `npx` or `nlx`.
 - NEVER UPGRADE **major** VERSIONS of dependencies without explicit instructions. Always ask for confirmation before doing so.
+
+## Guidelines
+
+- Use `taze` before upgrading dependencies to check for available updates.
+- `taze` is not an npm package, it's a standalone tool; do not run it via `npx` or `nlx`.
