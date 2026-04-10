@@ -43,6 +43,10 @@
     "Target": "~/.config/opencode/config.json"
   },
   {
+    "Source": "@/config/ai/opencode-tui.json",
+    "Target": "~/.config/opencode/tui.json"
+  },
+  {
     "Source": "@/.local/auth.json",
     "Target": "~/.local/share/opencode/auth.json"
   },
