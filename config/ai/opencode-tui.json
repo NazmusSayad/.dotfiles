@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "carbonfox",
+  "theme": "system",
 
   "mouse": true,
 
