@@ -19,6 +19,13 @@ func main() {
 			Exit: true,
 		},
 	)
+
+	helpers.ExecNativeCommand(
+		[]string{"git", "push", "--progress"},
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 }
 
 func getGitBranches() []string {
