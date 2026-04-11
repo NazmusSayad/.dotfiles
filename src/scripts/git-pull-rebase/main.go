@@ -36,4 +36,11 @@ func main() {
 			Exit: true,
 		},
 	)
+
+	helpers.ExecNativeCommand(
+		[]string{"git", "push", remote, currentBranch, "--progress"},
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 }
