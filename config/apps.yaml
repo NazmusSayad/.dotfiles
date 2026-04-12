@@ -5,7 +5,7 @@ msys2:
 
 scoop:
   # MUST HAVE
-  # - git
+  # - git-with-openssh
   - versions/git-without-openssh
 
   # Development Tools
