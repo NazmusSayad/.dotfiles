@@ -58,33 +58,19 @@
   // Terminal Configs
   {
     "Source": "@/config/shell/alias.yaml",
-    "Targets": [
-      "~/.config/shaka.yaml",
-      "~/.shaka.yaml",
-      "~/.config/shaka.yml",
-      "~/.shaka.yml"
-    ]
+    "Target": "~/.config/shaka.yaml"
   },
   {
-    "Source": "@/config/shell/alias.jsonc",
-    "Targets": [
-      "~/.config/shaka.jsonc",
-      "~/.shaka.jsonc",
-      "~/.config/shaka.json",
-      "~/.shaka.json"
-    ]
+    "Source": "@/config/shell/starship.toml",
+    "Target": "~/.config/starship.toml"
+  },
+  {
+    "Source": "@/config/shell/direnv.toml",
+    "Target": "~/.config/direnv/direnv.toml"
   },
   {
     "Source": "@/config/mise.toml",
     "Target": "~/.config/mise/config.toml"
-  },
-  {
-    "Source": "@/config/starship.toml",
-    "Target": "~/.config/starship.toml"
-  },
-  {
-    "Source": "@/config/direnv.toml",
-    "Target": "~/.config/direnv/direnv.toml"
   },
   {
     "Source": "@/config/fastfetch.jsonc",
