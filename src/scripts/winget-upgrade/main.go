@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	packages := helpers.ReadConfig[[]winget.WingetPackage]("@/config/winget-apps.jsonc")
+	packages := helpers.GetWingetApps()
 
 	var packageIDs []string
 	upgradeablePackages := winget.GetUpgradeablePackages()

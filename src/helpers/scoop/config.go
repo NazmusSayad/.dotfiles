@@ -1,53 +1,14 @@
 package scoop
 
 import (
-	"fmt"
-	"strings"
-
 	"dotfiles/src/helpers"
 	"dotfiles/src/utils"
-
-	"github.com/logrusorgru/aurora/v4"
 )
-
-type ScoopAppConfig struct {
-	ID     string
-	Bucket string
-}
 
 var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/innounp"}
 
-func ReadScoopAppConfig() []ScoopAppConfig {
-	inputConfig := helpers.ReadConfig[[]string]("@/config/scoop-apps.yaml")
-	outputConfig := []ScoopAppConfig{}
-
-	for _, app := range inputConfig {
-		appName := ""
-		bucketName := ""
-		splitStr := strings.Split(app, "/")
-
-		if len(splitStr) == 1 {
-			appName = splitStr[0]
-			bucketName = "main"
-		} else if len(splitStr) == 2 {
-			bucketName = splitStr[0]
-			appName = splitStr[1]
-		} else {
-			fmt.Println(aurora.Red("Invalid app ID; expected: <bucket>/<app>"))
-			continue
-		}
-
-		outputConfig = append(outputConfig, ScoopAppConfig{
-			ID:     bucketName + "/" + appName,
-			Bucket: bucketName,
-		})
-	}
-
-	return outputConfig
-}
-
-func GetScoopConfigAppMap(configs []ScoopAppConfig) map[string]ScoopAppConfig {
-	appMap := make(map[string]ScoopAppConfig)
+func GetScoopConfigAppMap(configs []helpers.ScoopAppConfig) map[string]helpers.ScoopAppConfig {
+	appMap := make(map[string]helpers.ScoopAppConfig)
 
 	for _, app := range configs {
 		appMap[app.ID] = app
@@ -56,7 +17,7 @@ func GetScoopConfigAppMap(configs []ScoopAppConfig) map[string]ScoopAppConfig {
 	return appMap
 }
 
-func GetScoopConfigBucketsList(configs []ScoopAppConfig) []string {
+func GetScoopConfigBucketsList(configs []helpers.ScoopAppConfig) []string {
 	bucketList := []string{}
 
 	for _, app := range configs {

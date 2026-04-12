@@ -5,26 +5,6 @@ import (
 	"strings"
 )
 
-type InstallerType string
-
-type WingetPackage struct {
-	ID            string
-	Name          string
-	Scope         string
-	Version       string
-	InstallerType string
-
-	ForceAdminInstall bool
-	ForceAdminUpgrade bool
-
-	InteractiveInstall bool
-	InteractiveUpgrade bool
-
-	SkipInstall      bool
-	SkipUpgrade      bool
-	SkipDependencies bool
-}
-
 type WingetUpgradeablePackage struct {
 	ID        string
 	Version   string

@@ -1,6 +1,8 @@
 package winget
 
-func BuildWingetOptions(p WingetPackage, interactive bool) []string {
+import "dotfiles/src/helpers"
+
+func BuildWingetOptions(p helpers.WingetAppConfig, interactive bool) []string {
 	parts := []string{"--exact", "--id", p.ID, "--verbose", "--accept-package-agreements", "--accept-source-agreements"}
 
 	if p.Scope != "" {

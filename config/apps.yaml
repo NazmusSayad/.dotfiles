@@ -1,8 +1,13 @@
 msys2:
   - bash
   - fish
+  - zsh
 
 scoop:
+  # MUST HAVE
+  - git
+  - git-lfs
+
   # Development Tools
   - gcc
   - scc
@@ -69,9 +74,83 @@ scoop:
   - extras/slack
 
 winget:
-  - 9MSMLRH6LZF3
+  # Most Important
   - id: Piriform.CCleaner
     name: CCleaner
-    version: 6.39
+    version: "6.39"
     interactiveInstall: true
     interactiveUpgrade: true
+  - id: 9MSMLRH6LZF3
+    name: Windows Notepad
+  - id: 9WZDNCRFHVN5
+    name: Windows Calculator
+  - id: Microsoft.WindowsTerminal
+    name: Windows Terminal
+  - id: Microsoft.PowerShell
+    name: PowerShell (pwsh)
+  - id: stax76.run-hidden
+    name: Run Hidden
+  - id: Google.Chrome
+    name: Chrome
+  - id: Tonec.InternetDownloadManager
+    name: Internet Download Manager
+  - id: qBittorrent.qBittorrent
+    name: qBittorrent
+
+  # Media Tools
+  - id: Daum.PotPlayer
+    name: PotPlayer
+    interactiveInstall: true
+    interactiveUpgrade: true
+  - id: 9NBLGGH68TW4
+    name: Pictureflect Photo Viewer
+  - id: ThioJoe.SvgThumbnailExtension
+    name: SVG Thumbnail
+  - id: OBSProject.OBSStudio
+    name: OBS Studio
+
+  # Others
+  - UnifiedIntents.UnifiedRemote
+  - RamenSoftware.Windhawk
+
+  # Shells & Development Tools
+  - id: MSYS2.MSYS2
+    name: MSYS2
+    forceAdminInstall: true
+    forceAdminUpgrade: true
+  - id: LLVM.LLVM
+    name: LLVM
+    version: 21.1.8
+    skipInstall: true
+
+  # Code Editors
+  - id: Microsoft.VisualStudioCode
+    name: VSCode
+    scope: User
+    interactiveInstall: true
+  - id: TablePlus.TablePlus
+    name: TablePlus
+    version: 6.8.1
+
+  # DotNet SDKs
+  - Microsoft.DotNet.SDK.6
+  - Microsoft.DotNet.SDK.7
+  - Microsoft.DotNet.SDK.8
+  - Microsoft.DotNet.SDK.9
+
+  # VM & Container Tools
+  - id: Docker.DockerDesktop
+    name: Docker Desktop
+    forceAdminInstall: true
+    forceAdminUpgrade: true
+    interactiveInstall: true
+  - id: Microsoft.VisualStudio.BuildTools
+    name: Visual Studio Build Tools
+    interactiveInstall: true
+    interactiveUpgrade: true
+    skipInstall: true
+  - id: Microsoft.VisualStudio.2022.BuildTools
+    name: Visual Studio Build Tools 2022
+    interactiveInstall: true
+    interactiveUpgrade: true
+    skipInstall: true
