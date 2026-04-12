@@ -1,7 +1,6 @@
 msys2:
   - bash
   - fish
-  - zsh
 
 scoop:
   # MUST HAVE
