@@ -9,7 +9,7 @@
   "ocd": "$HOME/scoop/apps/opencode-desktop/current/OpenCode",
 
   // Node/NPM
-  "r": "nr",
+  "r": "node --run",
   "nid": "ni -D",
 
   // Toolchain

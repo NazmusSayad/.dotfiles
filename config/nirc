@@ -1,3 +1,2 @@
-runAgent=node
 globalAgent=npm
 defaultAgent=pnpm
