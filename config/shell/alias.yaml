@@ -1,1 +1,42 @@
-cds: cd
+..: cd ..
+"...": cd ../..
+
+# OpenCode
+oc: opencode
+occ: opencode --continue
+ocs: opencode-server
+ocd: $HOME/scoop/apps/opencode-desktop/current/OpenCode
+
+# Shell
+r: node --run
+nid: ni -D
+
+# Toolchain
+j: just
+m: make
+fl: fvm flutter
+
+# PHP
+pa: php artisan
+pas: php artisan serve
+
+# Docker
+dc: docker compose
+dcu: docker compose up -d
+dcd: docker compose down
+dcr: docker compose restart
+
+# Git
+gc: git checkout
+gcn: git checkout -b
+gds: git diff --stat
+
+# GitHub CLI
+ghv: gh repo view
+ghw: gh repo view --web
+
+# System
+ex: explorer
+fix-next: rm -rf .next
+fix-ports: sudo net stop winnat
+fix-case-win: sudo fsutil file setCaseSensitiveInfo . enable recursive
