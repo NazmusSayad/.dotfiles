@@ -1,6 +1,3 @@
-..: cd ..
-...: cd ../..
-
 # OpenCode
 oc: opencode
 occ: opencode --continue
@@ -40,3 +37,6 @@ ex: explorer
 fix-next: rm -rf .next
 fix-ports: sudo net stop winnat
 fix-case-win: sudo fsutil file setCaseSensitiveInfo . enable recursive
+
+..: cd ..
+...: cd ../..
