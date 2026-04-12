@@ -61,6 +61,8 @@ java = "latest"
 gcloud = "latest"
 firebase = "latest"
 
+"cargo:shaka" = "latest"
+
 [settings]
 auto_install = false
 exec_auto_install = true

@@ -10,7 +10,7 @@ function fish_greeting
     # fastfetch
 end
 
-shell-alias sh | source
+shaka fish | source
 direnv hook fish | source
 
 for line in (mise env --dotenv)

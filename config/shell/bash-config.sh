@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(shell-alias sh)"
+eval "$(shaka bash)"
 eval "$(direnv hook bash)"
 eval "$(mise env --dotenv)"
 
