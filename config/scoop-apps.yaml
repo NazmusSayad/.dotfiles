@@ -43,7 +43,6 @@
 - fd
 
 # Workflow Tools
-- cmake
 - make
 - just
 
