@@ -4,6 +4,7 @@
     "apiURL": "https://api.kilo.ai/api/gateway",
     "models": [
       "kilo-auto/free",
+      "openrouter/free",
 
       "qwen/qwen3.6-plus",
 

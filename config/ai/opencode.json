@@ -136,21 +136,7 @@
             "input": ["text", "audio", "image", "video"],
             "output": ["text"]
           },
-          "name": "Xiaomi: MiMo-V2-Omni",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "effort": "none",
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "effort": "medium",
-                "enabled": true
-              }
-            }
-          }
+          "name": "Xiaomi: MiMo-V2-Omni"
         },
         "xiaomi/mimo-v2-pro": {
           "id": "xiaomi/mimo-v2-pro",
@@ -162,21 +148,7 @@
             "input": ["text"],
             "output": ["text"]
           },
-          "name": "Xiaomi: MiMo-V2-Pro",
-          "variants": {
-            "instant": {
-              "reasoning": {
-                "effort": "none",
-                "enabled": false
-              }
-            },
-            "thinking": {
-              "reasoning": {
-                "effort": "medium",
-                "enabled": true
-              }
-            }
-          }
+          "name": "Xiaomi: MiMo-V2-Pro"
         },
         "z-ai/glm-5-turbo": {
           "id": "z-ai/glm-5-turbo",
@@ -255,6 +227,18 @@
               }
             }
           }
+        },
+        "openrouter/free": {
+          "id": "openrouter/free",
+          "limit": {
+            "context": 200000,
+            "output": 200000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "Free Models Router"
         }
       }
     },
