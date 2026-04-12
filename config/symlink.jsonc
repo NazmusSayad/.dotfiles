@@ -57,6 +57,24 @@
 
   // Terminal Configs
   {
+    "Source": "@/config/shell/alias.yaml",
+    "Targets": [
+      "~/.config/shaka.yaml",
+      "~/.shaka.yaml",
+      "~/.config/shaka.yml",
+      "~/.shaka.yml"
+    ]
+  },
+  {
+    "Source": "@/config/shell/alias.jsonc",
+    "Targets": [
+      "~/.config/shaka.jsonc",
+      "~/.shaka.jsonc",
+      "~/.config/shaka.json",
+      "~/.shaka.json"
+    ]
+  },
+  {
     "Source": "@/config/mise.toml",
     "Target": "~/.config/mise/config.toml"
   },
