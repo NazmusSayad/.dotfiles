@@ -6,7 +6,6 @@ scoop:
   # MUST HAVE
   # - git-with-openssh
   - versions/git-without-openssh
-  - git-lfs
 
   # Development Tools
   - gcc
