@@ -5,13 +5,12 @@ node = "lts"
 bun = "latest"
 deno = "latest"
 
-"npm:yarn" = "latest"
 "npm:pnpm" = "latest"
+"npm:taze" = "latest"
 "npm:@antfu/ni" = "latest"
 
 "npm:tsx" = "latest"
 "npm:jiti" = "latest"
-"npm:taze" = "latest"
 
 
 # Python
