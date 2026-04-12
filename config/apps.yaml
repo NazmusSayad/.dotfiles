@@ -5,8 +5,7 @@ msys2:
 
 scoop:
   # MUST HAVE
-  - git
-  - git-lfs
+  - git-with-openssh
 
   # Development Tools
   - gcc
