@@ -14,8 +14,7 @@ if ($PSVersionTable.PSEdition -eq 'Core') {
     }
   }
 
-  Invoke-Expression (&shell-alias pwsh | Out-String)
-
+  Invoke-Expression (&shaka pwsh | Out-String)
   Invoke-Expression (&starship init powershell)
   Invoke-Expression (&zoxide init powershell | Out-String)
 }
