@@ -39,7 +39,7 @@
 
   // Windows
   "ex": "explorer",
-  "next-clean": "rm -rf .next",
-  "ports-fix": "sudo net stop winnat",
-  "case-fix-win": "sudo fsutil file setCaseSensitiveInfo . enable recursive"
+  "fix-next": "rm -rf .next",
+  "fix-ports": "sudo net stop winnat",
+  "fix-case-win": "sudo fsutil file setCaseSensitiveInfo . enable recursive"
 }
