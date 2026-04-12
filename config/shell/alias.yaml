@@ -1,5 +1,6 @@
-# OpenCode
+# AI Coding
 oc: opencode
+cc: claude-code
 occ: opencode --continue
 ocs: opencode-server
 ocd: $HOME/scoop/apps/opencode-desktop/current/OpenCode
