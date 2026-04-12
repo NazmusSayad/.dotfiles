@@ -52,6 +52,8 @@ scoop:
   - bat
   - lsd
   - fd
+  - jq
+  - yq
 
   # Workflow Tools
   - make
