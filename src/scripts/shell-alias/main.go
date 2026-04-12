@@ -17,7 +17,7 @@ func main() {
 	}
 
 	shell := os.Args[1]
-	aliases := helpers.ReadConfig[map[string]string]("@/config/alias.jsonc", helpers.ReadConfigOptions{Silent: true})
+	aliases := helpers.ReadConfig[map[string]string]("@/config/shell/alias.jsonc", helpers.ReadConfigOptions{Silent: true})
 
 	var output strings.Builder
 
