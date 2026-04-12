@@ -10,11 +10,6 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-type ScoopAppInputConfig struct {
-	ID    string
-	Label string
-}
-
 type ScoopAppConfig struct {
 	ID     string
 	Bucket string
