@@ -47,9 +47,9 @@ java = "latest"
 "npm:gityo" = "latest"
 "npm:serve" = "latest"
 "npm:netserv" = "latest"
-"npm:openuse" = "latest"
 "npm:uni-run" = "latest"
 "npm:code-info" = "latest"
+"npm:openusage" = "latest"
 "npm:git-stats" = "latest"
 "npm:npm-name-cli" = "latest"
 
@@ -63,4 +63,6 @@ gcloud = "latest"
 firebase = "latest"
 
 [settings]
-experimental = true
+auto_install = false
+exec_auto_install = true
+not_found_auto_install = true
