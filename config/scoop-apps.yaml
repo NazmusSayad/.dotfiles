@@ -9,6 +9,7 @@
 - cloudflared
 
 # AI Tools
+- whisper-cpp
 - versions/llama.cpp-cpu
 - extras/opencode-desktop
 
