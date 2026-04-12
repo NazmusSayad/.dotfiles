@@ -1,0 +1,19 @@
+msys2:
+  - app.exe
+  - tool.exe
+  - id: app2
+    repo: mingw64
+
+scoop:
+  - app.exe
+  - tool.exe
+  - id: app2
+    bucket: extras
+
+winget:
+  - 9MSMLRH6LZF3
+  - id: Piriform.CCleaner
+    name: CCleaner
+    version: 6.39
+    interactiveInstall: true
+    interactiveUpgrade: true
