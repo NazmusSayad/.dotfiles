@@ -12,8 +12,8 @@ import (
 )
 
 func main() {
+	configs := helpers.GetScoopApps()
 	exports := scoop.GetScoopExports()
-	configs := scoop.ReadScoopAppConfig()
 
 	configBucketsList := scoop.GetScoopConfigBucketsList(configs)
 	configAppMap := scoop.GetScoopConfigAppMap(configs)
@@ -28,7 +28,7 @@ func main() {
 		}
 	}
 
-	missingApps := []scoop.ScoopAppConfig{}
+	missingApps := []helpers.ScoopAppConfig{}
 	for appId, configApp := range configAppMap {
 		_, isExists := exportAppMap[appId]
 
