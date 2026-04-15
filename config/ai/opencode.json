@@ -4,7 +4,6 @@
   },
 
   "model": "openai/gpt-5.3-codex",
-  "small_model": "openrouter/openrouter/free",
 
   "plugin": ["opencode-wakatime"],
   "enabled_providers": ["openai", "fireworks+", "kilo+"],
@@ -30,14 +29,6 @@
   "provider": {
     "openai": {
       "whitelist": ["gpt-5.3-codex", "gpt-5.4"]
-    },
-
-    "github-copilot": {
-      "whitelist": ["gpt-5.3-codex"]
-    },
-
-    "openrouter": {
-      "env": ["OPENROUTER_API_KEY"]
     },
 
     "kilo+": {
@@ -71,8 +62,8 @@
         "minimax/minimax-m2.7": {
           "id": "minimax/minimax-m2.7",
           "limit": {
-            "context": 204800,
-            "output": 204800
+            "context": 196608,
+            "output": 196608
           },
           "modalities": {
             "input": ["text"],
@@ -192,7 +183,7 @@
             "input": ["text"],
             "output": ["text"]
           },
-          "name": "Z.ai: GLM 5.1 (new)",
+          "name": "Z.ai: GLM 5.1",
           "variants": {
             "instant": {
               "reasoning": {
