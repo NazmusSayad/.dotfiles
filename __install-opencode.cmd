@@ -14,4 +14,4 @@ rm -rf ~/AppData/Local/ai.opencode.desktop
 rm -rf ~/AppData/Roaming/ai.opencode.desktop
 
 call sudo symlink-setup.exe
-proxy-pause echo "Done!"
+proxy-pause echo
