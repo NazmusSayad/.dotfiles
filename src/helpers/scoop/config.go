@@ -5,7 +5,7 @@ import (
 	"dotfiles/src/utils"
 )
 
-var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/innounp"}
+var SCOOP_SYSTEM_APPS = []string{"main/7zip", "main/innounp", "main/mingit"}
 
 func GetScoopConfigAppMap(configs []helpers.ScoopAppConfig) map[string]helpers.ScoopAppConfig {
 	appMap := make(map[string]helpers.ScoopAppConfig)
