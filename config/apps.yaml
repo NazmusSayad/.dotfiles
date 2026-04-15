@@ -71,6 +71,9 @@ scoop:
   # Communication Tools
   - extras/slack
 
+  # Miscellaneous Tools
+  - extras/vcredist2022
+
 winget:
   # Most Important
   - id: Piriform.CCleaner
