@@ -21,7 +21,7 @@ scoop:
   - codex
   - whisper-cpp
   - versions/llama.cpp-cpu
-  - extras/opencode-desktop
+  - extras/opencode-desktop@1.4.6
 
   # Visualization Tools
   - extras/onefetch
