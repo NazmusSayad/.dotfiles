@@ -64,14 +64,11 @@ scoop:
   - ffmpeg
   - yt-dlp
 
-  # Fonts
-  - nerd-fonts/FiraCode-NF
-  - nerd-fonts/JetBrainsMono-NF
-
   # Communication Tools
   - extras/slack
 
-  # Miscellaneous Tools
+  # Misc
+  - nerd-fonts/FiraCode-NF
   - extras/vcredist2022
 
 winget:
