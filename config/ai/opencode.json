@@ -4,6 +4,8 @@
   },
 
   "model": "openai/gpt-5.3-codex",
+  "small_model": "openrouter/openrouter/free",
+
   "plugin": ["opencode-wakatime"],
   "enabled_providers": ["openai", "fireworks+", "kilo+"],
 
@@ -32,6 +34,10 @@
 
     "github-copilot": {
       "whitelist": ["gpt-5.3-codex"]
+    },
+
+    "openrouter": {
+      "env": ["OPENROUTER_API_KEY"]
     },
 
     "kilo+": {
