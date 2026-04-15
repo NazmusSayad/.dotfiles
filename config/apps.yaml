@@ -3,10 +3,6 @@ msys2:
   - fish
 
 scoop:
-  # MUST HAVE
-  # - git-with-openssh
-  - versions/git-without-openssh
-
   # Development Tools
   - gcc
   - scc
@@ -21,7 +17,7 @@ scoop:
   - codex
   - whisper-cpp
   - versions/llama.cpp-cpu
-  - extras/opencode-desktop@1.4.6
+  - extras/opencode-desktop
 
   # Visualization Tools
   - extras/onefetch
