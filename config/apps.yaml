@@ -73,21 +73,26 @@ scoop:
 
 winget:
   # Most Important
+  - id: Git.Git
+    name: Git
+    interactiveInstall: true
   - id: Piriform.CCleaner
     name: CCleaner
     version: "6.39"
     interactiveInstall: true
     interactiveUpgrade: true
+
+  # System Tools
   - id: 9MSMLRH6LZF3
     name: Windows Notepad
-  - id: 9WZDNCRFHVN5
-    name: Windows Calculator
   - id: Microsoft.WindowsTerminal
     name: Windows Terminal
   - id: Microsoft.PowerShell
     name: PowerShell (pwsh)
   - id: stax76.run-hidden
     name: Run Hidden
+
+  # Internet
   - id: Google.Chrome
     name: Chrome
   - id: Tonec.InternetDownloadManager
@@ -110,6 +115,8 @@ winget:
   # Others
   - UnifiedIntents.UnifiedRemote
   - RamenSoftware.Windhawk
+  - id: 9WZDNCRFHVN5
+    name: Windows Calculator
 
   # Shells & Development Tools
   - id: MSYS2.MSYS2
