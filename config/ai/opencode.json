@@ -7,7 +7,7 @@
   "permission": {
     "doom_loop": "allow",
     "external_directory": {
-      "~": "allow"
+      "~/Desktop/**": "allow"
     }
   },
 
