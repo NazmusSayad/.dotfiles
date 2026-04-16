@@ -304,6 +304,11 @@
     }
   },
 
+  "permission": {
+    "doom_loop": "allow",
+    "external_directory": "allow"
+  },
+
   "share": "disabled",
   "username": "Sayad",
   "autoshare": false,
