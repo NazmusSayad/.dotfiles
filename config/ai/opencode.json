@@ -8,6 +8,13 @@
   "plugin": ["opencode-wakatime"],
   "enabled_providers": ["openai", "fireworks+", "kilo+"],
 
+  "permission": {
+    "doom_loop": "allow",
+    "external_directory": {
+      "~": "allow"
+    }
+  },
+
   "mcp": {
     "chrome-devtools": {
       "type": "local",
@@ -301,13 +308,6 @@
           "name": "Fireworks: Qwen3.6 Plus"
         }
       }
-    }
-  },
-
-  "permission": {
-    "doom_loop": "allow",
-    "external_directory": {
-      "~": "allow"
     }
   },
 
