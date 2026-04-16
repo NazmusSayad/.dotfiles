@@ -22,17 +22,22 @@
     ]
   },
 
-  "fireworks": {
-    "name": "Fireworks+",
-    "apiURL": "https://api.fireworks.ai/inference/v1",
-    "modelBaseURL": "https://api.fireworks.ai/v1",
-    "modelPrefix": "Fireworks: ",
+  "openrouter": {
+    "name": "OpenRouter+",
+    "apiURL": "https://openrouter.ai/api/v1",
+    "modelsURL": "https://api.kilo.ai/api/gateway/models",
+
     "models": [
-      "accounts/fireworks/models/glm-5",
-      "accounts/fireworks/models/glm-5p1",
-      "accounts/fireworks/models/kimi-k2p5",
-      "accounts/fireworks/models/qwen3p6-plus",
-      "accounts/fireworks/models/minimax-m2p5"
+      "openrouter/free",
+
+      "qwen/qwen3.6-plus",
+
+      "moonshotai/kimi-k2.5",
+
+      "minimax/minimax-m2.5",
+
+      "z-ai/glm-5",
+      "z-ai/glm-5.1"
     ]
   }
 }
