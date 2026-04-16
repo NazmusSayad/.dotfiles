@@ -83,40 +83,30 @@ winget:
     interactiveUpgrade: true
 
   # System Tools
+  - stax76.run-hidden
+  - id: 9N0DX20HK701
+    name: Windows Terminal
+  - id: 9MZ1SNWT0N5D
+    name: PowerShell (pwsh)
   - id: 9MSMLRH6LZF3
     name: Windows Notepad
-  - id: Microsoft.WindowsTerminal
-    name: Windows Terminal
-  - id: Microsoft.PowerShell
-    name: PowerShell (pwsh)
-  - id: stax76.run-hidden
-    name: Run Hidden
+  - id: 9WZDNCRFHVN5
+    name: Windows Calculator
 
   # Internet
-  - id: Google.Chrome
-    name: Chrome
-  - id: Tonec.InternetDownloadManager
-    name: Internet Download Manager
-  - id: qBittorrent.qBittorrent
-    name: qBittorrent
+  - Google.Chrome
+  - Tonec.InternetDownloadManager
+  - qBittorrent.qBittorrent
 
   # Media Tools
+  - ThioJoe.SvgThumbnailExtension
+  - OBSProject.OBSStudio
+  - id: 9NBLGGH68TW4
+    name: Pictureflect Photo Viewer
   - id: Daum.PotPlayer
     name: PotPlayer
     interactiveInstall: true
     interactiveUpgrade: true
-  - id: 9NBLGGH68TW4
-    name: Pictureflect Photo Viewer
-  - id: ThioJoe.SvgThumbnailExtension
-    name: SVG Thumbnail
-  - id: OBSProject.OBSStudio
-    name: OBS Studio
-
-  # Others
-  - UnifiedIntents.UnifiedRemote
-  - RamenSoftware.Windhawk
-  - id: 9WZDNCRFHVN5
-    name: Windows Calculator
 
   # Shells & Development Tools
   - id: MSYS2.MSYS2
@@ -127,6 +117,10 @@ winget:
     name: LLVM
     version: 21.1.8
     skipInstall: true
+
+  # Others
+  - UnifiedIntents.UnifiedRemote
+  - RamenSoftware.Windhawk
 
   # Code Editors
   - id: Microsoft.VisualStudioCode
