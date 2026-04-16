@@ -11,6 +11,10 @@
     }
   },
 
+  "experimental": {
+    "continue_loop_on_deny": true
+  },
+
   "mcp": {
     "chrome-devtools": {
       "type": "local",
@@ -27,10 +31,6 @@
       "enabled": false,
       "command": ["hugeicons-mcp"]
     }
-  },
-
-  "experimental": {
-    "continue_loop_on_deny": true
   },
 
   "provider": {
