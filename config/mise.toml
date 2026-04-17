@@ -60,6 +60,7 @@ firebase = "latest"
 
 # System Tools
 "cargo:shaka" = "latest"
+"cargo:pwshac" = "latest"
 
 [settings]
 auto_install = false
