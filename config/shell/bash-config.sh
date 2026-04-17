@@ -2,9 +2,10 @@
 
 eval "$(shaka bash)"
 eval "$(direnv hook bash)"
+
 eval "$(mise env --dotenv)"
 
 if [[ $- == *i* ]]; then
-	eval "$(starship init bash)"
 	eval "$(zoxide init bash)"
+	eval "$(starship init bash)"
 fi
