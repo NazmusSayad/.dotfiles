@@ -46,7 +46,6 @@ scoop:
   - fzf
   - rip
   - dust
-  - ack
   - bat
   - lsd
   - fd
