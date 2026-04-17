@@ -21,7 +21,7 @@ threshold = 2
 [sudo]
 disabled = false
 allow_windows = true
-symbol = '👩‍💻 '
+symbol = ' '
 
 
 [directory]
