@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
+eval "$(mise env --dotenv)"
+
 eval "$(shaka bash)"
 eval "$(direnv hook bash)"
-
-eval "$(mise env --dotenv)"
 
 if [[ $- == *i* ]]; then
 	eval "$(zoxide init bash)"
