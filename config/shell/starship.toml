@@ -1,4 +1,4 @@
-format = "$shell$shlvl$sudo$hostname$username$directory$git_branch$git_state$git_status$line_break$character"
+format = "$shell$shlvl$directory$git_branch$git_state$git_status$line_break$character"
 follow_symlinks = false
 add_newline = false
 
@@ -16,12 +16,6 @@ pwsh_indicator = ''
 disabled = false
 format = '[\[$shlvl\]](dimmed red) '
 threshold = 2
-
-
-[sudo]
-disabled = false
-allow_windows = true
-symbol = ' '
 
 
 [directory]
