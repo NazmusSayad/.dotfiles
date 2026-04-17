@@ -52,7 +52,10 @@
   },
   {
     "Source": "@/.local/opencode.dat",
-    "Target": "$APPDATA/ai.opencode.desktop/default.dat"
+    "Targets": [
+      "$APPDATA/ai.opencode.desktop/default.dat",
+      "$APPDATA/ai.opencode.desktop.beta/default.dat"
+    ]
   },
 
   // Terminal Configs
