@@ -4,13 +4,10 @@
 node = "lts"
 bun = "latest"
 deno = "latest"
-
+"npm:tsx" = "latest"
 "npm:pnpm" = "latest"
 "npm:taze" = "latest"
 "npm:@antfu/ni" = "latest"
-
-"npm:tsx" = "latest"
-"npm:jiti" = "latest"
 
 
 # Python
@@ -50,7 +47,6 @@ java = "latest"
 "npm:code-info" = "latest"
 "npm:openusage" = "latest"
 "npm:git-stats" = "latest"
-"npm:npm-name-cli" = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
