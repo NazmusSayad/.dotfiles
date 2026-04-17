@@ -1,10 +1,9 @@
 # AI Coding
 cx: codex
-oc: opencode
 cxx: codex --last
+oc: opencode
 occ: opencode --continue
 ocs: opencode-server
-ocd: $HOME/scoop/apps/opencode-desktop/current/OpenCode
 
 # Shell
 r: node --run
@@ -41,4 +40,4 @@ fix-ports: sudo net stop winnat
 fix-case-win: sudo fsutil file setCaseSensitiveInfo . enable recursive
 
 ..: cd ..
-...: cd ../..
+"...": cd ../..

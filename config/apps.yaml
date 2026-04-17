@@ -15,9 +15,9 @@ scoop:
 
   # AI Tools
   - codex
+  - opencode
   - whisper-cpp
   - versions/llama.cpp-cpu
-  - extras/opencode-desktop
 
   # Visualization Tools
   - extras/onefetch
