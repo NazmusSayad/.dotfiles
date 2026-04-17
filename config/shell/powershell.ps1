@@ -1,11 +1,4 @@
-mise env --dotenv | ForEach-Object {
-  if ($_ -match "^(.*?)=(.*)$") {
-      $key = $matches[1]
-      $val = $matches[2]
-      ${env:$key} = $val
-  }
-}
-
+Invoke-Expression (&mise env -s pwsh | Out-String)
 Invoke-Expression (&zoxide init powershell | Out-String)
 
 if ($PSVersionTable.PSEdition -eq 'Core') {
