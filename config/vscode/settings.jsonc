@@ -26,35 +26,6 @@
   "update.enableWindowsBackgroundUpdates": false,
   "security.workspace.trust.untrustedFiles": "open",
   "window.customTitleBarVisibility": "windowed",
-  "cursor.cpp.disabledLanguages": [],
-  "cursor.composer.textSizeScale": 1.15,
-  "cursor.general.gitGraphIndexing": "disabled",
-  "cursor.composer.usageSummaryDisplay": "never",
-  "cursor.composer.shouldAutoAcceptDiffs": false,
-  "cursor.composer.shouldChimeAfterChatFinishes": true,
-  "cursor.general.globalCursorIgnoreList": [
-    "**/.env",
-    "**/.env.*",
-    "**/credentials.json",
-    "**/credentials.*.json",
-    "**/secret.json",
-    "**/secrets.json",
-    "**/*.key",
-    "**/*.pem",
-    "**/*.pfx",
-    "**/*.p12",
-    "**/*.crt",
-    "**/*.cer",
-    "**/id_rsa",
-    "**/id_dsa",
-    "**/.ssh/id_*",
-    "**/*.lock",
-    "**/__trash__",
-    "**/pnpm-lock.yaml",
-    "**/package-lock.json",
-    "**/.*",
-    "!**/.*/"
-  ],
   "workbench.startupEditor": "none",
   "workbench.enableExperiments": false,
   "workbench.editor.empty.hint": "hidden",
@@ -66,7 +37,6 @@
   "workbench.editor.decorations.colors": false,
   "workbench.list.smoothScrolling": true,
   "workbench.editor.preventPinnedEditorClose": "keyboard",
-  "workbench.activityBar.orientation": "vertical",
   "workbench.layoutControl.enabled": false,
   "workbench.editorAssociations": {
     "*.svg": "default"
@@ -85,8 +55,6 @@
   "editor.formatOnType": true,
   "npm.autoDetect": "off",
   "files.eol": "\n",
-  "files.autoSaveWorkspaceFilesOnly": true,
-  "files.autoSaveWhenNoErrors": true,
   "files.autoSave": "onWindowChange",
   "files.exclude": {
     "**/.next": true,
@@ -366,9 +334,6 @@
     "Average Word Length too Long": false,
     "Maximum Word Length Exceeded": false
   },
-  "AHK++.v2.formatter": {
-    "indentString": "  "
-  },
   "workbench.navigationControl.enabled": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.editor.dragToOpenWindow": false,
@@ -376,11 +341,8 @@
   "workbench.editor.useModal": "off",
   "chat.agent.maxRequests": 999,
   "chat.agentsControl.enabled": "hidden",
-  "chat.commandCenter.enabled": false,
   "chat.editing.confirmEditRequestRetry": false,
   "chat.detectParticipant.enabled": false,
-  "chat.viewWelcome.enabled": false,
-  "chat.viewSessions.orientation": "stacked",
   "chat.extensionTools.enabled": false,
   "chat.agent.thinking.generateTitles": false,
   "chat.useClaudeMdFile": false,
@@ -468,5 +430,6 @@
       "background": "#FDD83580"
     }
   },
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "chat.viewSessions.orientation": "stacked"
 }
