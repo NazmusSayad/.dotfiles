@@ -38,7 +38,7 @@
     },
 
     "kilo+": {
-      "name": "Kilo+",
+      "name": "Kilo",
       "api": "https://api.kilo.ai/api/gateway",
       "models": {
         "kilo-auto/free": {

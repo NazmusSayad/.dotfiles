@@ -1,5 +1,5 @@
 kilo:
-  name: Kilo+
+  name: Kilo
   apiURL: https://api.kilo.ai/api/gateway
   models:
     - kilo-auto/free
