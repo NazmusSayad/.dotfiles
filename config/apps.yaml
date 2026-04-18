@@ -4,7 +4,7 @@ msys2:
 
 scoop:
   # Custom
-  - $t3code-alpha
+  - $t3code-nightly
   - $opencode-desktop-beta
 
   # Development Tools

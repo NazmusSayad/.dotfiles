@@ -76,10 +76,19 @@ func main() {
 			continue
 		}
 
-		version := app.Version.Fixed
-		if version != "" {
-			version = strings.TrimPrefix(version, "v")
+		var versionRegex *regexp.Regexp
+		if app.Version.Regex != "" {
+			compiledRegex, compileErr := regexp.Compile(app.Version.Regex)
+			if compileErr != nil {
+				fmt.Println(aurora.Red("Failed:"), appID, "invalid version regex:", compileErr)
+				failCount++
+				continue
+			}
+
+			versionRegex = compiledRegex
 		}
+
+		version := app.Version.Fixed
 
 		parsedVersionURL, parseErr := url.Parse(strings.TrimSpace(app.Version.URL))
 		if parseErr != nil {
@@ -133,14 +142,7 @@ func main() {
 		}
 
 		if version == "" {
-			re, compileErr := regexp.Compile(app.Version.Regex)
-			if compileErr != nil {
-				fmt.Println(aurora.Red("Failed:"), appID, "invalid version regex:", compileErr)
-				failCount++
-				continue
-			}
-
-			matches := re.FindStringSubmatch(string(body))
+			matches := versionRegex.FindStringSubmatch(string(body))
 			if len(matches) == 0 {
 				fmt.Println(aurora.Red("Failed:"), appID, "version regex found no match")
 				failCount++
@@ -151,7 +153,6 @@ func main() {
 			if len(matches) > 1 {
 				version = matches[1]
 			}
-			version = strings.TrimPrefix(version, "v")
 		}
 
 		release := githubRelease{}
@@ -169,12 +170,45 @@ func main() {
 				continue
 			}
 
-			release = releases[0]
+			releaseFound := false
 			for _, current := range releases {
-				if strings.TrimPrefix(current.TagName, "v") == version {
+				if current.TagName == version {
 					release = current
+					releaseFound = true
 					break
 				}
+
+				if versionRegex == nil {
+					continue
+				}
+
+				tagPayload := fmt.Sprintf("\"tag_name\":\"%s\"", current.TagName)
+				tagMatches := versionRegex.FindStringSubmatch(tagPayload)
+				if len(tagMatches) == 0 {
+					tagPayload = fmt.Sprintf("\"tag_name\": \"%s\"", current.TagName)
+					tagMatches = versionRegex.FindStringSubmatch(tagPayload)
+				}
+
+				if len(tagMatches) == 0 {
+					continue
+				}
+
+				candidateVersion := tagMatches[0]
+				if len(tagMatches) > 1 {
+					candidateVersion = tagMatches[1]
+				}
+
+				if candidateVersion == version {
+					release = current
+					releaseFound = true
+					break
+				}
+			}
+
+			if !releaseFound {
+				fmt.Println(aurora.Red("Failed:"), appID, "no release matched resolved version")
+				failCount++
+				continue
 			}
 		}
 
