@@ -4,12 +4,18 @@ kilo:
   models:
     - kilo-auto/free
     - openrouter/free
+    - openrouter/elephant-alpha
+
     - qwen/qwen3.6-plus
+
     - moonshotai/kimi-k2.5
+
     - minimax/minimax-m2.5
     - minimax/minimax-m2.7
+
     - xiaomi/mimo-v2-pro
     - xiaomi/mimo-v2-omni
+
     - z-ai/glm-5.1
     - z-ai/glm-5-turbo
     - z-ai/glm-5v-turbo
