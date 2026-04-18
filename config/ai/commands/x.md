@@ -1,6 +1,6 @@
 ---
 agent: build
-description: Follow the plan and start implementation
+description: Follow the plan and start building
 ---
 
 - FOLLOW THE PLAN EXACTLY. Step by step, without changing or skipping anything.
