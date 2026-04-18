@@ -1,28 +1,28 @@
 opencode-desktop-beta:
   description: OpenCode desktop app (Beta)
-  homepage: https://github.com/anomalyco/opencode-beta
+  homepage: https://github.com/anomalyco/opencode
 
   extract: $PLUGINSDIR
   install:
     - Expand-7zipArchive (Join-Path $dir 'app-64.7z') (Join-Path $dir 'app')
 
   bin:
-    - - app/OpenCode Beta.exe
+    - - app/OpenCode.exe
       - opencode-desktop-beta
   shortcuts:
-    - - app/OpenCode Beta.exe
+    - - app/OpenCode.exe
       - OpenCode Desktop (Beta)
 
   version:
-    url: https://api.github.com/repos/anomalyco/opencode-beta/releases
+    url: https://api.github.com/repos/anomalyco/opencode/releases
     regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
 
   autoupdate:
     architecture:
       arm64:
-        url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-arm64.exe#/dl.7z
+        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-electron-win-arm64.exe#/dl.7z
       64bit:
-        url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-x64.exe#/dl.7z
+        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-electron-win-x64.exe#/dl.7z
 
 t3code:
   description: T3 Code desktop app
