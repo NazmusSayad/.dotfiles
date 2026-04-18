@@ -7,6 +7,7 @@ import (
 
 	"dotfiles/src/helpers"
 	"dotfiles/src/helpers/scoop"
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -23,7 +24,7 @@ func main() {
 
 	missingBuckets := []string{}
 	for _, bucket := range configBucketsList {
-		if !slices.Contains(exportBucketList, bucket) {
+		if !slices.Contains(exportBucketList, bucket) && bucket != "" {
 			missingBuckets = append(missingBuckets, bucket)
 		}
 	}
@@ -71,7 +72,7 @@ func main() {
 
 	for _, app := range missingApps {
 		fmt.Println()
-		installScoopApp(app.ID)
+		installScoopApp(utils.Ternary(app.Source == "", app.ID, app.Source))
 	}
 }
 

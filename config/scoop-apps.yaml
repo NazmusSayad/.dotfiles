@@ -23,3 +23,27 @@ opencode-desktop-beta:
         url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-arm64.exe#/dl.7z
       64bit:
         url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-x64.exe#/dl.7z
+
+t3code-nightly:
+  description: T3 Code nightly desktop app
+  homepage: https://github.com/pingdotgg/t3code
+
+  extract: $PLUGINSDIR
+  install:
+    - Expand-7zipArchive (Join-Path $dir 'app-64.7z') (Join-Path $dir 'app')
+
+  bin:
+    - - app/T3 Code (Nightly).exe
+      - t3code-nightly
+  shortcuts:
+    - - app/T3 Code (Nightly).exe
+      - T3 Code (Nightly)
+
+  version:
+    url: https://api.github.com/repos/pingdotgg/t3code/releases?per_page=30
+    regex: "\"tag_name\"\\s*:\\s*\"nightly-v([^\"]+)\""
+
+  autoupdate:
+    architecture:
+      64bit:
+        url: https://github.com/pingdotgg/t3code/releases/download/nightly-v$version/T3-Code-$version-x64.exe#/dl.7z
