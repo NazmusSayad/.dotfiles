@@ -57,6 +57,7 @@ type githubRelease struct {
 func main() {
 	apps := helpers.ReadConfig[map[string]scoopAppTemplate]("@/config/scoop-apps.yaml")
 	resolvedScoopDir := helpers.ResolvePath("@/" + constants.SCOOP_DIR)
+	githubToken := strings.TrimSpace(os.Getenv("GITHUB_TOKEN"))
 	fmt.Println("Updating Scoop manifests in", aurora.Cyan(resolvedScoopDir))
 
 	err := os.MkdirAll(resolvedScoopDir, 0o755)
@@ -98,7 +99,18 @@ func main() {
 			versionURL = parsedVersionURL.String()
 		}
 
-		response, httpErr := http.Get(versionURL)
+		request, requestErr := http.NewRequest(http.MethodGet, versionURL, nil)
+		if requestErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "version request error:", requestErr)
+			failCount++
+			continue
+		}
+
+		if githubToken != "" && strings.HasSuffix(request.URL.Hostname(), "github.com") {
+			request.Header.Set("Authorization", "Bearer "+githubToken)
+		}
+
+		response, httpErr := http.DefaultClient.Do(request)
 		if httpErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "version fetch error:", httpErr)
 			failCount++
@@ -193,7 +205,7 @@ func main() {
 			if strings.HasPrefix(strings.ToLower(asset.Digest), "sha256:") {
 				hashValue = strings.ToLower(strings.TrimSpace(strings.SplitN(asset.Digest, ":", 2)[1]))
 			} else {
-				computedHash, hashErr := getURLSHA256(assetURL)
+				computedHash, hashErr := getURLSHA256(assetURL, githubToken)
 				if hashErr != nil {
 					fmt.Println(aurora.Red("Failed:"), appID, "hash fetch error:", hashErr)
 					failCount++
@@ -253,8 +265,17 @@ func main() {
 	}
 }
 
-func getURLSHA256(rawURL string) (string, error) {
-	resp, err := http.Get(rawURL)
+func getURLSHA256(rawURL string, githubToken string) (string, error) {
+	request, err := http.NewRequest(http.MethodGet, rawURL, nil)
+	if err != nil {
+		return "", err
+	}
+
+	if githubToken != "" && strings.HasSuffix(request.URL.Hostname(), "github.com") {
+		request.Header.Set("Authorization", "Bearer "+githubToken)
+	}
+
+	resp, err := http.DefaultClient.Do(request)
 	if err != nil {
 		return "", err
 	}
