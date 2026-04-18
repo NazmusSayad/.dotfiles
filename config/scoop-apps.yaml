@@ -33,10 +33,10 @@ t3code:
     - Expand-7zipArchive (Join-Path $dir 'app-64.7z') (Join-Path $dir 'app')
 
   bin:
-    - - app/T3 Code.exe
+    - - app/T3 Code (Alpha).exe
       - t3code
   shortcuts:
-    - - app/T3 Code.exe
+    - - app/T3 Code (Alpha).exe
       - T3 Code
 
   version:
