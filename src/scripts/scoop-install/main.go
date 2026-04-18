@@ -32,8 +32,9 @@ func main() {
 	missingApps := []helpers.ScoopAppConfig{}
 	for appId, configApp := range configAppMap {
 		_, isExists := exportAppMap[appId]
+		_, isSourceExists := exportAppMap[configApp.Source+"/"+configApp.ID]
 
-		if !isExists {
+		if !isExists && !isSourceExists {
 			missingApps = append(missingApps, configApp)
 		}
 	}
