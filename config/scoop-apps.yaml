@@ -1,5 +1,5 @@
 opencode-desktop-beta:
-  description: OpenCode Beta desktop app
+  description: OpenCode desktop app (Beta)
   homepage: https://github.com/anomalyco/opencode
 
   extract: $PLUGINSDIR
