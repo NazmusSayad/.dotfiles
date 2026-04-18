@@ -242,6 +242,18 @@
               }
             }
           }
+        },
+        "openrouter/elephant-alpha": {
+          "id": "openrouter/elephant-alpha",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Elephant (new)"
         }
       }
     }
