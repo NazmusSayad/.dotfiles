@@ -8,6 +8,7 @@ import (
 	"hash"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"regexp"
 	"strings"
@@ -21,6 +22,7 @@ import (
 type scoopVersionConfig struct {
 	URL   string `yaml:"url"`
 	Regex string `yaml:"regex"`
+	Fixed string `yaml:"fixed"`
 }
 
 type scoopAutoupdateArchConfig struct {
@@ -48,7 +50,8 @@ type githubReleaseAsset struct {
 }
 
 type githubRelease struct {
-	Assets []githubReleaseAsset `json:"assets"`
+	TagName string               `json:"tag_name"`
+	Assets  []githubReleaseAsset `json:"assets"`
 }
 
 func main() {
@@ -64,13 +67,36 @@ func main() {
 	failCount := 0
 
 	for appID, app := range apps {
-		if app.Version.URL == "" || app.Version.Regex == "" {
-			fmt.Println(aurora.Red("Failed:"), appID, "missing version.url or version.regex")
+		if app.Version.URL == "" || (app.Version.Regex == "" && app.Version.Fixed == "") {
+			fmt.Println(aurora.Red("Failed:"), appID, "missing version.url and version.regex/version.fixed")
 			failCount++
 			continue
 		}
 
-		response, httpErr := http.Get(app.Version.URL)
+		version := app.Version.Fixed
+		if version != "" {
+			version = strings.TrimPrefix(version, "v")
+		}
+
+		parsedVersionURL, parseErr := url.Parse(strings.TrimSpace(app.Version.URL))
+		if parseErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "invalid version.url:", parseErr)
+			failCount++
+			continue
+		}
+
+		parsedVersionURL.Path = strings.TrimSuffix(parsedVersionURL.Path, "/")
+		versionURL := parsedVersionURL.String()
+		if app.Version.Fixed != "" {
+			parsedVersionURL.RawQuery = ""
+			parsedVersionURL.Path += "/tags/" + url.PathEscape(app.Version.Fixed)
+			versionURL = parsedVersionURL.String()
+		} else if parsedVersionURL.RawQuery == "" && strings.HasSuffix(parsedVersionURL.Path, "/releases") {
+			parsedVersionURL.Path += "/latest"
+			versionURL = parsedVersionURL.String()
+		}
+
+		response, httpErr := http.Get(versionURL)
 		if httpErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "version fetch error:", httpErr)
 			failCount++
@@ -92,31 +118,50 @@ func main() {
 			continue
 		}
 
-		re, compileErr := regexp.Compile(app.Version.Regex)
-		if compileErr != nil {
-			fmt.Println(aurora.Red("Failed:"), appID, "invalid version regex:", compileErr)
-			failCount++
-			continue
-		}
+		if version == "" {
+			re, compileErr := regexp.Compile(app.Version.Regex)
+			if compileErr != nil {
+				fmt.Println(aurora.Red("Failed:"), appID, "invalid version regex:", compileErr)
+				failCount++
+				continue
+			}
 
-		matches := re.FindStringSubmatch(string(body))
-		if len(matches) == 0 {
-			fmt.Println(aurora.Red("Failed:"), appID, "version regex found no match")
-			failCount++
-			continue
-		}
+			matches := re.FindStringSubmatch(string(body))
+			if len(matches) == 0 {
+				fmt.Println(aurora.Red("Failed:"), appID, "version regex found no match")
+				failCount++
+				continue
+			}
 
-		version := matches[0]
-		if len(matches) > 1 {
-			version = matches[1]
+			version = matches[0]
+			if len(matches) > 1 {
+				version = matches[1]
+			}
+			version = strings.TrimPrefix(version, "v")
 		}
-		version = strings.TrimPrefix(version, "v")
 
 		release := githubRelease{}
 		if unmarshalErr := json.Unmarshal(body, &release); unmarshalErr != nil {
-			fmt.Println(aurora.Red("Failed:"), appID, "invalid release payload:", unmarshalErr)
-			failCount++
-			continue
+			releases := []githubRelease{}
+			if unmarshalArrayErr := json.Unmarshal(body, &releases); unmarshalArrayErr != nil {
+				fmt.Println(aurora.Red("Failed:"), appID, "invalid release payload:", unmarshalErr)
+				failCount++
+				continue
+			}
+
+			if len(releases) == 0 {
+				fmt.Println(aurora.Red("Failed:"), appID, "release payload has no entries")
+				failCount++
+				continue
+			}
+
+			release = releases[0]
+			for _, current := range releases {
+				if strings.TrimPrefix(current.TagName, "v") == version {
+					release = current
+					break
+				}
+			}
 		}
 
 		architecture := map[string]map[string]string{}

@@ -16,7 +16,6 @@ opencode-desktop-beta:
   version:
     url: https://api.github.com/repos/anomalyco/opencode-beta/releases
     regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
-    fixed: v0.0.0-beta-202604172322
 
   autoupdate:
     architecture:
@@ -42,9 +41,9 @@ t3code-nightly:
 
   version:
     url: https://api.github.com/repos/pingdotgg/t3code/releases
-    regex: "\"tag_name\"\\s*:\\s*\"nightly-v([^\"]+)\""
+    regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
 
   autoupdate:
     architecture:
       64bit:
-        url: https://github.com/pingdotgg/t3code/releases/download/nightly-v$version/T3-Code-$version-x64.exe#/dl.7z
+        url: https://github.com/pingdotgg/t3code/releases/download/v$version/T3-Code-$version-x64.exe#/dl.7z
