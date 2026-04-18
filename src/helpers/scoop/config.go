@@ -17,6 +17,16 @@ func GetScoopConfigAppMap(configs []helpers.ScoopAppConfig) map[string]helpers.S
 	return appMap
 }
 
+func GetScoopConfigSrcMap(configs []helpers.ScoopAppConfig) map[string]helpers.ScoopAppConfig {
+	appMap := make(map[string]helpers.ScoopAppConfig)
+
+	for _, app := range configs {
+		appMap[app.Source] = app
+	}
+
+	return appMap
+}
+
 func GetScoopConfigBucketsList(configs []helpers.ScoopAppConfig) []string {
 	bucketList := []string{}
 
