@@ -3,6 +3,10 @@ msys2:
   - fish
 
 scoop:
+  # Custom
+  - $t3code-nightly
+  - $opencode-desktop-beta
+
   # Development Tools
   - gcc
   - scc

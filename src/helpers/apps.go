@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"dotfiles/src/constants"
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
@@ -17,6 +18,7 @@ type MsysAppConfig struct {
 type ScoopAppConfig struct {
 	ID     string `yaml:"id"`
 	Bucket string `yaml:"bucket"`
+	Source string `yaml:"source"`
 }
 
 type WingetAppConfig struct {
@@ -81,12 +83,20 @@ func GetScoopApps() []ScoopAppConfig {
 		}
 
 		appName := ""
+		appSource := ""
 		bucketName := ""
 		splitStr := strings.Split(app, "/")
 
 		if len(splitStr) == 1 {
 			appName = splitStr[0]
-			bucketName = utils.Ternary(configuredBucket != "", configuredBucket, "main")
+
+			if strings.HasPrefix(appName, "$") {
+				bucketName = ""
+				appName = appName[1:]
+				appSource = ResolvePath("@/" + constants.SCOOP_DIR + "/" + appName + ".json")
+			} else {
+				bucketName = utils.Ternary(configuredBucket != "", configuredBucket, "main")
+			}
 		} else if len(splitStr) == 2 {
 			if configuredBucket != "" {
 				fmt.Println(aurora.Red("Invalid app and bucket configuration; expected: <bucket>/<app>"))
@@ -101,7 +111,8 @@ func GetScoopApps() []ScoopAppConfig {
 		}
 
 		outputConfig = append(outputConfig, ScoopAppConfig{
-			ID:     bucketName + "/" + appName,
+			ID:     utils.Ternary(bucketName == "", appName, bucketName+"/"+appName),
+			Source: appSource,
 			Bucket: bucketName,
 		})
 	}
