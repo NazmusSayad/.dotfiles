@@ -78,6 +78,11 @@ func main() {
 }
 
 func installScoopApp(appId string) {
+	if strings.Contains(appId, "@") {
+		fmt.Println(aurora.Faint("! Can't install"), aurora.Green(appId))
+		return
+	}
+
 	fmt.Println(aurora.Faint("- Installing"), aurora.Green(appId))
 	helpers.ExecNativeCommand([]string{"scoop", "install", appId})
 }
