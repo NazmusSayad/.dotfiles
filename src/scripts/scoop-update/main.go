@@ -1,0 +1,226 @@
+package main
+
+import (
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"hash"
+	"io"
+	"net/http"
+	"os"
+	"regexp"
+	"strings"
+
+	"dotfiles/src/constants"
+	"dotfiles/src/helpers"
+
+	"github.com/logrusorgru/aurora/v4"
+)
+
+type scoopVersionConfig struct {
+	URL   string `yaml:"url"`
+	Regex string `yaml:"regex"`
+}
+
+type scoopAutoupdateArchConfig struct {
+	URL string `yaml:"url" json:"url"`
+}
+
+type scoopAutoupdateConfig struct {
+	Architecture map[string]scoopAutoupdateArchConfig `yaml:"architecture" json:"architecture"`
+}
+
+type scoopAppTemplate struct {
+	Description string                `yaml:"description"`
+	Homepage    string                `yaml:"homepage"`
+	Extract     string                `yaml:"extract"`
+	Install     []string              `yaml:"install"`
+	Bin         [][]string            `yaml:"bin"`
+	Shortcuts   [][]string            `yaml:"shortcuts"`
+	Version     scoopVersionConfig    `yaml:"version"`
+	Autoupdate  scoopAutoupdateConfig `yaml:"autoupdate"`
+}
+
+type githubReleaseAsset struct {
+	BrowserDownloadURL string `json:"browser_download_url"`
+	Digest             string `json:"digest"`
+}
+
+type githubRelease struct {
+	Assets []githubReleaseAsset `json:"assets"`
+}
+
+func main() {
+	apps := helpers.ReadConfig[map[string]scoopAppTemplate]("@/config/scoop-apps.yaml")
+
+	err := os.MkdirAll(constants.SCOOP_DIR, 0o755)
+	if err != nil {
+		fmt.Println(aurora.Red("Failed to create Scoop directory:"), err)
+		os.Exit(1)
+	}
+
+	successCount := 0
+	failCount := 0
+
+	for appID, app := range apps {
+		if app.Version.URL == "" || app.Version.Regex == "" {
+			fmt.Println(aurora.Red("Failed:"), appID, "missing version.url or version.regex")
+			failCount++
+			continue
+		}
+
+		response, httpErr := http.Get(app.Version.URL)
+		if httpErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "version fetch error:", httpErr)
+			failCount++
+			continue
+		}
+
+		if response.StatusCode < 200 || response.StatusCode >= 300 {
+			fmt.Println(aurora.Red("Failed:"), appID, "version fetch status:", response.Status)
+			response.Body.Close()
+			failCount++
+			continue
+		}
+
+		body, readErr := io.ReadAll(response.Body)
+		response.Body.Close()
+		if readErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "version body read error:", readErr)
+			failCount++
+			continue
+		}
+
+		re, compileErr := regexp.Compile(app.Version.Regex)
+		if compileErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "invalid version regex:", compileErr)
+			failCount++
+			continue
+		}
+
+		matches := re.FindStringSubmatch(string(body))
+		if len(matches) == 0 {
+			fmt.Println(aurora.Red("Failed:"), appID, "version regex found no match")
+			failCount++
+			continue
+		}
+
+		version := matches[0]
+		if len(matches) > 1 {
+			version = matches[1]
+		}
+		version = strings.TrimPrefix(version, "v")
+
+		release := githubRelease{}
+		if unmarshalErr := json.Unmarshal(body, &release); unmarshalErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "invalid release payload:", unmarshalErr)
+			failCount++
+			continue
+		}
+
+		architecture := map[string]map[string]string{}
+		archFailed := false
+		for arch, archConfig := range app.Autoupdate.Architecture {
+			resolvedURL := strings.ReplaceAll(archConfig.URL, "$version", version)
+			assetURL := strings.SplitN(resolvedURL, "#", 2)[0]
+
+			asset := githubReleaseAsset{}
+			assetFound := false
+			for _, current := range release.Assets {
+				if current.BrowserDownloadURL == assetURL {
+					asset = current
+					assetFound = true
+					break
+				}
+			}
+
+			if !assetFound {
+				fmt.Println(aurora.Red("Failed:"), appID, "no matching release asset for", arch)
+				failCount++
+				archFailed = true
+				break
+			}
+
+			hashValue := ""
+			if strings.HasPrefix(strings.ToLower(asset.Digest), "sha256:") {
+				hashValue = strings.ToLower(strings.TrimSpace(strings.SplitN(asset.Digest, ":", 2)[1]))
+			} else {
+				computedHash, hashErr := getURLSHA256(assetURL)
+				if hashErr != nil {
+					fmt.Println(aurora.Red("Failed:"), appID, "hash fetch error:", hashErr)
+					failCount++
+					archFailed = true
+					break
+				}
+
+				hashValue = computedHash
+			}
+
+			architecture[arch] = map[string]string{
+				"url":  resolvedURL,
+				"hash": hashValue,
+			}
+		}
+
+		if archFailed {
+			continue
+		}
+
+		manifest := map[string]any{
+			"version":      version,
+			"description":  app.Description,
+			"homepage":     app.Homepage,
+			"bin":          app.Bin,
+			"shortcuts":    app.Shortcuts,
+			"extract_dir":  app.Extract,
+			"pre_install":  app.Install,
+			"architecture": architecture,
+			"autoupdate":   app.Autoupdate,
+		}
+
+		manifestRaw, marshalErr := json.MarshalIndent(manifest, "", "  ")
+		if marshalErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "manifest encode error:", marshalErr)
+			failCount++
+			continue
+		}
+
+		outputPath := constants.SCOOP_DIR + "/" + appID + ".json"
+		writeErr := os.WriteFile(outputPath, append(manifestRaw, '\n'), 0o644)
+		if writeErr != nil {
+			fmt.Println(aurora.Red("Failed:"), appID, "manifest write error:", writeErr)
+			failCount++
+			continue
+		}
+
+		fmt.Println(aurora.Green("Updated:"), outputPath)
+		successCount++
+	}
+
+	fmt.Println()
+	fmt.Println(aurora.Green("Updated Scoop manifests:"), successCount)
+	if failCount > 0 {
+		fmt.Println(aurora.Red("Failed Scoop manifests:"), failCount)
+		os.Exit(1)
+	}
+}
+
+func getURLSHA256(rawURL string) (string, error) {
+	resp, err := http.Get(rawURL)
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		return "", fmt.Errorf("hash download status: %s", resp.Status)
+	}
+
+	var h hash.Hash = sha256.New()
+	if _, err := io.Copy(h, resp.Body); err != nil {
+		return "", err
+	}
+
+	return hex.EncodeToString(h.Sum(nil)), nil
+}
