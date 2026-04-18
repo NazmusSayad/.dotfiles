@@ -248,12 +248,24 @@ func main() {
 			"version":      version,
 			"description":  app.Description,
 			"homepage":     app.Homepage,
-			"bin":          app.Bin,
-			"shortcuts":    app.Shortcuts,
-			"extract_dir":  app.Extract,
-			"pre_install":  app.Install,
 			"architecture": architecture,
 			"autoupdate":   app.Autoupdate,
+		}
+
+		if strings.TrimSpace(app.Extract) != "" {
+			manifest["extract_dir"] = app.Extract
+		}
+
+		if len(app.Install) > 0 {
+			manifest["pre_install"] = app.Install
+		}
+
+		if len(app.Bin) > 0 {
+			manifest["bin"] = app.Bin
+		}
+
+		if len(app.Shortcuts) > 0 {
+			manifest["shortcuts"] = app.Shortcuts
 		}
 
 		manifestRaw, marshalErr := json.MarshalIndent(manifest, "", "  ")
