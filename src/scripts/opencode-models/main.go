@@ -23,16 +23,16 @@ type authProvider struct {
 type authConfig map[string]authProvider
 
 type opencodeProviderConfig struct {
-	Name    string `json:"name"`
-	BaseURL string `json:"apiURL"`
+	Name    string `yaml:"name"`
+	BaseURL string `yaml:"apiURL"`
 
-	ModelsURL    string `json:"modelsURL"`
-	ModelPrefix  string `json:"modelPrefix"`
-	ModelBaseURL string `json:"modelBaseURL"`
+	ModelsURL    string `yaml:"modelsURL"`
+	ModelPrefix  string `yaml:"modelPrefix"`
+	ModelBaseURL string `yaml:"modelBaseURL"`
 
-	HasTurboMode bool `json:"hasTurboMode"`
+	HasTurboMode bool `yaml:"hasTurboMode"`
 
-	Models []string `json:"models"`
+	Models []string `yaml:"models"`
 }
 
 type unknownModelDetailsResponse struct {
