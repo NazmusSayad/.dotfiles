@@ -17,6 +17,7 @@ func main() {
 
 	configBucketsList := scoop.GetScoopConfigBucketsList(configs)
 	configAppMap := scoop.GetScoopConfigAppMap(configs)
+	configSrcMap := scoop.GetScoopConfigSrcMap(configs)
 
 	exportBucketList := scoop.GetScoopExportBucketsList(exports)
 	exportAppMap := scoop.GetScoopExportAppMap(exports)
@@ -34,9 +35,19 @@ func main() {
 			continue
 		}
 
-		if _, isExists := configAppMap[appId]; !isExists {
-			unnecessaryApps = append(unnecessaryApps, exportApp)
+		_, isExists := configAppMap[appId]
+		if isExists {
+			continue
 		}
+
+		if strings.HasSuffix(exportApp.Source, ".json") {
+			_, isSourceExists := configSrcMap[exportApp.Source]
+			if isSourceExists {
+				continue
+			}
+		}
+
+		unnecessaryApps = append(unnecessaryApps, exportApp)
 	}
 
 	unnecessaryBucketsCount := len(unnecessaryBuckets)
@@ -70,9 +81,17 @@ func main() {
 	for _, app := range unnecessaryApps {
 		fmt.Println()
 		fmt.Println(aurora.Faint("- Removing app"), aurora.Green(app.Source+"/"+app.Name))
-		helpers.ExecNativeCommand(
-			[]string{"scoop", "uninstall", app.Source + "/" + app.Name},
-			helpers.ExecCommandOptions{Simulate: true},
-		)
+
+		if strings.HasSuffix(app.Source, ".json") {
+			helpers.ExecNativeCommand(
+				[]string{"scoop", "uninstall", app.Name},
+				helpers.ExecCommandOptions{Simulate: true},
+			)
+		} else {
+			helpers.ExecNativeCommand(
+				[]string{"scoop", "uninstall", app.Source + "/" + app.Name},
+				helpers.ExecCommandOptions{Simulate: true},
+			)
+		}
 	}
 }
