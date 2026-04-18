@@ -66,13 +66,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	successCount := 0
-	failCount := 0
-
 	for appID, app := range apps {
 		if app.Version.URL == "" || (app.Version.Regex == "" && app.Version.Fixed == "") {
 			fmt.Println(aurora.Red("Failed:"), appID, "missing version.url and version.regex/version.fixed")
-			failCount++
 			continue
 		}
 
@@ -81,7 +77,6 @@ func main() {
 			compiledRegex, compileErr := regexp.Compile(app.Version.Regex)
 			if compileErr != nil {
 				fmt.Println(aurora.Red("Failed:"), appID, "invalid version regex:", compileErr)
-				failCount++
 				continue
 			}
 
@@ -93,7 +88,6 @@ func main() {
 		parsedVersionURL, parseErr := url.Parse(strings.TrimSpace(app.Version.URL))
 		if parseErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "invalid version.url:", parseErr)
-			failCount++
 			continue
 		}
 
@@ -111,7 +105,6 @@ func main() {
 		request, requestErr := http.NewRequest(http.MethodGet, versionURL, nil)
 		if requestErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "version request error:", requestErr)
-			failCount++
 			continue
 		}
 
@@ -122,14 +115,12 @@ func main() {
 		response, httpErr := http.DefaultClient.Do(request)
 		if httpErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "version fetch error:", httpErr)
-			failCount++
 			continue
 		}
 
 		if response.StatusCode < 200 || response.StatusCode >= 300 {
 			fmt.Println(aurora.Red("Failed:"), appID, "version fetch status:", response.Status)
 			response.Body.Close()
-			failCount++
 			continue
 		}
 
@@ -137,7 +128,6 @@ func main() {
 		response.Body.Close()
 		if readErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "version body read error:", readErr)
-			failCount++
 			continue
 		}
 
@@ -145,7 +135,6 @@ func main() {
 			matches := versionRegex.FindStringSubmatch(string(body))
 			if len(matches) == 0 {
 				fmt.Println(aurora.Red("Failed:"), appID, "version regex found no match")
-				failCount++
 				continue
 			}
 
@@ -160,13 +149,11 @@ func main() {
 			releases := []githubRelease{}
 			if unmarshalArrayErr := json.Unmarshal(body, &releases); unmarshalArrayErr != nil {
 				fmt.Println(aurora.Red("Failed:"), appID, "invalid release payload:", unmarshalErr)
-				failCount++
 				continue
 			}
 
 			if len(releases) == 0 {
 				fmt.Println(aurora.Red("Failed:"), appID, "release payload has no entries")
-				failCount++
 				continue
 			}
 
@@ -207,7 +194,6 @@ func main() {
 
 			if !releaseFound {
 				fmt.Println(aurora.Red("Failed:"), appID, "no release matched resolved version")
-				failCount++
 				continue
 			}
 		}
@@ -230,7 +216,6 @@ func main() {
 
 			if !assetFound {
 				fmt.Println(aurora.Red("Failed:"), appID, "no matching release asset for", arch)
-				failCount++
 				archFailed = true
 				break
 			}
@@ -242,7 +227,6 @@ func main() {
 				computedHash, hashErr := getURLSHA256(assetURL, githubToken)
 				if hashErr != nil {
 					fmt.Println(aurora.Red("Failed:"), appID, "hash fetch error:", hashErr)
-					failCount++
 					archFailed = true
 					break
 				}
@@ -275,7 +259,6 @@ func main() {
 		manifestRaw, marshalErr := json.MarshalIndent(manifest, "", "  ")
 		if marshalErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "manifest encode error:", marshalErr)
-			failCount++
 			continue
 		}
 
@@ -283,19 +266,10 @@ func main() {
 		writeErr := os.WriteFile(outputPath, append(manifestRaw, '\n'), 0o644)
 		if writeErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "manifest write error:", writeErr)
-			failCount++
 			continue
 		}
 
 		fmt.Println(aurora.Green("Updated:"), outputPath)
-		successCount++
-	}
-
-	fmt.Println()
-	fmt.Println(aurora.Green("Updated Scoop manifests:"), successCount)
-	if failCount > 0 {
-		fmt.Println(aurora.Red("Failed Scoop manifests:"), failCount)
-		os.Exit(1)
 	}
 }
 
