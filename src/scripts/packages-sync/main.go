@@ -22,6 +22,10 @@ func main() {
 	runCommand([]string{"scoop-install"})
 	fmt.Println()
 
+	fmt.Println("△", aurora.Faint("Updating Scoop Local Apps..."))
+	runCommand([]string{"scoop-update"})
+	fmt.Println()
+
 	fmt.Println("△", aurora.Faint("Updating Scoop Apps..."))
 	runCommand([]string{"scoop", "update", "--all", "--quiet"})
 	fmt.Println()
