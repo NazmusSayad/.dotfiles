@@ -1,0 +1,25 @@
+opencode-desktop-beta:
+  description: OpenCode Beta desktop app
+  homepage: https://github.com/anomalyco/opencode-beta
+
+  extract: $PLUGINSDIR
+  install:
+    - Expand-7zipArchive (Join-Path $dir 'app-64.7z') (Join-Path $dir 'app')
+
+  bin:
+    - - app/OpenCode Beta.exe
+      - opencode-desktop-beta
+  shortcuts:
+    - - app/OpenCode Beta.exe
+      - OpenCode Desktop (Beta)
+
+  version:
+    url: https://api.github.com/repos/anomalyco/opencode-beta/releases/latest
+    regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
+
+  autoupdate:
+    architecture:
+      arm64:
+        url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-arm64.exe#/dl.7z
+      64bit:
+        url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-x64.exe#/dl.7z
