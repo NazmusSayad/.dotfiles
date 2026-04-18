@@ -56,8 +56,10 @@ type githubRelease struct {
 
 func main() {
 	apps := helpers.ReadConfig[map[string]scoopAppTemplate]("@/config/scoop-apps.yaml")
+	resolvedScoopDir := helpers.ResolvePath("@/" + constants.SCOOP_DIR)
+	fmt.Println("Updating Scoop manifests in", aurora.Cyan(resolvedScoopDir))
 
-	err := os.MkdirAll(constants.SCOOP_DIR, 0o755)
+	err := os.MkdirAll(resolvedScoopDir, 0o755)
 	if err != nil {
 		fmt.Println(aurora.Red("Failed to create Scoop directory:"), err)
 		os.Exit(1)
@@ -231,7 +233,7 @@ func main() {
 			continue
 		}
 
-		outputPath := constants.SCOOP_DIR + "/" + appID + ".json"
+		outputPath := resolvedScoopDir + "/" + appID + ".json"
 		writeErr := os.WriteFile(outputPath, append(manifestRaw, '\n'), 0o644)
 		if writeErr != nil {
 			fmt.Println(aurora.Red("Failed:"), appID, "manifest write error:", writeErr)
