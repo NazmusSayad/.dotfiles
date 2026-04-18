@@ -56,8 +56,9 @@ scoop:
   - yq
 
   # Workflow Tools
-  - make
   - just
+  - make
+  - cmake
 
   # Media Tools
   - extras/anyburn
