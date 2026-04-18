@@ -3,6 +3,10 @@ name: react
 description: React code style, conventions, best practices, and patterns for building clean, efficient, and scalable applications. Must use when writing or reviewing React components, hooks, and JSX.
 ---
 
+### Hooks
+
+- Avoid using `useEffect` for simple state updates or derived state. Use `useMemo`, `useCallback`, or direct calculations instead.
+
 ### Don't over-declare
 
 Do not over-declare variables, functions, or components unless the logic is extremely complex. Prefer inlining when it's simple.
@@ -10,13 +14,13 @@ Do not over-declare variables, functions, or components unless the logic is extr
 ❌ Incorrect:
 
 ```tsx
-import { useState } from "react";
+import { useState } from "react"
 
 function MyComponent() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   function handleIncrement() {
-    setCount(count + 1);
+    setCount(count + 1)
   }
 
   return (
@@ -24,7 +28,7 @@ function MyComponent() {
       <p>Count: {count}</p>
       <button onClick={handleIncrement}>Increment</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -33,17 +37,17 @@ Inline it when it's not extremely complex.
 ✅ Correct:
 
 ```tsx
-import { useState } from "react";
+import { useState } from "react"
 
 function MyComponent() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -52,14 +56,14 @@ You may declare functions when the logic is extremely complex.
 ✅ Correct:
 
 ```tsx
-import { useState } from "react";
+import { useState } from "react"
 
 function MyComponent() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   function handleIncrement() {
     // YOUR EXTREMELY COMPLEX LOGIC HERE
-    setCount(count + 1);
+    setCount(count + 1)
   }
 
   return (
@@ -67,7 +71,7 @@ function MyComponent() {
       <p>Count: {count}</p>
       <button onClick={handleIncrement}>Increment</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -78,14 +82,14 @@ Pure utility functions must be declared outside React components.
 ❌ Incorrect:
 
 ```tsx
-import { useState } from "react";
+import { useState } from "react"
 
 function MyComponent() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState("")
 
   function processDisplayText(text: string) {
     // ...
-    return text.toUpperCase();
+    return text.toUpperCase()
   }
 
   return (
@@ -93,29 +97,29 @@ function MyComponent() {
       <p>Text: {processDisplayText(text)}</p>
       <input onChange={(e) => setText(e.target.value)} />
     </div>
-  );
+  )
 }
 ```
 
 ✅ Correct:
 
 ```tsx
-import { useState } from "react";
+import { useState } from "react"
 
 function processDisplayText(text: string) {
   // ...
-  return text.toUpperCase();
+  return text.toUpperCase()
 }
 
 function MyComponent() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState("")
 
   return (
     <div>
       <p>Text: {processDisplayText(text)}</p>
       <input onChange={(e) => setText(e.target.value)} />
     </div>
-  );
+  )
 }
 ```
 
@@ -127,16 +131,16 @@ Prefer direct inline Tailwind classes in JSX. Do not extract them into variables
 
 ```tsx
 function MyComponent() {
-  const containerClasses = "flex flex-col gap-4 p-6 bg-white rounded-lg";
+  const containerClasses = "flex flex-col gap-4 p-6 bg-white rounded-lg"
   const buttonClasses =
-    "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600";
+    "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
 
   return (
     <div className={containerClasses}>
       <h1>Title</h1>
       <button className={buttonClasses}>Click me</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -151,7 +155,7 @@ function MyComponent() {
         Click me
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -174,14 +178,14 @@ function Form({ isSubmitting, hasError }: FormProps) {
         />
       </fieldset>
     </form>
-  );
+  )
 }
 ```
 
 ✅ Correct (using `cn` or similar utility, if available in the project):
 
 ```tsx
-import { cn } from "@/lib/utils"; // or from "clsx", "classnames"
+import { cn } from "@/lib/utils" // or from "clsx", "classnames"
 
 function Form() {
   return (
@@ -198,6 +202,6 @@ function Form() {
         />
       </fieldset>
     </form>
-  );
+  )
 }
 ```
