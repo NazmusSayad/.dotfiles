@@ -82,8 +82,8 @@
         "moonshotai/kimi-k2.5": {
           "id": "moonshotai/kimi-k2.5",
           "limit": {
-            "context": 262144,
-            "output": 262144
+            "context": 256000,
+            "output": 256000
           },
           "modalities": {
             "input": ["text", "image"],

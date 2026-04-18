@@ -14,8 +14,8 @@ import (
 )
 
 type opencodeServerConfig struct {
-	Port   int    `json:"port"`
-	Tunnel string `json:"tunnel"`
+	Port   int    `yaml:"port"`
+	Tunnel string `yaml:"tunnel"`
 }
 
 func main() {
