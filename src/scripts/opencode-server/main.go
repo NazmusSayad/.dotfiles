@@ -38,7 +38,7 @@ func main() {
 }
 
 func startServer() {
-	config := helpers.ReadConfig[opencodeServerConfig]("@/config/ai/opencode-server.jsonc")
+	config := helpers.ReadConfig[opencodeServerConfig]("@/config/ai/opencode-server.yaml")
 
 	executablePath, err := os.Executable()
 	if err != nil {

@@ -94,7 +94,7 @@ var (
 )
 
 func main() {
-	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.jsonc")
+	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.yaml")
 	providerConfigs := helpers.ReadConfig[map[string]opencodeProviderConfig](providerConfigPath)
 
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
