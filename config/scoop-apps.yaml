@@ -24,6 +24,29 @@ opencode-desktop-beta:
       64bit:
         url: https://github.com/anomalyco/opencode-beta/releases/download/v$version/opencode-electron-win-x64.exe#/dl.7z
 
+opencode-local:
+  description: OpenCode local CLI
+  homepage: https://github.com/anomalyco/opencode
+
+  extract: .
+  install: []
+
+  bin:
+    - - opencode.exe
+      - opencode-local
+  shortcuts: []
+
+  version:
+    url: https://api.github.com/repos/anomalyco/opencode/releases
+    regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
+
+  autoupdate:
+    architecture:
+      arm64:
+        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-windows-arm64.zip
+      64bit:
+        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-windows-x64.zip
+
 t3code-nightly:
   description: T3 Code nightly desktop app
   homepage: https://github.com/pingdotgg/t3code
