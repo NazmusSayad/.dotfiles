@@ -14,8 +14,9 @@ opencode-desktop-beta:
       - OpenCode Desktop (Beta)
 
   version:
-    url: https://api.github.com/repos/anomalyco/opencode-beta/releases/latest
+    url: https://api.github.com/repos/anomalyco/opencode-beta/releases
     regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
+    fixed: v0.0.0-beta-202604172322
 
   autoupdate:
     architecture:
@@ -40,7 +41,7 @@ t3code-nightly:
       - T3 Code (Nightly)
 
   version:
-    url: https://api.github.com/repos/pingdotgg/t3code/releases?per_page=30
+    url: https://api.github.com/repos/pingdotgg/t3code/releases
     regex: "\"tag_name\"\\s*:\\s*\"nightly-v([^\"]+)\""
 
   autoupdate:
