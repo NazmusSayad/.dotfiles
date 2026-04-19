@@ -5,7 +5,7 @@ approval_policy = "on-failure"
 model_reasoning_effort = "minimal"
 
 
-[projects.'C:\\Users\\Sayad\\Desktop']
+[projects.'C:\Users\Sayad\Desktop']
 trust_level = "trusted"
 
 [projects.'F:\__DOTFILES__']
