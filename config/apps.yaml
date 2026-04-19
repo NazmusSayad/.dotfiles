@@ -5,7 +5,6 @@ msys2:
 scoop:
   # Custom
   - $t3code
-  - $opencode-desktop-full
 
   # Development Tools
   - gcc
@@ -21,6 +20,7 @@ scoop:
   - codex
   - whisper-cpp
   - versions/llama.cpp-cpu
+  - extras/opencode-desktop
 
   # Visualization Tools
   - extras/onefetch
