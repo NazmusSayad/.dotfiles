@@ -1,9 +1,8 @@
 # AI Coding
 oc: opencode
 occ: opencode --continue
-ocs: opencode-server
-cx: codex--dangerously-bypass-approvals-and-sandbox
-cxx: cc --last
+cx: codex
+cxx: codex --last
 cc: claude --model claude-opus-4-6 --permission-mode bypassPermissions
   --allow-dangerously-skip-permissions --dangerously-skip-permissions
 ccc: cc --continue
