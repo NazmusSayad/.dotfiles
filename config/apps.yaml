@@ -119,8 +119,6 @@ winget:
 
   # Shells & Development Tools
   - T3Tools.T3Code
-  - id: 9PLM9XGG6VKS
-    name: Codex App
   - id: MSYS2.MSYS2
     name: MSYS2
     forceAdminInstall: true
