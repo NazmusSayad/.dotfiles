@@ -243,7 +243,6 @@
   "tailwindCSS.lint.suggestCanonicalClasses": "ignore",
   "js/ts.format.enabled": false,
   "js/ts.preferences.quoteStyle": "single",
-  "js/ts.tsserver.checkNpmIsInstalled": false,
   "js/ts.suggest.jsdoc.generateReturns": false,
   "js/ts.updateImportsOnFileMove.enabled": "always",
   "js/ts.inlayHints.parameterNames.enabled": "all",
