@@ -51,7 +51,7 @@
     "Targets": ["~/.claude/commands", "~/.config/opencode/commands"]
   },
   {
-    "Source": "@/config/ai/README_AGENTS.md",
+    "Source": "@/config/ai/AGENTS_RULES.md",
     "Targets": [
       "~/.config/opencode/AGENTS.md",
       "~/.claude/CLAUDE.md",
