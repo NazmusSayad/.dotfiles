@@ -47,6 +47,7 @@ java = "latest"
 "npm:code-info" = "latest"
 "npm:openusage" = "latest"
 "npm:git-stats" = "latest"
+"npm:tokentracker-cli" = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
@@ -61,6 +62,8 @@ firebase = "latest"
 # System Tools
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
+
+"pipx:docling" = "latest"
 
 [settings]
 auto_install = false
