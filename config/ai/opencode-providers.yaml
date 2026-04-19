@@ -3,7 +3,6 @@ kilo:
   apiURL: https://api.kilo.ai/api/gateway
   models:
     - kilo-auto/free
-    - openrouter/free
     - openrouter/elephant-alpha
 
     - qwen/qwen3.6-plus
