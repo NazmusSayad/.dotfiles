@@ -1,5 +1,7 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
+notify = ["tokentracker"]
+
 model = "gpt-5.3-codex"
 approval_policy = "on-failure"
 model_reasoning_effort = "minimal"
