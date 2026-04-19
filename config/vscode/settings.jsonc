@@ -429,6 +429,6 @@
       "background": "#FDD83580"
     }
   },
-  "workbench.activityBar.location": "hidden",
-  "chat.viewSessions.orientation": "stacked"
+  "chat.viewSessions.orientation": "stacked",
+  "workbench.activityBar.location": "hidden"
 }
