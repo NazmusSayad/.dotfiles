@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk"
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.114"
+}
