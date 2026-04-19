@@ -4,8 +4,10 @@ cxx: codex --last
 oc: opencode
 occ: opencode --continue
 ocs: opencode-server
-cc: claude --model claude-opus-4-6 --permission-mode bypassPermissions --allow-dangerously-skip-permissions --dangerously-skip-permissions
-ccc: claude --model claude-opus-4-6 --permission-mode bypassPermissions --allow-dangerously-skip-permissions --dangerously-skip-permissions --continue
+cc: claude --model claude-opus-4-6 --permission-mode bypassPermissions
+  --allow-dangerously-skip-permissions --dangerously-skip-permissions
+ccc: claude --model claude-opus-4-6 --permission-mode bypassPermissions
+  --allow-dangerously-skip-permissions --dangerously-skip-permissions --continue
 
 # Shell
 r: node --run
@@ -41,5 +43,7 @@ fix-next: rm -rf .next
 fix-ports: sudo net stop winnat
 fix-case-win: sudo fsutil file setCaseSensitiveInfo . enable recursive
 
-..: cd ..
+"..": cd ..
 "...": cd ../..
+"....": cd ../../..
+".....": cd ../../../..
