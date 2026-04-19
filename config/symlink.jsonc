@@ -27,6 +27,10 @@
     "Target": "~/.claude/settings.json"
   },
   {
+    "Source": "@/config/ai/t3code.jsonc",
+    "Target": "~/.t3/userdata/settings.json"
+  },
+  {
     "Source": "@/config/ai/opencode.json",
     "Target": "~/.config/opencode/config.json"
   },
