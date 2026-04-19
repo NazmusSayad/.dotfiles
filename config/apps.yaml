@@ -22,13 +22,14 @@ scoop:
   - claude-code
   - extras/opencode-desktop
 
-  # LLM Tools
+  # LLM Tools 
   - whisper-cpp
   - versions/llama.cpp-cpu
 
   # Visualization Tools
   - extras/onefetch
   - extras/hwinfo
+  - wakatime-cli
   - fastfetch
   - hyperfine
   - btop
