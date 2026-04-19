@@ -48,11 +48,7 @@
   },
   {
     "Source": "@/config/ai/commands",
-    "Targets": [
-      "~/.codex/prompts",
-      "~/.claude/commands",
-      "~/.config/opencode/commands"
-    ]
+    "Targets": ["~/.claude/commands", "~/.config/opencode/commands"]
   },
   {
     "Source": "@/config/ai/README_AGENTS.md",
