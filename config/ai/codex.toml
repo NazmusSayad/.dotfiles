@@ -1,20 +1,17 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
 model = "gpt-5.3-codex"
-model_reasoning_effort = "medium"
 approval_policy = "on-failure"
-[projects.'C:\Users\Sayad\Desktop\uigraph-dashboard']
+model_reasoning_effort = "minimal"
+
+
+[projects.'C:\\Users\\Sayad\\Desktop']
 trust_level = "trusted"
 
-[projects.'C:\Users\Sayad']
-trust_level = "trusted"
-
-[projects.'F:\__DOTFILES__']
-trust_level = "trusted"
-
-[projects.'C:\Users\Sayad\Desktop\_sandbox_']
-trust_level = "trusted"
 
 [windows]
 sandbox = "elevated"
+
 
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"

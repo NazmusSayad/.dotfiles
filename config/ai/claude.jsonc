@@ -1,9 +1,8 @@
 {
-  "permissions": {
-    "defaultMode": "dontAsk"
-  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
   "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true,
   "autoUpdatesChannel": "stable",
-  "minimumVersion": "2.1.114"
+  "skipDangerousModePermissionPrompt": true,
+  "permissions": { "defaultMode": "dontAsk" }
 }
