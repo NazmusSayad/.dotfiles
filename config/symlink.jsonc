@@ -20,11 +20,11 @@
   // Agent Configs
   {
     "Source": "@/config/ai/codex.toml",
-    "Targets": ["~/.codex/config.toml"]
+    "Target": "~/.codex/config.toml"
   },
   {
     "Source": "@/config/ai/claude.jsonc",
-    "Targets": ["~/.claude/settings.json"]
+    "Target": "~/.claude/settings.json"
   },
   {
     "Source": "@/config/ai/opencode.json",
@@ -40,15 +40,19 @@
   },
   {
     "Source": "@/config/ai/plugins",
-    "Targets": ["~/.config/opencode/plugins"]
-  },
-  {
-    "Source": "@/config/ai/commands",
-    "Targets": ["~/.config/opencode/commands"]
+    "Target": "~/.config/opencode/plugins"
   },
   {
     "Source": "@/config/ai/skills",
     "Targets": ["~/.agents/skills", "~/.claude/skills"]
+  },
+  {
+    "Source": "@/config/ai/commands",
+    "Targets": [
+      "~/.codex/prompts",
+      "~/.claude/commands",
+      "~/.config/opencode/commands"
+    ]
   },
   {
     "Source": "@/config/ai/README_AGENTS.md",
