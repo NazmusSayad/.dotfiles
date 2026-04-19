@@ -11,6 +11,7 @@ scoop:
   - scc
   - shfmt
   - extras/fvm
+  - extras/tableplus
 
   - gh
   - aws
@@ -82,6 +83,7 @@ scoop:
 
 winget:
   # Most Important
+  - stax76.run-hidden
   - id: Git.Git
     name: Git
     interactiveInstall: true
@@ -91,8 +93,7 @@ winget:
     interactiveInstall: true
     interactiveUpgrade: true
 
-  # System Tools
-  - stax76.run-hidden
+  # Windows Tools
   - id: 9N0DX20HK701
     name: Windows Terminal
   - id: 9MZ1SNWT0N5D
@@ -108,8 +109,8 @@ winget:
   - qBittorrent.qBittorrent
 
   # Media Tools
-  - ThioJoe.SvgThumbnailExtension
   - OBSProject.OBSStudio
+  - ThioJoe.SvgThumbnailExtension
   - id: 9NBLGGH68TW4
     name: Pictureflect Photo Viewer
   - id: Daum.PotPlayer
@@ -129,17 +130,14 @@ winget:
     skipInstall: true
 
   # Others
-  - UnifiedIntents.UnifiedRemote
   - RamenSoftware.Windhawk
+  - UnifiedIntents.UnifiedRemote
 
   # Code Editors
   - id: Microsoft.VisualStudioCode
     name: VSCode
     scope: User
     interactiveInstall: true
-  - id: TablePlus.TablePlus
-    name: TablePlus
-    version: 6.8.1
 
   # DotNet SDKs
   - Microsoft.DotNet.SDK.6
@@ -153,13 +151,3 @@ winget:
     forceAdminInstall: true
     forceAdminUpgrade: true
     interactiveInstall: true
-  - id: Microsoft.VisualStudio.BuildTools
-    name: Visual Studio Build Tools
-    interactiveInstall: true
-    interactiveUpgrade: true
-    skipInstall: true
-  - id: Microsoft.VisualStudio.2022.BuildTools
-    name: Visual Studio Build Tools 2022
-    interactiveInstall: true
-    interactiveUpgrade: true
-    skipInstall: true
