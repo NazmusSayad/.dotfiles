@@ -48,10 +48,11 @@ scoop:
   - byenow
   - yazi
   - unzip
+  - dust
+  - eza
   - zip
   - fzf
   - rip
-  - dust
   - bat
   - lsd
   - fd
