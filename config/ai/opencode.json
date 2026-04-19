@@ -80,8 +80,8 @@
         "moonshotai/kimi-k2.5": {
           "id": "moonshotai/kimi-k2.5",
           "limit": {
-            "context": 256000,
-            "output": 256000
+            "context": 262144,
+            "output": 262144
           },
           "modalities": {
             "input": ["text", "image"],
@@ -102,18 +102,6 @@
               }
             }
           }
-        },
-        "openrouter/free": {
-          "id": "openrouter/free",
-          "limit": {
-            "context": 200000,
-            "output": 200000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "name": "Free Models Router"
         },
         "qwen/qwen3.6-plus": {
           "id": "qwen/qwen3.6-plus",
