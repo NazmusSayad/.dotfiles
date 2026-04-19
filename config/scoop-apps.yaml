@@ -1,17 +1,10 @@
-opencode-desktop-full:
-  description: OpenCode desktop app
+opencode-cli:
+  description: OpenCode CLI
   homepage: https://opencode.ai/
 
-  install:
-    - Remove-Item "$dir\`$*", "$dir\Uninstall*" -Force -Recurse -ErrorAction
-      Ignore
-
   bin:
-    - - opencode-cli.exe
+    - - opencode.exe
       - opencode
-  shortcuts:
-    - - OpenCode.exe
-      - OpenCode
 
   version:
     url: https://api.github.com/repos/anomalyco/opencode/releases/latest
@@ -19,10 +12,50 @@ opencode-desktop-full:
 
   autoupdate:
     architecture:
-      arm64:
-        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-desktop-windows-arm64.exe#/dl.7z
+      64bit:
+        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-windows-x64.zip
+
+opencode-tauri:
+  description: OpenCode desktop app
+  homepage: https://opencode.ai/
+
+  install:
+    - Remove-Item "$dir\`$*", "$dir\Uninstall*" -Force -Recurse -ErrorAction
+      Ignore
+
+  shortcuts:
+    - - OpenCode.exe
+      - OpenCode (Tauri)
+
+  version:
+    url: https://api.github.com/repos/anomalyco/opencode/releases/latest
+    regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
+
+  autoupdate:
+    architecture:
       64bit:
         url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-desktop-windows-x64.exe#/dl.7z
+
+opencode-electron:
+  description: OpenCode Electron app
+  homepage: https://opencode.ai/
+
+  extract: $PLUGINSDIR
+  install:
+    - Expand-7zipArchive (Join-Path $dir 'app-64.7z') (Join-Path $dir 'app')
+
+  shortcuts:
+    - - app/OpenCode.exe
+      - OpenCode (Electron)
+
+  version:
+    url: https://api.github.com/repos/anomalyco/opencode/releases/latest
+    regex: "\"tag_name\"\\s*:\\s*\"v([^\"]+)\""
+
+  autoupdate:
+    architecture:
+      64bit:
+        url: https://github.com/anomalyco/opencode/releases/download/v$version/opencode-electron-win-x64.exe#/dl.7z
 
 t3code:
   description: T3 Code desktop app
