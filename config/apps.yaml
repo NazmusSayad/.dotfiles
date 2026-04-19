@@ -16,11 +16,14 @@ scoop:
   - aws
   - cloudflared
 
-  # AI Tools
+  # AI Coding Tools
   - codex
+  - claude-code
+  - extras/opencode-desktop
+
+  # LLM Tools
   - whisper-cpp
   - versions/llama.cpp-cpu
-  - extras/opencode-desktop
 
   # Visualization Tools
   - extras/onefetch
