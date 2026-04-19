@@ -71,6 +71,7 @@ scoop:
   - imagemagick
   - ffmpeg
   - yt-dlp
+  - pandoc
 
   # Communication Tools
   - extras/slack
