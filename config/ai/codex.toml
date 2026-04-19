@@ -11,6 +11,9 @@ trust_level = "trusted"
 [projects.'F:\__DOTFILES__']
 trust_level = "trusted"
 
+[projects.'C:\Users\Sayad\Desktop\keyvoid']
+trust_level = "trusted"
+
 
 [windows]
 sandbox = "elevated"
