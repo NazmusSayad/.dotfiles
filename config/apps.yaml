@@ -118,9 +118,9 @@ winget:
     interactiveUpgrade: true
 
   # Shells & Development Tools
-  - T3Tools.T3Code
   - id: MSYS2.MSYS2
     name: MSYS2
+    skipInstall: true
     forceAdminInstall: true
     forceAdminUpgrade: true
   - id: LLVM.LLVM
