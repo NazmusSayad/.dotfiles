@@ -8,6 +8,9 @@ model_reasoning_effort = "minimal"
 [projects.'C:\\Users\\Sayad\\Desktop']
 trust_level = "trusted"
 
+[projects.'F:\__DOTFILES__']
+trust_level = "trusted"
+
 
 [windows]
 sandbox = "elevated"
