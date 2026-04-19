@@ -5,7 +5,7 @@ msys2:
 scoop:
   # Custom
   - $t3code
-  - $opencode-full
+  - $opencode-desktop-full
 
   # Development Tools
   - gcc
