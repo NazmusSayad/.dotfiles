@@ -1,4 +1,4 @@
-format = "$shell$shlvl$directory$git_branch$git_state$git_status$line_break$character"
+format = "$shell$shlvl$directory$git_branch$git_state$git_status$mise$line_break$character"
 follow_symlinks = false
 add_newline = false
 
@@ -34,3 +34,9 @@ modified = "*"
 renamed = "~"
 behind = "↓"
 ahead = "↑"
+
+[mise]
+disabled = false
+format = "[$health](bold red)"
+unhealthy_symbol = " 󱧖"
+healthy_symbol = ""
