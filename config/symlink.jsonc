@@ -19,24 +19,12 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/skills",
-    "Targets": ["~/.agents/skills"]
+    "Source": "@/config/ai/codex.toml",
+    "Targets": ["~/.codex/config.toml"]
   },
   {
-    "Source": "@/config/ai/README_AGENTS.md",
-    "Targets": ["~/.config/opencode/AGENTS.md"]
-  },
-  {
-    "Source": "@/config/ai/commands",
-    "Targets": ["~/.config/opencode/commands"]
-  },
-  {
-    "Source": "@/config/ai/plugins",
-    "Targets": ["~/.config/opencode/plugins"]
-  },
-  {
-    "Source": "@/config/ai/agents",
-    "Target": "~/.config/opencode/agents"
+    "Source": "@/config/ai/claude.jsonc",
+    "Targets": ["~/.claude/settings.json"]
   },
   {
     "Source": "@/config/ai/opencode.json",
@@ -46,6 +34,32 @@
     "Source": "@/config/ai/opencode-tui.json",
     "Target": "~/.config/opencode/tui.json"
   },
+  {
+    "Source": "@/config/ai/agents",
+    "Target": "~/.config/opencode/agents"
+  },
+  {
+    "Source": "@/config/ai/plugins",
+    "Targets": ["~/.config/opencode/plugins"]
+  },
+  {
+    "Source": "@/config/ai/commands",
+    "Targets": ["~/.config/opencode/commands"]
+  },
+  {
+    "Source": "@/config/ai/skills",
+    "Targets": ["~/.agents/skills", "~/.claude/skills"]
+  },
+  {
+    "Source": "@/config/ai/README_AGENTS.md",
+    "Targets": [
+      "~/.config/opencode/AGENTS.md",
+      "~/.claude/CLAUDE.md",
+      "~/.codex/AGENTS.md"
+    ]
+  },
+
+  // Opencode Local Configs
   {
     "Source": "@/.local/auth.json",
     "Target": "~/.local/share/opencode/auth.json"
