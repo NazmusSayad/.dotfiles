@@ -3,14 +3,12 @@ msys2:
   - fish
 
 scoop:
-  # Custom
-  - $t3code
-
   # Development Tools
   - gcc
   - scc
   - shfmt
   - extras/fvm
+  - extras/zed
   - extras/tableplus
 
   - gh
