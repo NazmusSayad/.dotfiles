@@ -16,6 +16,9 @@ trust_level = "trusted"
 [projects.'C:\Users\Sayad\Desktop\keyvoid']
 trust_level = "trusted"
 
+[projects.'C:\Users\Sayad\Desktop\uigraph-dashboard']
+trust_level = "trusted"
+
 
 [windows]
 sandbox = "elevated"
