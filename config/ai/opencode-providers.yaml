@@ -8,6 +8,7 @@ kilo:
     - qwen/qwen3.6-plus
 
     - moonshotai/kimi-k2.5
+    - moonshotai/kimi-k2.6
 
     - minimax/minimax-m2.5
     - minimax/minimax-m2.7
