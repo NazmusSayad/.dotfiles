@@ -218,6 +218,32 @@
             "output": ["text"]
           },
           "name": "Elephant"
+        },
+        "moonshotai/kimi-k2.6": {
+          "id": "moonshotai/kimi-k2.6",
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "MoonshotAI: Kimi K2.6",
+          "variants": {
+            "instant": {
+              "reasoning": {
+                "effort": "none",
+                "enabled": false
+              }
+            },
+            "thinking": {
+              "reasoning": {
+                "effort": "medium",
+                "enabled": true
+              }
+            }
+          }
         }
       }
     }
