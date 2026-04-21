@@ -1,7 +1,8 @@
 openai:
   models:
     - gpt-5.3-codex
-    - gpt-5.4
+    - id: gpt-5.4
+      context: 128000
 
 kilo:
   modelsURL: https://api.kilo.ai/api/gateway/models
