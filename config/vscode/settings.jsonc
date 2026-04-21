@@ -38,6 +38,7 @@
   "workbench.list.smoothScrolling": true,
   "workbench.editor.preventPinnedEditorClose": "keyboard",
   "workbench.layoutControl.enabled": false,
+  "window.menuBarVisibility": "compact",
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
@@ -45,7 +46,7 @@
   "window.restoreWindows": "one",
   "window.density.editorTabHeight": "compact",
   "window.newWindowDimensions": "inherit",
-  "window.menuBarVisibility": "compact",
+  "window.menuBarVisibilit y": "compact",
   "window.commandCenter": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.tabActionCloseVisibility": false,
@@ -153,6 +154,9 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
@@ -177,17 +181,8 @@
   "[fish]": {
     "editor.defaultFormatter": "bmalehorn.vscode-fish"
   },
-  "[go.mod]": {
-    "editor.defaultFormatter": "golang.go"
-  },
   "[snippets]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[php]": {
-    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
