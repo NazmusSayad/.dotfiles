@@ -10,8 +10,13 @@ type AuthProvider struct {
 type AuthConfig map[string]AuthProvider
 
 type OpencodeProviderConfig struct {
-	ModelsURL string   `yaml:"modelsURL"`
-	Models    []string `yaml:"models"`
+	ModelsURL string                        `yaml:"modelsURL"`
+	Models    []OpencodeProviderConfigModel `yaml:"models"`
+}
+
+type OpencodeProviderConfigModel struct {
+	ID         string `json:"id"`
+	ContextCap int    `json:"context,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
