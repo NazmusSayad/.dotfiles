@@ -78,7 +78,6 @@ scoop:
 
   # Misc
   - nerd-fonts/FiraCode-NF
-  - nerd-fonts/FiraCode-NF-Mono
   - extras/vcredist2022
 
 winget:
