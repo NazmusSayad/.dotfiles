@@ -47,7 +47,6 @@ java = "latest"
 "npm:code-info" = "latest"
 "npm:openusage" = "latest"
 "npm:git-stats" = "latest"
-"npm:tokentracker-cli" = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
