@@ -4,7 +4,7 @@ openai:
     - gpt-5.4
 
 kilo:
-  apiURL: https://api.kilo.ai/api/gateway
+  modelsURL: https://api.kilo.ai/api/gateway/models
   models:
     - kilo-auto/free
 
