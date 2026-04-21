@@ -52,7 +52,7 @@ func main() {
 			providerAuth = &auth
 		}
 
-		models, err := opencode.FetchModels(providerConfig, providerAuth)
+		models, err := opencode.FetchModels(providerID, providerConfig, providerAuth)
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println()
