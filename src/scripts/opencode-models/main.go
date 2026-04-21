@@ -39,15 +39,9 @@ func main() {
 	}
 
 	for providerID, providerConfig := range providerConfigs {
-		providerName := providerConfig.Name
-		if providerName == "" {
-			providerName = providerID
-		}
-		providerConfig.Name = providerName
+		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
 
-		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerName).String())
-
-		if providerConfig.BaseURL == "" && providerConfig.ModelsURL == "" {
+		if providerConfig.ModelsURL == "" {
 			fmt.Fprintf(os.Stderr, "%s provider %q has no apiURL/modelsURL, skipping\n", aurora.Yellow("warn:").String(), providerID)
 			fmt.Println()
 			continue

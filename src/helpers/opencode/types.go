@@ -10,15 +10,8 @@ type AuthProvider struct {
 type AuthConfig map[string]AuthProvider
 
 type OpencodeProviderConfig struct {
-	Name    string `yaml:"name"`
-	BaseURL string `yaml:"apiURL"`
-
-	ModelsURL   string `yaml:"modelsURL"`
-	ModelPrefix string `yaml:"modelPrefix"`
-
-	HasTurboMode bool `yaml:"hasTurboMode"`
-
-	Models []string `yaml:"models"`
+	ModelsURL string   `yaml:"modelsURL"`
+	Models    []string `yaml:"models"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
