@@ -3,102 +3,68 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io"
-	"net/http"
 	"os"
-	"slices"
 	"strings"
 
 	"dotfiles/src/helpers"
+	"dotfiles/src/helpers/opencode"
 
 	"github.com/logrusorgru/aurora/v4"
 	"github.com/tidwall/jsonc"
 )
 
-type authProvider struct {
-	Type string `json:"type"`
-	Key  string `json:"key"`
-}
-
-type authConfig map[string]authProvider
-
-type opencodeProviderConfig struct {
-	Name    string `yaml:"name"`
-	BaseURL string `yaml:"apiURL"`
-
-	ModelsURL    string `yaml:"modelsURL"`
-	ModelPrefix  string `yaml:"modelPrefix"`
-	ModelBaseURL string `yaml:"modelBaseURL"`
-
-	HasTurboMode bool `yaml:"hasTurboMode"`
-
-	Models []string `yaml:"models"`
-}
-
-type unknownModelDetailsResponse struct {
-	DisplayName        string `json:"displayName"`
-	ContextLength      int    `json:"contextLength"`
-	SupportsImageInput bool   `json:"supportsImageInput"`
-}
-
-type openAiCompatibleModelsResponse struct {
-	Data []openAiCompatibleModel `json:"data"`
-}
-
-type openAiCompatibleModel struct {
-	ID            string                       `json:"id"`
-	Name          string                       `json:"name"`
-	ContextLength int                          `json:"context_length"`
-	Architecture  openAiCompatibleArchitecture `json:"architecture"`
-	Opencode      kiloOptionalOpencode         `json:"opencode"`
-}
-
-type openAiCompatibleArchitecture struct {
-	InputModalities  []string `json:"input_modalities"`
-	OutputModalities []string `json:"output_modalities"`
-}
-
-type kiloOptionalOpencode struct {
-	Family   string                     `json:"family"`
-	Variants map[string]json.RawMessage `json:"variants"`
-}
-
-type opencodeOutputModel struct {
-	ID         string                     `json:"id"`
-	Name       string                     `json:"name"`
-	Limit      *opencodeOutputLimit       `json:"limit,omitempty"`
-	Modalities *opencodeOutputModalities  `json:"modalities,omitempty"`
-	Family     string                     `json:"family,omitempty"`
-	Variants   map[string]json.RawMessage `json:"variants,omitempty"`
-}
-
-type opencodeOutputModalities struct {
-	Input  []string `json:"input"`
-	Output []string `json:"output"`
-}
-
-type opencodeOutputLimit struct {
-	Context int `json:"context"`
-	Output  int `json:"output"`
-}
-
-type opencodeOutputProvider struct {
-	API    string          `json:"api,omitempty"`
-	Name   string          `json:"name,omitempty"`
-	Models json.RawMessage `json:"models"`
-}
-
-var (
-	managedProviderSuffix = "+"
-	allowedModalities     = []string{"text", "audio", "image", "video", "pdf"}
-)
+var managedProviderSuffix = "+"
 
 func main() {
 	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.yaml")
-	providerConfigs := helpers.ReadConfig[map[string]opencodeProviderConfig](providerConfigPath)
+	providerConfigs := helpers.ReadConfig[map[string]opencode.OpencodeProviderConfig](providerConfigPath)
 
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
-	authConfig := helpers.ReadConfig[authConfig](authConfigPath)
+	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
+
+	managedProviders := map[string]opencode.OpencodeOutputProvider{}
+
+	for providerID, providerConfig := range providerConfigs {
+		if !strings.HasSuffix(providerID, managedProviderSuffix) {
+			providerID += managedProviderSuffix
+		}
+
+		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerConfig.Name).String())
+
+		var providerAuth *opencode.AuthProvider
+		if auth, ok := authConfig[providerID]; ok {
+			providerAuth = &auth
+		}
+
+		models := map[string]opencode.OpencodeOutputModel{}
+		var err error
+
+		if providerConfig.ModelBaseURL != "" {
+			models, err = opencode.FetchUnknownModels(providerConfig, providerAuth)
+		} else {
+			models, err = opencode.FetchModels(providerConfig, providerAuth)
+		}
+
+		if err != nil {
+			fmt.Println(err)
+			fmt.Println()
+			continue
+		}
+
+		modelsJSON, err := json.Marshal(models)
+		if err != nil {
+			fmt.Println("failed to encode models:", err)
+			os.Exit(1)
+		}
+
+		managedProviders[providerID] = opencode.OpencodeOutputProvider{
+			API:    providerConfig.BaseURL,
+			Name:   providerConfig.Name,
+			Models: json.RawMessage(modelsJSON),
+		}
+
+		fmt.Println()
+	}
 
 	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
 	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
@@ -128,100 +94,30 @@ func main() {
 		os.Exit(1)
 	}
 
-	currentManagedProviders := map[string]opencodeOutputProvider{}
-	for providerID, providerRaw := range providers {
-		if strings.HasSuffix(providerID, managedProviderSuffix) {
-			var provider opencodeOutputProvider
-			if err := json.Unmarshal(providerRaw, &provider); err != nil {
-				fmt.Println("failed to decode managed provider:", err)
-				os.Exit(1)
-			}
-
-			currentManagedProviders[providerID] = provider
-		}
-	}
-
-	fmt.Println()
-
-	desiredManagedProviders := map[string]opencodeOutputProvider{}
-	for providerID, providerConfig := range providerConfigs {
-		if !strings.HasSuffix(providerID, managedProviderSuffix) {
-			providerID += managedProviderSuffix
-		}
-
-		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerConfig.Name).String())
-
-		var providerAuth *authProvider
-		if auth, ok := authConfig[providerID]; ok {
-			providerAuth = &auth
-		}
-
-		models := map[string]opencodeOutputModel{}
-
-		if providerConfig.ModelBaseURL != "" {
-			models, err = fetchUnknownModels(providerConfig, providerAuth)
-		} else {
-			models, err = fetchModels(providerConfig, providerAuth)
-		}
-
-		if err != nil {
-			fmt.Println(err)
-			fmt.Println()
-			continue
-		}
-
-		desiredModels, err := json.Marshal(models)
-		if err != nil {
-			fmt.Println("failed to encode models:", err)
-			os.Exit(1)
-		}
-
-		existingModels := "{}"
-		if existing, ok := currentManagedProviders[providerID]; ok && len(existing.Models) > 0 {
-			existingModels = string(existing.Models)
-		}
-
-		patchedModels, err := helpers.MergeJSONObject(existingModels, string(desiredModels))
-		if err != nil {
-			fmt.Println("failed to apply models patch:", err)
-			os.Exit(1)
-		}
-
-		desiredManagedProviders[providerID] = opencodeOutputProvider{
-			API:    providerConfig.BaseURL,
-			Name:   providerConfig.Name,
-			Models: json.RawMessage(patchedModels),
-		}
-
-		fmt.Println()
-	}
-
-	finalProviders := map[string]json.RawMessage{}
+	newProviders := map[string]json.RawMessage{}
 	for providerID, providerRaw := range providers {
 		if strings.HasSuffix(providerID, managedProviderSuffix) {
 			continue
 		}
-
-		finalProviders[providerID] = providerRaw
+		newProviders[providerID] = providerRaw
 	}
 
-	for providerID, provider := range desiredManagedProviders {
+	for providerID, provider := range managedProviders {
 		providerRaw, err := json.Marshal(provider)
 		if err != nil {
 			fmt.Println("failed to encode provider:", err)
 			os.Exit(1)
 		}
-
-		finalProviders[providerID] = providerRaw
+		newProviders[providerID] = providerRaw
 	}
 
-	finalProviderRaw, err := json.Marshal(finalProviders)
+	newProviderRaw, err := json.Marshal(newProviders)
 	if err != nil {
 		fmt.Println("failed to encode provider block:", err)
 		os.Exit(1)
 	}
 
-	updatedProviderRaw, err := helpers.MergeJSONObject(string(providerRaw), string(finalProviderRaw))
+	mergedProviderRaw, err := helpers.MergeJSONObject(string(providerRaw), string(newProviderRaw))
 	if err != nil {
 		fmt.Println("failed to merge provider block:", err)
 		os.Exit(1)
@@ -234,7 +130,7 @@ func main() {
 	}
 
 	updatedConfig := append([]byte{}, config[:providerIndex]...)
-	updatedConfig = append(updatedConfig, updatedProviderRaw...)
+	updatedConfig = append(updatedConfig, mergedProviderRaw...)
 	updatedConfig = append(updatedConfig, config[providerIndex+len(providerRaw):]...)
 
 	fmt.Println(aurora.Green("Writing the updated OpenCode configuration...").String())
@@ -244,188 +140,4 @@ func main() {
 	}
 
 	fmt.Println(aurora.Green("Updated OpenCode configuration successfully.").String())
-}
-
-func fetchModels(providerConfig opencodeProviderConfig, auth *authProvider) (map[string]opencodeOutputModel, error) {
-	modelsURL := providerConfig.ModelsURL
-	if modelsURL == "" {
-		modelsURL = strings.TrimRight(providerConfig.BaseURL, "/") + "/models"
-	}
-
-	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(modelsURL).String())
-
-	req, err := http.NewRequest("GET", modelsURL, nil)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create request for %s models: %w", providerConfig.Name, err)
-	}
-	if auth != nil && auth.Type == "api" && auth.Key != "" {
-		req.Header.Set("Authorization", "Bearer "+auth.Key)
-	}
-
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("failed to fetch %s models: %w", providerConfig.Name, err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("failed to fetch %s models: %s", providerConfig.Name, resp.Status)
-	}
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read %s response body: %w", providerConfig.Name, err)
-	}
-
-	var payload openAiCompatibleModelsResponse
-	if err := json.Unmarshal(body, &payload); err != nil {
-		return nil, fmt.Errorf("failed to decode %s response: %w", providerConfig.Name, err)
-	}
-
-	models := map[string]opencodeOutputModel{}
-	matchedModelIDs := map[string]bool{}
-
-	for _, model := range payload.Data {
-		if !slices.Contains(providerConfig.Models, model.ID) {
-			continue
-		}
-
-		matchedModelIDs[model.ID] = true
-
-		modelName := model.Name
-		if modelName == "" {
-			modelName = model.ID
-		}
-
-		entry := opencodeOutputModel{ID: model.ID, Name: modelName}
-		if providerConfig.HasTurboMode && strings.LastIndex(model.ID, ":") <= strings.LastIndex(model.ID, "/") {
-			entry.ID += ":nitro"
-			entry.Name += " ⚡"
-		}
-
-		if providerConfig.ModelPrefix != "" {
-			entry.Name = providerConfig.ModelPrefix + entry.Name
-		}
-
-		if model.ContextLength > 0 {
-			entry.Limit = &opencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
-		}
-
-		supportedInputModalities := filterLLMModalities(model.Architecture.InputModalities)
-		supportedOutputModalities := filterLLMModalities(model.Architecture.OutputModalities)
-
-		if len(supportedInputModalities) > 0 && len(supportedOutputModalities) > 0 {
-			entry.Modalities = &opencodeOutputModalities{
-				Input:  supportedInputModalities,
-				Output: supportedOutputModalities,
-			}
-		}
-
-		if model.Opencode.Family != "" {
-			entry.Family = model.Opencode.Family
-		}
-
-		if len(model.Opencode.Variants) > 0 {
-			entry.Variants = model.Opencode.Variants
-		}
-
-		models[entry.ID] = entry
-	}
-
-	for _, modelID := range providerConfig.Models {
-		if matchedModelIDs[modelID] {
-			continue
-		}
-
-		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerConfig.Name)
-		models[modelID] = opencodeOutputModel{ID: modelID, Name: modelID}
-	}
-
-	return models, nil
-}
-
-func fetchUnknownModels(providerConfig opencodeProviderConfig, auth *authProvider) (map[string]opencodeOutputModel, error) {
-	models := map[string]opencodeOutputModel{}
-	for _, modelID := range providerConfig.Models {
-		entry := opencodeOutputModel{ID: modelID, Name: modelID}
-		details, err := fetchUnknownModelDetails(providerConfig, auth, modelID)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "%s failed to fetch model details for %q from provider %q: %v\n", aurora.Yellow("warn:").String(), modelID, providerConfig.Name, err)
-		} else {
-			if details.DisplayName != "" {
-				entry.Name = details.DisplayName
-			}
-
-			if details.ContextLength > 0 {
-				entry.Limit = &opencodeOutputLimit{Context: details.ContextLength, Output: details.ContextLength}
-			}
-
-			if details.SupportsImageInput {
-				entry.Modalities = &opencodeOutputModalities{
-					Input:  []string{"text", "image"},
-					Output: []string{"text"},
-				}
-			} else {
-				entry.Modalities = &opencodeOutputModalities{
-					Input:  []string{"text"},
-					Output: []string{"text"},
-				}
-			}
-		}
-
-		if providerConfig.ModelPrefix != "" {
-			entry.Name = providerConfig.ModelPrefix + entry.Name
-		}
-
-		models[entry.ID] = entry
-	}
-
-	return models, nil
-}
-
-func fetchUnknownModelDetails(providerConfig opencodeProviderConfig, auth *authProvider, modelID string) (unknownModelDetailsResponse, error) {
-	modelDetailsURL := strings.TrimRight(providerConfig.ModelBaseURL, "/") + "/" + modelID
-	fmt.Printf("%s %s\n", aurora.Yellow("Fetching model details from").String(), aurora.Faint(modelDetailsURL).String())
-
-	req, err := http.NewRequest("GET", modelDetailsURL, nil)
-	if err != nil {
-		return unknownModelDetailsResponse{}, fmt.Errorf("failed to create request: %w", err)
-	}
-
-	if auth != nil && auth.Type == "api" && auth.Key != "" {
-		req.Header.Set("Authorization", "Bearer "+auth.Key)
-	}
-
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return unknownModelDetailsResponse{}, err
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return unknownModelDetailsResponse{}, fmt.Errorf("%s", resp.Status)
-	}
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return unknownModelDetailsResponse{}, fmt.Errorf("failed to read response body: %w", err)
-	}
-
-	var details unknownModelDetailsResponse
-	if err := json.Unmarshal(body, &details); err != nil {
-		return unknownModelDetailsResponse{}, fmt.Errorf("failed to decode response: %w", err)
-	}
-
-	return details, nil
-}
-
-func filterLLMModalities(modalities []string) []string {
-	var filtered []string
-	for _, m := range modalities {
-		if slices.Contains(allowedModalities, m) {
-			filtered = append(filtered, m)
-		}
-	}
-
-	return filtered
 }
