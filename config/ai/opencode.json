@@ -49,14 +49,14 @@
             "output": ["text"]
           },
           "cost": { "input": 1.75, "output": 14, "cache_read": 0.175 },
-          "limit": { "context": 400000, "input": 272000, "output": 128000 }
+          "limit": { "context": 272000, "input": 272000, "output": 128000 }
         },
         "gpt-5.4": {
           "attachment": true,
           "cost": { "cache_read": 0.25, "input": 2.5, "output": 15 },
           "family": "gpt",
           "id": "gpt-5.4",
-          "limit": { "context": 1050000, "input": 922000, "output": 128000 },
+          "limit": { "context": 272000, "input": 272000, "output": 128000 },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -112,7 +112,7 @@
         },
         "qwen/qwen3.6-plus": {
           "id": "qwen/qwen3.6-plus",
-          "limit": { "context": 1000000, "output": 1000000, "input": 1000000 },
+          "limit": { "context": 400000, "output": 400000, "input": 400000 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
           "name": "Qwen: Qwen3.6 Plus",
           "variants": {
