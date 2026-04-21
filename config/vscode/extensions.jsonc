@@ -31,7 +31,6 @@
   /* Linters and Formatters */
   { "Id": "esbenp.prettier-vscode" },
   { "Id": "dbaeumer.vscode-eslint" },
-  { "Id": "oxc.oxc-vscode" },
   { "Id": "mkhl.shfmt" },
 
   /* Rust */
