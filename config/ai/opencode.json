@@ -229,7 +229,7 @@
             "input": ["text", "image"],
             "output": ["text"]
           },
-          "name": "MoonshotAI: Kimi K2.6",
+          "name": "MoonshotAI: Kimi K2.6 (new)",
           "variants": {
             "instant": {
               "reasoning": {
