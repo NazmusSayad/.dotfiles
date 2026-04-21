@@ -1,7 +1,6 @@
 {
   "lsp": false,
   "plugin": ["opencode-wakatime"],
-  "enabled_providers": ["openai", "kilo"],
 
   "permission": {
     "doom_loop": "allow",
@@ -31,6 +30,8 @@
       "command": ["hugeicons-mcp"]
     }
   },
+
+  "enabled_providers": ["openai", "kilo"],
 
   "provider": {
     "openai": {
