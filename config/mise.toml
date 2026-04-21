@@ -41,12 +41,15 @@ java = "latest"
 
 # CLI Tools
 "npm:gityo" = "latest"
-"npm:serve" = "latest"
-"npm:netserv" = "latest"
-"npm:uni-run" = "latest"
+
 "npm:code-info" = "latest"
 "npm:openusage" = "latest"
 "npm:git-stats" = "latest"
+
+"npm:serve" = "latest"
+"npm:netserv" = "latest"
+"npm:uni-run" = "latest"
+"npm:live-server" = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
