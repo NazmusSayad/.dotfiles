@@ -38,11 +38,50 @@ func main() {
 		providers = map[string]any{}
 	}
 
+	modelsDotDevResponse, modelsDotDevError := opencode.FetchModelsDotDev()
+	if modelsDotDevError != nil {
+		fmt.Println("failed to fetch models.dev models:", modelsDotDevError)
+	}
+
 	for providerID, providerConfig := range providerConfigs {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
 
 		if providerConfig.ModelsURL == "" {
-			fmt.Fprintf(os.Stderr, "%s provider %q has no apiURL/modelsURL, skipping\n", aurora.Yellow("warn:").String(), providerID)
+			devModels, ok := modelsDotDevResponse[providerID]
+			if !ok {
+				fmt.Fprintf(os.Stderr, "%s provider %q has no apiURL/modelsURL and no models.dev data, skipping\n", aurora.Yellow("warn:").String(), providerID)
+				fmt.Println()
+				continue
+			}
+
+			filteredModels := map[string]opencode.OpencodeOutputModel{}
+			for _, modelID := range providerConfig.Models {
+				model, ok := devModels[modelID]
+				if !ok {
+					fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q in models.dev, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerID)
+					filteredModels[modelID] = opencode.OpencodeOutputModel{ID: modelID, Name: modelID}
+					continue
+				}
+				model.ID = modelID
+				filteredModels[modelID] = model
+			}
+
+			existingProvider, exists := providers[providerID]
+			if !exists {
+				providers[providerID] = map[string]any{"models": filteredModels}
+				fmt.Println()
+				continue
+			}
+
+			providerObject, ok := existingProvider.(map[string]any)
+			if !ok {
+				fmt.Fprintf(os.Stderr, "%s provider %q is not an object, skipping\n", aurora.Yellow("warn:").String(), providerID)
+				fmt.Println()
+				continue
+			}
+
+			providerObject["models"] = filteredModels
+			providers[providerID] = providerObject
 			fmt.Println()
 			continue
 		}
