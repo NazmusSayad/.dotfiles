@@ -8,7 +8,6 @@ scoop:
   - scc
   - shfmt
   - extras/fvm
-  - extras/zed
   - extras/tableplus
 
   - gh
