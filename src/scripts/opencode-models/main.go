@@ -68,7 +68,11 @@ func main() {
 
 			existingProvider, exists := providers[providerID]
 			if !exists {
-				providers[providerID] = map[string]any{"models": filteredModels}
+				providers[providerID] = map[string]any{
+					"models":    filteredModels,
+					"whitelist": providerConfig.Models,
+				}
+
 				fmt.Println()
 				continue
 			}
@@ -81,6 +85,7 @@ func main() {
 			}
 
 			providerObject["models"] = filteredModels
+			providerObject["whitelist"] = providerConfig.Models
 			providers[providerID] = providerObject
 			fmt.Println()
 			continue
@@ -100,7 +105,7 @@ func main() {
 
 		existingProvider, exists := providers[providerID]
 		if !exists {
-			providers[providerID] = map[string]any{"models": models}
+			providers[providerID] = map[string]any{"models": models, "whitelist": providerConfig.Models}
 			fmt.Println()
 			continue
 		}
@@ -113,6 +118,7 @@ func main() {
 		}
 
 		providerObject["models"] = models
+		providerObject["whitelist"] = providerConfig.Models
 		providers[providerID] = providerObject
 		fmt.Println()
 	}

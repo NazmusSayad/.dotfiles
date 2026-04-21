@@ -52,26 +52,23 @@
           "limit": { "context": 400000, "input": 272000, "output": 128000 }
         },
         "gpt-5.4": {
-          "id": "gpt-5.4",
-          "name": "GPT-5.4",
-          "family": "gpt",
           "attachment": true,
-          "reasoning": true,
-          "tool_call": true,
-          "temperature": false,
-          "release_date": "2026-03-05",
+          "cost": { "cache_read": 0.25, "input": 2.5, "output": 15 },
+          "family": "gpt",
+          "id": "gpt-5.4",
+          "limit": { "context": 1050000, "input": 922000, "output": 128000 },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           },
-          "cost": {
-            "input": 2.5,
-            "output": 15,
-            "cache_read": 0.25
-          },
-          "limit": { "context": 1050000, "input": 922000, "output": 128000 }
+          "name": "GPT-5.4",
+          "reasoning": true,
+          "release_date": "2026-03-05",
+          "temperature": false,
+          "tool_call": true
         }
-      }
+      },
+      "whitelist": ["gpt-5.3-codex", "gpt-5.4"]
     },
     "kilo": {
       "models": {
@@ -156,7 +153,18 @@
             "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
           }
         }
-      }
+      },
+      "whitelist": [
+        "kilo-auto/free",
+        "qwen/qwen3.6-plus",
+        "moonshotai/kimi-k2.5",
+        "moonshotai/kimi-k2.6",
+        "minimax/minimax-m2.5",
+        "minimax/minimax-m2.7",
+        "z-ai/glm-5.1",
+        "z-ai/glm-5-turbo",
+        "z-ai/glm-5v-turbo"
+      ]
     }
   },
 
