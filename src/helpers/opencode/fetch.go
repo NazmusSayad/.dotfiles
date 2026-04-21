@@ -76,7 +76,7 @@ func FetchModels(providerConfig OpencodeProviderConfig, auth *AuthProvider) (map
 		}
 
 		if model.ContextLength > 0 {
-			entry.Limit = &OpencodeOutputLimit{Context: model.ContextLength, Output: model.ContextLength}
+			entry.Limit = &OpencodeOutputLimit{Context: model.ContextLength, Input: model.ContextLength, Output: model.ContextLength}
 		}
 
 		supportedInputModalities := filterLLMModalities(model.Architecture.InputModalities)
