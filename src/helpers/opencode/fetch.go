@@ -109,3 +109,41 @@ func filterLLMModalities(modalities []string) []string {
 
 	return filtered
 }
+
+type modelsDotDevProvider struct {
+	Models map[string]OpencodeOutputModel `json:"models"`
+}
+
+func FetchModelsDotDev() (map[string]map[string]OpencodeOutputModel, error) {
+	resp, err := http.Get("https://models.dev/api.json")
+	if err != nil {
+		return nil, fmt.Errorf("failed to fetch models.dev API: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("failed to fetch models.dev API: %s", resp.Status)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read models.dev response body: %w", err)
+	}
+
+	var payload map[string]modelsDotDevProvider
+	if err := json.Unmarshal(body, &payload); err != nil {
+		return nil, fmt.Errorf("failed to decode models.dev response: %w", err)
+	}
+
+	result := make(map[string]map[string]OpencodeOutputModel)
+	for providerID, provider := range payload {
+		providerModels := make(map[string]OpencodeOutputModel)
+		for modelID, model := range provider.Models {
+			providerModels[modelID] = model
+		}
+
+		result[providerID] = providerModels
+	}
+
+	return result, nil
+}
