@@ -30,8 +30,8 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gpm",
 	},
 
-	"gh-pull-create": {
-		Exe: "gpc",
+	"github-pr-create": {
+		Exe: "ghp",
 	},
 
 	"slack-status": {
