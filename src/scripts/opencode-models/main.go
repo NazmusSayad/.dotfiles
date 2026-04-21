@@ -68,73 +68,63 @@ func main() {
 
 	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
 	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
-	config, err := os.ReadFile(configPath)
+	configBytes, err := os.ReadFile(configPath)
 	if err != nil {
 		fmt.Println("failed to read opencode config:", err)
 		os.Exit(1)
 	}
 
-	configJSON := jsonc.ToJSON(config)
+	oldConfigStr := string(configBytes)
 
 	var root map[string]json.RawMessage
-	if err := json.Unmarshal(configJSON, &root); err != nil {
+	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &root); err != nil {
 		fmt.Println("failed to decode opencode config:", err)
 		os.Exit(1)
 	}
 
-	providerRaw, ok := root["provider"]
-	if !ok {
-		fmt.Println("failed to find provider block in opencode config")
-		os.Exit(1)
-	}
-
 	var providers map[string]json.RawMessage
-	if err := json.Unmarshal(providerRaw, &providers); err != nil {
+	if err := json.Unmarshal(root["provider"], &providers); err != nil {
 		fmt.Println("failed to decode provider block:", err)
 		os.Exit(1)
 	}
 
-	newProviders := map[string]json.RawMessage{}
-	for providerID, providerRaw := range providers {
-		if strings.HasSuffix(providerID, managedProviderSuffix) {
-			continue
+	for id := range providers {
+		if strings.HasSuffix(id, managedProviderSuffix) {
+			delete(providers, id)
 		}
-		newProviders[providerID] = providerRaw
 	}
 
-	for providerID, provider := range managedProviders {
-		providerRaw, err := json.Marshal(provider)
+	for id, provider := range managedProviders {
+		raw, err := json.Marshal(provider)
 		if err != nil {
 			fmt.Println("failed to encode provider:", err)
 			os.Exit(1)
 		}
-		newProviders[providerID] = providerRaw
+		providers[id] = raw
 	}
 
-	newProviderRaw, err := json.Marshal(newProviders)
+	newProviderBlock, err := json.Marshal(providers)
 	if err != nil {
 		fmt.Println("failed to encode provider block:", err)
 		os.Exit(1)
 	}
 
-	mergedProviderRaw, err := helpers.MergeJSONObject(string(providerRaw), string(newProviderRaw))
+	root["provider"] = newProviderBlock
+
+	newConfigBytes, err := json.Marshal(root)
 	if err != nil {
-		fmt.Println("failed to merge provider block:", err)
+		fmt.Println("failed to encode config:", err)
 		os.Exit(1)
 	}
 
-	providerIndex := strings.Index(string(config), string(providerRaw))
-	if providerIndex == -1 {
-		fmt.Println("failed to locate provider block in opencode config")
+	mergedConfigStr, err := helpers.MergeJSONObject(oldConfigStr, string(newConfigBytes))
+	if err != nil {
+		fmt.Println("failed to merge config:", err)
 		os.Exit(1)
 	}
-
-	updatedConfig := append([]byte{}, config[:providerIndex]...)
-	updatedConfig = append(updatedConfig, mergedProviderRaw...)
-	updatedConfig = append(updatedConfig, config[providerIndex+len(providerRaw):]...)
 
 	fmt.Println(aurora.Green("Writing the updated OpenCode configuration...").String())
-	if err := os.WriteFile(configPath, updatedConfig, 0o644); err != nil {
+	if err := os.WriteFile(configPath, []byte(mergedConfigStr), 0o644); err != nil {
 		fmt.Println("failed to write opencode config:", err)
 		os.Exit(1)
 	}
