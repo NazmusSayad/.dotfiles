@@ -16,7 +16,6 @@ scoop:
 
   # AI Coding Tools
   - codex
-  - claude-code
   - extras/opencode-desktop
 
   # LLM Tools 
