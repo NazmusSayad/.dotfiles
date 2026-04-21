@@ -1,5 +1,9 @@
+openai:
+  models:
+    - gpt-5.3-codex
+    - gpt-5.4
+
 kilo:
-  name: Kilo
   apiURL: https://api.kilo.ai/api/gateway
   models:
     - kilo-auto/free

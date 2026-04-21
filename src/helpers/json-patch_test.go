@@ -67,6 +67,18 @@ func TestMergeJSONObjectCoreExact(t *testing.T) {
 			next: "{\n  \"a\": 1,\n  \"b\": 2,\n  \"c\": 3\n}",
 			want: "{\n  \"a\": 1,\n  \"b\": 2,\n  \"c\": 3\n}",
 		},
+		{
+			name: "changed array keeps next raw spacing",
+			prev: "{\n  \"arr\": [1,2],\n  \"keep\": true\n}",
+			next: "{\n  \"arr\": [ 3 , 4 ],\n  \"keep\": true\n}",
+			want: "{\n  \"arr\": [ 3 , 4 ],\n  \"keep\": true\n}",
+		},
+		{
+			name: "changed number keeps next raw token",
+			prev: "{\"n\":0}",
+			next: "{\"n\":1.0}",
+			want: "{\"n\":1.0}",
+		},
 	}
 
 	for _, tt := range tests {
@@ -94,10 +106,6 @@ func TestMergeJSONObjectNoChangePassthrough(t *testing.T) {
 				t.Fatalf("MergeJSONObject() error = %v", err)
 			}
 
-			if got != next {
-				t.Fatalf("only target value should change\nwant:\n%s\n\ngot:\n%s", next, got)
-			}
-
 			if got != prev {
 				t.Fatalf("unchanged object should be byte-identical\nwant:\n%s\n\ngot:\n%s", prev, got)
 			}
@@ -117,7 +125,7 @@ func TestMergeJSONObjectUnchangedFieldsRemainRaw(t *testing.T) {
 			}
 
 			if got != next {
-				t.Fatalf("only nested target value should change\nwant:\n%s\n\ngot:\n%s", next, got)
+				t.Fatalf("unexpected full-object diff\nwant:\n%s\n\ngot:\n%s", next, got)
 			}
 
 			prevByKey := mustEntriesByKey(t, prev)
@@ -192,6 +200,10 @@ func TestMergeJSONObjectErrors(t *testing.T) {
 		{name: "next empty string", prev: "{}", next: ""},
 		{name: "previous whitespace only", prev: "   \n\t", next: "{}"},
 		{name: "next whitespace only", prev: "{}", next: "   \n\t"},
+		{name: "previous has trailing junk", prev: "{} x", next: "{}"},
+		{name: "next has trailing junk", prev: "{}", next: "{} x"},
+		{name: "previous has duplicate keys", prev: "{\"a\":1,\"a\":2}", next: "{}"},
+		{name: "next has duplicate keys", prev: "{}", next: "{\"a\":1,\"a\":2}"},
 	}
 
 	for _, tt := range tests {
