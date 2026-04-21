@@ -15,17 +15,10 @@ type OpencodeProviderConfig struct {
 
 	ModelsURL    string `yaml:"modelsURL"`
 	ModelPrefix  string `yaml:"modelPrefix"`
-	ModelBaseURL string `yaml:"modelBaseURL"`
 
 	HasTurboMode bool `yaml:"hasTurboMode"`
 
 	Models []string `yaml:"models"`
-}
-
-type UnknownModelDetailsResponse struct {
-	DisplayName        string `json:"displayName"`
-	ContextLength      int    `json:"contextLength"`
-	SupportsImageInput bool   `json:"supportsImageInput"`
 }
 
 type OpenAiCompatibleModelsResponse struct {

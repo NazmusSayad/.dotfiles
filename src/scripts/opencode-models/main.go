@@ -19,42 +19,6 @@ func main() {
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
 
-	modelsByProvider := map[string]json.RawMessage{}
-
-	for providerID, providerConfig := range providerConfigs {
-		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerConfig.Name).String())
-
-		var providerAuth *opencode.AuthProvider
-		if auth, ok := authConfig[providerID]; ok {
-			providerAuth = &auth
-		}
-
-		models := map[string]opencode.OpencodeOutputModel{}
-		var err error
-
-		if providerConfig.ModelBaseURL != "" {
-			models, err = opencode.FetchUnknownModels(providerConfig, providerAuth)
-		} else {
-			models, err = opencode.FetchModels(providerConfig, providerAuth)
-		}
-
-		if err != nil {
-			fmt.Println(err)
-			fmt.Println()
-			continue
-		}
-
-		modelsJSON, err := json.Marshal(models)
-		if err != nil {
-			fmt.Println("failed to encode models:", err)
-			os.Exit(1)
-		}
-
-		modelsByProvider[providerID] = modelsJSON
-
-		fmt.Println()
-	}
-
 	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
 	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
 	configBytes, err := os.ReadFile(configPath)
@@ -63,66 +27,79 @@ func main() {
 		os.Exit(1)
 	}
 
-	oldConfigStr := string(configBytes)
-
-	var root map[string]json.RawMessage
-	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &root); err != nil {
+	var config map[string]any
+	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &config); err != nil {
 		fmt.Println("failed to decode opencode config:", err)
 		os.Exit(1)
 	}
 
-	var providers map[string]json.RawMessage
-	if err := json.Unmarshal(root["provider"], &providers); err != nil {
-		fmt.Println("failed to decode provider block:", err)
-		os.Exit(1)
+	providers, ok := config["provider"].(map[string]any)
+	if !ok || providers == nil {
+		providers = map[string]any{}
 	}
 
-	for providerID, modelsJSON := range modelsByProvider {
-		providerRaw, ok := providers[providerID]
-		if !ok {
-			fmt.Fprintf(os.Stderr, "%s provider %q not found in config, skipping\n", aurora.Yellow("warn:").String(), providerID)
+	for providerID, providerConfig := range providerConfigs {
+		providerName := providerConfig.Name
+		if providerName == "" {
+			providerName = providerID
+		}
+		providerConfig.Name = providerName
+
+		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerName).String())
+
+		if providerConfig.BaseURL == "" && providerConfig.ModelsURL == "" {
+			fmt.Fprintf(os.Stderr, "%s provider %q has no apiURL/modelsURL, skipping\n", aurora.Yellow("warn:").String(), providerID)
+			fmt.Println()
 			continue
 		}
 
-		var provider map[string]json.RawMessage
-		if err := json.Unmarshal(providerRaw, &provider); err != nil {
-			fmt.Fprintf(os.Stderr, "%s failed to decode provider %q: %v\n", aurora.Yellow("warn:").String(), providerID, err)
-			continue
+		var providerAuth *opencode.AuthProvider
+		if auth, ok := authConfig[providerID]; ok {
+			providerAuth = &auth
 		}
 
-		provider["models"] = modelsJSON
-
-		updatedProviderRaw, err := json.Marshal(provider)
+		models, err := opencode.FetchModels(providerConfig, providerAuth)
 		if err != nil {
-			fmt.Println("failed to encode provider:", err)
-			os.Exit(1)
+			fmt.Println(err)
+			fmt.Println()
+			continue
 		}
 
-		providers[providerID] = updatedProviderRaw
+		existingProvider, exists := providers[providerID]
+		if !exists {
+			providers[providerID] = map[string]any{"models": models}
+			fmt.Println()
+			continue
+		}
+
+		providerObject, ok := existingProvider.(map[string]any)
+		if !ok {
+			fmt.Fprintf(os.Stderr, "%s provider %q is not an object, skipping\n", aurora.Yellow("warn:").String(), providerID)
+			fmt.Println()
+			continue
+		}
+
+		providerObject["models"] = models
+		providers[providerID] = providerObject
+		fmt.Println()
 	}
 
-	newProviderBlock, err := json.Marshal(providers)
-	if err != nil {
-		fmt.Println("failed to encode provider block:", err)
-		os.Exit(1)
-	}
+	config["provider"] = providers
 
-	root["provider"] = newProviderBlock
-
-	newConfigBytes, err := json.Marshal(root)
+	newConfigBytes, err := json.Marshal(config)
 	if err != nil {
 		fmt.Println("failed to encode config:", err)
 		os.Exit(1)
 	}
 
-	mergedConfigStr, err := helpers.MergeJSONObject(oldConfigStr, string(newConfigBytes))
+	mergedConfigRaw, err := helpers.MergeJSONObject(string(configBytes), string(newConfigBytes))
 	if err != nil {
 		fmt.Println("failed to merge config:", err)
 		os.Exit(1)
 	}
 
 	fmt.Println(aurora.Green("Writing the updated OpenCode configuration...").String())
-	if err := os.WriteFile(configPath, []byte(mergedConfigStr), 0o644); err != nil {
+	if err := os.WriteFile(configPath, []byte(mergedConfigRaw), 0o644); err != nil {
 		fmt.Println("failed to write opencode config:", err)
 		os.Exit(1)
 	}
