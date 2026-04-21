@@ -4,20 +4,25 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"strings"
 
 	jsonpatch "github.com/evanphx/json-patch"
 )
 
 func MergeJSONObject(prev string, next string) (string, error) {
-	prevEntries, err := parseObjectEntries([]byte(prev))
+	prevLayout, err := parseObjectLayout([]byte(prev))
 	if err != nil {
 		return "", err
 	}
+	prevEntries := prevLayout.Entries
 
-	nextEntries, err := parseObjectEntries([]byte(next))
+	nextLayout, err := parseObjectLayout([]byte(next))
 	if err != nil {
 		return "", err
+	}
+	nextEntries := nextLayout.Entries
+
+	if jsonEqual([]byte(prev), []byte(next)) {
+		return prev, nil
 	}
 
 	patch, err := jsonpatch.CreateMergePatch([]byte(prev), []byte(next))
@@ -30,24 +35,18 @@ func MergeJSONObject(prev string, next string) (string, error) {
 		return "", err
 	}
 
-	mergedEntries, err := parseObjectEntries(merged)
+	mergedLayout, err := parseObjectLayout(merged)
 	if err != nil {
 		return "", err
 	}
+	mergedEntries := mergedLayout.Entries
 
 	mergedByKey := map[string]objectEntry{}
 	for _, entry := range mergedEntries {
 		mergedByKey[entry.Key] = entry
 	}
 
-	prevByKey := map[string]objectEntry{}
-	for _, entry := range prevEntries {
-		prevByKey[entry.Key] = entry
-	}
-
-	ordered := []objectEntry{}
-	seen := map[string]bool{}
-
+	replaceOps := []replaceOp{}
 	for _, entry := range prevEntries {
 		mergedEntry, ok := mergedByKey[entry.Key]
 		if !ok {
@@ -55,108 +54,152 @@ func MergeJSONObject(prev string, next string) (string, error) {
 		}
 
 		if jsonEqual(entry.Val, mergedEntry.Val) {
-			ordered = append(ordered, entry)
-			seen[entry.Key] = true
 			continue
 		}
 
-		ordered = append(ordered, mergedEntry)
-		seen[entry.Key] = true
-	}
+		value := mergedEntry.Val
+		if isJSONObject(entry.Val) && isJSONObject(value) {
+			mergedObject, err := MergeJSONObject(string(entry.Val), string(value))
+			if err != nil {
+				return "", err
+			}
 
-	for _, entry := range nextEntries {
-		if seen[entry.Key] {
-			continue
+			value = []byte(mergedObject)
 		}
 
-		mergedEntry, ok := mergedByKey[entry.Key]
-		if !ok {
-			continue
-		}
-
-		ordered = append(ordered, mergedEntry)
-		seen[entry.Key] = true
+		replaceOps = append(replaceOps, replaceOp{
+			start: entry.ValueStart,
+			end:   entry.ValueEnd,
+			text:  value,
+		})
 	}
 
-	indent := detectIndent(prev)
-	closingIndent := detectClosingIndent(prev)
-	indentUnit := detectIndentUnit(indent, closingIndent)
-	separator := detectSeparator(prev)
+	out := applyReplaceOps([]byte(prev), replaceOps)
 
-	if len(ordered) == 0 {
-		if stringsHasNewline(prev) {
-			return "{\n" + closingIndent + "}", nil
-		}
-
-		return "{}", nil
-	}
-
-	var out bytes.Buffer
-	out.WriteByte('{')
-	out.WriteByte('\n')
-
-	for i, entry := range ordered {
-		formatted, err := indentValue(entry.Val, indent, indentUnit, prevByKey[entry.Key].Val)
+	for {
+		layout, err := parseObjectLayout(out)
 		if err != nil {
 			return "", err
 		}
 
-		if i > 0 {
-			out.WriteString(separator)
+		removed := false
+		for i := len(layout.Entries) - 1; i >= 0; i-- {
+			if _, ok := mergedByKey[layout.Entries[i].Key]; ok {
+				continue
+			}
+
+			start, end := removalRange(layout, i)
+			out = append(append([]byte{}, out[:start]...), out[end:]...)
+			removed = true
+			break
 		}
 
-		out.WriteString(indent)
-		out.WriteString(entry.KeyRaw)
-		out.WriteString(": ")
-		out.WriteString(formatted)
+		if !removed {
+			break
+		}
 	}
 
-	out.WriteByte('\n')
-	out.WriteString(closingIndent)
-	out.WriteByte('}')
+	presentLayout, err := parseObjectLayout(out)
+	if err != nil {
+		return "", err
+	}
 
-	return out.String(), nil
+	presentKeys := map[string]bool{}
+	for _, entry := range presentLayout.Entries {
+		presentKeys[entry.Key] = true
+	}
+
+	for _, nextEntry := range nextEntries {
+		mergedEntry, ok := mergedByKey[nextEntry.Key]
+		if !ok || presentKeys[nextEntry.Key] {
+			continue
+		}
+
+		field := buildField([]byte(next), nextEntry, mergedEntry)
+		out, err = appendField(out, []byte(next), nextLayout, field)
+		if err != nil {
+			return "", err
+		}
+
+		presentLayout, err = parseObjectLayout(out)
+		if err != nil {
+			return "", err
+		}
+
+		presentKeys[nextEntry.Key] = true
+	}
+
+	return string(out), nil
 }
 
 type objectEntry struct {
-	Key    string
-	KeyRaw string
-	Val    []byte
+	Key        string
+	KeyRaw     string
+	Val        []byte
+	PreStart   int
+	KeyStart   int
+	KeyEnd     int
+	ValueStart int
+	ValueEnd   int
+	CommaPos   int
+}
+
+type objectLayout struct {
+	OpenBrace  int
+	CloseBrace int
+	Entries    []objectEntry
+}
+
+type replaceOp struct {
+	start int
+	end   int
+	text  []byte
 }
 
 func parseObjectEntries(raw []byte) ([]objectEntry, error) {
-	i := skipSpace(raw, 0)
-	if i >= len(raw) || raw[i] != '{' {
-		return nil, fmt.Errorf("expected object")
+	layout, err := parseObjectLayout(raw)
+	if err != nil {
+		return nil, err
 	}
 
+	return layout.Entries, nil
+}
+
+func parseObjectLayout(raw []byte) (objectLayout, error) {
+	i := skipSpace(raw, 0)
+	if i >= len(raw) || raw[i] != '{' {
+		return objectLayout{}, fmt.Errorf("expected object")
+	}
+
+	openBrace := i
 	i++
 	entries := []objectEntry{}
 
 	for {
+		preStart := i
 		i = skipSpace(raw, i)
 		if i >= len(raw) {
-			return nil, fmt.Errorf("unexpected end of object")
+			return objectLayout{}, fmt.Errorf("unexpected end of object")
 		}
 
 		if raw[i] == '}' {
-			return entries, nil
+			return objectLayout{OpenBrace: openBrace, CloseBrace: i, Entries: entries}, nil
 		}
 
 		keyStart := i
 		keyEnd, err := consumeString(raw, i)
 		if err != nil {
-			return nil, err
+			return objectLayout{}, err
 		}
 
 		var key string
 		if err := json.Unmarshal(raw[keyStart:keyEnd], &key); err != nil {
-			return nil, err
+			return objectLayout{}, err
 		}
 
 		i = skipSpace(raw, keyEnd)
 		if i >= len(raw) || raw[i] != ':' {
-			return nil, fmt.Errorf("expected colon after key")
+			return objectLayout{}, fmt.Errorf("expected colon after key")
 		}
 
 		i++
@@ -164,73 +207,131 @@ func parseObjectEntries(raw []byte) ([]objectEntry, error) {
 		valueStart := i
 		valueEnd, err := consumeValue(raw, i)
 		if err != nil {
-			return nil, err
+			return objectLayout{}, err
+		}
+
+		j := skipSpace(raw, valueEnd)
+		if j >= len(raw) {
+			return objectLayout{}, fmt.Errorf("unexpected end of object")
+		}
+
+		commaPos := -1
+		if raw[j] == ',' {
+			commaPos = j
+			j++
+		} else if raw[j] != '}' {
+			return objectLayout{}, fmt.Errorf("expected comma or closing brace")
 		}
 
 		entries = append(entries, objectEntry{
-			Key:    key,
-			KeyRaw: string(raw[keyStart:keyEnd]),
-			Val:    append([]byte{}, raw[valueStart:valueEnd]...),
+			Key:        key,
+			KeyRaw:     string(raw[keyStart:keyEnd]),
+			Val:        append([]byte{}, raw[valueStart:valueEnd]...),
+			PreStart:   preStart,
+			KeyStart:   keyStart,
+			KeyEnd:     keyEnd,
+			ValueStart: valueStart,
+			ValueEnd:   valueEnd,
+			CommaPos:   commaPos,
 		})
 
-		i = skipSpace(raw, valueEnd)
-		if i >= len(raw) {
-			return nil, fmt.Errorf("unexpected end of object")
-		}
-
-		if raw[i] == ',' {
-			i++
-			continue
-		}
-
-		if raw[i] == '}' {
-			return entries, nil
-		}
-
-		return nil, fmt.Errorf("expected comma or closing brace")
+		i = j
 	}
 }
 
-func indentValue(raw []byte, prefix string, indentUnit string, prev []byte) (string, error) {
-	if len(prev) > 0 && jsonEqual(prev, raw) {
-		return string(prev), nil
+func applyReplaceOps(raw []byte, ops []replaceOp) []byte {
+	out := append([]byte{}, raw...)
+	for i := len(ops) - 1; i >= 0; i-- {
+		op := ops[i]
+		out = append(append(append([]byte{}, out[:op.start]...), op.text...), out[op.end:]...)
 	}
 
-	if len(prev) > 0 && isJSONObject(prev) && isJSONObject(raw) {
-		merged, err := MergeJSONObject(string(prev), string(raw))
-		if err != nil {
-			return "", err
+	return out
+}
+
+func removalRange(layout objectLayout, idx int) (int, int) {
+	entries := layout.Entries
+	entry := entries[idx]
+
+	if len(entries) == 1 {
+		return entry.PreStart, entry.ValueEnd
+	}
+
+	if idx < len(entries)-1 {
+		return entry.PreStart, entries[idx+1].PreStart
+	}
+
+	prev := entries[idx-1]
+	if prev.CommaPos >= 0 {
+		return prev.CommaPos, entry.ValueEnd
+	}
+
+	return entry.PreStart, entry.ValueEnd
+}
+
+func buildField(nextRaw []byte, nextEntry objectEntry, mergedEntry objectEntry) []byte {
+	colonAndSpacing := []byte(":")
+	if nextEntry.KeyEnd >= 0 && nextEntry.ValueStart >= nextEntry.KeyEnd && nextEntry.ValueStart <= len(nextRaw) {
+		colonAndSpacing = append([]byte{}, nextRaw[nextEntry.KeyEnd:nextEntry.ValueStart]...)
+	}
+
+	value := mergedEntry.Val
+	if len(nextEntry.Val) > 0 && jsonEqual(nextEntry.Val, mergedEntry.Val) {
+		value = nextEntry.Val
+	}
+
+	field := append([]byte{}, nextEntry.KeyRaw...)
+	field = append(field, colonAndSpacing...)
+	field = append(field, value...)
+	return field
+}
+
+func appendField(raw []byte, nextRaw []byte, nextLayout objectLayout, field []byte) ([]byte, error) {
+	layout, err := parseObjectLayout(raw)
+	if err != nil {
+		return nil, err
+	}
+
+	entries := layout.Entries
+	if len(entries) == 0 {
+		leading := []byte{}
+		trailing := []byte{}
+		if len(nextLayout.Entries) > 0 {
+			first := nextLayout.Entries[0]
+			leading = append([]byte{}, nextRaw[nextLayout.OpenBrace+1:first.KeyStart]...)
+			if len(nextLayout.Entries) == 1 {
+				trailing = append([]byte{}, nextRaw[first.ValueEnd:nextLayout.CloseBrace]...)
+			} else {
+				last := nextLayout.Entries[len(nextLayout.Entries)-1]
+				trailing = append([]byte{}, nextRaw[last.ValueEnd:nextLayout.CloseBrace]...)
+			}
 		}
 
-		return merged, nil
+		out := append([]byte{}, raw[:layout.OpenBrace+1]...)
+		out = append(out, leading...)
+		out = append(out, field...)
+		out = append(out, trailing...)
+		out = append(out, raw[layout.CloseBrace:]...)
+		return out, nil
 	}
 
-	var formatted bytes.Buffer
-	if err := json.Indent(&formatted, raw, "", indentUnit); err == nil {
-		return strings.ReplaceAll(formatted.String(), "\n", "\n"+prefix), nil
+	last := entries[len(entries)-1]
+	separator := []byte{','}
+	if len(entries) >= 2 {
+		prev := entries[len(entries)-2]
+		separator = append([]byte{}, raw[prev.ValueEnd:last.KeyStart]...)
+	} else {
+		leading := raw[last.PreStart:last.KeyStart]
+		separator = append([]byte{','}, leading...)
 	}
 
-	return string(raw), nil
-}
-
-func detectIndentUnit(indent string, closingIndent string) string {
-	if strings.HasPrefix(indent, closingIndent) && len(indent) > len(closingIndent) {
-		return indent[len(closingIndent):]
-	}
-
-	if indent != "" {
-		return indent
-	}
-
-	return "  "
-}
-
-func detectSeparator(input string) string {
-	if strings.Contains(input, ",\n\n") {
-		return ",\n\n"
-	}
-
-	return ",\n"
+	tail := append([]byte{}, raw[last.ValueEnd:layout.CloseBrace]...)
+	out := append([]byte{}, raw[:last.ValueEnd]...)
+	out = append(out, separator...)
+	out = append(out, field...)
+	out = append(out, tail...)
+	out = append(out, raw[layout.CloseBrace:]...)
+	return out, nil
 }
 
 func jsonEqual(left []byte, right []byte) bool {
@@ -260,46 +361,6 @@ func jsonEqual(left []byte, right []byte) bool {
 func isJSONObject(raw []byte) bool {
 	var value map[string]json.RawMessage
 	return json.Unmarshal(raw, &value) == nil
-}
-
-func detectIndent(input string) string {
-	raw := []byte(input)
-	newline := bytes.IndexByte(raw, '\n')
-	if newline == -1 {
-		return "  "
-	}
-
-	i := newline + 1
-	start := i
-	for i < len(raw) && raw[i] == ' ' {
-		i++
-	}
-
-	if i == start {
-		return "  "
-	}
-
-	return string(raw[start:i])
-}
-
-func detectClosingIndent(input string) string {
-	raw := []byte(input)
-	newline := bytes.LastIndexByte(raw, '\n')
-	if newline == -1 {
-		return ""
-	}
-
-	i := newline + 1
-	start := i
-	for i < len(raw) && raw[i] == ' ' {
-		i++
-	}
-
-	return string(raw[start:i])
-}
-
-func stringsHasNewline(input string) bool {
-	return bytes.IndexByte([]byte(input), '\n') != -1
 }
 
 func skipSpace(raw []byte, i int) int {
