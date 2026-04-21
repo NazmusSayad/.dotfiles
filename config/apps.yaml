@@ -133,6 +133,8 @@ winget:
   - UnifiedIntents.UnifiedRemote
 
   # Code Editors
+  - id: 9PLM9XGG6VKS
+    name: Codex App
   - id: Microsoft.VisualStudioCode
     name: VSCode
     scope: User
