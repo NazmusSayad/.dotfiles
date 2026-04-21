@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"strings"
 
 	"dotfiles/src/helpers"
 	"dotfiles/src/helpers/opencode"
@@ -13,8 +12,6 @@ import (
 	"github.com/tidwall/jsonc"
 )
 
-var managedProviderSuffix = "+"
-
 func main() {
 	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.yaml")
 	providerConfigs := helpers.ReadConfig[map[string]opencode.OpencodeProviderConfig](providerConfigPath)
@@ -22,13 +19,9 @@ func main() {
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
 
-	managedProviders := map[string]opencode.OpencodeOutputProvider{}
+	modelsByProvider := map[string]json.RawMessage{}
 
 	for providerID, providerConfig := range providerConfigs {
-		if !strings.HasSuffix(providerID, managedProviderSuffix) {
-			providerID += managedProviderSuffix
-		}
-
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerConfig.Name).String())
 
 		var providerAuth *opencode.AuthProvider
@@ -57,11 +50,7 @@ func main() {
 			os.Exit(1)
 		}
 
-		managedProviders[providerID] = opencode.OpencodeOutputProvider{
-			API:    providerConfig.BaseURL,
-			Name:   providerConfig.Name,
-			Models: json.RawMessage(modelsJSON),
-		}
+		modelsByProvider[providerID] = modelsJSON
 
 		fmt.Println()
 	}
@@ -88,19 +77,28 @@ func main() {
 		os.Exit(1)
 	}
 
-	for id := range providers {
-		if strings.HasSuffix(id, managedProviderSuffix) {
-			delete(providers, id)
+	for providerID, modelsJSON := range modelsByProvider {
+		providerRaw, ok := providers[providerID]
+		if !ok {
+			fmt.Fprintf(os.Stderr, "%s provider %q not found in config, skipping\n", aurora.Yellow("warn:").String(), providerID)
+			continue
 		}
-	}
 
-	for id, provider := range managedProviders {
-		raw, err := json.Marshal(provider)
+		var provider map[string]json.RawMessage
+		if err := json.Unmarshal(providerRaw, &provider); err != nil {
+			fmt.Fprintf(os.Stderr, "%s failed to decode provider %q: %v\n", aurora.Yellow("warn:").String(), providerID, err)
+			continue
+		}
+
+		provider["models"] = modelsJSON
+
+		updatedProviderRaw, err := json.Marshal(provider)
 		if err != nil {
 			fmt.Println("failed to encode provider:", err)
 			os.Exit(1)
 		}
-		providers[id] = raw
+
+		providers[providerID] = updatedProviderRaw
 	}
 
 	newProviderBlock, err := json.Marshal(providers)

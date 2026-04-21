@@ -13,73 +13,117 @@ func MergeJSONObject(prev string, next string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	prevEntries := prevLayout.Entries
 
 	nextLayout, err := parseObjectLayout([]byte(next))
 	if err != nil {
 		return "", err
 	}
-	nextEntries := nextLayout.Entries
 
 	if jsonEqual([]byte(prev), []byte(next)) {
 		return prev, nil
 	}
 
-	patch, err := jsonpatch.CreateMergePatch([]byte(prev), []byte(next))
+	mergedByKey, err := buildMergedByKey([]byte(prev), []byte(next))
 	if err != nil {
 		return "", err
 	}
 
-	merged, err := jsonpatch.MergePatch([]byte(prev), patch)
+	nextByKey := entriesByKey(nextLayout.Entries)
+
+	out, err := replaceChangedValues([]byte(prev), prevLayout.Entries, nextByKey, mergedByKey)
 	if err != nil {
 		return "", err
+	}
+
+	out, err = removeDeletedKeys(out, mergedByKey)
+	if err != nil {
+		return "", err
+	}
+
+	out, err = appendAddedKeys(out, []byte(next), nextLayout, mergedByKey)
+	if err != nil {
+		return "", err
+	}
+
+	return string(out), nil
+}
+
+func buildMergedByKey(prev []byte, next []byte) (map[string]objectEntry, error) {
+	patch, err := jsonpatch.CreateMergePatch(prev, next)
+	if err != nil {
+		return nil, err
+	}
+
+	merged, err := jsonpatch.MergePatch(prev, patch)
+	if err != nil {
+		return nil, err
 	}
 
 	mergedLayout, err := parseObjectLayout(merged)
 	if err != nil {
-		return "", err
-	}
-	mergedEntries := mergedLayout.Entries
-
-	mergedByKey := map[string]objectEntry{}
-	for _, entry := range mergedEntries {
-		mergedByKey[entry.Key] = entry
+		return nil, err
 	}
 
+	return entriesByKey(mergedLayout.Entries), nil
+}
+
+func entriesByKey(entries []objectEntry) map[string]objectEntry {
+	byKey := map[string]objectEntry{}
+	for _, entry := range entries {
+		byKey[entry.Key] = entry
+	}
+
+	return byKey
+}
+
+func replaceChangedValues(prev []byte, prevEntries []objectEntry, nextByKey map[string]objectEntry, mergedByKey map[string]objectEntry) ([]byte, error) {
 	replaceOps := []replaceOp{}
-	for _, entry := range prevEntries {
-		mergedEntry, ok := mergedByKey[entry.Key]
-		if !ok {
+	for _, prevEntry := range prevEntries {
+		mergedEntry, ok := mergedByKey[prevEntry.Key]
+		if !ok || jsonEqual(prevEntry.Val, mergedEntry.Val) {
 			continue
 		}
 
-		if jsonEqual(entry.Val, mergedEntry.Val) {
-			continue
-		}
-
-		value := mergedEntry.Val
-		if isJSONObject(entry.Val) && isJSONObject(value) {
-			mergedObject, err := MergeJSONObject(string(entry.Val), string(value))
-			if err != nil {
-				return "", err
-			}
-
-			value = []byte(mergedObject)
+		nextEntry, hasNext := nextByKey[prevEntry.Key]
+		value, err := chooseMergedValue(prevEntry, nextEntry, hasNext, mergedEntry)
+		if err != nil {
+			return nil, err
 		}
 
 		replaceOps = append(replaceOps, replaceOp{
-			start: entry.ValueStart,
-			end:   entry.ValueEnd,
+			start: prevEntry.ValueStart,
+			end:   prevEntry.ValueEnd,
 			text:  value,
 		})
 	}
 
-	out := applyReplaceOps([]byte(prev), replaceOps)
+	return applyReplaceOps(prev, replaceOps), nil
+}
+
+func chooseMergedValue(prevEntry objectEntry, nextEntry objectEntry, hasNext bool, mergedEntry objectEntry) ([]byte, error) {
+	if isJSONObject(prevEntry.Val) && isJSONObject(mergedEntry.Val) {
+		mergedObject, err := MergeJSONObject(string(prevEntry.Val), string(mergedEntry.Val))
+		if err != nil {
+			return nil, err
+		}
+
+		return []byte(mergedObject), nil
+	}
+
+	if hasNext && jsonEqual(nextEntry.Val, mergedEntry.Val) {
+		return nextEntry.Val, nil
+	}
+
+	return mergedEntry.Val, nil
+}
+
+func removeDeletedKeys(raw []byte, mergedByKey map[string]objectEntry) ([]byte, error) {
+	out := append([]byte{}, raw...)
 
 	for {
 		layout, err := parseObjectLayout(out)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
 
 		removed := false
@@ -95,13 +139,16 @@ func MergeJSONObject(prev string, next string) (string, error) {
 		}
 
 		if !removed {
-			break
+			return out, nil
 		}
 	}
+}
 
+func appendAddedKeys(raw []byte, nextRaw []byte, nextLayout objectLayout, mergedByKey map[string]objectEntry) ([]byte, error) {
+	out := append([]byte{}, raw...)
 	presentLayout, err := parseObjectLayout(out)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
 	presentKeys := map[string]bool{}
@@ -109,27 +156,26 @@ func MergeJSONObject(prev string, next string) (string, error) {
 		presentKeys[entry.Key] = true
 	}
 
-	for _, nextEntry := range nextEntries {
-		mergedEntry, ok := mergedByKey[nextEntry.Key]
-		if !ok || presentKeys[nextEntry.Key] {
+	for _, nextEntry := range nextLayout.Entries {
+		if presentKeys[nextEntry.Key] {
 			continue
 		}
 
-		field := buildField([]byte(next), nextEntry, mergedEntry)
-		out, err = appendField(out, []byte(next), nextLayout, field)
-		if err != nil {
-			return "", err
+		mergedEntry, ok := mergedByKey[nextEntry.Key]
+		if !ok {
+			continue
 		}
 
-		presentLayout, err = parseObjectLayout(out)
+		field := buildField(nextRaw, nextEntry, mergedEntry)
+		out, err = appendField(out, nextRaw, nextLayout, field)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
 
 		presentKeys[nextEntry.Key] = true
 	}
 
-	return string(out), nil
+	return out, nil
 }
 
 type objectEntry struct {
@@ -174,6 +220,7 @@ func parseObjectLayout(raw []byte) (objectLayout, error) {
 	openBrace := i
 	i++
 	entries := []objectEntry{}
+	seenKeys := map[string]bool{}
 
 	for {
 		preStart := i
@@ -183,6 +230,11 @@ func parseObjectLayout(raw []byte) (objectLayout, error) {
 		}
 
 		if raw[i] == '}' {
+			end := skipSpace(raw, i+1)
+			if end != len(raw) {
+				return objectLayout{}, fmt.Errorf("unexpected trailing content after object")
+			}
+
 			return objectLayout{OpenBrace: openBrace, CloseBrace: i, Entries: entries}, nil
 		}
 
@@ -196,6 +248,11 @@ func parseObjectLayout(raw []byte) (objectLayout, error) {
 		if err := json.Unmarshal(raw[keyStart:keyEnd], &key); err != nil {
 			return objectLayout{}, err
 		}
+
+		if seenKeys[key] {
+			return objectLayout{}, fmt.Errorf("duplicate key: %q", key)
+		}
+		seenKeys[key] = true
 
 		i = skipSpace(raw, keyEnd)
 		if i >= len(raw) || raw[i] != ':' {
@@ -292,29 +349,37 @@ func appendField(raw []byte, nextRaw []byte, nextLayout objectLayout, field []by
 		return nil, err
 	}
 
-	entries := layout.Entries
-	if len(entries) == 0 {
-		leading := []byte{}
-		trailing := []byte{}
-		if len(nextLayout.Entries) > 0 {
-			first := nextLayout.Entries[0]
-			leading = append([]byte{}, nextRaw[nextLayout.OpenBrace+1:first.KeyStart]...)
-			if len(nextLayout.Entries) == 1 {
-				trailing = append([]byte{}, nextRaw[first.ValueEnd:nextLayout.CloseBrace]...)
-			} else {
-				last := nextLayout.Entries[len(nextLayout.Entries)-1]
-				trailing = append([]byte{}, nextRaw[last.ValueEnd:nextLayout.CloseBrace]...)
-			}
-		}
-
-		out := append([]byte{}, raw[:layout.OpenBrace+1]...)
-		out = append(out, leading...)
-		out = append(out, field...)
-		out = append(out, trailing...)
-		out = append(out, raw[layout.CloseBrace:]...)
-		return out, nil
+	if len(layout.Entries) == 0 {
+		return appendFieldToEmptyObject(raw, layout, nextRaw, nextLayout, field), nil
 	}
 
+	return appendFieldToNonEmptyObject(raw, layout, field), nil
+}
+
+func appendFieldToEmptyObject(raw []byte, layout objectLayout, nextRaw []byte, nextLayout objectLayout, field []byte) []byte {
+	leading := []byte{}
+	trailing := []byte{}
+	if len(nextLayout.Entries) > 0 {
+		first := nextLayout.Entries[0]
+		leading = append([]byte{}, nextRaw[nextLayout.OpenBrace+1:first.KeyStart]...)
+		if len(nextLayout.Entries) == 1 {
+			trailing = append([]byte{}, nextRaw[first.ValueEnd:nextLayout.CloseBrace]...)
+		} else {
+			last := nextLayout.Entries[len(nextLayout.Entries)-1]
+			trailing = append([]byte{}, nextRaw[last.ValueEnd:nextLayout.CloseBrace]...)
+		}
+	}
+
+	out := append([]byte{}, raw[:layout.OpenBrace+1]...)
+	out = append(out, leading...)
+	out = append(out, field...)
+	out = append(out, trailing...)
+	out = append(out, raw[layout.CloseBrace:]...)
+	return out
+}
+
+func appendFieldToNonEmptyObject(raw []byte, layout objectLayout, field []byte) []byte {
+	entries := layout.Entries
 	last := entries[len(entries)-1]
 	separator := []byte{','}
 	if len(entries) >= 2 {
@@ -331,7 +396,7 @@ func appendField(raw []byte, nextRaw []byte, nextLayout objectLayout, field []by
 	out = append(out, field...)
 	out = append(out, tail...)
 	out = append(out, raw[layout.CloseBrace:]...)
-	return out, nil
+	return out
 }
 
 func jsonEqual(left []byte, right []byte) bool {
