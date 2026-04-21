@@ -13,8 +13,7 @@ import (
 )
 
 func main() {
-	providerConfigPath := helpers.ResolvePath("@/config/ai/opencode-providers.yaml")
-	providerConfigs := helpers.ReadConfig[map[string]opencode.OpencodeProviderConfig](providerConfigPath)
+	providerConfigs := opencode.ReadOpencodeProvidersConfig()
 
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
@@ -45,6 +44,10 @@ func main() {
 
 	for providerID, providerConfig := range providerConfigs {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
+		providerModelIDs := make([]string, 0, len(providerConfig.Models))
+		for _, configuredModel := range providerConfig.Models {
+			providerModelIDs = append(providerModelIDs, configuredModel.ID)
+		}
 
 		if providerConfig.ModelsURL == "" {
 			devModels, ok := modelsDotDevResponse[providerID]
@@ -55,22 +58,23 @@ func main() {
 			}
 
 			filteredModels := map[string]opencode.OpencodeOutputModel{}
-			for _, modelID := range providerConfig.Models {
+			for _, configuredModel := range providerConfig.Models {
+				modelID := configuredModel.ID
 				model, ok := devModels[modelID]
 				if !ok {
 					fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q in models.dev, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerID)
-					filteredModels[modelID] = opencode.OpencodeOutputModel{ID: modelID, Name: modelID}
+					filteredModels[modelID] = opencode.ApplyModelContextCap(opencode.OpencodeOutputModel{ID: modelID, Name: modelID}, configuredModel.ContextCap)
 					continue
 				}
 				model.ID = modelID
-				filteredModels[modelID] = model
+				filteredModels[modelID] = opencode.ApplyModelContextCap(model, configuredModel.ContextCap)
 			}
 
 			existingProvider, exists := providers[providerID]
 			if !exists {
 				providers[providerID] = map[string]any{
 					"models":    filteredModels,
-					"whitelist": providerConfig.Models,
+					"whitelist": providerModelIDs,
 				}
 
 				fmt.Println()
@@ -85,7 +89,7 @@ func main() {
 			}
 
 			providerObject["models"] = filteredModels
-			providerObject["whitelist"] = providerConfig.Models
+			providerObject["whitelist"] = providerModelIDs
 			providers[providerID] = providerObject
 			fmt.Println()
 			continue
@@ -103,9 +107,20 @@ func main() {
 			continue
 		}
 
+		cappedModels := make(map[string]opencode.OpencodeOutputModel, len(providerConfig.Models))
+		for _, configuredModel := range providerConfig.Models {
+			modelID := configuredModel.ID
+			model, ok := models[modelID]
+			if !ok {
+				model = opencode.OpencodeOutputModel{ID: modelID, Name: modelID}
+			}
+
+			cappedModels[modelID] = opencode.ApplyModelContextCap(model, configuredModel.ContextCap)
+		}
+
 		existingProvider, exists := providers[providerID]
 		if !exists {
-			providers[providerID] = map[string]any{"models": models, "whitelist": providerConfig.Models}
+			providers[providerID] = map[string]any{"models": cappedModels, "whitelist": providerModelIDs}
 			fmt.Println()
 			continue
 		}
@@ -117,8 +132,8 @@ func main() {
 			continue
 		}
 
-		providerObject["models"] = models
-		providerObject["whitelist"] = providerConfig.Models
+		providerObject["models"] = cappedModels
+		providerObject["whitelist"] = providerModelIDs
 		providers[providerID] = providerObject
 		fmt.Println()
 	}

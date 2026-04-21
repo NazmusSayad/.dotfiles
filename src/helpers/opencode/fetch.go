@@ -15,6 +15,11 @@ var allowedModalities = []string{"text", "audio", "image", "video", "pdf"}
 
 func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth *AuthProvider) (map[string]OpencodeOutputModel, error) {
 	modelsURL := providerConfig.ModelsURL
+	requestedModelIdMap := map[string]bool{}
+	for _, configuredModel := range providerConfig.Models {
+		requestedModelIdMap[configuredModel.ID] = true
+	}
+
 	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(modelsURL).String())
 
 	req, err := http.NewRequest("GET", modelsURL, nil)
@@ -49,7 +54,7 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 	matchedModelIDs := map[string]bool{}
 
 	for _, model := range payload.Data {
-		if !slices.Contains(providerConfig.Models, model.ID) {
+		if !requestedModelIdMap[model.ID] {
 			continue
 		}
 
@@ -87,7 +92,8 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 		models[entry.ID] = entry
 	}
 
-	for _, modelID := range providerConfig.Models {
+	for _, configuredModel := range providerConfig.Models {
+		modelID := configuredModel.ID
 		if matchedModelIDs[modelID] {
 			continue
 		}
