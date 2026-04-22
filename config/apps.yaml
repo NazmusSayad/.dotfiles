@@ -37,17 +37,21 @@ scoop:
   # System
   - nircmd
 
-  # File System
-  - ripgrep
+  # File Delete
   - byenow
-  - yazi
-  - dust
-  - eza
-  - fzf
   - rip
-  - bat
+
+  # File Browser
   - lsd
+  - fzf
+  - yazi
+
+  # File Search
+  - ripgrep
   - fd
+
+  # Disk Usage  
+  - dust
 
   # Zip and Image
   - zip
@@ -70,6 +74,7 @@ scoop:
   - ffmpeg
   - yt-dlp
   - pandoc
+  - bat
 
   # Communication
   - extras/slack
