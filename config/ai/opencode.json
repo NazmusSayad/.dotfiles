@@ -69,7 +69,7 @@
           "tool_call": true
         }
       },
-      "whitelist": ["gpt-5.4","gpt-5.3-codex"]
+      "whitelist": ["gpt-5.4", "gpt-5.3-codex"]
     },
     "kilo": {
       "models": {
@@ -154,10 +154,35 @@
             "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
           }
         },
-        "xiaomi/mimo-v2.5":{"id":"xiaomi/mimo-v2.5","limit":{"context":400000,"input":400000,"output":400000},"modalities":{"input":["text","audio","image","video"],"output":["text"]},"name":"Xiaomi: MiMo-V2.5"},
-        "xiaomi/mimo-v2.5-pro":{"id":"xiaomi/mimo-v2.5-pro","limit":{"context":400000,"input":400000,"output":400000},"modalities":{"input":["text"],"output":["text"]},"name":"Xiaomi: MiMo-V2.5-Pro"}
+        "xiaomi/mimo-v2.5": {
+          "id": "xiaomi/mimo-v2.5",
+          "limit": { "context": 400000, "input": 400000, "output": 400000 },
+          "modalities": {
+            "input": ["text", "audio", "image", "video"],
+            "output": ["text"]
+          },
+          "name": "Xiaomi: MiMo-V2.5"
+        },
+        "xiaomi/mimo-v2.5-pro": {
+          "id": "xiaomi/mimo-v2.5-pro",
+          "limit": { "context": 400000, "input": 400000, "output": 400000 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "Xiaomi: MiMo-V2.5-Pro"
+        }
       },
-      "whitelist": ["kilo-auto/free","qwen/qwen3.6-plus","moonshotai/kimi-k2.5","moonshotai/kimi-k2.6","minimax/minimax-m2.5","minimax/minimax-m2.7","xiaomi/mimo-v2.5","xiaomi/mimo-v2.5-pro","z-ai/glm-5.1","z-ai/glm-5-turbo","z-ai/glm-5v-turbo"]
+      "whitelist": [
+        "kilo-auto/free",
+        "qwen/qwen3.6-plus",
+        "moonshotai/kimi-k2.5",
+        "moonshotai/kimi-k2.6",
+        "minimax/minimax-m2.5",
+        "minimax/minimax-m2.7",
+        "xiaomi/mimo-v2.5",
+        "xiaomi/mimo-v2.5-pro",
+        "z-ai/glm-5.1",
+        "z-ai/glm-5-turbo",
+        "z-ai/glm-5v-turbo"
+      ]
     }
   },
 
