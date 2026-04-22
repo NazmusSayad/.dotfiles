@@ -78,7 +78,12 @@ scoop:
   - nerd-fonts/FiraCode-NF
 
   # Misc
-  - extras/vcredist
+  - extras/vcredist2005
+  - extras/vcredist2008
+  - extras/vcredist2010
+  - extras/vcredist2012
+  - extras/vcredist2013
+  - extras/vcredist2022
 
 winget:
   # Most Important
