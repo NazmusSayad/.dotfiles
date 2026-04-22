@@ -10,6 +10,7 @@ scoop:
   - extras/fvm
   - extras/tableplus
 
+  # Cloud
   - gh
   - aws
   - cloudflared
