@@ -152,7 +152,6 @@
   },
 
   "share": "disabled",
-  "username": "Sayad",
   "autoshare": false,
   "autoupdate": false,
   "$schema": "https://opencode.ai/config.json"
