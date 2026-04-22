@@ -10,9 +10,8 @@ kilo:
   models:
     - kilo-auto/free
 
+    - z-ai/glm-5.1
     - qwen/qwen3.6-plus
-
-    - xiaomi/mimo-v2.5
     - xiaomi/mimo-v2.5-pro
 
     - moonshotai/kimi-k2.5
@@ -20,7 +19,3 @@ kilo:
 
     - minimax/minimax-m2.5
     - minimax/minimax-m2.7
-
-    - z-ai/glm-5.1
-    - z-ai/glm-5-turbo
-    - z-ai/glm-5v-turbo
