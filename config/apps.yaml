@@ -3,7 +3,7 @@ msys2:
   - fish
 
 scoop:
-  # Development Tools
+  # Development
   - gcc
   - scc
   - shfmt
@@ -14,15 +14,11 @@ scoop:
   - aws
   - cloudflared
 
-  # AI Coding Tools
+  # AI Coding
   - codex
   - extras/opencode-desktop
 
-  # LLM Tools 
-  - whisper-cpp
-  - versions/llama.cpp-cpu
-
-  # Visualization Tools
+  # Visualization
   - extras/onefetch
   - extras/hwinfo
   - wakatime-cli
@@ -38,45 +34,51 @@ scoop:
   - zoxide
   - starship
 
-  # System Tools
+  # System
   - nircmd
 
-  # File System Tools
+  # File System
   - ripgrep
   - byenow
   - yazi
-  - unzip
   - dust
   - eza
-  - zip
   - fzf
   - rip
   - bat
   - lsd
   - fd
+
+  # Zip and Image
+  - zip
+  - unzip
+  - extras/winrar
+  - extras/anyburn
+
+  # JSON/YAML
   - jq
   - yq
 
-  # Workflow Tools
+  # Workflow
   - just
   - make
   - cmake
 
-  # Media Tools
-  - extras/anyburn
-  - extras/winrar
+  # Media
   - extras/sharex
   - imagemagick
   - ffmpeg
   - yt-dlp
   - pandoc
 
-  # Communication Tools
+  # Communication
   - extras/slack
 
-  # Misc
+  # Fonts
   - nerd-fonts/FiraCode-NF
-  - extras/vcredist2022
+
+  # Misc
+  - extras/vcredist
 
 winget:
   # Most Important
