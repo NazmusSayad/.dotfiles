@@ -121,16 +121,6 @@
             "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
           }
         },
-        "z-ai/glm-5-turbo": {
-          "id": "z-ai/glm-5-turbo",
-          "limit": { "context": 202752, "output": 202752, "input": 202752 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "Z.ai: GLM 5 Turbo",
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
-        },
         "z-ai/glm-5.1": {
           "id": "z-ai/glm-5.1",
           "limit": { "context": 202752, "output": 202752, "input": 202752 },
@@ -141,28 +131,6 @@
             "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
           }
         },
-        "z-ai/glm-5v-turbo": {
-          "id": "z-ai/glm-5v-turbo",
-          "limit": { "context": 202752, "output": 202752, "input": 202752 },
-          "modalities": {
-            "input": ["image", "text", "video"],
-            "output": ["text"]
-          },
-          "name": "Z.ai: GLM 5V Turbo",
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
-        },
-        "xiaomi/mimo-v2.5": {
-          "id": "xiaomi/mimo-v2.5",
-          "limit": { "context": 400000, "input": 400000, "output": 400000 },
-          "modalities": {
-            "input": ["text", "audio", "image", "video"],
-            "output": ["text"]
-          },
-          "name": "Xiaomi: MiMo-V2.5"
-        },
         "xiaomi/mimo-v2.5-pro": {
           "id": "xiaomi/mimo-v2.5-pro",
           "limit": { "context": 400000, "input": 400000, "output": 400000 },
@@ -172,16 +140,13 @@
       },
       "whitelist": [
         "kilo-auto/free",
+        "z-ai/glm-5.1",
         "qwen/qwen3.6-plus",
-        "xiaomi/mimo-v2.5",
         "xiaomi/mimo-v2.5-pro",
         "moonshotai/kimi-k2.5",
         "moonshotai/kimi-k2.6",
         "minimax/minimax-m2.5",
-        "minimax/minimax-m2.7",
-        "z-ai/glm-5.1",
-        "z-ai/glm-5-turbo",
-        "z-ai/glm-5v-turbo"
+        "minimax/minimax-m2.7"
       ]
     }
   },
