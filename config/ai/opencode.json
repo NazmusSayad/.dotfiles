@@ -31,6 +31,8 @@
     }
   },
 
+  "small_model": "kilo/kilo-auto/free",
+
   "enabled_providers": ["openai", "kilo"],
 
   "provider": {
@@ -152,6 +154,7 @@
   },
 
   "share": "disabled",
+  "logLevel": "ERROR",
   "autoshare": false,
   "autoupdate": false,
   "$schema": "https://opencode.ai/config.json"
