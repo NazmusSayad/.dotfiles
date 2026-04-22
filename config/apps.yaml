@@ -4,8 +4,8 @@ msys2:
 
 scoop:
   # Development
-  - gcc
   - scc
+  - gcc
   - shfmt
   - extras/fvm
   - extras/tableplus
