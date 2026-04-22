@@ -75,7 +75,7 @@
       "models": {
         "kilo-auto/free": {
           "id": "kilo-auto/free",
-          "limit": { "context": 204800, "output": 204800, "input": 204800 },
+          "limit": { "context": 256000, "output": 256000, "input": 256000 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "Kilo Auto Free"
         },
