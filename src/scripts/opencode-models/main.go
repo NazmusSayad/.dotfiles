@@ -74,6 +74,4 @@ func main() {
 		fmt.Println("failed to write opencode config:", err)
 		os.Exit(1)
 	}
-
-	fmt.Println(aurora.Green("Updated OpenCode configuration successfully.").String())
 }
