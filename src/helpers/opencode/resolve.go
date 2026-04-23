@@ -51,6 +51,7 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 		if err != nil {
 			return OpencodeOutputProviderConfig{}, err
 		}
+
 		fetchedModels = models
 	}
 
@@ -78,8 +79,5 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 		whitelist = append(whitelist, configuredModel.ID)
 	}
 
-	return OpencodeOutputProviderConfig{
-		Models:    resolvedModelsMap,
-		Whitelist: whitelist,
-	}, nil
+	return OpencodeOutputProviderConfig{Models: resolvedModelsMap, Whitelist: whitelist}, nil
 }
