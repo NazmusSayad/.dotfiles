@@ -12,6 +12,7 @@ openrouter:
   models:
     - openrouter/free
     - tencent/hy3-preview:free
+    - minimax/minimax-m2.5:free
     - inclusionai/ling-2.6-1t:free
 
 kilo:
