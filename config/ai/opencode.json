@@ -94,61 +94,87 @@
       "models": {
         "kilo-auto/free": {
           "id": "kilo-auto/free",
-          "limit": { "context": 256000, "output": 256000, "input": 256000 },
+          "limit": { "context": 204800, "output": 131072 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "Kilo Auto Free"
+          "name": "Kilo Auto Free",
+          "attachment": false,
+          "reasoning": true,
+          "release_date": "2026-03-15",
+          "temperature": true,
+          "tool_call": true
         },
         "minimax/minimax-m2.5": {
           "id": "minimax/minimax-m2.5",
-          "limit": { "context": 196608, "output": 196608, "input": 196608 },
+          "limit": { "context": 196608, "output": 196608 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "MiniMax: MiniMax M2.5"
+          "name": "MiniMax: MiniMax M2.5",
+          "attachment": false,
+          "cost": { "cache_read": 0.029, "input": 0.25, "output": 1.2 },
+          "reasoning": true,
+          "release_date": "2026-02-12",
+          "temperature": true,
+          "tool_call": true
         },
         "minimax/minimax-m2.7": {
           "id": "minimax/minimax-m2.7",
-          "limit": { "context": 196608, "output": 196608, "input": 196608 },
+          "limit": { "context": 204800, "output": 131072 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "MiniMax: MiniMax M2.7"
+          "name": "MiniMax: MiniMax M2.7",
+          "attachment": false,
+          "cost": { "cache_read": 0.06, "input": 0.3, "output": 1.2 },
+          "family": "minimax-m2.7",
+          "reasoning": true,
+          "release_date": "2026-03-18",
+          "temperature": true,
+          "tool_call": true
         },
         "moonshotai/kimi-k2.5": {
           "id": "moonshotai/kimi-k2.5",
-          "limit": { "context": 262144, "output": 262144, "input": 262144 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "limit": { "context": 262144, "output": 65535 },
+          "modalities": { "input": ["image", "text"], "output": ["text"] },
           "name": "MoonshotAI: Kimi K2.5",
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "attachment": true,
+          "cost": { "input": 0.45, "output": 2.2 },
+          "reasoning": true,
+          "release_date": "2026-01-27",
+          "temperature": true,
+          "tool_call": true
         },
         "moonshotai/kimi-k2.6": {
           "id": "moonshotai/kimi-k2.6",
-          "limit": { "context": 256000, "output": 256000, "input": 256000 },
+          "limit": { "context": 262144, "output": 262144 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "name": "MoonshotAI: Kimi K2.6 (new)",
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "name": "MoonshotAI: Kimi K2.6",
+          "attachment": true,
+          "cost": { "cache_read": 0.16, "input": 0.95, "output": 4 },
+          "reasoning": true,
+          "release_date": "2026-04-20",
+          "temperature": true,
+          "tool_call": true
         },
         "qwen/qwen3.6-plus": {
           "id": "qwen/qwen3.6-plus",
-          "limit": { "context": 400000, "output": 400000, "input": 400000 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "limit": { "context": 400000, "output": 65536 },
+          "modalities": { "input": ["image", "text"], "output": ["text"] },
           "name": "Qwen: Qwen3.6 Plus",
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "attachment": true,
+          "cost": { "cache_read": 0.0325, "input": 0.325, "output": 1.95 },
+          "reasoning": true,
+          "release_date": "2025-08-26",
+          "temperature": true,
+          "tool_call": true
         },
         "z-ai/glm-5.1": {
           "id": "z-ai/glm-5.1",
-          "limit": { "context": 202752, "output": 202752, "input": 202752 },
+          "limit": { "context": 202752, "output": 131072 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "Z.ai: GLM 5.1",
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "attachment": false,
+          "cost": { "input": 1.26, "output": 3.96 },
+          "reasoning": true,
+          "release_date": "2026-03-27",
+          "temperature": true,
+          "tool_call": true
         },
         "xiaomi/mimo-v2.5-pro": {
           "id": "xiaomi/mimo-v2.5-pro",
@@ -179,9 +205,14 @@
       "models": {
         "openrouter/free": {
           "id": "openrouter/free",
-          "limit": { "context": 200000, "input": 200000, "output": 200000 },
+          "limit": { "context": 200000, "input": 200000, "output": 8000 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "name": "Free Models Router"
+          "name": "Free Models Router",
+          "attachment": true,
+          "reasoning": true,
+          "release_date": "2026-02-01",
+          "temperature": true,
+          "tool_call": true
         }
       },
       "whitelist": ["openrouter/free"]

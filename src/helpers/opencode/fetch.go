@@ -13,7 +13,7 @@ import (
 
 var allowedModalities = []string{"text", "audio", "image", "video", "pdf"}
 
-func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth *AuthProvider) (map[string]OpencodeOutputModel, error) {
+func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth *AuthProvider) (map[string]OpencodeStandardModel, error) {
 	modelsURL := providerConfig.ModelsURL
 	requestedModelIdMap := map[string]bool{}
 	for _, configuredModel := range providerConfig.Models {
@@ -50,7 +50,7 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 		return nil, fmt.Errorf("failed to decode %s response: %w", providerID, err)
 	}
 
-	models := map[string]OpencodeOutputModel{}
+	models := map[string]OpencodeStandardModel{}
 	matchedModelIDs := map[string]bool{}
 
 	for _, model := range payload.Data {
@@ -65,17 +65,17 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 			modelName = model.ID
 		}
 
-		entry := OpencodeOutputModel{ID: model.ID, Name: modelName}
+		entry := OpencodeStandardModel{ID: model.ID, Name: modelName}
 
 		if model.ContextLength > 0 {
-			entry.Limit = &OpencodeOutputLimit{Context: model.ContextLength, Input: model.ContextLength, Output: model.ContextLength}
+			entry.Limit = &OpencodeStandardLimit{Context: model.ContextLength, Input: model.ContextLength, Output: model.ContextLength}
 		}
 
 		supportedInputModalities := filterLLMModalities(model.Architecture.InputModalities)
 		supportedOutputModalities := filterLLMModalities(model.Architecture.OutputModalities)
 
 		if len(supportedInputModalities) > 0 && len(supportedOutputModalities) > 0 {
-			entry.Modalities = &OpencodeOutputModalities{
+			entry.Modalities = &OpencodeStandardModalities{
 				Input:  supportedInputModalities,
 				Output: supportedOutputModalities,
 			}
@@ -99,7 +99,7 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 		}
 
 		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerID)
-		models[modelID] = OpencodeOutputModel{ID: modelID, Name: modelID}
+		models[modelID] = OpencodeStandardModel{ID: modelID, Name: modelID}
 	}
 
 	return models, nil
@@ -117,10 +117,10 @@ func filterLLMModalities(modalities []string) []string {
 }
 
 type modelsDotDevProvider struct {
-	Models map[string]OpencodeOutputModel `json:"models"`
+	Models map[string]OpencodeStandardModel `json:"models"`
 }
 
-func FetchModelsDotDev() (map[string]map[string]OpencodeOutputModel, error) {
+func FetchModelsDotDev() (map[string]map[string]OpencodeStandardModel, error) {
 	resp, err := http.Get("https://models.dev/api.json")
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch models.dev API: %w", err)
@@ -141,9 +141,9 @@ func FetchModelsDotDev() (map[string]map[string]OpencodeOutputModel, error) {
 		return nil, fmt.Errorf("failed to decode models.dev response: %w", err)
 	}
 
-	result := make(map[string]map[string]OpencodeOutputModel)
+	result := make(map[string]map[string]OpencodeStandardModel)
 	for providerID, provider := range payload {
-		providerModels := make(map[string]OpencodeOutputModel)
+		providerModels := make(map[string]OpencodeStandardModel)
 		for modelID, model := range provider.Models {
 			providerModels[modelID] = model
 		}

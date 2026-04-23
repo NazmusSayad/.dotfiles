@@ -26,121 +26,38 @@ func main() {
 		os.Exit(1)
 	}
 
-	var config map[string]any
-	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &config); err != nil {
+	var fullConfig map[string]any
+	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &fullConfig); err != nil {
 		fmt.Println("failed to decode opencode config:", err)
 		os.Exit(1)
-	}
-
-	providers, ok := config["provider"].(map[string]any)
-	if !ok || providers == nil {
-		providers = map[string]any{}
 	}
 
 	modelsDotDevResponse, modelsDotDevError := opencode.FetchModelsDotDev()
 	if modelsDotDevError != nil {
 		fmt.Println("failed to fetch models.dev models:", modelsDotDevError)
+		return
 	}
+
+	outputProviderConfig := make(map[string]opencode.OpencodeOutputProviderConfig)
+	fmt.Println()
 
 	for providerID, providerConfig := range providerConfigs {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
-		providerModelIDs := make([]string, 0, len(providerConfig.Models))
-		for _, configuredModel := range providerConfig.Models {
-			providerModelIDs = append(providerModelIDs, configuredModel.ID)
-		}
 
-		if providerConfig.ModelsURL == "" {
-			devModels, ok := modelsDotDevResponse[providerID]
-			if !ok {
-				fmt.Fprintf(os.Stderr, "%s provider %q has no apiURL/modelsURL and no models.dev data, skipping\n", aurora.Yellow("warn:").String(), providerID)
-				fmt.Println()
-				continue
-			}
-
-			filteredModels := map[string]opencode.OpencodeOutputModel{}
-			for _, configuredModel := range providerConfig.Models {
-				modelID := configuredModel.ID
-				model, ok := devModels[modelID]
-				if !ok {
-					fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q in models.dev, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerID)
-					filteredModels[modelID] = opencode.ApplyModelContextCap(opencode.OpencodeOutputModel{ID: modelID, Name: modelID}, configuredModel.ContextCap)
-					continue
-				}
-				model.ID = modelID
-				filteredModels[modelID] = opencode.ApplyModelContextCap(model, configuredModel.ContextCap)
-			}
-
-			existingProvider, exists := providers[providerID]
-			if !exists {
-				providers[providerID] = map[string]any{
-					"models":    filteredModels,
-					"whitelist": providerModelIDs,
-				}
-
-				fmt.Println()
-				continue
-			}
-
-			providerObject, ok := existingProvider.(map[string]any)
-			if !ok {
-				fmt.Fprintf(os.Stderr, "%s provider %q is not an object, skipping\n", aurora.Yellow("warn:").String(), providerID)
-				fmt.Println()
-				continue
-			}
-
-			providerObject["models"] = filteredModels
-			providerObject["whitelist"] = providerModelIDs
-			providers[providerID] = providerObject
-			fmt.Println()
-			continue
-		}
-
-		var providerAuth *opencode.AuthProvider
-		if auth, ok := authConfig[providerID]; ok {
-			providerAuth = &auth
-		}
-
-		models, err := opencode.FetchModels(providerID, providerConfig, providerAuth)
+		devModels := modelsDotDevResponse[providerID]
+		result, err := opencode.ResolveOpencodeProvider(providerID, providerConfig, devModels, authConfig)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Fprintf(os.Stderr, "%s failed to resolve provider %q: %v\n", aurora.Yellow("warn:").String(), providerID, err)
 			fmt.Println()
 			continue
 		}
 
-		cappedModels := make(map[string]opencode.OpencodeOutputModel, len(providerConfig.Models))
-		for _, configuredModel := range providerConfig.Models {
-			modelID := configuredModel.ID
-			model, ok := models[modelID]
-			if !ok {
-				model = opencode.OpencodeOutputModel{ID: modelID, Name: modelID}
-			}
-
-			cappedModels[modelID] = opencode.ApplyModelContextCap(model, configuredModel.ContextCap)
-		}
-
-		existingProvider, exists := providers[providerID]
-		if !exists {
-			providers[providerID] = map[string]any{"models": cappedModels, "whitelist": providerModelIDs}
-			fmt.Println()
-			continue
-		}
-
-		providerObject, ok := existingProvider.(map[string]any)
-		if !ok {
-			fmt.Fprintf(os.Stderr, "%s provider %q is not an object, skipping\n", aurora.Yellow("warn:").String(), providerID)
-			fmt.Println()
-			continue
-		}
-
-		providerObject["models"] = cappedModels
-		providerObject["whitelist"] = providerModelIDs
-		providers[providerID] = providerObject
+		outputProviderConfig[providerID] = result
 		fmt.Println()
 	}
 
-	config["provider"] = providers
-
-	newConfigBytes, err := json.Marshal(config)
+	fullConfig["provider"] = outputProviderConfig
+	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
 		fmt.Println("failed to encode config:", err)
 		os.Exit(1)
