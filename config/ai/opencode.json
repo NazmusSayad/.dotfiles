@@ -32,9 +32,9 @@
     }
   },
 
-  "small_model": "kilo/kilo-auto/free",
+  "small_model": "openrouter/openrouter/free",
 
-  "enabled_providers": ["openai", "kilo"],
+  "enabled_providers": ["openai", "openrouter", "kilo"],
 
   "provider": {
     "openai": {
