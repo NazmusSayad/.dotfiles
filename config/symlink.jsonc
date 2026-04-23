@@ -31,6 +31,10 @@
     "Target": "~/.t3/userdata/keybindings.json"
   },
   {
+    "Source": "@/config/ai/t3client.jsonc",
+    "Target": "~/.t3/userdata/client-settings.json"
+  },
+  {
     "Source": "@/config/ai/opencode.json",
     "Target": "~/.config/opencode/config.json"
   },
