@@ -15,11 +15,6 @@ openrouter:
     - minimax/minimax-m2.5:free
     - inclusionai/ling-2.6-1t:free
 
-kilo:
-  modelsURL: https://api.kilo.ai/api/gateway/models
-  models:
-    - kilo-auto/free
-
     - z-ai/glm-5.1
     - qwen/qwen3.6-plus
     - xiaomi/mimo-v2.5-pro
