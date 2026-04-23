@@ -55,7 +55,15 @@ func main() {
 		fmt.Println()
 	}
 
+	enabledProviders := make([]string, 0)
+	for providerID := range outputProviderConfig {
+		enabledProviders = append(enabledProviders, providerID)
+	}
+
 	fullConfig["provider"] = outputProviderConfig
+	fullConfig["enabled_providers"] = enabledProviders
+	fmt.Printf("%s %s\n", aurora.Green("Enabled providers:").String(), aurora.Bold(fmt.Sprintf("%v", enabledProviders)).String())
+
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
 		fmt.Println("failed to encode config:", err)
