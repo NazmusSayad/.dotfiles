@@ -13,16 +13,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Refetching Opencode Models...")
-	refreshErr := helpers.ExecNativeCommand(
-		[]string{"opencode", "models", "--refresh"},
-		helpers.ExecCommandOptions{Silent: true},
-	)
-	if refreshErr != nil {
-		fmt.Println("failed to refresh opencode models")
-		os.Exit(1)
-	}
-
 	providerConfigs := opencode.ReadOpencodeProvidersConfig()
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
@@ -78,9 +68,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println(aurora.Green("Writing the updated OpenCode configuration...").String())
 	if err := os.WriteFile(configPath, []byte(mergedConfigRaw), 0o644); err != nil {
 		fmt.Println("failed to write opencode config:", err)
 		os.Exit(1)
+	}
+
+	refreshErr := helpers.ExecNativeCommand([]string{"opencode", "models", "--refresh"})
+	if refreshErr != nil {
+		fmt.Println("failed to refresh opencode models")
 	}
 }
