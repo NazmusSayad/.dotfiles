@@ -13,13 +13,22 @@ import (
 )
 
 func main() {
-	providerConfigs := opencode.ReadOpencodeProvidersConfig()
+	fmt.Println("Refetching Opencode Models...")
+	refreshErr := helpers.ExecNativeCommand(
+		[]string{"opencode", "models", "--refresh"},
+		helpers.ExecCommandOptions{Silent: true},
+	)
+	if refreshErr != nil {
+		fmt.Println("failed to refresh opencode models")
+		os.Exit(1)
+	}
 
+	providerConfigs := opencode.ReadOpencodeProvidersConfig()
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
 
-	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
 	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
+	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
 	configBytes, err := os.ReadFile(configPath)
 	if err != nil {
 		fmt.Println("failed to read opencode config:", err)
