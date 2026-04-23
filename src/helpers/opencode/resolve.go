@@ -57,21 +57,20 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 
 	resolvedModelsMap := make(map[string]OpencodeStandardModel)
 	for _, configuredModel := range providerConfig.Models {
-		modelsDotModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
+		_, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
 		if hasModelInModelsDotDev {
-			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(modelsDotModel, configuredModel.ContextCap)
-			fmt.Printf("%s %s (models.dev)\n", aurora.Green("✓").String(), configuredModel.ID)
+			fmt.Println(aurora.Faint("-"), configuredModel.ID)
 			continue
 		}
 
 		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
 		if hasModelInFetched {
 			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(fetchedModel, configuredModel.ContextCap)
-			fmt.Printf("%s %s (API)\n", aurora.Green("✓").String(), configuredModel.ID)
+			fmt.Println(aurora.Green("✓"), configuredModel.ID)
 			continue
 		}
 
-		fmt.Printf("%s %s\n", aurora.Red("✗").String(), configuredModel.ID)
+		fmt.Println(aurora.Red("✗"), configuredModel.ID)
 	}
 
 	whitelist := make([]string, 0, len(providerConfig.Models))
