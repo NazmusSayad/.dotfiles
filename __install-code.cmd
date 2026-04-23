@@ -16,5 +16,9 @@ rm -rf ~/AppData/Local/ai.opencode.desktop.beta
 rm -rf ~/AppData/Roaming/ai.opencode.desktop
 rm -rf ~/AppData/Roaming/ai.opencode.desktop.beta
 
+rm -rf ~/.t3
+rm -rf ~/AppData/Roaming/t3code
+rm -rf ~/AppData/Local/t3code-updater
+
 call sudo symlink-setup.exe
 proxy-pause echo
