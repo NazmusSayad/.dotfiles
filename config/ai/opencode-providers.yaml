@@ -11,8 +11,8 @@ openrouter:
   modelsURL: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
+
     - tencent/hy3-preview:free
-    - minimax/minimax-m2.5:free
     - inclusionai/ling-2.6-1t:free
 
     - z-ai/glm-5.1
@@ -22,5 +22,5 @@ openrouter:
     - moonshotai/kimi-k2.5
     - moonshotai/kimi-k2.6
 
-    - minimax/minimax-m2.5
+    - minimax/minimax-m2.5:free
     - minimax/minimax-m2.7
