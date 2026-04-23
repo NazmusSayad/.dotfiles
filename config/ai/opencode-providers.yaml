@@ -1,5 +1,7 @@
 openai:
   models:
+    - id: gpt-5.5
+      context: 272000
     - id: gpt-5.4
       context: 272000
     - id: gpt-5.3-codex
@@ -9,6 +11,7 @@ kilo:
   modelsURL: https://api.kilo.ai/api/gateway/models
   models:
     - kilo-auto/free
+    - inclusionai/ling-2.6-1t:free
 
     - z-ai/glm-5.1
     - qwen/qwen3.6-plus
