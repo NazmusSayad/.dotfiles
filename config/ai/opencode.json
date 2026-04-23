@@ -5,7 +5,8 @@
   "permission": {
     "doom_loop": "allow",
     "external_directory": {
-      "~/Desktop/**": "allow"
+      "~/Desktop/**": "allow",
+      "~/AppData/Local/Pub/Cache/**": "allow"
     }
   },
 
