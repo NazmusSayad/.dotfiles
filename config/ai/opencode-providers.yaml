@@ -11,12 +11,12 @@ openrouter:
   modelsURL: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
+    - inclusionai/ling-2.6-1t:free
 
 kilo:
   modelsURL: https://api.kilo.ai/api/gateway/models
   models:
     - kilo-auto/free
-    - inclusionai/ling-2.6-1t:free
 
     - z-ai/glm-5.1
     - qwen/qwen3.6-plus
