@@ -59,14 +59,14 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 		modelsDotModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
 		if hasModelInModelsDotDev {
 			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(modelsDotModel, configuredModel.ContextCap)
-			fmt.Printf("%s %s (from models.dev)\n", aurora.Green("✓").String(), configuredModel.ID)
+			fmt.Printf("%s %s (models.dev)\n", aurora.Green("✓").String(), configuredModel.ID)
 			continue
 		}
 
 		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
 		if hasModelInFetched {
 			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(fetchedModel, configuredModel.ContextCap)
-			fmt.Printf("%s %s (from provider's API)\n", aurora.Green("✓").String(), configuredModel.ID)
+			fmt.Printf("%s %s (API)\n", aurora.Green("✓").String(), configuredModel.ID)
 			continue
 		}
 
