@@ -219,9 +219,25 @@
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "Tencent: Hy3 preview (free)"
         },
-        "minimax/minimax-m2.5:free":{"attachment":false,"family":"minimax","id":"minimax/minimax-m2.5:free","limit":{"context":204800,"output":131072},"modalities":{"input":["text"],"output":["text"]},"name":"MiniMax M2.5 (free)","reasoning":true,"release_date":"2026-02-12","temperature":true,"tool_call":true}
+        "minimax/minimax-m2.5:free": {
+          "attachment": false,
+          "family": "minimax",
+          "id": "minimax/minimax-m2.5:free",
+          "limit": { "context": 204800, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "MiniMax M2.5 (free)",
+          "reasoning": true,
+          "release_date": "2026-02-12",
+          "temperature": true,
+          "tool_call": true
+        }
       },
-      "whitelist": ["openrouter/free","tencent/hy3-preview:free","minimax/minimax-m2.5:free","inclusionai/ling-2.6-1t:free"]
+      "whitelist": [
+        "openrouter/free",
+        "tencent/hy3-preview:free",
+        "minimax/minimax-m2.5:free",
+        "inclusionai/ling-2.6-1t:free"
+      ]
     }
   },
 
