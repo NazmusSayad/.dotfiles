@@ -17,7 +17,7 @@ scoop:
 
   # AI Coding
   - codex
-  - opencode
+  - extras/opencode-desktop
 
   # Visualization
   - extras/onefetch
