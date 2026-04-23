@@ -60,7 +60,7 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
 		if hasModelInModelsDotDev {
 			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(modelsDevModel, configuredModel.ContextCap)
-			fmt.Println(aurora.Faint("-"), configuredModel.ID)
+			fmt.Println(aurora.Faint("✓"), configuredModel.ID)
 			continue
 		}
 
