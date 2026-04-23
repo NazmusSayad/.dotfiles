@@ -11,6 +11,7 @@ openrouter:
   modelsURL: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
+    - tencent/hy3-preview:free
     - inclusionai/ling-2.6-1t:free
 
 kilo:

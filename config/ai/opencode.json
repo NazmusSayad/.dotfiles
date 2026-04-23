@@ -212,9 +212,19 @@
           "limit": { "context": 262144, "input": 262144, "output": 262144 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "inclusionAI: Ling-2.6-1T (free)"
+        },
+        "tencent/hy3-preview:free": {
+          "id": "tencent/hy3-preview:free",
+          "limit": { "context": 262144, "input": 262144, "output": 262144 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "Tencent: Hy3 preview (free)"
         }
       },
-      "whitelist": ["openrouter/free", "inclusionai/ling-2.6-1t:free"]
+      "whitelist": [
+        "openrouter/free",
+        "tencent/hy3-preview:free",
+        "inclusionai/ling-2.6-1t:free"
+      ]
     }
   },
 
