@@ -4,78 +4,26 @@
     "bg": "#1E2227",
     "bg_dark": "#181A1F",
     "bg_dark1": "#141619",
-    "bg_float": "#181A1F",
     "bg_highlight": "#2A2E35",
-    "bg_popup": "#181A1F",
-    "bg_search": "#3d59a1",
-    "bg_sidebar": "#181A1F",
-    "bg_statusline": "#181A1F",
     "bg_visual": "#2C313A",
-    "black": "#181A1F",
     "blue": "#61AFEF",
     "blue0": "#3d59a1",
-    "blue1": "#56B6C2",
     "blue2": "#4FA8B3",
     "blue5": "#93CFFF",
     "blue6": "#82D2DC",
-    "blue7": "#2C313A",
-    "border": "#181A1F",
-    "border_highlight": "#61AFEF",
     "comment": "#4A4F5A",
     "cyan": "#56B6C2",
-    "dark3": "#4A4F5A",
     "dark5": "#616A7B",
     "diff_add": "#2B3A2B",
-    "diff_change": "#2A2E35",
     "diff_delete": "#3A2B2B",
-    "diff_text": "#2C313A",
-    "error": "#EE5D69",
     "fg": "#ABB2BF",
     "fg_dark": "#828997",
-    "fg_float": "#ABB2BF",
     "fg_gutter": "#4B5263",
-    "fg_sidebar": "#828997",
-    "git_add": "#97C775",
-    "git_change": "#61AFEF",
-    "git_delete": "#EE5D69",
-    "git_ignore": "#4A4F5A",
     "green": "#97C775",
-    "green1": "#C2DEAD",
-    "green2": "#56B6C2",
-    "hint": "#56B6C2",
-    "info": "#56B6C2",
     "magenta": "#C678DD",
     "magenta2": "#E0A8F1",
     "orange": "#D19A66",
-    "purple": "#C678DD",
-    "rainbow_1": "#61AFEF",
-    "rainbow_2": "#D1A47A",
-    "rainbow_3": "#97C775",
-    "rainbow_4": "#56B6C2",
-    "rainbow_5": "#C678DD",
-    "rainbow_6": "#E0A8F1",
-    "rainbow_7": "#D19A66",
-    "rainbow_8": "#EE5D69",
     "red": "#EE5D69",
-    "red1": "#FE808A",
-    "teal": "#56B6C2",
-    "terminal_black": "#4A4F5A",
-    "terminal_black_bright": "#616A7B",
-    "terminal_blue": "#61AFEF",
-    "terminal_blue_bright": "#93CFFF",
-    "terminal_cyan": "#56B6C2",
-    "terminal_cyan_bright": "#82D2DC",
-    "terminal_green": "#97C775",
-    "terminal_green_bright": "#C2DEAD",
-    "terminal_magenta": "#C678DD",
-    "terminal_magenta_bright": "#E0A8F1",
-    "terminal_red": "#EE5D69",
-    "terminal_red_bright": "#FE808A",
-    "terminal_white": "#CCCCCC",
-    "terminal_white_bright": "#FFFFFF",
-    "terminal_yellow": "#B68353",
-    "terminal_yellow_bright": "#D1A47A",
-    "todo": "#61AFEF",
     "warning": "#D1A47A",
     "yellow": "#B68353"
   },
@@ -85,16 +33,16 @@
       "light": "blue"
     },
     "secondary": {
-      "dark": "purple",
-      "light": "purple"
+      "dark": "magenta",
+      "light": "magenta"
     },
     "accent": {
       "dark": "orange",
       "light": "orange"
     },
     "error": {
-      "dark": "red1",
-      "light": "red1"
+      "dark": "red",
+      "light": "red"
     },
     "warning": {
       "dark": "yellow",
@@ -129,24 +77,24 @@
       "light": "bg_highlight"
     },
     "border": {
-      "dark": "black",
-      "light": "black"
+      "dark": "bg_dark",
+      "light": "bg_dark"
     },
     "borderActive": {
-      "dark": "border_highlight",
-      "light": "border_highlight"
+      "dark": "blue",
+      "light": "blue"
     },
     "borderSubtle": {
-      "dark": "dark3",
-      "light": "dark3"
+      "dark": "comment",
+      "light": "comment"
     },
     "diffAdded": {
-      "dark": "green1",
-      "light": "green1"
+      "dark": "green",
+      "light": "green"
     },
     "diffRemoved": {
-      "dark": "red1",
-      "light": "red1"
+      "dark": "red",
+      "light": "red"
     },
     "diffContext": {
       "dark": "fg_dark",
@@ -157,12 +105,12 @@
       "light": "comment"
     },
     "diffHighlightAdded": {
-      "dark": "git_add",
-      "light": "git_add"
+      "dark": "green",
+      "light": "green"
     },
     "diffHighlightRemoved": {
-      "dark": "git_delete",
-      "light": "git_delete"
+      "dark": "red",
+      "light": "red"
     },
     "diffAddedBg": {
       "dark": "diff_add",
@@ -201,8 +149,8 @@
       "light": "blue"
     },
     "markdownLinkText": {
-      "dark": "teal",
-      "light": "teal"
+      "dark": "cyan",
+      "light": "cyan"
     },
     "markdownCode": {
       "dark": "green",
@@ -237,8 +185,8 @@
       "light": "blue"
     },
     "markdownImageText": {
-      "dark": "teal",
-      "light": "teal"
+      "dark": "cyan",
+      "light": "cyan"
     },
     "markdownCodeBlock": {
       "dark": "fg",
@@ -249,8 +197,8 @@
       "light": "comment"
     },
     "syntaxKeyword": {
-      "dark": "purple",
-      "light": "purple"
+      "dark": "magenta",
+      "light": "magenta"
     },
     "syntaxFunction": {
       "dark": "blue",
@@ -269,8 +217,8 @@
       "light": "orange"
     },
     "syntaxType": {
-      "dark": "blue1",
-      "light": "blue1"
+      "dark": "cyan",
+      "light": "cyan"
     },
     "syntaxOperator": {
       "dark": "blue5",
