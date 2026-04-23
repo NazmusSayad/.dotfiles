@@ -7,6 +7,18 @@ import (
 )
 
 func ApplyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeStandardModel {
+	if model.Cost == nil {
+		model.Cost = &OpencodeStandardCost{
+			Input:     0,
+			Output:    0,
+			CacheRead: 0,
+		}
+	}
+
+	if model.Cost.Input == 0 || model.Cost.Output == 0 {
+		model.Cost = nil
+	}
+
 	if contextCap <= 0 || model.Limit == nil {
 		return model
 	}
@@ -21,18 +33,6 @@ func ApplyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeS
 
 	if model.Limit.Output > contextCap {
 		model.Limit.Output = contextCap
-	}
-
-	if model.Cost == nil {
-		model.Cost = &OpencodeStandardCost{
-			Input:     0,
-			Output:    0,
-			CacheRead: 0,
-		}
-	}
-
-	if model.Cost.Input == 0 || model.Cost.Output == 0 {
-		model.Cost = nil
 	}
 
 	return model
