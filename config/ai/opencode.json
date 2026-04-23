@@ -127,19 +127,6 @@
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "Tencent: Hy3 preview (free)"
         },
-        "minimax/minimax-m2.5": {
-          "attachment": false,
-          "cost": { "cache_read": 0.03, "input": 0.3, "output": 1.2 },
-          "family": "minimax",
-          "id": "minimax/minimax-m2.5",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "MiniMax M2.5",
-          "reasoning": true,
-          "release_date": "2026-02-12",
-          "temperature": true,
-          "tool_call": true
-        },
         "minimax/minimax-m2.7": {
           "attachment": false,
           "cost": { "cache_read": 0.06, "input": 0.3, "output": 1.2 },
@@ -218,19 +205,7 @@
           "tool_call": true
         }
       },
-      "whitelist": [
-        "openrouter/free",
-        "tencent/hy3-preview:free",
-        "minimax/minimax-m2.5:free",
-        "inclusionai/ling-2.6-1t:free",
-        "z-ai/glm-5.1",
-        "qwen/qwen3.6-plus",
-        "xiaomi/mimo-v2.5-pro",
-        "moonshotai/kimi-k2.5",
-        "moonshotai/kimi-k2.6",
-        "minimax/minimax-m2.5",
-        "minimax/minimax-m2.7"
-      ]
+      "whitelist": ["openrouter/free","tencent/hy3-preview:free","inclusionai/ling-2.6-1t:free","z-ai/glm-5.1","qwen/qwen3.6-plus","xiaomi/mimo-v2.5-pro","moonshotai/kimi-k2.5","moonshotai/kimi-k2.6","minimax/minimax-m2.5:free","minimax/minimax-m2.7"]
     }
   },
 
