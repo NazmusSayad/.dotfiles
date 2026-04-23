@@ -105,7 +105,7 @@
         },
         "moonshotai/kimi-k2.6": {
           "id": "moonshotai/kimi-k2.6",
-          "limit": { "context": 262144, "output": 262144, "input": 262144 },
+          "limit": { "context": 256000, "output": 256000, "input": 256000 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
           "name": "MoonshotAI: Kimi K2.6 (new)",
           "variants": {
@@ -138,10 +138,17 @@
           "limit": { "context": 400000, "input": 400000, "output": 400000 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "Xiaomi: MiMo-V2.5-Pro"
+        },
+        "inclusionai/ling-2.6-1t:free": {
+          "id": "inclusionai/ling-2.6-1t:free",
+          "limit": { "context": 262144, "input": 262144, "output": 262144 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "inclusionAI: Ling-2.6-1T (free)"
         }
       },
       "whitelist": [
         "kilo-auto/free",
+        "inclusionai/ling-2.6-1t:free",
         "z-ai/glm-5.1",
         "qwen/qwen3.6-plus",
         "xiaomi/mimo-v2.5-pro",
