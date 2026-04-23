@@ -69,6 +69,8 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 			fmt.Printf("%s %s (from provider's API)\n", aurora.Green("✓").String(), configuredModel.ID)
 			continue
 		}
+
+		fmt.Printf("%s %s\n", aurora.Red("✗").String(), configuredModel.ID)
 	}
 
 	whitelist := make([]string, 0, len(providerConfig.Models))

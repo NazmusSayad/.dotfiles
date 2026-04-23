@@ -8,7 +8,7 @@ openai:
       context: 272000
 
 openrouter:
-  modelsURL: https://api.kilo.ai/api/gateway/models
+  modelsURL: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
 
