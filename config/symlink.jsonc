@@ -39,6 +39,10 @@
     "Target": "~/.config/opencode/agents"
   },
   {
+    "Source": "@/config/ai/themes",
+    "Target": "~/.config/opencode/themes"
+  },
+  {
     "Source": "@/config/ai/plugins",
     "Target": "~/.config/opencode/plugins"
   },
