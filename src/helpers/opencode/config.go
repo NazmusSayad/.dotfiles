@@ -78,23 +78,3 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 
 	return providers
 }
-
-func ApplyModelContextCap(model OpencodeOutputModel, contextCap int) OpencodeOutputModel {
-	if contextCap <= 0 || model.Limit == nil {
-		return model
-	}
-
-	if model.Limit.Context > contextCap {
-		model.Limit.Context = contextCap
-	}
-
-	if model.Limit.Input > contextCap {
-		model.Limit.Input = contextCap
-	}
-
-	if model.Limit.Output > contextCap {
-		model.Limit.Output = contextCap
-	}
-
-	return model
-}
