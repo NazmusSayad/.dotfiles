@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "confirmThreadArchive": false,
+    "confirmThreadDelete": false,
+    "diffWordWrap": false,
+    "favorites": [],
+    "sidebarProjectGroupingMode": "repository",
+    "sidebarProjectGroupingOverrides": {},
+    "sidebarProjectSortOrder": "updated_at",
+    "sidebarThreadSortOrder": "updated_at",
+    "timestampFormat": "12-hour"
+  }
+}
