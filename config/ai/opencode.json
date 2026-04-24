@@ -76,12 +76,6 @@
     },
     "openrouter": {
       "models": {
-        "inclusionai/ling-2.6-1t:free": {
-          "id": "inclusionai/ling-2.6-1t:free",
-          "limit": { "context": 262144, "input": 262144, "output": 262144 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "inclusionAI: Ling-2.6-1T (free)"
-        },
         "minimax/minimax-m2.5:free": {
           "attachment": false,
           "family": "minimax",
@@ -104,12 +98,6 @@
           "release_date": "2026-02-01",
           "temperature": true,
           "tool_call": true
-        },
-        "tencent/hy3-preview:free": {
-          "id": "tencent/hy3-preview:free",
-          "limit": { "context": 262144, "input": 262144, "output": 262144 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "Tencent: Hy3 preview (free)"
         },
         "minimax/minimax-m2.7": {
           "attachment": false,
@@ -191,8 +179,6 @@
       },
       "whitelist": [
         "openrouter/free",
-        "tencent/hy3-preview:free",
-        "inclusionai/ling-2.6-1t:free",
         "z-ai/glm-5.1",
         "qwen/qwen3.6-plus",
         "xiaomi/mimo-v2.5-pro",

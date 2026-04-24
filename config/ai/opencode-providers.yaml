@@ -10,9 +10,6 @@ openrouter:
   models:
     - openrouter/free
 
-    - tencent/hy3-preview:free
-    - inclusionai/ling-2.6-1t:free
-
     - z-ai/glm-5.1
     - qwen/qwen3.6-plus
     - xiaomi/mimo-v2.5-pro
