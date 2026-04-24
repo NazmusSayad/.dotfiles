@@ -21,3 +21,8 @@ openrouter:
 
     - minimax/minimax-m2.5:free
     - minimax/minimax-m2.7
+
+kilo:
+  modelsURL: https://api.kilo.ai/api/gateway/models
+  models:
+    - kilo-auto/free

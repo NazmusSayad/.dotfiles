@@ -34,9 +34,25 @@
 
   "small_model": "openrouter/openrouter/free",
 
-  "enabled_providers": ["openai", "openrouter"],
+  "enabled_providers": ["openai", "openrouter", "kilo"],
 
   "provider": {
+    "kilo": {
+      "models": {
+        "kilo-auto/free": {
+          "attachment": false,
+          "id": "kilo-auto/free",
+          "limit": { "context": 204800, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "Kilo Auto Free",
+          "reasoning": true,
+          "release_date": "2026-03-15",
+          "temperature": true,
+          "tool_call": true
+        }
+      },
+      "whitelist": ["kilo-auto/free"]
+    },
     "openai": {
       "models": {
         "gpt-5.3-codex": {
@@ -88,17 +104,6 @@
           "temperature": true,
           "tool_call": true
         },
-        "openrouter/free": {
-          "attachment": true,
-          "id": "openrouter/free",
-          "limit": { "context": 200000, "input": 200000, "output": 8000 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "name": "Free Models Router",
-          "reasoning": true,
-          "release_date": "2026-02-01",
-          "temperature": true,
-          "tool_call": true
-        },
         "minimax/minimax-m2.7": {
           "attachment": false,
           "cost": { "cache_read": 0.06, "input": 0.3, "output": 1.2 },
@@ -138,6 +143,17 @@
           "name": "Kimi K2.6",
           "reasoning": true,
           "release_date": "2026-04-20",
+          "temperature": true,
+          "tool_call": true
+        },
+        "openrouter/free": {
+          "attachment": true,
+          "id": "openrouter/free",
+          "limit": { "context": 200000, "input": 200000, "output": 8000 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "name": "Free Models Router",
+          "reasoning": true,
+          "release_date": "2026-02-01",
           "temperature": true,
           "tool_call": true
         },
