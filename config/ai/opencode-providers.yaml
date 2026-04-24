@@ -11,21 +11,20 @@ opencode:
 
 opencode-go:
   models:
+    - glm-5
+    - glm-5.1
+    - kimi-k2.5
     - kimi-k2.6
+    - mimo-v2-pro
+    - mimo-v2.5-pro
+    - minimax-m2.7
+    - qwen3.6-plus
     - deepseek-v4-pro
 
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
-
-    - z-ai/glm-5.1
-    - qwen/qwen3.6-plus
-    - xiaomi/mimo-v2.5-pro
-    - minimax/minimax-m2.7
-    - moonshotai/kimi-k2.5
-    - moonshotai/kimi-k2.6
-    - deepseek/deepseek-v4-pro
 
 kilo:
   url: https://api.kilo.ai/api/gateway/models
