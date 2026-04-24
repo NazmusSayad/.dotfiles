@@ -130,11 +130,7 @@
           "reasoning": true,
           "release_date": "2026-01-27",
           "temperature": true,
-          "tool_call": true,
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "tool_call": true
         },
         "moonshotai/kimi-k2.6": {
           "attachment": true,
@@ -147,11 +143,7 @@
           "reasoning": true,
           "release_date": "2026-04-20",
           "temperature": true,
-          "tool_call": true,
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "tool_call": true
         },
         "openrouter/free": {
           "attachment": true,
@@ -178,11 +170,7 @@
           "reasoning": true,
           "release_date": "2026-04-02",
           "temperature": true,
-          "tool_call": true,
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "tool_call": true
         },
         "xiaomi/mimo-v2.5-pro": {
           "id": "xiaomi/mimo-v2.5-pro",
@@ -201,11 +189,7 @@
           "reasoning": true,
           "release_date": "2026-04-07",
           "temperature": true,
-          "tool_call": true,
-          "variants": {
-            "instant": { "reasoning": { "effort": "none", "enabled": false } },
-            "thinking": { "reasoning": { "effort": "medium", "enabled": true } }
-          }
+          "tool_call": true
         },
         "deepseek/deepseek-v4-pro": {
           "id": "deepseek/deepseek-v4-pro",
