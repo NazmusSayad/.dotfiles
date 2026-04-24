@@ -6,7 +6,7 @@ openai:
       context: 272000
 
 openrouter:
-  url: https://api.kilo.ai/api/gateway/models
+  url: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
     - minimax/minimax-m2.5:free
