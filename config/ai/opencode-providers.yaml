@@ -12,6 +12,7 @@ opencode:
 opencode-go:
   models:
     - kimi-k2.6
+    - deepseek-v4-pro
 
 openrouter:
   url: https://openrouter.ai/api/v1/models
