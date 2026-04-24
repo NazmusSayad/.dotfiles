@@ -62,7 +62,7 @@ func main() {
 	}
 
 	fullConfig["provider"] = outputProviderConfig
-	fullConfig["enabled_providers"] = utils.SortArray(enabledProviders)
+	fullConfig["enabled_providers"] = utils.SortArrayOfString(enabledProviders)
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
