@@ -256,9 +256,22 @@
           "release_date": "2026-04-21",
           "temperature": true,
           "tool_call": true
+        },
+        "deepseek-v4-pro": {
+          "attachment": false,
+          "cost": { "cache_read": 0.145, "input": 1.74, "output": 3.48 },
+          "family": "deepseek-thinking",
+          "id": "deepseek-v4-pro",
+          "limit": { "context": 400000, "output": 384000 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "DeepSeek V4 Pro",
+          "reasoning": true,
+          "release_date": "2026-04-24",
+          "temperature": true,
+          "tool_call": true
         }
       },
-      "whitelist": ["kimi-k2.6"]
+      "whitelist": ["deepseek-v4-pro", "kimi-k2.6"]
     }
   },
 
