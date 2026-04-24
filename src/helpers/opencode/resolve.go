@@ -3,6 +3,8 @@ package opencode
 import (
 	"fmt"
 
+	"dotfiles/src/utils"
+
 	"github.com/logrusorgru/aurora/v4"
 )
 
@@ -74,10 +76,13 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 		fmt.Println(aurora.Red("✗"), configuredModel.ID)
 	}
 
-	whitelist := make([]string, 0, len(providerConfig.Models))
+	whitelist := make([]string, 0)
 	for _, configuredModel := range providerConfig.Models {
 		whitelist = append(whitelist, configuredModel.ID)
 	}
 
-	return OpencodeOutputProviderConfig{Models: resolvedModelsMap, Whitelist: whitelist}, nil
+	return OpencodeOutputProviderConfig{
+		Models:    resolvedModelsMap,
+		Whitelist: utils.SortArrayOfString(whitelist),
+	}, nil
 }
