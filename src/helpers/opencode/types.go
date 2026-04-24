@@ -15,8 +15,9 @@ type OpencodeProviderConfig struct {
 }
 
 type OpencodeProviderConfigModel struct {
-	ID         string `yaml:"id"`
-	ContextCap int    `yaml:"context,omitempty"`
+	ID                string `yaml:"id"`
+	ContextCap        int    `yaml:"context,omitempty"`
+	OpenrouterModelId string `yaml:"openrouterId,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
