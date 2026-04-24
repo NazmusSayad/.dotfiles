@@ -34,7 +34,13 @@
 
   "small_model": "openrouter/openrouter/free",
 
-  "enabled_providers": ["kilo", "openai", "openrouter"],
+  "enabled_providers": [
+    "kilo",
+    "openai",
+    "opencode",
+    "opencode-go",
+    "openrouter"
+  ],
 
   "provider": {
     "kilo": {
@@ -193,26 +199,20 @@
         },
         "deepseek/deepseek-v4-pro": {
           "id": "deepseek/deepseek-v4-pro",
-          "limit": { "context": 400000, "input": 400000, "output": 400000 },
+          "limit": { "context": 400000, "output": 393216 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "DeepSeek: DeepSeek V4 Pro"
-        },
-        "minimax/minimax-m2.5:free": {
+          "name": "DeepSeek V4 Pro",
           "attachment": false,
-          "family": "minimax",
-          "id": "minimax/minimax-m2.5:free",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "MiniMax M2.5 (free)",
+          "cost": { "cache_read": 0.145, "input": 1.74, "output": 3.48 },
+          "family": "deepseek-thinking",
           "reasoning": true,
-          "release_date": "2026-02-12",
+          "release_date": "2026-04-24",
           "temperature": true,
           "tool_call": true
         }
       },
       "whitelist": [
         "deepseek/deepseek-v4-pro",
-        "minimax/minimax-m2.5:free",
         "minimax/minimax-m2.7",
         "moonshotai/kimi-k2.5",
         "moonshotai/kimi-k2.6",
@@ -221,6 +221,44 @@
         "xiaomi/mimo-v2.5-pro",
         "z-ai/glm-5.1"
       ]
+    },
+    "opencode": {
+      "models": {
+        "minimax-m2.5-free": {
+          "attachment": false,
+          "family": "minimax-free",
+          "id": "minimax-m2.5-free",
+          "limit": { "context": 204800, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "MiniMax M2.5 Free",
+          "reasoning": true,
+          "release_date": "2026-02-12",
+          "temperature": true,
+          "tool_call": true
+        }
+      },
+      "whitelist": ["minimax-m2.5-free"]
+    },
+    "opencode-go": {
+      "models": {
+        "kimi-k2.6": {
+          "attachment": true,
+          "cost": { "cache_read": 0.054, "input": 0.32, "output": 1.34 },
+          "family": "kimi-k2.6",
+          "id": "kimi-k2.6",
+          "limit": { "context": 262144, "output": 65536 },
+          "modalities": {
+            "input": ["text", "image", "video"],
+            "output": ["text"]
+          },
+          "name": "Kimi K2.6 (3x limits)",
+          "reasoning": true,
+          "release_date": "2026-04-21",
+          "temperature": true,
+          "tool_call": true
+        }
+      },
+      "whitelist": ["kimi-k2.6"]
     }
   },
 

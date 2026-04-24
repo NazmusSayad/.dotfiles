@@ -5,11 +5,18 @@ openai:
     - id: gpt-5.3-codex
       context: 272000
 
+opencode:
+  models:
+    - minimax-m2.5-free
+
+opencode-go:
+  models:
+    - kimi-k2.6
+
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
-    - minimax/minimax-m2.5:free
 
     - z-ai/glm-5.1
     - qwen/qwen3.6-plus
