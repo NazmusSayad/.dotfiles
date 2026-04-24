@@ -10,8 +10,8 @@ type AuthProvider struct {
 type AuthConfig map[string]AuthProvider
 
 type OpencodeProviderConfig struct {
-	ModelsURL string                        `yaml:"modelsURL"`
-	Models    []OpencodeProviderConfigModel `yaml:"models"`
+	URL    string                        `yaml:"url"`
+	Models []OpencodeProviderConfigModel `yaml:"models"`
 }
 
 type OpencodeProviderConfigModel struct {
