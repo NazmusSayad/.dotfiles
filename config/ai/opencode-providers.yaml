@@ -2,8 +2,6 @@ openai:
   models:
     - id: gpt-5.5
       context: 272000
-    - id: gpt-5.4
-      context: 272000
     - id: gpt-5.3-codex
       context: 272000
 
