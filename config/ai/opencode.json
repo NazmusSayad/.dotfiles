@@ -49,9 +49,28 @@
           "release_date": "2026-03-15",
           "temperature": true,
           "tool_call": true
+        },
+        "minimax/minimax-m2.5:free": {
+          "id": "minimax/minimax-m2.5:free",
+          "name": "minimax/minimax-m2.5:free"
+        },
+        "openrouter/free": {
+          "attachment": true,
+          "id": "openrouter/free",
+          "limit": { "context": 200000, "output": 32768 },
+          "modalities": { "input": ["image", "text"], "output": ["text"] },
+          "name": "Free Models Router",
+          "reasoning": true,
+          "release_date": "2026-02-01",
+          "temperature": true,
+          "tool_call": true
         }
       },
-      "whitelist": ["kilo-auto/free"]
+      "whitelist": [
+        "kilo-auto/free",
+        "openrouter/free",
+        "minimax/minimax-m2.5:free"
+      ]
     },
     "openai": {
       "models": {
@@ -92,18 +111,6 @@
     },
     "openrouter": {
       "models": {
-        "minimax/minimax-m2.5:free": {
-          "attachment": false,
-          "family": "minimax",
-          "id": "minimax/minimax-m2.5:free",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "MiniMax M2.5 (free)",
-          "reasoning": true,
-          "release_date": "2026-02-12",
-          "temperature": true,
-          "tool_call": true
-        },
         "minimax/minimax-m2.7": {
           "attachment": false,
           "cost": { "cache_read": 0.06, "input": 0.3, "output": 1.2 },
@@ -198,10 +205,9 @@
         "z-ai/glm-5.1",
         "qwen/qwen3.6-plus",
         "xiaomi/mimo-v2.5-pro",
+        "minimax/minimax-m2.7",
         "moonshotai/kimi-k2.5",
-        "moonshotai/kimi-k2.6",
-        "minimax/minimax-m2.5:free",
-        "minimax/minimax-m2.7"
+        "moonshotai/kimi-k2.6"
       ]
     }
   },

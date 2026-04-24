@@ -9,20 +9,16 @@ openrouter:
   modelsURL: https://openrouter.ai/api/v1/models
   models:
     - openrouter/free
-
     - z-ai/glm-5.1
-
     - qwen/qwen3.6-plus
-
     - xiaomi/mimo-v2.5-pro
-
+    - minimax/minimax-m2.7
     - moonshotai/kimi-k2.5
     - moonshotai/kimi-k2.6
-
-    - minimax/minimax-m2.5:free
-    - minimax/minimax-m2.7
 
 kilo:
   modelsURL: https://api.kilo.ai/api/gateway/models
   models:
     - kilo-auto/free
+    - openrouter/free
+    - minimax/minimax-m2.5:free
