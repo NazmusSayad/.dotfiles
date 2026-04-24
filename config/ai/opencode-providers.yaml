@@ -15,6 +15,7 @@ openrouter:
     - minimax/minimax-m2.7
     - moonshotai/kimi-k2.5
     - moonshotai/kimi-k2.6
+    - deepseek/deepseek-v4-pro
 
 kilo:
   modelsURL: https://api.kilo.ai/api/gateway/models
