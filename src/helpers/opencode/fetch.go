@@ -10,20 +10,34 @@ import (
 	"slices"
 	"strings"
 
+	"dotfiles/src/utils"
+
 	"github.com/logrusorgru/aurora/v4"
 )
 
+type modelsDotDevProvider struct {
+	Models map[string]OpencodeStandardModel `json:"models"`
+}
+
 var allowedModalities = []string{"text", "audio", "image", "video", "pdf"}
 
-func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth *AuthProvider) (map[string]OpencodeStandardModel, error) {
-	requestedModelIdMap := map[string]bool{}
-	for _, configuredModel := range providerConfig.Models {
-		requestedModelIdMap[configuredModel.ID] = true
+const OPENROUTER_MODELS_URL = "https://openrouter.ai/api/v1/models"
+
+func filterLLMModalities(modalities []string) []string {
+	var filtered []string
+	for _, m := range modalities {
+		if slices.Contains(allowedModalities, m) {
+			filtered = append(filtered, m)
+		}
 	}
 
-	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerConfig.URL).String())
+	return filtered
+}
 
-	req, err := http.NewRequest("GET", providerConfig.URL, nil)
+func FetchModels(providerID string, providerURL string, auth *AuthProvider) (map[string]OpencodeStandardModel, error) {
+	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerURL).String())
+
+	req, err := http.NewRequest("GET", providerURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request for %s models: %w", providerID, err)
 	}
@@ -62,19 +76,17 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 	models := map[string]OpencodeStandardModel{}
 
 	for _, model := range payload.Data {
-		if !requestedModelIdMap[model.ID] {
-			continue
+		entry := OpencodeStandardModel{
+			ID:   model.ID,
+			Name: utils.Ternary(model.Name == "", model.ID, model.Name),
 		}
-
-		modelName := model.Name
-		if modelName == "" {
-			modelName = model.ID
-		}
-
-		entry := OpencodeStandardModel{ID: model.ID, Name: modelName}
 
 		if model.ContextLength > 0 {
-			entry.Limit = &OpencodeStandardLimit{Context: model.ContextLength, Input: model.ContextLength, Output: model.ContextLength}
+			entry.Limit = &OpencodeStandardLimit{
+				Context: model.ContextLength,
+				Input:   model.ContextLength,
+				Output:  model.ContextLength,
+			}
 		}
 
 		supportedInputModalities := filterLLMModalities(model.Architecture.InputModalities)
@@ -101,19 +113,13 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 	return models, nil
 }
 
-func filterLLMModalities(modalities []string) []string {
-	var filtered []string
-	for _, m := range modalities {
-		if slices.Contains(allowedModalities, m) {
-			filtered = append(filtered, m)
-		}
+func FetchOpenrouterModels(auth AuthConfig) (map[string]OpencodeStandardModel, error) {
+	openrouterAuth := auth["openrouter"]
+	if openrouterAuth.Type == "api" && openrouterAuth.Key != "" {
+		return FetchModels("openrouter", OPENROUTER_MODELS_URL, &openrouterAuth)
 	}
 
-	return filtered
-}
-
-type modelsDotDevProvider struct {
-	Models map[string]OpencodeStandardModel `json:"models"`
+	return FetchModels("openrouter", OPENROUTER_MODELS_URL, nil)
 }
 
 func FetchModelsDotDev() (map[string]map[string]OpencodeStandardModel, error) {

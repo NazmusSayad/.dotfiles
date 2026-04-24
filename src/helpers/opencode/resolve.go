@@ -8,7 +8,78 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func ApplyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeStandardModel {
+func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider map[string]OpencodeStandardModel, openrouterModels map[string]OpencodeStandardModel, authConfig AuthConfig) (OpencodeOutputProviderConfig, error) {
+	var fetchedModels map[string]OpencodeStandardModel
+
+	if providerConfig.URL != "" {
+		var providerAuth *AuthProvider
+		if auth, ok := authConfig[providerId]; ok {
+			providerAuth = &auth
+		}
+
+		if models, err := FetchModels(providerId, providerConfig.URL, providerAuth); err == nil {
+			fetchedModels = models
+		} else {
+			fmt.Printf("%s Failed to fetch models for %s: %s\n", aurora.Red("Error:"), providerId, err.Error())
+			return OpencodeOutputProviderConfig{}, err
+		}
+	}
+
+	resolvedModelsMap := make(map[string]OpencodeStandardModel)
+	for _, configuredModel := range providerConfig.Models {
+		openrouterModel, hasModelInOpenrouter := openrouterModels[configuredModel.OpenrouterModelId]
+		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
+		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
+
+		var resolvedModel *OpencodeStandardModel
+
+		if hasModelInModelsDotDev && (hasModelInFetched || hasModelInOpenrouter) {
+			resolvedModel = &modelsDevModel
+
+			if fetchedModel.Variants != nil {
+				resolvedModel.Variants = fetchedModel.Variants
+			}
+
+			fmt.Println(aurora.Green("[ALL]"), configuredModel.ID)
+
+		} else if hasModelInModelsDotDev {
+			resolvedModel = &modelsDevModel
+			fmt.Println(aurora.Green("[MDD]"), configuredModel.ID)
+
+		} else if hasModelInOpenrouter {
+			resolvedModel = &openrouterModel
+			resolvedModel.ID = configuredModel.ID
+			fmt.Println(aurora.Blue("[OPR]"), configuredModel.ID)
+
+		} else if hasModelInFetched {
+			resolvedModel = &fetchedModel
+			fmt.Println(aurora.Cyan("[API]"), configuredModel.ID)
+		}
+
+		if resolvedModel != nil {
+			resolvedModelsMap[configuredModel.ID] = applyModelContextCap(*resolvedModel, configuredModel.ContextCap)
+		} else {
+			fmt.Println(aurora.Red("[ERR]"), configuredModel.ID)
+			resolvedModelsMap[configuredModel.ID] = OpencodeStandardModel{
+				ID:   configuredModel.ID,
+				Name: configuredModel.ID,
+			}
+		}
+
+	}
+
+	whitelist := make([]string, 0)
+	for _, configuredModel := range providerConfig.Models {
+		whitelist = append(whitelist, configuredModel.ID)
+	}
+
+	return OpencodeOutputProviderConfig{
+		Models:    resolvedModelsMap,
+		Whitelist: utils.SortArrayOfString(whitelist),
+	}, nil
+}
+
+func applyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeStandardModel {
 	if model.Cost == nil {
 		model.Cost = &OpencodeStandardCost{
 			Input:     0,
@@ -38,64 +109,4 @@ func ApplyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeS
 	}
 
 	return model
-}
-
-func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider map[string]OpencodeStandardModel, authConfig AuthConfig) (OpencodeOutputProviderConfig, error) {
-	var fetchedModels map[string]OpencodeStandardModel
-
-	if providerConfig.URL != "" {
-		var providerAuth *AuthProvider
-		if auth, ok := authConfig[providerId]; ok {
-			providerAuth = &auth
-		}
-
-		models, err := FetchModels(providerId, providerConfig, providerAuth)
-		if err != nil {
-			return OpencodeOutputProviderConfig{}, err
-		}
-
-		fetchedModels = models
-	}
-
-	resolvedModelsMap := make(map[string]OpencodeStandardModel)
-	for _, configuredModel := range providerConfig.Models {
-		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
-		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
-
-		if hasModelInFetched && hasModelInModelsDotDev {
-			resolvedModel := ApplyModelContextCap(modelsDevModel, configuredModel.ContextCap)
-
-			if fetchedModel.Variants != nil {
-				resolvedModel.Variants = fetchedModel.Variants
-			}
-
-			resolvedModelsMap[configuredModel.ID] = resolvedModel
-			fmt.Println(aurora.Green("✓"), configuredModel.ID)
-			continue
-		}
-
-		if hasModelInModelsDotDev {
-			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(modelsDevModel, configuredModel.ContextCap)
-			fmt.Println(aurora.Faint("✓"), configuredModel.ID)
-			continue
-		}
-
-		if hasModelInFetched {
-			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(fetchedModel, configuredModel.ContextCap)
-			fmt.Println("✓", configuredModel.ID)
-			continue
-		}
-
-		fmt.Println(aurora.Red("✗"), configuredModel.ID)
-	}
-
-	whitelist := make([]string, 0)
-	for _, configuredModel := range providerConfig.Models {
-		whitelist = append(whitelist, configuredModel.ID)
-	}
-
-	return OpencodeOutputProviderConfig{
-		Models:    resolvedModelsMap,
-		Whitelist: utils.SortArrayOfString(whitelist),
-	}, nil
 }

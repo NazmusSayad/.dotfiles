@@ -18,23 +18,16 @@ func main() {
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
 
-	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
-	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
-	configBytes, err := os.ReadFile(configPath)
-	if err != nil {
-		fmt.Println("failed to read opencode config:", err)
-		os.Exit(1)
-	}
-
-	var fullConfig map[string]any
-	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &fullConfig); err != nil {
-		fmt.Println("failed to decode opencode config:", err)
-		os.Exit(1)
-	}
-
 	modelsDotDevResponse, modelsDotDevError := opencode.FetchModelsDotDev()
 	if modelsDotDevError != nil {
 		fmt.Println("failed to fetch models.dev models:", modelsDotDevError)
+		return
+	}
+
+	fmt.Println()
+	openrouterModelsResponse, openrouterModelsError := opencode.FetchOpenrouterModels(authConfig)
+	if openrouterModelsError != nil {
+		fmt.Println("failed to fetch openrouter models:", openrouterModelsError)
 		return
 	}
 
@@ -45,7 +38,7 @@ func main() {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
 
 		devModels := modelsDotDevResponse[providerID]
-		result, err := opencode.ResolveOpencodeProvider(providerID, providerConfig, devModels, authConfig)
+		result, err := opencode.ResolveOpencodeProvider(providerID, providerConfig, devModels, openrouterModelsResponse, authConfig)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s failed to resolve provider %q: %v\n", aurora.Yellow("warn:").String(), providerID, err)
 			fmt.Println()
@@ -59,6 +52,20 @@ func main() {
 	enabledProviders := make([]string, 0)
 	for providerID := range outputProviderConfig {
 		enabledProviders = append(enabledProviders, providerID)
+	}
+
+	fmt.Println(aurora.Cyan("Reading the OpenCode configuration...").String())
+	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
+	configBytes, err := os.ReadFile(configPath)
+	if err != nil {
+		fmt.Println("failed to read opencode config:", err)
+		os.Exit(1)
+	}
+
+	var fullConfig map[string]any
+	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &fullConfig); err != nil {
+		fmt.Println("failed to decode opencode config:", err)
+		os.Exit(1)
 	}
 
 	fullConfig["provider"] = outputProviderConfig
@@ -81,8 +88,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	refreshErr := helpers.ExecNativeCommand([]string{"opencode", "models", "--refresh"})
+	fmt.Println(aurora.Cyan("Refreshing opencode models...").String())
+	refreshErr := helpers.ExecNativeCommand(
+		[]string{"opencode", "models", "--refresh"},
+		helpers.ExecCommandOptions{Silent: true},
+	)
 	if refreshErr != nil {
 		fmt.Println("failed to refresh opencode models")
 	}
+
+	fmt.Println(aurora.Green("Successfully updated OpenCode models!").String())
 }
