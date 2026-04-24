@@ -67,7 +67,16 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 					}
 				}
 
-				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap})
+				openrouterId := ""
+				if openrouterIdValue, exists := model["openrouterId"]; exists {
+					if routerId, ok := openrouterIdValue.(string); ok {
+						openrouterId = strings.TrimSpace(routerId)
+					} else {
+						panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid openrouterId", providerID, modelID))
+					}
+				}
+
+				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId})
 			default:
 				panic(fmt.Sprintf("opencode providers config: provider %q model at index %d must be a string or object", providerID, i))
 			}
