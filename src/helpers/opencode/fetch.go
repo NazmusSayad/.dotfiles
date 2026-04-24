@@ -4,9 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"maps"
 	"net/http"
 	"os"
 	"slices"
+	"strings"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -14,20 +16,27 @@ import (
 var allowedModalities = []string{"text", "audio", "image", "video", "pdf"}
 
 func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth *AuthProvider) (map[string]OpencodeStandardModel, error) {
-	modelsURL := providerConfig.ModelsURL
 	requestedModelIdMap := map[string]bool{}
 	for _, configuredModel := range providerConfig.Models {
 		requestedModelIdMap[configuredModel.ID] = true
 	}
 
-	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(modelsURL).String())
+	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerConfig.URL).String())
 
-	req, err := http.NewRequest("GET", modelsURL, nil)
+	req, err := http.NewRequest("GET", providerConfig.URL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request for %s models: %w", providerID, err)
 	}
+
 	if auth != nil && auth.Type == "api" && auth.Key != "" {
 		req.Header.Set("Authorization", "Bearer "+auth.Key)
+		fmt.Printf("%s Using API key from auth config\n", aurora.Faint("Using auth:").String())
+	} else {
+		envApiKey := os.Getenv(strings.ToUpper(providerID) + "_API_KEY")
+		if envApiKey != "" {
+			req.Header.Set("Authorization", "Bearer "+envApiKey)
+			fmt.Printf("%s Using %s environment variable\n", aurora.Faint("Using auth:"), aurora.Faint(strings.ToUpper(providerID)+"_API_KEY").String())
+		}
 	}
 
 	resp, err := http.DefaultClient.Do(req)
@@ -51,14 +60,11 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 	}
 
 	models := map[string]OpencodeStandardModel{}
-	matchedModelIDs := map[string]bool{}
 
 	for _, model := range payload.Data {
 		if !requestedModelIdMap[model.ID] {
 			continue
 		}
-
-		matchedModelIDs[model.ID] = true
 
 		modelName := model.Name
 		if modelName == "" {
@@ -90,16 +96,6 @@ func FetchModels(providerID string, providerConfig OpencodeProviderConfig, auth 
 		}
 
 		models[entry.ID] = entry
-	}
-
-	for _, configuredModel := range providerConfig.Models {
-		modelID := configuredModel.ID
-		if matchedModelIDs[modelID] {
-			continue
-		}
-
-		fmt.Fprintf(os.Stderr, "%s model %q was not found for provider %q, using ID as name\n", aurora.Yellow("warn:").String(), modelID, providerID)
-		models[modelID] = OpencodeStandardModel{ID: modelID, Name: modelID}
 	}
 
 	return models, nil
@@ -144,9 +140,7 @@ func FetchModelsDotDev() (map[string]map[string]OpencodeStandardModel, error) {
 	result := make(map[string]map[string]OpencodeStandardModel)
 	for providerID, provider := range payload {
 		providerModels := make(map[string]OpencodeStandardModel)
-		for modelID, model := range provider.Models {
-			providerModels[modelID] = model
-		}
+		maps.Copy(providerModels, provider.Models)
 
 		result[providerID] = providerModels
 	}

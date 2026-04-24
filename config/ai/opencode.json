@@ -50,10 +50,6 @@
           "temperature": true,
           "tool_call": true
         },
-        "minimax/minimax-m2.5:free": {
-          "id": "minimax/minimax-m2.5:free",
-          "name": "minimax/minimax-m2.5:free"
-        },
         "openrouter/free": {
           "attachment": true,
           "id": "openrouter/free",
@@ -66,11 +62,7 @@
           "tool_call": true
         }
       },
-      "whitelist": [
-        "kilo-auto/free",
-        "minimax/minimax-m2.5:free",
-        "openrouter/free"
-      ]
+      "whitelist": ["kilo-auto/free", "openrouter/free"]
     },
     "openai": {
       "models": {
@@ -138,7 +130,8 @@
           "reasoning": true,
           "release_date": "2026-01-27",
           "temperature": true,
-          "tool_call": true
+          "tool_call": true,
+          "variants":{"instant":{"reasoning":{"effort":"none","enabled":false}},"thinking":{"reasoning":{"effort":"medium","enabled":true}}}
         },
         "moonshotai/kimi-k2.6": {
           "attachment": true,
@@ -151,7 +144,8 @@
           "reasoning": true,
           "release_date": "2026-04-20",
           "temperature": true,
-          "tool_call": true
+          "tool_call": true,
+          "variants":{"instant":{"reasoning":{"effort":"none","enabled":false}},"thinking":{"reasoning":{"effort":"medium","enabled":true}}}
         },
         "openrouter/free": {
           "attachment": true,
@@ -178,7 +172,8 @@
           "reasoning": true,
           "release_date": "2026-04-02",
           "temperature": true,
-          "tool_call": true
+          "tool_call": true,
+          "variants":{"instant":{"reasoning":{"effort":"none","enabled":false}},"thinking":{"reasoning":{"effort":"medium","enabled":true}}}
         },
         "xiaomi/mimo-v2.5-pro": {
           "id": "xiaomi/mimo-v2.5-pro",
@@ -197,17 +192,31 @@
           "reasoning": true,
           "release_date": "2026-04-07",
           "temperature": true,
-          "tool_call": true
+          "tool_call": true,
+          "variants":{"instant":{"reasoning":{"effort":"none","enabled":false}},"thinking":{"reasoning":{"effort":"medium","enabled":true}}}
         },
         "deepseek/deepseek-v4-pro": {
           "id": "deepseek/deepseek-v4-pro",
           "limit": { "context": 400000, "input": 400000, "output": 400000 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "DeepSeek: DeepSeek V4 Pro"
+        },
+        "minimax/minimax-m2.5:free": {
+          "attachment": false,
+          "family": "minimax",
+          "id": "minimax/minimax-m2.5:free",
+          "limit": { "context": 204800, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "MiniMax M2.5 (free)",
+          "reasoning": true,
+          "release_date": "2026-02-12",
+          "temperature": true,
+          "tool_call": true
         }
       },
       "whitelist": [
         "deepseek/deepseek-v4-pro",
+        "minimax/minimax-m2.5:free",
         "minimax/minimax-m2.7",
         "moonshotai/kimi-k2.5",
         "moonshotai/kimi-k2.6",

@@ -43,7 +43,7 @@ func ApplyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeS
 func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider map[string]OpencodeStandardModel, authConfig AuthConfig) (OpencodeOutputProviderConfig, error) {
 	var fetchedModels map[string]OpencodeStandardModel
 
-	if providerConfig.ModelsURL != "" {
+	if providerConfig.URL != "" {
 		var providerAuth *AuthProvider
 		if auth, ok := authConfig[providerId]; ok {
 			providerAuth = &auth
@@ -60,16 +60,29 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 	resolvedModelsMap := make(map[string]OpencodeStandardModel)
 	for _, configuredModel := range providerConfig.Models {
 		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
+		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
+
+		if hasModelInFetched && hasModelInModelsDotDev {
+			resolvedModel := ApplyModelContextCap(modelsDevModel, configuredModel.ContextCap)
+
+			if fetchedModel.Variants != nil {
+				resolvedModel.Variants = fetchedModel.Variants
+			}
+
+			resolvedModelsMap[configuredModel.ID] = resolvedModel
+			fmt.Println(aurora.Green("✓"), configuredModel.ID)
+			continue
+		}
+
 		if hasModelInModelsDotDev {
 			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(modelsDevModel, configuredModel.ContextCap)
 			fmt.Println(aurora.Faint("✓"), configuredModel.ID)
 			continue
 		}
 
-		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
 		if hasModelInFetched {
 			resolvedModelsMap[configuredModel.ID] = ApplyModelContextCap(fetchedModel, configuredModel.ContextCap)
-			fmt.Println(aurora.Green("✓"), configuredModel.ID)
+			fmt.Println("✓", configuredModel.ID)
 			continue
 		}
 

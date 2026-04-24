@@ -6,9 +6,11 @@ openai:
       context: 272000
 
 openrouter:
-  modelsURL: https://openrouter.ai/api/v1/models
+  url: https://api.kilo.ai/api/gateway/models
   models:
     - openrouter/free
+    - minimax/minimax-m2.5:free
+
     - z-ai/glm-5.1
     - qwen/qwen3.6-plus
     - xiaomi/mimo-v2.5-pro
@@ -18,8 +20,7 @@ openrouter:
     - deepseek/deepseek-v4-pro
 
 kilo:
-  modelsURL: https://api.kilo.ai/api/gateway/models
+  url: https://api.kilo.ai/api/gateway/models
   models:
     - kilo-auto/free
     - openrouter/free
-    - minimax/minimax-m2.5:free

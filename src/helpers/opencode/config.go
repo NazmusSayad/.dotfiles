@@ -8,8 +8,8 @@ import (
 )
 
 type rawOpencodeProviderConfig struct {
-	ModelsURL string `yaml:"modelsURL"`
-	Models    []any  `yaml:"models"`
+	URL    string `yaml:"url"`
+	Models []any  `yaml:"models"`
 }
 
 const CONTEXT_CAP = 400000
@@ -73,7 +73,9 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 			}
 		}
 
-		providers[providerID] = OpencodeProviderConfig{ModelsURL: rawProvider.ModelsURL, Models: models}
+		providers[providerID] = OpencodeProviderConfig{
+			URL: rawProvider.URL, Models: models,
+		}
 	}
 
 	return providers
