@@ -7,6 +7,7 @@ import (
 
 	"dotfiles/src/helpers"
 	"dotfiles/src/helpers/opencode"
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 	"github.com/tidwall/jsonc"
@@ -61,8 +62,7 @@ func main() {
 	}
 
 	fullConfig["provider"] = outputProviderConfig
-	fullConfig["enabled_providers"] = enabledProviders
-	fmt.Printf("%s %s\n", aurora.Green("Enabled providers:").String(), aurora.Bold(fmt.Sprintf("%v", enabledProviders)).String())
+	fullConfig["enabled_providers"] = utils.SortArray(enabledProviders)
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
