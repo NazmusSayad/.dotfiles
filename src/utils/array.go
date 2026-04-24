@@ -14,7 +14,7 @@ func UniqueArray[T comparable](slice []T) []T {
 	return result
 }
 
-func SortArray(slice []string) []string {
+func SortArrayOfString(slice []string) []string {
 	for i := 0; i < len(slice); i++ {
 		for j := i + 1; j < len(slice); j++ {
 			if slice[j] < slice[i] {
