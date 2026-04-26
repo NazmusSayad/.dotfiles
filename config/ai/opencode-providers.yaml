@@ -17,8 +17,8 @@ opencode-go:
     - kimi-k2.6
     - mimo-v2-pro
     - mimo-v2.5-pro
-    - minimax-m2.7
     - qwen3.6-plus
+    - minimax-m2.7
     - deepseek-v4-pro
 
 openrouter:
