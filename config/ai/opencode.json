@@ -1,5 +1,6 @@
 {
   "lsp": false,
+  "shell": "bash",
   "plugin": ["opencode-wakatime"],
 
   "permission": {
@@ -93,7 +94,7 @@
           "cost": { "cache_read": 0.5, "input": 5, "output": 30 },
           "family": "gpt",
           "id": "gpt-5.5",
-          "limit": { "context": 272000, "input": 272000, "output": 130000 },
+          "limit": { "context": 272000, "input": 272000, "output": 128000 },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -160,7 +161,7 @@
         },
         "deepseek-v4-pro": {
           "attachment": false,
-          "cost": { "cache_read": 0.145, "input": 1.74, "output": 3.48 },
+          "cost": { "cache_read": 0.0145, "input": 1.74, "output": 3.48 },
           "family": "deepseek-thinking",
           "id": "deepseek-v4-pro",
           "limit": { "context": 400000, "output": 384000 },
