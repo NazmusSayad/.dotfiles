@@ -4,16 +4,16 @@
 
   "plugin": ["opencode-wakatime"],
 
+  "experimental": {
+    "continue_loop_on_deny": true
+  },
+
   "permission": {
     "doom_loop": "allow",
     "external_directory": {
       "~/Desktop/**": "allow",
       "~/AppData/Local/Pub/Cache/**": "allow"
     }
-  },
-
-  "experimental": {
-    "continue_loop_on_deny": true
   },
 
   "mcp": {
