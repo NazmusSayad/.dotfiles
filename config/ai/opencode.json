@@ -2,7 +2,7 @@
   "lsp": false,
   "shell": "bash",
 
-  "plugin": ["opencode-wakatime"],
+  "plugin": ["opencode-armor", "opencode-wakatime"],
 
   "experimental": {
     "continue_loop_on_deny": true
