@@ -1,3 +1,4 @@
+*.log
 .local
 .build
 .scoop
