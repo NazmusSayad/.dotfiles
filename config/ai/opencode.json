@@ -1,6 +1,7 @@
 {
   "lsp": false,
   "shell": "bash",
+
   "plugin": ["opencode-wakatime"],
 
   "permission": {
@@ -25,7 +26,6 @@
         "--headless=true"
       ]
     },
-
     "hugeicons": {
       "type": "local",
       "enabled": false,
@@ -49,8 +49,14 @@
         "kilo-auto/free": {
           "attachment": false,
           "id": "kilo-auto/free",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 204800,
+            "output": 131072
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "Kilo Auto Free",
           "reasoning": true,
           "release_date": "2026-03-15",
@@ -60,8 +66,14 @@
         "openrouter/free": {
           "attachment": true,
           "id": "openrouter/free",
-          "limit": { "context": 200000, "output": 32768 },
-          "modalities": { "input": ["image", "text"], "output": ["text"] },
+          "limit": {
+            "context": 200000,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["image", "text"],
+            "output": ["text"]
+          },
           "name": "Free Models Router",
           "reasoning": true,
           "release_date": "2026-02-01",
@@ -75,10 +87,18 @@
       "models": {
         "gpt-5.3-codex": {
           "attachment": true,
-          "cost": { "cache_read": 0.175, "input": 1.75, "output": 14 },
+          "cost": {
+            "cache_read": 0.175,
+            "input": 1.75,
+            "output": 14
+          },
           "family": "gpt-codex",
           "id": "gpt-5.3-codex",
-          "limit": { "context": 272000, "input": 272000, "output": 128000 },
+          "limit": {
+            "context": 272000,
+            "input": 272000,
+            "output": 128000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -91,10 +111,18 @@
         },
         "gpt-5.5": {
           "attachment": true,
-          "cost": { "cache_read": 0.5, "input": 5, "output": 30 },
+          "cost": {
+            "cache_read": 0.5,
+            "input": 5,
+            "output": 30
+          },
           "family": "gpt",
           "id": "gpt-5.5",
-          "limit": { "context": 272000, "input": 272000, "output": 128000 },
+          "limit": {
+            "context": 272000,
+            "input": 272000,
+            "output": 128000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -113,8 +141,15 @@
         "openrouter/free": {
           "attachment": true,
           "id": "openrouter/free",
-          "limit": { "context": 200000, "input": 200000, "output": 8000 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "limit": {
+            "context": 200000,
+            "input": 200000,
+            "output": 8000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
           "name": "Free Models Router",
           "reasoning": true,
           "release_date": "2026-02-01",
@@ -130,8 +165,14 @@
           "attachment": false,
           "family": "minimax-free",
           "id": "minimax-m2.5-free",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 204800,
+            "output": 131072
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "MiniMax M2.5 Free",
           "reasoning": true,
           "release_date": "2026-02-12",
@@ -145,10 +186,17 @@
       "models": {
         "kimi-k2.6": {
           "attachment": true,
-          "cost": { "cache_read": 0.054, "input": 0.32, "output": 1.34 },
+          "cost": {
+            "cache_read": 0.054,
+            "input": 0.32,
+            "output": 1.34
+          },
           "family": "kimi-k2.6",
           "id": "kimi-k2.6",
-          "limit": { "context": 262144, "output": 65536 },
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
           "modalities": {
             "input": ["text", "image", "video"],
             "output": ["text"]
@@ -161,11 +209,21 @@
         },
         "deepseek-v4-pro": {
           "attachment": false,
-          "cost": { "cache_read": 0.0145, "input": 1.74, "output": 3.48 },
+          "cost": {
+            "cache_read": 0.0145,
+            "input": 1.74,
+            "output": 3.48
+          },
           "family": "deepseek-thinking",
           "id": "deepseek-v4-pro",
-          "limit": { "context": 400000, "output": 384000 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 400000,
+            "output": 384000
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "DeepSeek V4 Pro",
           "reasoning": true,
           "release_date": "2026-04-24",
@@ -174,11 +232,21 @@
         },
         "glm-5": {
           "attachment": false,
-          "cost": { "cache_read": 0.2, "input": 1, "output": 3.2 },
+          "cost": {
+            "cache_read": 0.2,
+            "input": 1,
+            "output": 3.2
+          },
           "family": "glm",
           "id": "glm-5",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 202752,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "GLM-5",
           "reasoning": true,
           "release_date": "2026-02-11",
@@ -187,11 +255,21 @@
         },
         "glm-5.1": {
           "attachment": false,
-          "cost": { "cache_read": 0.26, "input": 1.4, "output": 4.4 },
+          "cost": {
+            "cache_read": 0.26,
+            "input": 1.4,
+            "output": 4.4
+          },
           "family": "glm",
           "id": "glm-5.1",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 202752,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "GLM-5.1",
           "reasoning": true,
           "release_date": "2026-04-07",
@@ -200,10 +278,17 @@
         },
         "kimi-k2.5": {
           "attachment": true,
-          "cost": { "cache_read": 0.1, "input": 0.6, "output": 3 },
+          "cost": {
+            "cache_read": 0.1,
+            "input": 0.6,
+            "output": 3
+          },
           "family": "kimi-k2.5",
           "id": "kimi-k2.5",
-          "limit": { "context": 262144, "output": 65536 },
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
           "modalities": {
             "input": ["text", "image", "video"],
             "output": ["text"]
@@ -216,11 +301,21 @@
         },
         "mimo-v2-pro": {
           "attachment": true,
-          "cost": { "cache_read": 0.2, "input": 1, "output": 3 },
+          "cost": {
+            "cache_read": 0.2,
+            "input": 1,
+            "output": 3
+          },
           "family": "mimo-v2-pro",
           "id": "mimo-v2-pro",
-          "limit": { "context": 400000, "output": 128000 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "MiMo V2 Pro",
           "reasoning": true,
           "release_date": "2026-03-18",
@@ -229,11 +324,21 @@
         },
         "mimo-v2.5-pro": {
           "attachment": true,
-          "cost": { "cache_read": 0.2, "input": 1, "output": 3 },
+          "cost": {
+            "cache_read": 0.2,
+            "input": 1,
+            "output": 3
+          },
           "family": "mimo-v2.5-pro",
           "id": "mimo-v2.5-pro",
-          "limit": { "context": 400000, "output": 128000 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "MiMo V2.5 Pro",
           "reasoning": true,
           "release_date": "2026-04-22",
@@ -242,30 +347,24 @@
         },
         "minimax-m2.7": {
           "attachment": false,
-          "cost": { "cache_read": 0.06, "input": 0.3, "output": 1.2 },
+          "cost": {
+            "cache_read": 0.06,
+            "input": 0.3,
+            "output": 1.2
+          },
           "family": "minimax-m2.7",
           "id": "minimax-m2.7",
-          "limit": { "context": 204800, "output": 131072 },
-          "modalities": { "input": ["text"], "output": ["text"] },
+          "limit": {
+            "context": 204800,
+            "output": 131072
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
           "name": "MiniMax M2.7",
           "reasoning": true,
           "release_date": "2026-03-18",
-          "temperature": true,
-          "tool_call": true
-        },
-        "qwen3.6-plus": {
-          "attachment": true,
-          "cost": { "cache_read": 0.05, "input": 0.5, "output": 3 },
-          "family": "qwen3.6",
-          "id": "qwen3.6-plus",
-          "limit": { "context": 262144, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "video"],
-            "output": ["text"]
-          },
-          "name": "Qwen3.6 Plus",
-          "reasoning": true,
-          "release_date": "2026-04-02",
           "temperature": true,
           "tool_call": true
         }
@@ -278,8 +377,7 @@
         "kimi-k2.6",
         "mimo-v2-pro",
         "mimo-v2.5-pro",
-        "minimax-m2.7",
-        "qwen3.6-plus"
+        "minimax-m2.7"
       ]
     }
   },
