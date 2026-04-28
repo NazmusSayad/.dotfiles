@@ -49,6 +49,7 @@
   { "Id": "graphql.vscode-graphql-syntax" },
 
   /* AI Tools */
+  { "Id": "openai.chatgpt" },
   { "Id": "github.copilot-chat", "Include": ["code"] },
 
   /* Other Extensions */
