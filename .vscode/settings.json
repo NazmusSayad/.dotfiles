@@ -28,5 +28,6 @@
     "USERPROFILE",
     "winget",
     "winsdk"
-  ]
+  ],
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
