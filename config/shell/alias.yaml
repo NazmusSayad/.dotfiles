@@ -7,7 +7,7 @@ cc: claude --model claude-opus-4-6 --permission-mode bypassPermissions
   --allow-dangerously-skip-permissions --dangerously-skip-permissions
 ccc: cc --continue
 
-# Shell
+# NPM
 r: node --run
 nid: ni -D
 
@@ -20,12 +20,6 @@ fl: fvm flutter
 pa: php artisan
 pas: php artisan serve
 
-# Docker
-dc: docker compose
-dcu: docker compose up -d
-dcd: docker compose down
-dcr: docker compose restart
-
 # Git
 gc: git checkout
 gcn: git checkout -b
@@ -34,6 +28,12 @@ gds: git diff --stat
 # GitHub CLI
 ghv: gh repo view
 ghw: gh repo view --web
+
+# Docker
+dc: docker compose
+dcu: docker compose up -d
+dcd: docker compose down
+dcr: docker compose restart
 
 # System
 ex: explorer

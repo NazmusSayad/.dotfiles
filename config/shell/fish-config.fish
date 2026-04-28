@@ -1,10 +1,11 @@
 #!/usr/bin/env fish
 
-fish_config theme choose default
-set fish_color_end normal
-set fish_color_quote green
-set fish_color_comment --dim
-set fish_color_command magenta
+function fish_greeting
+end
+
+function on_cd --on-variable PWD
+    zoxide add $PWD
+end
 
 for line in (mise env --dotenv)
     set -l key (string split -m1 "=" $line)[1]
@@ -12,18 +13,17 @@ for line in (mise env --dotenv)
     set -gx $key $val
 end
 
-shaka fish | source
 direnv hook fish | source
 
 if status is-interactive
+    # Setup fish theme
+    fish_config theme choose default
+    set fish_color_end normal
+    set fish_color_quote green
+    set fish_color_comment --dim
+    set fish_color_command magenta
+
+    shaka fish | source
     zoxide init fish | source
     starship init fish | source
-end
-
-function on_cd --on-variable PWD
-    zoxide add $PWD
-end
-
-function fish_greeting
-    # fastfetch
 end

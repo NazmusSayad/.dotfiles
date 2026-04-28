@@ -6,10 +6,6 @@
   },
   {
     "Source": "@/config/shell/bash-config.sh",
-    "Target": "~/.bash_profile"
-  },
-  {
-    "Source": "@/config/shell/bashrc.sh",
     "Target": "~/.bashrc"
   },
   {
