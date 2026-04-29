@@ -23,7 +23,7 @@ func formatOfficeTime() string {
 
 func main() {
 	initialStatus := slack.GetSlackStartupConfig()
-	renderSlackStatus("Current Slack Status", initialStatus)
+	renderSlackStatus("Current Slack Status", initialStatus, false)
 	fmt.Println()
 
 	items := []list.Item{
@@ -73,10 +73,10 @@ func main() {
 		return
 	}
 
-	renderSlackStatus("Updating slack status to", *fm.choice)
+	renderSlackStatus("Updating slack status to", *fm.choice, true)
 }
 
-func renderSlackStatus(label string, status slack.SlackStatus) {
+func renderSlackStatus(label string, status slack.SlackStatus, launch bool) {
 	switch status {
 	case slack.SlackStatusAlways:
 		fmt.Println("> " + label + ": " + aurora.Green("Always On").String())
@@ -86,8 +86,10 @@ func renderSlackStatus(label string, status slack.SlackStatus) {
 		fmt.Println("> " + label + ": " + aurora.Red("Disabled").String())
 	}
 
-	slack.WriteSlackStartupConfig(status)
-	slack.SlackLaunch(status)
+	if launch {
+		slack.WriteSlackStartupConfig(status)
+		slack.SlackLaunch(status)
+	}
 }
 
 type inlineDelegate struct {
