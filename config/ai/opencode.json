@@ -33,7 +33,7 @@
     }
   },
 
-  "small_model": "openrouter/openai/gpt-oss-safeguard-20b",
+  "small_model": "openrouter/nvidia/nemotron-3-nano-30b-a3b:free",
 
   "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
 
@@ -314,21 +314,20 @@
     },
     "openrouter": {
       "models": {
-        "openai/gpt-oss-safeguard-20b": {
+        "nvidia/nemotron-3-nano-30b-a3b:free": {
           "attachment": false,
-          "cost": { "input": 0.075, "output": 0.3 },
-          "family": "gpt-oss",
-          "id": "openai/gpt-oss-safeguard-20b:nitro",
-          "limit": { "context": 131072, "output": 65536 },
+          "family": "nemotron",
+          "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "limit": { "context": 256000, "output": 256000 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "GPT OSS Safeguard 20B",
+          "name": "Nemotron 3 Nano 30B A3B (free)",
           "reasoning": true,
-          "release_date": "2025-10-29",
+          "release_date": "2025-12-14",
           "temperature": true,
           "tool_call": true
         }
       },
-      "whitelist": ["openai/gpt-oss-safeguard-20b"]
+      "whitelist": ["nvidia/nemotron-3-nano-30b-a3b:free"]
     }
   },
 
