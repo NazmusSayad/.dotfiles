@@ -1,5 +1,10 @@
 [tools]
 
+# System Tools
+"cargo:shaka" = "latest"
+"cargo:pwshac" = "latest"
+
+
 # JS/TS
 node = "lts"
 bun = "latest"
@@ -60,12 +65,6 @@ java = "latest"
 gcloud = "latest"
 firebase = "latest"
 
-
-# System Tools
-"cargo:shaka" = "latest"
-"cargo:pwshac" = "latest"
-
-"pipx:docling" = "latest"
 
 [settings]
 experimental = true
