@@ -9,18 +9,23 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"git-clone": {
 		Exe: "c",
 	},
+
 	"git-checkout": {
 		Exe: "gc",
 	},
+
 	"git-pull": {
 		Exe: "gp",
 	},
+
 	"git-pull-all": {
 		Exe: "gpa",
 	},
+
 	"git-pull-rebase": {
 		Exe: "gpr",
 	},
+
 	"git-pull-merge": {
 		Exe: "gpm",
 	},
@@ -31,9 +36,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 
 	"slack-status": {
 		Exe: "ss",
-	},
-	"slack-startup": {
-		Exe: "sst",
 	},
 
 	"gpg-unlock": {
@@ -47,12 +49,15 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"code-init": {
 		StartMenu: "Code Init",
 	},
+
 	"code-ext-sync": {
 		StartMenu: "Code Extensions Sync",
 	},
+
 	"code-state-pull": {
 		StartMenu: "Code UI State Pull",
 	},
+
 	"code-state-push": {
 		StartMenu: "Code UI State Push",
 	},
@@ -60,6 +65,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 	"opencode-server": {
 		StartMenu: "OpenCode Server",
 	},
+
 	"opencode-models": {
 		StartMenu: "OpenCode Models Sync",
 	},
@@ -73,6 +79,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "WinGet Install",
 		Exe:       "wgi",
 	},
+
 	"winget-upgrade": {
 		StartMenu: "WinGet Upgrade",
 		Exe:       "wgu",
