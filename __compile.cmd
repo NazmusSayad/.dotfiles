@@ -1,3 +1,5 @@
 @echo off
+setlocal
 
-sudo powershell -ExecutionPolicy RemoteSigned -File .\src\etc\compile.ps1
+call sudo powershell -ExecutionPolicy RemoteSigned -File .\src\etc\compile.ps1
+call proxy-pause echo
