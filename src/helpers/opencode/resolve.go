@@ -57,15 +57,18 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 		}
 
 		if resolvedModel != nil {
+			if configuredModel.Nitro {
+				resolvedModel.ID = utils.Ternary(configuredModel.Nitro, resolvedModel.ID+":nitro", resolvedModel.ID)
+			}
+
 			resolvedModelsMap[configuredModel.ID] = applyModelContextCap(*resolvedModel, configuredModel.ContextCap)
 		} else {
 			fmt.Println(aurora.Red("[ERR]"), configuredModel.ID)
 			resolvedModelsMap[configuredModel.ID] = OpencodeStandardModel{
-				ID:   configuredModel.ID,
+				ID:   utils.Ternary(configuredModel.Nitro, configuredModel.ID+":nitro", configuredModel.ID),
 				Name: configuredModel.ID,
 			}
 		}
-
 	}
 
 	whitelist := make([]string, 0)
