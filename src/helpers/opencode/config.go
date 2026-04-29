@@ -76,7 +76,16 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 					}
 				}
 
-				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId})
+				nitro := false
+				if nitroValue, exists := model["nitro"]; exists {
+					if n, ok := nitroValue.(bool); ok {
+						nitro = n
+					} else {
+						panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid nitro", providerID, modelID))
+					}
+				}
+
+				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId, Nitro: nitro})
 			default:
 				panic(fmt.Sprintf("opencode providers config: provider %q model at index %d must be a string or object", providerID, i))
 			}
