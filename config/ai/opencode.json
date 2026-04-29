@@ -33,9 +33,9 @@
     }
   },
 
-  "small_model": "groq/openai/gpt-oss-safeguard-20b",
+  "small_model": "openrouter/openai/gpt-oss-safeguard-20b",
 
-  "enabled_providers": ["groq", "openai", "opencode", "opencode-go"],
+  "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
 
   "provider": {
     "openai": {
@@ -312,18 +312,18 @@
         "minimax-m2.7"
       ]
     },
-    "groq": {
+    "openrouter": {
       "models": {
         "openai/gpt-oss-safeguard-20b": {
           "attachment": false,
-          "cost": { "cache_read": 0.037, "input": 0.075, "output": 0.3 },
+          "cost": { "input": 0.075, "output": 0.3 },
           "family": "gpt-oss",
           "id": "openai/gpt-oss-safeguard-20b",
           "limit": { "context": 131072, "output": 65536 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "Safety GPT OSS 20B",
+          "name": "GPT OSS Safeguard 20B",
           "reasoning": true,
-          "release_date": "2025-03-05",
+          "release_date": "2025-10-29",
           "temperature": true,
           "tool_call": true
         }
