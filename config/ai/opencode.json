@@ -35,54 +35,9 @@
 
   "small_model": "openrouter/openrouter/free",
 
-  "enabled_providers": [
-    "kilo",
-    "openai",
-    "opencode",
-    "opencode-go",
-    "openrouter"
-  ],
+  "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
 
   "provider": {
-    "kilo": {
-      "models": {
-        "kilo-auto/free": {
-          "attachment": false,
-          "id": "kilo-auto/free",
-          "limit": {
-            "context": 204800,
-            "output": 131072
-          },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"]
-          },
-          "name": "Kilo Auto Free",
-          "reasoning": true,
-          "release_date": "2026-03-15",
-          "temperature": true,
-          "tool_call": true
-        },
-        "openrouter/free": {
-          "attachment": true,
-          "id": "openrouter/free",
-          "limit": {
-            "context": 200000,
-            "output": 32768
-          },
-          "modalities": {
-            "input": ["image", "text"],
-            "output": ["text"]
-          },
-          "name": "Free Models Router",
-          "reasoning": true,
-          "release_date": "2026-02-01",
-          "temperature": true,
-          "tool_call": true
-        }
-      },
-      "whitelist": ["kilo-auto/free", "openrouter/free"]
-    },
     "openai": {
       "models": {
         "gpt-5.3-codex": {

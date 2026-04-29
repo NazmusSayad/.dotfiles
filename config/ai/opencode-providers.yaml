@@ -25,8 +25,8 @@ openrouter:
   models:
     - openrouter/free
 
-kilo:
-  url: https://api.kilo.ai/api/gateway/models
-  models:
-    - kilo-auto/free
-    - openrouter/free
+# kilo:
+#   url: https://api.kilo.ai/api/gateway/models
+#   models:
+#     - kilo-auto/free
+#     - openrouter/free
