@@ -43,6 +43,11 @@
   },
 
   {
+    "Path": "clean-code-snippets",
+    "AsUser": true
+  },
+
+  {
     "Path": "run-hidden",
     "Args": [
       "F:\\__WINBIN__\\netserv\\netserv.exe",
