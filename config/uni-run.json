@@ -4,6 +4,6 @@
     "dart": "fvm",
     "python": "uv",
     "javascript": "node",
-    "typescript": "tsx"
+    "typescript": "bun"
   }
 }
