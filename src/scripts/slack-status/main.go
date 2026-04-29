@@ -69,7 +69,7 @@ func main() {
 		panic("failed to cast final to model")
 	}
 
-	if fm.choice == nil || *fm.choice == initialStatus {
+	if fm.choice == nil {
 		return
 	}
 
