@@ -20,14 +20,10 @@ opencode-go:
     - deepseek-v4-pro
     - minimax-m2.7
 
-groq:
+openrouter:
+  url: https://openrouter.ai/api/v1/models
   models:
     - openai/gpt-oss-safeguard-20b
-
-# openrouter:
-#   url: https://openrouter.ai/api/v1/models
-#   models:
-#     - openrouter/free
 
 # kilo:
 #   url: https://api.kilo.ai/api/gateway/models
