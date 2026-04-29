@@ -23,7 +23,8 @@ opencode-go:
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
-    - openai/gpt-oss-safeguard-20b
+    - id: openai/gpt-oss-safeguard-20b
+      nitro: true
 
 # kilo:
 #   url: https://api.kilo.ai/api/gateway/models

@@ -318,7 +318,7 @@
           "attachment": false,
           "cost": { "input": 0.075, "output": 0.3 },
           "family": "gpt-oss",
-          "id": "openai/gpt-oss-safeguard-20b",
+          "id": "openai/gpt-oss-safeguard-20b:nitro",
           "limit": { "context": 131072, "output": 65536 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "GPT OSS Safeguard 20B",
