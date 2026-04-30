@@ -31,7 +31,6 @@ scoop:
   # Shells
   - mise
   - gsudo
-  - direnv
   - zoxide
   - starship
 
