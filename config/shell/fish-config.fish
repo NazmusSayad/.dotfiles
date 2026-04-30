@@ -13,8 +13,6 @@ for line in (mise env --dotenv)
     set -gx $key $val
 end
 
-direnv hook fish | source
-
 if status is-interactive
     # Setup fish theme
     fish_config theme choose default
