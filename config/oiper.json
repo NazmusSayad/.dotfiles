@@ -1,0 +1,36 @@
+{
+  "user": {},
+  "settings": {
+    "startOnLogin": false,
+    "computeTechnology": "auto"
+  },
+  "profiles": [
+    {
+      "id": "017e1459-0b98-40e6-b465-b2ef574cfb61",
+      "name": "Main",
+      "hotkey": "Ctrl+F14",
+      "language": "en",
+      "mode": "local",
+      "localMode": {
+        "sstModel": "base.en",
+        "enhance": true,
+        "llmId": "UcZfB3fgBHbTzXOrtg-lS",
+        "preset": {
+          "type": "email"
+        }
+      },
+      "onlineMode": {
+        "enhance": false
+      }
+    }
+  ],
+  "onlineLlms": [
+    {
+      "id": "UcZfB3fgBHbTzXOrtg-lS",
+      "name": "Main",
+      "model": "openai/gpt-oss-safeguard-20b:nitro",
+      "apiUrl": "https://openrouter.ai/api/v1"
+    }
+  ],
+  "whisperBackend": "auto"
+}

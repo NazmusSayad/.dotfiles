@@ -109,6 +109,10 @@
 
   // Other Configs
   {
+    "Source": "@/config/oiper.json",
+    "Target": "$APPDATA/oiper/config.json"
+  },
+  {
     "Source": "@/config/uni-run.json",
     "Target": "~/.uni-run.json"
   },
