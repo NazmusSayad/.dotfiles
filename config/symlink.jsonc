@@ -91,10 +91,6 @@
     "Target": "~/.config/starship.toml"
   },
   {
-    "Source": "@/config/shell/direnv.toml",
-    "Target": "~/.config/direnv/direnv.toml"
-  },
-  {
     "Source": "@/config/mise.toml",
     "Target": "~/.config/mise/config.toml"
   },
