@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"dotfiles/src/constants"
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
@@ -89,14 +88,7 @@ func GetScoopApps() []ScoopAppConfig {
 
 		if len(splitStr) == 1 {
 			appName = splitStr[0]
-
-			if strings.HasPrefix(appName, "$") {
-				bucketName = ""
-				appName = appName[1:]
-				appSource = ResolvePath("@/" + constants.SCOOP_DIR + "/" + appName + ".json")
-			} else {
-				bucketName = utils.Ternary(configuredBucket != "", configuredBucket, "main")
-			}
+			bucketName = utils.Ternary(configuredBucket != "", configuredBucket, "main")
 		} else if len(splitStr) == 2 {
 			if configuredBucket != "" {
 				fmt.Println(aurora.Red("Invalid app and bucket configuration; expected: <bucket>/<app>"))
