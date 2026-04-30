@@ -79,14 +79,6 @@ scoop:
   # Fonts
   - nerd-fonts/FiraCode-NF
 
-  # Misc
-  - extras/vcredist2005
-  - extras/vcredist2008
-  - extras/vcredist2010
-  - extras/vcredist2012
-  - extras/vcredist2013
-  - extras/vcredist2022
-
 winget:
   # Most Important
   - stax76.run-hidden
@@ -133,7 +125,6 @@ winget:
   - id: LLVM.LLVM
     name: LLVM
     version: 21.1.8
-    skipInstall: true
 
   # Others
   - RamenSoftware.Windhawk
