@@ -23,7 +23,8 @@ opencode-go:
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
-    - nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free
+    - id: openai/gpt-oss-safeguard-20b
+      nitro: true
 
 # kilo:
 #   url: https://api.kilo.ai/api/gateway/models
