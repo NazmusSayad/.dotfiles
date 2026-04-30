@@ -3,7 +3,6 @@ package constants
 const (
 	SOURCE_DIR = "./src"
 	BUILD_DIR  = "./.build"
-	SCOOP_DIR  = "./.scoop"
 )
 
 const SCRIPTS_SOURCE_DIR = SOURCE_DIR + "/scripts"
