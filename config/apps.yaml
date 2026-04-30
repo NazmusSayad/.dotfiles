@@ -6,7 +6,6 @@ scoop:
   # Development
   - scc
   - gcc
-  - shfmt
   - sqlite
   - extras/fvm
   - extras/tableplus
@@ -61,7 +60,8 @@ scoop:
   - extras/winrar
   - extras/anyburn
 
-  # JSON/YAML
+  # Parser
+  - shfmt
   - jq
   - yq
 
