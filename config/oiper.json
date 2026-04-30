@@ -1,8 +1,8 @@
 {
   "user": {},
   "settings": {
-    "computeTechnology": "auto",
-    "startOnLogin": false
+    "startOnLogin": false,
+    "computeTechnology": "auto"
   },
   "profiles": [
     {
@@ -16,8 +16,7 @@
         "enhance": true,
         "llmId": "01KQGC0WGQQ8Q0Q9QE1MYE2PQT",
         "preset": {
-          "type": "normal",
-          "prompt": ""
+          "type": "normal"
         }
       }
     }
