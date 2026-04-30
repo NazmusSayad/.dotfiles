@@ -3,6 +3,12 @@
 # System Tools
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
+cmake = "latest"
+
+
+# Workflow Tools
+make = "latest"
+just = "latest"
 
 
 # JS/TS
