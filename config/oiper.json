@@ -1,33 +1,31 @@
 {
   "user": {},
   "settings": {
-    "startOnLogin": false,
-    "computeTechnology": "auto"
+    "computeTechnology": "auto",
+    "startOnLogin": false
   },
   "profiles": [
     {
-      "id": "017e1459-0b98-40e6-b465-b2ef574cfb61",
-      "name": "Main",
-      "hotkey": "Ctrl+F14",
+      "id": "01KQGBYB4SN0HC8GAQ4B85593A",
+      "name": "Boss",
+      "hotkey": "Ctrl+Shift+Space",
       "language": "en",
       "mode": "local",
       "localMode": {
         "sstModel": "base.en",
         "enhance": true,
-        "llmId": "UcZfB3fgBHbTzXOrtg-lS",
+        "llmId": "01KQGC0WGQQ8Q0Q9QE1MYE2PQT",
         "preset": {
-          "type": "email"
+          "type": "normal",
+          "prompt": ""
         }
-      },
-      "onlineMode": {
-        "enhance": false
       }
     }
   ],
   "onlineLlms": [
     {
-      "id": "UcZfB3fgBHbTzXOrtg-lS",
-      "name": "Main",
+      "id": "01KQGC0WGQQ8Q0Q9QE1MYE2PQT",
+      "name": "GPT OSS 20B",
       "model": "openai/gpt-oss-safeguard-20b:nitro",
       "apiUrl": "https://openrouter.ai/api/v1"
     }
