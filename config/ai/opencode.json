@@ -33,7 +33,7 @@
     }
   },
 
-  "small_model": "openrouter/openai/gpt-oss-safeguard-20b",
+  "small_model": "openrouter/openai/gpt-oss-120b",
 
   "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
 
@@ -314,21 +314,21 @@
     },
     "openrouter": {
       "models": {
-        "openai/gpt-oss-safeguard-20b": {
+        "openai/gpt-oss-120b": {
           "attachment": false,
-          "cost": { "input": 0.075, "output": 0.3 },
+          "cost": { "input": 0.072, "output": 0.28 },
           "family": "gpt-oss",
-          "id": "openai/gpt-oss-safeguard-20b:nitro",
-          "limit": { "context": 131072, "output": 65536 },
+          "id": "openai/gpt-oss-120b:nitro",
+          "limit": { "context": 131072, "output": 32768 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "GPT OSS Safeguard 20B",
+          "name": "GPT OSS 120B",
           "reasoning": true,
-          "release_date": "2025-10-29",
+          "release_date": "2025-08-05",
           "temperature": true,
           "tool_call": true
         }
       },
-      "whitelist": ["openai/gpt-oss-safeguard-20b"]
+      "whitelist": ["openai/gpt-oss-120b"]
     }
   },
 

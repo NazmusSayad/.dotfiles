@@ -21,9 +21,9 @@ opencode-go:
     - minimax-m2.7
 
 openrouter:
-  url: https://openrouter.ai/api/v1/models
+  # url: https://openrouter.ai/api/v1/models
   models:
-    - id: openai/gpt-oss-safeguard-20b
+    - id: openai/gpt-oss-120b
       nitro: true
 
 # kilo:
