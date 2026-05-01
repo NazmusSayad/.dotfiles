@@ -2,8 +2,8 @@
   "user": {},
   "profiles": [
     {
-      "id": "01KQGBYB4SN0HC8GAQ4B85593A",
-      "name": "Boss",
+      "id": "main",
+      "name": "Main",
       "mode": "online",
       "hotkey": "Ctrl+Shift+Space",
       "language": "en",
@@ -30,6 +30,12 @@
     {
       "id": "openrouter-gpt-oss",
       "model": "openai/gpt-oss-safeguard-20b:nitro",
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    {
+      "id": "openrouter-audio-model",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
