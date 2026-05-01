@@ -36,6 +36,9 @@ dcd: docker compose down
 dcr: docker compose restart
 
 # System
+rmf: rm -rf
+rmfast: FastDelete
+
 ex: explorer
 fix-next: rm -rf .next
 fix-ports: sudo net stop winnat
