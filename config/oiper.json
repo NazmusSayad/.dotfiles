@@ -1,27 +1,28 @@
 {
   "user": {},
-  "settings": {
-    "startOnLogin": false,
-    "computeTechnology": "auto"
-  },
   "profiles": [
     {
       "id": "01KQGBYB4SN0HC8GAQ4B85593A",
       "name": "Boss",
+      "mode": "online",
       "hotkey": "Ctrl+Shift+Space",
       "language": "en",
-      "mode": "local",
       "localMode": {
         "sstModel": "base.en",
         "llmId": "openrouter-gpt-oss",
-        "enhance": true,
+        "enhance": false,
         "preset": {
           "type": "normal",
           "prompt": ""
         }
       },
       "onlineMode": {
-        "llmId": "openrouter-gpt-oss"
+        "sstId": "groq-whisper",
+        "llmId": "openrouter-gpt-oss",
+        "enhance": false,
+        "preset": {
+          "type": "formal"
+        }
       }
     }
   ],
@@ -33,6 +34,14 @@
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
   ],
-  "cloudASRs": [],
+  "cloudASRs": [
+    {
+      "id": "groq-whisper",
+      "model": "whisper-large-v3",
+      "apiUrl": "https://api.groq.com/openai/v1",
+      "apiKeyEnv": "GROQ_API_KEY"
+    }
+  ],
+  "startOnLogin": false,
   "whisperBackend": "auto"
 }
