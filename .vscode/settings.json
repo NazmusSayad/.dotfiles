@@ -21,12 +21,14 @@
     "openrouter",
     "pwshac",
     "qwen",
+    "rmfast",
     "runas",
     "sharex",
     "shlvl",
     "ucrt",
     "USERPROFILE",
     "winget",
+    "winnat",
     "winsdk"
   ],
   "js/ts.tsdk.path": "node_modules/typescript/lib"
