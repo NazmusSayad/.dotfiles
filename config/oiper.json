@@ -10,24 +10,29 @@
       "name": "Boss",
       "hotkey": "Ctrl+Shift+Space",
       "language": "en",
-      "mode": "local",
+      "mode": "online",
       "localMode": {
         "sstModel": "base.en",
+        "llmId": "openrouter-gpt-oss",
         "enhance": true,
-        "llmId": "01KQGC0WGQQ8Q0Q9QE1MYE2PQT",
         "preset": {
-          "type": "normal"
+          "type": "normal",
+          "prompt": ""
         }
+      },
+      "onlineMode": {
+        "llmId": "openrouter-gpt-oss"
       }
     }
   ],
-  "onlineLlms": [
+  "cloudLLMs": [
     {
-      "id": "01KQGC0WGQQ8Q0Q9QE1MYE2PQT",
-      "name": "GPT OSS 20B",
+      "id": "openrouter-gpt-oss",
       "model": "openai/gpt-oss-safeguard-20b:nitro",
-      "apiUrl": "https://openrouter.ai/api/v1"
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
     }
   ],
+  "cloudASRs": [],
   "whisperBackend": "auto"
 }
