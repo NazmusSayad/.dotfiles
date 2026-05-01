@@ -10,7 +10,7 @@
       "name": "Boss",
       "hotkey": "Ctrl+Shift+Space",
       "language": "en",
-      "mode": "online",
+      "mode": "local",
       "localMode": {
         "sstModel": "base.en",
         "llmId": "openrouter-gpt-oss",
