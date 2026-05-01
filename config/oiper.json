@@ -29,7 +29,7 @@
   "cloudLLMs": [
     {
       "id": "openrouter-gpt-oss",
-      "model": "openai/gpt-oss-safeguard-20b:nitro",
+      "model": "openai/gpt-oss-120b:nitro",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
