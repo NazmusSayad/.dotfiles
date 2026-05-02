@@ -73,6 +73,7 @@ java = "latest"
 # Cloud Tools
 gcloud = "latest"
 firebase = "latest"
+wrangler = "latest"
 
 
 [settings]
