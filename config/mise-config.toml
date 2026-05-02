@@ -3,9 +3,9 @@
 [tools]
 
 # System Tools
+cmake = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
-cmake = "latest"
 
 
 # Workflow Tools
