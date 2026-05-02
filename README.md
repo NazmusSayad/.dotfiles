@@ -109,7 +109,7 @@ Once installed, you can use these commands from anywhere in your terminal:
 - Slack will automatically start/stop based on your configured work schedule
 
 **System Setup:**
-- `symlink-setup` - Recreate all configuration file symlinks
+- `symlink-init` - Recreate all configuration file symlinks
 - `msys-setup` - Set up MSYS2 development environment
 
 ## Repository Structure

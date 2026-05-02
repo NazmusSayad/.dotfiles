@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	symLinkErr := helpers.ExecNativeCommand([]string{"symlink-setup"})
+	symLinkErr := helpers.ExecNativeCommand([]string{"symlink-init"})
 	if symLinkErr != nil {
 		fmt.Println(aurora.Red("Error setting up symbolic links:"), aurora.Bold(symLinkErr.Error()))
 		os.Exit(1)

@@ -13,7 +13,7 @@ git config --global core.editor "code --wait"
 
 Write-Host ""
 Write-Host "> Symlinking..."
-go run ./src/scripts/symlink-setup/main.go
+go run ./src/scripts/symlink-init/main.go
 
 Write-Host ""
 Write-Host "> Installing tasks..."
