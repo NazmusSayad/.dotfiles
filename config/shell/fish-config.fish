@@ -3,10 +3,6 @@
 function fish_greeting
 end
 
-function on_cd --on-variable PWD
-    zoxide add $PWD
-end
-
 for line in (mise env --dotenv)
     set -l key (string split -m1 "=" $line)[1]
     set -l val (string split -m1 "=" $line)[2]
@@ -24,4 +20,8 @@ if status is-interactive
     shaka fish | source
     zoxide init fish | source
     starship init fish | source
+end
+
+function on_cd --on-variable PWD
+    zoxide add $PWD
 end

@@ -4,6 +4,7 @@
 
 # System Tools
 cmake = "latest"
+"cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
 
