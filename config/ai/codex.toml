@@ -1,11 +1,16 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+
 model = "gpt-5.5"
 model_reasoning_effort = "low"
 
 personality = "pragmatic"
 approval_policy = "never"
 
+
 [windows]
 sandbox = "elevated"
+
 
 [features]
 workspace_dependencies = false
