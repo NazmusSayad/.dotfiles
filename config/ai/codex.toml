@@ -13,4 +13,7 @@ sandbox = "elevated"
 
 
 [features]
+browser_use = false
+computer_use = false
+code_mode_only = true
 workspace_dependencies = false
