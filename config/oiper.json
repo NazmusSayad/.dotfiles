@@ -5,19 +5,19 @@
       "id": "main",
       "name": "Main",
       "mode": "online",
-      "hotkey": "Ctrl+Shift+Space",
+      "hotkey": "F14",
       "language": "en",
       "localMode": {
-        "sstModel": "base.en",
         "llmId": "openrouter-gpt-oss",
         "enhance": false,
         "preset": {
           "type": "normal",
           "prompt": ""
-        }
+        },
+        "asrModel": "base.en"
       },
       "onlineMode": {
-        "sstId": "groq-whisper",
+        "asrId": "groq-whisper",
         "llmId": "openrouter-gpt-oss",
         "enhance": false,
         "preset": {
@@ -54,6 +54,6 @@
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
   ],
-  "startOnLogin": false,
+  "startOnLogin": true,
   "whisperBackend": "auto"
 }
