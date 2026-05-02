@@ -328,6 +328,10 @@
     "command": "editor.action.marker.prevInFiles",
     "when": "editorTextFocus"
   },
+  {
+    "key": "ctrl+alt+f5",
+    "command": "workbench.action.reloadWindow"
+  },
 
   // Editor Zoom
   {
