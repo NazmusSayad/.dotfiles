@@ -1,3 +1,5 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
 [tools]
 
 # System Tools
@@ -74,6 +76,11 @@ firebase = "latest"
 
 [settings]
 experimental = true
+
+env_file = ".env"
+
 auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
+
+trusted_config_paths = ["~/Desktop"]
