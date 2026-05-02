@@ -239,6 +239,7 @@
   "js/ts.format.enabled": false,
   "js/ts.preferences.quoteStyle": "single",
   "js/ts.suggest.jsdoc.generateReturns": false,
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.updateImportsOnFileMove.enabled": "always",
   "js/ts.inlayHints.parameterNames.enabled": "all",
   "js/ts.preferences.jsxAttributeCompletionStyle": "braces",
