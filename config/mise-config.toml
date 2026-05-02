@@ -78,6 +78,7 @@ firebase = "latest"
 experimental = true
 
 env_file = ".env"
+env_shell_expand = true
 
 auto_install = false
 exec_auto_install = true
