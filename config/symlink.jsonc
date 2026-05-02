@@ -19,6 +19,10 @@
 
   // Agent Configs
   {
+    "Source": "@/config/ai/codex.toml",
+    "Target": "~/.codex/config.toml"
+  },
+  {
     "Source": "@/config/ai/claude.jsonc",
     "Target": "~/.claude/settings.json"
   },

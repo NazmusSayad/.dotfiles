@@ -8,23 +8,20 @@
       "hotkey": "F14",
       "language": "en",
       "localMode": {
-        "llmId": "openrouter-gpt-oss",
-        "enhance": false,
-        "preset": {
-          "type": "normal",
-          "prompt": ""
-        },
-        "asrModel": "base.en"
+        "asrModel": "base.en",
+        "llmId": "openrouter-gpt-oss"
       },
       "onlineMode": {
         "asrId": "groq-whisper",
-        "llmId": "openrouter-gpt-oss",
-        "enhance": false,
+        "llmId": "openrouter-audio-model",
         "preset": {
-          "type": "formal"
+          "type": "none"
         }
       }
     }
+  ],
+  "words": [
+    "Nazmus Sayad"
   ],
   "cloudLLMs": [
     {
