@@ -43,10 +43,10 @@
       "apiKeyEnv": "GROQ_API_KEY"
     },
     {
-      "id": "groq-whisper",
+      "id": "oiper-whisper",
       "model": "whisper-large-v3",
       "apiUrl": "https://provider.oiper.com/api/v1/sayad",
-      "apiKeyEnv": "GROQ_API_KEY"
+      "apiKeyEnv": "OPENROUTER_API_KEY"
     },
     {
       "id": "openrouter-groq-whisper",
