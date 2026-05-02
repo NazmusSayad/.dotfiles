@@ -24,7 +24,6 @@ func main() {
 		return
 	}
 
-	fmt.Println()
 	openrouterModelsResponse, openrouterModelsError := opencode.FetchOpenrouterModels(authConfig)
 	if openrouterModelsError != nil {
 		fmt.Println("failed to fetch openrouter models:", openrouterModelsError)
@@ -37,8 +36,12 @@ func main() {
 	for providerID, providerConfig := range providerConfigs {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
 
-		devModels := modelsDotDevResponse[providerID]
-		result, err := opencode.ResolveOpencodeProvider(providerID, providerConfig, devModels, openrouterModelsResponse, authConfig)
+		result, err := opencode.ResolveOpencodeProvider(
+			providerID, providerConfig,
+			modelsDotDevResponse[providerID],
+			openrouterModelsResponse,
+			authConfig,
+		)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s failed to resolve provider %q: %v\n", aurora.Yellow("warn:").String(), providerID, err)
 			fmt.Println()

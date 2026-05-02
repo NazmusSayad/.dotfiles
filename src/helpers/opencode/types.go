@@ -85,3 +85,11 @@ type OpencodeOutputProviderConfig struct {
 	Models    map[string]OpencodeStandardModel `json:"models"`
 	Whitelist []string                         `json:"whitelist"`
 }
+
+type ModelsDotDevProvider struct {
+	ID     string                           `json:"id"`
+	Name   string                           `json:"name"`
+	Env    []string                         `json:"env"`
+	ApiUrl string                           `json:"api"`
+	Models map[string]OpencodeStandardModel `json:"models"`
+}

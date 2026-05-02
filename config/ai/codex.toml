@@ -14,3 +14,11 @@ sandbox = "elevated"
 
 [features]
 workspace_dependencies = false
+
+[marketplaces.openai-bundled]
+last_updated = "2026-05-02T09:18:49Z"
+source_type = "local"
+source = '\\?\C:\Users\Sayad\.codex\.tmp\bundled-marketplaces\openai-bundled'
+
+[plugins."browser-use@openai-bundled"]
+enabled = true
