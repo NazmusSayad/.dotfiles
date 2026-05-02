@@ -1,7 +1,7 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
 
-model = "gpt-5.5"
+model = "gpt-5.4-mini"
 model_reasoning_effort = "low"
 
 personality = "pragmatic"
