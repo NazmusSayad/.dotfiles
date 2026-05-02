@@ -23,6 +23,10 @@
     "Target": "~/.codex/config.toml"
   },
   {
+    "Source": "@/config/ai/codex-pets",
+    "Target": "~/.codex/pets"
+  },
+  {
     "Source": "@/config/ai/claude.jsonc",
     "Target": "~/.claude/settings.json"
   },
