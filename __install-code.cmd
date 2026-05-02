@@ -20,5 +20,5 @@ rm -rf ~/.t3
 rm -rf ~/AppData/Roaming/t3code
 rm -rf ~/AppData/Local/t3code-updater
 
-call sudo symlink-setup.exe
+call sudo symlink-init.exe
 call proxy-pause echo
