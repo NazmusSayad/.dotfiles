@@ -4,22 +4,18 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"maps"
 	"net/http"
-	"os"
 	"slices"
-	"strings"
 
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )
 
-type modelsDotDevProvider struct {
-	Models map[string]OpencodeStandardModel `json:"models"`
-}
-
-var allowedModalities = []string{"text", "audio", "image", "video", "pdf"}
+var (
+	allowedModalities  = []string{"text", "audio", "image", "video", "pdf"}
+	fetchedModelsCache = make(map[string]map[string]OpencodeStandardModel)
+)
 
 const OPENROUTER_MODELS_URL = "https://openrouter.ai/api/v1/models"
 
@@ -34,23 +30,24 @@ func filterLLMModalities(modalities []string) []string {
 	return filtered
 }
 
-func FetchModels(providerID string, providerURL string, auth *AuthProvider) (map[string]OpencodeStandardModel, error) {
-	fmt.Printf("%s %s\n", aurora.Yellow("Fetching models from").String(), aurora.Faint(providerURL).String())
+func FetchModels(providerID string, providerURL string, apiKey string) (map[string]OpencodeStandardModel, error) {
+	if cached, ok := fetchedModelsCache[providerURL]; ok {
+		fmt.Println(aurora.Yellow("Getting cached models from:"), aurora.Faint(providerURL))
+		return cached, nil
+	}
+
+	fmt.Println(
+		aurora.Yellow("Fetching models from:"), aurora.Faint(providerURL),
+		utils.Ternary(apiKey != "", aurora.Green("Authenticated").String(), aurora.Red("Unauthenticated").String()),
+	)
 
 	req, err := http.NewRequest("GET", providerURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request for %s models: %w", providerID, err)
 	}
 
-	if auth != nil && auth.Type == "api" && auth.Key != "" {
-		req.Header.Set("Authorization", "Bearer "+auth.Key)
-		fmt.Printf("%s Using API key from auth config\n", aurora.Faint("Using auth:").String())
-	} else {
-		envApiKey := os.Getenv(strings.ToUpper(providerID) + "_API_KEY")
-		if envApiKey != "" {
-			req.Header.Set("Authorization", "Bearer "+envApiKey)
-			fmt.Printf("%s Using %s environment variable\n", aurora.Faint("Using auth:"), aurora.Faint(strings.ToUpper(providerID)+"_API_KEY").String())
-		}
+	if apiKey != "" {
+		req.Header.Set("Authorization", "Bearer "+apiKey)
 	}
 
 	resp, err := http.DefaultClient.Do(req)
@@ -110,19 +107,18 @@ func FetchModels(providerID string, providerURL string, auth *AuthProvider) (map
 		models[entry.ID] = entry
 	}
 
+	fetchedModelsCache[providerURL] = models
 	return models, nil
 }
 
 func FetchOpenrouterModels(auth AuthConfig) (map[string]OpencodeStandardModel, error) {
-	openrouterAuth := auth["openrouter"]
-	if openrouterAuth.Type == "api" && openrouterAuth.Key != "" {
-		return FetchModels("openrouter", OPENROUTER_MODELS_URL, &openrouterAuth)
-	}
-
-	return FetchModels("openrouter", OPENROUTER_MODELS_URL, nil)
+	return FetchModels(
+		"openrouter", OPENROUTER_MODELS_URL,
+		ResolveApiKey("openrouter", ModelsDotDevProvider{Env: []string{"OPENROUTER_API_KEY"}}, auth),
+	)
 }
 
-func FetchModelsDotDev() (map[string]map[string]OpencodeStandardModel, error) {
+func FetchModelsDotDev() (map[string]ModelsDotDevProvider, error) {
 	resp, err := http.Get("https://models.dev/api.json")
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch models.dev API: %w", err)
@@ -138,18 +134,10 @@ func FetchModelsDotDev() (map[string]map[string]OpencodeStandardModel, error) {
 		return nil, fmt.Errorf("failed to read models.dev response body: %w", err)
 	}
 
-	var payload map[string]modelsDotDevProvider
+	var payload map[string]ModelsDotDevProvider
 	if err := json.Unmarshal(body, &payload); err != nil {
 		return nil, fmt.Errorf("failed to decode models.dev response: %w", err)
 	}
 
-	result := make(map[string]map[string]OpencodeStandardModel)
-	for providerID, provider := range payload {
-		providerModels := make(map[string]OpencodeStandardModel)
-		maps.Copy(providerModels, provider.Models)
-
-		result[providerID] = providerModels
-	}
-
-	return result, nil
+	return payload, nil
 }

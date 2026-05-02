@@ -8,16 +8,15 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider map[string]OpencodeStandardModel, openrouterModels map[string]OpencodeStandardModel, authConfig AuthConfig) (OpencodeOutputProviderConfig, error) {
+func ResolveOpencodeProvider(
+	providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider ModelsDotDevProvider,
+	openrouterModels map[string]OpencodeStandardModel, authConfig AuthConfig,
+) (OpencodeOutputProviderConfig, error) {
 	var fetchedModels map[string]OpencodeStandardModel
 
 	if providerConfig.URL != "" {
-		var providerAuth *AuthProvider
-		if auth, ok := authConfig[providerId]; ok {
-			providerAuth = &auth
-		}
-
-		if models, err := FetchModels(providerId, providerConfig.URL, providerAuth); err == nil {
+		apiKey := ResolveApiKey(providerId, modelsDotDevProvider, authConfig)
+		if models, err := FetchModels(providerId, providerConfig.URL, apiKey); err == nil {
 			fetchedModels = models
 		} else {
 			fmt.Printf("%s Failed to fetch models for %s: %s\n", aurora.Red("Error:"), providerId, err.Error())
@@ -28,7 +27,7 @@ func ResolveOpencodeProvider(providerId string, providerConfig OpencodeProviderC
 	resolvedModelsMap := make(map[string]OpencodeStandardModel)
 	for _, configuredModel := range providerConfig.Models {
 		openrouterModel, hasModelInOpenrouter := openrouterModels[configuredModel.OpenrouterModelId]
-		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider[configuredModel.ID]
+		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[configuredModel.ID]
 		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
 
 		var resolvedModel *OpencodeStandardModel
