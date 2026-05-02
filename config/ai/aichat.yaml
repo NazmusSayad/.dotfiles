@@ -1,4 +1,4 @@
-model: openrouter:poolside/laguna-m.1:free
+model: openrouter:openrouter/free
 clients:
   - type: openai-compatible
     name: openrouter
