@@ -19,10 +19,6 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/codex.toml",
-    "Target": "~/.codex/config.toml"
-  },
-  {
     "Source": "@/config/ai/codex-pets",
     "Target": "~/.codex/pets"
   },
