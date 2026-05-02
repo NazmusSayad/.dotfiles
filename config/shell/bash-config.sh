@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(mise env --dotenv)"
+eval "$(dotsh bash "$(mise env --dotenv)")"
 
 if [[ $- == *i* ]]; then
 	eval "$(shaka bash)"
