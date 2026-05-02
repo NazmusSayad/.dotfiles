@@ -92,8 +92,10 @@ func main() {
 	}
 
 	exec.Command("git", "config", "--global", "user.signingkey", gpgKeyID).Run()
-	exec.Command("git", "config", "--global", "commit.gpgsign", "true").Run()
 	exec.Command("git", "config", "--global", "gpg.program", "gpg.exe").Run()
+
+	exec.Command("git", "config", "--global", "commit.gpgsign", "true").Run()
+	exec.Command("git", "config", "--global", "tag.gpgsign", "true").Run()
 
 	exportCmd := exec.Command("gpg", "--armor", "--export", gpgKeyID)
 	exportCmd.Stdout = os.Stdout
