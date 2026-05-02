@@ -19,10 +19,6 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/codex-pets",
-    "Target": "~/.codex/pets"
-  },
-  {
     "Source": "@/config/ai/claude.jsonc",
     "Target": "~/.claude/settings.json"
   },
@@ -112,6 +108,10 @@
   },
 
   // Other Configs
+  {
+    "Source": "@/config/ai/codex-pets",
+    "Target": "~/.codex/pets"
+  },
   {
     "Source": "@/config/ai/aichat.yaml",
     "Target": "$APPDATA/aichat/config.yaml"
