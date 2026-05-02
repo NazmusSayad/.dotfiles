@@ -12,7 +12,7 @@
         "llmId": "openrouter-gpt-oss"
       },
       "onlineMode": {
-        "asrId": "groq-whisper",
+        "asrId": "oiper-whisper",
         "llmId": "openrouter-audio-model",
         "preset": {
           "type": "none"
@@ -20,7 +20,9 @@
       }
     }
   ],
-  "words": ["Nazmus Sayad"],
+  "words": [
+    "Nazmus Sayad"
+  ],
   "cloudLLMs": [
     {
       "id": "openrouter-gpt-oss",
