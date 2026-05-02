@@ -46,6 +46,12 @@
       "model": "whisper-large-v3",
       "apiUrl": "https://api.groq.com/openai/v1",
       "apiKeyEnv": "GROQ_API_KEY"
+    },
+    {
+      "id": "openrouter-groq-whisper",
+      "model": "openai/whisper-large-v3:nitro",
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
     }
   ],
   "startOnLogin": false,
