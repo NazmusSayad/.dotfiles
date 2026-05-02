@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 Invoke-Expression (& dotsh pwsh @(mise env -D) | Out-String)
 
 if ($PSVersionTable.PSEdition -eq 'Core') {
