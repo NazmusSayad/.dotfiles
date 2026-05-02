@@ -99,7 +99,7 @@
     "Target": "~/.config/starship.toml"
   },
   {
-    "Source": "@/config/mise.toml",
+    "Source": "@/config/mise-config.toml",
     "Target": "~/.config/mise/config.toml"
   },
   {
