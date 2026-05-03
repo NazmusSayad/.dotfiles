@@ -56,6 +56,7 @@ type OpencodeStandardModel struct {
 	Cost        *OpencodeStandardCost       `json:"cost,omitempty"`
 	Limit       *OpencodeStandardLimit      `json:"limit,omitempty"`
 	Variants    map[string]json.RawMessage  `json:"variants,omitempty"`
+	Headers     map[string]string           `json:"headers,omitempty"`
 }
 
 type OpencodeStandardModalities struct {
