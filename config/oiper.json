@@ -27,12 +27,14 @@
     {
       "id": "openrouter-gpt-oss",
       "model": "openai/gpt-oss-120b:nitro",
+      "provider": "custom",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
     {
       "id": "openrouter-audio-model",
       "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "provider": "custom",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
@@ -41,18 +43,21 @@
     {
       "id": "groq-whisper",
       "model": "whisper-large-v3",
+      "provider": "custom",
       "apiUrl": "https://api.groq.com/openai/v1",
       "apiKeyEnv": "GROQ_API_KEY"
     },
     {
       "id": "oiper-whisper",
       "model": "whisper-large-v3",
+      "provider": "custom",
       "apiUrl": "https://provider.oiper.com/api/v1/sayad",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
     {
       "id": "openrouter-groq-whisper",
       "model": "openai/whisper-large-v3:nitro",
+      "provider": "custom",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
