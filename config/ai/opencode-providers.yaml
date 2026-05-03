@@ -37,7 +37,9 @@ opencode-go:
 
 fireworks-ai:
   models:
-    - id: accounts/fireworks/models/gpt-oss-120b
+    - id: accounts/fireworks/models/minimax-m2p5
       small: true
+    # - id: accounts/fireworks/models/gpt-oss-120b
+    #   small: true
     # - id: accounts/fireworks/routers/kimi-k2p5-turbo
     #   small: true
