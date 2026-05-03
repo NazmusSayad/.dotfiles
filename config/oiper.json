@@ -12,7 +12,7 @@
         "llmId": "openrouter-gpt-oss"
       },
       "onlineMode": {
-        "asrId": "oiper-whisper",
+        "asrId": "groq-whisper",
         "llmId": "openrouter-audio-model",
         "preset": {
           "type": "none"
