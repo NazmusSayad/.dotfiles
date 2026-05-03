@@ -85,7 +85,35 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 					}
 				}
 
-				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId, Nitro: nitro})
+				headers := make(map[string]string)
+				if headersValue, exists := model["headers"]; exists {
+					switch h := headersValue.(type) {
+					case map[string]any:
+						for k, v := range h {
+							if vs, ok := v.(string); ok {
+								headers[k] = vs
+							} else {
+								panic(fmt.Sprintf("opencode providers config: provider %q model %q header %q has invalid value", providerID, modelID, k))
+							}
+						}
+					case map[any]any:
+						for k, v := range h {
+							if ks, ok := k.(string); ok {
+								if vs, ok := v.(string); ok {
+									headers[ks] = vs
+								} else {
+									panic(fmt.Sprintf("opencode providers config: provider %q model %q header %q has invalid value", providerID, modelID, ks))
+								}
+							} else {
+								panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid header key", providerID, modelID))
+							}
+						}
+					default:
+						panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid headers", providerID, modelID))
+					}
+				}
+
+				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId, Nitro: nitro, Headers: headers})
 			default:
 				panic(fmt.Sprintf("opencode providers config: provider %q model at index %d must be a string or object", providerID, i))
 			}
