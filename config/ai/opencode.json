@@ -299,9 +299,23 @@
           "release_date": "2026-03-18",
           "temperature": true,
           "tool_call": true
+        },
+        "deepseek-v4-flash": {
+          "attachment": false,
+          "cost": { "cache_read": 0.0028, "input": 0.14, "output": 0.28 },
+          "family": "deepseek-flash",
+          "id": "deepseek-v4-flash",
+          "limit": { "context": 400000, "output": 384000 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "DeepSeek V4 Flash",
+          "reasoning": true,
+          "release_date": "2026-04-24",
+          "temperature": true,
+          "tool_call": true
         }
       },
       "whitelist": [
+        "deepseek-v4-flash",
         "deepseek-v4-pro",
         "glm-5",
         "glm-5.1",
