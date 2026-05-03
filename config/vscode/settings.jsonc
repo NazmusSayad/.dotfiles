@@ -323,7 +323,13 @@
   "highlight-matching-tag.highlightFromContent": true,
   "highlight-matching-tag.highlightSelfClosing": true,
   "cSpell.language": "en,en-US,lorem",
-  "cSpell.userWords": ["NazmusSayad", "nazmussayad", "Nazmus", "Sayad"],
+  "cSpell.userWords": [
+    "Nazmus",
+    "nazmussayad",
+    "NazmusSayad",
+    "openrouter",
+    "Sayad"
+  ],
   "cSpell.enabledNotifications": {
     "Lines too Long": false,
     "Average Word Length too Long": false,
