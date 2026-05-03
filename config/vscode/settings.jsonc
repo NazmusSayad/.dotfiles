@@ -324,10 +324,10 @@
   "highlight-matching-tag.highlightSelfClosing": true,
   "cSpell.language": "en,en-US,lorem",
   "cSpell.userWords": [
+    "HugeIcons",
     "Nazmus",
-    "nazmussayad",
-    "NazmusSayad",
     "openrouter",
+    "opencode",
     "Sayad"
   ],
   "cSpell.enabledNotifications": {
