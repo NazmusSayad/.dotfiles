@@ -16,8 +16,9 @@ scoop:
   - cloudflared
 
   # AI Coding
-  - aichat
   - codex
+  - aichat
+  - copilot-cli
   - extras/opencode-desktop
 
   # Visualization
