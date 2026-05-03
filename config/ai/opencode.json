@@ -325,7 +325,8 @@
           "reasoning": true,
           "release_date": "2025-08-05",
           "temperature": true,
-          "tool_call": true
+          "tool_call": true,
+          "headers": { "X-OpenRouter-Cache": "true" }
         }
       },
       "whitelist": ["openai/gpt-oss-120b"]

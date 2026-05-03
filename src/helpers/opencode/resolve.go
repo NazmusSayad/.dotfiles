@@ -60,12 +60,22 @@ func ResolveOpencodeProvider(
 				resolvedModel.ID = utils.Ternary(configuredModel.Nitro, resolvedModel.ID+":nitro", resolvedModel.ID)
 			}
 
+			if len(configuredModel.Headers) > 0 {
+				if resolvedModel.Headers == nil {
+					resolvedModel.Headers = make(map[string]string)
+				}
+				for k, v := range configuredModel.Headers {
+					resolvedModel.Headers[k] = v
+				}
+			}
+
 			resolvedModelsMap[configuredModel.ID] = applyModelContextCap(*resolvedModel, configuredModel.ContextCap)
 		} else {
 			fmt.Println(aurora.Red("[ERR]"), configuredModel.ID)
 			resolvedModelsMap[configuredModel.ID] = OpencodeStandardModel{
-				ID:   utils.Ternary(configuredModel.Nitro, configuredModel.ID+":nitro", configuredModel.ID),
-				Name: configuredModel.ID,
+				ID:      utils.Ternary(configuredModel.Nitro, configuredModel.ID+":nitro", configuredModel.ID),
+				Name:    configuredModel.ID,
+				Headers: configuredModel.Headers,
 			}
 		}
 	}
