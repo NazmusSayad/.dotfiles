@@ -33,7 +33,7 @@
     }
   },
 
-  "small_model": "fireworks-ai/accounts/fireworks/models/gpt-oss-120b",
+  "small_model": "fireworks-ai/accounts/fireworks/models/minimax-m2p5",
 
   "enabled_providers": ["fireworks-ai", "openai", "opencode", "opencode-go"],
 
@@ -314,9 +314,21 @@
     },
     "fireworks-ai": {
       "models": {
-        "accounts/fireworks/models/gpt-oss-120b":{"attachment":false,"cost":{"input":0.15,"output":0.6},"family":"gpt-oss","id":"accounts/fireworks/models/gpt-oss-120b","limit":{"context":131072,"output":32768},"modalities":{"input":["text"],"output":["text"]},"name":"GPT OSS 120B","reasoning":true,"release_date":"2025-08-05","temperature":true,"tool_call":true}
+        "accounts/fireworks/models/minimax-m2p5": {
+          "attachment": false,
+          "cost": { "cache_read": 0.03, "input": 0.3, "output": 1.2 },
+          "family": "minimax",
+          "id": "accounts/fireworks/models/minimax-m2p5",
+          "limit": { "context": 196608, "output": 196608 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "MiniMax-M2.5",
+          "reasoning": true,
+          "release_date": "2026-02-12",
+          "temperature": true,
+          "tool_call": true
+        }
       },
-      "whitelist": ["accounts/fireworks/models/gpt-oss-120b"]
+      "whitelist": ["accounts/fireworks/models/minimax-m2p5"]
     }
   },
 
