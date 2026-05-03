@@ -33,9 +33,9 @@
     }
   },
 
-  "small_model": "openrouter/openai/gpt-oss-120b",
+  "small_model": "fireworks-ai/accounts/fireworks/models/gpt-oss-120b",
 
-  "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
+  "enabled_providers": ["fireworks-ai", "openai", "opencode", "opencode-go"],
 
   "provider": {
     "openai": {
@@ -312,24 +312,11 @@
         "minimax-m2.7"
       ]
     },
-    "openrouter": {
+    "fireworks-ai": {
       "models": {
-        "openai/gpt-oss-120b": {
-          "attachment": false,
-          "cost": { "input": 0.072, "output": 0.28 },
-          "family": "gpt-oss",
-          "id": "openai/gpt-oss-120b:nitro",
-          "limit": { "context": 131072, "output": 32768 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "GPT OSS 120B",
-          "reasoning": true,
-          "release_date": "2025-08-05",
-          "temperature": true,
-          "tool_call": true,
-          "headers": { "X-OpenRouter-Cache": "true" }
-        }
+        "accounts/fireworks/models/gpt-oss-120b":{"attachment":false,"cost":{"input":0.15,"output":0.6},"family":"gpt-oss","id":"accounts/fireworks/models/gpt-oss-120b","limit":{"context":131072,"output":32768},"modalities":{"input":["text"],"output":["text"]},"name":"GPT OSS 120B","reasoning":true,"release_date":"2025-08-05","temperature":true,"tool_call":true}
       },
-      "whitelist": ["openai/gpt-oss-120b"]
+      "whitelist": ["accounts/fireworks/models/gpt-oss-120b"]
     }
   },
 

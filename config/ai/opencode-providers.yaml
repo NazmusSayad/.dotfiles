@@ -20,16 +20,24 @@ opencode-go:
     - deepseek-v4-pro
     - minimax-m2.7
 
-openrouter:
-  url: https://openrouter.ai/api/v1/models
-  models:
-    - id: openai/gpt-oss-120b
-      nitro: true
-      headers:
-        X-OpenRouter-Cache: "true"
+# openrouter:
+#   #  url: https://openrouter.ai/api/v1/models
+#   models:
+#     - id: openai/gpt-oss-120b
+#       small: true
+#       nitro: true
+#       headers:
+#         X-OpenRouter-Cache: "true"
 
 # kilo:
-#   url: https://api.kilo.ai/api/gateway/models
+#   #  url: https://api.kilo.ai/api/gateway/models
 #   models:
 #     - kilo-auto/free
 #     - openrouter/free
+
+fireworks-ai:
+  models:
+    - id: accounts/fireworks/models/gpt-oss-120b
+      small: true
+    # - id: accounts/fireworks/routers/kimi-k2p5-turbo
+    #   small: true

@@ -31,12 +31,14 @@ func main() {
 	}
 
 	outputProviderConfig := make(map[string]opencode.OpencodeOutputProviderConfig)
+	outputSmallModel := ""
+
 	fmt.Println()
 
 	for providerID, providerConfig := range providerConfigs {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for").String(), aurora.Bold(providerID).String())
 
-		result, err := opencode.ResolveOpencodeProvider(
+		result, smallModel, err := opencode.ResolveOpencodeProvider(
 			providerID, providerConfig,
 			modelsDotDevResponse[providerID],
 			openrouterModelsResponse,
@@ -46,6 +48,18 @@ func main() {
 			fmt.Fprintf(os.Stderr, "%s failed to resolve provider %q: %v\n", aurora.Yellow("warn:").String(), providerID, err)
 			fmt.Println()
 			continue
+		}
+
+		if smallModel != "" {
+			if outputSmallModel != "" {
+				fmt.Printf(
+					"%s Multiple models marked as small models across providers. Model %s will be used as the small model.\n",
+					aurora.Red("ERROR:"), outputSmallModel,
+				)
+				os.Exit(1)
+			} else {
+				outputSmallModel = providerID + "/" + smallModel
+			}
 		}
 
 		outputProviderConfig[providerID] = result
@@ -73,6 +87,10 @@ func main() {
 
 	fullConfig["provider"] = outputProviderConfig
 	fullConfig["enabled_providers"] = utils.SortArrayOfString(enabledProviders)
+
+	if outputSmallModel != "" {
+		fullConfig["small_model"] = outputSmallModel
+	}
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
