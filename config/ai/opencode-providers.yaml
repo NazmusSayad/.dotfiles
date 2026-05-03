@@ -25,6 +25,8 @@ openrouter:
   models:
     - id: openai/gpt-oss-120b
       nitro: true
+      headers:
+        X-OpenRouter-Cache: "true"
 
 # kilo:
 #   url: https://api.kilo.ai/api/gateway/models

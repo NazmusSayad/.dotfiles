@@ -15,10 +15,11 @@ type OpencodeProviderConfig struct {
 }
 
 type OpencodeProviderConfigModel struct {
-	ID                string `yaml:"id"`
-	Nitro             bool   `yaml:"nitro,omitempty"`
-	ContextCap        int    `yaml:"context,omitempty"`
-	OpenrouterModelId string `yaml:"openrouterId,omitempty"`
+	ID                string            `yaml:"id"`
+	Nitro             bool              `yaml:"nitro,omitempty"`
+	ContextCap        int               `yaml:"context,omitempty"`
+	OpenrouterModelId string            `yaml:"openrouterId,omitempty"`
+	Headers           map[string]string `yaml:"headers,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
