@@ -2,6 +2,7 @@ package opencode
 
 import (
 	"fmt"
+	"os"
 
 	"dotfiles/src/utils"
 
@@ -11,7 +12,7 @@ import (
 func ResolveOpencodeProvider(
 	providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider ModelsDotDevProvider,
 	openrouterModels map[string]OpencodeStandardModel, authConfig AuthConfig,
-) (OpencodeOutputProviderConfig, error) {
+) (OpencodeOutputProviderConfig, string, error) {
 	var fetchedModels map[string]OpencodeStandardModel
 
 	if providerConfig.URL != "" {
@@ -20,12 +21,25 @@ func ResolveOpencodeProvider(
 			fetchedModels = models
 		} else {
 			fmt.Printf("%s Failed to fetch models for %s: %s\n", aurora.Red("Error:"), providerId, err.Error())
-			return OpencodeOutputProviderConfig{}, err
+			return OpencodeOutputProviderConfig{}, "", err
 		}
 	}
 
+	resolvedSmallModel := ""
 	resolvedModelsMap := make(map[string]OpencodeStandardModel)
 	for _, configuredModel := range providerConfig.Models {
+		if configuredModel.AsSmallModel {
+			if resolvedSmallModel != "" {
+				fmt.Printf(
+					"%s Multiple models marked as small models for provider %s. Model %s will be used as the small model.\n",
+					aurora.Red("ERROR:"), providerId, resolvedSmallModel,
+				)
+				os.Exit(1)
+			} else {
+				resolvedSmallModel = configuredModel.ID
+			}
+		}
+
 		openrouterModel, hasModelInOpenrouter := openrouterModels[configuredModel.OpenrouterModelId]
 		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[configuredModel.ID]
 		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
@@ -88,7 +102,7 @@ func ResolveOpencodeProvider(
 	return OpencodeOutputProviderConfig{
 		Models:    resolvedModelsMap,
 		Whitelist: utils.SortArrayOfString(whitelist),
-	}, nil
+	}, resolvedSmallModel, nil
 }
 
 func applyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeStandardModel {

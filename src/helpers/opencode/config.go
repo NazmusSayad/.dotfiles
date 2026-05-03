@@ -76,16 +76,25 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 					}
 				}
 
-				nitro := false
-				if nitroValue, exists := model["nitro"]; exists {
-					if n, ok := nitroValue.(bool); ok {
-						nitro = n
-					} else {
-						panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid nitro", providerID, modelID))
-					}
+			nitro := false
+			if nitroValue, exists := model["nitro"]; exists {
+				if n, ok := nitroValue.(bool); ok {
+					nitro = n
+				} else {
+					panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid nitro", providerID, modelID))
 				}
+			}
 
-				headers := make(map[string]string)
+			asSmallModel := false
+			if asSmallModelValue, exists := model["small"]; exists {
+				if s, ok := asSmallModelValue.(bool); ok {
+					asSmallModel = s
+				} else {
+					panic(fmt.Sprintf("opencode providers config: provider %q model %q has invalid small", providerID, modelID))
+				}
+			}
+
+			headers := make(map[string]string)
 				if headersValue, exists := model["headers"]; exists {
 					switch h := headersValue.(type) {
 					case map[string]any:
@@ -113,7 +122,7 @@ func ReadOpencodeProvidersConfig() map[string]OpencodeProviderConfig {
 					}
 				}
 
-				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId, Nitro: nitro, Headers: headers})
+				models = append(models, OpencodeProviderConfigModel{ID: modelID, ContextCap: contextCap, OpenrouterModelId: openrouterId, Nitro: nitro, AsSmallModel: asSmallModel, Headers: headers})
 			default:
 				panic(fmt.Sprintf("opencode providers config: provider %q model at index %d must be a string or object", providerID, i))
 			}

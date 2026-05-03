@@ -20,6 +20,7 @@ type OpencodeProviderConfigModel struct {
 	ContextCap        int               `yaml:"context,omitempty"`
 	OpenrouterModelId string            `yaml:"openrouterId,omitempty"`
 	Headers           map[string]string `yaml:"headers,omitempty"`
+	AsSmallModel      bool              `yaml:"small,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
