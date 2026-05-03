@@ -18,7 +18,6 @@ scoop:
   # AI Coding
   - codex
   - aichat
-  - copilot-cli
   - extras/opencode-desktop
 
   # Visualization
