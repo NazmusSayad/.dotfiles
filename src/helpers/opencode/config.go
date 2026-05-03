@@ -8,8 +8,9 @@ import (
 )
 
 type rawOpencodeProviderConfig struct {
-	URL    string `yaml:"url"`
-	Models []any  `yaml:"models"`
+	URL     string            `yaml:"url"`
+	Models  []any             `yaml:"models"`
+	Headers map[string]string `yaml:"headers,omitempty"`
 }
 
 const CONTEXT_CAP = 400000
