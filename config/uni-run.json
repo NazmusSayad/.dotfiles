@@ -3,7 +3,9 @@
   "runtime": {
     "dart": "fvm",
     "python": "uv",
+    "shell": "bash",
+    "typescript": "bun",
     "javascript": "node",
-    "typescript": "bun"
+    "powershell": "pwsh"
   }
 }
