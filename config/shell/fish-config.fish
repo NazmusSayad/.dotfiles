@@ -16,6 +16,7 @@ if status is-interactive
     zoxide init fish | source
     starship init fish | source
 
+    zoxide add $PWD
     function on_cd --on-variable PWD
         zoxide add $PWD
     end
