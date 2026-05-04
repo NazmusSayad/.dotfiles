@@ -6,4 +6,6 @@ if [[ $- == *i* ]]; then
 	eval "$(shaka bash)"
 	eval "$(zoxide init bash)"
 	eval "$(starship init bash)"
+
+	zoxide add $PWD
 fi

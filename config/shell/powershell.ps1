@@ -7,4 +7,6 @@ if ($PSVersionTable.PSEdition -eq 'Core') {
   Invoke-Expression (&shaka pwsh | Out-String)
   Invoke-Expression (&zoxide init powershell | Out-String)
   Invoke-Expression (&starship init powershell)
+  
+  zoxide add $PWD
 }
