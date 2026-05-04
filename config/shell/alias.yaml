@@ -10,6 +10,7 @@ ccc: cc --continue
 # NPM
 r: node --run
 nid: ni -D
+pab: pnpm approve-builds --all
 
 # Toolchain
 j: just
