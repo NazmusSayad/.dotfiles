@@ -12,6 +12,7 @@
     "doom_loop": "allow",
     "external_directory": {
       "~/Desktop/**": "allow",
+      "~/.cargo/registry/**": "allow",
       "~/AppData/Local/Pub/Cache/**": "allow"
     }
   },
