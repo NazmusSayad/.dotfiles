@@ -45,3 +45,8 @@ openai:
 #     #   small: true
 #     # - id: accounts/fireworks/routers/kimi-k2p5-turbo
 #     #   small: true
+
+# ollama-cloud:
+#   models:
+#     - minimax-m2.5
+#     - minimax-m2.7
