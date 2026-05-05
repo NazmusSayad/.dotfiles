@@ -433,5 +433,6 @@
     }
   },
   "workbench.activityBar.location": "hidden",
+  "chat.permissions.default": "autoApprove",
   "chat.viewSessions.orientation": "stacked"
 }
