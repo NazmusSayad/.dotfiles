@@ -33,9 +33,9 @@
     }
   },
 
-  "small_model": "fireworks-ai/accounts/fireworks/models/minimax-m2p5",
+  "small_model": "opencode/minimax-m2.5-free",
 
-  "enabled_providers": ["fireworks-ai", "openai", "opencode", "opencode-go"],
+  "enabled_providers": ["openai", "opencode", "opencode-go"],
 
   "provider": {
     "openai": {
@@ -325,24 +325,6 @@
         "mimo-v2.5-pro",
         "minimax-m2.7"
       ]
-    },
-    "fireworks-ai": {
-      "models": {
-        "accounts/fireworks/models/minimax-m2p5": {
-          "attachment": false,
-          "cost": { "cache_read": 0.03, "input": 0.3, "output": 1.2 },
-          "family": "minimax",
-          "id": "accounts/fireworks/models/minimax-m2p5",
-          "limit": { "context": 196608, "output": 196608 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "MiniMax-M2.5",
-          "reasoning": true,
-          "release_date": "2026-02-12",
-          "temperature": true,
-          "tool_call": true
-        }
-      },
-      "whitelist": ["accounts/fireworks/models/minimax-m2p5"]
     }
   },
 
