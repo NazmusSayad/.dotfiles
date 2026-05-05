@@ -1,13 +1,7 @@
-openai:
-  models:
-    - id: gpt-5.5
-      context: 272000
-    - id: gpt-5.3-codex
-      context: 272000
-
 opencode:
   models:
-    - minimax-m2.5-free
+    - id: minimax-m2.5-free
+      small: true
 
 opencode-go:
   models:
@@ -20,6 +14,13 @@ opencode-go:
     - deepseek-v4-pro
     - deepseek-v4-flash
     - minimax-m2.7
+
+openai:
+  models:
+    - id: gpt-5.5
+      context: 272000
+    - id: gpt-5.3-codex
+      context: 272000
 
 # openrouter:
 #   #  url: https://openrouter.ai/api/v1/models
@@ -36,11 +37,11 @@ opencode-go:
 #     - kilo-auto/free
 #     - openrouter/free
 
-fireworks-ai:
-  models:
-    - id: accounts/fireworks/models/minimax-m2p5
-      small: true
-    # - id: accounts/fireworks/models/gpt-oss-120b
-    #   small: true
-    # - id: accounts/fireworks/routers/kimi-k2p5-turbo
-    #   small: true
+# fireworks-ai:
+#   models:
+#     # - id: accounts/fireworks/models/minimax-m2p5
+#     #   small: true
+#     # - id: accounts/fireworks/models/gpt-oss-120b
+#     #   small: true
+#     # - id: accounts/fireworks/routers/kimi-k2p5-turbo
+#     #   small: true
