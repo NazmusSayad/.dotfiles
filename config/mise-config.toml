@@ -76,10 +76,6 @@ firebase = "latest"
 wrangler = "latest"
 
 
-# Development Tools
-"npm:@uigraph/mcp" = "latest"
-
-
 [settings]
 experimental = true
 
