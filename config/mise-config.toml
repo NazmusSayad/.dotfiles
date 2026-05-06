@@ -56,8 +56,8 @@ java = "latest"
 # CLI Tools
 "npm:gityo" = "latest"
 
+"npm:mytokens" = "latest"
 "npm:code-info" = "latest"
-"npm:openusage" = "latest"
 "npm:git-stats" = "latest"
 
 "npm:serve" = "latest"
