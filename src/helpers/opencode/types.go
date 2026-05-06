@@ -10,8 +10,9 @@ type AuthProvider struct {
 type AuthConfig map[string]AuthProvider
 
 type OpencodeProviderConfig struct {
-	URL    string                        `yaml:"url"`
-	Models []OpencodeProviderConfigModel `yaml:"models"`
+	URL           string                        `yaml:"url"`
+	WhitelistOnly bool                          `yaml:"whitelistOnly,omitempty"`
+	Models        []OpencodeProviderConfigModel `yaml:"models"`
 }
 
 type OpencodeProviderConfigModel struct {
