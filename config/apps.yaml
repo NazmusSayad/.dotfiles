@@ -19,7 +19,7 @@ scoop:
   - codex
   - aichat
   - opencode
-  # - extras/opencode-desktop
+  - pi-coding-agent
 
   # Visualization
   - extras/onefetch
