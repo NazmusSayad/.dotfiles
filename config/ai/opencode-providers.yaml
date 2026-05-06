@@ -1,9 +1,11 @@
 opencode:
+  whitelistOnly: true
   models:
     - id: minimax-m2.5-free
       small: true
 
 opencode-go:
+  whitelistOnly: true
   models:
     - glm-5
     - glm-5.1
