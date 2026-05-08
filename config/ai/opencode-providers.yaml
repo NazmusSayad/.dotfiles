@@ -7,15 +7,18 @@ opencode:
 opencode-go:
   whitelistOnly: true
   models:
-    - glm-5
-    - glm-5.1
-    - kimi-k2.5
-    - kimi-k2.6
-    - mimo-v2-pro
-    - mimo-v2.5-pro
-    - deepseek-v4-pro
-    - deepseek-v4-flash
-    - minimax-m2.7
+    - id: glm-5
+      explore: true
+    - id: glm-5.1
+      compact: true
+    - id: kimi-k2.5
+      general: true
+    - id: kimi-k2.6
+    - id: mimo-v2-pro
+    - id: mimo-v2.5-pro
+    - id: deepseek-v4-pro
+    - id: deepseek-v4-flash
+    - id: minimax-m2.7
 
 openai:
   models:
@@ -36,8 +39,8 @@ openai:
 # kilo:
 #   #  url: https://api.kilo.ai/api/gateway/models
 #   models:
-#     - kilo-auto/free
-#     - openrouter/free
+#     - id: kilo-auto/free
+#     - id: openrouter/free
 
 # fireworks-ai:
 #   models:
@@ -50,5 +53,5 @@ openai:
 
 # ollama-cloud:
 #   models:
-#     - minimax-m2.5
-#     - minimax-m2.7
+#     - id: minimax-m2.5
+#     - id: minimax-m2.7
