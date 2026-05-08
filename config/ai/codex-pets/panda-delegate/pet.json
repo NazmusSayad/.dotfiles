@@ -1,0 +1,7 @@
+{
+  "id": "panda-delegate",
+  "displayName": "Panda Delegate",
+  "description": "A realistic-looking giant panda representative for an interspecies parliament.",
+  "spritesheetPath": "spritesheet.webp",
+  "kind": "object"
+}
