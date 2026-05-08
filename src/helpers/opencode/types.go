@@ -21,7 +21,11 @@ type OpencodeProviderConfigModel struct {
 	ContextCap        int               `yaml:"context,omitempty"`
 	OpenrouterModelId string            `yaml:"openrouterId,omitempty"`
 	Headers           map[string]string `yaml:"headers,omitempty"`
-	AsSmallModel      bool              `yaml:"small,omitempty"`
+
+	AsSmallModel   bool `yaml:"small,omitempty"`
+	AsGeneralModel bool `yaml:"general,omitempty"`
+	AsExploreModel bool `yaml:"explore,omitempty"`
+	AsCompactModel bool `yaml:"compact,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
