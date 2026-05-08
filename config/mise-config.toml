@@ -58,6 +58,10 @@ java = "latest"
 "npm:git-stats" = "latest"
 "npm:live-server" = "latest"
 
+# AI Tools
+"npm:skills" = "latest"
+
+# My Tools
 "npm:gityo" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
