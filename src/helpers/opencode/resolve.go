@@ -9,10 +9,17 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
+type OpencodeResolveAgentModels struct {
+	SmallModel   string
+	GeneralModel string
+	ExploreModel string
+	CompactModel string
+}
+
 func ResolveOpencodeProvider(
 	providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider ModelsDotDevProvider,
-	openrouterModels map[string]OpencodeStandardModel, authConfig AuthConfig,
-) (OpencodeOutputProviderConfig, string, error) {
+	openrouterModels map[string]OpencodeStandardModel, currentAgentModels OpencodeResolveAgentModels, authConfig AuthConfig,
+) (OpencodeOutputProviderConfig, OpencodeResolveAgentModels, error) {
 	var fetchedModels map[string]OpencodeStandardModel
 
 	if providerConfig.URL != "" {
@@ -21,24 +28,13 @@ func ResolveOpencodeProvider(
 			fetchedModels = models
 		} else {
 			fmt.Printf("%s Failed to fetch models for %s: %s\n", aurora.Red("Error:"), providerId, err.Error())
-			return OpencodeOutputProviderConfig{}, "", err
+			return OpencodeOutputProviderConfig{}, OpencodeResolveAgentModels{}, err
 		}
 	}
 
-	resolvedSmallModel := ""
 	resolvedModelsMap := make(map[string]OpencodeStandardModel)
 	for _, configuredModel := range providerConfig.Models {
-		if configuredModel.AsSmallModel {
-			if resolvedSmallModel != "" {
-				fmt.Printf(
-					"%s Multiple models marked as small models for provider %s. Model %s will be used as the small model.\n",
-					aurora.Red("ERROR:"), providerId, resolvedSmallModel,
-				)
-				os.Exit(1)
-			} else {
-				resolvedSmallModel = configuredModel.ID
-			}
-		}
+		currentAgentModels = resolveAgentModel(providerId, configuredModel, currentAgentModels)
 
 		if providerConfig.WhitelistOnly {
 			continue
@@ -107,13 +103,65 @@ func ResolveOpencodeProvider(
 		fmt.Println(aurora.Faint("Only whitelisted models will be included for this provider"))
 		return OpencodeOutputProviderConfig{
 			Whitelist: utils.SortArrayOfString(whitelist),
-		}, resolvedSmallModel, nil
+		}, currentAgentModels, nil
 	}
 
 	return OpencodeOutputProviderConfig{
 		Models:    resolvedModelsMap,
 		Whitelist: utils.SortArrayOfString(whitelist),
-	}, resolvedSmallModel, nil
+	}, currentAgentModels, nil
+}
+
+func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigModel, currentAgentModels OpencodeResolveAgentModels) OpencodeResolveAgentModels {
+	if modelConfig.AsSmallModel {
+		if currentAgentModels.SmallModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as small model. Models %s and %s will be used as the small model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.SmallModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.SmallModel = providerId + "/" + modelConfig.ID
+	}
+
+	if modelConfig.AsGeneralModel {
+		if currentAgentModels.GeneralModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as general model. Models %s and %s will be used as the general model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.GeneralModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.GeneralModel = providerId + "/" + modelConfig.ID
+	}
+
+	if modelConfig.AsExploreModel {
+		if currentAgentModels.ExploreModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as explore model. Models %s and %s will be used as the explore model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.ExploreModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.ExploreModel = providerId + "/" + modelConfig.ID
+	}
+
+	if modelConfig.AsCompactModel {
+		if currentAgentModels.CompactModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as compact model. Models %s and %s will be used as the compact model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.CompactModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.CompactModel = providerId + "/" + modelConfig.ID
+	}
+
+	return currentAgentModels
 }
 
 func applyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeStandardModel {
