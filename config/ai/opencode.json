@@ -36,6 +36,18 @@
 
   "small_model": "opencode/minimax-m2.5-free",
 
+  "agent": {
+    "general": {
+      "model": "opencode-go/kimi-k2.6"
+    },
+    "explore": {
+      "model": "opencode-go/mimo-v2.5-pro"
+    },
+    "compaction": {
+      "model": "opencode-go/deepseek-v4-flash"
+    }
+  },
+
   "enabled_providers": ["openai", "opencode", "opencode-go"],
 
   "provider": {
