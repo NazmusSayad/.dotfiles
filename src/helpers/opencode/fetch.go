@@ -37,7 +37,7 @@ func FetchModels(providerID string, providerURL string, apiKey string) (map[stri
 	}
 
 	fmt.Println(
-		aurora.Yellow("Fetching models from:"), aurora.Faint(providerURL),
+		aurora.Cyan("Fetching models from:"), aurora.Faint(providerURL),
 		utils.Ternary(apiKey != "", aurora.Green("Authenticated").String(), aurora.Red("Unauthenticated").String()),
 	)
 
