@@ -1,0 +1,7 @@
+{
+  "id": "elephant",
+  "displayName": "Elephant",
+  "description": "A grounded elephant delegate for an interspecies parliament.",
+  "spritesheetPath": "spritesheet.webp",
+  "kind": "object"
+}

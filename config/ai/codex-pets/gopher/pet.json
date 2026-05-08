@@ -1,0 +1,6 @@
+{
+  "id": "gopher",
+  "displayName": "Gopher",
+  "description": "A tiny blue Go-inspired coding gopher companion for Codex.",
+  "spritesheetPath": "spritesheet.webp"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "laifu",
+  "displayName": "来福",
+  "description": "A clingy clever orange-and-white kitten based on the user's real cat Laifu.",
+  "spritesheetPath": "spritesheet.webp",
+  "kind": "animal"
+}

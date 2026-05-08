@@ -1,0 +1,7 @@
+{
+  "id": "miaodex",
+  "displayName": "MiaoDex",
+  "description": "A tiny gray-and-white kitten Codex companion with oversized glossy eyes, a pink nose, and one paw raised.",
+  "spritesheetPath": "spritesheet.webp",
+  "kind": "animal"
+}
