@@ -41,7 +41,7 @@
     "compaction": { "model": "opencode-go/deepseek-v4-flash" }
   },
 
-  "enabled_providers": ["openai", "opencode", "opencode-go"],
+  "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
   "provider": {
     "openai": {
       "models": {
@@ -109,6 +109,23 @@
         "mimo-v2.5-pro",
         "minimax-m2.7"
       ]
+    },
+    "openrouter": {
+      "models": {
+        "baidu/cobuddy:free": {
+          "id": "baidu/cobuddy:free",
+          "name": "Baidu Qianfan: CoBuddy (free)",
+          "limit": { "context": 131072, "input": 131072, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        },
+        "inclusionai/ring-2.6-1t:free": {
+          "id": "inclusionai/ring-2.6-1t:free",
+          "name": "inclusionAI: Ring-2.6-1T (free)",
+          "limit": { "context": 262144, "input": 262144, "output": 262144 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        }
+      },
+      "whitelist": ["baidu/cobuddy:free", "inclusionai/ring-2.6-1t:free"]
     }
   },
 
