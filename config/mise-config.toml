@@ -60,6 +60,7 @@ java = "latest"
 
 # AI Tools
 "npm:skills" = "latest"
+"npm:devrage" = "latest"
 
 # My Tools
 "npm:gityo" = "latest"
