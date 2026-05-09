@@ -25,14 +25,13 @@ openai:
     - id: gpt-5.3-codex
       context: 272000
 
-openrouter:
-  url: https://openrouter.ai/api/v1/models
-  models:
-    - id: baidu/cobuddy:free
-    - id: inclusionai/ring-2.6-1t:free
+# openrouter:
+#   url: https://openrouter.ai/api/v1/models
+#   models:
+#     - id: openrouter/free
 
 # kilo:
-#   #  url: https://api.kilo.ai/api/gateway/models
+#   url: https://api.kilo.ai/api/gateway/models
 #   models:
 #     - id: kilo-auto/free
 #     - id: openrouter/free
