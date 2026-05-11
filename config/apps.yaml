@@ -19,6 +19,7 @@ scoop:
   - codex
   - aichat
   - opencode
+  - claude-code
   - pi-coding-agent
 
   # Visualization
