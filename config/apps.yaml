@@ -13,7 +13,6 @@ scoop:
   # Cloud
   - gh
   - aws
-  - cloudflared
 
   # AI Coding
   - codex
