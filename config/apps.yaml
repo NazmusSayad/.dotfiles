@@ -52,7 +52,7 @@ scoop:
   - ripgrep
   - fd
 
-  # Disk Usage  
+  # Disk Usage
   - dust
 
   # Zip and Image
