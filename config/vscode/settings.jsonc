@@ -433,7 +433,7 @@
       "background": "#FDD83580",
     },
   },
-  "workbench.activityBar.location": "hidden",
   "chat.permissions.default": "autoApprove",
   "chat.viewSessions.orientation": "stacked",
+  "workbench.activityBar.location": "hidden",
 }
