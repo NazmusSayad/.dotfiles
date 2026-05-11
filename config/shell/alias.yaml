@@ -1,10 +1,6 @@
 # AI Coding
 oc: opencode
-occ: opencode --continue
-cx: codex
-cxx: codex --last
-cc: claude --permission-mode bypassPermissions --allow-dangerously-skip-permissions --dangerously-skip-permissions
-ccc: cc --continue
+cc: claude --permission-mode bypassPermissions
 
 # NPM
 r: node --run

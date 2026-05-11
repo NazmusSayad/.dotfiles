@@ -4,6 +4,7 @@
   "effortLevel": "medium",
 
   "permissions": {
+    "disableAutoMode": "disable",
     "defaultMode": "bypassPermissions"
   },
 
