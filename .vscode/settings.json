@@ -27,6 +27,8 @@
     "ollama",
     "opencode",
     "openrouter",
+    "oxfmt",
+    "oxlint",
     "pwshac",
     "qwen",
     "rmfast",

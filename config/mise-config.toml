@@ -54,7 +54,10 @@ java = "latest"
 
 
 # CLI Tools
+"npm:oxfmt" = "latest"
 "npm:serve" = "latest"
+"npm:oxlint" = "latest"
+"npm:prettier" = "latest"
 "npm:git-stats" = "latest"
 "npm:live-server" = "latest"
 
@@ -79,6 +82,8 @@ java = "latest"
 gcloud = "latest"
 firebase = "latest"
 wrangler = "latest"
+serverless = "latest"
+cloudflared = "latest"
 
 
 [settings]
