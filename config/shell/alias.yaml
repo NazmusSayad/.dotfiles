@@ -38,8 +38,8 @@ dcr: docker compose restart
 # System
 rmrf: rm -rf
 rmf: byenow --yes --one-liner
-mp: mise prune --yes
 mi: mise install --yes
+mp: mise prune --yes
 
 ex: explorer
 fix-next: rm -rf .next
