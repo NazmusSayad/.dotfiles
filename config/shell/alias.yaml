@@ -3,8 +3,7 @@ oc: opencode
 occ: opencode --continue
 cx: codex
 cxx: codex --last
-cc: claude --model claude-opus-4-6 --permission-mode bypassPermissions
-  --allow-dangerously-skip-permissions --dangerously-skip-permissions
+cc: claude --permission-mode bypassPermissions --allow-dangerously-skip-permissions --dangerously-skip-permissions
 ccc: cc --continue
 
 # NPM
