@@ -37,9 +37,8 @@ dcr: docker compose restart
 
 # System
 rmf: rm -rf
-rmfast: FastDelete
-mi: mise install --yes
 mp: mise prune --yes
+mi: mise install --yes
 
 ex: explorer
 fix-next: rm -rf .next
