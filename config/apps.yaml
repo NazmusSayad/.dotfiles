@@ -20,6 +20,7 @@ scoop:
   - aichat
   - opencode
   - pi-coding-agent
+  - extras/opencode-desktop
 
   # Visualization
   - extras/onefetch
