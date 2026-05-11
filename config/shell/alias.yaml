@@ -36,8 +36,8 @@ dcd: docker compose down
 dcr: docker compose restart
 
 # System
-rmf: byenow
 rmrf: rm -rf
+rmf: byenow --yes --one-liner
 mp: mise prune --yes
 mi: mise install --yes
 
