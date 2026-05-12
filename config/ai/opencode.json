@@ -1,6 +1,6 @@
 {
   "lsp": false,
-  "shell": "C:\\msys64\\usr\\bin\\bash.exe",
+  "shell": "bash",
 
   "plugin": ["opencode-armor", "opencode-wakatime"],
 
