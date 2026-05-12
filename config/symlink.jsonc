@@ -103,10 +103,6 @@
     "Target": "~/.codex/pets"
   },
   {
-    "Source": "@/config/ai/aichat.yaml",
-    "Target": "$APPDATA/aichat/config.yaml"
-  },
-  {
     "Source": "@/config/oiper.json",
     "Target": "$APPDATA/oiper/config.json"
   },

@@ -1,5 +1,0 @@
-model: openrouter:openrouter/free
-clients:
-  - type: openai-compatible
-    name: openrouter
-    api_base: https://openrouter.ai/api/v1
