@@ -40,7 +40,7 @@
     "explore": { "model": "opencode-go/mimo-v2.5-pro" }
   },
 
-  "enabled_providers": ["openai", "opencode", "opencode-go"],
+  "enabled_providers": ["openai", "opencode", "opencode-go", "openrouter"],
   "provider": {
     "openai": {
       "models": {
@@ -121,6 +121,17 @@
         "mimo-v2.5-pro",
         "minimax-m2.7"
       ]
+    },
+    "openrouter": {
+      "models": {
+        "inclusionai/ring-2.6-1t:free": {
+          "id": "inclusionai/ring-2.6-1t:free",
+          "limit": { "context": 262144, "input": 262144, "output": 262144 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "inclusionAI: Ring-2.6-1T (free)"
+        }
+      },
+      "whitelist": ["inclusionai/ring-2.6-1t:free"]
     }
   },
 
