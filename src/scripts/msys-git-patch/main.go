@@ -11,6 +11,7 @@ import (
 
 var FILES_TO_PATCH = []string{
 	"bash.exe",
+	"sh.exe",
 }
 
 func main() {
