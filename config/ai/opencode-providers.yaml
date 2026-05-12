@@ -26,10 +26,10 @@ openai:
     - id: gpt-5.3-codex
       context: 272000
 
-openrouter:
-  url: https://openrouter.ai/api/v1/models
-  models:
-    - id: inclusionai/ring-2.6-1t:free
+# openrouter:
+#   url: https://openrouter.ai/api/v1/models
+#   models:
+#     - id: inclusionai/ring-2.6-1t:free
 
 # kilo:
 #   url: https://api.kilo.ai/api/gateway/models
