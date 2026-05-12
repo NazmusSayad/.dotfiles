@@ -36,8 +36,9 @@
 
   "small_model": "opencode/minimax-m2.5-free",
   "agent": {
-    "general": { "model": "opencode-go/deepseek-v4-pro" },
-    "explore": { "model": "opencode-go/deepseek-v4-pro" }
+    "scout": { "disable": true },
+    "general": { "disable": true },
+    "explore": { "model": "opencode-go/mimo-v2.5-pro" }
   },
 
   "enabled_providers": ["openai", "opencode", "opencode-go"],
@@ -112,7 +113,7 @@
       "whitelist": ["minimax-m2.5-free"]
     },
     "opencode-go": {
-      "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6"]
+      "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
     }
   },
 
