@@ -75,7 +75,6 @@ java = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
-"npm:@hugeicons/mcp-server" = "latest"
 
 
 # Cloud Tools
