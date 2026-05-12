@@ -20,11 +20,11 @@ opencode-go:
 openai:
   models:
     - id: gpt-5.5
-      context: 272000
+      context: 256000
     - id: gpt-5.4-mini
-      context: 272000
+      context: 256000
     - id: gpt-5.3-codex
-      context: 272000
+      context: 256000
 
 # openrouter:
 #   url: https://openrouter.ai/api/v1/models
