@@ -10,8 +10,8 @@ opencode-go:
     - id: glm-5.1
     - id: kimi-k2.6
     - id: deepseek-v4-pro
+    - id: mimo-v2.5-pro
       explore: true
-      general: true
 
 openai:
   models:
