@@ -16,7 +16,6 @@ scoop:
 
   # AI Coding
   - codex
-  - aichat
   - opencode
   - claude-code
   - pi-coding-agent
