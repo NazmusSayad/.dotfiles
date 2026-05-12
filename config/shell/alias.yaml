@@ -1,7 +1,10 @@
 # AI Coding
 co: codex
+col: codex --last
 op: opencode
+opc: opencode --continue
 cl: claude --permission-mode bypassPermissions
+clc: claude --permission-mode bypassPermissions --continue
 
 # NPM
 r: node --run
