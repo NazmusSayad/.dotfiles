@@ -14,13 +14,14 @@ opencode-go:
       explore: true
     - id: deepseek-v4-pro
     - id: deepseek-v4-flash
-      compact: true
     - id: minimax-m2.7
       general: true
 
 openai:
   models:
     - id: gpt-5.5
+      context: 272000
+    - id: gpt-5.4-mini
       context: 272000
     - id: gpt-5.3-codex
       context: 272000
