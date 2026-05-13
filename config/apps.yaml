@@ -130,7 +130,6 @@ winget:
   - UnifiedIntents.UnifiedRemote
 
   # Code Editors
-  - id: T3Tools.T3Code
   - id: SST.OpenCodeDesktop
   - id: Microsoft.VisualStudioCode
     name: VSCode
