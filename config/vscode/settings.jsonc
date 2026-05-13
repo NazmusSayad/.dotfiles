@@ -436,5 +436,6 @@
   },
   "chat.permissions.default": "autoApprove",
   "chat.viewSessions.orientation": "stacked",
-  "claudeCode.preferredLocation": "sidebar"
+  "claudeCode.preferredLocation": "sidebar",
+  "workbench.activityBar.location": "hidden"
 }
