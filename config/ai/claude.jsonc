@@ -11,10 +11,7 @@
 
   "env": {
     "IS_DEMO": "1",
-    "DISABLE_UPDATES": "1",
-    "DISABLE_AUTOUPDATER": "1",
-    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
-    "CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL": "0"
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1"
   },
 
   "defaultShell": "bash",
