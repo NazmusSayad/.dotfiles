@@ -11,8 +11,11 @@ import (
 
 type OpencodeResolveAgentModels struct {
 	SmallModel   string
+	TitleModel   string
+	ScoutModel   string
 	GeneralModel string
 	ExploreModel string
+	SummaryModel string
 	CompactModel string
 }
 
@@ -125,6 +128,30 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 		currentAgentModels.SmallModel = providerId + "/" + modelConfig.ID
 	}
 
+	if modelConfig.AsTitleModel {
+		if currentAgentModels.TitleModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as title model. Models %s and %s will be used as the title model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.TitleModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.TitleModel = providerId + "/" + modelConfig.ID
+	}
+
+	if modelConfig.AsScoutModel {
+		if currentAgentModels.ScoutModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as scout model. Models %s and %s will be used as the scout model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.ScoutModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.ScoutModel = providerId + "/" + modelConfig.ID
+	}
+
 	if modelConfig.AsGeneralModel {
 		if currentAgentModels.GeneralModel != "" {
 			fmt.Printf(
@@ -159,6 +186,18 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 		}
 
 		currentAgentModels.CompactModel = providerId + "/" + modelConfig.ID
+	}
+
+	if modelConfig.AsSummaryModel {
+		if currentAgentModels.SummaryModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as summary model. Models %s and %s will be used as the summary model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.SummaryModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.SummaryModel = providerId + "/" + modelConfig.ID
 	}
 
 	return currentAgentModels

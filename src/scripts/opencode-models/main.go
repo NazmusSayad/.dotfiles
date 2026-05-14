@@ -85,8 +85,11 @@ func main() {
 		delete(fullConfig, "small_model")
 	}
 
+	writeAgentModelConfig(fullConfig, "title", outputAgentModels.TitleModel)
+	writeAgentModelConfig(fullConfig, "scout", outputAgentModels.ScoutModel)
 	writeAgentModelConfig(fullConfig, "general", outputAgentModels.GeneralModel)
 	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.ExploreModel)
+	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.SummaryModel)
 	writeAgentModelConfig(fullConfig, "compaction", outputAgentModels.CompactModel)
 
 	newConfigBytes, err := json.Marshal(fullConfig)
