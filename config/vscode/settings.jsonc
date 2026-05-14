@@ -344,6 +344,11 @@
   "workbench.editor.dragToOpenWindow": false,
   "workbench.browser.showInTitleBar": false,
   "workbench.editor.useModal": "off",
+  "claudeCode.preferredLocation": "sidebar",
+  "claudeCode.hideOnboarding": true,
+  "claudeCode.disableLoginPrompt": true,
+  "claudeCode.allowDangerouslySkipPermissions": true,
+  "claudeCode.usePythonEnvironment": false,
   "chat.agent.maxRequests": 999,
   "chat.agentsControl.enabled": "hidden",
   "chat.editing.confirmEditRequestRetry": false,
@@ -437,6 +442,5 @@
   },
   "chat.permissions.default": "autoApprove",
   "chat.viewSessions.orientation": "stacked",
-  "claudeCode.preferredLocation": "sidebar",
   "workbench.activityBar.location": "hidden"
 }
