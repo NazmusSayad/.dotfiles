@@ -64,12 +64,12 @@ java = "latest"
 # AI Tools
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
+"npm:mytokens" = "latest"
 
 # My Tools
 "npm:gityo" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
-"npm:mytokens" = "latest"
 "npm:code-info" = "latest"
 
 
