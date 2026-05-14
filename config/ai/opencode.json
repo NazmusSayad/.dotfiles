@@ -9,7 +9,7 @@
   },
 
   "permission": {
-    "doom_loop": "allow",
+    "doom_loop": "deny",
     "external_directory": {
       "~/Desktop/**": "allow",
       "~/.cargo/registry/**": "allow",
