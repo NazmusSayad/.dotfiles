@@ -1,6 +1,6 @@
 ---
 name: typescript
-description: TypeScript code style and optimization guidelines. MUST USE before writing or modifying any TypeScript code (.ts, .tsx, .mts files). Also use when reviewing code quality or implementing type-safe patterns. Triggers on any TypeScript file edit, code style discussions, or type safety questions.
+description: TypeScript best practices for clean, maintainable, and optimized code. MUST USE for writing or working with TypeScript code (.ts, .tsx, .mts files), including editing, reviewing or refactoring.
 ---
 
 ## Best Practices
