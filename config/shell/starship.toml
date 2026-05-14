@@ -19,14 +19,17 @@ threshold = 2
 
 
 [directory]
+disabled = false
 style = "blue"
 
 
 [git_branch]
+disabled = false
 format = "[$symbol ](dimmed)[$branch](yellow)"
 symbol = ""
 
 [git_status]
+disabled = false
 format = '[$all_status$ahead_behind](red)'
 stashed = '[|](dimmed red)'
 conflicted = "󰦎"
