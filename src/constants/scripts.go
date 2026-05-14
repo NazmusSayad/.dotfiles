@@ -62,6 +62,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Code UI State Push",
 	},
 
+	"clean-code-snippets": {
+		StartMenu: "Clean Code Snippets",
+	},
+
 	"opencode-server": {
 		StartMenu: "OpenCode Server",
 	},
