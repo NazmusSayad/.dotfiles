@@ -49,8 +49,6 @@ java = "latest"
 # php = "latest"
 # zig = "latest"
 # ruby = "latest"
-# "conda:lua" = "latest"
-# "conda:luajit" = "latest"
 
 
 # CLI Tools
@@ -86,8 +84,6 @@ cloudflared = "latest"
 
 
 [settings]
-experimental = true
-
 env_file = ".env"
 env_shell_expand = true
 
