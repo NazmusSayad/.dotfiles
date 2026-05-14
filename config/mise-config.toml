@@ -49,6 +49,8 @@ java = "latest"
 # php = "latest"
 # zig = "latest"
 # ruby = "latest"
+# "conda:lua" = "latest"
+# "conda:luajit" = "latest"
 
 
 # CLI Tools
