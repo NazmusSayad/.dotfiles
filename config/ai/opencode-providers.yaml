@@ -21,12 +21,13 @@ openai:
       context: 256000
 
 # openrouter:
-#   url: https://openrouter.ai/api/v1/models
+#   # url: https://openrouter.ai/api/v1/models
 #   models:
-#     - id: inclusionai/ring-2.6-1t:free
+#     - id: openai/gpt-oss-120b
+#       small: true
 
 # kilo:
-#   url: https://api.kilo.ai/api/gateway/models
+#   # url: https://api.kilo.ai/api/gateway/models
 #   models:
 #     - id: kilo-auto/free
 #     - id: openrouter/free
