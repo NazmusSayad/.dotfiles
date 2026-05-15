@@ -41,18 +41,10 @@
       "models": {
         "gpt-5.3-codex": {
           "attachment": true,
-          "cost": {
-            "cache_read": 0.175,
-            "input": 1.75,
-            "output": 14
-          },
+          "cost": { "cache_read": 0.175, "input": 1.75, "output": 14 },
           "family": "gpt-codex",
           "id": "gpt-5.3-codex",
-          "limit": {
-            "context": 256000,
-            "input": 256000,
-            "output": 128000
-          },
+          "limit": { "context": 256000, "input": 256000, "output": 128000 },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -65,18 +57,10 @@
         },
         "gpt-5.5": {
           "attachment": true,
-          "cost": {
-            "cache_read": 0.5,
-            "input": 5,
-            "output": 30
-          },
+          "cost": { "cache_read": 0.5, "input": 5, "output": 30 },
           "family": "gpt",
           "id": "gpt-5.5",
-          "limit": {
-            "context": 256000,
-            "input": 256000,
-            "output": 128000
-          },
+          "limit": { "context": 256000, "input": 256000, "output": 128000 },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -91,7 +75,11 @@
       "whitelist": ["gpt-5.3-codex", "gpt-5.5"]
     },
     "opencode": {
-      "whitelist": ["minimax-m2.5-free"]
+      "whitelist": [
+        "deepseek-v4-flash-free",
+        "minimax-m2.5-free",
+        "qwen3.6-plus-free"
+      ]
     },
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
