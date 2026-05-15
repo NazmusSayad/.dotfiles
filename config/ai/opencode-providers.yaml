@@ -1,6 +1,8 @@
 opencode:
   whitelistOnly: true
   models:
+    - id: deepseek-v4-flash-free
+    - id: qwen3.6-plus-free
     - id: minimax-m2.5-free
       small: true
 
