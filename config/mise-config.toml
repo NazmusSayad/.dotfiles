@@ -16,7 +16,6 @@ just = "latest"
 
 # JS/TS
 node = "lts"
-bun = "latest"
 deno = "latest"
 "npm:tsx" = "latest"
 "npm:pnpm" = "latest"

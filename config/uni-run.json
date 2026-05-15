@@ -4,7 +4,7 @@
     "dart": "fvm",
     "python": "uv",
     "shell": "bash",
-    "typescript": "bun",
+    "typescript": "tsx",
     "javascript": "node",
     "powershell": "pwsh"
   }
