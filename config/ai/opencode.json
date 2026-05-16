@@ -86,9 +86,8 @@
     }
   },
 
-  "share": "disabled",
-  "logLevel": "ERROR",
   "autoshare": false,
   "autoupdate": false,
+  "share": "disabled",
   "$schema": "https://opencode.ai/config.json"
 }
