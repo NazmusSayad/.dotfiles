@@ -17,6 +17,7 @@ scoop:
   # AI Coding
   - codex
   - opencode
+  - pi-coding-agent
 
   # Visualization
   - extras/onefetch
