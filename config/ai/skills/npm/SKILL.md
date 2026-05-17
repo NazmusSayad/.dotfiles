@@ -18,8 +18,8 @@ description: Installs, upgrades, and removes Node.js/npm dependencies, runs scri
 ## Rules
 
 - For dependency and script operations, use the commands mentioned above.
-- Never use `npm`, `pnpm`, `yarn`, or `bun` directly unless explicitly instructed.
-- NEVER UPGRADE **major** VERSIONS of dependencies without explicit instructions. Always ask for confirmation before doing so.
+- NEVER use `npm`, `pnpm`, `yarn`, or `bun` directly unless explicitly instructed.
+- NEVER upgrade **major** versions of dependencies without explicit instructions. Always ask for confirmation before doing so.
 
 ## Guidelines
 
