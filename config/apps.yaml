@@ -143,7 +143,7 @@ winget:
   - Microsoft.DotNet.SDK.9
 
   # VM & Container Tools
-  - id: Docker.DockerDesktop
+  - id: XP8CBJ40XLBWKX
     name: Docker Desktop
     forceAdminInstall: true
     forceAdminUpgrade: true
