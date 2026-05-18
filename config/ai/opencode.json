@@ -10,11 +10,7 @@
 
   "permission": {
     "doom_loop": "deny",
-    "external_directory": {
-      "~/Desktop/**": "allow",
-      "~/.cargo/registry/**": "allow",
-      "~/AppData/Local/Pub/Cache/**": "allow"
-    }
+    "external_directory": "allow"
   },
 
   "mcp": {
