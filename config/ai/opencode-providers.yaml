@@ -15,12 +15,12 @@ opencode-go:
     - id: mimo-v2.5-pro
       explore: true
 
-openai:
-  models:
-    - id: gpt-5.5
-      context: 256000
-    - id: gpt-5.3-codex
-      context: 256000
+# openai:
+#   models:
+#     - id: gpt-5.5
+#       context: 256000
+#     - id: gpt-5.3-codex
+#       context: 256000
 
 # openrouter:
 #   # url: https://openrouter.ai/api/v1/models
