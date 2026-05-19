@@ -28,18 +28,14 @@
   "small_model": "opencode/minimax-m2.5-free",
   "agent": {
     "general": { "disable": true },
-    "explore": { "model": "opencode-go/mimo-v2.5-pro" },
+    "explore": { "model": "opencode/deepseek-v4-flash-free" },
     "title": { "model": "openrouter/openai/gpt-oss-120b" }
   },
 
   "enabled_providers": ["opencode", "opencode-go", "openrouter"],
   "provider": {
     "opencode": {
-      "whitelist": [
-        "deepseek-v4-flash-free",
-        "minimax-m2.5-free",
-        "qwen3.6-plus-free"
-      ]
+      "whitelist": ["deepseek-v4-flash-free", "minimax-m2.5-free"]
     },
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
