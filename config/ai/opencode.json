@@ -28,10 +28,11 @@
   "small_model": "opencode/minimax-m2.5-free",
   "agent": {
     "general": { "disable": true },
-    "explore": { "model": "opencode-go/mimo-v2.5-pro" }
+    "explore": { "model": "opencode-go/mimo-v2.5-pro" },
+    "title": { "model": "openrouter/openai/gpt-oss-120b" }
   },
 
-  "enabled_providers": ["opencode", "opencode-go"],
+  "enabled_providers": ["opencode", "opencode-go", "openrouter"],
   "provider": {
     "opencode": {
       "whitelist": [
@@ -42,6 +43,25 @@
     },
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
+    },
+    "openrouter": {
+      "models": {
+        "openai/gpt-oss-120b": {
+          "attachment": false,
+          "cost": { "input": 0.039, "output": 0.18 },
+          "family": "gpt-oss",
+          "id": "openai/gpt-oss-120b:nitro",
+          "limit": { "context": 131072, "output": 32768 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "gpt-oss-120b",
+          "options": { "reasoning": { "effort": "minimal" } },
+          "reasoning": true,
+          "release_date": "2025-08-05",
+          "temperature": true,
+          "tool_call": true
+        }
+      },
+      "whitelist": ["openai/gpt-oss-120b"]
     }
   },
 

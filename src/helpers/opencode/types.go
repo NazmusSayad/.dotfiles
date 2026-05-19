@@ -16,11 +16,13 @@ type OpencodeProviderConfig struct {
 }
 
 type OpencodeProviderConfigModel struct {
-	ID                string            `yaml:"id"`
-	Nitro             bool              `yaml:"nitro,omitempty"`
-	ContextCap        int               `yaml:"context,omitempty"`
-	OpenrouterModelId string            `yaml:"openrouterId,omitempty"`
-	Headers           map[string]string `yaml:"headers,omitempty"`
+	ID                string `yaml:"id"`
+	Nitro             bool   `yaml:"nitro,omitempty"`
+	ContextCap        int    `yaml:"context,omitempty"`
+	OpenrouterModelId string `yaml:"openrouterId,omitempty"`
+
+	Options any               `yaml:"options,omitempty"`
+	Headers map[string]string `yaml:"headers,omitempty"`
 
 	AsSmallModel   bool `yaml:"small,omitempty"`
 	AsTitleModel   bool `yaml:"title,omitempty"`
@@ -67,6 +69,7 @@ type OpencodeStandardModel struct {
 	Limit       *OpencodeStandardLimit      `json:"limit,omitempty"`
 	Variants    map[string]json.RawMessage  `json:"variants,omitempty"`
 	Headers     map[string]string           `json:"headers,omitempty"`
+	Options     any                         `json:"options,omitempty"`
 }
 
 type OpencodeStandardModalities struct {
