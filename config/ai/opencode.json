@@ -1,16 +1,12 @@
 {
   "lsp": false,
   "shell": "bash",
+  "permission": "allow",
 
   "plugin": ["opencode-armor", "opencode-wakatime"],
 
   "experimental": {
     "continue_loop_on_deny": true
-  },
-
-  "permission": {
-    "doom_loop": "deny",
-    "external_directory": "allow"
   },
 
   "mcp": {
