@@ -2,7 +2,7 @@ opencode:
   whitelistOnly: true
   models:
     - id: deepseek-v4-flash-free
-    - id: qwen3.6-plus-free
+      explore: true
     - id: minimax-m2.5-free
       small: true
 
@@ -11,9 +11,8 @@ opencode-go:
   models:
     - id: glm-5.1
     - id: kimi-k2.6
-    - id: deepseek-v4-pro
     - id: mimo-v2.5-pro
-      explore: true
+    - id: deepseek-v4-pro
 
 # openai:
 #   models:
