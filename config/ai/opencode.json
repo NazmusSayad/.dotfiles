@@ -25,10 +25,10 @@
   "agent": {
     "general": { "disable": true },
     "explore": { "model": "opencode/deepseek-v4-flash-free" },
-    "title": { "model": "openrouter/openai/gpt-oss-120b" }
+    "title": { "model": "cerebras/gpt-oss-120b" }
   },
 
-  "enabled_providers": ["opencode", "opencode-go", "openrouter"],
+  "enabled_providers": ["cerebras", "opencode", "opencode-go"],
   "provider": {
     "opencode": {
       "whitelist": ["deepseek-v4-flash-free", "minimax-m2.5-free"]
@@ -36,24 +36,23 @@
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
     },
-    "openrouter": {
+    "cerebras": {
       "models": {
-        "openai/gpt-oss-120b": {
+        "gpt-oss-120b": {
           "attachment": false,
-          "cost": { "input": 0.039, "output": 0.18 },
+          "cost": { "input": 0.25, "output": 0.69 },
           "family": "gpt-oss",
-          "id": "openai/gpt-oss-120b:nitro",
+          "id": "gpt-oss-120b",
           "limit": { "context": 131072, "output": 32768 },
           "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "gpt-oss-120b",
-          "options": { "reasoning": { "effort": "minimal" } },
+          "name": "GPT OSS 120B",
           "reasoning": true,
           "release_date": "2025-08-05",
           "temperature": true,
           "tool_call": true
         }
       },
-      "whitelist": ["openai/gpt-oss-120b"]
+      "whitelist": ["gpt-oss-120b"]
     }
   },
 
