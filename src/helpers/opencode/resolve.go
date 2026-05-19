@@ -72,29 +72,33 @@ func ResolveOpencodeProvider(
 			fmt.Println(aurora.Cyan("[API]"), configuredModel.ID)
 		}
 
-		if resolvedModel != nil {
-			if configuredModel.Nitro {
-				resolvedModel.ID = utils.Ternary(configuredModel.Nitro, resolvedModel.ID+":nitro", resolvedModel.ID)
-			}
-
-			if len(configuredModel.Headers) > 0 {
-				if resolvedModel.Headers == nil {
-					resolvedModel.Headers = make(map[string]string)
-				}
-				for k, v := range configuredModel.Headers {
-					resolvedModel.Headers[k] = v
-				}
-			}
-
-			resolvedModelsMap[configuredModel.ID] = applyModelContextCap(*resolvedModel, configuredModel.ContextCap)
-		} else {
+		if resolvedModel == nil {
 			fmt.Println(aurora.Red("[ERR]"), configuredModel.ID)
-			resolvedModelsMap[configuredModel.ID] = OpencodeStandardModel{
-				ID:      utils.Ternary(configuredModel.Nitro, configuredModel.ID+":nitro", configuredModel.ID),
+			resolvedModel = &OpencodeStandardModel{
+				ID:      configuredModel.ID,
 				Name:    configuredModel.ID,
 				Headers: configuredModel.Headers,
 			}
 		}
+
+		if configuredModel.Nitro {
+			resolvedModel.ID = utils.Ternary(configuredModel.Nitro, resolvedModel.ID+":nitro", resolvedModel.ID)
+		}
+
+		if configuredModel.Options != nil {
+			resolvedModel.Options = configuredModel.Options
+		}
+
+		if len(configuredModel.Headers) > 0 {
+			if resolvedModel.Headers == nil {
+				resolvedModel.Headers = make(map[string]string)
+			}
+			for k, v := range configuredModel.Headers {
+				resolvedModel.Headers[k] = v
+			}
+		}
+
+		resolvedModelsMap[configuredModel.ID] = applyModelContextCap(*resolvedModel, configuredModel.ContextCap)
 	}
 
 	whitelist := make([]string, 0)
