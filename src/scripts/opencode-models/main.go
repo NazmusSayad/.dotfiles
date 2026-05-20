@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	providersConfig, _ := opencode.ReadConfig()
+	providersConfig, opencodeConfig := opencode.ReadConfig()
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
 
@@ -93,12 +93,12 @@ func main() {
 		delete(fullConfig, "small_model")
 	}
 
-	writeAgentModelConfig(fullConfig, "title", outputAgentModels.TitleModel)
-	writeAgentModelConfig(fullConfig, "scout", outputAgentModels.ScoutModel)
-	writeAgentModelConfig(fullConfig, "general", outputAgentModels.GeneralModel)
-	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.ExploreModel)
-	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.SummaryModel)
-	writeAgentModelConfig(fullConfig, "compaction", outputAgentModels.CompactModel)
+	writeAgentModelConfig(fullConfig, "title", outputAgentModels.TitleModel, opencodeConfig.Agents["title"])
+	writeAgentModelConfig(fullConfig, "scout", outputAgentModels.ScoutModel, opencodeConfig.Agents["scout"])
+	writeAgentModelConfig(fullConfig, "general", outputAgentModels.GeneralModel, opencodeConfig.Agents["general"])
+	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.ExploreModel, opencodeConfig.Agents["explore"])
+	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.SummaryModel, opencodeConfig.Agents["summary"])
+	writeAgentModelConfig(fullConfig, "compaction", outputAgentModels.CompactModel, opencodeConfig.Agents["compaction"])
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
@@ -130,7 +130,7 @@ func main() {
 	fmt.Println(aurora.Green("Successfully updated OpenCode models!"))
 }
 
-func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId string) {
+func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId string, extra any) {
 	if modelId == "" {
 		fmt.Println(aurora.Faint("Unsetting " + agent + " model"))
 		deleteAgentModelConfig(fullConfig, agent)
@@ -148,6 +148,13 @@ func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId stri
 	}
 
 	fullConfig["agent"].(map[string]any)[agent].(map[string]any)["model"] = modelId
+
+	if extra != nil {
+		for k, v := range extra.(map[string]any) {
+			fmt.Printf("  - %s: %v\n", aurora.Blue(k), aurora.Yellow(v))
+			fullConfig["agent"].(map[string]any)[agent].(map[string]any)[k] = v
+		}
+	}
 }
 
 func deleteAgentModelConfig(fullConfig map[string]any, agent string) {

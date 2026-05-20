@@ -24,12 +24,12 @@
   "small_model": "opencode/minimax-m2.5-free",
   "agent": {
     "general": { "disable": true },
+    "explore": { "model": "opencode/deepseek-v4-flash-free" },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
-      "reasoning": { "effort": "minimal" },
-      "provider": { "sort": "throughput" }
-    },
-    "explore": { "model": "opencode/deepseek-v4-flash-free" }
+      "provider": { "sort": "throughput" },
+      "reasoning": { "effort": "minimal" }
+    }
   },
 
   "enabled_providers": ["opencode", "opencode-go", "openrouter"],

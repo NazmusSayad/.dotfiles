@@ -10,7 +10,7 @@ type AuthProvider struct {
 type AuthConfig map[string]AuthProvider
 
 type OpencodeSettingsConfig struct {
-	Agents map[string]any `yaml:"agents,omitempty"`
+	Agents map[string]any `yaml:"~agents,omitempty"`
 }
 
 type OpencodeProviderConfig struct {
