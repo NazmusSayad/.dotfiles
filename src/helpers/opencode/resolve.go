@@ -106,16 +106,8 @@ func ResolveOpencodeProvider(
 		whitelist = append(whitelist, configuredModel.ID)
 	}
 
-	if providerConfig.WhitelistOnly {
-		fmt.Println(aurora.Faint("Only whitelisted models will be included for this provider"))
-		return OpencodeStandardProvider{
-			Models:    utils.Ternary(len(resolvedModelsMap) > 0, resolvedModelsMap, nil),
-			Whitelist: utils.SortArrayOfString(whitelist),
-		}, currentAgentModels, nil
-	}
-
 	return OpencodeStandardProvider{
-		Models:    resolvedModelsMap,
+		Models:    utils.Ternary(len(resolvedModelsMap) > 0, resolvedModelsMap, nil),
 		Whitelist: utils.SortArrayOfString(whitelist),
 	}, currentAgentModels, nil
 }
