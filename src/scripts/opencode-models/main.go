@@ -132,7 +132,6 @@ func main() {
 
 func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId string, extra any) {
 	if modelId == "" {
-		fmt.Println(aurora.Faint("Unsetting " + agent + " model"))
 		deleteAgentModelConfig(fullConfig, agent)
 		return
 	}
