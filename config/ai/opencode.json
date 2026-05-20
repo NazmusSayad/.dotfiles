@@ -24,20 +24,20 @@
   "small_model": "opencode/minimax-m2.5-free",
   "agent": {
     "general": { "disable": true },
-    "explore": { "model": "opencode/deepseek-v4-flash-free" },
-    "title": { "model": "cerebras/gpt-oss-120b" }
+    "title": { "model": "cerebras/gpt-oss-120b" },
+    "explore": { "model": "opencode/deepseek-v4-flash-free" }
   },
 
   "enabled_providers": ["cerebras", "opencode", "opencode-go"],
   "provider": {
+    "cerebras": {
+      "whitelist": ["gpt-oss-120b"]
+    },
     "opencode": {
       "whitelist": ["deepseek-v4-flash-free", "minimax-m2.5-free"]
     },
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
-    },
-    "cerebras": {
-      "whitelist": ["gpt-oss-120b"]
     }
   },
 
