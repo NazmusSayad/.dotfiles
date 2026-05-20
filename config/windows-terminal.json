@@ -57,7 +57,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+numpad_minus"
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
+            "keys": "alt+right"
         },
         {
             "id": "User.find",
@@ -65,23 +69,19 @@
         },
         {
             "id": null,
-            "keys": "alt+right"
+            "keys": "ctrl+numpad_minus"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+k"
+            "id": "User.copy.224984B4",
+            "keys": "ctrl+c"
         },
         {
             "id": null,
             "keys": "ctrl+shift+d"
         },
         {
-            "id": "User.copy.224984B4",
-            "keys": "ctrl+c"
+            "id": null,
+            "keys": "ctrl+shift+k"
         },
         {
             "id": "User.duplicateTab",
@@ -336,7 +336,8 @@
             },
             "historySize": 999999999,
             "intenseTextStyle": "all",
-            "padding": "8,4"
+            "padding": "8,4",
+            "showMarksOnScrollbar": true
         },
         "list": 
         [
