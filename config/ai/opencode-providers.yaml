@@ -1,10 +1,10 @@
 opencode:
   whitelistOnly: true
   models:
-    - id: deepseek-v4-flash-free
-      explore: true
     - id: minimax-m2.5-free
       small: true
+    - id: deepseek-v4-flash-free
+      explore: true
 
 opencode-go:
   whitelistOnly: true
