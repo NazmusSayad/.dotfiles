@@ -34,8 +34,16 @@
     }
   },
 
-  "enabled_providers": ["opencode", "opencode-go", "openrouter"],
+  "enabled_providers": [
+    "fireworks-ai",
+    "opencode",
+    "opencode-go",
+    "openrouter"
+  ],
   "provider": {
+    "fireworks-ai": {
+      "whitelist": ["accounts/fireworks/models/kimi-k2p6"]
+    },
     "opencode": {
       "whitelist": ["deepseek-v4-flash-free", "minimax-m2.5-free"]
     },
