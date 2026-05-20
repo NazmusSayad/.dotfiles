@@ -319,6 +319,7 @@
         {
             "closeOnExit": "always",
             "colorScheme": "One Eye Care",
+            "experimental.repositionCursorWithMouse": true,
             "font": 
             {
                 "cellHeight": "1.65",
