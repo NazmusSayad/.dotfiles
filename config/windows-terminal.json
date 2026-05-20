@@ -36,7 +36,6 @@
     "autoHideWindow": false,
     "centerOnLaunch": true,
     "compatibility.enableUnfocusedAcrylic": false,
-    "compatibility.textMeasurement": "console",
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{a58a681c-27da-4f40-9abf-3d300517889b}",
