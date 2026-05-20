@@ -21,7 +21,7 @@
     }
   },
 
-  "small_model": "opencode/minimax-m2.5-free",
+  "small_model": "opencode/deepseek-v4-flash-free",
   "agent": {
     "explore": { "model": "opencode/deepseek-v4-flash-free" },
     "general": { "disable": true },
@@ -37,7 +37,7 @@
   "enabled_providers": ["opencode", "opencode-go", "openrouter"],
   "provider": {
     "opencode": {
-      "whitelist": ["deepseek-v4-flash-free", "minimax-m2.5-free"]
+      "whitelist": ["deepseek-v4-flash-free"]
     },
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
