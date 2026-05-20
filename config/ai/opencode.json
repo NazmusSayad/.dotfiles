@@ -42,7 +42,9 @@
     "opencode-go": {
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
     },
-    "openrouter": { "whitelist": ["openai/gpt-oss-120b"] }
+    "openrouter": {
+      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
+    }
   },
 
   "autoshare": false,
