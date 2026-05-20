@@ -22,10 +22,28 @@
   },
 
   "small_model": "opencode/minimax-m2.5-free",
-  "agent": {},
+  "agent": {
+    "explore": { "model": "opencode/deepseek-v4-flash-free" },
+    "general": { "disable": true },
+    "title": {
+      "model": "openrouter/openai/gpt-oss-120b",
+      "options": {
+        "provider": { "sort": "throughput" },
+        "reasoning": { "effort": "minimal" }
+      }
+    }
+  },
 
   "enabled_providers": ["opencode", "opencode-go", "openrouter"],
-  "provider": {},
+  "provider": {
+    "opencode": {
+      "whitelist": ["deepseek-v4-flash-free", "minimax-m2.5-free"]
+    },
+    "opencode-go": {
+      "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
+    },
+    "openrouter": { "whitelist": ["openai/gpt-oss-120b"] }
+  },
 
   "autoshare": false,
   "autoupdate": false,
