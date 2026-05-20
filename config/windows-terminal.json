@@ -376,15 +376,10 @@
                 "hidden": false,
                 "name": "Windows PowerShell",
                 "startingDirectory": null
-            },
-            {
-                "guid": "{af37955c-7f6b-5655-9e23-eafa216be60d}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Microsoft.WSL"
             }
         ]
     },
+    "rendering.graphicsAPI": "direct3d11",
     "schemes": 
     [
         {
