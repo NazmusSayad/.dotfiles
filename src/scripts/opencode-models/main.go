@@ -16,7 +16,7 @@ import (
 func main() {
 	providersConfig, opencodeConfig := opencode.ReadConfig()
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
-	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
+	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath, helpers.ReadConfigOptions{SkipError: true})
 
 	modelsDotDevResponse, modelsDotDevError := opencode.FetchModelsDotDev()
 	if modelsDotDevError != nil {

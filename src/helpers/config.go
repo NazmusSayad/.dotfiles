@@ -13,7 +13,8 @@ import (
 )
 
 type ReadConfigOptions struct {
-	Silent bool
+	Silent    bool
+	SkipError bool
 }
 
 func ReadConfig[T any](path string, options ...ReadConfigOptions) T {
@@ -31,6 +32,10 @@ func ReadConfig[T any](path string, options ...ReadConfigOptions) T {
 
 	f, err := os.Open(resolvedPath)
 	if err != nil {
+		if opts.SkipError {
+			return *new(T)
+		}
+
 		panic("CONFIG: failed to open file")
 	}
 
