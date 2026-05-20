@@ -22,12 +22,9 @@ opencode-go:
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
+    - id: moonshotai/kimi-k2.6
     - id: openai/gpt-oss-120b
       title: true
-
-fireworks-ai:
-  models:
-    - id: accounts/fireworks/models/kimi-k2p6
 
 ~agents:
   general:
