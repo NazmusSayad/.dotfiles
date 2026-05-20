@@ -1,3 +1,9 @@
+cerebras:
+  whitelistOnly: true
+  models:
+    - id: gpt-oss-120b
+      title: true
+
 opencode:
   whitelistOnly: true
   models:
@@ -13,12 +19,6 @@ opencode-go:
     - id: kimi-k2.6
     - id: mimo-v2.5-pro
     - id: deepseek-v4-pro
-
-cerebras:
-  whitelistOnly: true
-  models:
-    - id: gpt-oss-120b
-      title: true
 
 # openai:
 #   models:
