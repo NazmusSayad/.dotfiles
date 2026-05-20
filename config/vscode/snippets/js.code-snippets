@@ -95,17 +95,17 @@
     "scope": "javascript,javascriptreact,typescript,typescriptreact"
   },
   "For Loop": {
-    "prefix": "fl",
+    "prefix": "fo",
     "body": "for (let ${1:i} = 0; ${1:i} < ${2:10}; ${1:i}++) {\n\t${0:$TM_SELECTED_TEXT}\n}",
     "scope": "javascript,javascriptreact,typescript,typescriptreact"
   },
   "For Of Loop": {
-    "prefix": "fol",
+    "prefix": "fof",
     "body": "for (const ${2:element} of ${1:iterable}) {\n\t${0:$TM_SELECTED_TEXT}\n}",
     "scope": "javascript,javascriptreact,typescript,typescriptreact"
   },
   "For In Loop": {
-    "prefix": "fil",
+    "prefix": "fin",
     "body": "for (const key in ${1:obj}) {\n\t${0:$TM_SELECTED_TEXT}\n}",
     "scope": "javascript,javascriptreact,typescript,typescriptreact"
   },
