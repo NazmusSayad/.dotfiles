@@ -32,12 +32,6 @@ cerebras:
 #   models:
 #     - id: openai/gpt-oss-120b
 
-# kilo:
-#   # url: https://api.kilo.ai/api/gateway/models
-#   models:
-#     - id: kilo-auto/free
-#     - id: openrouter/free
-
 # fireworks-ai:
 #   models:
 #     # - id: accounts/fireworks/models/minimax-m2p5

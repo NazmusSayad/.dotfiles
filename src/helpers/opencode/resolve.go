@@ -22,7 +22,7 @@ type OpencodeResolveAgentModels struct {
 func ResolveOpencodeProvider(
 	providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider ModelsDotDevProvider,
 	openrouterModels map[string]OpencodeStandardModel, currentAgentModels OpencodeResolveAgentModels, authConfig AuthConfig,
-) (OpencodeOutputProviderConfig, OpencodeResolveAgentModels, error) {
+) (OpencodeStandardProvider, OpencodeResolveAgentModels, error) {
 	var fetchedModels map[string]OpencodeStandardModel
 
 	if providerConfig.URL != "" {
@@ -31,7 +31,7 @@ func ResolveOpencodeProvider(
 			fetchedModels = models
 		} else {
 			fmt.Printf("%s Failed to fetch models for %s: %s\n", aurora.Red("Error:"), providerId, err.Error())
-			return OpencodeOutputProviderConfig{}, OpencodeResolveAgentModels{}, err
+			return OpencodeStandardProvider{}, OpencodeResolveAgentModels{}, err
 		}
 	}
 
@@ -108,12 +108,12 @@ func ResolveOpencodeProvider(
 
 	if providerConfig.WhitelistOnly {
 		fmt.Println(aurora.Faint("Only whitelisted models will be included for this provider"))
-		return OpencodeOutputProviderConfig{
+		return OpencodeStandardProvider{
 			Whitelist: utils.SortArrayOfString(whitelist),
 		}, currentAgentModels, nil
 	}
 
-	return OpencodeOutputProviderConfig{
+	return OpencodeStandardProvider{
 		Models:    resolvedModelsMap,
 		Whitelist: utils.SortArrayOfString(whitelist),
 	}, currentAgentModels, nil
