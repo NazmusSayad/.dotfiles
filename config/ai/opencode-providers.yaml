@@ -29,8 +29,11 @@ openrouter:
       title: true
 
 ~agents:
+  general:
+    disable: true
   title:
-    reasoning:
-      effort: minimal
-    provider:
-      sort: throughput
+    options:
+      reasoning:
+        effort: minimal
+      provider:
+        sort: throughput
