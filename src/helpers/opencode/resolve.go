@@ -43,7 +43,7 @@ func ResolveOpencodeProvider(
 		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[modelConfig.ID]
 		fetchedModel, hasModelInFetched := fetchedModels[modelConfig.ID]
 
-		if hasModelInModelsDotDev && providerConfig.WhitelistOnly {
+		if hasModelInModelsDotDev && providerConfig.WhitelistOnly && !modelConfig.Include {
 			continue
 		}
 
