@@ -131,43 +131,23 @@ func main() {
 }
 
 func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId string, extra any) {
-	if modelId == "" {
-		deleteAgentModelConfig(fullConfig, agent)
-		return
+	resolvedConfig := make(map[string]any)
+
+	if modelId != "" {
+		fmt.Println(aurora.Green("Setting "+agent+" model to:"), aurora.Yellow(modelId))
+		resolvedConfig["model"] = modelId
 	}
-
-	fmt.Println(aurora.Green("Setting "+agent+" model to:"), aurora.Yellow(modelId))
-
-	if fullConfig["agent"] == nil {
-		fullConfig["agent"] = make(map[string]any)
-	}
-
-	if fullConfig["agent"].(map[string]any)[agent] == nil {
-		fullConfig["agent"].(map[string]any)[agent] = make(map[string]any)
-	}
-
-	fullConfig["agent"].(map[string]any)[agent].(map[string]any)["model"] = modelId
 
 	if extra != nil {
 		for k, v := range extra.(map[string]any) {
 			fmt.Printf("  - %s: %v\n", aurora.Blue(k), aurora.Yellow(v))
-			fullConfig["agent"].(map[string]any)[agent].(map[string]any)[k] = v
+			resolvedConfig[k] = v
 		}
 	}
-}
 
-func deleteAgentModelConfig(fullConfig map[string]any, agent string) {
-	if fullConfig["agent"] == nil {
-		return
+	if len(resolvedConfig) > 0 {
+		fullConfig["agent"].(map[string]any)[agent] = resolvedConfig
+	} else {
+		delete(fullConfig["agent"].(map[string]any), agent)
 	}
-
-	if fullConfig["agent"].(map[string]any)[agent] == nil {
-		return
-	}
-
-	if fullConfig["agent"].(map[string]any)[agent].(map[string]any)["model"] == nil {
-		return
-	}
-
-	delete(fullConfig["agent"].(map[string]any)[agent].(map[string]any), "model")
 }
