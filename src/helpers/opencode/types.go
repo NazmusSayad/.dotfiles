@@ -28,6 +28,7 @@ type OpencodeProviderConfigModel struct {
 	OpenrouterModelId string `yaml:"openrouterId,omitempty"`
 
 	Options any               `yaml:"options,omitempty"`
+	Include bool              `yaml:"include,omitempty"`
 	Headers map[string]string `yaml:"headers,omitempty"`
 
 	AsSmallModel   bool `yaml:"small,omitempty"`
