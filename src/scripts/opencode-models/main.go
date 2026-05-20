@@ -31,7 +31,7 @@ func main() {
 	}
 
 	outputAgentModels := opencode.OpencodeResolveAgentModels{}
-	outputProviderConfig := make(map[string]opencode.OpencodeOutputProviderConfig)
+	outputProviderConfig := make(map[string]opencode.OpencodeStandardProvider)
 
 	fmt.Println()
 
@@ -49,6 +49,14 @@ func main() {
 			fmt.Fprintf(os.Stderr, "%s failed to resolve provider %q: %v\n", aurora.Yellow("warn:"), providerID, err)
 			fmt.Println()
 			continue
+		}
+
+		if providerConfig.API != "" {
+			result.API = providerConfig.API
+		}
+
+		if len(providerConfig.Env) > 0 {
+			result.Env = providerConfig.Env
 		}
 
 		outputAgentModels = resolvedAgentModels

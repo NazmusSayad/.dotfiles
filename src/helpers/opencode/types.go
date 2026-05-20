@@ -11,6 +11,8 @@ type AuthConfig map[string]AuthProvider
 
 type OpencodeProviderConfig struct {
 	URL           string                        `yaml:"url"`
+	API           string                        `yaml:"api,omitempty"`
+	Env           []string                      `yaml:"env,omitempty"`
 	WhitelistOnly bool                          `yaml:"whitelistOnly,omitempty"`
 	Models        []OpencodeProviderConfigModel `yaml:"models"`
 }
@@ -90,12 +92,8 @@ type OpencodeStandardCost struct {
 }
 
 type OpencodeStandardProvider struct {
-	API    string          `json:"api,omitempty"`
-	Name   string          `json:"name,omitempty"`
-	Models json.RawMessage `json:"models"`
-}
-
-type OpencodeOutputProviderConfig struct {
+	API       string                           `json:"api,omitempty"`
+	Env       []string                         `json:"env,omitempty"`
 	Models    map[string]OpencodeStandardModel `json:"models"`
 	Whitelist []string                         `json:"whitelist"`
 }
