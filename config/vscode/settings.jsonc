@@ -191,8 +191,6 @@
   },
   "xml.format.preservedNewlines": 1,
   "prisma.hidePrisma6Prompts": true,
-  "quokka.showOutputOnStart": false,
-  "quokka.showStartViewOnFeatureRelease": false,
   "json.schemaDownload.enable": true,
   "json.schemaDownload.trustedDomains": {
     "*": true
