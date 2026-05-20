@@ -9,6 +9,10 @@ type AuthProvider struct {
 
 type AuthConfig map[string]AuthProvider
 
+type OpencodeSettingsConfig struct {
+	agents map[string]any
+}
+
 type OpencodeProviderConfig struct {
 	URL           string                        `yaml:"url"`
 	API           string                        `yaml:"api,omitempty"`

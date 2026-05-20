@@ -39,13 +39,13 @@ func ResolveOpencodeProvider(
 	for _, configuredModel := range providerConfig.Models {
 		currentAgentModels = resolveAgentModel(providerId, configuredModel, currentAgentModels)
 
-		if providerConfig.WhitelistOnly {
-			continue
-		}
-
 		openrouterModel, hasModelInOpenrouter := openrouterModels[configuredModel.OpenrouterModelId]
 		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[configuredModel.ID]
 		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
+
+		if hasModelInModelsDotDev && providerConfig.WhitelistOnly {
+			continue
+		}
 
 		var resolvedModel *OpencodeStandardModel
 
@@ -109,6 +109,7 @@ func ResolveOpencodeProvider(
 	if providerConfig.WhitelistOnly {
 		fmt.Println(aurora.Faint("Only whitelisted models will be included for this provider"))
 		return OpencodeStandardProvider{
+			Models:    utils.Ternary(len(resolvedModelsMap) > 0, resolvedModelsMap, nil),
 			Whitelist: utils.SortArrayOfString(whitelist),
 		}, currentAgentModels, nil
 	}
