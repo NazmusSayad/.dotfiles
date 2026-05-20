@@ -36,12 +36,12 @@ func ResolveOpencodeProvider(
 	}
 
 	resolvedModelsMap := make(map[string]OpencodeStandardModel)
-	for _, configuredModel := range providerConfig.Models {
-		currentAgentModels = resolveAgentModel(providerId, configuredModel, currentAgentModels)
+	for _, modelConfig := range providerConfig.Models {
+		currentAgentModels = resolveAgentModel(providerId, modelConfig, currentAgentModels)
 
-		openrouterModel, hasModelInOpenrouter := openrouterModels[configuredModel.OpenrouterModelId]
-		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[configuredModel.ID]
-		fetchedModel, hasModelInFetched := fetchedModels[configuredModel.ID]
+		openrouterModel, hasModelInOpenrouter := openrouterModels[modelConfig.OpenrouterModelId]
+		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[modelConfig.ID]
+		fetchedModel, hasModelInFetched := fetchedModels[modelConfig.ID]
 
 		if hasModelInModelsDotDev && providerConfig.WhitelistOnly {
 			continue
@@ -56,49 +56,49 @@ func ResolveOpencodeProvider(
 				resolvedModel.Variants = fetchedModel.Variants
 			}
 
-			fmt.Println(aurora.Green("[ALL]"), configuredModel.ID)
+			fmt.Println(aurora.Green("[ALL]"), modelConfig.ID)
 
 		} else if hasModelInModelsDotDev {
 			resolvedModel = &modelsDevModel
-			fmt.Println(aurora.Green("[MDD]"), configuredModel.ID)
+			fmt.Println(aurora.Green("[MDD]"), modelConfig.ID)
 
 		} else if hasModelInOpenrouter {
 			resolvedModel = &openrouterModel
-			resolvedModel.ID = configuredModel.ID
-			fmt.Println(aurora.Blue("[OPR]"), configuredModel.ID)
+			resolvedModel.ID = modelConfig.ID
+			fmt.Println(aurora.Blue("[OPR]"), modelConfig.ID)
 
 		} else if hasModelInFetched {
 			resolvedModel = &fetchedModel
-			fmt.Println(aurora.Cyan("[API]"), configuredModel.ID)
+			fmt.Println(aurora.Cyan("[API]"), modelConfig.ID)
 		}
 
 		if resolvedModel == nil {
-			fmt.Println(aurora.Red("[ERR]"), configuredModel.ID)
+			fmt.Println(aurora.Red("[ERR]"), modelConfig.ID)
 			resolvedModel = &OpencodeStandardModel{
-				ID:      configuredModel.ID,
-				Name:    configuredModel.ID,
-				Headers: configuredModel.Headers,
+				ID:      modelConfig.ID,
+				Name:    modelConfig.ID,
+				Headers: modelConfig.Headers,
 			}
 		}
 
-		if configuredModel.Nitro {
-			resolvedModel.ID = utils.Ternary(configuredModel.Nitro, resolvedModel.ID+":nitro", resolvedModel.ID)
+		if modelConfig.Nitro {
+			resolvedModel.ID = utils.Ternary(modelConfig.Nitro, resolvedModel.ID+":nitro", resolvedModel.ID)
 		}
 
-		if configuredModel.Options != nil {
-			resolvedModel.Options = configuredModel.Options
+		if modelConfig.Options != nil {
+			resolvedModel.Options = modelConfig.Options
 		}
 
-		if len(configuredModel.Headers) > 0 {
+		if len(modelConfig.Headers) > 0 {
 			if resolvedModel.Headers == nil {
 				resolvedModel.Headers = make(map[string]string)
 			}
-			for k, v := range configuredModel.Headers {
+			for k, v := range modelConfig.Headers {
 				resolvedModel.Headers[k] = v
 			}
 		}
 
-		resolvedModelsMap[configuredModel.ID] = applyModelContextCap(*resolvedModel, configuredModel.ContextCap)
+		resolvedModelsMap[modelConfig.ID] = applyModelContextCap(*resolvedModel, modelConfig.ContextCap)
 	}
 
 	whitelist := make([]string, 0)
