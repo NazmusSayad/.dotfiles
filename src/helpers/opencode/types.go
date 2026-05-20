@@ -14,11 +14,12 @@ type OpencodeSettingsConfig struct {
 }
 
 type OpencodeProviderConfig struct {
-	URL           string                        `yaml:"url"`
-	API           string                        `yaml:"api,omitempty"`
-	Env           []string                      `yaml:"env,omitempty"`
-	WhitelistOnly bool                          `yaml:"whitelistOnly,omitempty"`
-	Models        []OpencodeProviderConfigModel `yaml:"models"`
+	URL string   `yaml:"url"`
+	API string   `yaml:"api,omitempty"`
+	Env []string `yaml:"env,omitempty"`
+
+	Include bool                          `yaml:"include,omitempty"`
+	Models  []OpencodeProviderConfigModel `yaml:"models"`
 }
 
 type OpencodeProviderConfigModel struct {
