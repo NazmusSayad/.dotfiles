@@ -467,7 +467,6 @@
   "workbench.statusbar.hidden": [
     "status.notifications",
     "GraphQL.vscode-graphql",
-    "WallabyJs.quokka-vscode",
     "chat.statusBarEntry",
     "status.editor.mode",
     "status.languageStatus",
