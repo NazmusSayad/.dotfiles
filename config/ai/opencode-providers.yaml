@@ -23,6 +23,14 @@ opencode-go:
 
 openrouter:
   url: https://openrouter.ai/api/v1/models
+  whitelistOnly: true
   models:
     - id: openai/gpt-oss-120b
       title: true
+
+~agents:
+  title:
+    reasoning:
+      effort: minimal
+    provider:
+      sort: throughput

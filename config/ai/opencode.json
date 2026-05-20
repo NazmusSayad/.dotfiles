@@ -41,21 +41,6 @@
       "whitelist": ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "mimo-v2.5-pro"]
     },
     "openrouter": {
-      "models": {
-        "openai/gpt-oss-120b": {
-          "attachment": false,
-          "cost": { "input": 0.039, "output": 0.18 },
-          "family": "gpt-oss",
-          "id": "openai/gpt-oss-120b",
-          "limit": { "context": 131072, "output": 32768 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "gpt-oss-120b",
-          "reasoning": true,
-          "release_date": "2025-08-05",
-          "temperature": true,
-          "tool_call": true
-        }
-      },
       "whitelist": ["openai/gpt-oss-120b"]
     }
   },

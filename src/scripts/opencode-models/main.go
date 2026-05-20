@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	providerConfigs := helpers.ReadConfig[map[string]opencode.OpencodeProviderConfig]("@/config/ai/opencode-providers.yaml")
+	providersConfig, _ := opencode.ReadConfig()
 	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
 	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath)
 
@@ -35,7 +35,7 @@ func main() {
 
 	fmt.Println()
 
-	for providerID, providerConfig := range providerConfigs {
+	for providerID, providerConfig := range providersConfig {
 		fmt.Printf("%s %s\n", aurora.Blue("Syncing models for"), aurora.Bold(providerID))
 
 		result, resolvedAgentModels, err := opencode.ResolveOpencodeProvider(
