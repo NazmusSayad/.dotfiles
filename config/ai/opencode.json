@@ -34,7 +34,7 @@
     }
   },
 
-  "enabled_providers": ["opencode", "opencode-go", "openrouter"],
+  "enabled_providers": ["opencode", "opencode-go", "openrouter", "xai"],
   "provider": {
     "opencode": {
       "whitelist": ["deepseek-v4-flash-free"]
@@ -44,6 +44,9 @@
     },
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]
+    },
+    "xai": {
+      "whitelist": ["grok-build-0.1"]
     }
   },
 

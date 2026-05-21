@@ -26,6 +26,10 @@ openrouter:
     # - id: moonshotai/kimi-k2.6
     # - id: deepseek/deepseek-v4-pro
 
+xai:
+  models:
+    - id: grok-build-0.1
+
 ~agents:
   general:
     disable: true
