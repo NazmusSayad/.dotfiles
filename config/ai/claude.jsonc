@@ -11,9 +11,20 @@
   "model": "claude-opus-4-6",
   "enableAllProjectMcpServers": false,
   "defaultShell": "bash",
+  "extraKnownMarketplaces": {
+    "wakatime": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/wakatime/claude-code-wakatime.git"
+      }
+    }
+  },
   "spinnerTipsEnabled": false,
   "effortLevel": "medium",
   "autoUpdatesChannel": "stable",
   "autoMemoryEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "claude-code-wakatime@wakatime": true
+  }
 }
