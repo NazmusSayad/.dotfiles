@@ -1,3 +1,3 @@
-- Keep code DIRECT, and READABLE. Write code in RELIABLE and STRAIGHTFORWARD way.
-- Use explicit logic: avoid `if true: 1; else: 0`, instead use `if true: 1; elseif false: 0; else: throw/unknown/unexpected`.
-- Avoid abstractions by default. Only extract variables, functions, helpers, or types when logic becomes very very large and extremely complex, or repetition happens many many times.
+- Prefer **direct**, **readable** code implemented in a **reliable** and **straightforward** way.
+- Use **explicit logic**: avoid `if true: 1; else: 0`, instead use `if true: 1; elseif false: 0; else: throw/unknown/unexpected` to reduce ambiguity.
+- Avoid unnecessary abstractions for simplicity. Only introduce variables, functions, helpers, or types when logic becomes **very very large and extremely complex**, or repetition happens **many many times**.
