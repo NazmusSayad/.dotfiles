@@ -35,4 +35,5 @@ xai:
     disable: true
   title:
     options:
+      reasoning: { effort: low }
       provider: { sort: throughput }
