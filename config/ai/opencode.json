@@ -28,8 +28,7 @@
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
-        "provider": { "sort": "throughput" },
-        "reasoning": { "effort": "minimal" }
+        "provider": { "sort": "throughput" }
       }
     }
   },
