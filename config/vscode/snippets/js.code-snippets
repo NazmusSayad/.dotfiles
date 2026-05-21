@@ -61,12 +61,12 @@
   },
   "=> IIFE": {
     "prefix": "fi",
-    "body": "(() => {\n\t${0:$TM_SELECTED_TEXT}\n})()",
+    "body": "void (() => {\n\t${0:$TM_SELECTED_TEXT}\n})()",
     "scope": "javascript,javascriptreact,typescript,typescriptreact"
   },
   "=> Async IIFE": {
     "prefix": "fia",
-    "body": "(async () => {\n\t${0:$TM_SELECTED_TEXT}\n})()",
+    "body": "void (async () => {\n\t${0:$TM_SELECTED_TEXT}\n})()",
     "scope": "javascript,javascriptreact,typescript,typescriptreact"
   },
   "Class": {
