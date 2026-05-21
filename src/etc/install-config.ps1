@@ -10,6 +10,7 @@ git config --global core.autocrlf false
 git config --global core.pager cat
 git config --global core.ignorecase false
 git config --global core.editor "code --wait"
+git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
 Write-Host ""
 Write-Host "> Symlinking..."
