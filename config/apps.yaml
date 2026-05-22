@@ -5,6 +5,7 @@ msys2:
 scoop:
   # Development
   - gh
+  - aws
   - scc
   - gcc
   - sqlite
