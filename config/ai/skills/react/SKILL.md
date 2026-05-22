@@ -62,7 +62,7 @@ function formatDisplayText(text: string) {
 ## Tailwind classes
 
 - Prefer direct inline Tailwind classes in JSX.
-- Do not extract class strings into variables or helpers.
+- Do not extract class strings into variables, functions, or helpers.
 - For conditional classes, avoid template literals and ternaries; use `cn`, `clsx`, or `classnames` inline.
 
 ```tsx
