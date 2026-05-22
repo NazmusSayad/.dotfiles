@@ -6,10 +6,10 @@ opencode:
 
 opencode-go:
   models:
-    - id: glm-5.1
-    - id: kimi-k2.6
-    - id: mimo-v2.5-pro
-    - id: deepseek-v4-pro
+    # - id: glm-5.1
+    # - id: kimi-k2.6
+    # - id: mimo-v2.5-pro
+    # - id: deepseek-v4-pro
 
 # openai:
 #   models:
@@ -23,8 +23,8 @@ openrouter:
   models:
     - id: openai/gpt-oss-120b
       title: true
-    # - id: moonshotai/kimi-k2.6
-    # - id: deepseek/deepseek-v4-pro
+    - id: moonshotai/kimi-k2.6
+    - id: deepseek/deepseek-v4-pro
 
 xai:
   models:
