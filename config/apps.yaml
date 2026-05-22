@@ -4,15 +4,12 @@ msys2:
 
 scoop:
   # Development
+  - gh
   - scc
   - gcc
   - sqlite
   - extras/fvm
   - extras/tableplus
-
-  # Cloud
-  - gh
-  - aws
 
   # AI Coding
   - opencode
