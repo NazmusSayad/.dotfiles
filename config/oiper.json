@@ -3,19 +3,43 @@
   "profiles": [
     {
       "id": "main",
-      "name": "Main",
+      "name": "Basic",
       "mode": "online",
       "hotkey": "F14",
       "language": "en",
-      "localMode": {
-        "asrModel": "base.en",
-        "llmId": "openrouter-gpt-oss"
-      },
       "onlineMode": {
         "asrId": "groq-whisper",
-        "llmId": "openrouter-audio-model",
+        "llmId": "openrouter-gpt-oss",
         "preset": {
           "type": "none"
+        }
+      }
+    },
+    {
+      "id": "01KS7NAAYPWGGCC8HJKJE1M6E5",
+      "name": "Prompt",
+      "mode": "online",
+      "hotkey": "Ctrl+F14",
+      "language": "en",
+      "onlineMode": {
+        "asrId": "groq-whisper",
+        "llmId": "openrouter-gpt-oss",
+        "preset": {
+          "type": "prompt"
+        }
+      }
+    },
+    {
+      "id": "01KS7NDDATKJ42WRCMPENAZW3M",
+      "name": "Normal",
+      "mode": "online",
+      "hotkey": "Shift+F14",
+      "language": "en",
+      "onlineMode": {
+        "asrId": "groq-whisper",
+        "llmId": "openrouter-gpt-oss",
+        "preset": {
+          "type": "normal"
         }
       }
     }
@@ -26,14 +50,7 @@
   "cloudLLMs": [
     {
       "id": "openrouter-gpt-oss",
-      "model": "openai/gpt-oss-120b:nitro",
-      "provider": "custom",
-      "apiUrl": "https://openrouter.ai/api/v1",
-      "apiKeyEnv": "OPENROUTER_API_KEY"
-    },
-    {
-      "id": "openrouter-audio-model",
-      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "model": "openai/gpt-oss-20b:nitro",
       "provider": "custom",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
