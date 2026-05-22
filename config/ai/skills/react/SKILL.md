@@ -3,116 +3,75 @@ name: react
 description: React code style, conventions, best practices, and patterns for building clean, efficient, and scalable applications. MUST USE for writing or working with any React code, components, hooks, or JSX (.jsx, .tsx files), including editing, reviewing or refactoring.
 ---
 
-## Hooks
+## Hooks and state
 
-- Avoid `useEffect` for simple state updates or derived state. Use `useMemo`, `useCallback`, or direct calculations instead.
+- Do not use `useEffect` for simple state updates or derived state.
+- Prefer direct calculations, `useMemo`, or `useCallback` when appropriate.
+- Keep effects for real side effects: subscriptions, network sync, DOM/browser APIs, timers, external systems.
 
-## Minimize Over-Declaration
+## Avoid unnecessary declarations
 
-Inline simple logic. Extract only when truly big and complex.
-
-❌ Over-declared:
+- Inline simple logic directly in JSX.
+- Do not extract simple handlers, variables, components, or helpers just for naming.
+- Declare functions only when logic is complex, reused, or improves readability.
 
 ```tsx
-function MyComponent() {
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+}
+```
+
+Use a named handler only when the body is non-trivial:
+
+```tsx
+function Counter() {
   const [count, setCount] = useState(0)
 
   function handleIncrement() {
+    // complex logic here eg: analytics, validation, side effects, 50 lines of code, etc.
     setCount(count + 1)
   }
 
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={handleIncrement}>Increment</button>
-    </div>
-  )
+  return <button onClick={handleIncrement}>Count: {count}</button>
 }
 ```
 
-✅ Inlined:
+## Keep pure utilities outside components
+
+- Pure functions that do not depend on component scope must live outside the component.
+- This avoids recreating them on every render and keeps components focused.
 
 ```tsx
-function MyComponent() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  )
-}
-```
-
-## Pure Functions Outside Components
-
-Pure utility functions must be declared outside React components.
-
-❌ Wrong:
-
-```tsx
-function MyComponent() {
+function Message() {
   const [text, setText] = useState("")
 
-  function processText(text: string) {
-    return text.toUpperCase()
-  }
-
-  return <p>{processText(text)}</p>
-}
-```
-
-✅ Right:
-
-```tsx
-function MyComponent() {
-  const [text, setText] = useState("")
-
-  return <p>{processText(text)}</p>
+  return (
+    <>
+      <p>{formatDisplayText(text)}</p>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+    </>
+  )
 }
 
-function processText(text: string) {
+function formatDisplayText(text: string) {
   return text.toUpperCase()
 }
 ```
 
-## Tailwind Classes
+## Tailwind classes
 
-Prefer direct inline Tailwind classes in JSX. Do not extract them into variables or helpers. Only extract when the same classes are reused extensively or the logic becomes very complex.
-
-❌ Unnecessary extraction:
-
-```tsx
-function MyComponent() {
-  const containerClasses = "flex flex-col gap-4 p-6"
-  return <div className={containerClasses}>...</div>
-}
-```
-
-✅ Inline:
+- Prefer direct inline Tailwind classes in JSX.
+- Do not extract class strings into variables or helpers.
+- For conditional classes, avoid template literals and ternaries; use `cn`, `clsx`, or `classnames` inline.
 
 ```tsx
-function MyComponent() {
-  return <div className="flex flex-col gap-4 p-6">...</div>
-}
-```
-
-✅ Complex conditionals, use `cn` utility:
-
-```tsx
-import { cn } from "@/lib/utils"
-
-function Form({ hasError }: { hasError: boolean }) {
-  return (
-    <input
-      className={cn(
-        "rounded-lg border-2 px-4 py-2 transition-colors",
-        hasError
-          ? "border-red-500 bg-red-50 focus:ring-red-200"
-          : "border-gray-300 focus:ring-blue-200"
-      )}
-    />
-  )
-}
+<input
+  className={cn(
+    "w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-4",
+    hasWarning && "border-yellow-500 bg-yellow-50 focus:ring-yellow-200",
+    hasError && "border-red-500 bg-red-50 focus:ring-red-200"
+  )}
+/>
 ```
