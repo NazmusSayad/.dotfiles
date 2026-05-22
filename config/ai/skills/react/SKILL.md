@@ -40,8 +40,7 @@ function Counter() {
 
 ## Keep pure utilities outside components
 
-- Pure functions that do not depend on component scope must live outside the component.
-- This avoids recreating them on every render and keeps components focused.
+- Pure functions that do not depend on component scope must live outside the component. This avoids recreating them on every render and keeps components focused.
 
 ```tsx
 function Message() {
