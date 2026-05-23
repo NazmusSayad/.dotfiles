@@ -21,8 +21,20 @@
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
     {
-      "id": "openrouter-mistral-audio",
-      "model": "mistralai/voxtral-small-24b-2507",
+      "id": "openrouter-audio-1",
+      "model": "qwen/qwen3.5-35b-a3b:nitro",
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    {
+      "id": "openrouter-audio-2",
+      "model": "mistralai/mistral-medium-3:nitro",
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    {
+      "id": "openrouter-audio-3",
+      "model": "amazon/nova-lite-v1:nitro",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
@@ -32,16 +44,13 @@
     {
       "id": "main-profile",
       "name": "Main",
+      "mode": "cloud",
       "hotkey": "F14",
       "language": "en",
-
-      "mode": "cloud",
-
       "transcribeAsrModel": "base.en",
-      "transcribeLlmId": "openrouter-mistral-audio",
-
-      "enhancementType": "prompt",
-      "enhancementLlmId": "openrouter-gpt-oss"
+      "enhancementLlmId": "openrouter-gpt-oss",
+      "transcribeLlmId": "openrouter-audio-1",
+      "enhancementType": "prompt"
     }
   ]
 }
