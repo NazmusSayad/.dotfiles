@@ -16,5 +16,5 @@ rm -rf ~/AppData/Local/ai.opencode.desktop.beta
 rm -rf ~/AppData/Roaming/ai.opencode.desktop
 rm -rf ~/AppData/Roaming/ai.opencode.desktop.beta
 
-call sudo symlink-setup.exe
+call sudo symlink-init.exe
 proxy-pause echo
