@@ -50,7 +50,7 @@
 
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
-      "transcribeAsrId": "groq-whisper",
+      "transcribeAsrId": "google-chirp",
       "enhancementLlmId": "openrouter-gpt-oss"
     },
     {
