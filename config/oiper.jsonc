@@ -1,4 +1,7 @@
 {
+  "startOnLogin": true,
+  "whisperBackend": "auto",
+
   "user": {},
   "profiles": [
     {
@@ -44,16 +47,7 @@
       }
     }
   ],
-  "words": ["Nazmus Sayad"],
-  "cloudLLMs": [
-    {
-      "id": "openrouter-gpt-oss",
-      "model": "openai/gpt-oss-20b:nitro",
-      "provider": "custom",
-      "apiUrl": "https://openrouter.ai/api/v1",
-      "apiKeyEnv": "OPENROUTER_API_KEY"
-    }
-  ],
+
   "cloudASRs": [
     {
       "id": "groq-whisper",
@@ -63,6 +57,15 @@
       "apiKeyEnv": "GROQ_API_KEY"
     }
   ],
-  "startOnLogin": true,
-  "whisperBackend": "auto"
+  "cloudLLMs": [
+    {
+      "id": "openrouter-gpt-oss",
+      "model": "openai/gpt-oss-20b:nitro",
+      "provider": "custom",
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    }
+  ],
+
+  "words": ["Nazmus Sayad"]
 }
