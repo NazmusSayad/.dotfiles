@@ -32,11 +32,15 @@
     {
       "id": "main-profile",
       "name": "Main",
-      "mode": "cloud",
       "hotkey": "F14",
       "language": "en",
+
+      "mode": "cloud",
+
       "transcribeAsrModel": "base.en",
-      "transcribeAsrId": "groq-whisper",
+      "transcribeLlmId": "openrouter-mistral-audio",
+
+      "enhancementType": "prompt",
       "enhancementLlmId": "openrouter-gpt-oss"
     }
   ]
