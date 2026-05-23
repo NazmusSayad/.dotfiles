@@ -33,7 +33,6 @@
       "language": "en",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementPrompt": "",
       "enhancementLlmId": "openrouter-gpt-oss"
     }
   ]
