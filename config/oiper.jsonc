@@ -42,9 +42,8 @@
       "hotkey": "F14",
       "language": "en",
       "transcribeAsrModel": "base.en",
-      "enhancementLlmId": "openrouter-gpt-oss",
-      "transcribeLlmId": "openrouter-audio-mimo",
-      "enhancementType": "prompt"
+      "transcribeAsrId": "groq-whisper",
+      "enhancementLlmId": "openrouter-gpt-oss"
     }
   ]
 }
