@@ -44,9 +44,7 @@
       }
     }
   ],
-  "words": [
-    "Nazmus Sayad"
-  ],
+  "words": ["Nazmus Sayad"],
   "cloudLLMs": [
     {
       "id": "openrouter-gpt-oss",
