@@ -9,6 +9,16 @@
       "id": "groq-whisper",
       "model": "whisper-large-v3",
       "provider": "groq"
+    },
+    {
+      "id": "openrouter-whisper",
+      "model": "openai/whisper-large-v3",
+      "provider": "openrouter"
+    },
+    {
+      "id": "google-chirp",
+      "model": "google/chirp-3",
+      "provider": "openrouter"
     }
   ],
 
