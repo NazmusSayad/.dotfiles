@@ -38,9 +38,11 @@
     {
       "id": "main-profile",
       "name": "Main",
-      "mode": "cloud",
+
       "hotkey": "F14",
       "language": "en",
+
+      "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-gpt-oss"
