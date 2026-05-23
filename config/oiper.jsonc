@@ -4,20 +4,6 @@
 
   "words": ["Nazmus Sayad"],
 
-  "profiles": [
-    {
-      "id": "main-profile",
-      "name": "Main",
-      "mode": "local",
-      "hotkey": "F14",
-      "language": "en",
-      "transcribeAsrModel": "base.en",
-      "transcribeAsrId": "groq-whisper",
-      "enhancementPrompt": "",
-      "enhancementLlmId": "openrouter-gpt-oss"
-    }
-  ],
-
   "cloudASRs": [
     {
       "id": "groq-whisper",
@@ -35,6 +21,20 @@
       "provider": "custom",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
+    }
+  ],
+
+  "profiles": [
+    {
+      "id": "main-profile",
+      "name": "Main",
+      "mode": "local",
+      "hotkey": "F14",
+      "language": "en",
+      "transcribeAsrModel": "base.en",
+      "transcribeAsrId": "groq-whisper",
+      "enhancementPrompt": "",
+      "enhancementLlmId": "openrouter-gpt-oss"
     }
   ]
 }
