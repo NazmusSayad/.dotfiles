@@ -21,20 +21,14 @@
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
     {
-      "id": "openrouter-audio-1",
-      "model": "qwen/qwen3.5-35b-a3b:nitro",
+      "id": "openrouter-audio-gemini",
+      "model": "google/gemini-2.5-flash-lite:nitro",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
     {
-      "id": "openrouter-audio-2",
-      "model": "mistralai/mistral-medium-3:nitro",
-      "apiUrl": "https://openrouter.ai/api/v1",
-      "apiKeyEnv": "OPENROUTER_API_KEY"
-    },
-    {
-      "id": "openrouter-audio-3",
-      "model": "amazon/nova-lite-v1:nitro",
+      "id": "openrouter-audio-mimo",
+      "model": "xiaomi/mimo-v2.5:nitro",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
@@ -49,7 +43,7 @@
       "language": "en",
       "transcribeAsrModel": "base.en",
       "enhancementLlmId": "openrouter-gpt-oss",
-      "transcribeLlmId": "openrouter-audio-1",
+      "transcribeLlmId": "openrouter-audio-mimo",
       "enhancementType": "prompt"
     }
   ]
