@@ -1,6 +1,9 @@
 {
   "startOnLogin": true,
   "whisperBackend": "auto",
+
+  "words": ["Nazmus Sayad"],
+
   "profiles": [
     {
       "id": "main-profile",
@@ -33,7 +36,5 @@
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
-  ],
-
-  "words": ["Nazmus Sayad"]
+  ]
 }
