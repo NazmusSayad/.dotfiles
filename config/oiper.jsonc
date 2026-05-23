@@ -8,7 +8,7 @@
     {
       "id": "groq-whisper",
       "model": "whisper-large-v3",
-      "provider": "openrouter"
+      "provider": "groq"
     }
   ],
 
