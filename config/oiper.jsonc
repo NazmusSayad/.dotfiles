@@ -36,8 +36,8 @@
 
   "profiles": [
     {
-      "id": "main-profile",
-      "name": "Main",
+      "id": "basic-profile",
+      "name": "Basic",
 
       "hotkey": "F14",
       "language": "en",
@@ -45,6 +45,32 @@
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
+      "enhancementLlmId": "openrouter-gpt-oss"
+    },
+    {
+      "id": "formal-profile",
+      "name": "Formal",
+
+      "hotkey": "Shift+F14",
+      "language": "en",
+
+      "mode": "cloud",
+      "transcribeAsrModel": "base.en",
+      "transcribeAsrId": "groq-whisper",
+      "enhancementType": "formal",
+      "enhancementLlmId": "openrouter-gpt-oss"
+    },
+    {
+      "id": "prompt-profile",
+      "name": "Prompt",
+
+      "hotkey": "Ctrl+F14",
+      "language": "en",
+
+      "mode": "cloud",
+      "transcribeAsrModel": "base.en",
+      "transcribeAsrId": "groq-whisper",
+      "enhancementType": "prompt",
       "enhancementLlmId": "openrouter-gpt-oss"
     }
   ]
