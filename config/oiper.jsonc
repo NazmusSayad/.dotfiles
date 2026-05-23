@@ -18,7 +18,12 @@
     {
       "id": "openrouter-gpt-oss",
       "model": "openai/gpt-oss-120b:nitro",
-      "provider": "custom",
+      "apiUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    {
+      "id": "openrouter-mistral-audio",
+      "model": "mistralai/voxtral-small-24b-2507",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
@@ -28,7 +33,7 @@
     {
       "id": "main-profile",
       "name": "Main",
-      "mode": "local",
+      "mode": "cloud",
       "hotkey": "F14",
       "language": "en",
       "transcribeAsrModel": "base.en",
