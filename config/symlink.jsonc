@@ -71,6 +71,16 @@
     ]
   },
 
+  // Opencode Local Configs
+  {
+    "Source": "@/.local/opencode-auth.json",
+    "Target": "~/.local/share/opencode/auth.json"
+  },
+  {
+    "Source": "@/.local/opencode-desktop.dat",
+    "Target": "$APPDATA/ai.opencode.desktop/default.dat"
+  },
+
   // Terminal Configs
   {
     "Source": "@/config/shell/alias.yaml",
