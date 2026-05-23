@@ -113,7 +113,7 @@
     "Target": "~/.codex/pets"
   },
   {
-    "Source": "@/config/oiper.json",
+    "Source": "@/config/oiper.jsonc",
     "Target": "$APPDATA/oiper/config.json"
   },
   {
