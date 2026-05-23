@@ -1,50 +1,17 @@
 {
   "startOnLogin": true,
   "whisperBackend": "auto",
-
-  "user": {},
   "profiles": [
     {
-      "id": "main",
-      "name": "Basic",
-      "mode": "online",
+      "id": "main-profile",
+      "name": "Main",
+      "mode": "local",
       "hotkey": "F14",
       "language": "en",
-      "onlineMode": {
-        "asrId": "groq-whisper",
-        "llmId": "openrouter-gpt-oss",
-        "preset": {
-          "type": "none"
-        }
-      }
-    },
-    {
-      "id": "01KS7NAAYPWGGCC8HJKJE1M6E5",
-      "name": "Prompt",
-      "mode": "online",
-      "hotkey": "Ctrl+F14",
-      "language": "en",
-      "onlineMode": {
-        "asrId": "groq-whisper",
-        "llmId": "openrouter-gpt-oss",
-        "preset": {
-          "type": "prompt"
-        }
-      }
-    },
-    {
-      "id": "01KS7NDDATKJ42WRCMPENAZW3M",
-      "name": "Normal",
-      "mode": "online",
-      "hotkey": "Shift+F14",
-      "language": "en",
-      "onlineMode": {
-        "asrId": "groq-whisper",
-        "llmId": "openrouter-gpt-oss",
-        "preset": {
-          "type": "normal"
-        }
-      }
+      "transcribeAsrModel": "base.en",
+      "transcribeAsrId": "groq-whisper",
+      "enhancementPrompt": "",
+      "enhancementLlmId": "openrouter-gpt-oss"
     }
   ],
 
@@ -57,10 +24,11 @@
       "apiKeyEnv": "GROQ_API_KEY"
     }
   ],
+
   "cloudLLMs": [
     {
       "id": "openrouter-gpt-oss",
-      "model": "openai/gpt-oss-20b:nitro",
+      "model": "openai/gpt-oss-120b:nitro",
       "provider": "custom",
       "apiUrl": "https://openrouter.ai/api/v1",
       "apiKeyEnv": "OPENROUTER_API_KEY"
