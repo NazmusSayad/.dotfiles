@@ -127,7 +127,7 @@ func main() {
 		fmt.Println("failed to refresh opencode models")
 	}
 
-	fmt.Println(aurora.Green("Successfully updated OpenCode models!"))
+	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
 
 func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId string, extra any) {
