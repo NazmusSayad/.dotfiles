@@ -4,7 +4,7 @@ occ: opencode --continue
 cc: claude --permission-mode bypassPermissions
 ccc: claude --permission-mode bypassPermissions --continue
 cx: codex --yolo
-cxx: codex --yolo --resume --last
+cxx: codex resume --last --yolo
 
 # NPM
 r: node --run
