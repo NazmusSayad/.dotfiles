@@ -1,5 +1,7 @@
 {
   "lsp": false,
+  "snapshot": false,
+
   "shell": "bash",
   "permission": "allow",
 
@@ -18,6 +20,24 @@
         "--viewport=1440x900x1",
         "--headless=true"
       ]
+    }
+  },
+
+  "command": {
+    "ask": {
+      "agent": "ask",
+      "description": "Answers questions, discusses context, and provides information",
+      "template": ""
+    },
+    "plan": {
+      "agent": "plan",
+      "description": "Creates a plan about how to solve the problem",
+      "template": ""
+    },
+    "x": {
+      "agent": "build",
+      "description": "Follow the plan and start building",
+      "template": ""
     }
   },
 
