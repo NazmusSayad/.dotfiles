@@ -56,7 +56,7 @@
     },
     {
       "id": "formal-profile",
-      "name": "Formal",
+      "name": "Normal",
       "icon": "AiContentGenerator02Icon",
 
       "hotkey": "Shift+F14",
@@ -65,7 +65,7 @@
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementType": "formal",
+      "enhancementType": "normal",
       "enhancementLlmId": "openrouter-gpt-oss"
     },
     {
