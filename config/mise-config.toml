@@ -81,6 +81,7 @@ stripe = "latest"
 gcloud = "latest"
 firebase = "latest"
 wrangler = "latest"
+terraform = "latest"
 serverless = "latest"
 cloudflared = "latest"
 
