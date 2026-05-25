@@ -43,7 +43,9 @@ func ResolveOpencodeProvider(
 		modelsDevModel, hasModelInModelsDotDev := modelsDotDevProvider.Models[modelConfig.ID]
 		fetchedModel, hasModelInFetched := fetchedModels[modelConfig.ID]
 
-		if hasModelInModelsDotDev && !providerConfig.Include && !modelConfig.Include {
+		if hasModelInModelsDotDev && !providerConfig.Include && !modelConfig.Include &&
+			modelConfig.Variants == nil && modelConfig.Options == nil && len(modelConfig.Headers) == 0 &&
+			!modelConfig.Nitro && modelConfig.ContextCap == 0 {
 			continue
 		}
 
@@ -87,6 +89,10 @@ func ResolveOpencodeProvider(
 
 		if modelConfig.Options != nil {
 			resolvedModel.Options = modelConfig.Options
+		}
+
+		if modelConfig.Variants != nil {
+			resolvedModel.Variants = modelConfig.Variants
 		}
 
 		if len(modelConfig.Headers) > 0 {

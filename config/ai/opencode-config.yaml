@@ -4,6 +4,16 @@ opencode:
       small: true
       explore: true
 
+openrouter:
+  url: https://openrouter.ai/api/v1/models
+  models:
+    - id: openai/gpt-oss-120b
+      title: true
+    - id: moonshotai/kimi-k2.6
+    - id: deepseek/deepseek-v4-pro
+      variants:
+        max: { reasoning: { enabled: true, effort: max } }
+
 # opencode-go:
 #   models:
 #     - id: glm-5.1
@@ -17,14 +27,6 @@ opencode:
 #       context: 256000
 #     - id: gpt-5.3-codex
 #       context: 256000
-
-openrouter:
-  url: https://openrouter.ai/api/v1/models
-  models:
-    - id: openai/gpt-oss-120b
-      title: true
-    - id: moonshotai/kimi-k2.6
-    - id: deepseek/deepseek-v4-pro
 
 xai:
   models:
