@@ -12,7 +12,7 @@ openrouter:
     - id: moonshotai/kimi-k2.6
     - id: deepseek/deepseek-v4-pro
       variants:
-        max: { reasoning: { enabled: true, effort: max } }
+        max: { reasoning: { enabled: true, effort: xhigh } }
 
 # opencode-go:
 #   models:

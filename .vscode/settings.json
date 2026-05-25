@@ -44,7 +44,8 @@
     "wakatime",
     "winget",
     "winnat",
-    "winsdk"
+    "winsdk",
+    "xhigh"
   ],
   "js/ts.tsdk.path": "node_modules/typescript/lib"
 }

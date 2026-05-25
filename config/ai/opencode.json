@@ -79,7 +79,7 @@
           "temperature": true,
           "tool_call": true,
           "variants": {
-            "max": { "reasoning": { "effort": "max", "enabled": true } }
+            "max": { "reasoning": { "effort": "xhigh", "enabled": true } }
           }
         }
       }
