@@ -34,16 +34,17 @@
     }
   },
 
-  "enabled_providers": ["opencode", "opencode-go", "openrouter", "xai"],
+  "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
     "opencode": {
       "whitelist": ["deepseek-v4-flash-free"]
     },
-    "opencode-go": {
-      "whitelist": []
-    },
     "openrouter": {
-      "whitelist": ["deepseek/deepseek-v4-pro","moonshotai/kimi-k2.6","openai/gpt-oss-120b"]
+      "whitelist": [
+        "deepseek/deepseek-v4-pro",
+        "moonshotai/kimi-k2.6",
+        "openai/gpt-oss-120b"
+      ]
     },
     "xai": {
       "whitelist": ["grok-build-0.1"]
