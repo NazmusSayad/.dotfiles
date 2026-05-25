@@ -44,6 +44,7 @@
     {
       "id": "basic-profile",
       "name": "Basic",
+      "icon": "VoiceIcon",
 
       "hotkey": "F14",
       "language": "en",
@@ -56,6 +57,7 @@
     {
       "id": "formal-profile",
       "name": "Formal",
+      "icon": "AiContentGenerator02Icon",
 
       "hotkey": "Shift+F14",
       "language": "en",
@@ -69,6 +71,7 @@
     {
       "id": "prompt-profile",
       "name": "Prompt",
+      "icon": "AiProgrammingIcon",
 
       "hotkey": "Ctrl+F14",
       "language": "en",
