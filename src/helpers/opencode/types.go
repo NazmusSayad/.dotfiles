@@ -1,7 +1,5 @@
 package opencode
 
-import "encoding/json"
-
 type AuthProvider struct {
 	Type string `json:"type"`
 	Key  string `json:"key"`
@@ -28,9 +26,10 @@ type OpencodeProviderConfigModel struct {
 	ContextCap        int    `yaml:"context,omitempty"`
 	OpenrouterModelId string `yaml:"openrouterId,omitempty"`
 
-	Options any               `yaml:"options,omitempty"`
-	Include bool              `yaml:"include,omitempty"`
-	Headers map[string]string `yaml:"headers,omitempty"`
+	Include  bool              `yaml:"include,omitempty"`
+	Options  any               `yaml:"options,omitempty"`
+	Headers  map[string]string `yaml:"headers,omitempty"`
+	Variants map[string]any    `yaml:"variants,omitempty"`
 
 	AsSmallModel   bool `yaml:"small,omitempty"`
 	AsTitleModel   bool `yaml:"title,omitempty"`
@@ -59,8 +58,8 @@ type OpenAiCompatibleArchitecture struct {
 }
 
 type KiloOptionalOpencode struct {
-	Family   string                     `json:"family"`
-	Variants map[string]json.RawMessage `json:"variants"`
+	Family   string         `json:"family"`
+	Variants map[string]any `json:"variants"`
 }
 
 type OpencodeStandardModel struct {
@@ -75,9 +74,9 @@ type OpencodeStandardModel struct {
 	Modalities  *OpencodeStandardModalities `json:"modalities,omitempty"`
 	Cost        *OpencodeStandardCost       `json:"cost,omitempty"`
 	Limit       *OpencodeStandardLimit      `json:"limit,omitempty"`
-	Variants    map[string]json.RawMessage  `json:"variants,omitempty"`
-	Headers     map[string]string           `json:"headers,omitempty"`
 	Options     any                         `json:"options,omitempty"`
+	Headers     map[string]string           `json:"headers,omitempty"`
+	Variants    map[string]any              `json:"variants,omitempty"`
 }
 
 type OpencodeStandardModalities struct {
