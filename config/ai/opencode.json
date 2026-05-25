@@ -64,25 +64,7 @@
         "deepseek/deepseek-v4-pro",
         "moonshotai/kimi-k2.6",
         "openai/gpt-oss-120b"
-      ],
-      "models": {
-        "deepseek/deepseek-v4-pro": {
-          "attachment": false,
-          "cost": { "cache_read": 0.003625, "input": 0.435, "output": 0.87 },
-          "family": "deepseek-thinking",
-          "id": "deepseek/deepseek-v4-pro",
-          "limit": { "context": 1048576, "output": 384000 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "DeepSeek V4 Pro",
-          "reasoning": true,
-          "release_date": "2026-04-24",
-          "temperature": true,
-          "tool_call": true,
-          "variants": {
-            "max": { "reasoning": { "effort": "xhigh", "enabled": true } }
-          }
-        }
-      }
+      ]
     },
     "xai": {
       "whitelist": ["grok-build-0.1"]
