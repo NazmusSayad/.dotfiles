@@ -74,7 +74,64 @@
         "moonshotai/kimi-k2.6",
         "openai/gpt-oss-120b",
         "z-ai/glm-5.1"
-      ]
+      ],
+      "models": {
+        "openai/gpt-oss-120b": {
+          "attachment": false,
+          "cost": { "input": 0.039, "output": 0.18 },
+          "family": "gpt-oss",
+          "id": "openai/gpt-oss-120b:nitro",
+          "limit": { "context": 131072, "output": 32768 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "gpt-oss-120b",
+          "reasoning": true,
+          "release_date": "2025-08-05",
+          "temperature": true,
+          "tool_call": true
+        },
+        "deepseek/deepseek-v4-pro": {
+          "attachment": false,
+          "cost": { "cache_read": 0.003625, "input": 0.435, "output": 0.87 },
+          "family": "deepseek-thinking",
+          "id": "deepseek/deepseek-v4-pro",
+          "limit": { "context": 1048576, "output": 384000 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "DeepSeek V4 Pro",
+          "options": { "provider": { "only": ["fireworks"] } },
+          "reasoning": true,
+          "release_date": "2026-04-24",
+          "temperature": true,
+          "tool_call": true
+        },
+        "moonshotai/kimi-k2.6": {
+          "attachment": true,
+          "cost": { "cache_read": 0.144, "input": 0.684, "output": 3.42 },
+          "family": "kimi-k2.6",
+          "id": "moonshotai/kimi-k2.6",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "name": "Kimi K2.6",
+          "options": { "provider": { "only": ["fireworks"] } },
+          "reasoning": true,
+          "release_date": "2026-04-21",
+          "temperature": true,
+          "tool_call": true
+        },
+        "z-ai/glm-5.1": {
+          "attachment": false,
+          "cost": { "cache_read": 0.182, "input": 0.98, "output": 3.08 },
+          "family": "glm",
+          "id": "z-ai/glm-5.1",
+          "limit": { "context": 202752, "output": 202800 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "name": "GLM-5.1",
+          "options": { "provider": { "only": ["fireworks"] } },
+          "reasoning": true,
+          "release_date": "2026-03-27",
+          "temperature": true,
+          "tool_call": true
+        }
+      }
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
   },
