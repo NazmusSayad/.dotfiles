@@ -65,9 +65,8 @@
     }
   },
 
-  "enabled_providers": ["crof", "opencode", "openrouter", "xai"],
+  "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
-    "crof": { "whitelist": ["deepseek-v4-pro", "kimi-k2.6", "mimo-v2.5-pro"] },
     "opencode": { "whitelist": ["deepseek-v4-flash-free"] },
     "openrouter": {
       "whitelist": [

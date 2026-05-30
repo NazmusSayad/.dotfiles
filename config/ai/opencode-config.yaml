@@ -26,15 +26,15 @@ openrouter:
 #     - id: gpt-5.3-codex
 #       context: 256000
 
+# crof:
+#   models:
+#     - id: kimi-k2.6
+#     - id: mimo-v2.5-pro
+#     - id: deepseek-v4-pro
+
 xai:
   models:
     - id: grok-build-0.1
-
-crof:
-  models:
-    - id: kimi-k2.6
-    - id: mimo-v2.5-pro
-    - id: deepseek-v4-pro
 
 ~agents:
   general:
