@@ -12,12 +12,6 @@ openrouter:
     - id: moonshotai/kimi-k2.6
     - id: deepseek/deepseek-v4-pro
 
-crof:
-  models:
-    - id: kimi-k2.6
-    - id: mimo-v2.5-pro
-    - id: deepseek-v4-pro
-
 # opencode-go:
 #   models:
 #     - id: glm-5.1
@@ -35,6 +29,12 @@ crof:
 xai:
   models:
     - id: grok-build-0.1
+
+crof:
+  models:
+    - id: kimi-k2.6
+    - id: mimo-v2.5-pro
+    - id: deepseek-v4-pro
 
 ~agents:
   general:

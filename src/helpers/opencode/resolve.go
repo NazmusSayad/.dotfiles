@@ -46,6 +46,7 @@ func ResolveOpencodeProvider(
 		if hasModelInModelsDotDev && !providerConfig.Include && !modelConfig.Include &&
 			modelConfig.Variants == nil && modelConfig.Options == nil && len(modelConfig.Headers) == 0 &&
 			!modelConfig.Nitro && modelConfig.ContextCap == 0 {
+			fmt.Println(aurora.Green("[MDD]"), modelConfig.ID)
 			continue
 		}
 
