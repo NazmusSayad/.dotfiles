@@ -72,7 +72,8 @@
       "whitelist": [
         "deepseek/deepseek-v4-pro",
         "moonshotai/kimi-k2.6",
-        "openai/gpt-oss-120b"
+        "openai/gpt-oss-120b",
+        "z-ai/glm-5.1"
       ]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
