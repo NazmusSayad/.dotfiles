@@ -65,11 +65,10 @@
     }
   },
 
-  "enabled_providers": ["opencode", "openrouter", "xai"],
+  "enabled_providers": ["crof", "opencode", "openrouter", "xai"],
   "provider": {
-    "opencode": {
-      "whitelist": ["deepseek-v4-flash-free"]
-    },
+    "crof": { "whitelist": ["deepseek-v4-pro", "kimi-k2.6", "mimo-v2.5-pro"] },
+    "opencode": { "whitelist": ["deepseek-v4-flash-free"] },
     "openrouter": {
       "whitelist": [
         "deepseek/deepseek-v4-pro",
@@ -77,9 +76,7 @@
         "openai/gpt-oss-120b"
       ]
     },
-    "xai": {
-      "whitelist": ["grok-build-0.1"]
-    }
+    "xai": { "whitelist": ["grok-build-0.1"] }
   },
 
   "autoshare": false,
