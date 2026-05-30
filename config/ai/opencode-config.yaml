@@ -32,7 +32,10 @@ xai:
 
 ~agents:
   general:
-    disable: true
+    permission: { lsp: deny, task: deny, question: deny }
+  explore:
+    permission:
+      { lsp: deny, edit: deny, write: deny, task: deny, question: deny }
   title:
     options:
       reasoning: { effort: low }

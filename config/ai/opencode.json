@@ -43,8 +43,19 @@
 
   "small_model": "opencode/deepseek-v4-flash-free",
   "agent": {
-    "explore": { "model": "opencode/deepseek-v4-flash-free" },
-    "general": { "disable": true },
+    "explore": {
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "deny",
+        "lsp": "deny",
+        "question": "deny",
+        "task": "deny",
+        "write": "deny"
+      }
+    },
+    "general": {
+      "permission": { "lsp": "deny", "question": "deny", "task": "deny" }
+    },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
