@@ -1,10 +1,10 @@
 # AI Coding
 oc: opencode
 occ: opencode --continue
+co: codex --yolo
+coo: codex resume --last --yolo
 cc: claude --permission-mode bypassPermissions
 ccc: claude --permission-mode bypassPermissions --continue
-cx: codex --yolo
-cxx: codex resume --last --yolo
 
 # NPM
 r: node --run
