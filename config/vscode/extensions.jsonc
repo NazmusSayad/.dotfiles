@@ -56,7 +56,6 @@
   /* Other Extensions */
   { "Id": "prisma.prisma" },
   { "Id": "eamodio.gitlens" },
-  { "Id": "gruntfuggly.todo-tree" },
   { "Id": "usernamehw.errorlens" },
   { "Id": "naumovs.color-highlight" },
   { "Id": "pomdtr.excalidraw-editor" },
