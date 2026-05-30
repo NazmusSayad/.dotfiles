@@ -24,4 +24,6 @@ rm -rf ~/AppData/Roaming/t3code
 rm -rf ~/AppData/Local/t3code-updater
 
 call sudo symlink-init.exe
+call opencode stats
+
 call proxy-pause echo
