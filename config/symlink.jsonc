@@ -1,12 +1,16 @@
 [
   // Shell Configs
   {
+    "Source": "@/config/shell/bash-config.sh",
+    "Target": "~/.bashrc"
+  },
+  {
     "Source": "@/config/shell/fish-config.fish",
     "Target": "~/.config/fish/config.fish"
   },
   {
-    "Source": "@/config/shell/bash-config.sh",
-    "Target": "~/.bashrc"
+    "Source": "@/config/shell/zsh-config.sh",
+    "Target": "~/.zshrc"
   },
   {
     "Source": "@/config/shell/powershell.ps1",

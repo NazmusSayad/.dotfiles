@@ -6,11 +6,10 @@ add_newline = false
 [shell]
 disabled = false
 format = "[$indicator ](dimmed) "
+pwsh_indicator = ''
 bash_indicator = ''
 fish_indicator = ''
 zsh_indicator = ''
-cmd_indicator = ''
-pwsh_indicator = ''
 
 [shlvl]
 disabled = false
