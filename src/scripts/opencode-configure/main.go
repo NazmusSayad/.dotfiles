@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"maps"
 	"os"
 
 	"dotfiles/src/helpers"
@@ -139,10 +140,7 @@ func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId stri
 	}
 
 	if extra != nil {
-		for k, v := range extra.(map[string]any) {
-			fmt.Printf("  - %s: %v\n", aurora.Blue(k), aurora.Yellow(v))
-			resolvedConfig[k] = v
-		}
+		maps.Copy(resolvedConfig, extra.(map[string]any))
 	}
 
 	if len(resolvedConfig) > 0 {
