@@ -81,6 +81,9 @@
     "Bash (MSYS2)": {
       "path": "bash.exe"
     },
+    "Zsh (MSYS2)": {
+      "path": "zsh.exe"
+    },
     "PowerShell (pwsh)": {
       "path": "pwsh.exe"
     }

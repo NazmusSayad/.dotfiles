@@ -358,6 +358,14 @@
                 "pathTranslationStyle": "msys2"
             },
             {
+                "commandline": "zsh.exe",
+                "guid": "{1749282e-dfe0-477e-b6cc-c2a1c10d8855}",
+                "hidden": false,
+                "icon": "%DOTFILES_DIR%\\assets\\zsh.ico",
+                "name": "Zsh (MSYS2)",
+                "pathTranslationStyle": "msys2"
+            },
+            {
                 "commandline": "pwsh.exe -NoLogo",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
