@@ -7,7 +7,7 @@ cc: claude --permission-mode bypassPermissions
 ccc: claude --permission-mode bypassPermissions --continue
 
 # NPM
-r: node --run
+r: nr
 nid: ni -D
 pab: pnpm approve-builds --all
 
