@@ -81,6 +81,16 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementType": "prompt",
       "enhancementLlmId": "openrouter-gpt-oss"
+    },
+    {
+      "id": "oiper-profile",
+      "name": "OiPer",
+      "icon": "CrownIcon",
+
+      "hotkey": "Ctrl+Shift+F14",
+      "language": "en",
+
+      "mode": "oiper"
     }
   ]
 }
