@@ -36,12 +36,14 @@
     {
       "id": "openrouter-audio-gemini",
       "model": "google/gemini-2.5-flash-lite:nitro",
-      "provider": "openrouter"
+      "provider": "openrouter",
+      "acceptsAudioInput": true
     },
     {
       "id": "openrouter-audio-mimo",
       "model": "xiaomi/mimo-v2.5:nitro",
-      "provider": "openrouter"
+      "provider": "openrouter",
+      "acceptsAudioInput": true
     }
   ],
 
