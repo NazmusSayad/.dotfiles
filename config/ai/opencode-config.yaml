@@ -10,11 +10,11 @@ openrouter:
     - id: openai/gpt-oss-120b
       title: true
     - id: moonshotai/kimi-k2.6
-      options: { provider: { only: [fireworks] } }
+      options: { provider: { only: [fireworks], allowFallbacks: false } }
     - id: deepseek/deepseek-v4-pro
-      options: { provider: { only: [fireworks] } }
+      options: { provider: { only: [fireworks], allowFallbacks: false } }
     - id: z-ai/glm-5.1
-      options: { provider: { only: [fireworks] } }
+      options: { provider: { only: [fireworks], allowFallbacks: false } }
 
 # opencode-go:
 #   models:

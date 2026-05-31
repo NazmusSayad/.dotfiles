@@ -84,7 +84,9 @@
           "limit": { "context": 262144, "output": 262144 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
           "name": "Kimi K2.6",
-          "options": { "provider": { "only": ["fireworks"] } },
+          "options": {
+            "provider": { "only": ["fireworks"], "allowFallbacks": false }
+          },
           "reasoning": true,
           "release_date": "2026-04-21",
           "temperature": true,
@@ -98,7 +100,9 @@
           "limit": { "context": 1048576, "output": 384000 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "DeepSeek V4 Pro",
-          "options": { "provider": { "only": ["fireworks"] } },
+          "options": {
+            "provider": { "only": ["fireworks"], "allowFallbacks": false }
+          },
           "reasoning": true,
           "release_date": "2026-04-24",
           "temperature": true,
@@ -112,7 +116,9 @@
           "limit": { "context": 202752, "output": 202800 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "GLM-5.1",
-          "options": { "provider": { "only": ["fireworks"] } },
+          "options": {
+            "provider": { "only": ["fireworks"], "allowFallbacks": false }
+          },
           "reasoning": true,
           "release_date": "2026-03-27",
           "temperature": true,
