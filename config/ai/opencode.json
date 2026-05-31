@@ -3,7 +3,11 @@
   "snapshot": false,
 
   "shell": "bash",
-  "permission": "allow",
+  "permission": {
+    "*": "allow",
+    "lsp": "deny",
+    "doom_loop": "deny"
+  },
 
   "plugin": ["opencode-armor", "opencode-wakatime"],
 
