@@ -56,7 +56,7 @@
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-gpt-oss"
+      "enhancementLlmId": "cerebras-gpt-oss"
     },
     {
       "id": "formal-profile",
@@ -70,7 +70,7 @@
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementType": "normal",
-      "enhancementLlmId": "openrouter-gpt-oss"
+      "enhancementLlmId": "cerebras-gpt-oss"
     },
     {
       "id": "prompt-profile",
