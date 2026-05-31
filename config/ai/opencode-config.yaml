@@ -12,10 +12,10 @@ openrouter:
       title: true
     - id: moonshotai/kimi-k2.6
       options: { provider: { only: [fireworks] } }
-    # - id: deepseek/deepseek-v4-pro
-    #   options: { provider: { only: [fireworks] } }
-    # - id: z-ai/glm-5.1
-    #   options: { provider: { only: [fireworks] } }
+    - id: deepseek/deepseek-v4-pro
+      options: { provider: { only: [fireworks] } }
+    - id: z-ai/glm-5.1
+      options: { provider: { only: [fireworks] } }
 
 # opencode-go:
 #   models:
