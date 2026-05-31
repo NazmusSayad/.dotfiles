@@ -7,10 +7,6 @@
 
   "plugin": ["opencode-armor", "opencode-wakatime"],
 
-  "experimental": {
-    "continue_loop_on_deny": true
-  },
-
   "mcp": {
     "chrome-devtools": {
       "type": "local",
