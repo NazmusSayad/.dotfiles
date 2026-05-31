@@ -49,9 +49,7 @@
         "write": "deny"
       }
     },
-    "general": {
-      "permission": { "lsp": "deny", "question": "deny", "task": "deny" }
-    },
+    "general": { "disable": true },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
