@@ -255,6 +255,8 @@
     "@hugeicons*",
     "@radix-ui",
     "@base-ui",
+    "radix-ui",
+    "base-ui",
     "date-fns",
     "moment"
   ],
