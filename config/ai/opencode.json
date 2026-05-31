@@ -76,19 +76,6 @@
         "z-ai/glm-5.1"
       ],
       "models": {
-        "openai/gpt-oss-120b": {
-          "attachment": false,
-          "cost": { "input": 0.039, "output": 0.18 },
-          "family": "gpt-oss",
-          "id": "openai/gpt-oss-120b:nitro",
-          "limit": { "context": 131072, "output": 32768 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "gpt-oss-120b",
-          "reasoning": true,
-          "release_date": "2025-08-05",
-          "temperature": true,
-          "tool_call": true
-        },
         "moonshotai/kimi-k2.6": {
           "attachment": true,
           "cost": { "cache_read": 0.144, "input": 0.684, "output": 3.42 },
