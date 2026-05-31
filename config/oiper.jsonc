@@ -1,7 +1,4 @@
 {
-  "startOnLogin": true,
-  "whisperBackend": "auto",
-
   "words": ["Nazmus Sayad"],
 
   "cloudASRs": [
