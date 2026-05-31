@@ -24,6 +24,11 @@
 
   "cloudLLMs": [
     {
+      "id": "cerebras-gpt-oss",
+      "model": "gpt-oss-120b",
+      "provider": "cerebras"
+    },
+    {
       "id": "openrouter-gpt-oss",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
