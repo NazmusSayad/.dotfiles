@@ -72,22 +72,6 @@
         "z-ai/glm-5.1"
       ],
       "models": {
-        "moonshotai/kimi-k2.6": {
-          "attachment": true,
-          "cost": { "cache_read": 0.144, "input": 0.684, "output": 3.42 },
-          "family": "kimi-k2.6",
-          "id": "moonshotai/kimi-k2.6",
-          "limit": { "context": 262144, "output": 262144 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "name": "Kimi K2.6",
-          "options": {
-            "provider": { "only": ["fireworks"], "allowFallbacks": false }
-          },
-          "reasoning": true,
-          "release_date": "2026-04-21",
-          "temperature": true,
-          "tool_call": true
-        },
         "deepseek/deepseek-v4-pro": {
           "attachment": false,
           "cost": { "cache_read": 0.003625, "input": 0.435, "output": 0.87 },
@@ -96,11 +80,23 @@
           "limit": { "context": 1048576, "output": 384000 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "DeepSeek V4 Pro",
-          "options": {
-            "provider": { "only": ["fireworks"], "allowFallbacks": false }
-          },
+          "options": { "provider": { "only": ["fireworks"] } },
           "reasoning": true,
           "release_date": "2026-04-24",
+          "temperature": true,
+          "tool_call": true
+        },
+        "moonshotai/kimi-k2.6": {
+          "attachment": true,
+          "cost": { "cache_read": 0.144, "input": 0.684, "output": 3.42 },
+          "family": "kimi-k2.6",
+          "id": "moonshotai/kimi-k2.6",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "name": "Kimi K2.6",
+          "options": { "provider": { "only": ["fireworks"] } },
+          "reasoning": true,
+          "release_date": "2026-04-21",
           "temperature": true,
           "tool_call": true
         },
@@ -112,9 +108,7 @@
           "limit": { "context": 202752, "output": 202800 },
           "modalities": { "input": ["text"], "output": ["text"] },
           "name": "GLM-5.1",
-          "options": {
-            "provider": { "only": ["fireworks"], "allowFallbacks": false }
-          },
+          "options": { "provider": { "only": ["fireworks"] } },
           "reasoning": true,
           "release_date": "2026-03-27",
           "temperature": true,
