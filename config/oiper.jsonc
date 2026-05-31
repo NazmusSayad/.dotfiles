@@ -85,7 +85,7 @@
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementType": "prompt",
-      "enhancementLlmId": "openrouter-gpt-oss"
+      "enhancementLlmId": "cerebras-gpt-oss"
     },
     {
       "id": "oiper-profile",
