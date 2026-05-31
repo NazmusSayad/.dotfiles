@@ -49,10 +49,8 @@
       "id": "basic-profile",
       "name": "Basic",
       "icon": "VoiceIcon",
-
       "hotkey": "F14",
       "language": "en",
-
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
@@ -62,10 +60,8 @@
       "id": "formal-profile",
       "name": "Normal",
       "icon": "AiContentGenerator02Icon",
-
-      "hotkey": "Shift+F14",
+      "hotkey": "Ctrl+F14",
       "language": "en",
-
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
@@ -76,10 +72,8 @@
       "id": "prompt-profile",
       "name": "Prompt",
       "icon": "AiProgrammingIcon",
-
-      "hotkey": "Ctrl+F14",
+      "hotkey": "Alt+F14",
       "language": "en",
-
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
@@ -90,10 +84,8 @@
       "id": "oiper-profile",
       "name": "OiPer",
       "icon": "CrownIcon",
-
-      "hotkey": "Ctrl+Shift+F14",
+      "hotkey": "Shift+F14",
       "language": "en",
-
       "mode": "oiper"
     }
   ]
