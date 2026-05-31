@@ -254,6 +254,7 @@
     "react-icons",
     "@hugeicons*",
     "@radix-ui",
+    "@base-ui",
     "date-fns",
     "moment"
   ],
