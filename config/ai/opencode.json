@@ -45,13 +45,7 @@
   "agent": {
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
-      "permission": {
-        "edit": "deny",
-        "lsp": "deny",
-        "question": "deny",
-        "task": "deny",
-        "write": "deny"
-      }
+      "permission": { "edit": "deny", "question": "deny", "task": "deny" }
     },
     "general": {
       "disable": true,
