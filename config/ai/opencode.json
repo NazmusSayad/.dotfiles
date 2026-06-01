@@ -65,7 +65,7 @@
 
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
-    "opencode": { "whitelist": ["deepseek-v4-flash-free"] },
+    "opencode": { "whitelist": ["deepseek-v4-flash-free", "minimax-m3-free"] },
     "openrouter": {
       "whitelist": [
         "deepseek/deepseek-v4-pro",
