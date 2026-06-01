@@ -9,7 +9,7 @@
     "doom_loop": "deny"
   },
 
-  "plugin": ["opencode-armor", "opencode-wakatime"],
+  "plugin": ["opencode-armor@latest", "opencode-wakatime@latest"],
 
   "mcp": {
     "chrome-devtools": {
