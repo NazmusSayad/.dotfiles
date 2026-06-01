@@ -1,2 +1,5 @@
 [global]
 log_format = "-󰜃 %s"
+
+[whitelist]
+prefix = ["~/Desktop"]

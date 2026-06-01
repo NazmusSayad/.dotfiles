@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 eval "$(direnv hook zsh)"
 eval "$(dotsh zsh "$(mise env --dotenv)")"
 

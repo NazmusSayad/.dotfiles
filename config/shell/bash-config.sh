@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 eval "$(direnv hook bash)"
 eval "$(dotsh bash "$(mise env --dotenv)")"
 
