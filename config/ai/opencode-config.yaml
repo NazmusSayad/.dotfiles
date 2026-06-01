@@ -43,11 +43,12 @@ xai:
 
 ~agents:
   general:
+    permission: { task: deny, question: deny }
     disable: true
   explore:
     permission:
       { lsp: deny, edit: deny, write: deny, task: deny, question: deny }
   title:
     options:
-      reasoning: { effort: low }
+      reasoning: { effort: medium }
       provider: { sort: throughput }

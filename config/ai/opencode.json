@@ -9,7 +9,7 @@
     "doom_loop": "deny"
   },
 
-  "plugin": ["opencode-armor@latest", "opencode-wakatime@latest"],
+  "plugin": ["opencode-armor", "opencode-wakatime"],
 
   "mcp": {
     "chrome-devtools": {
@@ -43,7 +43,6 @@
 
   "small_model": "opencode/deepseek-v4-flash-free",
   "agent": {
-    "general": { "disable": true },
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
@@ -54,11 +53,15 @@
         "write": "deny"
       }
     },
+    "general": {
+      "disable": true,
+      "permission": { "question": "deny", "task": "deny" }
+    },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
         "provider": { "sort": "throughput" },
-        "reasoning": { "effort": "low" }
+        "reasoning": { "effort": "medium" }
       }
     }
   },
@@ -67,7 +70,6 @@
   "provider": {
     "opencode": { "whitelist": ["deepseek-v4-flash-free", "minimax-m3-free"] },
     "openrouter": {
-      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"],
       "models": {
         "moonshotai/kimi-k2.6": {
           "attachment": true,
@@ -83,7 +85,8 @@
           "temperature": true,
           "tool_call": true
         }
-      }
+      },
+      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
   },
