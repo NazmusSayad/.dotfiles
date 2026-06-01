@@ -30,6 +30,7 @@ scoop:
   - mise
   - gsudo
   - zoxide
+  - direnv
   - starship
 
   # System
