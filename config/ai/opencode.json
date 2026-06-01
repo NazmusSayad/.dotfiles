@@ -67,27 +67,8 @@
   "provider": {
     "opencode": { "whitelist": ["deepseek-v4-flash-free", "minimax-m3-free"] },
     "openrouter": {
-      "whitelist": [
-        "deepseek/deepseek-v4-pro",
-        "moonshotai/kimi-k2.6",
-        "openai/gpt-oss-120b",
-        "z-ai/glm-5.1"
-      ],
+      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"],
       "models": {
-        "deepseek/deepseek-v4-pro": {
-          "attachment": false,
-          "cost": { "cache_read": 0.003625, "input": 0.435, "output": 0.87 },
-          "family": "deepseek-thinking",
-          "id": "deepseek/deepseek-v4-pro",
-          "limit": { "context": 1048576, "output": 384000 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "DeepSeek V4 Pro",
-          "options": { "provider": { "only": ["fireworks"] } },
-          "reasoning": true,
-          "release_date": "2026-04-24",
-          "temperature": true,
-          "tool_call": true
-        },
         "moonshotai/kimi-k2.6": {
           "attachment": true,
           "cost": { "cache_read": 0.144, "input": 0.684, "output": 3.42 },
@@ -99,20 +80,6 @@
           "options": { "provider": { "only": ["fireworks"] } },
           "reasoning": true,
           "release_date": "2026-04-21",
-          "temperature": true,
-          "tool_call": true
-        },
-        "z-ai/glm-5.1": {
-          "attachment": false,
-          "cost": { "cache_read": 0.182, "input": 0.98, "output": 3.08 },
-          "family": "glm",
-          "id": "z-ai/glm-5.1",
-          "limit": { "context": 202752, "output": 202800 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-          "name": "GLM-5.1",
-          "options": { "provider": { "only": ["fireworks"] } },
-          "reasoning": true,
-          "release_date": "2026-03-27",
           "temperature": true,
           "tool_call": true
         }
