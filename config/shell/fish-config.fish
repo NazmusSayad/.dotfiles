@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+direnv hook fish | source
 dotsh fish (mise env -D) | source
 
 function fish_greeting
