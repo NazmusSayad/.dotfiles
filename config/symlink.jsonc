@@ -47,6 +47,10 @@
     "Target": "~/.config/opencode/tui.json"
   },
   {
+    "Source": "@/config/ai/opencode-armor.json",
+    "Target": "~/.opencode-armor.json"
+  },
+  {
     "Source": "@/config/ai/agents",
     "Target": "~/.config/opencode/agents"
   },

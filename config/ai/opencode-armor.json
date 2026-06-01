@@ -1,0 +1,4 @@
+{
+  "$schema": "https://github.com/NazmusSayad/opencode-armor/raw/refs/heads/schema/schema.json",
+  "injectCommandBefore": "echo \"[OPENCODE-ARMOR]\""
+}
