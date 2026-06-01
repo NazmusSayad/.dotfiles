@@ -422,5 +422,5 @@
     "theme": "dark",
     "themes": [],
     "warning.confirmCloseAllTabs": false,
-    "windowingBehavior": "useNew"
+    "windowingBehavior": "useExisting"
 }
