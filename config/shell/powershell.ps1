@@ -1,5 +1,3 @@
-#!/usr/bin/env pwsh
-
 Invoke-Expression "$(direnv hook pwsh)"
 Invoke-Expression (& dotsh pwsh @(mise env -D) | Out-String)
 
