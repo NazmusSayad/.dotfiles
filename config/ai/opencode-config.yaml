@@ -46,8 +46,7 @@ xai:
     permission: { task: deny, question: deny }
     disable: true
   explore:
-    permission:
-      { lsp: deny, edit: deny, write: deny, task: deny, question: deny }
+    permission: { task: deny, question: deny, edit: deny }
   title:
     options:
       reasoning: { effort: medium }
