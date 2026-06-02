@@ -1,4 +1,7 @@
 {
+  "writeClipboard": false,
+  "injectionMethod": "Ctrl+V",
+
   "words": ["Nazmus Sayad"],
 
   "cloudASRs": [
