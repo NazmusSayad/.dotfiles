@@ -9,41 +9,14 @@
       "id": "groq-whisper",
       "model": "whisper-large-v3",
       "provider": "groq"
-    },
-    {
-      "id": "openrouter-whisper",
-      "model": "openai/whisper-large-v3",
-      "provider": "openrouter"
-    },
-    {
-      "id": "google-chirp",
-      "model": "google/chirp-3",
-      "provider": "openrouter"
     }
   ],
 
   "cloudLLMs": [
     {
-      "id": "cerebras-gpt-oss",
-      "model": "gpt-oss-120b",
-      "provider": "cerebras"
-    },
-    {
       "id": "openrouter-gpt-oss",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
-    },
-    {
-      "id": "openrouter-audio-gemini",
-      "model": "google/gemini-2.5-flash-lite:nitro",
-      "provider": "openrouter",
-      "acceptsAudioInput": true
-    },
-    {
-      "id": "openrouter-audio-mimo",
-      "model": "xiaomi/mimo-v2.5:nitro",
-      "provider": "openrouter",
-      "acceptsAudioInput": true
     }
   ],
 
@@ -57,7 +30,7 @@
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "cerebras-gpt-oss"
+      "enhancementLlmId": "openrouter-gpt-oss"
     },
     {
       "id": "formal-profile",
@@ -68,8 +41,8 @@
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementType": "normal",
-      "enhancementLlmId": "cerebras-gpt-oss"
+      "enhancementLlmId": "openrouter-gpt-oss",
+      "enhancementType": "normal"
     },
     {
       "id": "prompt-profile",
@@ -80,8 +53,8 @@
       "mode": "cloud",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementType": "prompt",
-      "enhancementLlmId": "cerebras-gpt-oss"
+      "enhancementLlmId": "openrouter-gpt-oss",
+      "enhancementType": "prompt"
     },
     {
       "id": "oiper-profile",
