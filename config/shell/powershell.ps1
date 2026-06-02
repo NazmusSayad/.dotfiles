@@ -1,5 +1,5 @@
-Invoke-Expression "$(direnv hook pwsh)"
 Invoke-Expression (& dotsh pwsh @(mise env -D) | Out-String)
+Invoke-Expression "$(direnv hook pwsh)"
 
 if ($PSVersionTable.PSEdition -eq 'Core') {
   Invoke-Expression (&pwshac cd | Out-String)

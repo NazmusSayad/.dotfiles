@@ -1,5 +1,5 @@
-eval "$(direnv hook bash)"
 eval "$(dotsh bash "$(mise env --dotenv)")"
+eval "$(direnv hook bash)"
 
 if [[ $- == *i* ]]; then
 	eval "$(shaka bash)"
