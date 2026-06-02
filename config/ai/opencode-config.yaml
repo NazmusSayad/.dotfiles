@@ -11,6 +11,7 @@ openrouter:
     - id: openai/gpt-oss-120b
       title: true
     - id: moonshotai/kimi-k2.6
+      agent: true
       options: { provider: { only: [fireworks] } }
     # - id: deepseek/deepseek-v4-pro
     #   options: { provider: { only: [fireworks] } }

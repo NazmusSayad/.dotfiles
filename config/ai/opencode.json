@@ -1,6 +1,8 @@
 {
-  "lsp": false,
-  "snapshot": false,
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "autoshare": false,
+  "share": "disabled",
 
   "shell": "bash",
   "permission": {
@@ -9,6 +11,8 @@
     "doom_loop": "deny"
   },
 
+  "lsp": false,
+  "snapshot": false,
   "plugin": ["opencode-armor", "opencode-wakatime"],
 
   "mcp": {
@@ -41,7 +45,9 @@
     }
   },
 
+  "model": "openrouter/moonshotai/kimi-k2.6",
   "small_model": "opencode/deepseek-v4-flash-free",
+
   "agent": {
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
@@ -83,11 +89,5 @@
       "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
-  },
-
-  "autoshare": false,
-  "autoupdate": false,
-  "share": "disabled",
-  "logLevel": "DEBUG",
-  "$schema": "https://opencode.ai/config.json"
+  }
 }

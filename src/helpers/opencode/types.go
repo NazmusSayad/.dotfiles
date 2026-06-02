@@ -31,6 +31,7 @@ type OpencodeProviderConfigModel struct {
 	Headers  map[string]string `yaml:"headers,omitempty"`
 	Variants map[string]any    `yaml:"variants,omitempty"`
 
+	AsAgentModel   bool `yaml:"agent,omitempty"`
 	AsSmallModel   bool `yaml:"small,omitempty"`
 	AsTitleModel   bool `yaml:"title,omitempty"`
 	AsScoutModel   bool `yaml:"scout,omitempty"`
