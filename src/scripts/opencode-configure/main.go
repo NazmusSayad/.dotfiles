@@ -86,6 +86,14 @@ func main() {
 	fullConfig["provider"] = outputProviderConfig
 	fullConfig["enabled_providers"] = utils.SortArrayOfString(enabledProviders)
 
+	if outputAgentModels.AgentModel != "" {
+		fmt.Println(aurora.Green("Setting agent model to:"), aurora.Yellow(outputAgentModels.AgentModel))
+		fullConfig["model"] = outputAgentModels.AgentModel
+	} else {
+		fmt.Println(aurora.Faint("Unsetting agent model"))
+		delete(fullConfig, "model")
+	}
+
 	if outputAgentModels.SmallModel != "" {
 		fmt.Println(aurora.Green("Setting small model to:"), aurora.Yellow(outputAgentModels.SmallModel))
 		fullConfig["small_model"] = outputAgentModels.SmallModel

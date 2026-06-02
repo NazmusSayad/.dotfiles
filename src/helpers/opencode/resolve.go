@@ -10,6 +10,7 @@ import (
 )
 
 type OpencodeResolveAgentModels struct {
+	AgentModel   string
 	SmallModel   string
 	TitleModel   string
 	ScoutModel   string
@@ -120,6 +121,18 @@ func ResolveOpencodeProvider(
 }
 
 func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigModel, currentAgentModels OpencodeResolveAgentModels) OpencodeResolveAgentModels {
+	if modelConfig.AsAgentModel {
+		if currentAgentModels.AgentModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as agent model. Models %s and %s will be used as the agent model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.AgentModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.AgentModel = providerId + "/" + modelConfig.ID
+	}
+
 	if modelConfig.AsSmallModel {
 		if currentAgentModels.SmallModel != "" {
 			fmt.Printf(
