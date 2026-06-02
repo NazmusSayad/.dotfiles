@@ -1,4 +1,5 @@
 [global]
+load_dotenv = true
 log_format = "-󰜃 %s"
 
 [whitelist]

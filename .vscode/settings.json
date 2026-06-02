@@ -8,6 +8,7 @@
     "cloudflared",
     "deepseek",
     "direnv",
+    "dotenv",
     "dotsh",
     "fastfetch",
     "Fira",
