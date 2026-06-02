@@ -1,5 +1,5 @@
-eval "$(direnv hook zsh)"
 eval "$(dotsh zsh "$(mise env --dotenv)")"
+eval "$(direnv hook zsh)"
 
 if [[ $- == *i* ]]; then
 	eval "$(shaka zsh)"

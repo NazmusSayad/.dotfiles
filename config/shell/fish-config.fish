@@ -1,5 +1,5 @@
-direnv hook fish | source
 dotsh fish (mise env -D) | source
+direnv hook fish | source
 
 function fish_greeting
 end
