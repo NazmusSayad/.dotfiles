@@ -3,7 +3,7 @@ setlocal
 
 rm -rf ~/.cache/opencode
 rm -rf ~/.config/opencode
-rm -rf ~/.local/state/opencode
+@REM rm -rf ~/.local/state/opencode
 @REM rm -rf ~/.local/share/opencode
 
 rm -rf ~/.bun/install/cache
