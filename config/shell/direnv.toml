@@ -1,7 +1,9 @@
 [global]
 strict_env = false
 load_dotenv = true
-log_format = "-󰜃 %s"
+
+disable_stdin = true
+hide_env_diff = true
 
 [whitelist]
 prefix = ["~/Desktop"]
