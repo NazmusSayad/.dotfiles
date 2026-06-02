@@ -1,4 +1,5 @@
 [global]
+strict_env = false
 load_dotenv = true
 log_format = "-󰜃 %s"
 
