@@ -64,6 +64,7 @@ java = "latest"
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
 "npm:mytokens" = "latest"
+"npm:opencode-armor" = "latest"
 
 # My Tools
 "npm:gityo" = "latest"
