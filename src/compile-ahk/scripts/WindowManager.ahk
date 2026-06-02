@@ -10,6 +10,18 @@ F19:: {
   Send("{Tab}")
 }
 
++F19:: {
+  Send("{Shift down}")
+  Send("{Alt down}")
+  Send("{Tab}")
+}
+
 F19 up:: {
   Send("{Alt up}")
+  Send("{Shift up}")
+}
+
++F19 up:: {
+  Send("{Alt up}")
+  Send("{Shift up}")
 }
