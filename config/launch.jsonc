@@ -37,6 +37,10 @@
     "Path": "@/.build/ahk/AHK-WindowManager.exe",
     "AsAdmin": true
   },
+  {
+    "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
+    "AsAdmin": true
+  },
 
   {
     "Path": "clean-code-snippets",
