@@ -45,7 +45,7 @@
     }
   },
 
-  "model": "openrouter/moonshotai/kimi-k2.6",
+  "model": "openrouter/moonshotai/kimi-k2.6:free",
   "small_model": "opencode/deepseek-v4-flash-free",
 
   "agent": {
@@ -86,7 +86,11 @@
           "tool_call": true
         }
       },
-      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
+      "whitelist": [
+        "moonshotai/kimi-k2.6",
+        "moonshotai/kimi-k2.6:free",
+        "openai/gpt-oss-120b"
+      ]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
   }
