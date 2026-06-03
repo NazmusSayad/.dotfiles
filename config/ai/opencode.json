@@ -8,7 +8,8 @@
   "permission": {
     "*": "allow",
     "lsp": "deny",
-    "doom_loop": "deny"
+    "doom_loop": "deny",
+    "todowrite": "deny"
   },
 
   "lsp": false,
@@ -48,11 +49,20 @@
   "agent": {
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
-      "permission": { "edit": "deny", "question": "deny", "task": "deny" }
+      "permission": {
+        "edit": "deny",
+        "question": "deny",
+        "task": "deny",
+        "todowrite": "deny"
+      }
     },
     "general": {
       "disable": true,
-      "permission": { "question": "deny", "task": "deny" }
+      "permission": {
+        "question": "deny",
+        "task": "deny",
+        "todowrite": "deny"
+      }
     },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
