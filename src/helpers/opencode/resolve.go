@@ -13,7 +13,6 @@ type OpencodeResolveAgentModels struct {
 	AgentModel   string
 	SmallModel   string
 	TitleModel   string
-	ScoutModel   string
 	GeneralModel string
 	ExploreModel string
 	SummaryModel string
@@ -157,18 +156,6 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 		currentAgentModels.TitleModel = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsScoutModel {
-		if currentAgentModels.ScoutModel != "" {
-			fmt.Printf(
-				"%s Multiple models marked as scout model. Models %s and %s will be used as the scout model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.ScoutModel, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.ScoutModel = providerId + "/" + modelConfig.ID
-	}
-
 	if modelConfig.AsGeneralModel {
 		if currentAgentModels.GeneralModel != "" {
 			fmt.Printf(
@@ -193,18 +180,6 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 		currentAgentModels.ExploreModel = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsCompactModel {
-		if currentAgentModels.CompactModel != "" {
-			fmt.Printf(
-				"%s Multiple models marked as compact model. Models %s and %s will be used as the compact model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.CompactModel, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.CompactModel = providerId + "/" + modelConfig.ID
-	}
-
 	if modelConfig.AsSummaryModel {
 		if currentAgentModels.SummaryModel != "" {
 			fmt.Printf(
@@ -215,6 +190,18 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 		}
 
 		currentAgentModels.SummaryModel = providerId + "/" + modelConfig.ID
+	}
+
+	if modelConfig.AsCompactModel {
+		if currentAgentModels.CompactModel != "" {
+			fmt.Printf(
+				"%s Multiple models marked as compact model. Models %s and %s will be used as the compact model.\n",
+				aurora.Red("ERROR:"), currentAgentModels.CompactModel, modelConfig.ID,
+			)
+			os.Exit(1)
+		}
+
+		currentAgentModels.CompactModel = providerId + "/" + modelConfig.ID
 	}
 
 	return currentAgentModels

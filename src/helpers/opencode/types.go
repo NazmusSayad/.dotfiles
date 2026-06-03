@@ -34,7 +34,6 @@ type OpencodeProviderConfigModel struct {
 	AsAgentModel   bool `yaml:"agent,omitempty"`
 	AsSmallModel   bool `yaml:"small,omitempty"`
 	AsTitleModel   bool `yaml:"title,omitempty"`
-	AsScoutModel   bool `yaml:"scout,omitempty"`
 	AsGeneralModel bool `yaml:"general,omitempty"`
 	AsExploreModel bool `yaml:"explore,omitempty"`
 	AsSummaryModel bool `yaml:"summary,omitempty"`

@@ -103,7 +103,6 @@ func main() {
 	}
 
 	writeAgentModelConfig(fullConfig, "title", outputAgentModels.TitleModel, opencodeConfig.Agents["title"])
-	writeAgentModelConfig(fullConfig, "scout", outputAgentModels.ScoutModel, opencodeConfig.Agents["scout"])
 	writeAgentModelConfig(fullConfig, "general", outputAgentModels.GeneralModel, opencodeConfig.Agents["general"])
 	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.ExploreModel, opencodeConfig.Agents["explore"])
 	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.SummaryModel, opencodeConfig.Agents["summary"])
