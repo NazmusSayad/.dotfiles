@@ -50,6 +50,7 @@
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
+        "doom_loop": "deny",
         "edit": "deny",
         "question": "deny",
         "task": "deny",
@@ -59,6 +60,7 @@
     "general": {
       "disable": true,
       "permission": {
+        "doom_loop": "deny",
         "question": "deny",
         "task": "deny",
         "todowrite": "deny"
