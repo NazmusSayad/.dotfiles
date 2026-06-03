@@ -29,10 +29,10 @@ xai:
 
 ~agents:
   general:
-    permission: { task: deny, question: deny }
+    permission: { task: deny, todowrite: deny, question: deny }
     disable: true
   explore:
-    permission: { task: deny, question: deny, edit: deny }
+    permission: { task: deny, todowrite: deny, question: deny, edit: deny }
   title:
     options:
       reasoning: { effort: medium }
