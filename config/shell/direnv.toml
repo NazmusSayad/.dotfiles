@@ -5,5 +5,7 @@ load_dotenv = true
 disable_stdin = true
 hide_env_diff = true
 
+log_format = "-󰜃 %s"
+
 [whitelist]
 prefix = ["~/Desktop"]
