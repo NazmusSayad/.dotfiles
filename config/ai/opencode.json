@@ -84,7 +84,7 @@
           "tool_call": true
         }
       },
-      "whitelist": ["moonshotai/kimi-k2.6","openai/gpt-oss-120b"]
+      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
   }
