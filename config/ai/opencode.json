@@ -45,7 +45,6 @@
     }
   },
 
-  "small_model": "opencode/deepseek-v4-flash-free",
   "agent": {
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
@@ -66,7 +65,7 @@
 
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
-    "opencode": { "whitelist": ["deepseek-v4-flash-free", "minimax-m3-free"] },
+    "opencode": { "whitelist": ["deepseek-v4-flash-free"] },
     "openrouter": {
       "models": {
         "moonshotai/kimi-k2.6": {
