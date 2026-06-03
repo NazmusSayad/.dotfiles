@@ -62,7 +62,8 @@
       "icon": "CrownIcon",
       "hotkey": "Shift+F14",
       "language": "en",
-      "mode": "oiper"
+      "mode": "oiper",
+      "transcribeAsrModel": "base.en"
     }
   ]
 }
