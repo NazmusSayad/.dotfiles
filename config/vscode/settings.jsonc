@@ -215,7 +215,7 @@
   "git.autofetch": "all",
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  "git.postCommitCommand": "push",
+  "git.postCommitCommand": "none",
   "git.rememberPostCommitCommand": false,
   "git.showPushSuccessNotification": true,
   "git.openRepositoryInParentFolders": "never",
