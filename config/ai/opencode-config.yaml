@@ -1,8 +1,6 @@
 opencode:
   models:
-    - id: minimax-m3-free
     - id: deepseek-v4-flash-free
-      small: true
       explore: true
 
 openrouter:
@@ -12,10 +10,6 @@ openrouter:
       title: true
     - id: moonshotai/kimi-k2.6
       options: { provider: { only: [fireworks] } }
-    # - id: deepseek/deepseek-v4-pro
-    #   options: { provider: { only: [fireworks] } }
-    # - id: z-ai/glm-5.1
-    #   options: { provider: { only: [fireworks] } }
 
 # opencode-go:
 #   models:
@@ -28,14 +22,6 @@ openrouter:
 #   models:
 #     - id: gpt-5.5
 #       context: 256000
-#     - id: gpt-5.3-codex
-#       context: 256000
-
-# crof:
-#   models:
-#     - id: kimi-k2.6
-#     - id: mimo-v2.5-pro
-#     - id: deepseek-v4-pro
 
 xai:
   models:

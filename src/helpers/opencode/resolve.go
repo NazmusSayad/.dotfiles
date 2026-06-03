@@ -10,13 +10,13 @@ import (
 )
 
 type OpencodeResolveAgentModels struct {
-	AgentModel   string
-	SmallModel   string
-	TitleModel   string
-	GeneralModel string
-	ExploreModel string
-	SummaryModel string
-	CompactModel string
+	Main            string
+	Small           string
+	AgentTitle      string
+	AgentGeneral    string
+	AgentExplore    string
+	AgentSummary    string
+	AgentCompaction string
 }
 
 func ResolveOpencodeProvider(
@@ -120,88 +120,88 @@ func ResolveOpencodeProvider(
 }
 
 func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigModel, currentAgentModels OpencodeResolveAgentModels) OpencodeResolveAgentModels {
-	if modelConfig.AsAgentModel {
-		if currentAgentModels.AgentModel != "" {
+	if modelConfig.AsMain {
+		if currentAgentModels.Main != "" {
 			fmt.Printf(
 				"%s Multiple models marked as agent model. Models %s and %s will be used as the agent model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.AgentModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.Main, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.AgentModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.Main = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsSmallModel {
-		if currentAgentModels.SmallModel != "" {
+	if modelConfig.AsSmall {
+		if currentAgentModels.Small != "" {
 			fmt.Printf(
 				"%s Multiple models marked as small model. Models %s and %s will be used as the small model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.SmallModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.Small, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.SmallModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.Small = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsTitleModel {
-		if currentAgentModels.TitleModel != "" {
+	if modelConfig.AsAgentTitle {
+		if currentAgentModels.AgentTitle != "" {
 			fmt.Printf(
 				"%s Multiple models marked as title model. Models %s and %s will be used as the title model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.TitleModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.AgentTitle, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.TitleModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.AgentTitle = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsGeneralModel {
-		if currentAgentModels.GeneralModel != "" {
+	if modelConfig.AsAgentGeneral {
+		if currentAgentModels.AgentGeneral != "" {
 			fmt.Printf(
 				"%s Multiple models marked as general model. Models %s and %s will be used as the general model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.GeneralModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.AgentGeneral, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.GeneralModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.AgentGeneral = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsExploreModel {
-		if currentAgentModels.ExploreModel != "" {
+	if modelConfig.AsAgentExplore {
+		if currentAgentModels.AgentExplore != "" {
 			fmt.Printf(
 				"%s Multiple models marked as explore model. Models %s and %s will be used as the explore model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.ExploreModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.AgentExplore, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.ExploreModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.AgentExplore = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsSummaryModel {
-		if currentAgentModels.SummaryModel != "" {
+	if modelConfig.AsAgentSummary {
+		if currentAgentModels.AgentSummary != "" {
 			fmt.Printf(
 				"%s Multiple models marked as summary model. Models %s and %s will be used as the summary model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.SummaryModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.AgentSummary, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.SummaryModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.AgentSummary = providerId + "/" + modelConfig.ID
 	}
 
-	if modelConfig.AsCompactModel {
-		if currentAgentModels.CompactModel != "" {
+	if modelConfig.AsAgentCompaction {
+		if currentAgentModels.AgentCompaction != "" {
 			fmt.Printf(
 				"%s Multiple models marked as compact model. Models %s and %s will be used as the compact model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.CompactModel, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.AgentCompaction, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.CompactModel = providerId + "/" + modelConfig.ID
+		currentAgentModels.AgentCompaction = providerId + "/" + modelConfig.ID
 	}
 
 	return currentAgentModels

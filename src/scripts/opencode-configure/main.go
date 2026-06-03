@@ -86,27 +86,27 @@ func main() {
 	fullConfig["provider"] = outputProviderConfig
 	fullConfig["enabled_providers"] = utils.SortArrayOfString(enabledProviders)
 
-	if outputAgentModels.AgentModel != "" {
-		fmt.Println(aurora.Green("Setting agent model to:"), aurora.Yellow(outputAgentModels.AgentModel))
-		fullConfig["model"] = outputAgentModels.AgentModel
+	if outputAgentModels.Main != "" {
+		fmt.Println(aurora.Green("Setting main model to:"), aurora.Yellow(outputAgentModels.Main))
+		fullConfig["model"] = outputAgentModels.Main
 	} else {
-		fmt.Println(aurora.Faint("Unsetting agent model"))
+		fmt.Println(aurora.Faint("Unsetting main model"))
 		delete(fullConfig, "model")
 	}
 
-	if outputAgentModels.SmallModel != "" {
-		fmt.Println(aurora.Green("Setting small model to:"), aurora.Yellow(outputAgentModels.SmallModel))
-		fullConfig["small_model"] = outputAgentModels.SmallModel
+	if outputAgentModels.Small != "" {
+		fmt.Println(aurora.Green("Setting small model to:"), aurora.Yellow(outputAgentModels.Small))
+		fullConfig["small_model"] = outputAgentModels.Small
 	} else {
 		fmt.Println(aurora.Faint("Unsetting small model"))
 		delete(fullConfig, "small_model")
 	}
 
-	writeAgentModelConfig(fullConfig, "title", outputAgentModels.TitleModel, opencodeConfig.Agents["title"])
-	writeAgentModelConfig(fullConfig, "general", outputAgentModels.GeneralModel, opencodeConfig.Agents["general"])
-	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.ExploreModel, opencodeConfig.Agents["explore"])
-	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.SummaryModel, opencodeConfig.Agents["summary"])
-	writeAgentModelConfig(fullConfig, "compaction", outputAgentModels.CompactModel, opencodeConfig.Agents["compaction"])
+	writeAgentModelConfig(fullConfig, "title", outputAgentModels.AgentTitle, opencodeConfig.Agents["title"])
+	writeAgentModelConfig(fullConfig, "general", outputAgentModels.AgentGeneral, opencodeConfig.Agents["general"])
+	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.AgentExplore, opencodeConfig.Agents["explore"])
+	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.AgentSummary, opencodeConfig.Agents["summary"])
+	writeAgentModelConfig(fullConfig, "compaction", outputAgentModels.AgentCompaction, opencodeConfig.Agents["compaction"])
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {

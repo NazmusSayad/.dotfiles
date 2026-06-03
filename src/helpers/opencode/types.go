@@ -31,13 +31,14 @@ type OpencodeProviderConfigModel struct {
 	Headers  map[string]string `yaml:"headers,omitempty"`
 	Variants map[string]any    `yaml:"variants,omitempty"`
 
-	AsAgentModel   bool `yaml:"agent,omitempty"`
-	AsSmallModel   bool `yaml:"small,omitempty"`
-	AsTitleModel   bool `yaml:"title,omitempty"`
-	AsGeneralModel bool `yaml:"general,omitempty"`
-	AsExploreModel bool `yaml:"explore,omitempty"`
-	AsSummaryModel bool `yaml:"summary,omitempty"`
-	AsCompactModel bool `yaml:"compact,omitempty"`
+	AsMain  bool `yaml:"main,omitempty"`
+	AsSmall bool `yaml:"small,omitempty"`
+
+	AsAgentTitle      bool `yaml:"title,omitempty"`
+	AsAgentGeneral    bool `yaml:"general,omitempty"`
+	AsAgentExplore    bool `yaml:"explore,omitempty"`
+	AsAgentSummary    bool `yaml:"summary,omitempty"`
+	AsAgentCompaction bool `yaml:"compaction,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
