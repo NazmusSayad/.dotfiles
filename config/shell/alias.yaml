@@ -1,8 +1,8 @@
 # AI Coding
 oc: opencode
 occ: opencode --continue
-co: codex --yolo --dangerously-bypass-approvals-and-sandbox
-coo: codex resume --last --yolo --dangerously-bypass-approvals-and-sandbox
+co: codex --yolo
+coo: codex resume --last --yolo
 cc: claude --permission-mode bypassPermissions
 ccc: claude --continue --permission-mode bypassPermissions
 
