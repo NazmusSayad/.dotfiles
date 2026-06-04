@@ -76,7 +76,11 @@
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
     "opencode": {
-      "whitelist": ["minimax-m3-free", "nemotron-3-ultra-free"]
+      "whitelist": [
+        "deepseek-v4-flash-free",
+        "minimax-m3-free",
+        "nemotron-3-ultra-free"
+      ]
     },
     "openrouter": {
       "models": {
