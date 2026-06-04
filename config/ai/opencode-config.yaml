@@ -1,8 +1,7 @@
 opencode:
   models:
-    - id: minimax-m3-free
-    - id: deepseek-v4-flash-free
     - id: nemotron-3-ultra-free
+    - id: minimax-m3-free
       explore: true
 
 openrouter:
