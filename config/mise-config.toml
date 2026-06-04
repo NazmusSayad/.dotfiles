@@ -10,8 +10,9 @@ cmake = "latest"
 
 
 # Workflow Tools
-make = "latest"
 just = "latest"
+make = "latest"
+ninja = "latest"
 
 
 # JS/TS
