@@ -10,6 +10,7 @@ openrouter:
   models:
     - id: openai/gpt-oss-120b
       title: true
+    - id: nvidia/nemotron-3-ultra-550b-a55b:free
     - id: moonshotai/kimi-k2.6
       options: { provider: { only: [fireworks] } }
 
