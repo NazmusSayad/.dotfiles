@@ -34,13 +34,11 @@ xai:
     permission:
       task: deny
       question: deny
-      todowrite: deny
       doom_loop: deny
   explore:
     permission:
       task: deny
       question: deny
-      todowrite: deny
       doom_loop: deny
       edit: deny
 

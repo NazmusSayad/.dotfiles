@@ -53,8 +53,7 @@
         "doom_loop": "deny",
         "edit": "deny",
         "question": "deny",
-        "task": "deny",
-        "todowrite": "deny"
+        "task": "deny"
       }
     },
     "general": {
@@ -62,8 +61,7 @@
       "permission": {
         "doom_loop": "deny",
         "question": "deny",
-        "task": "deny",
-        "todowrite": "deny"
+        "task": "deny"
       }
     },
     "title": {
