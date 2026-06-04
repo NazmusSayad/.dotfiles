@@ -48,7 +48,7 @@
 
   "agent": {
     "explore": {
-      "model": "opencode/nemotron-3-ultra-free",
+      "model": "opencode/minimax-m3-free",
       "permission": {
         "doom_loop": "deny",
         "edit": "deny",
@@ -76,11 +76,7 @@
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
     "opencode": {
-      "whitelist": [
-        "deepseek-v4-flash-free",
-        "minimax-m3-free",
-        "nemotron-3-ultra-free"
-      ]
+      "whitelist": ["minimax-m3-free", "nemotron-3-ultra-free"]
     },
     "openrouter": {
       "models": {
