@@ -11,6 +11,9 @@
   "model": "claude-opus-4-8",
   "enableAllProjectMcpServers": false,
   "defaultShell": "bash",
+  "enabledPlugins": {
+    "claude-code-wakatime@wakatime": true
+  },
   "extraKnownMarketplaces": {
     "wakatime": {
       "source": {
@@ -23,8 +26,5 @@
   "effortLevel": "high",
   "autoUpdatesChannel": "stable",
   "autoMemoryEnabled": false,
-  "skipDangerousModePermissionPrompt": true,
-  "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true
-  }
+  "skipDangerousModePermissionPrompt": true
 }
