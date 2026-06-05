@@ -33,7 +33,7 @@
       "enhancementLlmId": "openrouter-gpt-oss"
     },
     {
-      "id": "formal-profile",
+      "id": "normal-profile",
       "name": "Normal",
       "icon": "AiContentGenerator02Icon",
       "hotkey": "Ctrl+F14",
