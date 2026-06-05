@@ -76,11 +76,7 @@
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
     "opencode": {
-      "whitelist": [
-        "deepseek-v4-flash-free",
-        "minimax-m3-free",
-        "nemotron-3-ultra-free"
-      ]
+      "whitelist": ["minimax-m3-free"]
     },
     "openrouter": {
       "models": {
@@ -99,11 +95,7 @@
           "tool_call": true
         }
       },
-      "whitelist": [
-        "moonshotai/kimi-k2.6",
-        "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "openai/gpt-oss-120b"
-      ]
+      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
   }
