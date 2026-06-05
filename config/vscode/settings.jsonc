@@ -362,6 +362,9 @@
   "chat.checkpoints.showFileChanges": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.tips.enabled": false,
+  "chat.permissions.default": "autoApprove",
+  "chat.viewSessions.orientation": "stacked",
+  "github.copilot.chat.claudeAgent.enabled": false,
   "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.enable": {
     "*": true,
@@ -377,7 +380,5 @@
   "explorer.copyPathSeparator": "/",
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
-  "chat.permissions.default": "autoApprove",
-  "chat.viewSessions.orientation": "stacked",
   "workbench.activityBar.location": "hidden"
 }
