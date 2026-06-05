@@ -189,6 +189,8 @@
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
   "xml.format.preservedNewlines": 1,
   "prisma.hidePrisma6Prompts": true,
   "json.schemaDownload.enable": true,
