@@ -48,6 +48,11 @@
   },
 
   {
+    "Path": "opencode-server",
+    "AsUser": true
+  },
+
+  {
     "Path": "run-hidden",
     "Args": [
       "F:\\__WINBIN__\\netserv\\netserv.exe",
