@@ -10,8 +10,11 @@ import (
 )
 
 type OpencodeResolveAgentModels struct {
-	Main            string
-	Small           string
+	Main  string
+	Small string
+
+	Agent map[string]any
+
 	AgentTitle      string
 	AgentGeneral    string
 	AgentExplore    string
