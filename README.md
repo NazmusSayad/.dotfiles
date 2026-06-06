@@ -27,6 +27,14 @@ A complete automation system for setting up and managing your Windows developer 
 - **Code Editor Setup**
   Pre-configured settings for popular editors like Zed, along with helpful utilities for managing your development environment.
 
+## Agent Skills
+
+Add the `npm` agent skill with:
+
+```shell
+skills add nazmussayad/.dotfiles/config/ai/skills -s npm
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -84,7 +92,6 @@ Follow these steps to set up your development environment:
     **Note:** This will restart your computer automatically after completion.
 
 6.  **Optional: Additional Setup**
-
     - `__git-gpg.cmd`: Set up GPG key for Git commit signing
     - `__install-start-menu.cmd`: Add shortcuts to Windows Start Menu
 
@@ -93,10 +100,12 @@ Follow these steps to set up your development environment:
 Once installed, you can use these commands from anywhere in your terminal:
 
 **Package Management:**
+
 - `winget-install` - Install all configured applications
 - `winget-upgrade` - Update all installed packages
 
 **Git Helpers:**
+
 - `c` - Clone repositories (supports GitHub shorthand)
 - `gc` - Checkout branches (creates if doesn't exist)
 - `gpr` - Pull changes with rebase
@@ -105,29 +114,26 @@ Once installed, you can use these commands from anywhere in your terminal:
 - `gds` - Git diff with statistics
 
 **Slack Management:**
+
 - `slack-status` - Change Slack auto-start behavior (Always/Work Hours/Disabled)
 - Slack will automatically start/stop based on your configured work schedule
 
 **System Setup:**
+
 - `symlink-init` - Recreate all configuration file symlinks
 - `msys-setup` - Set up MSYS2 development environment
 
-## Repository Structure
+## Customization
 
-- `config/` - All your configuration files:
-  - Shell configurations (Bash, Fish, PowerShell)
-  - Application lists for automatic installation
-  - Slack work schedule settings
-  - Windows Terminal and Starship prompt settings
-  - Symlink mappings for configuration files
+Most user settings live under `config/`. Update the relevant config files, then run `__install-config.cmd` again to refresh links, scheduled tasks, shortcuts, and environment settings.
 
-- `src/scripts/` - Source code for all the command-line tools
+Common files to edit:
 
-- `src/ps1-windows/` - PowerShell scripts for Windows system configuration (review before running)
-
-- `.build/` - Automatically generated build output (created when you run `__compile.cmd`)
-
-- `__*.cmd` - Setup and installation scripts (run these to get started)
+- `config/apps.yaml` - Applications and packages to install
+- `config/symlink.jsonc` - Config files linked into your system
+- `config/slack-status.jsonc` - Slack startup schedule
+- `config/shell/` - Shell aliases, prompt, and terminal settings
+- `config/vscode/` - VS Code settings, keybindings, extensions, snippets, and synced state
 
 ## ⚠️ Important Notes
 
@@ -136,5 +142,3 @@ Once installed, you can use these commands from anywhere in your terminal:
 - **Administrator Rights:** Some scripts require administrator privileges. Windows will prompt you when needed.
 
 - **Backup First:** Consider backing up important data before running system modification scripts.
-
-- **Customization:** All configuration files are in the `config/` directory. Edit these files to customize the setup for your needs, then re-run the appropriate setup scripts.
