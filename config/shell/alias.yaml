@@ -46,6 +46,8 @@ fix-next: rm -rf .next
 fix-ports: sudo net stop winnat
 fix-case-win: sudo fsutil file setCaseSensitiveInfo . enable recursive
 
+ors: opencode-server stop; powershell -Command "Start-Process opencode-server -WindowStyle Hidden"
+
 "..": cd ..
 "...": cd ../..
 "....": cd ../../..
