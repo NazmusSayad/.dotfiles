@@ -28,6 +28,10 @@ xai:
     - id: grok-build-0.1
 
 ~agents:
+  plan:
+    color: "#749bd3"
+  build:
+    color: "#be6e72"
   general:
     disable: true
     permission:

@@ -47,6 +47,7 @@
   },
 
   "agent": {
+    "build": { "color": "#be6e72" },
     "explore": {
       "model": "opencode/minimax-m3-free",
       "permission": {
@@ -64,6 +65,7 @@
         "task": "deny"
       }
     },
+    "plan": { "color": "#749bd3" },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
@@ -75,9 +77,7 @@
 
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
-    "opencode": {
-      "whitelist": ["minimax-m3-free"]
-    },
+    "opencode": { "whitelist": ["minimax-m3-free"] },
     "openrouter": {
       "models": {
         "moonshotai/kimi-k2.6": {
