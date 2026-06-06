@@ -32,7 +32,7 @@ A complete automation system for setting up and managing your Windows developer 
 Add the `npm` agent skill with:
 
 ```shell
-skills add nazmussayad/.dotfiles/config/ai/skills -s npm
+skills add NazmusSayad/.dotfiles/config/ai/skills -s npm
 ```
 
 ## Getting Started
