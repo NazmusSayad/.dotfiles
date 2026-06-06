@@ -86,27 +86,28 @@ func main() {
 	fullConfig["provider"] = outputProviderConfig
 	fullConfig["enabled_providers"] = utils.SortArrayOfString(enabledProviders)
 
-	if outputAgentModels.Main != "" {
-		fmt.Println(aurora.Green("Setting main model to:"), aurora.Yellow(outputAgentModels.Main))
-		fullConfig["model"] = outputAgentModels.Main
+	if outputAgentModels.MainModel != "" {
+		fmt.Println(aurora.Green("Setting main model to:"), aurora.Yellow(outputAgentModels.MainModel))
+		fullConfig["model"] = outputAgentModels.MainModel
 	} else {
 		fmt.Println(aurora.Faint("Unsetting main model"))
 		delete(fullConfig, "model")
 	}
 
-	if outputAgentModels.Small != "" {
-		fmt.Println(aurora.Green("Setting small model to:"), aurora.Yellow(outputAgentModels.Small))
-		fullConfig["small_model"] = outputAgentModels.Small
+	if outputAgentModels.SmallModel != "" {
+		fmt.Println(aurora.Green("Setting small model to:"), aurora.Yellow(outputAgentModels.SmallModel))
+		fullConfig["small_model"] = outputAgentModels.SmallModel
 	} else {
 		fmt.Println(aurora.Faint("Unsetting small model"))
 		delete(fullConfig, "small_model")
 	}
 
-	writeAgentModelConfig(fullConfig, "title", outputAgentModels.AgentTitle, opencodeConfig.Agents["title"])
-	writeAgentModelConfig(fullConfig, "general", outputAgentModels.AgentGeneral, opencodeConfig.Agents["general"])
-	writeAgentModelConfig(fullConfig, "explore", outputAgentModels.AgentExplore, opencodeConfig.Agents["explore"])
-	writeAgentModelConfig(fullConfig, "summary", outputAgentModels.AgentSummary, opencodeConfig.Agents["summary"])
-	writeAgentModelConfig(fullConfig, "compaction", outputAgentModels.AgentCompaction, opencodeConfig.Agents["compaction"])
+	fullConfig["agent"] = opencodeConfig.Agents
+	setAgentModel(fullConfig, "title", outputAgentModels.AgentsModel["title"])
+	setAgentModel(fullConfig, "general", outputAgentModels.AgentsModel["general"])
+	setAgentModel(fullConfig, "explore", outputAgentModels.AgentsModel["explore"])
+	setAgentModel(fullConfig, "summary", outputAgentModels.AgentsModel["summary"])
+	setAgentModel(fullConfig, "compaction", outputAgentModels.AgentsModel["compaction"])
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
@@ -138,7 +139,8 @@ func main() {
 	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
 
-func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId string, extra any) {
+func setAgentModel(fullConfig map[string]any, agent string, modelId string) {
+	prevConfig := fullConfig["agent"].(map[string]any)[agent]
 	resolvedConfig := make(map[string]any)
 
 	if modelId != "" {
@@ -146,8 +148,8 @@ func writeAgentModelConfig(fullConfig map[string]any, agent string, modelId stri
 		resolvedConfig["model"] = modelId
 	}
 
-	if extra != nil {
-		maps.Copy(resolvedConfig, extra.(map[string]any))
+	if prevConfig != nil {
+		maps.Copy(resolvedConfig, prevConfig.(map[string]any))
 	}
 
 	if len(resolvedConfig) > 0 {

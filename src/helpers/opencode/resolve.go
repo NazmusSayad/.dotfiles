@@ -10,16 +10,9 @@ import (
 )
 
 type OpencodeResolveAgentModels struct {
-	Main  string
-	Small string
-
-	Agent map[string]any
-
-	AgentTitle      string
-	AgentGeneral    string
-	AgentExplore    string
-	AgentSummary    string
-	AgentCompaction string
+	MainModel   string
+	SmallModel  string
+	AgentsModel map[string]string
 }
 
 func ResolveOpencodeProvider(
@@ -123,90 +116,69 @@ func ResolveOpencodeProvider(
 }
 
 func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigModel, currentAgentModels OpencodeResolveAgentModels) OpencodeResolveAgentModels {
+	modelId := providerId + "/" + modelConfig.ID
+
 	if modelConfig.AsMain {
-		if currentAgentModels.Main != "" {
+		if currentAgentModels.MainModel != "" {
 			fmt.Printf(
 				"%s Multiple models marked as agent model. Models %s and %s will be used as the agent model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.Main, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.MainModel, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.Main = providerId + "/" + modelConfig.ID
+		currentAgentModels.MainModel = modelId
 	}
 
 	if modelConfig.AsSmall {
-		if currentAgentModels.Small != "" {
+		if currentAgentModels.SmallModel != "" {
 			fmt.Printf(
 				"%s Multiple models marked as small model. Models %s and %s will be used as the small model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.Small, modelConfig.ID,
+				aurora.Red("ERROR:"), currentAgentModels.SmallModel, modelConfig.ID,
 			)
 			os.Exit(1)
 		}
 
-		currentAgentModels.Small = providerId + "/" + modelConfig.ID
+		currentAgentModels.SmallModel = modelId
 	}
 
 	if modelConfig.AsAgentTitle {
-		if currentAgentModels.AgentTitle != "" {
-			fmt.Printf(
-				"%s Multiple models marked as title model. Models %s and %s will be used as the title model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.AgentTitle, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.AgentTitle = providerId + "/" + modelConfig.ID
+		currentAgentModels = setAgentModel(currentAgentModels, "title", modelId)
 	}
 
 	if modelConfig.AsAgentGeneral {
-		if currentAgentModels.AgentGeneral != "" {
-			fmt.Printf(
-				"%s Multiple models marked as general model. Models %s and %s will be used as the general model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.AgentGeneral, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.AgentGeneral = providerId + "/" + modelConfig.ID
+		currentAgentModels = setAgentModel(currentAgentModels, "general", modelId)
 	}
 
 	if modelConfig.AsAgentExplore {
-		if currentAgentModels.AgentExplore != "" {
-			fmt.Printf(
-				"%s Multiple models marked as explore model. Models %s and %s will be used as the explore model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.AgentExplore, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.AgentExplore = providerId + "/" + modelConfig.ID
+		currentAgentModels = setAgentModel(currentAgentModels, "explore", modelId)
 	}
 
 	if modelConfig.AsAgentSummary {
-		if currentAgentModels.AgentSummary != "" {
-			fmt.Printf(
-				"%s Multiple models marked as summary model. Models %s and %s will be used as the summary model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.AgentSummary, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.AgentSummary = providerId + "/" + modelConfig.ID
+		currentAgentModels = setAgentModel(currentAgentModels, "summary", modelId)
 	}
 
 	if modelConfig.AsAgentCompaction {
-		if currentAgentModels.AgentCompaction != "" {
-			fmt.Printf(
-				"%s Multiple models marked as compact model. Models %s and %s will be used as the compact model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.AgentCompaction, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.AgentCompaction = providerId + "/" + modelConfig.ID
+		currentAgentModels = setAgentModel(currentAgentModels, "compaction", modelId)
 	}
 
+	return currentAgentModels
+}
+
+func setAgentModel(currentAgentModels OpencodeResolveAgentModels, agentId string, modelId string) OpencodeResolveAgentModels {
+	if currentAgentModels.AgentsModel == nil {
+		currentAgentModels.AgentsModel = make(map[string]string)
+	}
+
+	if currentAgentModels.AgentsModel[agentId] != "" {
+		fmt.Printf(
+			"%s Multiple models marked as %s model. Models %s and %s will be used as the %s model.\n",
+			aurora.Red("ERROR:"), agentId, currentAgentModels.AgentsModel[agentId], modelId, agentId,
+		)
+		os.Exit(1)
+	}
+
+	currentAgentModels.AgentsModel[agentId] = modelId
 	return currentAgentModels
 }
 
