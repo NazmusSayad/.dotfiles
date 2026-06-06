@@ -1,5 +1,6 @@
 opencode:
   models:
+    - id: deepseek-v4-flash-free
     - id: minimax-m3-free
       explore: true
 

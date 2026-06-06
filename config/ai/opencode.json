@@ -77,7 +77,7 @@
 
   "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
-    "opencode": { "whitelist": ["minimax-m3-free"] },
+    "opencode": { "whitelist": ["deepseek-v4-flash-free","minimax-m3-free"] },
     "openrouter": {
       "models": {
         "moonshotai/kimi-k2.6": {
