@@ -1,7 +1,8 @@
 # AI Coding
 oc: opencode
 occ: opencode --continue
-ors: opencode-server stop; pwsh -Command "Start-Process opencode-server -WindowStyle Hidden"
+ocs: opencode-server stop
+ocrs: opencode-server stop; pwsh -Command "Start-Process opencode-server -WindowStyle Hidden"
 
 co: codex --yolo
 coo: codex resume --last --yolo
