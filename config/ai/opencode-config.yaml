@@ -3,6 +3,13 @@ opencode:
     - id: deepseek-v4-flash-free
       explore: true
 
+# opencode-go:
+#   models:
+#     - id: glm-5.1
+#     - id: kimi-k2.6
+#     - id: mimo-v2.5-pro
+#     - id: deepseek-v4-pro
+
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
@@ -11,16 +18,9 @@ openrouter:
     - id: moonshotai/kimi-k2.6
       options: { provider: { only: [fireworks] } }
 
-ollama-cloud:
-  models:
-    - id: minimax-m3
-
-# opencode-go:
+# ollama-cloud:
 #   models:
-#     - id: glm-5.1
-#     - id: kimi-k2.6
-#     - id: mimo-v2.5-pro
-#     - id: deepseek-v4-pro
+#     - id: minimax-m3
 
 # openai:
 #   models:
