@@ -11,6 +11,10 @@ openrouter:
     - id: moonshotai/kimi-k2.6
       options: { provider: { only: [fireworks] } }
 
+ollama-cloud:
+  models:
+    - id: minimax-m3
+
 # opencode-go:
 #   models:
 #     - id: glm-5.1
