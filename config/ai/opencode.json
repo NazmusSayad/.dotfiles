@@ -75,7 +75,7 @@
     }
   },
 
-  "enabled_providers": ["ollama-cloud", "opencode", "openrouter", "xai"],
+  "enabled_providers": ["opencode", "openrouter", "xai"],
   "provider": {
     "opencode": { "whitelist": ["deepseek-v4-flash-free"] },
     "openrouter": {
@@ -97,7 +97,6 @@
       },
       "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
     },
-    "xai": { "whitelist": ["grok-build-0.1"] },
-    "ollama-cloud": { "whitelist": ["minimax-m3"] }
+    "xai": { "whitelist": ["grok-build-0.1"] }
   }
 }
