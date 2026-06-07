@@ -4,7 +4,7 @@ msys2:
   - zsh
 
 scoop:
-  # Development
+  # Dev
   - gh
   - aws
   - scc
@@ -12,6 +12,9 @@ scoop:
   - sqlite
   - extras/fvm
   - extras/tableplus
+
+  # Cloud
+  - cloudflared
 
   # AI Coding
   - codex
