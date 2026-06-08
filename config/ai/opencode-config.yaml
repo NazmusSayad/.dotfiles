@@ -35,22 +35,25 @@ xai:
     - id: grok-build-0.1
 
 ~agents:
+  ask:
+    color: "#89AE6E"
   plan:
-    color: "#749bd3"
+    color: "#43ACB9"
   build:
-    color: "#be6e72"
+    color: "#D2AE6B"
+  explore:
+    color: "#ABB2BF"
+    permission:
+      task: deny
+      question: deny
+      doom_loop: deny
+      edit: deny
   general:
     disable: true
     permission:
       task: deny
       question: deny
       doom_loop: deny
-  explore:
-    permission:
-      task: deny
-      question: deny
-      doom_loop: deny
-      edit: deny
 
   title:
     options:
