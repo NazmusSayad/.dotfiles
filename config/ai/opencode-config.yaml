@@ -36,7 +36,7 @@ xai:
 
 ~agents:
   build:
-    color: "#D2AE6B"
+    color: "#C18A57"
   plan:
     color: "#43ACB9"
   ask:
