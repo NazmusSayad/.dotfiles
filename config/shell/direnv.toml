@@ -1,7 +1,4 @@
 [global]
-strict_env = false
-load_dotenv = true
-
 disable_stdin = true
 log_format = "-󰜃 %s"
 
