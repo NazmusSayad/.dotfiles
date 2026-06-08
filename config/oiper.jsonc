@@ -59,9 +59,9 @@
       "enhancementType": "prompt"
     },
     {
-      "id": "oiper-profile",
+      "id": "bengali-profile",
       "name": "OiPer",
-      "icon": "CrownIcon",
+      "icon": "LanguageSquareIcon",
       "hotkey": "Shift+F14",
       "mode": "cloud",
       "language": "en",
