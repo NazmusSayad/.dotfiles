@@ -1,6 +1,5 @@
 ---
 mode: primary
-color: "#93ad73"
 description: Answers questions, discusses context, and provides information
 temperature: 0.1
 permission:

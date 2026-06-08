@@ -47,8 +47,10 @@
   },
 
   "agent": {
-    "build": { "color": "#be6e72" },
+    "ask": { "color": "#89AE6E" },
+    "build": { "color": "#D2AE6B" },
     "explore": {
+      "color": "#ABB2BF",
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
         "doom_loop": "deny",
@@ -59,13 +61,9 @@
     },
     "general": {
       "disable": true,
-      "permission": {
-        "doom_loop": "deny",
-        "question": "deny",
-        "task": "deny"
-      }
+      "permission": { "doom_loop": "deny", "question": "deny", "task": "deny" }
     },
-    "plan": { "color": "#749bd3" },
+    "plan": { "color": "#43ACB9" },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
