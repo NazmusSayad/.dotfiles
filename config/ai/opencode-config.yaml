@@ -1,5 +1,7 @@
 opencode:
   models:
+    - id: mimo-v2.5-free
+    - id: nemotron-3-ultra-free
     - id: deepseek-v4-flash-free
       explore: true
 
