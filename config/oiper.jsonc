@@ -63,10 +63,13 @@
       "name": "OiPer",
       "icon": "CrownIcon",
       "hotkey": "Shift+F14",
-      "mode": "oiper",
+      "mode": "cloud",
       "language": "en",
       "transcribeAsrModel": "base",
-      "transcribeAsrId": "groq-whisper"
+      "transcribeAsrId": "groq-whisper",
+      "enhancementLlmId": "openrouter-gpt-oss",
+      "enhancementPrompt": "Whatever input you will get, you have to convert that into Bengali.",
+      "enhancementType": "custom"
     }
   ]
 }
