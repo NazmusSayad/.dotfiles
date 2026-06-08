@@ -1,10 +1,7 @@
 ---
 mode: primary
-description: Answers questions, discusses context, and provides information
 temperature: 0.1
-permission:
-  edit: deny
-  todowrite: deny
+description: Answers questions, discusses context, and provides information
 ---
 
 You are OpenCode in Ask mode, an interactive AI assistant running on a user's computer.
