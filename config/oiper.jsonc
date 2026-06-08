@@ -33,7 +33,6 @@
       "hotkey": "F14",
       "language": "en",
       "mode": "cloud",
-      "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-gpt-oss"
     },
@@ -44,7 +43,6 @@
       "hotkey": "Ctrl+F14",
       "language": "en",
       "mode": "cloud",
-      "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-gpt-oss",
       "enhancementType": "normal"
@@ -56,7 +54,6 @@
       "hotkey": "Alt+F14",
       "language": "en",
       "mode": "cloud",
-      "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-gpt-oss",
       "enhancementType": "prompt"
@@ -66,10 +63,10 @@
       "name": "OiPer",
       "icon": "CrownIcon",
       "hotkey": "Shift+F14",
-      "mode": "local",
-      "transcribeAsrModel": "medium",
-      "transcribeAsrId": "groq-whisper",
-      "language": "auto"
+      "mode": "oiper",
+      "language": "en",
+      "transcribeAsrModel": "base",
+      "transcribeAsrId": "groq-whisper"
     }
   ]
 }
