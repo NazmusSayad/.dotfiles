@@ -2,7 +2,7 @@
   "writeClipboard": false,
   "injectionMethod": "Ctrl+V",
 
-  "words": ["Nazmus Sayad"],
+  "words": ["Nazmus Sayad", "OiPer"],
 
   "cloudASRs": [
     {
@@ -19,7 +19,12 @@
 
   "cloudLLMs": [
     {
-      "id": "openrouter-gpt-oss",
+      "id": "openrouter-nano",
+      "model": "openai/gpt-oss-20b:nitro",
+      "provider": "openrouter"
+    },
+    {
+      "id": "openrouter-mini",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
     }
@@ -34,7 +39,7 @@
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-gpt-oss"
+      "enhancementLlmId": "openrouter-nano"
     },
     {
       "id": "normal-profile",
@@ -44,7 +49,7 @@
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-gpt-oss",
+      "enhancementLlmId": "openrouter-mini",
       "enhancementType": "normal"
     },
     {
@@ -55,7 +60,7 @@
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-gpt-oss",
+      "enhancementLlmId": "openrouter-mini",
       "enhancementType": "prompt"
     },
     {
@@ -67,7 +72,7 @@
       "language": "en",
       "transcribeAsrModel": "base",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-gpt-oss",
+      "enhancementLlmId": "openrouter-mini",
       "enhancementPrompt": "Whatever input you will get, you have to convert that into Bengali.",
       "enhancementType": "custom"
     }
