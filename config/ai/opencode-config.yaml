@@ -37,6 +37,9 @@ xai:
 ~agents:
   ask:
     color: "#89AE6E"
+    permission:
+      edit: deny
+      todowrite: deny
   plan:
     color: "#43ACB9"
   build:
@@ -44,16 +47,14 @@ xai:
   explore:
     color: "#ABB2BF"
     permission:
+      edit: deny
       task: deny
       question: deny
-      doom_loop: deny
-      edit: deny
   general:
     disable: true
     permission:
       task: deny
       question: deny
-      doom_loop: deny
 
   title:
     options:
