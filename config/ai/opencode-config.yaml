@@ -51,6 +51,7 @@ xai:
       edit: deny
       task: deny
       question: deny
+      todowrite: deny
   general:
     color: "#D46870"
     disable: true
