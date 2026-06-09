@@ -1,18 +1,14 @@
 opencode:
   models:
-    - id: mimo-v2.5-free
-    - id: nemotron-3-ultra-free
     - id: deepseek-v4-flash-free
-      explore: true
 
 opencode-go:
   models:
     - id: glm-5.1
     - id: kimi-k2.6
     - id: minimax-m3
-    - id: qwen3.7-max
-    - id: qwen3.7-plus
     - id: mimo-v2.5-pro
+      explore: true
     - id: deepseek-v4-pro
 
 openrouter:
