@@ -1,4 +1,6 @@
 # AI Coding
+mt: mytokens
+
 oc: opencode
 occ: opencode --continue
 ocs: opencode-server stop
