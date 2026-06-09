@@ -1,6 +1,7 @@
 opencode:
   models:
     - id: deepseek-v4-flash-free
+      explore: true
 
 opencode-go:
   models:
