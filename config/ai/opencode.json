@@ -48,7 +48,7 @@
   "agent": {
     "ask": {
       "color": "#89AE6E",
-      "permission": { "edit": "deny", "todowrite": "deny" }
+      "permission": { "edit": "deny" }
     },
     "build": { "color": "#C18A57" },
     "explore": {
@@ -57,8 +57,7 @@
       "permission": {
         "edit": "deny",
         "question": "deny",
-        "task": "deny",
-        "todowrite": "deny"
+        "task": "deny"
       }
     },
     "general": {

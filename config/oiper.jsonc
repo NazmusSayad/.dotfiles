@@ -76,5 +76,12 @@
       "enhancementPrompt": "Whatever input you will get, you have to convert that into Bengali.",
       "enhancementType": "custom"
     }
-  ]
+  ],
+  "snippets": {
+    "asdf": "asdfasdf",
+    "asdfasd": "fasdfasdf",
+    "asdfasdf": "asdfasdf",
+    "asdfasdfa": "sdfasdfasdf",
+    "asdfasdfDFSDFSDF": "sdfsf"
+  }
 }

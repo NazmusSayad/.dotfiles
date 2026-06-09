@@ -39,14 +39,12 @@ xai:
     color: "#89AE6E"
     permission:
       edit: deny
-      todowrite: deny
   explore:
     color: "#ABB2BF"
     permission:
       edit: deny
       task: deny
       question: deny
-      todowrite: deny
   general:
     color: "#D46870"
     disable: true
