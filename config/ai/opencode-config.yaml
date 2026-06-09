@@ -41,7 +41,6 @@ xai:
     color: "#89AE6E"
     permission:
       edit: deny
-      task: deny
       todowrite: deny
   explore:
     color: "#ABB2BF"
@@ -54,7 +53,6 @@ xai:
     color: "#D46870"
     disable: true
     permission:
-      task: deny
       question: deny
 
   title:
