@@ -47,10 +47,10 @@
     "AsUser": true
   },
 
-  {
-    "Path": "opencode-server",
-    "AsUser": true
-  },
+  // {
+  //   "Path": "opencode-server",
+  //   "AsUser": true
+  // },
 
   {
     "Path": "run-hidden",
