@@ -126,7 +126,7 @@
   },
   {
     "Source": "@/config/oiper.jsonc",
-    "Target": ["$APPDATA/OiPer/config.json", "$APPDATA/OiPer.dev/config.json"]
+    "Targets": ["$APPDATA/OiPer/config.json", "$APPDATA/OiPer.dev/config.json"]
   },
   {
     "Source": "@/config/uni-run.json",
