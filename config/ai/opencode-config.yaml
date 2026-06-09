@@ -8,7 +8,6 @@ opencode-go:
     - id: kimi-k2.6
     - id: minimax-m3
     - id: mimo-v2.5-pro
-      explore: true
     - id: deepseek-v4-pro
 
 openrouter:
@@ -16,8 +15,6 @@ openrouter:
   models:
     - id: openai/gpt-oss-120b
       title: true
-    - id: moonshotai/kimi-k2.6
-      options: { provider: { only: [fireworks] } }
 
 # ollama-cloud:
 #   models:
