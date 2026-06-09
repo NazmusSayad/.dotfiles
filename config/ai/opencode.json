@@ -76,7 +76,7 @@
     }
   },
 
-  "enabled_providers": ["opencode", "openrouter", "xai"],
+  "enabled_providers": ["opencode", "opencode-go", "openrouter", "xai"],
   "provider": {
     "opencode": {
       "whitelist": [
@@ -85,14 +85,25 @@
         "nemotron-3-ultra-free"
       ]
     },
+    "opencode-go": {
+      "whitelist": [
+        "deepseek-v4-pro",
+        "glm-5.1",
+        "kimi-k2.6",
+        "mimo-v2.5-pro",
+        "minimax-m3",
+        "qwen3.7-max",
+        "qwen3.7-plus"
+      ]
+    },
     "openrouter": {
       "models": {
         "moonshotai/kimi-k2.6": {
           "attachment": true,
-          "cost": { "cache_read": 0.144, "input": 0.684, "output": 3.42 },
+          "cost": { "cache_read": 0.34, "input": 0.68, "output": 3.41 },
           "family": "kimi-k2.6",
           "id": "moonshotai/kimi-k2.6",
-          "limit": { "context": 262144, "output": 262144 },
+          "limit": { "context": 262142, "output": 262142 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
           "name": "Kimi K2.6",
           "options": { "provider": { "only": ["fireworks"] } },
