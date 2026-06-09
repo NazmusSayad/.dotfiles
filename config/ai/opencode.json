@@ -53,6 +53,7 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
+      "model": "opencode/deepseek-v4-flash-free",
       "permission": {
         "edit": "deny",
         "question": "deny",
