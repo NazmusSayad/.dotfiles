@@ -53,7 +53,6 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
-      "model": "opencode-go/mimo-v2.5-pro",
       "permission": {
         "edit": "deny",
         "question": "deny",
@@ -91,23 +90,7 @@
       ]
     },
     "openrouter": {
-      "models": {
-        "moonshotai/kimi-k2.6": {
-          "attachment": true,
-          "cost": { "cache_read": 0.34, "input": 0.68, "output": 3.41 },
-          "family": "kimi-k2.6",
-          "id": "moonshotai/kimi-k2.6",
-          "limit": { "context": 262142, "output": 262142 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "name": "Kimi K2.6",
-          "options": { "provider": { "only": ["fireworks"] } },
-          "reasoning": true,
-          "release_date": "2026-04-21",
-          "temperature": true,
-          "tool_call": true
-        }
-      },
-      "whitelist": ["moonshotai/kimi-k2.6", "openai/gpt-oss-120b"]
+      "whitelist": ["openai/gpt-oss-120b"]
     },
     "xai": { "whitelist": ["grok-build-0.1"] }
   }
