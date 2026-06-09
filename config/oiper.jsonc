@@ -28,14 +28,11 @@
     }
   ],
 
-  "words": [],
+  "words": ["Nazmus Sayad", "OiPer"],
 
   "snippets": {
-    "asdf": "asdfasdf",
-    "asdfasd": "fasdfasdf",
-    "asdfasdf": "asdfasdf",
-    "asdfasdfa": "sdfasdfasdf",
-    "asdfasdfDFSDFSDF": "sdfsf"
+    "My GitHub": "https://github.com/NazmusSayad",
+    "My Website": "https://nazmussayad.com"
   },
 
   "profiles": [
