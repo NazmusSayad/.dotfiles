@@ -2,8 +2,6 @@
   "writeClipboard": false,
   "injectionMethod": "Ctrl+V",
 
-  "words": [],
-
   "cloudASRs": [
     {
       "id": "groq-whisper",
@@ -29,6 +27,16 @@
       "provider": "openrouter"
     }
   ],
+
+  "words": [],
+
+  "snippets": {
+    "asdf": "asdfasdf",
+    "asdfasd": "fasdfasdf",
+    "asdfasdf": "asdfasdf",
+    "asdfasdfa": "sdfasdfasdf",
+    "asdfasdfDFSDFSDF": "sdfsf"
+  },
 
   "profiles": [
     {
@@ -76,12 +84,5 @@
       "enhancementPrompt": "Whatever input you will get, you have to convert that into Bengali.",
       "enhancementType": "custom"
     }
-  ],
-  "snippets": {
-    "asdf": "asdfasdf",
-    "asdfasd": "fasdfasdf",
-    "asdfasdf": "asdfasdf",
-    "asdfasdfa": "sdfasdfasdf",
-    "asdfasdfDFSDFSDF": "sdfsf"
-  }
+  ]
 }
