@@ -81,13 +81,7 @@
       "whitelist": ["deepseek-v4-flash-free"]
     },
     "opencode-go": {
-      "whitelist": [
-        "deepseek-v4-pro",
-        "glm-5.1",
-        "kimi-k2.6",
-        "mimo-v2.5-pro",
-        "minimax-m3"
-      ]
+      "whitelist": ["kimi-k2.6", "mimo-v2.5-pro", "minimax-m3"]
     },
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]

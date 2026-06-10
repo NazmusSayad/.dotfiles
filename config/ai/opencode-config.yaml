@@ -5,11 +5,9 @@ opencode:
 
 opencode-go:
   models:
-    - id: glm-5.1
     - id: kimi-k2.6
     - id: minimax-m3
     - id: mimo-v2.5-pro
-    - id: deepseek-v4-pro
 
 openrouter:
   url: https://openrouter.ai/api/v1/models

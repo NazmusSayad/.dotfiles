@@ -1,6 +1,7 @@
 {
   "writeClipboard": false,
   "injectionMethod": "Ctrl+V",
+  "pasteLastHotkey": "Ctrl+Insert",
 
   "cloudASRs": [
     {
@@ -73,9 +74,9 @@
       "name": "Bengali",
       "icon": "LanguageSquareIcon",
       "hotkey": "Shift+F14",
-      "mode": "cloud",
+      "mode": "local",
       "language": "en",
-      "transcribeAsrModel": "base",
+      "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
       "enhancementPrompt": "Whatever input you will get, you have to convert that into Bengali.",
