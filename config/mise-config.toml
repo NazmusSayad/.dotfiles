@@ -92,5 +92,5 @@ exec_auto_install = true
 not_found_auto_install = true
 trusted_config_paths = ["~/Desktop"]
 
-[settings.npm]
-package_manager = "pnpm"
+node.corepack = true
+npm.package_manager = "pnpm"
