@@ -10,6 +10,10 @@
   },
   "model": "opus",
   "enableAllProjectMcpServers": false,
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "workflowKeywordTriggerEnabled": false,
   "defaultShell": "bash",
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
@@ -24,6 +28,16 @@
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "high",
+  "promptSuggestionEnabled": false,
+  "awaySummaryEnabled": false,
   "autoMemoryEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "editorMode": "normal",
+  "preferredNotifChannel": "auto",
+  "switchModelsOnFlag": false,
+  "fileCheckpointingEnabled": false,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "useAutoModeDuringPlan": false
 }
