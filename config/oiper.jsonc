@@ -29,7 +29,7 @@
     }
   ],
 
-  "words": ["Nazmus Sayad", "OiPer"],
+  "words": ["NazmusSayad", "OiPer"],
 
   "snippets": {
     "My GitHub": "https://github.com/NazmusSayad",
@@ -74,7 +74,7 @@
       "name": "Bengali",
       "icon": "LanguageSquareIcon",
       "hotkey": "Shift+F14",
-      "mode": "local",
+      "mode": "cloud",
       "language": "en",
       "transcribeAsrModel": "base.en",
       "transcribeAsrId": "groq-whisper",
