@@ -11,7 +11,6 @@ scoop:
   - gcc
   - sqlite
   - extras/fvm
-  - extras/tableplus
 
   # Cloud
   - cloudflared
@@ -104,8 +103,8 @@ winget:
 
   # Internet
   - Google.Chrome
-  - Tonec.InternetDownloadManager
   - qBittorrent.qBittorrent
+  - Tonec.InternetDownloadManager
 
   # Media Tools
   - OBSProject.OBSStudio
@@ -118,14 +117,13 @@ winget:
     interactiveUpgrade: true
 
   # Shells & Development Tools
+  - id: TablePlus.TablePlus
+  - id: LLVM.LLVM
+    version: 21.1.8
   - id: MSYS2.MSYS2
-    name: MSYS2
     skipInstall: true
     forceAdminInstall: true
     forceAdminUpgrade: true
-  - id: LLVM.LLVM
-    name: LLVM
-    version: 21.1.8
 
   # Others
   - RamenSoftware.Windhawk
