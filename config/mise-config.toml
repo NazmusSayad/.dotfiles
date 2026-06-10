@@ -16,12 +16,11 @@ ninja = "latest"
 
 
 # JS/TS
+node = "lts"
 bun = "latest"
 deno = "latest"
-node = "lts"
-"npm:node-gyp" = "latest"
+pnpm = "latest"
 "npm:tsx" = "latest"
-"npm:pnpm" = "latest"
 "npm:taze" = "latest"
 "npm:@antfu/ni" = "latest"
 
@@ -65,7 +64,7 @@ java = "latest"
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
 "npm:opencode-armor" = "latest"
-"npm:mytokens" = { version = "latest", allow_builds = true }
+"npm:mytokens" = { version = "latest", allow_builds = ["sqlite3"] }
 
 # My Tools
 "npm:gityo" = "latest"
