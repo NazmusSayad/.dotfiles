@@ -24,7 +24,6 @@
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "high",
-  "autoUpdatesChannel": "stable",
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true
 }
