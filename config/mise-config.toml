@@ -64,8 +64,8 @@ java = "latest"
 # AI Tools
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
-"npm:mytokens" = "latest"
 "npm:opencode-armor" = "latest"
+"npm:mytokens" = { version = "latest", allow_builds = true }
 
 # My Tools
 "npm:gityo" = "latest"
@@ -93,3 +93,6 @@ exec_auto_install = true
 not_found_auto_install = true
 
 trusted_config_paths = ["~/Desktop"]
+
+[settings.npm]
+package_manager = "pnpm"
