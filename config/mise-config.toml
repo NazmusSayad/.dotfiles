@@ -16,9 +16,10 @@ ninja = "latest"
 
 
 # JS/TS
-node = "lts"
-deno = "latest"
 bun = "latest"
+deno = "latest"
+node = "lts"
+"npm:node-gyp" = "latest"
 "npm:tsx" = "latest"
 "npm:pnpm" = "latest"
 "npm:taze" = "latest"
