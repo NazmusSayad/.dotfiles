@@ -87,7 +87,6 @@ serverless = "latest"
 
 
 [settings]
-quiet = true
 auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
