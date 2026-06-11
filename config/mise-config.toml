@@ -94,3 +94,16 @@ trusted_config_paths = ["~/Desktop"]
 
 node.corepack = true
 npm.package_manager = "pnpm"
+
+minimum_release_age_excludes = [
+  # Tools
+  "pnpm",
+
+  # My Tools
+  "npm:gityo",
+  "npm:netserv",
+  "npm:uni-run",
+  "npm:mytokens",
+  "npm:code-info",
+  "npm:opencode-armor",
+]
