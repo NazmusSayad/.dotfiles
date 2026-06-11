@@ -37,18 +37,17 @@ xai:
     color: "#89AE6E"
     permission:
       edit: deny
+  general:
+    color: "#D46870"
+    permission:
+      task: deny
+      question: deny
   explore:
     color: "#ABB2BF"
     permission:
       edit: deny
       task: deny
       question: deny
-  general:
-    color: "#D46870"
-    permission:
-      task: deny
-      question: deny
-
   title:
     options:
       reasoning: { effort: medium }
