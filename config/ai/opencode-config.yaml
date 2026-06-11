@@ -45,8 +45,8 @@ xai:
       question: deny
   general:
     color: "#D46870"
-    disable: true
     permission:
+      task: deny
       question: deny
 
   title:
