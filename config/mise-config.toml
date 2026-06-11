@@ -62,8 +62,8 @@ java = "latest"
 
 # AI Tools
 "npm:skills" = "latest"
-"npm:devrage" = "latest"
 "npm:opencode-armor" = "latest"
+"npm:devrage" = { version = "latest", allow_builds = ["better-sqlite3"] }
 "npm:mytokens" = { version = "latest", allow_builds = ["sqlite3"] }
 
 # My Tools
