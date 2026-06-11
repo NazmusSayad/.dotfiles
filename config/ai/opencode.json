@@ -46,24 +46,16 @@
   },
 
   "agent": {
-    "ask": {
-      "color": "#89AE6E",
-      "permission": { "edit": "deny" }
-    },
+    "ask": { "color": "#89AE6E", "permission": { "edit": "deny" } },
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
       "model": "opencode/deepseek-v4-flash-free",
-      "permission": {
-        "edit": "deny",
-        "question": "deny",
-        "task": "deny"
-      }
+      "permission": { "edit": "deny", "question": "deny", "task": "deny" }
     },
     "general": {
       "color": "#D46870",
-      "disable": true,
-      "permission": { "question": "deny" }
+      "permission": { "question": "deny", "task": "deny" }
     },
     "plan": { "color": "#43ACB9" },
     "title": {
