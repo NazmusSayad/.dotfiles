@@ -2,27 +2,15 @@
   // Shell Configs
   {
     "Source": "@/config/shell/bash-config.sh",
-    "Target.Win": "~/.bashrc"
-  },
-  {
-    "Source": "@/config/shell/bash-config.mac.sh",
-    "Target.Mac": "~/.bash_profile"
+    "Target": "~/.bash_profile"
   },
   {
     "Source": "@/config/shell/fish-config.fish",
-    "Target.Win": "~/.config/fish/config.fish"
-  },
-  {
-    "Source": "@/config/shell/fish-config.mac.fish",
-    "Target.Mac": "~/.config/fish/config.fish"
+    "Target": "~/.config/fish/config.fish"
   },
   {
     "Source": "@/config/shell/zsh-config.sh",
-    "Target.Win": "~/.zshrc"
-  },
-  {
-    "Source": "@/config/shell/zsh-config.mac.sh",
-    "Target.Mac": "~/.zprofile"
+    "Target": "~/.zprofile"
   },
   {
     "Source": "@/config/shell/powershell.ps1",
