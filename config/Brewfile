@@ -1,3 +1,4 @@
+brew "fish"
 brew "gh"
 brew "mise"
 brew "opencode"
