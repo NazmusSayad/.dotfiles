@@ -82,7 +82,7 @@
   // Opencode Local Configs
   {
     "Source": "@/.local/opencode-auth.json",
-    "Target.Win": "~/.local/share/opencode/auth.json"
+    "Target": "~/.local/share/opencode/auth.json"
   },
   {
     "Source": "@/.local/opencode-desktop.dat",
