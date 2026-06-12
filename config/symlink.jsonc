@@ -86,7 +86,7 @@
   },
   {
     "Source": "@/.local/opencode-desktop.dat",
-    "Target": "$APPDATA/ai.opencode.desktop/default.dat"
+    "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat"
   },
 
   // Terminal Configs
