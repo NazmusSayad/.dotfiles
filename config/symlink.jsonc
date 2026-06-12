@@ -13,6 +13,10 @@
     "Target.Win": "~/.zshrc"
   },
   {
+    "Source": "@/config/shell/zsh-config.mac.sh",
+    "Target.Mac": "~/.zprofile"
+  },
+  {
     "Source": "@/config/shell/powershell.ps1",
     "Targets.Win": [
       "~/Documents/PowerShell/profile.ps1",
