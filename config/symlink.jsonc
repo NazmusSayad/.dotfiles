@@ -2,7 +2,7 @@
   // Shell Configs
   {
     "Source": "@/config/shell/bash-config.sh",
-    "Target": "~/.bash_profile"
+    "Target": "~/.bashrc"
   },
   {
     "Source": "@/config/shell/fish-config.fish",
@@ -10,7 +10,7 @@
   },
   {
     "Source": "@/config/shell/zsh-config.sh",
-    "Target": "~/.zprofile"
+    "Target": "~/.zshrc"
   },
   {
     "Source": "@/config/shell/powershell.ps1",
