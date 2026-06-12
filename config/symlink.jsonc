@@ -5,8 +5,16 @@
     "Target.Win": "~/.bashrc"
   },
   {
+    "Source": "@/config/shell/bash-config.mac.sh",
+    "Target.Mac": "~/.bash_profile"
+  },
+  {
     "Source": "@/config/shell/fish-config.fish",
     "Target.Win": "~/.config/fish/config.fish"
+  },
+  {
+    "Source": "@/config/shell/fish-config.mac.fish",
+    "Target.Mac": "~/.config/fish/config.fish"
   },
   {
     "Source": "@/config/shell/zsh-config.sh",
