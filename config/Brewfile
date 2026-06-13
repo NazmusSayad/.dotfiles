@@ -1,10 +1,12 @@
 
+brew "btop"
 brew "cloudflared"
 brew "direnv"
 brew "fastfetch"
 brew "fish"
 brew "fvm"
 brew "gh"
+brew "htop"
 brew "hyperfine"
 brew "libomp"
 brew "mise"
