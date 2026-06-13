@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 
 	constants "dotfiles/src/constants"
 	"dotfiles/src/helpers"
@@ -51,6 +52,11 @@ func buildScript(sourceDir string, outputDir string, entryName string, exe strin
 		panic(fmt.Sprintf("Source file not found: %s", sourcePath))
 	}
 
-	fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName + aurora.Faint(" -> ").String() + exe)
-	helpers.ExecNativeCommand([]string{"go", "build", "-o", filepath.Join(outputDir, exe+".exe"), sourcePath})
+	binName := exe
+	if runtime.GOOS == "windows" {
+		binName += ".exe"
+	}
+
+	fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName + aurora.Faint(" -> ").String() + binName)
+	helpers.ExecNativeCommand([]string{"go", "build", "-o", filepath.Join(outputDir, binName), sourcePath})
 }
