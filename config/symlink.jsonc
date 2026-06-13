@@ -119,6 +119,10 @@
     "Source": "@/config/windows-terminal.json",
     "Target.Win": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
+  {
+    "Source": "@/config/shell/ghostty.conf",
+    "Target.Mac": "~/.config/ghostty/config"
+  },
 
   // Other Configs
   {
