@@ -47,6 +47,11 @@
     "Target": "~/.config/opencode/tui.json"
   },
   {
+    "Source": "@/config/ai/opencode-desktop.dat",
+    "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat",
+    "Target.Mac": "~/Library/Application Support/ai.opencode.desktop/default.dat"
+  },
+  {
     "Source": "@/config/ai/opencode-armor.json",
     "Target": "~/.opencode-armor.json"
   },
@@ -79,14 +84,10 @@
     ]
   },
 
-  // Opencode Local Configs
+  // Opencode Auth Configs
   {
     "Source": "@/.local/opencode-auth.json",
     "Target": "~/.local/share/opencode/auth.json"
-  },
-  {
-    "Source": "@/.local/opencode-desktop.dat",
-    "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat"
   },
 
   // Terminal Configs
