@@ -5,6 +5,7 @@ else
 	eval "$(mise activate zsh)"
 fi
 
+[[ -f ~/.env ]] && eval "$(dotsh zsh "$(<~/.env)")"
 eval "$(direnv hook zsh)"
 
 if [[ $- == *i* ]]; then
