@@ -1,5 +1,6 @@
 opencode:
   models:
+    - id: mimo-v2.5-free
     - id: deepseek-v4-flash-free
       explore: true
 

@@ -70,7 +70,7 @@
   "enabled_providers": ["opencode", "opencode-go", "openrouter", "xai"],
   "provider": {
     "opencode": {
-      "whitelist": ["deepseek-v4-flash-free"]
+      "whitelist": ["deepseek-v4-flash-free", "mimo-v2.5-free"]
     },
     "opencode-go": {
       "whitelist": [
