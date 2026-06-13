@@ -134,6 +134,10 @@
     "Targets.Win": [
       "$APPDATA/OiPer/config.json",
       "$APPDATA/OiPer.dev/config.json"
+    ],
+    "Targets.Mac": [
+      "~/Library/Application Support/OiPer/config.json",
+      "~/Library/Application Support/OiPer.dev/config.json"
     ]
   },
   {
