@@ -4,6 +4,12 @@
 
 A complete automation system for setting up and managing your Windows developer workstation. This repository provides everything you need to configure your development environment, manage applications, automate daily tasks, and optimize your workflow.
 
+## Recommendation
+
+I don't want everyone to copy this entire repo and use it because it is my own opinionated setup, not something for everyone.
+
+I recommend checking this repo, taking ideas from it, and implementing them in a way that fulfills your own requirements.
+
 ## Features & Capabilities
 
 - **Windows System Configuration**
