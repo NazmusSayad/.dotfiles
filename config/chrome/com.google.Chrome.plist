@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BackgroundModeEnabled</key>
+	<false/>
+	<key>BrowserGuestModeEnabled</key>
+	<false/>
+	<key>BrowserLabsEnabled</key>
+	<false/>
+	<key>UrlKeyedAnonymizedDataCollectionEnabled</key>
+	<false/>
+	<key>CloudReportingEnabled</key>
+	<false/>
+	<key>SpellCheckServiceEnabled</key>
+	<false/>
+	<key>MetricsReportingEnabled</key>
+	<false/>
+	<key>PromotionalTabsEnabled</key>
+	<false/>
+	<key>PromotionsEnabled</key>
+	<false/>
+	<key>ReportExtensionsAndPluginsData</key>
+	<false/>
+	<key>ReportMachineIDData</key>
+	<false/>
+	<key>ReportPolicyData</key>
+	<false/>
+	<key>ReportUserIDData</key>
+	<false/>
+	<key>ReportVersionData</key>
+	<false/>
+	<key>PasswordManagerEnabled</key>
+	<false/>
+	<key>PasswordLeakDetectionEnabled</key>
+	<false/>
+	<key>AutofillAddressEnabled</key>
+	<false/>
+	<key>AutofillCreditCardEnabled</key>
+	<false/>
+	<key>AIModeSettings</key>
+	<integer>1</integer>
+	<key>GeminiSettings</key>
+	<integer>1</integer>
+	<key>GeminiActOnWebSettings</key>
+	<integer>1</integer>
+	<key>GenAILocalFoundationalModelSettings</key>
+	<integer>1</integer>
+</dict>
+</plist>
