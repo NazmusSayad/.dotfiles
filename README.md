@@ -1,8 +1,8 @@
 ![Preview](https://github.com/user-attachments/assets/424e9395-a2b4-4fca-803b-4339df9616fc)
 
-# Development Setup for Windows
+# Development Setup (Windows & macOS)
 
-A complete automation system for setting up and managing your Windows developer workstation. This repository provides everything you need to configure your development environment, manage applications, automate daily tasks, and optimize your workflow.
+A complete automation system for setting up and managing your developer workstation on Windows and macOS. This repository provides everything you need to configure your development environment, manage applications, automate daily tasks, and optimize your workflow.
 
 ## Recommendation
 
@@ -15,11 +15,14 @@ I recommend checking this repo, taking ideas from it, and implementing them in a
 - **Windows System Configuration**
   Automatically configure Windows settings, remove bloatware, disable unnecessary services, and optimize your system for development work.
 
+- **macOS System Configuration**
+  Install packages via Homebrew using the included Brewfile for a consistent macOS development environment.
+
 - **Application Management**
-  Install and update all your development tools, applications, and packages using Winget with a simple configuration file. Keep everything up-to-date with one command.
+  Install and update all your development tools, applications, and packages using Winget (Windows) or Homebrew (macOS) with simple configuration files. Keep everything up-to-date with one command.
 
 - **Enhanced Shell Experience**
-  Pre-configured shell environments (Bash, Fish) with Starship prompt, Windows Terminal settings, and convenient command aliases for faster workflow.
+  Pre-configured shell environments (Bash, Fish, Zsh) with Starship prompt, Windows Terminal / Ghostty settings, and convenient command aliases for faster workflow.
 
 - **Git Workflow Tools**
   Streamlined Git commands for common tasks like cloning repositories, checking out branches, pulling changes, and managing your repositories more efficiently.
@@ -47,10 +50,10 @@ skills add NazmusSayad/.dotfiles/config/ai/skills -s npm
 
 Before you begin, make sure you have:
 
-- **Windows 10 or Windows 11** installed
+- **Windows 10/11** or **macOS** installed
 - **Git** installed (to clone the repository)
 - **Go** installed (version specified in `go.mod`)
-- **MSYS2** (optional, if you want to use Bash/Fish shells)
+- **MSYS2** (Windows, optional for Bash/Fish) or **Homebrew** (macOS)
 
 ### Installation Guide
 
@@ -58,7 +61,7 @@ Follow these steps to set up your development environment:
 
 1.  **Clone the Repository**
 
-    Open PowerShell or Command Prompt and run:
+    Open a terminal and run:
 
     ```shell
     git clone https://github.com/NazmusSayad/.dotfiles.git
@@ -67,39 +70,34 @@ Follow these steps to set up your development environment:
 
 2.  **Initial Setup**
 
-    Right-click `__install-dotfiles.cmd` and select "Run as Administrator". This will:
-    - Set up the dotfiles directory
-    - Add the tools to your system PATH so you can use them anywhere
+    - **Windows**: Right-click `__install-dotfiles.cmd` and select "Run as Administrator".
+    - **macOS**: Bootstrap via Homebrew + config (see `config/Brewfile` and shell configs).
+
+    This will set up the dotfiles directory and add tools to your PATH.
 
 3.  **Build All Utilities**
 
-    Run `__compile.cmd` to build all the tools and scripts. This creates executable files that you'll use for daily tasks.
+    Run `__compile.cmd` (Windows) or the equivalent build step for your platform. This creates the executable tools for daily use.
 
 4.  **Configure Your Environment**
 
-    Run `__install-config.cmd` to set up:
+    Run `__install-config.cmd` (Windows) or the platform equivalent to set up:
     - Git configuration (name, email, default settings)
     - Symbolic links for configuration files
-    - Windows scheduled tasks for automatic startup
-    - Start menu shortcuts for quick access
-    - MSYS2 shells and development tools
+    - Scheduled tasks / launch agents for automatic startup
+    - Shells and development tools
     - Go environment variables
 
-5.  **Optional: Windows System Configuration**
+5.  **Optional: Platform System Configuration**
 
     ⚠️ **Important:** Review the scripts before running this step!
 
-    Run `__windows-setup.cmd` as Administrator to:
-    - Apply Windows system settings
-    - Remove default bloatware applications
-    - Disable unnecessary services
-    - Optimize system performance
-
-    **Note:** This will restart your computer automatically after completion.
+    - **Windows**: Run `__windows-setup.cmd` as Administrator to apply system settings, remove bloatware, disable services, and optimize performance (restarts automatically).
+    - **macOS**: Use Homebrew to provision packages from `config/Brewfile`.
 
 6.  **Optional: Additional Setup**
-    - `__git-gpg.cmd`: Set up GPG key for Git commit signing
-    - `__install-start-menu.cmd`: Add shortcuts to Windows Start Menu
+    - Windows: `__git-gpg.cmd`, `__install-start-menu.cmd`
+    - macOS: review `config/Brewfile` and shell configs
 
 ### Using the Tools
 
@@ -107,8 +105,8 @@ Once installed, you can use these commands from anywhere in your terminal:
 
 **Package Management:**
 
-- `winget-install` - Install all configured applications
-- `winget-upgrade` - Update all installed packages
+- `winget-install` / `brew` - Install all configured applications (Winget on Windows, Homebrew on macOS)
+- `winget-upgrade` - Update all installed packages (Windows)
 
 **Git Helpers:**
 
@@ -127,15 +125,16 @@ Once installed, you can use these commands from anywhere in your terminal:
 **System Setup:**
 
 - `symlink-init` - Recreate all configuration file symlinks
-- `msys-setup` - Set up MSYS2 development environment
+- `msys-setup` - Set up MSYS2 development environment (Windows)
 
 ## Customization
 
-Most user settings live under `config/`. Update the relevant config files, then run `__install-config.cmd` again to refresh links, scheduled tasks, shortcuts, and environment settings.
+Most user settings live under `config/`. Update the relevant config files, then re-run the platform install-config step to refresh links, scheduled tasks/launch agents, shortcuts, and environment settings.
 
 Common files to edit:
 
-- `config/apps.yaml` - Applications and packages to install
+- `config/apps.yaml` - Applications and packages to install (Windows winget)
+- `config/Brewfile` - Packages to install (macOS Homebrew)
 - `config/symlink.jsonc` - Config files linked into your system
 - `config/slack-status.jsonc` - Slack startup schedule
 - `config/shell/` - Shell aliases, prompt, and terminal settings
@@ -145,6 +144,6 @@ Common files to edit:
 
 - **Review Before Running:** The Windows setup scripts (`src/ps1-windows/`) will modify system settings and remove default Windows applications. Please review these scripts before running `__windows-setup.cmd` to ensure they match your preferences.
 
-- **Administrator Rights:** Some scripts require administrator privileges. Windows will prompt you when needed.
+- **Administrator Rights:** Some Windows scripts require administrator privileges. macOS scripts may prompt for your password via sudo.
 
 - **Backup First:** Consider backing up important data before running system modification scripts.
