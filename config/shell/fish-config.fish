@@ -5,6 +5,7 @@ else
     mise activate fish | source
 end
 
+test -f ~/.env; and dotsh fish "$(string collect < ~/.env)" | source
 direnv hook fish | source
 
 function fish_greeting
