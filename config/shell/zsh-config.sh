@@ -3,6 +3,7 @@ if [[ "$OS" == "Windows_NT" ]]; then
 else
 	eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 	eval "$(mise activate zsh)"
+	export PATH="$PATH:~/.dotfiles/.build/bin"
 fi
 
 [[ -f ~/.env ]] && eval "$(dotsh zsh "$(<~/.env)")"

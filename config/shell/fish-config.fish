@@ -3,6 +3,7 @@ if test "$OS" = Windows_NT
 else
     /opt/homebrew/bin/brew shellenv fish | source
     mise activate fish | source
+    set -x PATH $PATH ~/.dotfiles/.build/bin
 end
 
 test -f ~/.env; and dotsh fish "$(string collect < ~/.env)" | source
