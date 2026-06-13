@@ -1,4 +1,4 @@
-<img width="3181" height="2160" alt="S-1779380203546" src="https://github.com/user-attachments/assets/424e9395-a2b4-4fca-803b-4339df9616fc" />
+![Preview](https://github.com/user-attachments/assets/424e9395-a2b4-4fca-803b-4339df9616fc)
 
 # Development Setup for Windows
 
