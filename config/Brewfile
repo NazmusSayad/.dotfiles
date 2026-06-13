@@ -1,4 +1,4 @@
-brew "codex"
+
 brew "cloudflared"
 brew "direnv"
 brew "fastfetch"
@@ -15,5 +15,6 @@ brew "zoxide"
 cask "font-fira-code-nerd-font"
 cask "font-ibm-plex-sans"
 cask "ghostty"
+cask "codex"
 cask "slack"
 cask "visual-studio-code"
