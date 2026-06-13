@@ -9,6 +9,7 @@ scoop:
   - aws
   - scc
   - gcc
+  - glab
   - sqlite
   - extras/fvm
 
