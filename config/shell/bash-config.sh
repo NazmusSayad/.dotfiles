@@ -3,10 +3,10 @@ if [[ "$OS" == "Windows_NT" ]]; then
 else
 	eval "$(/opt/homebrew/bin/brew shellenv bash)"
 	eval "$(mise activate bash)"
-	export PATH="$PATH:~/.dotfiles/.build/bin"
 fi
 
 [[ -f ~/.env ]] && eval "$(dotsh bash "$(<~/.env)")"
+[[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd: ~/.path)"
 eval "$(direnv hook bash)"
 
 if [[ $- == *i* ]]; then
