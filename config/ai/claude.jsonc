@@ -36,7 +36,9 @@
   "preferredNotifChannel": "auto",
   "switchModelsOnFlag": false,
   "fileCheckpointingEnabled": false,
+  "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "useAutoModeDuringPlan": false
+  "useAutoModeDuringPlan": false,
+  "autoUpdatesChannel": "stable"
 }
