@@ -24,7 +24,7 @@
   // Agent Configs
   {
     "Source": "@/config/ai/claude.jsonc",
-    "Target.Win": "~/.claude/settings.json"
+    "Target": "~/.claude/settings.json"
   },
   {
     "Source": "@/config/ai/t3code.jsonc",
