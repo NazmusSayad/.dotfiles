@@ -75,6 +75,11 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe:       "oconfig",
 	},
 
+	"claude-pull": {
+		StartMenu: "Claude Pull",
+		Exe:       "ccp",
+	},
+
 	"claude-switch": {
 		StartMenu: "Claude Switch",
 		Exe:       "ccs",

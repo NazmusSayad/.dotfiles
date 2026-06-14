@@ -39,18 +39,17 @@ func main() {
 		return
 	}
 
-	data, err := os.ReadFile(choice.src)
+	data, err := os.ReadFile(targetPath)
 	if err != nil {
-		fmt.Println(aurora.Red("Failed to read source: " + choice.src))
+		fmt.Println(aurora.Red("Failed to read claude credentials: " + targetPath))
 		return
 	}
-
-	err = os.WriteFile(targetPath, data, 0o600)
+	err = os.WriteFile(choice.src, data, 0o600)
 	if err != nil {
-		fmt.Println(aurora.Red("Failed to write target: " + targetPath))
+		fmt.Println(aurora.Red("Failed to write to local: " + choice.src))
 		return
 	}
-	fmt.Println("> Switched Claude account to " + aurora.Green(choice.name).String())
+	fmt.Println("> Pulled Claude credentials to " + aurora.Green(choice.name).String())
 }
 
 func resolveDotfilesLocalDir() string {
