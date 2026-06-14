@@ -12,7 +12,6 @@
   "worktree": {
     "baseRef": "fresh"
   },
-  "workflowKeywordTriggerEnabled": false,
   "defaultShell": "bash",
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
@@ -29,16 +28,17 @@
   "effortLevel": "medium",
   "promptSuggestionEnabled": false,
   "awaySummaryEnabled": false,
+  "autoUpdatesChannel": "stable",
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
-  "switchModelsOnFlag": false,
   "fileCheckpointingEnabled": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "useAutoModeDuringPlan": false,
-  "autoUpdatesChannel": "stable"
+  "workflowKeywordTriggerEnabled": false,
+  "switchModelsOnFlag": false
 }
