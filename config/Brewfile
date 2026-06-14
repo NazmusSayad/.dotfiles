@@ -1,4 +1,3 @@
-
 brew "btop"
 brew "cloudflared"
 brew "direnv"
@@ -19,5 +18,6 @@ cask "font-ibm-plex-sans"
 cask "ghostty"
 cask "codex"
 cask "codexbar"
+cask "claude-code"
 cask "slack"
 cask "visual-studio-code"
