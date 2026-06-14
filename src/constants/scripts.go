@@ -75,6 +75,11 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe:       "oconfig",
 	},
 
+	"claude-switch": {
+		StartMenu: "Claude Switch",
+		Exe:       "ccsw",
+	},
+
 	"packages-sync": {
 		StartMenu: "Packages Sync",
 		Exe:       "psy",
