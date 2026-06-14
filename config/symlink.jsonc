@@ -131,13 +131,7 @@
   },
   {
     "Source": "@/config/oiper.jsonc",
-    "Targets.Win": [
-      "$APPDATA/com.oiper.desktop/config.json",
-      "$LOCALAPPDATA/com.oiper.desktop/config.json"
-    ],
-    "Targets.Mac": [
-      "~/Library/Application Support/com.oiper.desktop/config.json"
-    ]
+    "Targets": ["~/OiPer/config.json", "~/OiPer.dev/config.json"]
   },
   {
     "Source": "@/config/uni-run.json",
@@ -160,8 +154,11 @@
     "Targets.Mac": ["~/Library/Application Support/Code/User/settings.json"]
   },
   {
+    "Source": "@/config/vscode/keybindings.jsonc",
+    "Targets.Win": ["$APPDATA/Code/User/keybindings.json"]
+  },
+  {
     "Source": "@/config/vscode/mac-keybindings.jsonc",
-    "Targets.Win": ["$APPDATA/Code/User/keybindings.json"],
     "Targets.Mac": ["~/Library/Application Support/Code/User/keybindings.json"]
   }
 ]
