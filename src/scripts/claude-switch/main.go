@@ -13,8 +13,6 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/ansi"
 	"github.com/logrusorgru/aurora/v4"
-
-	helpers "dotfiles/src/helpers"
 )
 
 func main() {
@@ -41,7 +39,17 @@ func main() {
 		return
 	}
 
-	helpers.GenerateSymlink(choice.src, targetPath)
+	data, err := os.ReadFile(choice.src)
+	if err != nil {
+		fmt.Println(aurora.Red("Failed to read source: " + choice.src))
+		return
+	}
+
+	err = os.WriteFile(targetPath, data, 0o600)
+	if err != nil {
+		fmt.Println(aurora.Red("Failed to write target: " + targetPath))
+		return
+	}
 	fmt.Println("> Switched Claude account to " + aurora.Green(choice.name).String())
 }
 
