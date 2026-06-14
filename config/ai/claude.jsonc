@@ -8,7 +8,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "opus",
+  "model": "claude-opus-4-8",
   "enableAllProjectMcpServers": false,
   "worktree": {
     "baseRef": "fresh"
