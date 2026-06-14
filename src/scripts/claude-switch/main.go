@@ -134,11 +134,10 @@ func applyAccount(a account, targetPath string) {
 		return
 	}
 
-	_ = data
-	// if err := os.WriteFile(targetPath, data, 0o644); err != nil {
-	// 	fmt.Println(aurora.Red("Failed to write credentials file").String())
-	// 	return
-	// }
+	if err := os.WriteFile(targetPath, data, 0o644); err != nil {
+		fmt.Println(aurora.Red("Failed to write credentials file").String())
+		return
+	}
 
 	fmt.Println("> Switched Claude account to " + aurora.Green(a.name).String())
 }
