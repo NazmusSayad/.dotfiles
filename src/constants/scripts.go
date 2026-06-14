@@ -77,7 +77,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 
 	"claude-switch": {
 		StartMenu: "Claude Switch",
-		Exe:       "ccsw",
+		Exe:       "ccs",
 	},
 
 	"packages-sync": {
