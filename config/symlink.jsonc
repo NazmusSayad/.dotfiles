@@ -132,12 +132,11 @@
   {
     "Source": "@/config/oiper.jsonc",
     "Targets.Win": [
-      "$APPDATA/OiPer/config.json",
-      "$APPDATA/OiPer.dev/config.json"
+      "$APPDATA/com.oiper.desktop/config.json",
+      "$LOCALAPPDATA/com.oiper.desktop/config.json"
     ],
     "Targets.Mac": [
-      "~/Library/Application Support/OiPer/config.json",
-      "~/Library/Application Support/OiPer.dev/config.json"
+      "~/Library/Application Support/com.oiper.desktop/config.json"
     ]
   },
   {
