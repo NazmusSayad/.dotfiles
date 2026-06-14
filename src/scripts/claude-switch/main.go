@@ -13,6 +13,8 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/ansi"
 	"github.com/logrusorgru/aurora/v4"
+
+	helpers "dotfiles/src/helpers"
 )
 
 func main() {
@@ -39,7 +41,8 @@ func main() {
 		return
 	}
 
-	applyAccount(*choice, targetPath)
+	helpers.GenerateSymlink(choice.src, targetPath)
+	fmt.Println("> Switched Claude account to " + aurora.Green(choice.name).String())
 }
 
 func resolveDotfilesLocalDir() string {
@@ -120,26 +123,6 @@ func readAccounts(dir, targetPath string) []account {
 		})
 	}
 	return accounts
-}
-
-func applyAccount(a account, targetPath string) {
-	if err := os.MkdirAll(filepath.Dir(targetPath), 0o755); err != nil {
-		fmt.Println(aurora.Red("Failed to create target directory").String())
-		return
-	}
-
-	data, err := os.ReadFile(a.src)
-	if err != nil {
-		fmt.Println(aurora.Red("Failed to read account file").String())
-		return
-	}
-
-	if err := os.WriteFile(targetPath, data, 0o644); err != nil {
-		fmt.Println(aurora.Red("Failed to write credentials file").String())
-		return
-	}
-
-	fmt.Println("> Switched Claude account to " + aurora.Green(a.name).String())
 }
 
 func selectAccount(accounts []account) *account {
