@@ -112,6 +112,10 @@
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
+                        "scale_ref": {
+                            "x": 2560.0,
+                            "y": 1664.0
+                        },
                         "align": 5,
                         "bounds_type": 1,
                         "bounds_align": 0,
@@ -123,16 +127,28 @@
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
+                            "x": 129.0,
                             "y": 0.0
                         },
+                        "pos_rel": {
+                            "x": -1.5384615659713745,
+                            "y": -1.0
+                        },
                         "scale": {
+                            "x": 0.6490384340286255,
+                            "y": 0.6490384340286255
+                        },
+                        "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 2560.0,
-                            "y": 1664.0
+                            "x": 1661.5,
+                            "y": 1080.0
+                        },
+                        "bounds_rel": {
+                            "x": 3.076923131942749,
+                            "y": 2.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -186,7 +202,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -9,
+    "scaling_level": 0,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
@@ -214,8 +230,12 @@
         }
     },
     "resolution": {
+        "x": 1920,
+        "y": 1080
+    },
+    "migration_resolution": {
         "x": 2560,
         "y": 1664
     },
-    "version": 1
+    "version": 2
 }
