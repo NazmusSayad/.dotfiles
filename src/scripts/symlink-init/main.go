@@ -1,12 +1,30 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"runtime"
-
 	helpers "dotfiles/src/helpers"
 )
+
+type StringOrArray []string
+
+func (s *StringOrArray) UnmarshalJSON(data []byte) error {
+	var single string
+	if err := json.Unmarshal(data, &single); err == nil {
+		*s = []string{single}
+		return nil
+	}
+
+	var array []string
+	if err := json.Unmarshal(data, &array); err == nil {
+		*s = array
+		return nil
+	}
+
+	return fmt.Errorf("value must be a string or array of strings: %s", string(data))
+}
 
 type SymlinkConfig struct {
 	Source  string
@@ -14,13 +32,10 @@ type SymlinkConfig struct {
 }
 
 type rawSymlinkConfig struct {
-	Source     string   `json:"Source"`
-	Target     string   `json:"Target"`
-	Targets    []string `json:"Targets"`
-	TargetWin  string   `json:"Target.Win"`
-	TargetMac  string   `json:"Target.Mac"`
-	TargetsWin []string `json:"Targets.Win"`
-	TargetsMac []string `json:"Targets.Mac"`
+	Source    string        `json:"Source"`
+	Target    StringOrArray `json:"Target"`
+	TargetWin StringOrArray `json:"Target.Win"`
+	TargetMac StringOrArray `json:"Target.Mac"`
 }
 
 func readSymlinkConfig() []SymlinkConfig {
@@ -43,30 +58,16 @@ func readSymlinkConfig() []SymlinkConfig {
 }
 
 func resolveTargets(raw rawSymlinkConfig) []string {
-	if runtime.GOOS == "windows" {
-		if len(raw.TargetsWin) > 0 {
-			return raw.TargetsWin
-		}
-		if raw.TargetWin != "" {
-			return []string{raw.TargetWin}
-		}
+	if runtime.GOOS == "windows" && len(raw.TargetWin) > 0 {
+		return raw.TargetWin
 	}
 
-	if runtime.GOOS == "darwin" {
-		if len(raw.TargetsMac) > 0 {
-			return raw.TargetsMac
-		}
-		if raw.TargetMac != "" {
-			return []string{raw.TargetMac}
-		}
+	if runtime.GOOS == "darwin" && len(raw.TargetMac) > 0 {
+		return raw.TargetMac
 	}
 
-	if len(raw.Targets) > 0 {
-		return raw.Targets
-	}
-
-	if raw.Target != "" {
-		return []string{raw.Target}
+	if len(raw.Target) > 0 {
+		return raw.Target
 	}
 
 	return nil
@@ -82,20 +83,14 @@ func main() {
 	}
 
 	for _, config := range symlinkConfigs {
-		targets := []string{}
-
-		if len(config.Targets) > 0 {
-			targets = append(targets, config.Targets...)
-		}
-
-		if len(targets) == 0 {
+		if len(config.Targets) == 0 {
 			fmt.Println("No targets found for", config.Source)
 			continue
 		}
 
 		sourcePath := helpers.ResolvePath(config.Source)
 
-		for _, target := range targets {
+		for _, target := range config.Targets {
 			targetPath := helpers.ResolvePath(target)
 			helpers.GenerateSymlink(sourcePath, targetPath)
 		}
