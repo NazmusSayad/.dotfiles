@@ -3,7 +3,7 @@
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
   "pasteLastHotkey.macos": "ControlLeft+Alt+KeyV",
-  "pasteLastHotkey.windows": "AltGr+KeyV",
+  "pasteLastHotkey.windows": "ControlLeft+Alt+KeyV",
 
   "cloudASRs": [
     {
