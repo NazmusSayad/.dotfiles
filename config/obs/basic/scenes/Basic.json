@@ -790,8 +790,8 @@
             "name": "Vertical - View"
         }
     ],
-    "current_scene": "Horizontal - View",
-    "current_program_scene": "Horizontal - View",
+    "current_scene": "Vertical - View",
+    "current_program_scene": "Vertical - View",
     "canvases": [],
     "current_transition": "Fade",
     "transition_duration": 300,
