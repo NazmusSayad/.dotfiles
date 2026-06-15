@@ -127,12 +127,18 @@
   // Other Configs
   {
     "Source": "@/config/obs/basic",
-    "Target.Win": "$APPDATA/obs-studio/basic",
-    "Target.Mac": "~/Library/Application Support/obs-studio/basic"
+    "Target.Win": "$APPDATA/obs-studio/basic"
   },
   {
     "Source": "@/config/obs/user.ini",
-    "Target.Win": "$APPDATA/obs-studio/user.ini",
+    "Target.Win": "$APPDATA/obs-studio/user.ini"
+  },
+  {
+    "Source": "@/config/obs/basic-mac",
+    "Target.Mac": "~/Library/Application Support/obs-studio/basic"
+  },
+  {
+    "Source": "@/config/obs/user-mac.ini",
     "Target.Mac": "~/Library/Application Support/obs-studio/user.ini"
   },
   {
