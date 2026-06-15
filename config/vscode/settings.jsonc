@@ -92,6 +92,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.initialHint": false,
+  "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.showExitAlert": false,
   "terminal.integrated.tabs.title": "${sequence}",
