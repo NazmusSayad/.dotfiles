@@ -23,28 +23,12 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/t3code.jsonc",
-    "Target": "~/.t3/userdata/settings.json"
-  },
-  {
-    "Source": "@/config/ai/t3code.jsonc",
-    "Target": "~/.t3/userdata/keybindings.json"
-  },
-  {
-    "Source": "@/config/ai/t3client.jsonc",
-    "Target": "~/.t3/userdata/client-settings.json"
-  },
-  {
     "Source": "@/config/ai/opencode.json",
     "Target": "~/.config/opencode/config.json"
   },
   {
     "Source": "@/config/ai/opencode-tui.json",
     "Target": "~/.config/opencode/tui.json"
-  },
-  {
-    "Source": "@/config/ai/opencode-armor.json",
-    "Target": "~/.opencode-armor.json"
   },
   {
     "Source": "@/config/ai/agents",
@@ -57,6 +41,22 @@
   {
     "Source": "@/config/ai/plugins",
     "Target": "~/.config/opencode/plugins"
+  },
+  {
+    "Source": "@/config/ai/opencode-armor.json",
+    "Target": "~/.opencode-armor.json"
+  },
+  {
+    "Source": "@/config/ai/t3code.jsonc",
+    "Target": "~/.t3/userdata/settings.json"
+  },
+  {
+    "Source": "@/config/ai/t3code.jsonc",
+    "Target": "~/.t3/userdata/keybindings.json"
+  },
+  {
+    "Source": "@/config/ai/t3client.jsonc",
+    "Target": "~/.t3/userdata/client-settings.json"
   },
   {
     "Source": "@/config/ai/skills",
