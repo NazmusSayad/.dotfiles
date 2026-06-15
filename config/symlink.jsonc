@@ -14,7 +14,7 @@
   },
   {
     "Source": "@/config/shell/powershell.ps1",
-    "Targets.Win": [
+    "Target.Win": [
       "~/Documents/PowerShell/profile.ps1",
       "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
       "~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
@@ -64,15 +64,15 @@
   },
   {
     "Source": "@/config/ai/skills",
-    "Targets": ["~/.agents/skills", "~/.claude/skills"]
+    "Target": ["~/.agents/skills", "~/.claude/skills"]
   },
   {
     "Source": "@/config/ai/commands",
-    "Targets": ["~/.claude/commands", "~/.config/opencode/commands"]
+    "Target": ["~/.claude/commands", "~/.config/opencode/commands"]
   },
   {
     "Source": "@/config/ai/AGENTS_README.md",
-    "Targets": [
+    "Target": [
       "~/.config/opencode/AGENTS.md",
       "~/.claude/CLAUDE.md",
       "~/.codex/AGENTS.md"
@@ -161,20 +161,20 @@
   // Code Editor
   {
     "Source": "@/config/vscode/snippets",
-    "Targets.Win": ["$APPDATA/Code/User/snippets"],
-    "Targets.Mac": ["~/Library/Application Support/Code/User/snippets"]
+    "Target.Win": ["$APPDATA/Code/User/snippets"],
+    "Target.Mac": ["~/Library/Application Support/Code/User/snippets"]
   },
   {
     "Source": "@/config/vscode/settings.jsonc",
-    "Targets.Win": ["$APPDATA/Code/User/settings.json"],
-    "Targets.Mac": ["~/Library/Application Support/Code/User/settings.json"]
+    "Target.Win": ["$APPDATA/Code/User/settings.json"],
+    "Target.Mac": ["~/Library/Application Support/Code/User/settings.json"]
   },
   {
     "Source": "@/config/vscode/keybindings.jsonc",
-    "Targets.Win": ["$APPDATA/Code/User/keybindings.json"]
+    "Target.Win": ["$APPDATA/Code/User/keybindings.json"]
   },
   {
     "Source": "@/config/vscode/mac-keybindings.jsonc",
-    "Targets.Mac": ["~/Library/Application Support/Code/User/keybindings.json"]
+    "Target.Mac": ["~/Library/Application Support/Code/User/keybindings.json"]
   }
 ]
