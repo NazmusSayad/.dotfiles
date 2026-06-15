@@ -41,5 +41,6 @@
   "agentPushNotifEnabled": true,
   "useAutoModeDuringPlan": false,
   "workflowKeywordTriggerEnabled": false,
-  "switchModelsOnFlag": false
+  "switchModelsOnFlag": false,
+  "showTurnDuration": false
 }
