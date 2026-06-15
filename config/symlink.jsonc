@@ -127,11 +127,11 @@
   // Other Configs
   {
     "Source": "@/config/obs/basic",
-    "Target": "$APPDATA/obs-studio/basic"
+    "Target.Win": "$APPDATA/obs-studio/basic"
   },
   {
     "Source": "@/config/obs/user.ini",
-    "Target": "$APPDATA/obs-studio/user.ini"
+    "Target.Win": "$APPDATA/obs-studio/user.ini"
   },
   {
     "Source": "@/config/ai/codex-pets",
