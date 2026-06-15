@@ -2,7 +2,7 @@
   "writeClipboard": false,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
-  "pasteLastHotkey.macos": "ControlLeft+Alt+KeyV",
+  "pasteLastHotkey.macos": "Ctrl+Alt+Shift+F12",
   "pasteLastHotkey.windows": "Ctrl+Insert",
 
   "cloudASRs": [
@@ -67,7 +67,7 @@
       "id": "prompt-profile",
       "name": "Prompt",
       "icon": "AiProgrammingIcon",
-      "hotkey.macos": "ControlLeft+MetaLeft",
+      "hotkey.macos": "ShiftLeft+MetaLeft",
       "hotkey.windows": "ControlLeft+MetaLeft",
       "language": "en",
       "mode": "cloud",
