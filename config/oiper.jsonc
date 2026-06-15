@@ -67,7 +67,7 @@
       "name": "Prompt",
       "icon": "AiProgrammingIcon",
       "hotkey.macos": "ShiftLeft+MetaLeft",
-      "hotkey.windows": "ControlLeft+MetaLeft",
+      "hotkey.windows": "ShiftLeft+ControlLeft+MetaLeft",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
