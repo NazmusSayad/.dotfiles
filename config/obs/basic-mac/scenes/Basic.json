@@ -15,7 +15,7 @@
         "volume": 1.0,
         "balance": 0.5,
         "enabled": true,
-        "muted": false,
+        "muted": true,
         "push-to-mute": false,
         "push-to-mute-delay": 0,
         "push-to-talk": false,
@@ -65,7 +65,7 @@
     "sources": [
         {
             "prev_ver": 536936450,
-            "name": "Display",
+            "name": "Monitor",
             "uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
             "id": "screen_capture",
             "versioned_id": "screen_capture",
@@ -92,7 +92,9 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
-            "private_settings": {}
+            "private_settings": {
+                "mixer_pinned": false
+            }
         },
         {
             "prev_ver": 536936450,
@@ -105,7 +107,7 @@
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Display",
+                        "name": "Monitor",
                         "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
                         "visible": true,
                         "locked": false,
