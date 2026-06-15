@@ -54,6 +54,12 @@ apply_bool "ReportVersionData" false
 # Disable password manager
 apply_bool "PasswordManagerEnabled" false
 
+# Disable saving passkeys to the password manager
+apply_bool "PasswordManagerPasskeysEnabled" false
+
+# Disable passkey creation defaulting to iCloud Keychain (macOS only)
+apply_bool "CreatePasskeysInICloudKeychain" false
+
 # Disable password leak detection
 apply_bool "PasswordLeakDetectionEnabled" false
 
