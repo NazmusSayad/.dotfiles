@@ -25,13 +25,21 @@ func main() {
 		return
 	}
 
-	current := "unknown"
+	currentAccount := "unknown"
 	for _, a := range accounts {
 		if a.isCurrent {
-			current = a.name
+			currentAccount = a.name
 		}
 	}
-	fmt.Println("> Current Claude account: " + aurora.Green(current).String())
+	fmt.Println("> Current Claude account: " + aurora.Green(currentAccount).String())
+
+	lastAccount := "unknown"
+	if data, err := os.ReadFile(filepath.Join(localDir, ".claude-last-account")); err == nil {
+		if s := strings.TrimSpace(string(data)); s != "" {
+			lastAccount = s
+		}
+	}
+	fmt.Println("> Last used account: " + aurora.Green(lastAccount).String())
 	fmt.Println()
 
 	choice := selectAccount(accounts)
@@ -50,6 +58,8 @@ func main() {
 		return
 	}
 	fmt.Println("> Pulled Claude credentials to " + aurora.Green(choice.name).String())
+
+	_ = os.WriteFile(filepath.Join(localDir, ".claude-last-account"), []byte(choice.name), 0o600)
 }
 
 func resolveDotfilesLocalDir() string {
