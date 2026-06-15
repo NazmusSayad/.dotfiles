@@ -4,3 +4,4 @@
 .scoop
 .experiment
 node_modules
+config/obs/**/*.bak
