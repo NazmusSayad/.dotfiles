@@ -2,7 +2,7 @@
     "name": "Basic",
     "AuxAudioDevice1": {
         "prev_ver": 536936450,
-        "name": "Mic/Aux",
+        "name": "Macbook Microphone",
         "uuid": "ae58dae6-b732-4a58-9d9b-3580cf6f988c",
         "id": "coreaudio_input_capture",
         "versioned_id": "coreaudio_input_capture",
@@ -33,7 +33,7 @@
     },
     "AuxAudioDevice2": {
         "prev_ver": 536936450,
-        "name": "Mic/Aux 2",
+        "name": "Logitech Headphone",
         "uuid": "94acf450-f9e7-43e3-ac1e-3d1bbfbd3ef4",
         "id": "coreaudio_input_capture",
         "versioned_id": "coreaudio_input_capture",
