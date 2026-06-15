@@ -2,7 +2,7 @@
   "writeClipboard": false,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
-  "pasteLastHotkey.macos": "Ctrl+Alt+Shift+F12",
+  "pasteLastHotkey.macos": "Ctrl+Alt+Enter",
   "pasteLastHotkey.windows": "Ctrl+Insert",
 
   "cloudASRs": [
