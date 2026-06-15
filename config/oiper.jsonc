@@ -1,7 +1,7 @@
 {
   "writeClipboard": false,
-  "injectionMethod": "Ctrl+V",
-  "pasteLastHotkey": "Ctrl+Insert",
+  "injectionMethod.windows": "Ctrl+V",
+  "pasteLastHotkey.windows": "Ctrl+Insert",
 
   "cloudASRs": [
     {
@@ -41,7 +41,7 @@
       "id": "basic-profile",
       "name": "Basic",
       "icon": "VoiceIcon",
-      "hotkey_windows": "F14",
+      "hotkey.windows": "F14",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
@@ -51,7 +51,7 @@
       "id": "normal-profile",
       "name": "Normal",
       "icon": "AiContentGenerator02Icon",
-      "hotkey_windows": "Ctrl+F14",
+      "hotkey.windows": "Ctrl+F14",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
@@ -62,7 +62,7 @@
       "id": "prompt-profile",
       "name": "Prompt",
       "icon": "AiProgrammingIcon",
-      "hotkey_windows": "Alt+F14",
+      "hotkey.windows": "Alt+F14",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
@@ -73,7 +73,7 @@
       "id": "bengali-profile",
       "name": "Bengali",
       "icon": "LanguageSquareIcon",
-      "hotkey_windows": "Shift+F14",
+      "hotkey.windows": "Shift+F14",
       "mode": "cloud",
       "language": "en",
       "transcribeAsrModel": "base.en",
