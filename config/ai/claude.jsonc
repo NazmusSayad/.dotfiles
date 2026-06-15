@@ -36,11 +36,11 @@
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
   "fileCheckpointingEnabled": false,
+  "showTurnDuration": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "useAutoModeDuringPlan": false,
   "workflowKeywordTriggerEnabled": false,
-  "switchModelsOnFlag": false,
-  "showTurnDuration": false
+  "switchModelsOnFlag": false
 }
