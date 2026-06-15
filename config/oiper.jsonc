@@ -43,7 +43,7 @@
       "id": "basic-profile",
       "name": "Basic",
       "icon": "VoiceIcon",
-      "hotkey.macos": "F14",
+      "hotkey.macos": "ShiftLeft+ControlLeft",
       "hotkey.windows": "ControlLeft+MetaLeft",
       "language": "en",
       "mode": "cloud",
@@ -54,7 +54,7 @@
       "id": "normal-profile",
       "name": "Normal",
       "icon": "AiContentGenerator02Icon",
-      "hotkey.macos": "F14",
+      "hotkey.macos": "ShiftLeft+Alt",
       "hotkey.windows": "MetaLeft+ControlLeft",
       "language": "en",
       "mode": "cloud",
@@ -66,27 +66,13 @@
       "id": "prompt-profile",
       "name": "Prompt",
       "icon": "AiProgrammingIcon",
-      "hotkey.macos": "F14",
+      "hotkey.macos": "ShiftLeft+MetaLeft",
       "hotkey.windows": "MetaLeft+Alt",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "prompt"
-    },
-    {
-      "id": "bengali-profile",
-      "name": "Bengali",
-      "icon": "LanguageSquareIcon",
-      "hotkey.macos": "F14",
-      "hotkey.windows": "Alt+MetaLeft",
-      "mode": "cloud",
-      "language": "en",
-      "transcribeAsrModel": "base.en",
-      "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-mini",
-      "enhancementPrompt": "Whatever input you will get, you have to convert that into Bengali.",
-      "enhancementType": "custom"
     }
   ]
 }
