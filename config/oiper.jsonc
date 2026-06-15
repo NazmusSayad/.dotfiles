@@ -48,7 +48,8 @@
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-nano"
+      "enhancementLlmId": "openrouter-nano",
+      "transcribeAsrModel": "medium.en"
     },
     {
       "id": "normal-profile",
