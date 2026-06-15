@@ -8,6 +8,8 @@
 	<false/>
 	<key>BrowserLabsEnabled</key>
 	<false/>
+	<key>BrowserSignin</key>
+	<integer>0</integer>
 	<key>UrlKeyedAnonymizedDataCollectionEnabled</key>
 	<false/>
 	<key>CloudReportingEnabled</key>
