@@ -46,7 +46,7 @@
   "window.confirmSaveUntitledWorkspace": false,
   "window.restoreWindows": "one",
   "window.density.editorTabHeight": "compact",
-  "window.openFoldersInNewWindow": "default",
+  "window.openFoldersInNewWindow": "off",
   "window.newWindowDimensions": "fullscreen",
   "window.menuBarVisibilit y": "compact",
   "window.commandCenter": false,
