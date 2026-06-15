@@ -2,8 +2,8 @@
   "writeClipboard": false,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
-  "pasteLastHotkey.macos": "AltGr+KeyV",
-  "pasteLastHotkey.windows": "ControlRight+KeyV",
+  "pasteLastHotkey.macos": "ControlLeft+Alt+KeyV",
+  "pasteLastHotkey.windows": "AltGr+KeyV",
 
   "cloudASRs": [
     {
