@@ -25,7 +25,7 @@ func main() {
 	if last == "" {
 		last = "unknown"
 	}
-	fmt.Println("> Last used account: " + aurora.Green(last).String())
+	fmt.Println("> Last used account: " + aurora.Cyan(last).String())
 	fmt.Println()
 
 	choice := claude.SelectAccount(accounts)
