@@ -31,13 +31,9 @@ func GenerateSymlink(source string, target string) {
 		}
 	}
 
-	targetDir := filepath.Dir(target)
-	if !utils.IsFileExists(targetDir) {
-		mkdirErr := os.MkdirAll(targetDir, 0o755)
-		if mkdirErr != nil {
-			fmt.Println(aurora.Red("UNEXPECTED: Error creating target directory: " + targetDir))
-			return
-		}
+	createdDirs, ok := createTargetDirs(target)
+	if !ok {
+		return
 	}
 
 	err := os.Symlink(source, target)
@@ -46,5 +42,33 @@ func GenerateSymlink(source string, target string) {
 		return
 	}
 
+	inheritOwnership(target, createdDirs)
+
 	fmt.Println(aurora.Green("-> " + target))
+}
+
+func createTargetDirs(target string) ([]string, bool) {
+	targetDir := filepath.Dir(target)
+	if utils.IsFileExists(targetDir) {
+		return nil, true
+	}
+
+	var missing []string
+	for dir := targetDir; !utils.IsFileExists(dir); dir = filepath.Dir(dir) {
+		missing = append(missing, dir)
+		if filepath.Dir(dir) == dir {
+			break
+		}
+	}
+
+	if err := os.MkdirAll(targetDir, 0o755); err != nil {
+		fmt.Println(aurora.Red("UNEXPECTED: Error creating target directory: " + targetDir))
+		return nil, false
+	}
+
+	for i, j := 0, len(missing)-1; i < j; i, j = i+1, j-1 {
+		missing[i], missing[j] = missing[j], missing[i]
+	}
+
+	return missing, true
 }
