@@ -32,6 +32,10 @@
 	<false/>
 	<key>PasswordManagerEnabled</key>
 	<false/>
+	<key>PasswordManagerPasskeysEnabled</key>
+	<false/>
+	<key>CreatePasskeysInICloudKeychain</key>
+	<false/>
 	<key>PasswordLeakDetectionEnabled</key>
 	<false/>
 	<key>AutofillAddressEnabled</key>
