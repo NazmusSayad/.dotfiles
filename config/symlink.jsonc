@@ -23,10 +23,6 @@
 
   // Agent Configs
   {
-    "Source": "@/config/ai/claude.jsonc",
-    "Target": "~/.claude/settings.json"
-  },
-  {
     "Source": "@/config/ai/t3code.jsonc",
     "Target": "~/.t3/userdata/settings.json"
   },
@@ -64,16 +60,29 @@
   },
   {
     "Source": "@/config/ai/skills",
-    "Target": ["~/.agents/skills", "~/.claude/skills"]
+    "Target": [
+      "~/.agents/skills",
+      "~/.claude/skills",
+      "~/.claude-office/skills"
+    ]
   },
   {
     "Source": "@/config/ai/commands",
-    "Target": ["~/.claude/commands", "~/.config/opencode/commands"]
+    "Target": [
+      "~/.claude/commands",
+      "~/.claude-office/commands",
+      "~/.config/opencode/commands"
+    ]
+  },
+  {
+    "Source": "@/config/ai/claude.jsonc",
+    "Target": ["~/.claude/settings.json", "~/.claude-office/settings.json"]
   },
   {
     "Source": "@/config/ai/AGENTS_README.md",
     "Target": [
       "~/.config/opencode/AGENTS.md",
+      "~/.claude-office/CLAUDE.md",
       "~/.claude/CLAUDE.md",
       "~/.codex/AGENTS.md"
     ]

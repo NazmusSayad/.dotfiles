@@ -11,6 +11,8 @@ coo: codex resume --last --yolo
 
 cc: claude --permission-mode bypassPermissions
 ccc: claude --continue --permission-mode bypassPermissions
+cw: CLAUDE_CONFIG_DIR=~/.claude-office claude --permission-mode bypassPermissions
+cww: CLAUDE_CONFIG_DIR=~/.claude-office claude --continue --permission-mode bypassPermissions
 
 # NPM
 r: nr
