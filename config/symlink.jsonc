@@ -60,11 +60,7 @@
   },
   {
     "Source": "@/config/ai/skills",
-    "Target": [
-      "~/.agents/skills",
-      "~/.claude/skills",
-      "~/.claude-work/skills"
-    ]
+    "Target": ["~/.agents/skills", "~/.claude/skills", "~/.claude-work/skills"]
   },
   {
     "Source": "@/config/ai/commands",
@@ -79,13 +75,12 @@
     "Target": ["~/.claude/settings.json", "~/.claude-work/settings.json"]
   },
   {
-    "Source": "@/config/ai/AGENTS_README.md",
-    "Target": [
-      "~/.config/opencode/AGENTS.md",
-      "~/.claude-work/CLAUDE.md",
-      "~/.claude/CLAUDE.md",
-      "~/.codex/AGENTS.md"
-    ]
+    "Source": "@/config/ai/README_AGENTS.md",
+    "Target": ["~/.config/opencode/AGENTS.md", "~/.codex/AGENTS.md"]
+  },
+  {
+    "Source": "@/config/ai/README_CLAUDE.md",
+    "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
   },
 
   // Opencode Local Configs
