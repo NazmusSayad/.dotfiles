@@ -14,6 +14,7 @@ cmm: command-code --yolo --continue
 
 cc: claude --permission-mode bypassPermissions
 ccc: claude --permission-mode bypassPermissions --continue
+
 wc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions
 wcc: CLAUDE_CONFIG_DIR=~/.claude-office claude --permission-mode bypassPermissions --continue
 
