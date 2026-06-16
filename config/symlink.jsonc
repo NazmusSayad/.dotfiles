@@ -63,26 +63,26 @@
     "Target": [
       "~/.agents/skills",
       "~/.claude/skills",
-      "~/.claude-office/skills"
+      "~/.claude-work/skills"
     ]
   },
   {
     "Source": "@/config/ai/commands",
     "Target": [
       "~/.claude/commands",
-      "~/.claude-office/commands",
+      "~/.claude-work/commands",
       "~/.config/opencode/commands"
     ]
   },
   {
     "Source": "@/config/ai/claude.jsonc",
-    "Target": ["~/.claude/settings.json", "~/.claude-office/settings.json"]
+    "Target": ["~/.claude/settings.json", "~/.claude-work/settings.json"]
   },
   {
     "Source": "@/config/ai/AGENTS_README.md",
     "Target": [
       "~/.config/opencode/AGENTS.md",
-      "~/.claude-office/CLAUDE.md",
+      "~/.claude-work/CLAUDE.md",
       "~/.claude/CLAUDE.md",
       "~/.codex/AGENTS.md"
     ]
