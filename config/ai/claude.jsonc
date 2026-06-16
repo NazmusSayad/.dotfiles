@@ -4,6 +4,10 @@
     "IS_DEMO": "1",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
