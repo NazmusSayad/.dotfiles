@@ -11,6 +11,3 @@ git config --global core.pager cat
 git config --system core.longpaths true
 git config --global core.ignorecase false
 git config --global core.editor "code --wait"
-
-git config --global credential.helper manager
-git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"

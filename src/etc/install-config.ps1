@@ -1,5 +1,7 @@
 Write-Host "> Setting up git config..."
 bash "./src/shell/git-config.sh"
+git config --global credential.helper manager
+git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
 Write-Host ""
 Write-Host "> Symlinking..."
