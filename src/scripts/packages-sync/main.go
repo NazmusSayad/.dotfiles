@@ -20,34 +20,34 @@ func main() {
 func macosSync() {
 	// Brew
 	fmt.Println("△", aurora.Faint("Updating Brew..."))
-	runCommand([]string{"brew", "update"})
+	helpers.ExecNativeCommand([]string{"brew", "update"})
 	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Brew packages..."))
 	brewfilePath := helpers.ResolvePath("@/config/Brewfile")
-	runCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
+	helpers.ExecNativeCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
 	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Upgrading Brew Apps..."))
-	runCommand([]string{"brew", "upgrade"})
+	helpers.ExecNativeCommand([]string{"brew", "upgrade"})
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Brew..."))
-	runCommand([]string{"brew", "cleanup", "--prune=all", "-s"})
+	helpers.ExecNativeCommand([]string{"brew", "cleanup", "--prune=all", "-s"})
 	fmt.Println()
 
 	// Mise
 	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
-	runCommand([]string{"mise", "install"})
+	helpers.ExecNativeCommand([]string{"mise", "install"})
 	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Updating Mise..."))
-	runCommand([]string{"mise", "upgrade"})
+	helpers.ExecNativeCommand([]string{"mise", "upgrade"})
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Mise..."))
-	runCommand([]string{"mise", "prune", "--yes"})
-	runCommand([]string{"mise", "cache", "clear", "--yes"})
+	helpers.ExecNativeCommand([]string{"mise", "prune", "--yes"})
+	helpers.ExecNativeCommand([]string{"mise", "cache", "clear", "--yes"})
 	fmt.Println()
 }
 
