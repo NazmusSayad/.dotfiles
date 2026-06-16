@@ -7,12 +7,15 @@ ocs: opencode-server stop
 ocrs: opencode-server stop; pwsh -Command "Start-Process opencode-server -WindowStyle Hidden"
 
 co: codex --yolo
-coo: codex resume --last --yolo
+coo: codex resume --yolo --last
+
+cm: command-code --yolo
+cmm: command-code --yolo --continue
 
 cc: claude --permission-mode bypassPermissions
-ccc: claude --continue --permission-mode bypassPermissions
-cw: CLAUDE_CONFIG_DIR=~/.claude-office claude --permission-mode bypassPermissions
-cww: CLAUDE_CONFIG_DIR=~/.claude-office claude --continue --permission-mode bypassPermissions
+ccc: claude --permission-mode bypassPermissions --continue
+wc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions
+wcc: CLAUDE_CONFIG_DIR=~/.claude-office claude --permission-mode bypassPermissions --continue
 
 # NPM
 r: nr
