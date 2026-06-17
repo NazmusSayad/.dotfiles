@@ -16,8 +16,6 @@ type SymlinkConfig struct {
 }
 
 func GenerateSymlink(source string, target string) {
-	fmt.Println(aurora.Faint("Symlinking: " + source))
-
 	if !utils.IsFileExists(source) {
 		fmt.Println(aurora.Red("UNEXPECTED: Source not found: " + source))
 		return
@@ -44,7 +42,7 @@ func GenerateSymlink(source string, target string) {
 
 	inheritOwnership(target, createdDirs)
 
-	fmt.Println(aurora.Green("-> " + target))
+	fmt.Println(aurora.Blue(source), aurora.Green("->"), aurora.Cyan(target))
 }
 
 func createTargetDirs(target string) ([]string, bool) {
