@@ -23,6 +23,22 @@
 
   // Agent Configs
   {
+    "Source": "@/config/ai/README_AGENTS.md",
+    "Target": ["~/.config/opencode/AGENTS.md", "~/.codex/AGENTS.md"]
+  },
+  {
+    "Source": "@/config/ai/skills",
+    "Target": ["~/.agents/skills", "~/.claude/skills", "~/.claude-work/skills"]
+  },
+  {
+    "Source": "@/config/ai/commands",
+    "Target": [
+      "~/.claude/commands",
+      "~/.claude-work/commands",
+      "~/.config/opencode/commands"
+    ]
+  },
+  {
     "Source": "@/config/ai/opencode.json",
     "Target": "~/.config/opencode/config.json"
   },
@@ -58,29 +74,35 @@
     "Source": "@/config/ai/t3client.jsonc",
     "Target": "~/.t3/userdata/client-settings.json"
   },
+
+  // Claude
   {
-    "Source": "@/config/ai/skills",
-    "Target": ["~/.agents/skills", "~/.claude/skills", "~/.claude-work/skills"]
-  },
-  {
-    "Source": "@/config/ai/commands",
-    "Target": [
-      "~/.claude/commands",
-      "~/.claude-work/commands",
-      "~/.config/opencode/commands"
-    ]
+    "Source": "@/config/ai/README_CLAUDE.md",
+    "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
   },
   {
     "Source": "@/config/ai/claude.jsonc",
     "Target": ["~/.claude/settings.json", "~/.claude-work/settings.json"]
   },
   {
-    "Source": "@/config/ai/README_AGENTS.md",
-    "Target": ["~/.config/opencode/AGENTS.md", "~/.codex/AGENTS.md"]
+    "Source": "~/.claude/plans",
+    "Target": "~/.claude-work/plans"
   },
   {
-    "Source": "@/config/ai/README_CLAUDE.md",
-    "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
+    "Source": "~/.claude/tasks",
+    "Target": "~/.claude-work/tasks"
+  },
+  {
+    "Source": "~/.claude/projects",
+    "Target": "~/.claude-work/projects"
+  },
+  {
+    "Source": "~/.claude/session-env",
+    "Target": "~/.claude-work/session-env"
+  },
+  {
+    "Source": "~/.claude/history.jsonl",
+    "Target": "~/.claude-work/history.jsonl"
   },
 
   // Opencode Local Configs
