@@ -73,6 +73,7 @@
     "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true,
   },
   "terminal.external.windowsExec": "wt.exe",
+  "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "Fish",
   "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.osx": {
