@@ -112,11 +112,15 @@
     "Target": "~/.config/mise/config.toml"
   },
   {
-    "Source": "@/config/fastfetch.jsonc",
+    "Source": "@/config/shell/fastfetch.jsonc",
     "Target": "~/.config/fastfetch/config.jsonc"
   },
   {
-    "Source": "@/config/lsd-config.yaml",
+    "Source": "@/config/shell/btop.conf",
+    "Target": "~/.config/btop/btop.conf"
+  },
+  {
+    "Source": "@/config/shell/lsd-config.yaml",
     "Target": "~/.config/lsd/config.yaml"
   },
   {
