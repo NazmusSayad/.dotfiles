@@ -153,7 +153,7 @@
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 129.0,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -161,16 +161,16 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 0.6490384340286255,
-                            "y": 0.6490384340286255
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 1661.5,
-                            "y": 1080.0
+                            "x": 2560.0,
+                            "y": 1664.0
                         },
                         "bounds_rel": {
                             "x": 3.076923131942749,
@@ -228,7 +228,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": 0,
+    "scaling_level": -7,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
