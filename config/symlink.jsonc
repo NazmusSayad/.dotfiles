@@ -97,6 +97,10 @@
     "Target": "~/.claude-work/projects"
   },
   {
+    "Source": "~/.claude/sessions",
+    "Target": "~/.claude-work/sessions"
+  },
+  {
     "Source": "~/.claude/session-env",
     "Target": "~/.claude-work/session-env"
   },
