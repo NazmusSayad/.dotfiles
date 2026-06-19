@@ -1,0 +1,25 @@
+{
+  "title": "Remap Option+Space to Option+Shift+F",
+  "rules": [
+    {
+      "description": "Option+Space → Option+Shift+F",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": ["option", "shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

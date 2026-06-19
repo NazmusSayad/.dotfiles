@@ -176,6 +176,10 @@
     "Target.Mac": "~/Library/Application Support/obs-studio/user.ini"
   },
   {
+    "Source": "@/config/keymap.mac.json",
+    "Target.Mac": "~/.config/karabiner/assets/complex_modifications/keymap.json"
+  },
+  {
     "Source": "@/config/ai/codex-pets",
     "Target": "~/.codex/pets"
   },
