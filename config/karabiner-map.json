@@ -5,6 +5,7 @@
       "description": "Option+Space → Option+Shift+F",
       "manipulators": [
         {
+          
           "type": "basic",
           "from": {
             "key_code": "spacebar",
