@@ -19,6 +19,7 @@
   "worktree": {
     "baseRef": "fresh"
   },
+  "workflowKeywordTriggerEnabled": false,
   "defaultShell": "bash",
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
@@ -41,12 +42,11 @@
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
+  "switchModelsOnFlag": false,
   "fileCheckpointingEnabled": false,
   "showTurnDuration": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "useAutoModeDuringPlan": false,
-  "workflowKeywordTriggerEnabled": false,
-  "switchModelsOnFlag": false
+  "useAutoModeDuringPlan": false
 }
