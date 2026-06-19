@@ -1,0 +1,17 @@
+{
+    "global": {
+        "ask_for_confirmation_before_quitting": false,
+        "enable_notification_window": false,
+        "show_in_menu_bar": false
+    },
+    "profiles": [
+        {
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": {
+                "indicate_sticky_modifier_keys_state": false,
+                "keyboard_type_v2": "ansi"
+            }
+        }
+    ]
+}
