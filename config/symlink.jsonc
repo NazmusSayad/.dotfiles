@@ -180,10 +180,6 @@
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
   {
-    "Source": "@/config/karabiner-map.json",
-    "Target.Mac": "~/.config/karabiner/assets/complex_modifications/keymap.json"
-  },
-  {
     "Source": "@/config/ai/codex-pets",
     "Target": "~/.codex/pets"
   },

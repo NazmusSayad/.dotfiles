@@ -1,20 +1,42 @@
 {
-    "global": {
-        "ask_for_confirmation_before_quitting": false,
-        "check_for_updates_on_startup": false,
-        "enable_notification_window": false,
-        "filter_useless_events_from_specific_devices": false,
-        "reorder_same_timestamp_input_events_to_prioritize_modifiers": false,
-        "show_in_menu_bar": false
-    },
-    "profiles": [
-        {
-            "name": "Default",
-            "selected": true,
-            "virtual_hid_keyboard": {
-                "indicate_sticky_modifier_keys_state": false,
-                "keyboard_type_v2": "ansi"
-            }
-        }
-    ]
+  "global": {
+    "ask_for_confirmation_before_quitting": false,
+    "check_for_updates_on_startup": false,
+    "enable_notification_window": false,
+    "filter_useless_events_from_specific_devices": false,
+    "reorder_same_timestamp_input_events_to_prioritize_modifiers": false,
+    "show_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "Option+Space → Option+Shift+F",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": { "mandatory": ["option"] }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["option", "shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "Default",
+      "selected": true,
+      "virtual_hid_keyboard": {
+        "indicate_sticky_modifier_keys_state": false,
+        "keyboard_type_v2": "ansi"
+      }
+    }
+  ]
 }
