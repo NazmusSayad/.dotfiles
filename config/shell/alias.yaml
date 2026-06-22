@@ -49,8 +49,7 @@ dcr: docker compose restart
 
 # System
 lsf: ls -f
-rmr: rm -r
-rmf: byenow --yes --one-liner
+rmf: rm -rf
 
 # Mise
 mi: mise install --yes
