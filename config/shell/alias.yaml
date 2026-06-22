@@ -9,9 +9,6 @@ ocrs: opencode-server stop; pwsh -Command "Start-Process opencode-server -Window
 co: codex --yolo
 coo: codex resume --yolo --last
 
-cm: command-code --yolo
-cmm: command-code --yolo --continue
-
 cc: claude --permission-mode bypassPermissions
 ccc: claude --permission-mode bypassPermissions --continue
 
