@@ -29,7 +29,7 @@ func macosSync() {
 	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Upgrading Brew Apps..."))
-	helpers.ExecNativeCommand([]string{"brew", "upgrade"})
+	helpers.ExecNativeCommand([]string{"brew", "upgrade", "--yes"})
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Brew..."))
