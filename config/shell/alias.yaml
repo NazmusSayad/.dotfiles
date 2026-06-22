@@ -48,8 +48,11 @@ dcd: docker compose down
 dcr: docker compose restart
 
 # System
-rmrf: rm -rf
+lsf: ls -f
+rmr: rm -r
 rmf: byenow --yes --one-liner
+
+# Mise
 mi: mise install --yes
 mp: mise prune --yes
 
