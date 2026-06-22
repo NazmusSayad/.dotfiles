@@ -62,7 +62,6 @@ java = "latest"
 
 # AI Tools
 "npm:skills" = "latest"
-"npm:command-code" = "latest"
 "npm:devrage" = { version = "latest", allow_builds = ["better-sqlite3"] }
 
 # My Tools
