@@ -2,8 +2,8 @@
 brew "libomp"
 
 # Internet
-brew "yt-dlp"
 cask "google-chrome"
+brew "yt-dlp"
 
 # Shell Tools
 brew "fish"
