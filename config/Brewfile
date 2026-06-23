@@ -57,16 +57,16 @@ brew "mise"
 brew "fvm"
 brew "scc"
 
-# Ai Coding
+# AI Coding
 cask "codex"
 brew "opencode"
-
-# Fonts
-cask "font-fira-code-nerd-font"
-cask "font-ibm-plex-sans"
 
 # Docker
 brew "colima"
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
+
+# Fonts
+cask "font-fira-code-nerd-font"
+cask "font-ibm-plex-sans"
