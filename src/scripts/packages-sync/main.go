@@ -24,7 +24,8 @@ func macosSync() {
 	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Brew packages..."))
-	helpers.ExecNativeCommand([]string{"brew", "bundle", "install"})
+	brewfilePath := helpers.ResolvePath("@/config/Brewfile")
+	helpers.ExecNativeCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
 	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Upgrading Brew Apps..."))
