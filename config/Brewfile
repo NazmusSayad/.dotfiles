@@ -4,6 +4,7 @@ brew "libomp"
 # Internet
 cask "google-chrome"
 brew "yt-dlp"
+brew "wget"
 
 # Shell Tools
 brew "fish"
