@@ -30,6 +30,7 @@ pa: php artisan
 pas: php artisan serve
 
 # Git
+lzg: lazygit
 gc: git checkout
 gcn: git checkout -b
 gds: git diff --stat
@@ -39,6 +40,7 @@ ghv: gh repo view
 ghw: gh repo view --web
 
 # Docker
+lzd: lazydocker
 dc: docker compose
 dcu: docker compose up -d
 dcd: docker compose down
