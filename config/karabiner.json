@@ -31,17 +31,21 @@
           },
           {
             "description": "CapsLock -> Spotlight",
-            "from": {
-              "key_code": "caps_lock",
-              "modifiers": { "optional": ["any"] }
-            },
-            "to": [
+            "manipulators": [
               {
-                "key_code": "spacebar",
-                "modifiers": ["left_command"]
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
               }
-            ],
-            "type": "basic"
+            ]
           }
         ]
       },
