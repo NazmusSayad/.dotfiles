@@ -10,7 +10,6 @@ brew "wget"
 brew "fish"
 brew "btop"
 brew "htop"
-brew "bmon"
 brew "bottom"
 brew "bandwhich"
 brew "zoxide"
@@ -65,7 +64,8 @@ brew "scc"
 
 # AI Coding
 cask "codex"
-brew "opencode"
+tap "anomalyco/tap"
+brew "anomalyco/tap/opencode"
 
 # Docker
 brew "colima"
