@@ -28,6 +28,20 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "CapsLock -> Spotlight",
+            "from": {
+              "key_code": "caps_lock",
+              "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+              {
+                "key_code": "spacebar",
+                "modifiers": ["left_command"]
+              }
+            ],
+            "type": "basic"
           }
         ]
       },
