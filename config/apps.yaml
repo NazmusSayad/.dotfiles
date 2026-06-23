@@ -11,7 +11,9 @@ scoop:
   - gcc
   - glab
   - sqlite
+  - lazydocker
   - extras/fvm
+  - extras/lazygit
 
   # Cloud
   - cloudflared
