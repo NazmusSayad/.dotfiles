@@ -67,9 +67,9 @@ brew "opencode"
 # Docker
 brew "colima"
 brew "docker"
+brew "lazydocker"
 brew "docker-buildx"
 brew "docker-compose"
-brew "lazydocker"
 
 # Fonts
 cask "font-fira-code-nerd-font"
