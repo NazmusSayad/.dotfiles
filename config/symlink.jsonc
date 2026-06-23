@@ -160,6 +160,10 @@
 
   // Other Configs
   {
+    "Source": "@/config/Brewfile",
+    "Target.Mac": "~/.Brewfile"
+  },
+  {
     "Source": "@/config/obs/basic",
     "Target.Win": "$APPDATA/obs-studio/basic"
   },
