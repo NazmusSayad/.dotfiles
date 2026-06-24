@@ -16,7 +16,7 @@ wc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions
 wcc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions --continue
 
 # NPM
-r: node --run
+r: nr
 nid: ni -D
 pab: pnpm approve-builds --all
 
