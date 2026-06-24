@@ -13,19 +13,23 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
+
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock workspaces-edge-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock expose-animation-duration -float 0.01
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder NewWindowTarget -string PfHm
+defaults write com.apple.finder FXPreferredViewStyle -string icnv
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -45,7 +49,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.loginwindow TALLogoutSavesState -bool false
