@@ -8,23 +8,23 @@ sudo launchctl disable system/com.apple.assistantd
 
 chflags nohidden ~/Library
 
+defaults write -g AppleSymbolicHotKeysEnabled -bool false
+defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock static-only -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
 
 defaults write com.apple.dock autohide-delay -float 0
-defaults write com.apple.dock workspaces-edge-delay -float 0
-defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.75
 defaults write com.apple.dock expose-animation-duration -float 0.01
+defaults write com.apple.dock workspaces-edge-delay -float 0
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.spaces spans-displays -bool false
 
-defaults write com.apple.finder ShowPathbar -bool true
-defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -55,6 +55,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
+defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
@@ -62,3 +63,7 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+
+killall Dock
+killall Finder
+killall SystemUIServer
