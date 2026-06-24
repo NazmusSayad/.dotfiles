@@ -88,6 +88,37 @@
             }
         ]
     },
+    "AuxAudioDevice3": {
+        "prev_ver": 536936450,
+        "name": "Mic/Aux 3",
+        "uuid": "c6cac4be-a7c4-4aba-a103-ecab0e830fe9",
+        "id": "coreaudio_input_capture",
+        "versioned_id": "coreaudio_input_capture",
+        "settings": {
+            "device_id": "BuiltInHeadphoneInputDevice"
+        },
+        "mixers": 255,
+        "sync": 0,
+        "flags": 0,
+        "volume": 1.0,
+        "balance": 0.5,
+        "enabled": true,
+        "muted": false,
+        "push-to-mute": false,
+        "push-to-mute-delay": 0,
+        "push-to-talk": false,
+        "push-to-talk-delay": 0,
+        "hotkeys": {
+            "libobs.mute": [],
+            "libobs.unmute": [],
+            "libobs.push-to-mute": [],
+            "libobs.push-to-talk": []
+        },
+        "deinterlace_mode": 0,
+        "deinterlace_field_order": 0,
+        "monitoring_type": 0,
+        "private_settings": {}
+    },
     "sources": [
         {
             "prev_ver": 536936450,
