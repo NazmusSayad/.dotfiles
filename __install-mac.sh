@@ -12,9 +12,9 @@ defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
-defaults write com.apple.dock autohide-delay -float 0
-defaults write com.apple.dock autohide-time-modifier -float 0
-defaults write com.apple.dock expose-animation-duration -float 0
+defaults write com.apple.dock autohide-delay -float 0.01
+defaults write com.apple.dock autohide-time-modifier -float 0.01
+defaults write com.apple.dock expose-animation-duration -float 0.01
 
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
