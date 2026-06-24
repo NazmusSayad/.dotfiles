@@ -6,17 +6,25 @@ sudo mdutil -a -E
 
 sudo launchctl disable system/com.apple.assistantd
 
+chflags nohidden ~/Library
+
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
-defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock expose-animation-duration -float 0
 
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowRecentTags -bool false
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder NewWindowTarget -string PfHm
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder FXDefaultSearchScope -string SCcf
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -37,3 +45,5 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
