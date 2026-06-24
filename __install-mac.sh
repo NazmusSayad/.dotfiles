@@ -11,6 +11,7 @@ chflags nohidden ~/Library
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock static-only -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
 
@@ -20,12 +21,16 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock expose-animation-duration -float 0.01
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
+defaults write com.apple.spaces spans-displays -bool false
+
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowRecentTags -bool false
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder NewWindowTarget -string PfHm
 defaults write com.apple.finder FXPreferredViewStyle -string icnv
+defaults write com.apple.finder FXDisableAllAnimations -bool true
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
