@@ -1,2 +1,2 @@
+ci: false
 scriptShell: bash
-enableGlobalVirtualStore: true
