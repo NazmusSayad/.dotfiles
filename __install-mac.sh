@@ -10,10 +10,12 @@ chflags nohidden ~/Library
 
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
-defaults write com.apple.dock autohide-delay -float 0.01
-defaults write com.apple.dock autohide-time-modifier -float 0.01
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock workspaces-edge-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock expose-animation-duration -float 0.01
 
 defaults write com.apple.finder ShowPathbar -bool true
@@ -43,7 +45,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
