@@ -176,6 +176,11 @@
     "Target.Mac": "~/Library/Application Support/obs-studio/user.ini"
   },
   {
+    "Source": "@/config/pnpm.yaml",
+    "Target.Win": "$LOCALAPPDATA/pnpm/config.yaml",
+    "Target.Mac": "~/Library/Preferences/pnpm/config.yaml"
+  },
+  {
     "Source": "@/config/karabiner.json",
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
