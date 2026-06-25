@@ -141,12 +141,13 @@
     "Source": "@/config/windows-terminal.json",
     "Target.Win": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
+
+  // OBS Configs
   {
     "Source": "@/config/shell/ghostty.conf",
     "Target.Mac": "~/.config/ghostty/config"
   },
 
-  // Other Configs
   {
     "Source": "@/config/obs/basic",
     "Target.Win": "$APPDATA/obs-studio/basic"
@@ -163,14 +164,12 @@
     "Source": "@/config/obs/user-mac.ini",
     "Target.Mac": "~/Library/Application Support/obs-studio/user.ini"
   },
+
+  // Other Configs
   {
     "Source": "@/config/pnpm.yaml",
     "Target.Win": "$LOCALAPPDATA/pnpm/config.yaml",
     "Target.Mac": "~/Library/Preferences/pnpm/config.yaml"
-  },
-  {
-    "Source": "@/config/karabiner.json",
-    "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
   {
     "Source": "@/config/ai/codex-pets",
@@ -187,6 +186,16 @@
   {
     "Source": "@/config/nirc",
     "Target": "~/.nirc"
+  },
+
+  // System Configs
+  {
+    "Source": "@/config/colima.yaml",
+    "Target": "~/.colima/default/colima.yaml"
+  },
+  {
+    "Source": "@/config/karabiner.json",
+    "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
 
   // Code Editor
