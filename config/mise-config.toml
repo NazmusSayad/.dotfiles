@@ -59,6 +59,7 @@ java = "latest"
 "npm:prettier" = "latest"
 "npm:git-stats" = "latest"
 "npm:live-server" = "latest"
+"npm:concurrently" = "latest"
 
 # AI Tools
 "npm:skills" = "latest"
