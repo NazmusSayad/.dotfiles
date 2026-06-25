@@ -35,7 +35,7 @@ modelRunner: docker
 # Set custom hostname for the virtual machine.
 # Default: colima
 #          colima-profile_name for other profiles
-hostname: ""
+hostname: colima
 
 # Kubernetes configuration for the virtual machine.
 kubernetes:
@@ -71,7 +71,7 @@ network:
   # Assign reachable IP address to the virtual machine.
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: false
-  address: false
+  address: true
   
   # Network mode for the virtual machine (shared, bridged).
   # NOTE: this is currently macOS only and ignored on Linux.
@@ -113,7 +113,7 @@ network:
   #   specified IP address.
   #
   # Default: false
-  hostAddresses: false
+  hostAddresses: true
   
   # Custom gateway address for the virtual machine.
   # The last octet needs to be 2.
@@ -167,7 +167,7 @@ vmType: vz
 # none disables port forwarding.
 #
 # Default: ssh
-portForwarder: ssh
+portForwarder: grpc
 
 # Utilise rosetta for amd64 emulation (requires m1 mac and vmType `vz`)
 # Default: false

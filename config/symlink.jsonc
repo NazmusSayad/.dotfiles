@@ -191,7 +191,7 @@
   // System Configs
   {
     "Source": "@/config/colima.yaml",
-    "Target": "~/.colima/default/colima.yaml"
+    "Target.Mac": "~/.colima/default/colima.yaml"
   },
   {
     "Source": "@/config/karabiner.json",
