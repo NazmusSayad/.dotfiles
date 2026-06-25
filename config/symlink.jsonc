@@ -62,18 +62,6 @@
     "Source": "@/config/ai/opencode-armor.json",
     "Target": "~/.opencode-armor.json"
   },
-  {
-    "Source": "@/config/ai/t3code.jsonc",
-    "Target": "~/.t3/userdata/settings.json"
-  },
-  {
-    "Source": "@/config/ai/t3code.jsonc",
-    "Target": "~/.t3/userdata/keybindings.json"
-  },
-  {
-    "Source": "@/config/ai/t3client.jsonc",
-    "Target": "~/.t3/userdata/client-settings.json"
-  },
 
   // Claude
   {
