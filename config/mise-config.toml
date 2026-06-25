@@ -32,6 +32,7 @@ python = "latest"
 
 # GO
 go = "latest"
+air = "latest"
 gofumpt = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 
