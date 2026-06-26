@@ -72,6 +72,7 @@ java = "latest"
 "npm:uni-run" = "latest"
 "npm:mytokens" = "latest"
 "npm:code-info" = "latest"
+"npm:create-src" = "latest"
 "npm:opencode-armor" = "latest"
 
 
