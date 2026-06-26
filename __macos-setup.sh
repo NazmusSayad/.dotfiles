@@ -1,13 +1,16 @@
 #!/bin/bash
+echo "Setting up macOS environment..."
 
-bash ./__git-config.sh
+echo "Configuring Git settings..."
+sudo bash ./__git-config.sh
 
+echo "Configuring macOS settings..."
+sudo launchctl disable system/com.apple.assistantd
 sudo spctl --master-disable
 sudo mdutil -a -i off
 sudo mdutil -a -E
 
-sudo launchctl disable system/com.apple.assistantd
-
+echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
 
 defaults write -g AppleSymbolicHotKeysEnabled -bool false
