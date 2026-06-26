@@ -1,9 +1,13 @@
 #!/bin/bash
 set -e
 
+is_windows() {
+  [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]
+}
+
 echo "> Killing all AHK scripts..."
 killed_ahk=()
-if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+if is_windows; then
   while IFS= read -r name; do
     name="${name%.exe}"
     [[ -n "$name" ]] && killed_ahk+=("$name")
@@ -16,9 +20,11 @@ fi
 echo "> Cleaning build directory..."
 rm -rf ./.build/bin ./.build/ahk
 
-echo ""
-echo "> Compiling AutoHotkey scripts..."
-go run ./src/compile-ahk/main.go
+if is_windows; then
+  echo ""
+  echo "> Compiling AutoHotkey scripts..."
+  go run ./src/compile-ahk/main.go
+fi
 
 echo ""
 echo "> Compiling Go scripts..."
