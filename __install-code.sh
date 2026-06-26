@@ -1,10 +1,7 @@
-@echo off
-setlocal
-
 rm -rf ~/.cache/opencode
 rm -rf ~/.config/opencode
 rm -rf ~/.local/state/opencode
-@REM rm -rf ~/.local/share/opencode
+# rm -rf ~/.local/share/opencode
 
 rm -rf ~/.bun/install/cache
 
@@ -23,5 +20,5 @@ rm -rf ~/.t3
 rm -rf ~/AppData/Roaming/t3code
 rm -rf ~/AppData/Local/t3code-updater
 
-call sudo symlink-init.exe
-call proxy-pause echo
+sudo symlink-init.exe
+proxy-pause echo
