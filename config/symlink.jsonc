@@ -172,12 +172,13 @@
     "Target.Mac": "~/Library/Preferences/pnpm/config.yaml"
   },
   {
-    "Source": "@/config/ai/codex-pets",
-    "Target": "~/.codex/pets"
+    "Source": "@/config/oiper.json",
+    "Target.Win": "$APPDATA/com.oiper.desktop/config.json",
+    "Target.Mac": "~/Library/Application Support/com.oiper.desktop/config.json"
   },
   {
-    "Source": "@/config/oiper.json",
-    "Target.Mac": "~/Library/Application Support/com.oiper.desktop/config.json"
+    "Source": "@/config/ai/codex-pets",
+    "Target": "~/.codex/pets"
   },
   {
     "Source": "@/config/uni-run.json",
