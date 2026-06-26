@@ -1,5 +1,6 @@
 # System
 brew "libomp"
+cask "aldente"
 
 # Internet
 cask "google-chrome"
