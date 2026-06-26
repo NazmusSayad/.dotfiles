@@ -177,7 +177,7 @@
   },
   {
     "Source": "@/config/oiper.json",
-    "Target": "~/.oiper/config.json"
+    "Target.Mac": "~/Library/Application Support/com.oiper.desktop/config.json"
   },
   {
     "Source": "@/config/uni-run.json",
