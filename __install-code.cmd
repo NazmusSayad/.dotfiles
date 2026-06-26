@@ -1,9 +1,9 @@
 @echo off
 setlocal
 
-@REM rm -rf ~/.cache/opencode
-@REM rm -rf ~/.config/opencode
-@REM rm -rf ~/.local/state/opencode
+rm -rf ~/.cache/opencode
+rm -rf ~/.config/opencode
+rm -rf ~/.local/state/opencode
 @REM rm -rf ~/.local/share/opencode
 
 rm -rf ~/.bun/install/cache
