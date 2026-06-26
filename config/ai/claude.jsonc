@@ -14,7 +14,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "claude-opus-4-8",
+  "model": "opus",
   "enableAllProjectMcpServers": false,
   "worktree": {
     "baseRef": "fresh"
@@ -49,7 +49,8 @@
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
-  "switchModelsOnFlag": false,
+  "autoCompactEnabled": true,
+  "switchModelsOnFlag": true,
   "fileCheckpointingEnabled": false,
   "showTurnDuration": false,
   "remoteControlAtStartup": false,
