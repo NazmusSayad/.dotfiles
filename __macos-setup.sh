@@ -1,5 +1,7 @@
 #!/bin/bash
 
+bash ./__git-config.sh
+
 sudo spctl --master-disable
 sudo mdutil -a -i off
 sudo mdutil -a -E
