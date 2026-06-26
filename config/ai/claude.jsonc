@@ -22,13 +22,20 @@
   "workflowKeywordTriggerEnabled": false,
   "defaultShell": "bash",
   "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true
+    "claude-code-wakatime@wakatime": true,
+    "ponytail@ponytail": true
   },
   "extraKnownMarketplaces": {
     "wakatime": {
       "source": {
-        "source": "git",
-        "url": "https://github.com/wakatime/claude-code-wakatime.git"
+        "source": "github",
+        "repo": "wakatime/claude-code-wakatime"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
       }
     }
   },
