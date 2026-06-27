@@ -35,9 +35,6 @@
     "pr": ""
   },
   "includeCoAuthoredBy": false,
-  "permissions": {
-    "defaultMode": "bypassPermissions"
-  },
   "model": "opus",
   "enableAllProjectMcpServers": false,
   "enabledPlugins": {
