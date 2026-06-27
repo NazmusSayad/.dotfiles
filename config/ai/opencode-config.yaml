@@ -26,10 +26,6 @@ openrouter:
 #     - id: gpt-5.5
 #       context: 256000
 
-xai:
-  models:
-    - id: grok-build-0.1
-
 ~agents:
   build:
     color: "#C18A57"
