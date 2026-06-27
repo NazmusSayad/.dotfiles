@@ -68,6 +68,7 @@
   "autoCompactEnabled": true,
   "switchModelsOnFlag": true,
   "showTurnDuration": false,
+  "prefersReducedMotion": true,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true
