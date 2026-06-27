@@ -66,6 +66,7 @@ brew "scc"
 
 # AI Coding
 cask "codex"
+cask "claude-code"
 tap "anomalyco/tap"
 brew "anomalyco/tap/opencode"
 
