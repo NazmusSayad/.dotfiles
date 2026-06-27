@@ -7,11 +7,11 @@ ocrs: opencode-server stop; pwsh -Command "Start-Process opencode-server -Window
 co: codex --yolo
 coo: codex resume --yolo --last
 
-cc: claude --permission-mode bypassPermissions
-ccc: claude --permission-mode bypassPermissions --continue
+cc: claude
+ccc: claude --continue
 
-wc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions
-wcc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions --continue
+wc: CLAUDE_CONFIG_DIR=~/.claude-work claude
+wcc: CLAUDE_CONFIG_DIR=~/.claude-work claude --continue
 
 # NPM
 r: nr
