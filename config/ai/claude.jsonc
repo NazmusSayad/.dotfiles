@@ -14,6 +14,7 @@
     "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
     "CLAUDE_CODE_DISABLE_ADVISOR_TOOL": "1",
     "CLAUDE_CODE_DISABLE_BUNDLED_SKILLS": "1",
+    "CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING": "1",
     "CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS": "1",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
@@ -27,7 +28,8 @@
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_UPGRADE_COMMAND": "1",
     "DISABLE_FEEDBACK_COMMAND": "1",
-    "DISABLE_EXTRA_USAGE_COMMAND": "1"
+    "DISABLE_EXTRA_USAGE_COMMAND": "1",
+    "CLAUDE_CODE_DEBUG_LOG_LEVEL": "error"
   },
   "attribution": {
     "commit": "",
@@ -60,15 +62,11 @@
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "medium",
-  "autoUpdatesChannel": "stable",
-  "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "editorMode": "normal",
-  "preferredNotifChannel": "auto",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": true,
-  "fileCheckpointingEnabled": false,
   "showTurnDuration": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
