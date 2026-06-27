@@ -34,6 +34,10 @@
     "commit": "",
     "pr": ""
   },
+  "permissions": {
+    "disableAutoMode": "disable",
+    "defaultMode": "bypassPermissions"
+  },
   "includeCoAuthoredBy": false,
   "model": "opus",
   "enableAllProjectMcpServers": false,
