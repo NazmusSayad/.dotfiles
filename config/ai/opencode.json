@@ -13,7 +13,7 @@
 
   "lsp": false,
   "snapshot": false,
-  "plugin": ["opencode-armor", "opencode-wakatime"],
+  "plugin": ["opencode.env", "opencode-armor", "opencode-wakatime"],
 
   "mcp": {
     "chrome-devtools": {
