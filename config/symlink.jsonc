@@ -147,7 +147,6 @@
     "Source": "@/config/shell/ghostty.conf",
     "Target.Mac": "~/.config/ghostty/config"
   },
-
   {
     "Source": "@/config/obs/basic",
     "Target.Win": "$APPDATA/obs-studio/basic"
@@ -166,6 +165,10 @@
   },
 
   // Other Configs
+  {
+    "Source": "@/config/global.gitignore",
+    "Target": "~/.gitignore"
+  },
   {
     "Source": "@/config/pnpm.yaml",
     "Target.Win": "$LOCALAPPDATA/pnpm/config.yaml",
