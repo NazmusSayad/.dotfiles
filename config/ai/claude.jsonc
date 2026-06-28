@@ -40,20 +40,13 @@
   "model": "opus",
   "enableAllProjectMcpServers": false,
   "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true,
-    "ponytail@ponytail": true
+    "claude-code-wakatime@wakatime": true
   },
   "extraKnownMarketplaces": {
     "wakatime": {
       "source": {
         "source": "github",
         "repo": "wakatime/claude-code-wakatime"
-      }
-    },
-    "ponytail": {
-      "source": {
-        "source": "github",
-        "repo": "DietrichGebert/ponytail"
       }
     }
   },
