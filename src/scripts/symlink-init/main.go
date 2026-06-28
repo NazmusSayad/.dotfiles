@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+
 	helpers "dotfiles/src/helpers"
 )
 
@@ -27,11 +28,13 @@ func (s *StringOrArray) UnmarshalJSON(data []byte) error {
 }
 
 type SymlinkConfig struct {
+	Copy    bool
 	Source  string
 	Targets []string
 }
 
 type rawSymlinkConfig struct {
+	Copy      bool          `json:"Copy"`
 	Source    string        `json:"Source"`
 	Target    StringOrArray `json:"Target"`
 	TargetWin StringOrArray `json:"Target.Win"`
@@ -49,6 +52,7 @@ func readSymlinkConfig() []SymlinkConfig {
 		}
 
 		configs = append(configs, SymlinkConfig{
+			Copy:    raw.Copy,
 			Source:  raw.Source,
 			Targets: targets,
 		})
@@ -92,7 +96,12 @@ func main() {
 
 		for _, target := range config.Targets {
 			targetPath := helpers.ResolvePath(target)
-			helpers.GenerateSymlink(sourcePath, targetPath)
+
+			if config.Copy {
+				helpers.CopyFile(sourcePath, targetPath)
+			} else {
+				helpers.GenerateSymlink(sourcePath, targetPath)
+			}
 		}
 	}
 }
