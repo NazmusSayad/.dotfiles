@@ -191,8 +191,8 @@
 
   // System Configs
   {
-    "Source": "@/config/US-Simplified.keylayout",
-    "Target.Mac": "~/Library/Keyboard Layouts/US-Simplified.keylayout"
+    "Source": "@/config/US Simplified.keylayout",
+    "Target.Mac": "~/Library/Keyboard Layouts/US Simplified.keylayout"
   },
   {
     "Source": "@/config/colima.yaml",
