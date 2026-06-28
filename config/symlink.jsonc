@@ -191,6 +191,7 @@
 
   // System Configs
   {
+    "Copy": true,
     "Source": "@/config/US Simplified.keylayout",
     "Target.Mac": "~/Library/Keyboard Layouts/US Simplified.keylayout"
   },
