@@ -199,10 +199,6 @@
     "Target.Mac": "~/Library/Keyboard Layouts/US Simplified.keylayout"
   },
   {
-    "Source": "@/config/colima.yaml",
-    "Target.Mac": "~/.colima/default/colima.yaml"
-  },
-  {
     "Source": "@/config/karabiner.json",
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
