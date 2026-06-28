@@ -2,7 +2,7 @@
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 457 on 2026-06-28 at 13:57 (GMT+6)-->
 <!--Last edited by Ukelele version 457 on 2026-06-28 at 13:57 (GMT+6)-->
-<keyboard group="126" id="-26491" name="Perfect US" maxout="1">
+<keyboard group="126" id="-26491" name="US-Simplified" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="Modifiers"/>
         <layout first="18" last="18" mapSet="JIS" modifiers="Modifiers"/>
