@@ -16,4 +16,4 @@ description: Installs, upgrades, and removes Node.js/npm dependencies, runs scri
 ## Rules
 
 - NEVER use `npm`, `pnpm`, `yarn`, or `bun` directly unless explicitly instructed. USE the commands mentioned above.
-- Prefer existing `package.json` scripts via `nr <script>` (e.g. `lint`, `typecheck`, `format`) over running tools directly with `nlx`/`npx`; only use `nlx` when no suitable script exists.
+- Prefer existing `package.json` scripts via `nr <script>` (e.g. `lint`, `typecheck`, `format`) over running tools directly with `nlx`/`npx` when available.
