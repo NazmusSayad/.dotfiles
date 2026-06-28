@@ -105,5 +105,6 @@ minimum_release_age_excludes = [
   "npm:uni-run",
   "npm:mytokens",
   "npm:code-info",
+  "npm:create-src",
   "npm:opencode-armor",
 ]
