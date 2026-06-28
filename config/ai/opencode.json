@@ -57,7 +57,7 @@
       "color": "#D46870",
       "permission": { "question": "deny", "task": "deny" }
     },
-    "plan": { "color": "#43ACB9" },
+    "plan": { "color": "#43ACB9", "permission": { "edit": "deny" } },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {
