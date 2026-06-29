@@ -6,7 +6,7 @@
 cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
-"cargo:pwshac" = "latest"
+"cargo:pwshac" = { os = "windows", version = "latest" }
 
 
 # Workflow Tools
@@ -57,7 +57,6 @@ java = "latest"
 
 # CLI Tools
 "npm:serve" = "latest"
-"npm:prettier" = "latest"
 "npm:git-stats" = "latest"
 "npm:live-server" = "latest"
 "npm:concurrently" = "latest"
@@ -106,5 +105,6 @@ minimum_release_age_excludes = [
   "npm:uni-run",
   "npm:mytokens",
   "npm:code-info",
+  "npm:create-src",
   "npm:opencode-armor",
 ]
