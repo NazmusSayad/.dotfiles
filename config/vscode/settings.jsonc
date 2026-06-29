@@ -335,12 +335,13 @@
   "highlight-matching-tag.highlightSelfClosing": true,
   "cSpell.language": "en,en-US,lorem",
   "cSpell.userWords": [
+    "dotenv",
     "HugeIcons",
     "Nazmus",
     "NazmusSayad",
-    "openrouter",
     "opencode",
-    "Sayad",
+    "openrouter",
+    "Sayad"
   ],
   "cSpell.enabledNotifications": {
     "Lines too Long": false,
