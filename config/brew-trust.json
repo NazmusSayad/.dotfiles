@@ -1,4 +1,0 @@
-{
-  "trustedtaps": ["anomalyco/tap"],
-  "trustedformulae": ["anomalyco/tap/opencode"]
-}
