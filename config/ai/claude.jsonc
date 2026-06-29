@@ -5,11 +5,10 @@
     "CLAUDE_CODE_SHELL": "bash",
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
-    "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
+    "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
     "CLAUDE_CODE_DISABLE_ARTIFACT": "1",
     "CLAUDE_CODE_DISABLE_WORKFLOWS": "1",
-    "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1",
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
     "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
     "CLAUDE_CODE_DISABLE_ADVISOR_TOOL": "1",
@@ -22,12 +21,8 @@
     "DISABLE_AUTOUPDATER": "1",
     "FORCE_AUTOUPDATE_PLUGINS": "1",
     "DISABLE_INSTALLATION_CHECKS": "1",
-    "DO_NOT_TRACK": "1",
-    "DISABLE_TELEMETRY": "1",
-    "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_UPGRADE_COMMAND": "1",
-    "DISABLE_FEEDBACK_COMMAND": "1",
     "DISABLE_EXTRA_USAGE_COMMAND": "1",
     "CLAUDE_CODE_DEBUG_LOG_LEVEL": "error"
   },
@@ -43,20 +38,13 @@
   "model": "opus",
   "enableAllProjectMcpServers": false,
   "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true,
-    "ponytail@ponytail": true
+    "claude-code-wakatime@wakatime": true
   },
   "extraKnownMarketplaces": {
     "wakatime": {
       "source": {
         "source": "github",
         "repo": "wakatime/claude-code-wakatime"
-      }
-    },
-    "ponytail": {
-      "source": {
-        "source": "github",
-        "repo": "DietrichGebert/ponytail"
       }
     }
   },

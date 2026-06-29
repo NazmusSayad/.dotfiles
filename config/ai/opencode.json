@@ -13,7 +13,7 @@
 
   "lsp": false,
   "snapshot": false,
-  "plugin": ["opencode-armor", "opencode-wakatime", "@dietrichgebert/ponytail"],
+  "plugin": ["opencode.env", "opencode-armor", "opencode-wakatime"],
 
   "mcp": {
     "chrome-devtools": {
@@ -50,14 +50,14 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
-      "model": "opencode-go/minimax-m3",
+      "model": "opencode/deepseek-v4-flash-free",
       "permission": { "edit": "deny", "question": "deny", "task": "deny" }
     },
     "general": {
       "color": "#D46870",
       "permission": { "question": "deny", "task": "deny" }
     },
-    "plan": { "color": "#43ACB9" },
+    "plan": { "color": "#43ACB9", "permission": { "edit": "deny" } },
     "title": {
       "model": "openrouter/openai/gpt-oss-120b",
       "options": {

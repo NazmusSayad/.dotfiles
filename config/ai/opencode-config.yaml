@@ -2,12 +2,12 @@ opencode:
   models:
     - id: mimo-v2.5-free
     - id: deepseek-v4-flash-free
+      explore: true
 
 opencode-go:
   models:
     - id: glm-5.2
     - id: minimax-m3
-      explore: true
     - id: mimo-v2.5-pro
     - id: kimi-k2.7-code
 
@@ -31,6 +31,8 @@ openrouter:
     color: "#C18A57"
   plan:
     color: "#43ACB9"
+    permission:
+      edit: deny
   ask:
     color: "#89AE6E"
     permission:
