@@ -90,11 +90,11 @@ terraform = "latest"
 auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
-trusted_config_paths = ["~/Desktop"]
 
-node.corepack = true
+node.npm_shim = true
 npm.package_manager = "pnpm"
 
+trusted_config_paths = ["~/Desktop"]
 minimum_release_age_excludes = [
   # Tools
   "pnpm",
