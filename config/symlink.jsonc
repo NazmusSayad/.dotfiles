@@ -202,10 +202,6 @@
     "Source": "@/config/karabiner.json",
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
-  {
-    "Source": "@/config/brew-trust.json",
-    "Target.Mac": "~/.homebrew/trust.json"
-  },
 
   // Code Editor
   {
