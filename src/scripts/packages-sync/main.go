@@ -10,15 +10,31 @@ import (
 )
 
 func main() {
-	if runtime.GOOS == "darwin" {
-		macosSync()
-	} else if runtime.GOOS == "windows" {
+	switch runtime.GOOS {
+	case "darwin":
+		homebrewSync()
+	case "windows":
 		windowsSync()
 	}
+
+	// Mise
+	fmt.Println("✘", aurora.Faint("Uninstalling Mise packages..."))
+	runCommand([]string{"mise", "prune", "--yes"})
+
+	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
+	runCommand([]string{"mise", "install"})
+	fmt.Println()
+
+	fmt.Println("△", aurora.Faint("Updating Mise packages..."))
+	runCommand([]string{"mise", "upgrade"})
+	fmt.Println()
+
+	fmt.Println("✘", aurora.Faint("Cleaning Mise packages..."))
+	runCommand([]string{"mise", "cache", "clear", "--yes"})
+	fmt.Println()
 }
 
-func macosSync() {
-	// Brew
+func homebrewSync() {
 	brewfilePath := helpers.ResolvePath("@/config/Brewfile")
 	brewFileTaps := helpers.GetBrewTaps(brewfilePath)
 	if len(brewFileTaps) > 0 {
@@ -31,6 +47,10 @@ func macosSync() {
 		fmt.Println()
 	}
 
+	fmt.Println("✘", aurora.Faint("Uninstalling Brew packages..."))
+	helpers.ExecNativeCommand([]string{"brew", "bundle", "cleanup", "--force", "--file=" + brewfilePath})
+	fmt.Println()
+
 	fmt.Println("△", aurora.Faint("Updating Brew..."))
 	helpers.ExecNativeCommand([]string{"brew", "update"})
 	fmt.Println()
@@ -39,30 +59,12 @@ func macosSync() {
 	helpers.ExecNativeCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
 	fmt.Println()
 
-	fmt.Println("✘", aurora.Faint("Uninstalling Brew packages..."))
-	helpers.ExecNativeCommand([]string{"brew", "bundle", "cleanup", "--force", "--file=" + brewfilePath})
-	fmt.Println()
-
 	fmt.Println("△", aurora.Faint("Upgrading Brew Apps..."))
 	helpers.ExecNativeCommand([]string{"brew", "upgrade", "--yes"})
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Brew..."))
 	helpers.ExecNativeCommand([]string{"brew", "cleanup", "--prune=all", "-s"})
-	fmt.Println()
-
-	// Mise
-	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
-	helpers.ExecNativeCommand([]string{"mise", "install"})
-	fmt.Println()
-
-	fmt.Println("△", aurora.Faint("Updating Mise..."))
-	helpers.ExecNativeCommand([]string{"mise", "upgrade"})
-	fmt.Println()
-
-	fmt.Println("✘", aurora.Faint("Cleaning Mise..."))
-	helpers.ExecNativeCommand([]string{"mise", "prune", "--yes"})
-	helpers.ExecNativeCommand([]string{"mise", "cache", "clear", "--yes"})
 	fmt.Println()
 }
 
@@ -103,20 +105,6 @@ func windowsSync() {
 
 	fmt.Println("✘", aurora.Faint("Cleaning Pacman..."))
 	runCommand([]string{"pacman", "-Scc", "--noconfirm"})
-	fmt.Println()
-
-	// Mise
-	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
-	runCommand([]string{"mise", "install"})
-	fmt.Println()
-
-	fmt.Println("△", aurora.Faint("Updating Mise..."))
-	runCommand([]string{"mise", "upgrade"})
-	fmt.Println()
-
-	fmt.Println("✘", aurora.Faint("Cleaning Mise..."))
-	runCommand([]string{"mise", "prune", "--yes"})
-	runCommand([]string{"mise", "cache", "clear", "--yes"})
 	fmt.Println()
 }
 
