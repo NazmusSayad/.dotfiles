@@ -65,10 +65,10 @@ brew "fvm"
 brew "scc"
 
 # AI Coding
-cask "codex"
-cask "claude-code"
 tap "anomalyco/tap"
 brew "anomalyco/tap/opencode"
+cask "codex"
+cask "claude-code@latest"
 
 # Docker
 brew "colima"
