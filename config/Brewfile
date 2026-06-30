@@ -68,7 +68,7 @@ brew "scc"
 tap "anomalyco/tap"
 brew "anomalyco/tap/opencode"
 cask "codex"
-cask "claude-code@latest"
+cask "claude-code"
 
 # Docker
 brew "colima"
