@@ -19,13 +19,8 @@ func main() {
 
 func macosSync() {
 	// Brew
-	fmt.Println("△", aurora.Faint("Updating Brew..."))
-	helpers.ExecNativeCommand([]string{"brew", "update"})
-	fmt.Println()
-
 	brewfilePath := helpers.ResolvePath("@/config/Brewfile")
 	brewFileTaps := helpers.GetBrewTaps(brewfilePath)
-
 	if len(brewFileTaps) > 0 {
 		fmt.Println("◯", aurora.Faint("Trusting Brew taps..."))
 
@@ -35,6 +30,10 @@ func macosSync() {
 
 		fmt.Println()
 	}
+
+	fmt.Println("△", aurora.Faint("Updating Brew..."))
+	helpers.ExecNativeCommand([]string{"brew", "update"})
+	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Brew packages..."))
 	helpers.ExecNativeCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
