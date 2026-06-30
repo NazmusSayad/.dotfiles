@@ -20,6 +20,7 @@ func main() {
 	// Mise
 	fmt.Println("✘", aurora.Faint("Uninstalling Mise packages..."))
 	runCommand([]string{"mise", "prune", "--yes"})
+	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
 	runCommand([]string{"mise", "install"})
@@ -39,17 +40,23 @@ func homebrewSync() {
 	brewFileTaps := helpers.GetBrewTaps(brewfilePath)
 	if len(brewFileTaps) > 0 {
 		fmt.Println("◯", aurora.Faint("Trusting Brew taps..."))
-
 		for _, tap := range brewFileTaps {
 			helpers.ExecNativeCommand([]string{"brew", "trust", tap})
 		}
-
 		fmt.Println()
 	}
 
 	fmt.Println("✘", aurora.Faint("Uninstalling Brew packages..."))
 	helpers.ExecNativeCommand([]string{"brew", "bundle", "cleanup", "--force", "--file=" + brewfilePath})
 	fmt.Println()
+
+	if len(brewFileTaps) > 0 {
+		fmt.Println("◯", aurora.Faint("Trusting Brew taps..."))
+		for _, tap := range brewFileTaps {
+			helpers.ExecNativeCommand([]string{"brew", "trust", tap})
+		}
+		fmt.Println()
+	}
 
 	fmt.Println("△", aurora.Faint("Updating Brew..."))
 	helpers.ExecNativeCommand([]string{"brew", "update"})
