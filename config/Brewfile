@@ -67,7 +67,7 @@ brew "scc"
 # AI Coding
 tap "anomalyco/tap"
 brew "anomalyco/tap/opencode"
-cask "claude-code@latest"
+cask "claude-code"
 cask "codex"
 
 # Docker
