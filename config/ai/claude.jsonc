@@ -40,7 +40,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "sonnet",
+  "model": "opus",
   "enableAllProjectMcpServers": false,
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
