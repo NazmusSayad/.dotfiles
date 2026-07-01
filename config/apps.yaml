@@ -20,8 +20,8 @@ scoop:
 
   # AI Coding
   - codex
-  - claude
   - opencode
+  - claude-code
 
   # Visualization
   - extras/onefetch
