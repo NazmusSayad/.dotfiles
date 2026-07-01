@@ -12,24 +12,6 @@
       "complex_modifications": {
         "rules": [
           {
-            "description": "Option+Space → Option+Shift+F",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": { "mandatory": ["option"] }
-                },
-                "to": [
-                  {
-                    "key_code": "f",
-                    "modifiers": ["option", "shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "CapsLock -> Cmd+Tab (hold)",
             "manipulators": [
               {
@@ -62,6 +44,24 @@
                     "modifiers": ["left_command", "left_shift"]
                   },
                   { "key_code": "left_command" }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Option+Space → Option+Shift+F",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": { "mandatory": ["option"] }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["option", "shift"]
+                  }
                 ],
                 "type": "basic"
               }
