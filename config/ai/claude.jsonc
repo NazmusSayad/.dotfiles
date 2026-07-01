@@ -58,6 +58,7 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "editorMode": "normal",
+  "defaultShell": "bash",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": true,
   "showTurnDuration": false,
