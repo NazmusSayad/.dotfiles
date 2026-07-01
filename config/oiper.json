@@ -72,15 +72,6 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "prompt"
-    },
-    {
-      "id": "01KWFRDW06E50ZWQ77WZWMXQTN",
-      "mode": "local",
-      "language": "en",
-      "name": "Test",
-      "transcribeAsrModel": "base.en",
-      "hotkey.windows": "ControlLeft+Alt"
     }
-  ],
-  "whisperBackend.windows": "cpu"
+  ]
 }
