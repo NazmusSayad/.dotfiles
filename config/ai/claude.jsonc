@@ -5,6 +5,8 @@
     "CLAUDE_CODE_SHELL": "bash",
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
     "ENABLE_CLAUDEAI_MCP_SERVERS": "false",
     "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS": "1",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
@@ -33,12 +35,12 @@
     "commit": "",
     "pr": ""
   },
-  "permissions": {
-    "disableAutoMode": "disable",
-    "defaultMode": "bypassPermissions"
-  },
   "includeCoAuthoredBy": false,
-  "model": "opus",
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "disableAutoMode": "disable"
+  },
+  "model": "sonnet",
   "enableAllProjectMcpServers": false,
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
