@@ -199,6 +199,7 @@
     "Target.Mac": "~/Library/Keyboard Layouts/US Simplified.keylayout"
   },
   {
+    "Copy": true,
     "Source": "@/config/karabiner.json",
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
