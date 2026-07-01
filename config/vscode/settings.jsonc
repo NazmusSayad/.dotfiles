@@ -226,6 +226,8 @@
   "git.showPushSuccessNotification": true,
   "git.openRepositoryInParentFolders": "never",
   "git.ignoreRebaseWarning": true,
+  "git.autoRepositoryDetection": "openEditors",
+  "scm.repositories.sortOrder": "path",
   "scm.inputMinLineCount": 7,
   "scm.inputMaxLineCount": 7,
   "scm.defaultViewMode": "tree",
@@ -341,7 +343,7 @@
     "NazmusSayad",
     "opencode",
     "openrouter",
-    "Sayad"
+    "Sayad",
   ],
   "cSpell.enabledNotifications": {
     "Lines too Long": false,
