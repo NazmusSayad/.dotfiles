@@ -30,7 +30,7 @@
             ]
           },
           {
-            "description": "CapsLock -> Spotlight",
+            "description": "CapsLock -> Cmd+Tab (hold)",
             "manipulators": [
               {
                 "from": {
@@ -39,9 +39,29 @@
                 },
                 "to": [
                   {
-                    "key_code": "spacebar",
+                    "key_code": "tab",
                     "modifiers": ["left_command"]
-                  }
+                  },
+                  { "key_code": "left_command" }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Shift+CapsLock -> Cmd+Shift+Tab (hold)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": ["left_command", "left_shift"]
+                  },
+                  { "key_code": "left_command" }
                 ],
                 "type": "basic"
               }
