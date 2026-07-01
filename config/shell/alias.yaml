@@ -29,9 +29,8 @@ pas: php artisan serve
 
 # Git
 zg: lazygit
-gc: git checkout
+gco: git checkout
 gcn: git checkout -b
-gds: git diff --stat
 
 # GitHub CLI
 ghv: gh repo view
