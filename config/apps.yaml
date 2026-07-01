@@ -81,7 +81,9 @@ scoop:
   - extras/slack
 
   # Fonts
+  - nerd-fonts/IBMPlexSans
   - nerd-fonts/FiraCode-NF
+  - nerd-fonts/JetBrainsMono-NF
 
 winget:
   # Most Important

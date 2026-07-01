@@ -78,5 +78,6 @@ brew "docker-buildx"
 brew "docker-compose"
 
 # Fonts
+cask "font-jetbrains-mono-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-ibm-plex-sans"
