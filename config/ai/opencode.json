@@ -4,7 +4,6 @@
   "autoshare": false,
   "share": "disabled",
 
-  "shell": "bash",
   "permission": {
     "*": "allow",
     "lsp": "deny",
