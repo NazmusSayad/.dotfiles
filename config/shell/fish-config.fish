@@ -1,3 +1,10 @@
+fish_config theme choose default
+set fish_greeting
+set fish_color_end normal
+set fish_color_quote green
+set fish_color_comment --dim
+set fish_color_command magenta
+
 # Mise
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
