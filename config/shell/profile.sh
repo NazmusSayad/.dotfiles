@@ -11,4 +11,4 @@ else
 fi
 
 [[ -f ~/.env ]] && eval "$(dotsh bash "$(<~/.env)")"
-[[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd: ':' ~/.path)"
+[[ -f ~/.path ]] && export PATH="$PATH:$(paste -s -d ':' ~/.path)"
