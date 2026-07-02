@@ -1,12 +1,8 @@
 export RUST_BACKTRACE=1
 export NODE_NO_WARNINGS=1
 
-if [[ "$OS" == "Windows_NT" ]]; then
-	eval "$(dotsh bash "$(mise env --dotenv)")"
-else
-	eval "$(/opt/homebrew/bin/brew shellenv bash)"
-	eval "$(mise env bash)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv bash)"
+eval "$(mise env bash)"
 
 if [[ -f ~/.env ]]; then
 	eval "$(dotsh bash "$(cat ~/.env)")"

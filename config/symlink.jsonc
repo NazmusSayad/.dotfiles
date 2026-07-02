@@ -2,7 +2,7 @@
   // Shell
   {
     "Source": "@/config/shell/bash-profile.sh",
-    "Target": "~/.bash_profile"
+    "Target.Mac": "~/.bash_profile"
   },
   {
     "Source": "@/config/shell/fish-config.fish",
