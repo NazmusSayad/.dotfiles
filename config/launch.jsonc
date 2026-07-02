@@ -64,9 +64,4 @@
     "Dir": "F:\\__WINBIN__\\netserv\\start",
     "AsUser": true
   }
-
-  // {
-  //   "Path": "opencode-server",
-  //   "AsUser": true
-  // }
 ]
