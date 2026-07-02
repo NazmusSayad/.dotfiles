@@ -8,10 +8,6 @@
     "Source": "@/config/shell/fish-config.fish",
     "Target": "~/.config/fish/config.fish"
   },
-  {
-    "Source": "@/config/shell/fish-theme.theme",
-    "Target": "~/.config/fish/themes/fish-theme.theme"
-  },
 
   // Agents
   {
