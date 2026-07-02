@@ -1,6 +1,6 @@
 # Mise
 if test "$OS" = Windows_NT
-    dotsh fish (mise env -D) | source
+    dotsh fish (mise env --dotenv) | source
 else
     mise activate fish | source
 end
