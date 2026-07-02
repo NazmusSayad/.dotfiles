@@ -25,7 +25,7 @@ if defined killed (
         set "exe=%CD%\.build\ahk\%%n.exe"
         if exist "!exe!" (
             echo ^> Restarting: !exe!
-            powershell -NoProfile -Command "Start-Process '!exe!' -Verb RunAs"
+            sudo "!exe!"
         )
     )
 )
