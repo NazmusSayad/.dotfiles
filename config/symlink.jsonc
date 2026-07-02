@@ -1,7 +1,7 @@
 [
   // Shell Configs
   {
-    "Source": "@/config/shell/bash-profile.sh",
+    "Source": "@/config/shell/profile.sh",
     "Target.Mac": "~/.bash_profile"
   },
   {
