@@ -2,7 +2,7 @@ export RUST_BACKTRACE=1
 export NODE_NO_WARNINGS=1
 
 eval "$(/opt/homebrew/bin/brew shellenv bash)"
-eval "$(mise env bash)"
+eval "$(mise env --shell bash)"
 
 if [[ -f ~/.env ]]; then
 	eval "$(dotsh bash "$(cat ~/.env)")"
