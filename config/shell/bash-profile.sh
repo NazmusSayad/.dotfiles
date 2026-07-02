@@ -1,3 +1,6 @@
+export RUST_BACKTRACE=1
+export NODE_NO_WARNINGS=1
+
 if [[ "$OS" == "Windows_NT" ]]; then
 	eval "$(dotsh bash "$(mise env --dotenv)")"
 else
