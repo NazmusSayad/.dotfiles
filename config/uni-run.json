@@ -4,7 +4,6 @@
     "dart": "fvm",
     "python": "uv",
     "shell": "bash",
-    "powershell": "pwsh",
     "javascript": "node",
     "typescript": "mise-tsx"
   }

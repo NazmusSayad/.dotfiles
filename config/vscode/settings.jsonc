@@ -41,7 +41,7 @@
   "workbench.layoutControl.enabled": false,
   "window.menuBarVisibility": "compact",
   "workbench.editorAssociations": {
-    "*.svg": "default",
+    "*.svg": "default"
   },
   "window.confirmSaveUntitledWorkspace": false,
   "window.restoreWindows": "one",
@@ -63,14 +63,14 @@
     "**/.next": true,
     "**/node_modules": true,
     "**/next-env.d.ts": true,
-    "**/tsconfig.tsbuildinfo": true,
+    "**/tsconfig.tsbuildinfo": true
   },
   "search.quickOpen.includeHistory": false,
   "search.exclude": {
     "**/dist": true,
     "**/{.gitignore,.npmignore}": true,
     "**/{.vscode,.codespaces,.oryx,.next}": true,
-    "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true,
+    "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true
   },
   "terminal.external.windowsExec": "wt.exe",
   "terminal.external.osxExec": "Ghostty.app",
@@ -79,13 +79,11 @@
   "terminal.integrated.profiles.osx": {
     "Fish": { "path": "fish" },
     "Bash": { "path": "bash" },
-    "Zsh (MSYS2)": { "path": "zsh" },
+    "Zsh (MSYS2)": { "path": "zsh" }
   },
   "terminal.integrated.profiles.windows": {
     "Fish (MSYS2)": { "path": "fish.exe" },
-    "Bash (MSYS2)": { "path": "bash.exe" },
-    "Zsh (MSYS2)": { "path": "zsh.exe" },
-    "PowerShell (pwsh)": { "path": "pwsh.exe" },
+    "Bash (MSYS2)": { "path": "bash.exe" }
   },
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.shellIntegration.decorationsEnabled": "gutter",
@@ -152,46 +150,46 @@
   "editor.quickSuggestions": {
     "comments": true,
     "strings": true,
-    "other": true,
+    "other": true
   },
   "files.associations": {
     ".env*": "dotenv",
     ".envrc": "shellscript",
-    "*.code-snippets": "jsonc",
+    "*.code-snippets": "jsonc"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[go]": {
-    "editor.defaultFormatter": "golang.go",
+    "editor.defaultFormatter": "golang.go"
   },
   "[go.mod]": {
-    "editor.defaultFormatter": "golang.go",
+    "editor.defaultFormatter": "golang.go"
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.defaultFormatter": "ms-python.autopep8"
   },
   "[dart]": {
-    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.defaultFormatter": "Dart-Code.dart-code"
   },
   "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.defaultFormatter": "Prisma.prisma"
   },
   "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "mkhl.shfmt",
+    "editor.defaultFormatter": "mkhl.shfmt"
   },
   "[fish]": {
-    "editor.defaultFormatter": "bmalehorn.vscode-fish",
+    "editor.defaultFormatter": "bmalehorn.vscode-fish"
   },
   "[snippets]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.closingBraceHints.enable": false,
@@ -199,7 +197,7 @@
   "prisma.hidePrisma6Prompts": true,
   "json.schemaDownload.enable": true,
   "json.schemaDownload.trustedDomains": {
-    "*": true,
+    "*": true
   },
   "redhat.telemetry.enabled": false,
   "go.formatTool": "gofumpt",
@@ -209,7 +207,7 @@
   "go.testExplorer.showOutput": false,
   "go.toolsManagement.checkForUpdates": "off",
   "go.enableCodeLens": {
-    "runtest": false,
+    "runtest": false
   },
   "prettier.tabWidth": 2,
   "prettier.semi": false,
@@ -231,7 +229,7 @@
   "scm.inputMaxLineCount": 7,
   "scm.defaultViewMode": "tree",
   "scm.diffDecorationsGutterPattern": {
-    "added": true,
+    "added": true
   },
   "dart.mcpServer": false,
   "dart.closingLabels": false,
@@ -262,7 +260,7 @@
     "radix-ui",
     "base-ui",
     "date-fns",
-    "moment",
+    "moment"
   ],
   "yaml.extension.recommendations": false,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -342,12 +340,12 @@
     "NazmusSayad",
     "opencode",
     "openrouter",
-    "Sayad",
+    "Sayad"
   ],
   "cSpell.enabledNotifications": {
     "Lines too Long": false,
     "Average Word Length too Long": false,
-    "Maximum Word Length Exceeded": false,
+    "Maximum Word Length Exceeded": false
   },
   "workbench.navigationControl.enabled": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
@@ -375,11 +373,11 @@
   "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
   "github.copilot.enable": {
     "*": true,
-    "markdown": true,
+    "markdown": true
   },
   "accessibility.signals.chatUserActionRequired": {
     "announcement": "off",
-    "sound": "on",
+    "sound": "on"
   },
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
   "explorer.confirmPasteNative": false,
@@ -387,5 +385,5 @@
   "explorer.copyPathSeparator": "/",
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "hidden"
 }

@@ -99,8 +99,6 @@ winget:
   # Windows Tools
   - id: 9N0DX20HK701
     name: Windows Terminal
-  - id: 9MZ1SNWT0N5D
-    name: PowerShell (pwsh)
   - id: 9MSMLRH6LZF3
     name: Windows Notepad
   - id: 9WZDNCRFHVN5
