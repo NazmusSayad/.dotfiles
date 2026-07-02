@@ -19,7 +19,7 @@ I recommend checking this repo, taking ideas from it, and implementing them in a
   Install packages via Homebrew using the included Brewfile for a consistent macOS development environment.
 
 - **Application Management**
-  Install and update all your development tools, applications, and packages using Winget (Windows) or Homebrew (macOS) with simple configuration files. Keep everything up-to-date with one command.
+  Install and update development tools, applications, and packages using Winget/Scoop (Windows) or Homebrew (macOS) with simple configuration files.
 
 - **Enhanced Shell Experience**
   Pre-configured shell environments (Bash, Fish, Zsh) with Starship prompt, Windows Terminal / Ghostty settings, and convenient command aliases for faster workflow.
@@ -34,7 +34,7 @@ I recommend checking this repo, taking ideas from it, and implementing them in a
   Configure applications and scripts to run automatically on system startup, with support for both user and administrator privileges.
 
 - **Code Editor Setup**
-  Pre-configured settings for popular editors like Zed, along with helpful utilities for managing your development environment.
+  Pre-configured VS Code settings, keybindings, extensions, snippets, and state sync helpers.
 
 ## Agent Skills
 
@@ -54,6 +54,7 @@ Before you begin, make sure you have:
 - **Git** installed (to clone the repository)
 - **Go** installed (version specified in `go.mod`)
 - **MSYS2** (Windows, optional for Bash/Fish) or **Homebrew** (macOS)
+- **Scoop** (Windows package tools)
 
 ### Installation Guide
 
@@ -71,17 +72,17 @@ Follow these steps to set up your development environment:
 2.  **Initial Setup**
 
     - **Windows**: Right-click `__install-dotfiles.cmd` and select "Run as Administrator".
-    - **macOS**: Bootstrap via Homebrew + config (see `config/Brewfile` and shell configs).
+    - **macOS**: Run `__setup-macos.sh` after reviewing it, or bootstrap via Homebrew + config (see `config/Brewfile` and shell configs).
 
     This will set up the dotfiles directory and add tools to your PATH.
 
 3.  **Build All Utilities**
 
-    Run `__compile.cmd` (Windows) or the equivalent build step for your platform. This creates the executable tools for daily use.
+    Run `__compile.sh`. On Windows, run it from Bash/MSYS2. This creates the executable tools for daily use.
 
 4.  **Configure Your Environment**
 
-    Run `__install-config.cmd` (Windows) or the platform equivalent to set up:
+    Run `__install-config.cmd` (Windows) or `__install-config.sh` (macOS/Linux) to set up:
     - Git configuration (name, email, default settings)
     - Symbolic links for configuration files
     - Scheduled tasks / launch agents for automatic startup
@@ -92,12 +93,12 @@ Follow these steps to set up your development environment:
 
     ⚠️ **Important:** Review the scripts before running this step!
 
-    - **Windows**: Run `__windows-setup.cmd` as Administrator to apply system settings, remove bloatware, disable services, and optimize performance (restarts automatically).
-    - **macOS**: Use Homebrew to provision packages from `config/Brewfile`.
+    - **Windows**: Run `__setup-windows.cmd` as Administrator to apply system settings, remove bloatware, disable services, and optimize performance (restarts automatically).
+    - **macOS**: Run `__setup-macos.sh` after reviewing it, and use Homebrew to provision packages from `config/Brewfile`.
 
 6.  **Optional: Additional Setup**
-    - Windows: `__git-gpg.cmd`, `__install-start-menu.cmd`
-    - macOS: review `config/Brewfile` and shell configs
+    - Windows: `__compile-ahk.cmd`, `__install-code.cmd`
+    - macOS: review `config/Brewfile`, `__setup-macos.sh`, and shell configs
 
 ### Using the Tools
 
@@ -105,27 +106,30 @@ Once installed, you can use these commands from anywhere in your terminal:
 
 **Package Management:**
 
-- `winget-install` / `brew` - Install all configured applications (Winget on Windows, Homebrew on macOS)
-- `winget-upgrade` - Update all installed packages (Windows)
+- `packages-sync` / `psy` - Sync configured packages
+- `winget-install` / `wgi` - Install configured Winget applications (Windows)
+- `winget-upgrade` / `wgu` - Update configured Winget applications (Windows)
+- `scoop-install` - Install configured Scoop packages (Windows)
 
 **Git Helpers:**
 
-- `c` - Clone repositories (supports GitHub shorthand)
-- `gc` - Checkout branches (creates if doesn't exist)
+- `git-clone` / `gc` - Clone repositories (supports GitHub shorthand)
+- `git-pull` / `gp` - Quick git pull
+- `git-pull-all` / `gpa` - Pull all repositories in a workspace
 - `gpr` - Pull changes with rebase
 - `gpm` - Pull changes with merge
-- `gp` - Quick git pull
-- `gds` - Git diff with statistics
+- `github-pr-create` / `ghp` - Create GitHub pull requests
 
 **Slack Management:**
 
-- `slack-status` - Change Slack auto-start behavior (Always/Work Hours/Disabled)
+- `slack-status` / `ss` - Change Slack auto-start behavior (Always/Work Hours/Disabled)
 - Slack will automatically start/stop based on your configured work schedule
 
 **System Setup:**
 
 - `symlink-init` - Recreate all configuration file symlinks
-- `msys-setup` - Set up MSYS2 development environment (Windows)
+- `msys-init` - Set up MSYS2 development environment (Windows)
+- `windows-startup` - Run configured Windows startup tasks
 
 ## Customization
 
@@ -133,7 +137,7 @@ Most user settings live under `config/`. Update the relevant config files, then 
 
 Common files to edit:
 
-- `config/apps.yaml` - Applications and packages to install (Windows winget)
+- `config/apps.yaml` - Applications and packages to install (Windows Winget/Scoop/MSYS2)
 - `config/Brewfile` - Packages to install (macOS Homebrew)
 - `config/symlink.jsonc` - Config files linked into your system
 - `config/slack-status.jsonc` - Slack startup schedule
@@ -142,7 +146,7 @@ Common files to edit:
 
 ## ⚠️ Important Notes
 
-- **Review Before Running:** The Windows setup scripts (`src/ps1-windows/`) will modify system settings and remove default Windows applications. Please review these scripts before running `__windows-setup.cmd` to ensure they match your preferences.
+- **Review Before Running:** The Windows setup scripts (`src/ps1-windows/`) will modify system settings and remove default Windows applications. Please review these scripts before running `__setup-windows.cmd` to ensure they match your preferences.
 
 - **Administrator Rights:** Some Windows scripts require administrator privileges. macOS scripts may prompt for your password via sudo.
 
