@@ -7,10 +7,3 @@ fi
 
 [[ -f ~/.env ]] && eval "$(dotsh bash "$(<~/.env)")"
 [[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd: ~/.path)"
-eval "$(direnv hook bash)"
-
-if [[ $- == *i* ]]; then
-	eval "$(shaka bash)"
-	eval "$(zoxide init bash)"
-	eval "$(starship init bash)"
-fi
