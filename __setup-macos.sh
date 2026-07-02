@@ -5,6 +5,14 @@ echo "Configuring shell settings..."
 sudo bash ./__install-config.sh
 sudo chsh -s "$(which bash)"
 
+echo "Configuring fish shell settings..."
+fish -c 'fish_config theme choose default'
+fish -c 'set -U fish_greeting'
+fish -c 'set -U fish_color_end normal'
+fish -c 'set -U fish_color_quote green'
+fish -c 'set -U fish_color_comment --dim'
+fish -c 'set -U fish_color_command magenta'
+
 echo "Configuring macOS settings..."
 sudo launchctl disable system/com.apple.assistantd
 sudo spctl --master-disable
@@ -21,7 +29,6 @@ defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
-
 
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.75
