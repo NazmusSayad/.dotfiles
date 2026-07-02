@@ -1,3 +1,11 @@
+if [[ -f ~/.env ]]; then
+	eval "$(dotsh bash "$(<~/.env)")"
+fi
+
+if [[ -f ~/.path ]]; then
+	export PATH="$PATH:$(paste -s -d ':' ~/.path)"
+fi
+
 if [[ "$OS" == "Windows_NT" ]]; then
 	eval "$(dotsh bash "$(mise env --dotenv)")"
 else
@@ -8,12 +16,4 @@ else
 	if command -v mise >/dev/null 2>&1; then
 		eval "$(mise env bash)"
 	fi
-fi
-
-if [[ -f ~/.env ]]; then
-	eval "$(dotsh bash "$(<~/.env)")"
-fi
-
-if [[ -f ~/.path ]]; then
-	export PATH="$PATH:$(paste -s -d ':' ~/.path)"
 fi
