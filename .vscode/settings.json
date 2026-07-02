@@ -47,6 +47,7 @@
     "rmrf",
     "runas",
     "sharex",
+    "shellenv",
     "shlvl",
     "todowrite",
     "ucrt",
