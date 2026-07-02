@@ -7,7 +7,10 @@ if [[ -f ~/.path ]]; then
 fi
 
 if [[ "$OS" == "Windows_NT" ]]; then
-	eval "$(dotsh bash "$(mise env --dotenv)")"
+	if command -v dotsh >/dev/null 2>&1 && command -v mise >/dev/null 2>&1; then
+		eval "$(dotsh bash "$(mise env --dotenv)")"
+	fi
+
 else
 	if [[ -x /opt/homebrew/bin/brew ]]; then
 		eval "$(/opt/homebrew/bin/brew shellenv bash)"
