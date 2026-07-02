@@ -1,8 +1,9 @@
 #!/bin/bash
 echo "Setting up macOS environment..."
 
-echo "Configuring Git settings..."
+echo "Configuring shell settings..."
 sudo bash ./__install-config.sh
+sudo chsh -s "$(which bash)"
 
 echo "Configuring macOS settings..."
 sudo launchctl disable system/com.apple.assistantd
