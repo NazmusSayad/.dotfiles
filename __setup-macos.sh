@@ -1,17 +1,10 @@
 #!/bin/bash
 echo "Setting up macOS environment..."
 
-echo "Configuring shell settings..."
 sudo bash ./__install-config.sh
-sudo chsh -s "$(which bash)"
 
-echo "Configuring fish shell settings..."
-fish -c 'fish_config theme choose default'
-fish -c 'set -U fish_greeting'
-fish -c 'set -U fish_color_end normal'
-fish -c 'set -U fish_color_quote green'
-fish -c 'set -U fish_color_comment --dim'
-fish -c 'set -U fish_color_command magenta'
+echo "Configuring shell settings..."
+sudo chsh -s "$(which bash)"
 
 echo "Configuring macOS settings..."
 sudo launchctl disable system/com.apple.assistantd
