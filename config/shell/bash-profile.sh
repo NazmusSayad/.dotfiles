@@ -1,20 +1,12 @@
 if [[ "$OS" == "Windows_NT" ]]; then
-	if command -v dotsh >/dev/null 2>&1 && command -v mise >/dev/null 2>&1; then
-		eval "$(dotsh bash "$(mise env --dotenv)")"
-	fi
-
+	eval "$(dotsh bash "$(mise env --dotenv)")"
 else
-	if [[ -x /opt/homebrew/bin/brew ]]; then
-		eval "$(/opt/homebrew/bin/brew shellenv bash)"
-	fi
-
-	if command -v mise >/dev/null 2>&1; then
-		eval "$(mise env bash)"
-	fi
+	eval "$(/opt/homebrew/bin/brew shellenv bash)"
+	eval "$(mise env bash)"
 fi
 
 if [[ -f ~/.env ]]; then
-	eval "$(dotsh bash "$(<~/.env)")"
+	eval "$(dotsh bash "$(cat ~/.env)")"
 fi
 
 if [[ -f ~/.path ]]; then
