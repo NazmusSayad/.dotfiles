@@ -1,5 +1,5 @@
 [
-  // Shell Configs
+  // Shell
   {
     "Source": "@/config/shell/profile.sh",
     "Target": "~/.bash_profile"
@@ -9,7 +9,7 @@
     "Target": "~/.config/fish/config.fish"
   },
 
-  // Agent Configs
+  // Agents
   {
     "Source": "@/config/ai/README_AGENTS.md",
     "Target": ["~/.config/opencode/AGENTS.md", "~/.codex/AGENTS.md"]
@@ -85,7 +85,7 @@
     "Target": "~/.claude-work/history.jsonl"
   },
 
-  // Opencode Local Configs
+  // Opencode
   {
     "Source": "@/.local/opencode-desktop.dat",
     "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat",
@@ -96,7 +96,7 @@
     "Target": "~/.local/share/opencode/auth.json"
   },
 
-  // Terminal Configs
+  // Terminal
   {
     "Source": "@/config/shell/alias.yaml",
     "Target": "~/.config/shaka.yaml"
@@ -130,7 +130,7 @@
     "Target.Win": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
 
-  // OBS Configs
+  // OBS
   {
     "Source": "@/config/shell/ghostty.conf",
     "Target.Mac": "~/.config/ghostty/config"
@@ -152,7 +152,7 @@
     "Target.Mac": "~/Library/Application Support/obs-studio/user.ini"
   },
 
-  // Other Configs
+  // Other
   {
     "Source": "@/config/global.gitignore",
     "Target": "~/.gitignore"
@@ -180,7 +180,7 @@
     "Target": "~/.nirc"
   },
 
-  // System Configs
+  // System
   {
     "Copy": true,
     "Source": "@/config/US Simplified.keylayout",
