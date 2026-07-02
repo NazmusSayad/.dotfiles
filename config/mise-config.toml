@@ -6,7 +6,6 @@
 cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
-"cargo:pwshac" = { os = "windows", version = "latest" }
 
 
 # Workflow Tools

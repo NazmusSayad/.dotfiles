@@ -2,7 +2,7 @@
 oc: opencode
 occ: opencode --continue
 ocs: opencode-server stop
-ocrs: opencode-server stop; pwsh -Command "Start-Process opencode-server -WindowStyle Hidden"
+ocrs: opencode-server stop; powershell -Command "Start-Process opencode-server -WindowStyle Hidden"
 
 co: codex --yolo
 coo: codex resume --yolo --last
