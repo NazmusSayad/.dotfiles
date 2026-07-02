@@ -9,9 +9,8 @@ for /f "tokens=1" %%p in ('tasklist /fi "IMAGENAME eq AHK-*" /nh 2^>nul ^| finds
     set "name=!name:.exe=!"
     set "killed=!killed! !name!"
 )
-taskkill /F /IM "AHK-*" >nul 2>&1
+if defined killed sudo taskkill /F /IM AHK-* >nul 2>&1
 
-echo.
 echo ^> Cleaning AHK build directory...
 if exist ".build\ahk" rmdir /s /q ".build\ahk"
 
@@ -19,13 +18,15 @@ echo.
 echo ^> Compiling AutoHotkey scripts...
 call go run ./src/compile-ahk/main.go
 
-echo.
-echo ^> Restarting AHK scripts...
-for %%n in (%killed%) do (
-    set "exe=%CD%\.build\ahk\%%n.exe"
-    if exist "!exe!" (
-        echo ^> Restarting: !exe!
-        powershell -NoProfile -Command "Start-Process '!exe!' -Verb RunAs"
+if defined killed (
+    echo.
+    echo ^> Restarting AHK scripts...
+    for %%n in (%killed%) do (
+        set "exe=%CD%\.build\ahk\%%n.exe"
+        if exist "!exe!" (
+            echo ^> Restarting: !exe!
+            powershell -NoProfile -Command "Start-Process '!exe!' -Verb RunAs"
+        )
     )
 )
 
