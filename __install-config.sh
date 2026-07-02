@@ -1,7 +1,5 @@
 #!/bin/bash
 
-fish_config theme choose fish-theme
-
 git config --global user.name "Nazmus Sayad"
 git config --global user.email "87106526+NazmusSayad@users.noreply.github.com"
 git config --global init.defaultBranch main
