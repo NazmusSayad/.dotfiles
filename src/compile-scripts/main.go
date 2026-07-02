@@ -67,8 +67,8 @@ func buildScript(sourceDir string, outputDir string, entryName string, exe strin
 }
 
 func isIgnoredOnMacos(scriptName string) bool {
-	if runtime.GOOS == "darwin" {
-		return true
+	if runtime.GOOS != "darwin" {
+		return false
 	}
 
 	for _, allowedScript := range constants.MACOS_SCRIPTS_PREFIX {
