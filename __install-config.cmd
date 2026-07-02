@@ -1,7 +1,7 @@
 @echo off
 
-echo ^> Setting up git config...
-call bash "./src/shell/git-config.sh"
+echo ^> Setting up shell config...
+call bash "./__install-config.sh"
 git config --global credential.helper manager
 git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 

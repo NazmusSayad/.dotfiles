@@ -1,5 +1,3 @@
-#!/bin/bash
-
 rm -rf ~/.cache/opencode
 rm -rf ~/.config/opencode
 rm -rf ~/.local/state/opencode
