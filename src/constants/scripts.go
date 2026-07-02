@@ -101,5 +101,6 @@ var MACOS_SCRIPTS_PREFIX = []string{
 	"code-ext-sync",
 	"packages-sync",
 	"opencode-",
+	"github-",
 	"git-",
 }
