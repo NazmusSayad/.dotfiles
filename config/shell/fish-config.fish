@@ -1,4 +1,3 @@
-fish_config theme choose fish-theme
 function fish_greeting
 end
 
