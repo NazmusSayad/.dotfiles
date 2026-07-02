@@ -100,6 +100,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 var MACOS_SCRIPTS_PREFIX = []string{
 	"code-ext-sync",
 	"packages-sync",
+	"symlink-init",
 	"opencode-",
 	"github-",
 	"git-",
