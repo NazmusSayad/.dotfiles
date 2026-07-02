@@ -96,3 +96,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe:       "wgu",
 	},
 }
+
+var MACOS_SCRIPTS_PREFIX = []string{
+	"code-ext-sync",
+	"packages-sync",
+	"opencode-",
+	"git-",
+}

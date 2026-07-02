@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 
 	constants "dotfiles/src/constants"
 	"dotfiles/src/helpers"
@@ -37,6 +38,10 @@ func main() {
 		}
 
 		entryName := entry.Name()
+		if isIgnoredOnMacos(entryName) {
+			continue
+		}
+
 		buildScript(sourceDir, outputDir, entryName, entryName)
 
 		aliasName := constants.BIN_SCRIPTS[entryName].Exe
@@ -59,4 +64,18 @@ func buildScript(sourceDir string, outputDir string, entryName string, exe strin
 
 	fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName + aurora.Faint(" -> ").String() + binName)
 	helpers.ExecNativeCommand([]string{"go", "build", "-o", filepath.Join(outputDir, binName), sourcePath})
+}
+
+func isIgnoredOnMacos(scriptName string) bool {
+	if runtime.GOOS == "darwin" {
+		return true
+	}
+
+	for _, allowedScript := range constants.MACOS_SCRIPTS_PREFIX {
+		if strings.HasPrefix(scriptName, allowedScript) {
+			return false
+		}
+	}
+
+	return true
 }
