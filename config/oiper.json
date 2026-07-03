@@ -72,6 +72,16 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "prompt"
+    },
+    {
+      "id": "oiper-profile",
+      "mode": "oiper",
+      "language": "en",
+      "name": "OiPer Sub",
+      "enhancementType": "normal",
+      "oiperMode": "simple",
+      "icon": "CrownIcon",
+      "hotkey.macos": "ControlLeft+Alt+MetaLeft"
     }
   ]
 }
