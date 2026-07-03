@@ -1,13 +1,13 @@
 #!/bin/bash
 
+sudo bash ./etc/git-config.sh
+
 echo "Configuring shell settings..."
 bash_path=$(which bash)
 if ! grep -qxF "$bash_path" /etc/shells; then
 	echo "$bash_path" | sudo tee -a /etc/shells >/dev/null
 fi
 chsh -s "$bash_path"
-
-sudo bash ./__install-config.sh
 
 echo "Configuring macOS settings..."
 sudo launchctl disable system/com.apple.assistantd
