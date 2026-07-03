@@ -1,4 +1,7 @@
 # System
+brew "zsh"
+brew "bash"
+brew "fish"
 brew "libomp"
 cask "aldente"
 
@@ -8,7 +11,6 @@ brew "yt-dlp"
 brew "wget"
 
 # Shell Tools
-brew "fish"
 brew "btop"
 brew "htop"
 brew "bottom"
@@ -51,6 +53,12 @@ brew "glab"
 brew "awscli"
 brew "cloudflared"
 
+# Git
+brew "git"
+brew "git-lfs"
+brew "git-delta"
+brew "gnupg"
+
 # Development Tools
 cask "visual-studio-code"
 brew "wakatime-cli"
@@ -59,7 +67,6 @@ brew "gofumpt"
 brew "lazygit"
 brew "sqlite"
 brew "shfmt"
-brew "gnupg"
 brew "mise"
 brew "fvm"
 brew "scc"
