@@ -1,4 +1,5 @@
 # System
+brew "bash"
 brew "fish"
 brew "libomp"
 cask "aldente"
