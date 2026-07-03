@@ -18,6 +18,9 @@ sudo mdutil -a -E
 echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
 
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
 defaults write -g AppleSymbolicHotKeysEnabled -bool false
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
@@ -34,6 +37,7 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.spaces spans-displays -bool false
+defaults write com.apple.dock persistent-apps -array ""
 
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -41,7 +45,7 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder NewWindowTarget -string PfHm
 defaults write com.apple.finder FXPreferredViewStyle -string icnv
 defaults write com.apple.finder FXDisableAllAnimations -bool true
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
@@ -52,10 +56,13 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+defaults write NSGlobalDomain AppleLocale -string "en_US"
+defaults write NSGlobalDomain AppleLanguages -array "en-US"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticInlinePredictionEnabled -bool false
