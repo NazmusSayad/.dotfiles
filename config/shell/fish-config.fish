@@ -13,7 +13,7 @@ else
 end
 
 # Environment
-test -f ~/.env; and dotsh fish "$(string collect < ~/.env)" | source
+test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
 test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
 direnv hook fish | source
 
