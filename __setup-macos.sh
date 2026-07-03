@@ -4,7 +4,11 @@ echo "Setting up macOS environment..."
 sudo bash ./__install-config.sh
 
 echo "Configuring shell settings..."
-sudo chsh -s "$(which bash)"
+bash_path=$(which bash)
+if ! grep -qxF "$bash_path" /etc/shells; then
+	echo "$bash_path" | sudo tee -a /etc/shells >/dev/null
+fi
+chsh -s "$bash_path"
 
 echo "Configuring macOS settings..."
 sudo launchctl disable system/com.apple.assistantd
