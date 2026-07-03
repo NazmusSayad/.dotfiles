@@ -57,7 +57,7 @@
     "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
   },
   {
-    "Source": "@/config/ai/claude.jsonc",
+    "Source": "@/config/ai/claude.json",
     "Target": ["~/.claude/settings.json", "~/.claude-work/settings.json"]
   },
   {
