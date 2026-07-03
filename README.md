@@ -70,7 +70,6 @@ Follow these steps to set up your development environment:
     ```
 
 2.  **Initial Setup**
-
     - **Windows**: Right-click `__install-dotfiles.cmd` and select "Run as Administrator".
     - **macOS**: Run `__setup-macos.sh` after reviewing it, or bootstrap via Homebrew + config (see `config/Brewfile` and shell configs).
 
@@ -92,7 +91,6 @@ Follow these steps to set up your development environment:
 5.  **Optional: Platform System Configuration**
 
     ⚠️ **Important:** Review the scripts before running this step!
-
     - **Windows**: Run `__setup-windows.cmd` as Administrator to apply system settings, remove bloatware, disable services, and optimize performance (restarts automatically).
     - **macOS**: Run `__setup-macos.sh` after reviewing it, and use Homebrew to provision packages from `config/Brewfile`.
 
