@@ -5,10 +5,10 @@ set fish_color_quote green
 set fish_color_comment --dim
 set fish_color_command magenta
 
-# Mise
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
 else
+    /opt/homebrew/bin/brew shellenv fish | source
     mise activate fish | source
 end
 
