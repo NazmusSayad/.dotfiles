@@ -73,6 +73,7 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
 defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
+defaults write NSScrollViewRubberbanding -int 0
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
