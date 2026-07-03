@@ -72,13 +72,9 @@
     "**/{.vscode,.codespaces,.oryx,.next}": true,
     "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true
   },
-  "terminal.external.windowsExec": "wt.exe",
-  "terminal.integrated.defaultProfile.osx": "Fish",
-  "terminal.integrated.profiles.osx": {
-    "Fish": { "path": "fish" },
-    "Bash": { "path": "bash" }
-  },
   "terminal.external.osxExec": "Ghostty.app",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.external.windowsExec": "wt.exe",
   "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.windows": {
     "Fish (MSYS2)": { "path": "fish.exe" },
