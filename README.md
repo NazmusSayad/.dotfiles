@@ -82,7 +82,7 @@ Follow these steps to set up your development environment:
 
 4.  **Configure Your Environment**
 
-    Run `__install-config.cmd` (Windows) or `__install-config.sh` (macOS/Linux) to set up:
+    Run `__install-config.cmd` (Windows) or `__setup-macos.sh` (macOS/Linux) to set up:
     - Git configuration (name, email, default settings)
     - Symbolic links for configuration files
     - Scheduled tasks / launch agents for automatic startup
