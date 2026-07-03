@@ -73,14 +73,13 @@
     "**/{package-lock.json,pnpm-lock.yaml,yarn.lock}": true
   },
   "terminal.external.windowsExec": "wt.exe",
-  "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "Fish",
-  "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.osx": {
     "Fish": { "path": "fish" },
-    "Bash": { "path": "bash" },
-    "Zsh (MSYS2)": { "path": "zsh" }
+    "Bash": { "path": "bash" }
   },
+  "terminal.external.osxExec": "Ghostty.app",
+  "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.windows": {
     "Fish (MSYS2)": { "path": "fish.exe" },
     "Bash (MSYS2)": { "path": "bash.exe" }

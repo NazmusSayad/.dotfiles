@@ -22,7 +22,7 @@ I recommend checking this repo, taking ideas from it, and implementing them in a
   Install and update development tools, applications, and packages using Winget/Scoop (Windows) or Homebrew (macOS) with simple configuration files.
 
 - **Enhanced Shell Experience**
-  Pre-configured shell environments (Bash, Fish, Zsh) with Starship prompt, Windows Terminal / Ghostty settings, and convenient command aliases for faster workflow.
+  Pre-configured shell environments (Bash, Fish) with Starship prompt, Windows Terminal / Ghostty settings, and convenient command aliases for faster workflow.
 
 - **Git Workflow Tools**
   Streamlined Git commands for common tasks like cloning repositories, checking out branches, pulling changes, and managing your repositories more efficiently.
