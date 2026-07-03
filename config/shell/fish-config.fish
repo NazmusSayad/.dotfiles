@@ -8,7 +8,7 @@ set fish_color_command magenta
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
 else
-    /opt/homebrew/bin/brew shellenv fish | source
+    brew shellenv fish | source
     mise activate fish | source
 end
 
