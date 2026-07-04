@@ -1,4 +1,5 @@
 # System
+brew "zsh"
 brew "bash"
 brew "fish"
 brew "libomp"
