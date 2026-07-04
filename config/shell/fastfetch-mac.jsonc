@@ -82,6 +82,15 @@
       "percent": {
         "type": 1
       }
+    },
+    "break",
+    {
+      "type": "theme",
+      "key": "󰉼 Theme    "
+    },
+    {
+      "type": "packages",
+      "key": "󰏗 Packages "
     }
   ]
 }
