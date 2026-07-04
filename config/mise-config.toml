@@ -98,7 +98,11 @@ minimum_release_age_excludes = [
   # Tools
   "pnpm",
 
-  # My Tools
+  # My Cargo Tools
+  "cargo:dotsh",
+  "cargo:shaka",
+
+  # My NPM Tools
   "npm:gityo",
   "npm:netserv",
   "npm:uni-run",
