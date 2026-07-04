@@ -1,0 +1,87 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": {
+    "color": "reset_bright_green",
+    "percent": {
+      "color": {
+        "red": "reset_black",
+        "green": "reset_black",
+        "yellow": "reset_black"
+      }
+    }
+  },
+  "logo": {
+    "padding": {
+      "left": 1,
+      "right": 5
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "{#reset_underline_bright_blue}{user-name}{#reset_dim_white}@{#reset_underline_bright_blue}{host-name}"
+    },
+    {
+      "type": "command",
+      "outputColor": "dim_white",
+      "param": "+'%-I:%M:%S %p, %A %y/%m/%d'",
+      "shell": "date",
+      "key": " "
+    },
+    "break",
+    {
+      "type": "uptime",
+      "key": "Uptime "
+    },
+    {
+      "type": "os",
+      "key": "System ",
+      "format": "{pretty-name}"
+    },
+    "break",
+    {
+      "type": "memory",
+      "key": " RAM  ",
+      "format": "{used} / {total} {percentage}"
+    },
+    {
+      "type": "cpu",
+      "key": " CPU  ",
+      "format": "{name} ({cores-physical}C/{cores-logical}T) {#reset_black}{freq-max}"
+    },
+    "break",
+    {
+      "type": "disk",
+      "key": "󰋊 Disk    ",
+      "format": "{size-used} / {size-total} {size-percentage}"
+    },
+    {
+      "type": "battery",
+      "key": "󰁹 Battery ",
+      "format": "{capacity}{#reset_black} {time-formatted} left",
+      "percent": {
+        "type": 1
+      }
+    },
+    {
+      "type": "display",
+      "key": "󰍹 Monitor ",
+      "format": "{width}x{height} @ {refresh-rate}Hz",
+      "order": "desc"
+    },
+    "break",
+    {
+      "type": "wifi",
+      "key": "󰖩 WiFi    ",
+      "format": "{?ssid}{ssid} {#reset_black}{band}GHz {signal-quality}{?}{/ssid}{#reset_black}Disconnected{/}"
+    },
+    {
+      "type": "sound",
+      "key": "󰕾 Sound   ",
+      "format": "{volume-percentage} {#reset_black}{name}",
+      "percent": {
+        "type": 1
+      }
+    }
+  ]
+}
