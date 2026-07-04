@@ -46,10 +46,7 @@ dcr: docker compose restart
 # System
 lsf: ls -f
 rmf: rm -rf
-
-# Mise
-mi: mise install --yes
-mp: mise prune --yes
+where: { cmd: command -a, platform: [macos] }
 
 ex: explorer
 fix-next: rm -rf .next
