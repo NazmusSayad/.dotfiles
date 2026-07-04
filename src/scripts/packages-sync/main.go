@@ -66,10 +66,6 @@ func homebrewSync() {
 	helpers.ExecNativeCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
 	fmt.Println()
 
-	fmt.Println("△", aurora.Faint("Upgrading Brew Apps..."))
-	helpers.ExecNativeCommand([]string{"brew", "upgrade", "--yes"})
-	fmt.Println()
-
 	fmt.Println("✘", aurora.Faint("Cleaning Brew..."))
 	helpers.ExecNativeCommand([]string{"brew", "cleanup", "--prune=all", "-s"})
 	fmt.Println()
