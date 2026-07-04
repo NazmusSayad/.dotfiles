@@ -46,7 +46,8 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-nano",
       "transcribeAsrModel": "medium.en",
-      "hotkeyHold.macos": "ShiftLeft+ControlLeft"
+      "hotkeyHold.macos": "ShiftLeft+ControlLeft",
+      "hotkeyHold.windows": "ShiftLeft+ControlLeft"
     },
     {
       "id": "normal-profile",
@@ -57,7 +58,8 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "normal",
-      "hotkeyHold.macos": "ShiftLeft+Alt"
+      "hotkeyHold.macos": "ShiftLeft+Alt",
+      "hotkeyHold.windows": "ShiftLeft+MetaLeft"
     },
     {
       "id": "prompt-profile",
@@ -68,7 +70,8 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "prompt",
-      "hotkeyHold.macos": "ShiftLeft+MetaLeft"
+      "hotkeyHold.macos": "ShiftLeft+MetaLeft",
+      "hotkeyHold.windows": "ShiftLeft+Alt"
     },
     {
       "id": "oiper-profile",
@@ -78,7 +81,8 @@
       "enhancementType": "normal",
       "oiperMode": "simple",
       "icon": "CrownIcon",
-      "hotkeyHold.macos": "ControlLeft+Alt"
+      "hotkeyHold.macos": "ControlLeft+Alt",
+      "hotkeyHold.windows": "ControlLeft+MetaLeft"
     }
   ]
 }
