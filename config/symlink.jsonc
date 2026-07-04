@@ -115,7 +115,7 @@
   },
   {
     "Source": "@/config/shell/fastfetch-pc.jsonc",
-    "Target": "~/.config/fastfetch/config.jsonc"
+    "Target.Win": "~/.config/fastfetch/config.jsonc"
   },
   {
     "Source": "@/config/shell/btop.conf",
