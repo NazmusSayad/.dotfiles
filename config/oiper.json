@@ -41,37 +41,34 @@
       "id": "basic-profile",
       "name": "Basic",
       "icon": "VoiceIcon",
-      "hotkey.macos": "ShiftLeft+ControlLeft",
-      "hotkey.windows": "ShiftLeft+ControlLeft",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-nano",
-      "transcribeAsrModel": "medium.en"
+      "transcribeAsrModel": "medium.en",
+      "hotkeyHold.macos": "ShiftLeft+ControlLeft"
     },
     {
       "id": "normal-profile",
       "name": "Normal",
       "icon": "AiContentGenerator02Icon",
-      "hotkey.macos": "ShiftLeft+Alt",
-      "hotkey.windows": "ShiftLeft+MetaLeft",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
-      "enhancementType": "normal"
+      "enhancementType": "normal",
+      "hotkeyHold.macos": "ShiftLeft+Alt"
     },
     {
       "id": "prompt-profile",
       "name": "Prompt",
       "icon": "AiProgrammingIcon",
-      "hotkey.macos": "ShiftLeft+MetaLeft",
-      "hotkey.windows": "ShiftLeft+Alt",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
       "enhancementLlmId": "openrouter-mini",
-      "enhancementType": "prompt"
+      "enhancementType": "prompt",
+      "hotkeyHold.macos": "ShiftLeft+MetaLeft"
     },
     {
       "id": "oiper-profile",
@@ -81,7 +78,7 @@
       "enhancementType": "normal",
       "oiperMode": "simple",
       "icon": "CrownIcon",
-      "hotkey.macos": "ControlLeft+Alt+MetaLeft"
+      "hotkeyHold.macos": "ControlLeft+Alt"
     }
   ]
 }
