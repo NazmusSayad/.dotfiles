@@ -1,4 +1,5 @@
-![Preview](https://github.com/user-attachments/assets/424e9395-a2b4-4fca-803b-4339df9616fc)
+![Windows Preview](https://github.com/user-attachments/assets/424e9395-a2b4-4fca-803b-4339df9616fc)
+![MacOS Preview](https://github.com/user-attachments/assets/e4f366e0-324c-46eb-9d6a-28cfb820cc6f)
 
 # Development Setup (Windows & macOS)
 
