@@ -112,5 +112,7 @@ func windowsSync() {
 }
 
 func runCommand(commands []string) {
-	helpers.ExecNativeCommand(commands, helpers.ExecCommandOptions{Simulate: true})
+	helpers.ExecNativeCommand(commands, helpers.ExecCommandOptions{
+		Simulate: runtime.GOOS == "windows",
+	})
 }
