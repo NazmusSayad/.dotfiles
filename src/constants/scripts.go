@@ -7,7 +7,7 @@ type BinScript struct {
 
 var BIN_SCRIPTS = map[string]BinScript{
 	"git-clone": {
-		Exe: "gc",
+		Exe: "gcl",
 	},
 
 	"git-pull": {
