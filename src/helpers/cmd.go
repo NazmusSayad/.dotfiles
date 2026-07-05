@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"runtime"
 	"strings"
 
 	"dotfiles/src/utils"
@@ -44,7 +45,7 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		panic("cannot run as gsudo user and admin at the same time")
 	}
 
-	if opts.Simulate {
+	if opts.Simulate && runtime.GOOS == "windows" {
 		args = []string{"cmd", "/c", strings.Join(args, " ")}
 	}
 
