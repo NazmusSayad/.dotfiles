@@ -41,6 +41,7 @@
   },
   "model": "opus",
   "enableAllProjectMcpServers": false,
+  "defaultShell": "bash",
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
   },
@@ -57,7 +58,6 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "editorMode": "normal",
-  "defaultShell": "bash",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": true,
   "showTurnDuration": false,
