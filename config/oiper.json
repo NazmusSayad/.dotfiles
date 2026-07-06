@@ -48,7 +48,8 @@
       "transcribeAsrModel": "medium.en",
       "hotkeyHold.macos": "ShiftLeft+ControlLeft",
       "hotkeyHold.windows": "ShiftLeft+ControlLeft",
-      "hotkeyToggle.macos": "ShiftRight+ControlLeft"
+      "hotkeyToggle.macos": "ShiftRight+ControlLeft",
+      "hotkeyToggle.windows": "ShiftRight+ControlLeft"
     },
     {
       "id": "normal-profile",
@@ -61,7 +62,8 @@
       "enhancementType": "normal",
       "hotkeyHold.macos": "ShiftLeft+Alt",
       "hotkeyHold.windows": "ShiftLeft+MetaLeft",
-      "hotkeyToggle.macos": "ShiftRight+Alt"
+      "hotkeyToggle.macos": "ShiftRight+Alt",
+      "hotkeyToggle.windows": "ShiftRight+MetaLeft"
     },
     {
       "id": "prompt-profile",
@@ -74,7 +76,8 @@
       "enhancementType": "prompt",
       "hotkeyHold.macos": "ShiftLeft+MetaLeft",
       "hotkeyHold.windows": "ShiftLeft+Alt",
-      "hotkeyToggle.macos": "ShiftRight+MetaLeft"
+      "hotkeyToggle.macos": "ShiftRight+MetaLeft",
+      "hotkeyToggle.windows": "ShiftRight+Alt"
     }
   ]
 }
