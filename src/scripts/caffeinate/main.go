@@ -24,7 +24,7 @@ func main() {
 
 	start := time.Now()
 	fmt.Printf("[%s] caffeinate on: sleep and display blocked\n", start.Format("15:04:05"))
-	fmt.Println("press Ctrl+C to stop")
+	fmt.Println("> Press ^C to stop")
 
 	ticker := time.NewTicker(time.Minute)
 	defer ticker.Stop()
