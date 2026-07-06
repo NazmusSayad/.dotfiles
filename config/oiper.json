@@ -47,7 +47,8 @@
       "enhancementLlmId": "openrouter-nano",
       "transcribeAsrModel": "medium.en",
       "hotkeyHold.macos": "ShiftLeft+ControlLeft",
-      "hotkeyHold.windows": "ShiftLeft+ControlLeft"
+      "hotkeyHold.windows": "ShiftLeft+ControlLeft",
+      "hotkeyToggle.macos": "ShiftRight+ControlLeft"
     },
     {
       "id": "normal-profile",
@@ -59,7 +60,8 @@
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "normal",
       "hotkeyHold.macos": "ShiftLeft+Alt",
-      "hotkeyHold.windows": "ShiftLeft+MetaLeft"
+      "hotkeyHold.windows": "ShiftLeft+MetaLeft",
+      "hotkeyToggle.macos": "ShiftRight+Alt"
     },
     {
       "id": "prompt-profile",
@@ -71,18 +73,8 @@
       "enhancementLlmId": "openrouter-mini",
       "enhancementType": "prompt",
       "hotkeyHold.macos": "ShiftLeft+MetaLeft",
-      "hotkeyHold.windows": "ShiftLeft+Alt"
-    },
-    {
-      "id": "oiper-profile",
-      "mode": "oiper",
-      "language": "en",
-      "name": "OiPer Sub",
-      "enhancementType": "normal",
-      "oiperMode": "simple",
-      "icon": "CrownIcon",
-      "hotkeyHold.macos": "ControlLeft+Alt",
-      "hotkeyHold.windows": "ControlLeft+MetaLeft"
+      "hotkeyHold.windows": "ShiftLeft+Alt",
+      "hotkeyToggle.macos": "ShiftRight+MetaLeft"
     }
   ]
 }
