@@ -21,8 +21,8 @@ chflags nohidden ~/Library
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-defaults write -g AppleSymbolicHotKeysEnabled -bool false
-defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
