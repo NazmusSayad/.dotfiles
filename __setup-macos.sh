@@ -37,7 +37,6 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.spaces spans-displays -bool false
-defaults write com.apple.dock persistent-apps -array ""
 
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
