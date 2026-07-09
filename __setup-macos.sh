@@ -75,7 +75,7 @@ defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
 defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
 defaults write NSScrollViewRubberbanding -int 0
 
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
