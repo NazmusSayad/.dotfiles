@@ -21,8 +21,8 @@ chflags nohidden ~/Library
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-defaults write -g AppleSymbolicHotKeysEnabled -bool false
-defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock autohide -bool true
@@ -37,7 +37,6 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.spaces spans-displays -bool false
-defaults write com.apple.dock persistent-apps -array ""
 
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -75,8 +74,8 @@ defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
 defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
 defaults write NSScrollViewRubberbanding -int 0
 
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
