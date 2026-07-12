@@ -4,6 +4,7 @@ brew "bash"
 brew "fish"
 brew "libomp"
 cask "aldente"
+cask "unified-remote"
 
 # Internet
 cask "google-chrome"
