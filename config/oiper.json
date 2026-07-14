@@ -40,7 +40,7 @@
     {
       "id": "basic-profile",
       "name": "Basic",
-      "icon": "VoiceIcon",
+      "icon": "Microphone",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
@@ -54,7 +54,7 @@
     {
       "id": "normal-profile",
       "name": "Normal",
-      "icon": "AiContentGenerator02Icon",
+      "icon": "TextFontIcon",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
@@ -68,7 +68,7 @@
     {
       "id": "prompt-profile",
       "name": "Prompt",
-      "icon": "AiProgrammingIcon",
+      "icon": "CodeXmlIcon",
       "language": "en",
       "mode": "cloud",
       "transcribeAsrId": "groq-whisper",
