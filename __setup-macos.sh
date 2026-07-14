@@ -18,6 +18,12 @@ sudo mdutil -a -E
 echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
 
+echo "Configuring battery settings..."
+sudo batt limit 60
+sudo batt lower-limit-delta 5
+sudo batt prevent-system-sleep enable
+sudo batt magsafe-led enable
+
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
