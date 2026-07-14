@@ -28,7 +28,7 @@ pa: php artisan
 pas: php artisan serve
 
 # Git
-zg: lazygit
+gz: lazygit
 gco: git checkout
 gcn: git checkout -b
 
@@ -37,7 +37,7 @@ ghv: gh repo view
 ghw: gh repo view --web
 
 # Docker
-zd: lazydocker
+dz: lazydocker
 dc: docker compose
 dcu: docker compose up -d
 dcd: docker compose down
