@@ -75,7 +75,7 @@ defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
 defaults write NSScrollViewRubberbanding -int 0
 
 defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
