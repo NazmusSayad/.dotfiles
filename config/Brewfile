@@ -2,8 +2,8 @@
 brew "zsh"
 brew "bash"
 brew "fish"
+brew "batt"
 brew "libomp"
-cask "aldente"
 cask "unified-remote"
 
 # Internet
