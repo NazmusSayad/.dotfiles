@@ -1,11 +1,11 @@
 {
   "appVersion" : "4.2.1",
-  "exportedAt" : "2026-07-14T13:30:44Z",
+  "exportedAt" : "2026-07-14T23:10:51Z",
   "schemaVersion" : 1,
   "settings" : {
     "captureMenuItemOrder" : [
-      "captureArea",
       "quickCapture",
+      "captureArea",
       "captureScreen",
       "captureOCR",
       "scrollCapture",
@@ -48,7 +48,7 @@
       17,
       18
     ],
-    "filenameTemplate" : "Screenshot {date} at {time}",
+    "filenameTemplate" : "{unix}",
     "hideCaptureInstructions" : true,
     "historyUnlimited" : true,
     "hotkeyDisabled_2" : true,
@@ -59,7 +59,7 @@
     "hotkeyModifiers" : 768,
     "hotkeyQuickCaptureKeyCode" : 20,
     "hotkeyQuickCaptureModifiers" : 768,
-    "imageFormat" : "webp",
+    "imageFormat" : "png",
     "imageQuality" : 1,
     "lastUsedTool" : 9,
     "launchAtLogin" : true,
