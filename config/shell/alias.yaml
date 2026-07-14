@@ -1,8 +1,6 @@
 # AI Coding
 oc: opencode
 occ: opencode --continue
-ocs: opencode-server stop
-ocrs: opencode-server stop; powershell -Command "Start-Process opencode-server -WindowStyle Hidden"
 
 co: codex --yolo
 coo: codex resume --yolo --last
@@ -12,6 +10,14 @@ ccc: claude --permission-mode bypassPermissions --continue
 
 wc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions
 wcc: CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions --continue
+
+# OpenCode Server
+ocs:
+  cmd: opencode-server stop
+  platform: windows
+ocrs:
+  cmd: opencode-server stop; powershell -Command "Start-Process opencode-server -WindowStyle Hidden"
+  platform: windows
 
 # NPM
 r: nr
@@ -46,7 +52,7 @@ dcr: docker compose restart
 # System
 lsf: ls -f
 rmf: rm -rf
-where: { cmd: command -a, platform: [macos] }
+where: { cmd: command -a, platform: macos }
 
 ex: explorer
 fix-next: rm -rf .next
