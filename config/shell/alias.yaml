@@ -52,12 +52,11 @@ dcr: docker compose restart
 # System
 lsf: ls -f
 rmf: rm -rf
-where: { cmd: command -a, platform: macos }
 
-ex: explorer
+ex: { cmd: explorer, platform: windows }
+where: { cmd: command -a, platform: macos }
+fix-ports: { cmd: sudo net stop winnat, platform: windows }
 fix-next: rm -rf .next
-fix-ports: sudo net stop winnat
-fix-case-win: sudo fsutil file setCaseSensitiveInfo . enable recursive
 
 "..": cd ..
 "...": cd ../..
