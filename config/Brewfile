@@ -2,9 +2,9 @@
 brew "zsh"
 brew "bash"
 brew "fish"
-brew "batt"
 brew "libomp"
 cask "unified-remote"
+brew "batt", restart_service: true
 
 # Internet
 cask "google-chrome"
