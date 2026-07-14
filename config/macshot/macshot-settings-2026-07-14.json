@@ -1,6 +1,6 @@
 {
   "appVersion" : "4.2.1",
-  "exportedAt" : "2026-07-14T13:27:14Z",
+  "exportedAt" : "2026-07-14T13:30:44Z",
   "schemaVersion" : 1,
   "settings" : {
     "captureMenuItemOrder" : [
@@ -55,9 +55,9 @@
     "hotkeyDisabled_3" : true,
     "hotkeyDisabled_5" : true,
     "hotkeyDisabled_6" : true,
-    "hotkeyKeyCode" : 26,
+    "hotkeyKeyCode" : 21,
     "hotkeyModifiers" : 768,
-    "hotkeyQuickCaptureKeyCode" : 22,
+    "hotkeyQuickCaptureKeyCode" : 20,
     "hotkeyQuickCaptureModifiers" : 768,
     "imageFormat" : "webp",
     "imageQuality" : 1,
