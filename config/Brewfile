@@ -25,6 +25,8 @@ brew "ripgrep"
 
 # Media
 cask "obs"
+brew "ffmpeg"
+brew "imagemagick"
 
 # Productivity
 cask "raycast"
