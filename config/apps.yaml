@@ -23,6 +23,7 @@ scoop:
   - starship
 
   # System
+  - btop
   - nircmd
   - extras/hwinfo
 
