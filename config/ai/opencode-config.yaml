@@ -16,6 +16,10 @@ openrouter:
 #     - id: mimo-v2.5-pro
 #     - id: kimi-k2.7-code
 
+github-copilot:
+  models:
+    - id: kimi-k2.7-code
+
 # ollama-cloud:
 #   models:
 #     - id: minimax-m3
