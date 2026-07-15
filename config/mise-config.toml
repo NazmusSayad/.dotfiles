@@ -60,6 +60,11 @@ java = "latest"
 "npm:live-server" = "latest"
 "npm:concurrently" = "latest"
 
+# Dev CLI Tools
+lazygit = "latest"
+lazydocker = "latest"
+"github:JoaoOliveira889/monogit" = "latest"
+
 # Fun Tools
 "cargo:gitlogue" = "latest"
 
