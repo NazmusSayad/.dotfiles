@@ -50,6 +50,10 @@ func homebrewSync() {
 	helpers.ExecNativeCommand([]string{"brew", "bundle", "cleanup", "--force", "--file=" + brewfilePath})
 	fmt.Println()
 
+	fmt.Println("✘", aurora.Faint("Autoremove Brew dependencies..."))
+	helpers.ExecNativeCommand([]string{"brew", "autoremove"})
+	fmt.Println()
+
 	if len(brewFileTaps) > 0 {
 		fmt.Println("◯", aurora.Faint("Trusting Brew taps..."))
 		for _, tap := range brewFileTaps {
@@ -71,7 +75,7 @@ func homebrewSync() {
 	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Brew..."))
-	helpers.ExecNativeCommand([]string{"brew", "cleanup", "--prune=all", "-s"})
+	helpers.ExecNativeCommand([]string{"brew", "cleanup", "--scrub"})
 	fmt.Println()
 }
 
