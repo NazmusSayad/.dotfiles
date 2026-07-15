@@ -105,13 +105,15 @@ cloudflared = "latest"
 "npm:chrome-devtools-mcp" = "latest"
 
 
+[settings.node]
+npm_shim = true
+
+[settings.npm]
+package_manager = "pnpm"
+
 [settings]
 log_level = "error"
 auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
-
-node.npm_shim = true
-npm.package_manager = "pnpm"
-
 trusted_config_paths = ["~/Desktop"]
