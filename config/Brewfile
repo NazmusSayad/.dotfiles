@@ -33,7 +33,6 @@ cask "karabiner-elements"
 
 # Cloud
 brew "awscli"
-brew "cloudflared"
 
 # Git
 brew "git"
