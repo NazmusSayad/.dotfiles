@@ -38,6 +38,8 @@ scoop:
   - extras/anyburn
 
   # Media
+  - ffmpeg
+  - imagick
   - extras/sharex
   - pandoc
 
