@@ -28,6 +28,7 @@ scoop:
   - extras/hwinfo
 
   # File System
+  - extras/localsend
   - ripgrep
   - byenow
   - rip
