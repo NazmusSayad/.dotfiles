@@ -32,8 +32,6 @@ cask "unified-remote"
 cask "karabiner-elements"
 
 # Cloud
-brew "gh"
-brew "glab"
 brew "awscli"
 brew "cloudflared"
 
