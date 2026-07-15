@@ -23,7 +23,7 @@
   "telemetry.feedback.enabled": false,
   "telemetry.editStats.enabled": false,
   "network.meteredConnection": "off",
-  "update.mode": "start",
+  "update.mode": "none",
   "update.showReleaseNotes": false,
   "update.enableWindowsBackgroundUpdates": false,
   "security.workspace.trust.untrustedFiles": "open",
