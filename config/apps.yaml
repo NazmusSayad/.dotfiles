@@ -5,10 +5,8 @@ msys2:
 
 scoop:
   # Dev
-  - gh
   - aws
   - gcc
-  - glab
   - shfmt
   - extras/fvm
 
