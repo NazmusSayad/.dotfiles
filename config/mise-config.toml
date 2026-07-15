@@ -114,17 +114,3 @@ node.npm_shim = true
 npm.package_manager = "pnpm"
 
 trusted_config_paths = ["~/Desktop"]
-minimum_release_age_excludes = [
-  "pnpm",
-
-  "cargo:dotsh",
-  "cargo:shaka",
-
-  "npm:gityo",
-  "npm:netserv",
-  "npm:uni-run",
-  "npm:mytokens",
-  "npm:code-info",
-  "npm:create-src",
-  "npm:opencode-armor",
-]
