@@ -7,42 +7,25 @@ cask "unified-remote"
 brew "batt", restart_service: true
 
 # Internet
-cask "google-chrome"
-brew "yt-dlp"
 brew "wget"
+cask "google-chrome"
 
 # Shell Tools
 brew "btop"
-brew "htop"
-brew "bottom"
-brew "bandwhich"
 brew "zoxide"
 brew "direnv"
 brew "starship"
-brew "onefetch"
-brew "fastfetch"
-brew "hyperfine"
 cask "ghostty"
 
 # FS Tools
-brew "jq"
-brew "yq"
-brew "fd"
-brew "bat"
-brew "lsd"
-brew "fzf"
 brew "zip"
 brew "unzip"
 brew "p7zip"
 brew "7-zip"
-brew "dust"
-brew "yazi"
 brew "ripgrep"
 
 # Media Tools
-brew "ffmpeg"
 cask "obs"
-brew "imagemagick"
 
 # Productivity
 cask "raycast"
@@ -64,11 +47,9 @@ brew "gnupg"
 cask "visual-studio-code"
 brew "wakatime-cli"
 cask "postman"
-brew "sqlite"
 brew "shfmt"
 brew "mise"
 brew "fvm"
-brew "scc"
 
 # AI Coding
 tap "anomalyco/tap"

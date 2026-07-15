@@ -7,10 +7,9 @@ scoop:
   # Dev
   - gh
   - aws
-  - scc
   - gcc
   - glab
-  - sqlite
+  - shfmt
   - extras/fvm
 
   # Cloud
@@ -21,15 +20,6 @@ scoop:
   - opencode
   - claude-code
 
-  # Visualization
-  - extras/onefetch
-  - extras/hwinfo
-  - wakatime-cli
-  - fastfetch
-  - hyperfine
-  - btop
-  - ntop
-
   # Shells
   - mise
   - gsudo
@@ -39,22 +29,12 @@ scoop:
 
   # System
   - nircmd
+  - extras/hwinfo
 
-  # File Delete
+  # File System
+  - ripgrep
   - byenow
   - rip
-
-  # File Browser
-  - lsd
-  - fzf
-  - yazi
-
-  # File Search
-  - ripgrep
-  - fd
-
-  # Disk Usage
-  - dust
 
   # Zip and Image
   - zip
@@ -62,18 +42,11 @@ scoop:
   - extras/winrar
   - extras/anyburn
 
-  # Parser
-  - shfmt
-  - jq
-  - yq
+
 
   # Media
   - extras/sharex
-  - imagemagick
-  - ffmpeg
-  - yt-dlp
   - pandoc
-  - bat
 
   # Communication
   - extras/slack
