@@ -10,6 +10,7 @@ cask "ghostty"
 
 # System
 brew "libomp"
+brew "mole"
 brew "batt", restart_service: true
 
 # Internet
