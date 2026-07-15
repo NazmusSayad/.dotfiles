@@ -16,7 +16,6 @@ lsd = "latest"
 fzf = "latest"
 dust = "latest"
 yazi = "latest"
-"aqua:ogham/exa" = "latest"
 
 # Media
 yt-dlp = "latest"
