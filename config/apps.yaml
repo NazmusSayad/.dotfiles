@@ -37,8 +37,6 @@ scoop:
   - extras/winrar
   - extras/anyburn
 
-
-
   # Media
   - extras/sharex
   - pandoc
