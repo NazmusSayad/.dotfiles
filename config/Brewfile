@@ -14,6 +14,7 @@ brew "batt", restart_service: true
 
 # Internet
 brew "wget"
+cask "localsend"
 cask "google-chrome"
 
 # File System
