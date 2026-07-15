@@ -83,18 +83,27 @@ lazygit = "latest"
 lazydocker = "latest"
 hyperfine = "latest"
 "npm:serve" = "latest"
-"npm:git-stats" = "latest"
 "npm:live-server" = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 "github:JoaoOliveira889/monogit" = "latest"
 
+# Cloud
+gh = "latest"
+glab = "latest"
+stripe = "latest"
+firebase = "latest"
+wrangler = "latest"
+terraform = "latest"
+
 # Fun Tools
 "cargo:gitlogue" = "latest"
+
 
 # AI Tools
 "npm:skills" = "latest"
 "npm:devrage" = { version = "latest", allow_builds = ["better-sqlite3"] }
+
 
 # My Tools
 "npm:gityo" = "latest"
@@ -108,13 +117,6 @@ hyperfine = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
-
-
-# Cloud Tools
-stripe = "latest"
-firebase = "latest"
-wrangler = "latest"
-terraform = "latest"
 
 
 [settings]
