@@ -39,7 +39,7 @@ scoop:
 
   # Media
   - ffmpeg
-  - imagick
+  - imagemagick
   - extras/sharex
   - pandoc
 
