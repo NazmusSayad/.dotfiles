@@ -82,11 +82,13 @@ sqlite = "latest"
 lazygit = "latest"
 lazydocker = "latest"
 hyperfine = "latest"
-"npm:serve" = "latest"
-"npm:live-server" = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 "github:JoaoOliveira889/monogit" = "latest"
+
+# Web
+"npm:serve" = "latest"
+"npm:live-server" = "latest"
 
 # Cloud
 gh = "latest"
