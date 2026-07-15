@@ -49,7 +49,6 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
-      "model": "opencode/deepseek-v4-flash-free",
       "permission": { "edit": "deny", "question": "deny", "task": "deny" }
     },
     "general": {
@@ -66,16 +65,9 @@
     }
   },
 
-  "enabled_providers": ["openai", "opencode", "openrouter"],
+  "enabled_providers": ["opencode", "openrouter"],
   "provider": {
-    "opencode": {
-      "whitelist": ["deepseek-v4-flash-free", "mimo-v2.5-free"]
-    },
-    "openrouter": {
-      "whitelist": ["openai/gpt-oss-120b"]
-    },
-    "openai": {
-      "whitelist": ["gpt-5.6-terra"]
-    }
+    "opencode": { "whitelist": ["deepseek-v4-flash-free", "mimo-v2.5-free"] },
+    "openrouter": { "whitelist": ["openai/gpt-oss-120b"] }
   }
 }

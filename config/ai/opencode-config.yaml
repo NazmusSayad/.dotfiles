@@ -2,7 +2,6 @@ opencode:
   models:
     - id: mimo-v2.5-free
     - id: deepseek-v4-flash-free
-      explore: true
 
 openrouter:
   url: https://openrouter.ai/api/v1/models
@@ -17,13 +16,17 @@ openrouter:
 #     - id: mimo-v2.5-pro
 #     - id: kimi-k2.7-code
 
+# github-copilot:
+#   models:
+#     - id: kimi-k2.7-code
+
 # ollama-cloud:
 #   models:
 #     - id: minimax-m3
 
-openai:
-  models:
-    - id: gpt-5.6-terra
+# openai:
+#   models:
+#     - id: gpt-5.6-terra
 
 ~agents:
   build:
