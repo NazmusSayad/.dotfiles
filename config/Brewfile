@@ -43,7 +43,6 @@ brew "gnupg"
 
 # Development
 cask "visual-studio-code"
-brew "wakatime-cli"
 cask "postman"
 brew "shfmt"
 brew "mise"
