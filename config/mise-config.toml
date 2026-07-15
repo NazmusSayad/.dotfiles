@@ -2,12 +2,12 @@
 
 [tools]
 
-# System Tools
+# System
 cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
 
-# File System Tools
+# File System
 jq = "latest"
 yq = "latest"
 fd = "latest"
@@ -96,16 +96,16 @@ firebase = "latest"
 wrangler = "latest"
 terraform = "latest"
 
-# Fun Tools
+# Fun
 "cargo:gitlogue" = "latest"
 
 
-# AI Tools
+# AI
 "npm:skills" = "latest"
 "npm:devrage" = { version = "latest", allow_builds = ["better-sqlite3"] }
 
 
-# My Tools
+# Personal
 "npm:gityo" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
@@ -129,14 +129,11 @@ npm.package_manager = "pnpm"
 
 trusted_config_paths = ["~/Desktop"]
 minimum_release_age_excludes = [
-  # Tools
   "pnpm",
 
-  # My Cargo Tools
   "cargo:dotsh",
   "cargo:shaka",
 
-  # My NPM Tools
   "npm:gityo",
   "npm:netserv",
   "npm:uni-run",
