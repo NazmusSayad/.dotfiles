@@ -6,6 +6,7 @@
 cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
+"aqua:Songmu/timeout" ={ version = "latest", os = "macos"}
 
 # File System
 jq = "latest"
