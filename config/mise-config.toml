@@ -18,12 +18,12 @@ dust = "latest"
 yazi = "latest"
 "aqua:ogham/exa" = "latest"
 
-# Media Tools
+# Media
 yt-dlp = "latest"
 ffmpeg = "latest"
 imagemagick = "latest"
 
-# Activities Tools
+# Activities
 bottom = "latest"
 fastfetch = "latest"
 "aqua:o2sh/onefetch" = "latest"
@@ -31,7 +31,7 @@ fastfetch = "latest"
 "aqua:wakatime/wakatime-cli" = "latest"
 
 
-# Workflow Tools
+# Workflow
 just = "latest"
 make = "latest"
 ninja = "latest"
@@ -77,17 +77,15 @@ java = "latest"
 # "conda:luajit" = "latest"
 
 
-# NPM Tools
-"npm:serve" = "latest"
-"npm:git-stats" = "latest"
-"npm:live-server" = "latest"
-"npm:concurrently" = "latest"
-
-# Dev Tools
+# Dev
 sqlite = "latest"
 lazygit = "latest"
 lazydocker = "latest"
 hyperfine = "latest"
+"npm:serve" = "latest"
+"npm:git-stats" = "latest"
+"npm:live-server" = "latest"
+"npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 "github:JoaoOliveira889/monogit" = "latest"
 

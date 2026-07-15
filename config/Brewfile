@@ -1,34 +1,34 @@
-# System
+# Shell
 brew "zsh"
 brew "bash"
 brew "fish"
-brew "libomp"
-cask "unified-remote"
-brew "batt", restart_service: true
-
-# Internet
-brew "wget"
-cask "google-chrome"
-
-# Shell Tools
 brew "btop"
 brew "zoxide"
 brew "direnv"
 brew "starship"
 cask "ghostty"
 
-# FS Tools
+# System
+brew "libomp"
+brew "batt", restart_service: true
+
+# Internet
+brew "wget"
+cask "google-chrome"
+
+# File System
 brew "zip"
 brew "unzip"
 brew "p7zip"
 brew "7-zip"
 brew "ripgrep"
 
-# Media Tools
+# Media
 cask "obs"
 
 # Productivity
 cask "raycast"
+cask "unified-remote"
 cask "karabiner-elements"
 
 # Cloud
@@ -43,7 +43,7 @@ brew "git-lfs"
 brew "git-delta"
 brew "gnupg"
 
-# Development Tools
+# Development
 cask "visual-studio-code"
 brew "wakatime-cli"
 cask "postman"
