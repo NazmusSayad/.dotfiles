@@ -156,16 +156,19 @@
     "Target.Mac": "~/Library/Application Support/obs-studio/user.ini"
   },
 
-  // Other
+  // Git
   {
     "Source": "@/config/global.gitignore",
     "Target": "~/.gitignore"
   },
   {
     "Source": "@/config/monogit.json",
-    "Target": "~/Library/Application Support/monogit/config.json",
+    "Target.Mac": "~/Library/Application Support/monogit/config.json",
+    "Target.Win": "$APPDATA/monogit/config.json",
     "Copy": true
   },
+
+  // Other
   {
     "Source": "@/config/pnpm.yaml",
     "Target.Win": "$LOCALAPPDATA/pnpm/config.yaml",
