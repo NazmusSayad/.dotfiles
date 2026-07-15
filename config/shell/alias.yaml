@@ -35,6 +35,7 @@ pas: php artisan serve
 
 # Git
 gz: lazygit
+mgit: monogit
 gco: git checkout
 gcn: git checkout -b
 
