@@ -10,9 +10,6 @@ scoop:
   - shfmt
   - extras/fvm
 
-  # Cloud
-  - cloudflared
-
   # AI Coding
   - codex
   - opencode
