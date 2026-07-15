@@ -95,6 +95,7 @@ stripe = "latest"
 firebase = "latest"
 wrangler = "latest"
 terraform = "latest"
+cloudflared = "latest"
 
 # Fun
 "cargo:gitlogue" = "latest"
