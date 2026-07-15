@@ -1,0 +1,19 @@
+{
+  "left_panel_ratio": 0.5,
+  "repo_tags": {},
+  "merge_tool": "",
+  "scan_excludes": [
+    "node_modules",
+    "vendor",
+    ".git",
+    ".idea",
+    ".vscode",
+    "dist",
+    "build",
+    "coverage",
+    ".next",
+    ".turbo"
+  ],
+  "concurrency": 5,
+  "theme": "One Dark"
+}
