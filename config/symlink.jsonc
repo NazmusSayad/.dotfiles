@@ -116,7 +116,8 @@
   {
     "Source": "@/config/shell/fastfetch-pc.jsonc",
     "Target.Win": "~/.config/fastfetch/config.jsonc"
-  },{
+  },
+  {
     "Source": "@/config/shell/fastfetch-mac.jsonc",
     "Target.Mac": "~/.config/fastfetch/config.jsonc"
   },
@@ -159,6 +160,11 @@
   {
     "Source": "@/config/global.gitignore",
     "Target": "~/.gitignore"
+  },
+  {
+    "Source": "@/config/monogit.json",
+    "Target": "~/Library/Application Support/monogit/config.json",
+    "Copy": true
   },
   {
     "Source": "@/config/pnpm.yaml",
