@@ -29,12 +29,10 @@ fastfetch = "latest"
 "aqua:imsnif/bandwhich" = "latest"
 "aqua:wakatime/wakatime-cli" = "latest"
 
-
 # Workflow
 just = "latest"
 make = "latest"
 ninja = "latest"
-
 
 # JS/TS
 node = "lts"
@@ -45,11 +43,9 @@ pnpm = "latest"
 "npm:taze" = "latest"
 "npm:@antfu/ni" = "latest"
 
-
 # Python
 uv = "latest"
 python = "latest"
-
 
 # GO
 go = "latest"
@@ -57,24 +53,19 @@ air = "latest"
 gofumpt = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 
-
 # Rust
 rust = "stable"
 rust-analyzer = "latest"
 
-
-# Mobile Apps
+# Others
 java = "latest"
 # dart = "latest"
 # kotlin = "latest"
-
-
 # php = "latest"
 # zig = "latest"
 # ruby = "latest"
 # "conda:lua" = "latest"
 # "conda:luajit" = "latest"
-
 
 # Dev
 sqlite = "latest"
@@ -101,11 +92,9 @@ cloudflared = "latest"
 # Fun
 "cargo:gitlogue" = "latest"
 
-
 # AI
 "npm:skills" = "latest"
 "npm:devrage" = { version = "latest", allow_builds = ["better-sqlite3"] }
-
 
 # Personal
 "npm:gityo" = "latest"
@@ -115,7 +104,6 @@ cloudflared = "latest"
 "npm:code-info" = "latest"
 "npm:create-src" = "latest"
 "npm:opencode-armor" = "latest"
-
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
