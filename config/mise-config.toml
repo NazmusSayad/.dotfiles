@@ -18,10 +18,7 @@ dust = "latest"
 yazi = "latest"
 
 # Activities
-bottom = "latest"
 fastfetch = "latest"
-"aqua:o2sh/onefetch" = "latest"
-"aqua:imsnif/bandwhich" = "latest"
 "aqua:wakatime/wakatime-cli" = "latest"
 
 # Workflow
