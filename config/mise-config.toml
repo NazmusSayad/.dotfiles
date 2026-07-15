@@ -17,11 +17,6 @@ fzf = "latest"
 dust = "latest"
 yazi = "latest"
 
-# Media
-yt-dlp = "latest"
-ffmpeg = "latest"
-"github:ImageMagick/ImageMagick" = "latest"
-
 # Activities
 bottom = "latest"
 fastfetch = "latest"
@@ -83,6 +78,7 @@ hyperfine = "latest"
 # Cloud
 gh = "latest"
 glab = "latest"
+yt-dlp = "latest"
 stripe = "latest"
 firebase = "latest"
 wrangler = "latest"
