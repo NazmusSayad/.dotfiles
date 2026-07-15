@@ -24,9 +24,9 @@ github-copilot:
 #   models:
 #     - id: minimax-m3
 
-openai:
-  models:
-    - id: gpt-5.6-terra
+# openai:
+#   models:
+#     - id: gpt-5.6-terra
 
 ~agents:
   build:

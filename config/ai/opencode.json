@@ -65,7 +65,7 @@
     }
   },
 
-  "enabled_providers": ["github-copilot","openai","opencode","openrouter"],
+  "enabled_providers": ["github-copilot", "opencode", "openrouter"],
   "provider": {
     "opencode": {
       "whitelist": ["deepseek-v4-flash-free", "mimo-v2.5-free"]
@@ -73,9 +73,6 @@
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]
     },
-    "openai": {
-      "whitelist": ["gpt-5.6-terra"]
-    },
-    "github-copilot":{"whitelist":["kimi-k2.7-code"]}
+    "github-copilot": { "whitelist": ["kimi-k2.7-code"] }
   }
 }
