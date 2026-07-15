@@ -7,6 +7,29 @@ cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
 
+# File System Tools
+jq = "latest"
+yq = "latest"
+fd = "latest"
+bat = "latest"
+lsd = "latest"
+fzf = "latest"
+dust = "latest"
+yazi = "latest"
+"aqua:ogham/exa" = "latest"
+
+# Media Tools
+yt-dlp = "latest"
+ffmpeg = "latest"
+imagemagick = "latest"
+
+# Activities Tools
+bottom = "latest"
+fastfetch = "latest"
+"aqua:o2sh/onefetch" = "latest"
+"aqua:imsnif/bandwhich" = "latest"
+"aqua:wakatime/wakatime-cli" = "latest"
+
 
 # Workflow Tools
 just = "latest"
@@ -54,15 +77,18 @@ java = "latest"
 # "conda:luajit" = "latest"
 
 
-# CLI Tools
+# NPM Tools
 "npm:serve" = "latest"
 "npm:git-stats" = "latest"
 "npm:live-server" = "latest"
 "npm:concurrently" = "latest"
 
-# Dev CLI Tools
+# Dev Tools
+sqlite = "latest"
 lazygit = "latest"
 lazydocker = "latest"
+hyperfine = "latest"
+"github:boyter/scc" = "latest"
 "github:JoaoOliveira889/monogit" = "latest"
 
 # Fun Tools
