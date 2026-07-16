@@ -2,6 +2,9 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
     "IS_DEMO": "1",
+    "DISABLE_UPDATES": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_INSTALLATION_CHECKS": "1",
     "CLAUDE_CODE_SHELL": "bash",
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
@@ -24,10 +27,7 @@
     "CLAUDE_CODE_DISABLE_BUNDLED_SKILLS": "1",
     "CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS": "1",
     "CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING": "1",
-    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
-    "DISABLE_UPDATES": "1",
-    "DISABLE_AUTOUPDATER": "1",
-    "DISABLE_INSTALLATION_CHECKS": "1"
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false"
   },
   "attribution": {
     "commit": "",
