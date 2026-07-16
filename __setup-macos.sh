@@ -30,10 +30,14 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-defaults write com.apple.dock tilesize -int 64
+defaults write com.apple.dock tilesize -int 72
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock mineffect -string scale
+
+defaults write com.apple.dock wvous-tr-corner -int 3
+defaults write com.apple.dock wvous-tr-modifier -int 0
 
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.75
