@@ -47,6 +47,7 @@ scoop:
 
   # Communication
   - extras/slack
+  - extras/telegram
 
   # Fonts
   - nerd-fonts/IBMPlexSans
