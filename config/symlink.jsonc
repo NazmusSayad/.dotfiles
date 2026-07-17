@@ -208,6 +208,12 @@
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
 
+  // Windows SystemFile
+  {
+    "Source": "$SYSTEM_FILE_DIR/AIMP",
+    "Target.Win": "$APPDATA/AIMP"
+  },
+
   // Code Editor
   {
     "Source": "@/config/vscode/snippets",

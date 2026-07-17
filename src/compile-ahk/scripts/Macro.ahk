@@ -1,9 +1,6 @@
 #UseHook
 #NoTrayIcon 
 
-::@cc::<redacted>
-::@dev::<redacted>
-::@test::<redacted>
 ::@env::<redacted>
 ::@mail::<redacted>
 
