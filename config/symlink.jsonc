@@ -170,6 +170,10 @@
 
   // Other
   {
+    "Source": "@/config/qBittorrent.ini",
+    "Target.Win": "$APPDATA/qBittorrent/qBittorrent.ini"
+  },
+  {
     "Source": "@/config/pnpm.yaml",
     "Target.Win": "$LOCALAPPDATA/pnpm/config.yaml",
     "Target.Mac": "~/Library/Preferences/pnpm/config.yaml"
