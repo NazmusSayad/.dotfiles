@@ -218,16 +218,16 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.5,
+                            "y": 0.5
                         },
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 3840.0,
-                            "y": 2160.0
+                            "x": 1920.0,
+                            "y": 1080.0
                         },
                         "bounds_rel": {
                             "x": 3.555555582046509,
@@ -265,16 +265,16 @@
                         "id": 29,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 2308.0,
-                            "y": 1298.0
+                            "x": 1154.0,
+                            "y": 649.0
                         },
                         "pos_rel": {
                             "x": 0.3592592477798462,
                             "y": 0.20185184478759766
                         },
                         "scale": {
-                            "x": 0.598437488079071,
-                            "y": 0.5986111164093018
+                            "x": 0.2992187440395355,
+                            "y": 0.2993055582046509
                         },
                         "scale_rel": {
                             "x": 0.5319444537162781,
@@ -364,7 +364,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -15,
+    "scaling_level": -4,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
@@ -403,8 +403,8 @@
         }
     },
     "resolution": {
-        "x": 3840,
-        "y": 2160
+        "x": 1920,
+        "y": 1080
     },
     "migration_resolution": {
         "x": 1080,
