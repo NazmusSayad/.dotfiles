@@ -36,6 +36,7 @@ scoop:
   # Zip and Image
   - zip
   - unzip
+  - extras/rufus
   - extras/winrar
   - extras/anyburn
 
