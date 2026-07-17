@@ -1,0 +1,26 @@
+{
+  "app": {
+    "latestVersion": "1.7.3",
+    "version": "1.7.3"
+  },
+  "id": "{9059EF8C-3648-4201-9884-19D1D87EF615}",
+  "mods": {
+    "alt-tab-delayer": {
+      "latestVersion": "1.2.0",
+      "version": "1.2.0"
+    },
+    "disable-office-hotkeys": {
+      "latestVersion": "1.0.0",
+      "version": "1.0.0"
+    },
+    "start-menu-all-apps": {
+      "latestVersion": "1.0.5",
+      "version": "1.0.5"
+    },
+    "taskbar-button-click": {
+      "latestVersion": "1.0.9",
+      "version": "1.0.9"
+    }
+  },
+  "os": "10.0.28000"
+}
