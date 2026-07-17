@@ -79,7 +79,7 @@
                 "flags": 0,
                 "volume": 1.0,
                 "balance": 0.5,
-                "enabled": false,
+                "enabled": true,
                 "muted": false,
                 "push-to-mute": false,
                 "push-to-mute-delay": 0,
@@ -97,7 +97,9 @@
                 "uuid": "065ccf14-0d2d-4e5d-b7d7-168ffbad2e15",
                 "id": "limiter_filter",
                 "versioned_id": "limiter_filter",
-                "settings": {},
+                "settings": {
+                    "threshold": -10.0
+                },
                 "mixers": 255,
                 "sync": 0,
                 "flags": 0,
@@ -369,12 +371,7 @@
         "type2": 3
     },
     "modules": {
-        "scripts-tool": [
-            {
-                "path": "F:/__SYSTEM__/OBS/obs-sound-script/script-beep.lua",
-                "settings": {}
-            }
-        ],
+        "scripts-tool": [],
         "output-timer": {
             "streamTimerHours": 0,
             "streamTimerMinutes": 0,
