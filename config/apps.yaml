@@ -113,7 +113,8 @@ winget:
     scope: User
     interactiveInstall: true
 
-  # DotNet SDKs
+  # Runtime SDKs
+  - KhronosGroup.VulkanSDK
   - Microsoft.DotNet.SDK.6
   - Microsoft.DotNet.SDK.7
   - Microsoft.DotNet.SDK.8
