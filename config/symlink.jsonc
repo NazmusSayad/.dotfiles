@@ -208,10 +208,14 @@
     "Target.Mac": "~/.config/karabiner/karabiner.json"
   },
 
-  // Windows SystemFile
+  // Windows Private
   {
     "Source": "$SYSTEM_FILE_DIR/AIMP",
     "Target.Win": "$APPDATA/AIMP"
+  },
+  {
+    "Source": "$SYSTEM_FILE_DIR/WinRar.ini",
+    "Target.Win": "~/scoop/apps/winrar/current/WinRar.ini"
   },
 
   // Code Editor
