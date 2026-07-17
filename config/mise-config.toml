@@ -88,16 +88,15 @@ cloudflared = "latest"
 
 # AI
 "npm:skills" = "latest"
-"npm:devrage" = { version = "latest", allow_builds = ["better-sqlite3"] }
+"npm:mytokens" = "latest"
+"npm:opencode-armor" = "latest"
 
 # Personal
 "npm:gityo" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
-"npm:mytokens" = "latest"
 "npm:code-info" = "latest"
 "npm:create-src" = "latest"
-"npm:opencode-armor" = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
