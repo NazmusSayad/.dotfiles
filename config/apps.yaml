@@ -40,14 +40,13 @@ scoop:
   - extras/anyburn
 
   # Media
+  - pandoc
   - ffmpeg
   - imagemagick
   - extras/sharex
-  - pandoc
 
   # Communication
   - extras/slack
-  - extras/telegram
 
   # Fonts
   - nerd-fonts/IBMPlexSans
