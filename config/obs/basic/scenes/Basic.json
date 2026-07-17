@@ -160,7 +160,7 @@
             "id": "monitor_capture",
             "versioned_id": "monitor_capture",
             "settings": {
-                "monitor_id": "\\\\?\\DISPLAY#MSICCC2#4&2cfab90a&1&UID12355#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}"
+                "monitor_id": "\\\\?\\DISPLAY#MSICCC2#4&2cfab90a&0&UID12355#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}"
             },
             "mixers": 0,
             "sync": 0,
