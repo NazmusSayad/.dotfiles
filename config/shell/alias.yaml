@@ -34,10 +34,10 @@ pa: php artisan
 pas: php artisan serve
 
 # Git
-gz: lazygit
-mgit: monogit
-gco: git checkout
+gc: git checkout
 gcn: git checkout -b
+mgit: monogit
+gz: lazygit
 
 # GitHub CLI
 ghv: gh repo view
