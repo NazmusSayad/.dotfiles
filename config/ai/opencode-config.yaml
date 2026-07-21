@@ -1,6 +1,7 @@
 opencode:
   models:
     - id: mimo-v2.5-free
+    - id: laguna-s-2.1-free
     - id: deepseek-v4-flash-free
 
 openrouter:
