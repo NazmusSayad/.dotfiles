@@ -53,7 +53,7 @@
 
   // Claude
   {
-    "Source": "@/config/ai/README_CLAUDE.md",
+    "Source": "@/config/ai/README_AGENTS.md",
     "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
   },
   {
