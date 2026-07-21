@@ -209,7 +209,7 @@
   },
   {
     "Source": "@/config/Windhawk.json",
-    "Target.Mac": "$PROGRAMDATA/Windhawk/userprofile.json"
+    "Target.Win": "$PROGRAMDATA/Windhawk/userprofile.json"
   },
 
   // Private
