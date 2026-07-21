@@ -67,7 +67,13 @@
 
   "enabled_providers": ["opencode", "openrouter"],
   "provider": {
-    "opencode": { "whitelist": ["deepseek-v4-flash-free", "mimo-v2.5-free"] },
+    "opencode": {
+      "whitelist": [
+        "deepseek-v4-flash-free",
+        "laguna-s-2.1-free",
+        "mimo-v2.5-free"
+      ]
+    },
     "openrouter": { "whitelist": ["openai/gpt-oss-120b"] }
   }
 }
