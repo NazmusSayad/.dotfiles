@@ -1,0 +1,69 @@
+{
+  "oc": "opencode",
+  "occ": "opencode --continue",
+
+  "co": "codex --yolo",
+  "coo": "codex resume --yolo --last",
+
+  "cc": "claude --permission-mode bypassPermissions",
+  "ccc": "claude --permission-mode bypassPermissions --continue",
+
+  "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions",
+  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions --continue",
+
+  "ocs": {
+    "cmd": "opencode-server stop",
+    "platform": "windows"
+  },
+  "ocrs": {
+    "cmd": "opencode-server stop; powershell -Command \"Start-Process opencode-server -WindowStyle Hidden\"",
+    "platform": "windows"
+  },
+
+  "r": "nr",
+  "nid": "ni -D",
+  "pab": "pnpm approve-builds --all",
+
+  "j": "just",
+  "m": "make",
+  "fl": "fvm flutter",
+
+  "pa": "php artisan",
+  "pas": "php artisan serve",
+
+  "gz": "lazygit",
+  "mgit": "monogit",
+  "gc": "git checkout",
+  "gcn": "git checkout -b",
+
+  "ghv": "gh repo view",
+  "ghw": "gh repo view --web",
+
+  "dz": "lazydocker",
+  "dc": "docker compose",
+  "dcu": "docker compose up -d",
+  "dcd": "docker compose down",
+  "dcr": "docker compose restart",
+
+  "lsf": "ls -f",
+  "rmf": "rm -rf",
+
+  "ex": {
+    "cmd": "explorer",
+    "platform": "windows"
+  },
+  "where": {
+    "cmd": "command -a",
+    "platform": "macos"
+  },
+  "fix-ports": {
+    "cmd": "sudo net stop winnat",
+    "platform": "windows"
+  },
+  "fix-next": "rm -rf .next",
+
+  "..": "cd ..",
+  "...": "cd ../..",
+  "....": "cd ../../..",
+  ".....": "cd ../../../.."
+}

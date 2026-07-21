@@ -98,8 +98,8 @@
 
   // Terminal
   {
-    "Source": "@/config/shell/alias.yaml",
-    "Target": "~/.config/shaka.yaml"
+    "Source": "@/config/shell/alias.json",
+    "Target": "~/.config/shaka.json"
   },
   {
     "Source": "@/config/shell/starship.toml",
