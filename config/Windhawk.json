@@ -13,13 +13,17 @@
       "latestVersion": "1.0.0",
       "version": "1.0.0"
     },
-    "start-menu-all-apps": {
-      "latestVersion": "1.0.5",
-      "version": "1.0.5"
-    },
     "taskbar-button-click": {
       "latestVersion": "1.0.9",
       "version": "1.0.9"
+    },
+    "disable-feedback-hub-hotkey": {
+      "version": "1.0.0",
+      "latestVersion": "1.0.0"
+    },
+    "modernize-folder-picker-dialog": {
+      "version": "1.0.0",
+      "latestVersion": "1.0.0"
     }
   },
   "os": "10.0.28000"
