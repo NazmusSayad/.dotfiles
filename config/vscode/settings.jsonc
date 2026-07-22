@@ -99,7 +99,6 @@
   "terminal.integrated.shellIntegration.quickFixEnabled": false,
   "terminal.integrated.suggest.enabled": false,
   "terminal.integrated.shellIntegration.enabled": false,
-  "terminal.integrated.customGlyphs": false,
   "problems.showCurrentInStatus": true,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
