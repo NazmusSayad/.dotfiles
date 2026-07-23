@@ -78,6 +78,19 @@
       "hotkeyHold.windows": "ShiftLeft+Alt",
       "hotkeyToggle.macos": "ShiftRight+MetaLeft",
       "hotkeyToggle.windows": "ShiftRight+Alt"
+    },
+    {
+      "id": "oiper",
+      "mode": "oiper",
+      "language": "en",
+      "name": "OiPer",
+      "hotkeyToggle.macos": "ShiftLeft+AltGr",
+      "enhancementType": "normal",
+      "hotkeyHold.macos": "ShiftLeft+MetaRight",
+      "icon": "ArtificialIntelligence04Icon",
+      "oiperAsrId": "quality",
+      "oiperLlmId": "auto",
+      "oiperMode": "advanced"
     }
   ]
 }
