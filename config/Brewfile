@@ -46,7 +46,6 @@ brew "gnupg"
 
 # Development
 cask "visual-studio-code"
-cask "postman"
 brew "shfmt"
 brew "mise"
 brew "fvm"
