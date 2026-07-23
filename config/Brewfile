@@ -6,6 +6,9 @@ brew "btop"
 brew "zoxide"
 brew "direnv"
 brew "starship"
+
+# Terminal
+cask "cmux"
 cask "ghostty"
 
 # System
