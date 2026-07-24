@@ -112,12 +112,12 @@ Once installed, you can use these commands from anywhere in your terminal:
 
 **Git Helpers:**
 
-- `git-clone` / `gc` - Clone repositories (supports GitHub shorthand)
+- `git-clone` / `gcl` - Clone repositories (supports GitHub shorthand)
 - `git-pull` / `gp` - Quick git pull
 - `git-pull-all` / `gpa` - Pull all repositories in a workspace
 - `gpr` - Pull changes with rebase
 - `gpm` - Pull changes with merge
-- `github-pr-create` / `ghp` - Create GitHub pull requests
+- `github-pr` / `ghp` - Create GitHub pull requests
 
 **Slack Management:**
 

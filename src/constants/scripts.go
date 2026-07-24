@@ -26,7 +26,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gpm",
 	},
 
-	"github-pr-create": {
+	"github-pr": {
 		Exe: "ghp",
 	},
 
