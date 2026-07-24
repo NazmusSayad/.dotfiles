@@ -8,7 +8,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -171,57 +170,4 @@ func WriteGithubReleaseZipFile(outDir, ghURL, archivePattern, exeName string) er
 
 	_, err = io.Copy(out, rc)
 	return err
-}
-
-type GhHostInfo struct {
-	Host   string `json:"host"`
-	Login  string `json:"login"`
-	Active bool   `json:"active"`
-}
-
-type GhAuthStatus struct {
-	Hosts map[string][]GhHostInfo `json:"hosts"`
-}
-
-func GetGitHubUser() string {
-	cmd := exec.Command("gh", "auth", "status", "--json", "hosts")
-	output, err := cmd.Output()
-	if err != nil {
-		return ""
-	}
-
-	var status GhAuthStatus
-	if err := json.Unmarshal(output, &status); err != nil {
-		return ""
-	}
-
-	if hosts, ok := status.Hosts["github.com"]; ok {
-		for _, h := range hosts {
-			if h.Active {
-				return h.Login
-			}
-		}
-	}
-
-	return ""
-}
-
-func GetGitHubUserOrExit() string {
-	user := GetGitHubUser()
-	if user == "" {
-		fmt.Println(aurora.Red("No GitHub user found"))
-		os.Exit(1)
-	}
-
-	return user
-}
-
-func GetGitHubToken() string {
-	cmd := exec.Command("gh", "auth", "token")
-	output, err := cmd.Output()
-	if err != nil {
-		return ""
-	}
-
-	return strings.TrimSpace(string(output))
 }
