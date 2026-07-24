@@ -2,13 +2,12 @@
 brew "zsh"
 brew "bash"
 brew "fish"
+
+# Terminal or CLI Tools
 brew "btop"
 brew "zoxide"
 brew "direnv"
 brew "starship"
-
-# Terminal
-cask "cmux"
 cask "ghostty"
 
 # System
