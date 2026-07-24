@@ -11,8 +11,9 @@ import (
 )
 
 type ExecCommandOptions struct {
-	Dir string
-	Env []string
+	Dir      string
+	Env      []string
+	ExtraEnv map[string]string
 
 	Exit     bool
 	Silent   bool
@@ -107,6 +108,12 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 		cmd.Env = opts.Env
 	} else {
 		cmd.Env = os.Environ()
+	}
+
+	if opts.ExtraEnv != nil {
+		for k, v := range opts.ExtraEnv {
+			cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", k, v))
+		}
 	}
 
 	var err error

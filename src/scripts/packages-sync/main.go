@@ -17,22 +17,30 @@ func main() {
 		windowsSync()
 	}
 
+	githubToken := helpers.GetGitHubToken()
+	if githubToken == "" {
+		fmt.Println("⚠", aurora.Yellow("No GitHub token found."))
+		fmt.Println()
+	}
+
 	// Mise
 	fmt.Println("✘", aurora.Faint("Uninstalling Mise packages..."))
 	runCommand([]string{"mise", "prune", "--yes"})
-	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Mise packages..."))
-	runCommand([]string{"mise", "install"})
-	fmt.Println()
+	runCommand(
+		[]string{"mise", "install"},
+		helpers.ExecCommandOptions{ExtraEnv: map[string]string{"GITHUB_TOKEN": githubToken}},
+	)
 
 	fmt.Println("△", aurora.Faint("Updating Mise packages..."))
-	runCommand([]string{"mise", "upgrade"})
-	fmt.Println()
+	runCommand(
+		[]string{"mise", "upgrade"},
+		helpers.ExecCommandOptions{ExtraEnv: map[string]string{"GITHUB_TOKEN": githubToken}},
+	)
 
 	fmt.Println("✘", aurora.Faint("Cleaning Mise packages..."))
 	runCommand([]string{"mise", "cache", "clear", "--yes"})
-	fmt.Println()
 }
 
 func homebrewSync() {
@@ -47,12 +55,10 @@ func homebrewSync() {
 	}
 
 	fmt.Println("✘", aurora.Faint("Uninstalling Brew packages..."))
-	helpers.ExecNativeCommand([]string{"brew", "bundle", "cleanup", "--force", "--file=" + brewfilePath})
-	fmt.Println()
+	runCommand([]string{"brew", "bundle", "cleanup", "--force", "--file=" + brewfilePath})
 
 	fmt.Println("✘", aurora.Faint("Autoremove Brew dependencies..."))
-	helpers.ExecNativeCommand([]string{"brew", "autoremove"})
-	fmt.Println()
+	runCommand([]string{"brew", "autoremove"})
 
 	if len(brewFileTaps) > 0 {
 		fmt.Println("◯", aurora.Faint("Trusting Brew taps..."))
@@ -63,62 +69,56 @@ func homebrewSync() {
 	}
 
 	fmt.Println("△", aurora.Faint("Updating Brew..."))
-	helpers.ExecNativeCommand([]string{"brew", "update"})
-	fmt.Println()
+	runCommand([]string{"brew", "update"})
 
 	fmt.Println("▼", aurora.Faint("Installing Brew packages..."))
-	helpers.ExecNativeCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
-	fmt.Println()
+	runCommand([]string{"brew", "bundle", "install", "--file=" + brewfilePath})
 
 	fmt.Println("△", aurora.Faint("Upgrading Brew packages..."))
-	helpers.ExecNativeCommand([]string{"brew", "upgrade", "--yes"})
-	fmt.Println()
+	runCommand([]string{"brew", "upgrade", "--yes"})
 
 	fmt.Println("✘", aurora.Faint("Cleaning Brew..."))
-	helpers.ExecNativeCommand([]string{"brew", "cleanup", "--scrub"})
-	fmt.Println()
+	runCommand([]string{"brew", "cleanup", "--scrub"})
 }
 
 func windowsSync() {
 	// Scoop
 	fmt.Println("✘", aurora.Faint("Uninstalling Scoop Apps..."))
 	runCommand([]string{"scoop-prune"})
-	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Updating Scoop..."))
 	runCommand([]string{"scoop", "update", "--quiet"})
-	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Scoop packages..."))
 	runCommand([]string{"scoop-install"})
-	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Updating Scoop Apps..."))
 	runCommand([]string{"scoop", "update", "--all", "--quiet"})
-	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Scoop..."))
 	runCommand([]string{"scoop", "cache", "rm", "*"})
-	fmt.Println()
 
 	// Pacman
 	fmt.Println("◯", aurora.Faint("Preparing Pacman..."))
 	runCommand([]string{"pacman", "-Sy", "--noconfirm"})
-	fmt.Println()
 
 	fmt.Println("▼", aurora.Faint("Installing Pacman packages..."))
 	runCommand([]string{"msys-install"})
-	fmt.Println()
 
 	fmt.Println("△", aurora.Faint("Updating Pacman..."))
 	runCommand([]string{"pacman", "-Su", "--noconfirm"})
-	fmt.Println()
 
 	fmt.Println("✘", aurora.Faint("Cleaning Pacman..."))
 	runCommand([]string{"pacman", "-Scc", "--noconfirm"})
-	fmt.Println()
 }
 
-func runCommand(commands []string) {
-	helpers.ExecNativeCommand(commands, helpers.ExecCommandOptions{Simulate: true})
+func runCommand(commands []string, options ...helpers.ExecCommandOptions) {
+	opts := helpers.ExecCommandOptions{Simulate: true}
+	if len(options) > 0 {
+		opts = options[0]
+		opts.Simulate = true
+	}
+
+	helpers.ExecNativeCommand(commands, opts)
+	fmt.Println()
 }
