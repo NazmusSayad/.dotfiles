@@ -27,6 +27,11 @@ just = "latest"
 make = "latest"
 ninja = "latest"
 
+# AI Coding
+codex = "latest"
+claude = "latest"
+opencode = "latest"
+
 # JS/TS
 node = "lts"
 bun = "latest"

@@ -52,12 +52,6 @@ brew "shfmt"
 brew "mise"
 brew "fvm"
 
-# AI Coding
-tap "anomalyco/tap"
-brew "anomalyco/tap/opencode"
-cask "claude-code@latest"
-cask "codex"
-
 # Docker
 brew "colima"
 brew "docker"

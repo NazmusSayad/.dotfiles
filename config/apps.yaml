@@ -10,11 +10,6 @@ scoop:
   - shfmt
   - extras/fvm
 
-  # AI Coding
-  - codex
-  - opencode
-  - claude-code
-
   # Shells
   - gsudo
   - zoxide
