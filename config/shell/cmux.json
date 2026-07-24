@@ -6,6 +6,7 @@
     "appearance": "system",
     "menuBarOnly": false,
     "confirmQuit": "never",
+    "minimalMode": true,
     "sendAnonymousTelemetry": false,
     "warnBeforeQuit": false,
     "warnBeforeClosingTab": false,
