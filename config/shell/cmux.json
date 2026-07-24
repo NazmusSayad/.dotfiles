@@ -34,5 +34,8 @@
     "showPorts": false,
     "showLog": false,
     "branchLayout": "vertical"
+  },
+  "sidebarAppearance": {
+    "matchTerminalBackground": true
   }
 }
