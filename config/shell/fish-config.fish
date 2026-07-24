@@ -12,17 +12,14 @@ else
     mise activate fish | source
 end
 
-# Environment
 test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
 test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
 direnv hook fish | source
 
-# Enhancements
 shaka fish | source
 zoxide init fish | source
 starship init fish | source
 
-# zoxide
 zoxide add $PWD
 function on_cd --on-variable PWD
     zoxide add $PWD
