@@ -8,7 +8,6 @@
     "sendAnonymousTelemetry": false,
     "warnBeforeQuit": false,
     "warnBeforeClosingTab": false,
-    "minimalMode": true,
     "globalFontMagnification": 100
   },
   "terminal": {
