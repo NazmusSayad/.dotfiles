@@ -364,6 +364,7 @@
   "chat.tips.enabled": false,
   "chat.permissions.default": "autoApprove",
   "chat.viewSessions.orientation": "stacked",
+  "chat.titleBar.openInAgentsWindow.enabled": false,
   "github.copilot.chat.claudeAgent.enabled": false,
   "github.copilot.chat.cloudAgent.enabled": false,
   "github.copilot.chat.backgroundAgent.enabled": false,
