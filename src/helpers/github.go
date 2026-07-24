@@ -17,7 +17,6 @@ import (
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
-	"gopkg.in/yaml.v3"
 )
 
 type Asset struct {
@@ -174,33 +173,34 @@ func WriteGithubReleaseZipFile(outDir, ghURL, archivePattern, exeName string) er
 	return err
 }
 
-type GhHostConfig struct {
-	User string `yaml:"user"`
+type GhHostInfo struct {
+	Host   string `json:"host"`
+	Login  string `json:"login"`
+	Active bool   `json:"active"`
+}
+
+type GhAuthStatus struct {
+	Hosts map[string][]GhHostInfo `json:"hosts"`
 }
 
 func GetGitHubUser() string {
-	appData := os.Getenv("APPDATA")
-	if appData == "" {
-		return ""
-	}
-
-	hostsPath := filepath.Join(appData, "GitHub CLI", "hosts.yml")
-	if !utils.IsFileExists(hostsPath) {
-		return ""
-	}
-
-	data, err := os.ReadFile(hostsPath)
+	cmd := exec.Command("gh", "auth", "status", "--json", "hosts")
+	output, err := cmd.Output()
 	if err != nil {
 		return ""
 	}
 
-	var hosts map[string]GhHostConfig
-	if err := yaml.Unmarshal(data, &hosts); err != nil {
+	var status GhAuthStatus
+	if err := json.Unmarshal(output, &status); err != nil {
 		return ""
 	}
 
-	if config, ok := hosts["github.com"]; ok {
-		return config.User
+	if hosts, ok := status.Hosts["github.com"]; ok {
+		for _, h := range hosts {
+			if h.Active {
+				return h.Login
+			}
+		}
 	}
 
 	return ""
