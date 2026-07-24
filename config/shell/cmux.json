@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
   "app": {
+    "appIcon": "dark",
     "appearance": "system",
     "menuBarOnly": false,
     "confirmQuit": "never",
@@ -29,6 +30,7 @@
     "watchGitStatus": false,
     "makePullRequestsClickable": false,
     "showSSH": false,
+    "showCustomMetadata": false,
     "showPorts": false,
     "showLog": false,
     "branchLayout": "vertical"
