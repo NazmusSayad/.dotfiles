@@ -30,24 +30,29 @@ func main() {
 		os.Exit(1)
 	}
 
-	ghUser := helpers.GetGitHubUser()
 	remote := helpers.GetCurrentGitRemoteOrExit()
 	remoteUrl := helpers.GetGitRemoteUrlOrExit(remote)
 
 	branchCompare := ""
 	if baseBranch != "" {
 		branchCompare = baseBranch + "..." + targetBranch
+		fmt.Println(
+			aurora.Faint("󰊢 Merging"),
+			aurora.Green(targetBranch),
+			aurora.Faint("into"),
+			aurora.Blue(baseBranch),
+		)
 	} else {
 		branchCompare = targetBranch
+		fmt.Println(
+			aurora.Faint("󰊢 Merging"),
+			aurora.Green(targetBranch),
+			aurora.Faint("into "+aurora.Blue("default branch").Faint().String()),
+		)
 	}
 
-	assignees := ""
-	if ghUser != "" {
-		assignees = "&assignees=" + ghUser
-	}
-
-	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1", assignees}, "")
-	fmt.Println(aurora.Faint("  " + url))
+	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1"}, "")
+	fmt.Println(aurora.Faint("󰏌 " + url))
 
 	helpers.Open(url, helpers.ExecCommandOptions{Exit: true})
 }
