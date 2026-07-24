@@ -31,14 +31,29 @@ func main() {
 	}
 
 	ghUser := helpers.GetGitHubUser()
+	fmt.Println(aurora.Faint("  GitHub user:"), ghUser)
+	ghUser = ""
+
 	remote := helpers.GetCurrentGitRemoteOrExit()
 	remoteUrl := helpers.GetGitRemoteUrlOrExit(remote)
 
 	branchCompare := ""
 	if baseBranch != "" {
 		branchCompare = baseBranch + "..." + targetBranch
+		fmt.Println(
+			aurora.Faint("  Merging"),
+			aurora.Bold(baseBranch),
+			aurora.Faint("into"),
+			aurora.Bold(targetBranch),
+		)
 	} else {
 		branchCompare = targetBranch
+		fmt.Println(
+			aurora.Faint("  Merging"),
+			aurora.Bold(targetBranch),
+			aurora.Faint("into"),
+			aurora.Bold("default branch"),
+		)
 	}
 
 	assignees := ""
