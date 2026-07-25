@@ -119,3 +119,5 @@ auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
 trusted_config_paths = ["~/Desktop"]
+
+minimum_release_age_excludes = ["claude", "opencode"]
