@@ -2,6 +2,13 @@
 
 [tools]
 
+# Git
+gh = "latest"
+glab = "latest"
+lazygit = "latest"
+"github:unhappychoice/gitlogue" = "latest"
+"github:JoaoOliveira889/monogit" = "latest"
+
 # System
 cmake = "latest"
 "cargo:dotsh" = "latest"
@@ -67,20 +74,16 @@ java = "latest"
 
 # Dev
 sqlite = "latest"
-lazygit = "latest"
 lazydocker = "latest"
 hyperfine = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
-"github:JoaoOliveira889/monogit" = "latest"
 
 # Web
 "npm:serve" = "latest"
 "npm:live-server" = "latest"
 
 # Cloud
-gh = "latest"
-glab = "latest"
 yt-dlp = "latest"
 stripe = "latest"
 firebase = "latest"
@@ -88,8 +91,6 @@ terraform = "latest"
 cloudflared = "latest"
 "npm:wrangler" = "latest"
 
-# Fun
-"cargo:gitlogue" = "latest"
 
 # AI
 "npm:skills" = "latest"
