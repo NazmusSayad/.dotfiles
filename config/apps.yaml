@@ -89,14 +89,16 @@ winget:
 
   # Shells & Development Tools
   - id: jdx.mise
-  - id: TablePlus.TablePlus
-  - id: Microsoft.VisualStudio.2022.BuildTools
-  - id: LLVM.LLVM
-    version: 21.1.8
+    forceAdminInstall: true
+    forceAdminUpgrade: true
   - id: MSYS2.MSYS2
     skipInstall: true
     forceAdminInstall: true
     forceAdminUpgrade: true
+  - id: TablePlus.TablePlus
+  - id: Microsoft.VisualStudio.2022.BuildTools
+  - id: LLVM.LLVM
+    version: 21.1.8
 
   # Others
   - RamenSoftware.Windhawk
