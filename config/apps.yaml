@@ -6,6 +6,7 @@ msys2:
 scoop:
   # Core
   - mise
+  - extras/tailscale
 
   # Dev
   - aws
