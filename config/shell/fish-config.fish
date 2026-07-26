@@ -1,3 +1,5 @@
+test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
+
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
 else
@@ -6,7 +8,6 @@ else
 end
 
 test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
-test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
 direnv hook fish | source
 
 shaka fish | source
