@@ -84,9 +84,9 @@ glab = "latest"
 yt-dlp = "latest"
 stripe = "latest"
 firebase = "latest"
-wrangler = "latest"
 terraform = "latest"
 cloudflared = "latest"
+"npm:wrangler" = "latest"
 
 # Fun
 "cargo:gitlogue" = "latest"
