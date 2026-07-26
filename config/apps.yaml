@@ -20,6 +20,7 @@ scoop:
   - btop
   - nircmd
   - extras/hwinfo
+  - extras/crystaldiskinfo
 
   # File System
   - extras/localsend
