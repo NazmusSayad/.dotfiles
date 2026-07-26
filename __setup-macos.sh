@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo bash ./etc/git-config.sh
+source ./etc/git-config.sh
+source ./etc/shell-config.sh
 
 echo "Configuring shell settings..."
 bash_path=$(which bash)
