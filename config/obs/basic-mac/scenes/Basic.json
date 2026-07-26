@@ -1,7 +1,7 @@
 {
     "name": "Basic",
     "AuxAudioDevice1": {
-        "prev_ver": 536936450,
+        "prev_ver": 537001985,
         "name": "Macbook Microphone",
         "uuid": "ae58dae6-b732-4a58-9d9b-3580cf6f988c",
         "id": "coreaudio_input_capture",
@@ -32,7 +32,7 @@
         "private_settings": {}
     },
     "AuxAudioDevice2": {
-        "prev_ver": 536936450,
+        "prev_ver": 537001985,
         "name": "Logitech Headphone",
         "uuid": "94acf450-f9e7-43e3-ac1e-3d1bbfbd3ef4",
         "id": "coreaudio_input_capture",
@@ -63,7 +63,7 @@
         "private_settings": {},
         "filters": [
             {
-                "prev_ver": 536936450,
+                "prev_ver": 537001985,
                 "name": "Noise Suppression",
                 "uuid": "1a2a1b2e-5d6b-45b5-be99-ee968574ca2c",
                 "id": "noise_suppress_filter",
@@ -90,7 +90,7 @@
     },
     "sources": [
         {
-            "prev_ver": 536936450,
+            "prev_ver": 537001985,
             "name": "Monitor",
             "uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
             "id": "screen_capture",
@@ -123,7 +123,7 @@
             }
         },
         {
-            "prev_ver": 536936450,
+            "prev_ver": 537001985,
             "name": "Landscape",
             "uuid": "6936f226-fa1e-4af6-97a5-ff013d16c9b4",
             "id": "scene",
@@ -228,7 +228,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -8,
+    "scaling_level": -7,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
