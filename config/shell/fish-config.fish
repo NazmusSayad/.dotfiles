@@ -1,6 +1,3 @@
-function fish_greeting
-end
-
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
 else
