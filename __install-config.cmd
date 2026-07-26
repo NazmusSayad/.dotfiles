@@ -1,7 +1,8 @@
 @echo off
 
 echo ^> Setting up shell config...
-call sudo bash "./etc/git-config.sh"
+call bash "./etc/git-config.sh"
+call bash "./etc/shell-config.sh"
 git config --global credential.helper manager
 git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
