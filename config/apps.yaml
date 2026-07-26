@@ -4,6 +4,9 @@ msys2:
   - zsh
 
 scoop:
+  # Core
+  - mise
+
   # Dev
   - aws
   - gcc
@@ -88,9 +91,6 @@ winget:
     interactiveUpgrade: true
 
   # Shells & Development Tools
-  - id: jdx.mise
-    forceAdminInstall: true
-    forceAdminUpgrade: true
   - id: MSYS2.MSYS2
     skipInstall: true
     forceAdminInstall: true
