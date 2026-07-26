@@ -20,7 +20,7 @@ chflags nohidden ~/Library
 
 echo "Configuring battery settings..."
 sudo batt limit 60
-sudo batt lower-limit-delta 10
+sudo batt lower-limit-delta 5
 sudo batt prevent-system-sleep enable
 sudo batt magsafe-led enable
 
