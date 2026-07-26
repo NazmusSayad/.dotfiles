@@ -107,6 +107,7 @@ winget:
 
   # Code Editors
   - id: SST.OpenCodeDesktop
+    skipInstall: true
   - id: Microsoft.VisualStudioCode
     name: VSCode
     scope: User
