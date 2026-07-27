@@ -115,7 +115,6 @@ npm_shim = true
 package_manager = "pnpm"
 
 [settings]
-log_level = "error"
 auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
