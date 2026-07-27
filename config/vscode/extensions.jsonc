@@ -34,7 +34,7 @@
   { "Id": "mkhl.shfmt" },
 
   /* Rust */
-  { "Id": "rust-lang.rust-analyzer" },
+  // { "Id": "rust-lang.rust-analyzer" },
 
   /* Other Languages */
   { "Id": "bradlc.vscode-tailwindcss" },
