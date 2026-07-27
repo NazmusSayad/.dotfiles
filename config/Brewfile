@@ -3,7 +3,7 @@ brew "zsh"
 brew "bash"
 brew "fish"
 
-# Terminal or CLI Tools
+# Terminal or Shell Tools
 brew "btop"
 brew "zoxide"
 brew "direnv"
