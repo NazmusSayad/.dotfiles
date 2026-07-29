@@ -120,4 +120,13 @@ exec_auto_install = true
 not_found_auto_install = true
 trusted_config_paths = ["~/Desktop"]
 
-minimum_release_age_excludes = ["claude", "opencode"]
+minimum_release_age_excludes = [
+  "bun",
+  "node",
+  "deno",
+  "uv",
+  "pnpm",
+  "codex",
+  "claude",
+  "opencode",
+]
