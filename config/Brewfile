@@ -28,6 +28,7 @@ brew "7-zip"
 brew "ripgrep"
 
 # Media
+cask "vlc"
 cask "obs"
 brew "ffmpeg"
 brew "imagemagick"
