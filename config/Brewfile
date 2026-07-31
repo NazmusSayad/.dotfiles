@@ -48,7 +48,6 @@ brew "git-delta"
 brew "gnupg"
 
 # Development
-cask "visual-studio-code"
 brew "shfmt"
 brew "mise"
 brew "fvm"
