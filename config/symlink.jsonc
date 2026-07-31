@@ -146,12 +146,12 @@
 
   // OBS
   {
-    "Source": "@/config/obs/basic",
+    "Source": "@/config/obs/basic-win",
     "Target.Win": "$APPDATA/obs-studio/basic",
     "Copy": true
   },
   {
-    "Source": "@/config/obs/user.ini",
+    "Source": "@/config/obs/user-win.ini",
     "Target.Win": "$APPDATA/obs-studio/user.ini",
     "Copy": true
   },
