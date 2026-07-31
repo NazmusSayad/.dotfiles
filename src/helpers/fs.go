@@ -8,6 +8,7 @@ import (
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/otiai10/copy"
 )
 
 func CopyFile(source string, target string) error {
@@ -24,30 +25,14 @@ func CopyFile(source string, target string) error {
 		}
 	}
 
-	createdDirs, ok := createTargetDirs(target)
-	if !ok {
-		return fmt.Errorf("failed to create target directories for: %s", target)
-	}
-
-	content, err := os.ReadFile(source)
+	err := copy.Copy(source, target, copy.Options{
+		PreserveTimes: true,
+		PreserveOwner: true,
+	})
 	if err != nil {
-		fmt.Println(aurora.BrightRed("UNEXPECTED: Error reading source: " + err.Error()))
-		return fmt.Errorf("error reading source: %w", err)
+		fmt.Println(aurora.BrightRed("UNEXPECTED: Error copying source: " + err.Error()))
+		return fmt.Errorf("error copying source: %w", err)
 	}
-
-	info, err := os.Stat(source)
-	if err != nil {
-		fmt.Println(aurora.BrightRed("UNEXPECTED: Error stating source: " + err.Error()))
-		return fmt.Errorf("error stating source: %w", err)
-	}
-
-	err = os.WriteFile(target, content, info.Mode().Perm())
-	if err != nil {
-		fmt.Println(aurora.BrightRed("UNEXPECTED: Error copying file: " + err.Error()))
-		return fmt.Errorf("error copying file: %w", err)
-	}
-
-	inheritOwnership(target, createdDirs)
 
 	fmt.Println(aurora.Blue(source), aurora.Green("=>"), aurora.Cyan(target))
 	return nil
