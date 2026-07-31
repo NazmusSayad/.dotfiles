@@ -15,7 +15,7 @@
 
   // Agents
   {
-    "Source": "@/config/ai/README_AGENTS.md",
+    "Source": "@/config/ai/AGENTS_README.md",
     "Target": ["~/.config/opencode/AGENTS.md", "~/.codex/AGENTS.md"]
   },
   {
@@ -57,7 +57,7 @@
 
   // Claude
   {
-    "Source": "@/config/ai/README_AGENTS.md",
+    "Source": "@/config/ai/AGENTS_README.md",
     "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
   },
   {
