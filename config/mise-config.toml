@@ -83,15 +83,6 @@ hyperfine = "latest"
 "npm:serve" = "latest"
 "npm:live-server" = "latest"
 
-# Cloud
-yt-dlp = "latest"
-stripe = "latest"
-firebase = "latest"
-terraform = "latest"
-cloudflared = "latest"
-"npm:wrangler" = "latest"
-
-
 # AI
 "npm:skills" = "latest"
 "npm:mytokens" = "latest"
@@ -107,6 +98,8 @@ cloudflared = "latest"
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
 
+# Others
+yt-dlp = "latest"
 
 [settings.node]
 npm_shim = true
