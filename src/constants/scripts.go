@@ -101,6 +101,7 @@ var MACOS_SCRIPTS_PREFIX = []string{
 	"code-ext-sync",
 	"packages-sync",
 	"symlink-init",
+	"symlink-pull",
 	"opencode-",
 	"github-",
 	"git-",
