@@ -1,9 +1,30 @@
-[[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.path)"
+if [[ -f ~/.path ]]; then
+	export PATH="$PATH:$(cat ~/.path)"
+fi
 
-eval "$(/opt/homebrew/bin/brew shellenv bash)"
-eval "$(mise env --shell bash)"
+if [[ "$OS" == "Windows_NT" ]]; then
+	eval "$(dotsh bash "$(mise env --dotenv)")"
+fi
 
-[[ -f ~/.env ]] && eval "$(dotsh bash "$(cat ~/.env)")"
+if command -v uname >/dev/null 2>&1 && [[ "$(uname)" == "Darwin" ]]; then
+	eval "$(brew shellenv bash)"
+	eval "$(mise activate bash)"
+fi
 
-export RUST_BACKTRACE=1
-export NODE_NO_WARNINGS=1
+if [[ -f ~/.env ]]; then
+	eval "$(dotsh bash "$(cat ~/.env)")"
+fi
+
+eval "$(direnv hook bash)"
+
+eval "$(shaka bash)"
+eval "$(zoxide init bash)"
+eval "$(starship init bash)"
+
+zoxide add "$PWD"
+
+on_cd() {
+	zoxide add "$PWD"
+}
+
+PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"

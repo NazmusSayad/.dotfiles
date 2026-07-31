@@ -1,13 +1,20 @@
-test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
+if test -f ~/.path
+    set -x PATH $PATH (cat ~/.path)
+end
 
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
-else
+end
+
+if command -q uname; and test (uname) = Darwin
     brew shellenv fish | source
     mise activate fish | source
 end
 
-test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
+if test -f ~/.env
+    dotsh fish "$(cat ~/.env)" | source
+end
+
 direnv hook fish | source
 
 shaka fish | source
