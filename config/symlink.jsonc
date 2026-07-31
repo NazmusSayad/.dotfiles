@@ -1,16 +1,16 @@
 [
   // Shell
   {
-    "Source": "@/config/shell/bash-login.sh",
-    "Target.Mac": "~/.bash_profile"
-  },
-  {
     "Source": "@/config/shell/bashrc.sh",
     "Target": "~/.bashrc"
   },
   {
     "Source": "@/config/shell/fishrc.fish",
     "Target": "~/.config/fish/config.fish"
+  },
+  {
+    "Source": "@/config/shell/profile.sh",
+    "Target.Mac": "~/.bash_profile"
   },
 
   // Agents
