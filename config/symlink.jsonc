@@ -179,7 +179,8 @@
   // Other
   {
     "Source": "@/config/qBittorrent.ini",
-    "Target.Win": "$APPDATA/qBittorrent/qBittorrent.ini"
+    "Target.Win": "$APPDATA/qBittorrent/qBittorrent.ini",
+    "Copy": true
   },
   {
     "Source": "@/config/pnpm.yaml",
