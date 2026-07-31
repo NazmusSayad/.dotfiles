@@ -35,10 +35,6 @@ openrouter:
     color: "#43ACB9"
     permission:
       edit: deny
-  ask:
-    color: "#89AE6E"
-    permission:
-      edit: deny
   general:
     color: "#D46870"
     permission:
