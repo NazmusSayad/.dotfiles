@@ -147,11 +147,13 @@
   // OBS
   {
     "Source": "@/config/obs/basic",
-    "Target.Win": "$APPDATA/obs-studio/basic"
+    "Target.Win": "$APPDATA/obs-studio/basic",
+    "Copy": true
   },
   {
     "Source": "@/config/obs/user.ini",
-    "Target.Win": "$APPDATA/obs-studio/user.ini"
+    "Target.Win": "$APPDATA/obs-studio/user.ini",
+    "Copy": true
   },
   {
     "Source": "@/config/obs/basic-mac",
