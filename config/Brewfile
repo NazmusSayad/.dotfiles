@@ -49,6 +49,7 @@ brew "gnupg"
 
 # Development
 cask "visual-studio-code"
+cask "t3-code"
 brew "shfmt"
 brew "mise"
 brew "fvm"
