@@ -1,3 +1,5 @@
+[[ $- != *i* ]] && return
+
 if [[ -f ~/.path ]]; then
 	export PATH="$PATH:$(cat ~/.path)"
 fi

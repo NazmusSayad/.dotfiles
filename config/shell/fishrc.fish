@@ -1,3 +1,5 @@
+status is-interactive; or return
+
 if test -f ~/.path
     set -x PATH $PATH (cat ~/.path)
 end
