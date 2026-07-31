@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	helpers.EnsureAdminExecution()
 	symlinkConfigs := symlink.ReadConfigs()
 
 	if len(symlinkConfigs) == 0 {
