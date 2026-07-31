@@ -178,11 +178,6 @@
 
   // Other
   {
-    "Source": "@/config/qBittorrent.ini",
-    "Target.Win": "$APPDATA/qBittorrent/qBittorrent.ini",
-    "Copy": true
-  },
-  {
     "Source": "@/config/pnpm.yaml",
     "Target.Win": "$LOCALAPPDATA/pnpm/config.yaml",
     "Target.Mac": "~/Library/Preferences/pnpm/config.yaml"
@@ -229,6 +224,11 @@
   {
     "Source": "$SYSTEM_FILE_DIR/WinRar.ini",
     "Target.Win": "~/scoop/apps/winrar/current/WinRar.ini"
+  },
+  {
+    "Source": "$SYSTEM_FILE_DIR/qBittorrent.ini",
+    "Target.Win": "$APPDATA/qBittorrent/qBittorrent.ini",
+    "Copy": true
   },
 
   // Code Editor
