@@ -105,9 +105,9 @@ winget:
   - RamenSoftware.Windhawk
   - UnifiedIntents.UnifiedRemote
 
-  # Code Editors
+  # AI & Code Editors
+  - id: T3Tools.T3Code
   - id: SST.OpenCodeDesktop
-    skipInstall: true
   - id: Microsoft.VisualStudioCode
     name: VSCode
     scope: User
