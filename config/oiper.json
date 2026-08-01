@@ -89,7 +89,9 @@
       "enhancementType": "translate-bengali",
       "enhancementLlmId": "openrouter-mini",
       "hotkeyHold.macos": "ShiftLeft+MetaRight",
-      "hotkeyToggle.macos": "ShiftRight+MetaRight"
+      "hotkeyToggle.macos": "ShiftRight+MetaRight",
+      "hotkeyHold.windows": "ShiftLeft+AltGr",
+      "hotkeyToggle.windows": "ShiftRight+AltGr"
     },
     {
       "id": "oiper",
@@ -102,7 +104,9 @@
       "icon": "ArtificialIntelligence04Icon",
       "oiperAsrId": "quality",
       "oiperLlmId": "auto",
-      "oiperMode": "advanced"
+      "oiperMode": "advanced",
+      "hotkeyHold.windows": "ShiftLeft+MetaRight",
+      "hotkeyToggle.windows": "ShiftRight+MetaRight"
     }
   ]
 }
