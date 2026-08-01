@@ -1,7 +1,7 @@
 {
     "name": "Basic",
     "DesktopAudioDevice1": {
-        "prev_ver": 536936450,
+        "prev_ver": 537001985,
         "name": "Desktop Audio",
         "uuid": "4959d74d-53dc-40e6-8b8e-49fbeb64d1b0",
         "id": "wasapi_output_capture",
@@ -34,7 +34,7 @@
         }
     },
     "AuxAudioDevice1": {
-        "prev_ver": 536936450,
+        "prev_ver": 537001985,
         "name": "Mic/Aux",
         "uuid": "fb3a609b-5277-4941-b8c9-05b9929aa8e8",
         "id": "wasapi_input_capture",
@@ -65,7 +65,7 @@
         "private_settings": {},
         "filters": [
             {
-                "prev_ver": 536936450,
+                "prev_ver": 537001985,
                 "name": "Noise Suppression",
                 "uuid": "fcd27d21-c20f-4839-8bf4-449cd79e1068",
                 "id": "noise_suppress_filter",
@@ -92,7 +92,7 @@
                 "private_settings": {}
             },
             {
-                "prev_ver": 536936450,
+                "prev_ver": 537001985,
                 "name": "Limiter",
                 "uuid": "065ccf14-0d2d-4e5d-b7d7-168ffbad2e15",
                 "id": "limiter_filter",
@@ -121,7 +121,7 @@
     },
     "sources": [
         {
-            "prev_ver": 536936450,
+            "prev_ver": 537001985,
             "name": "Camera",
             "uuid": "4c7fe898-2371-4d98-922b-4efbf11c1e04",
             "id": "dshow_input",
@@ -154,7 +154,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536936450,
+            "prev_ver": 537001985,
             "name": "MSI Monitor",
             "uuid": "25a935a2-30a4-4ffb-92a1-19f7f670612b",
             "id": "monitor_capture",
@@ -180,7 +180,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536936450,
+            "prev_ver": 537001985,
             "name": "Main",
             "uuid": "0851cba4-8e7f-4c3c-b747-58c044afaa2e",
             "id": "scene",
@@ -364,7 +364,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -15,
+    "scaling_level": -13,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
