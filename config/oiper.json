@@ -103,7 +103,7 @@
       "hotkeyHold.macos": "ShiftLeft+AltGr",
       "icon": "ArtificialIntelligence04Icon",
       "oiperAsrId": "quality",
-      "oiperLlmId": "auto",
+      "oiperLlmId": "mini",
       "oiperMode": "advanced",
       "hotkeyHold.windows": "ShiftLeft+MetaRight",
       "hotkeyToggle.windows": "ShiftRight+MetaRight"
