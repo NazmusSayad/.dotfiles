@@ -11,7 +11,6 @@ end
 
 test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
 test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
-
 direnv hook fish | source
 
 shaka fish | source

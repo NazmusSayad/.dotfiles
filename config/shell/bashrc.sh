@@ -11,7 +11,6 @@ fi
 
 [[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.path)"
 [[ -f ~/.env ]] && eval "$(dotsh bash "$(cat ~/.env)")"
-
 eval "$(direnv hook bash)"
 
 eval "$(shaka bash)"
