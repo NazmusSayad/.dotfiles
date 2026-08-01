@@ -1,4 +1,3 @@
-
 eval "$(/opt/homebrew/bin/brew shellenv bash)"
 eval "$(mise env --shell bash)"
 
