@@ -24,9 +24,7 @@ eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 
 zoxide add "$PWD"
-
 on_cd() {
 	zoxide add "$PWD"
 }
-
 PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
