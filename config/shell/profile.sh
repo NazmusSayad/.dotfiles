@@ -5,7 +5,7 @@ eval "$(mise env --shell bash)"
 
 [[ -f ~/.env ]] && eval "$(dotsh bash "$(cat ~/.env)")"
 
-export OPENCODE_SHELL="$(which bash)"
-
-export NODE_NO_WARNINGS=1
 export RUST_BACKTRACE=1
+export NODE_NO_WARNINGS=1
+
+export OPENCODE_SHELL="/opt/homebrew/bin/bash"
