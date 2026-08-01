@@ -88,17 +88,17 @@
       "transcribeAsrId": "groq-whisper",
       "enhancementType": "translate-bengali",
       "enhancementLlmId": "openrouter-mini",
-      "hotkeyHold.macos": "ShiftRight+MetaRight",
-      "hotkeyToggle.macos": "ShiftRight+AltGr"
+      "hotkeyHold.macos": "ShiftLeft+MetaRight",
+      "hotkeyToggle.macos": "ShiftRight+MetaRight"
     },
     {
       "id": "oiper",
       "mode": "oiper",
       "name": "OiPer",
       "language": "en",
-      "hotkeyToggle.macos": "ShiftLeft+AltGr",
+      "hotkeyToggle.macos": "ShiftRight+AltGr",
       "enhancementType": "normal",
-      "hotkeyHold.macos": "ShiftLeft+MetaRight",
+      "hotkeyHold.macos": "ShiftLeft+AltGr",
       "icon": "ArtificialIntelligence04Icon",
       "oiperAsrId": "quality",
       "oiperLlmId": "auto",
