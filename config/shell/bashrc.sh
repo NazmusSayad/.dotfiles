@@ -1,9 +1,5 @@
 [[ $- != *i* ]] && return
 
-if [[ -f ~/.path ]]; then
-	export PATH="$PATH:$(cat ~/.path)"
-fi
-
 if [[ "$OS" == "Windows_NT" ]]; then
 	eval "$(dotsh bash "$(mise env --dotenv)")"
 fi
@@ -13,9 +9,8 @@ if command -v uname >/dev/null 2>&1 && [[ "$(uname)" == "Darwin" ]]; then
 	eval "$(mise activate bash)"
 fi
 
-if [[ -f ~/.env ]]; then
-	eval "$(dotsh bash "$(cat ~/.env)")"
-fi
+[[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.path)"
+[[ -f ~/.env ]] && eval "$(dotsh bash "$(cat ~/.env)")"
 
 eval "$(direnv hook bash)"
 
