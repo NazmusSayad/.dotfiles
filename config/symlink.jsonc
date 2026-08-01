@@ -118,7 +118,7 @@
     "Target": "~/.config/mise/config.toml"
   },
   {
-    "Source": "@/config/shell/fastfetch-pc.jsonc",
+    "Source": "@/config/shell/fastfetch-win.jsonc",
     "Target.Win": "~/.config/fastfetch/config.jsonc"
   },
   {
