@@ -197,7 +197,7 @@
   },
   {
     "Source": "@/config/gityo.json",
-    "Target": "~/.gityo.json"
+    "Target": "~/.config/gityo.json"
   },
   {
     "Source": "@/config/nirc",
