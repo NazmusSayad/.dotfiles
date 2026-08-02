@@ -10,7 +10,8 @@
     "sendAnonymousTelemetry": false,
     "warnBeforeQuit": false,
     "warnBeforeClosingTab": false,
-    "globalFontMagnification": 100
+    "globalFontMagnification": 100,
+    "openSupportedFilesInCmux": false
   },
   "terminal": {
     "showScrollBar": true,
