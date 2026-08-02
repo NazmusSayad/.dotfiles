@@ -5,5 +5,7 @@
   "scroll_speed": 0.001,
   "scroll_acceleration": { "enabled": true },
 
+  "attention": { "enabled": true },
+
   "$schema": "https://opencode.ai/tui.json"
 }
