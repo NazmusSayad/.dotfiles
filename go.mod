@@ -37,6 +37,7 @@ require (
 
 require (
 	github.com/evanphx/json-patch v0.5.2
+	github.com/otiai10/copy v1.14.1
 	github.com/shirou/gopsutil/v4 v4.26.2
 	golang.org/x/sys v0.41.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -49,7 +50,6 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0 // indirect
 	github.com/ncruces/go-strftime v1.0.0 // indirect
-	github.com/otiai10/copy v1.14.1 // indirect
 	github.com/otiai10/mint v1.6.3 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect

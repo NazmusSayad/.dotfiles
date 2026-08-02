@@ -1,3 +1,10 @@
+# Dependencies
+brew "re2c"
+brew "bison"
+brew "libomp"
+brew "autoconf"
+brew "pkg-config"
+
 # Shell
 brew "zsh"
 brew "bash"
@@ -11,7 +18,6 @@ brew "starship"
 cask "ghostty"
 
 # System
-brew "libomp"
 brew "mole"
 brew "batt", restart_service: true
 
