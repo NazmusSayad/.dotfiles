@@ -9,6 +9,7 @@ brew "zoxide"
 brew "direnv"
 brew "starship"
 cask "ghostty"
+cask "cmux"
 
 # System
 brew "libomp"
