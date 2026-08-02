@@ -17,6 +17,7 @@ brew "batt", restart_service: true
 
 # Internet
 brew "wget"
+cask "slack"
 cask "localsend"
 cask "google-chrome"
 
