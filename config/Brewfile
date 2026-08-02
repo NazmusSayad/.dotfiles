@@ -1,14 +1,15 @@
 # Dependencies
 brew "re2c"
 brew "icu4c"
+brew "readline"
+brew "bison", link: true
 brew "libomp"
 brew "libzip"
-brew "readline"
+brew "libiconv"
 brew "libsodium"
 brew "pkgconf"
 brew "autoconf"
 brew "pkg-config"
-brew "bison", link: true
 
 # Shell
 brew "zsh"
