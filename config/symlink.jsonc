@@ -136,10 +136,6 @@
 
   // Terminal Emulators
   {
-    "Source": "@/config/shell/cmux.json",
-    "Target.Mac": "~/.config/cmux/cmux.json"
-  },
-  {
     "Source": "@/config/shell/ghostty.conf",
     "Target.Mac": "~/.config/ghostty/config"
   },
