@@ -1,3 +1,10 @@
 {
-  "$schema": "https://github.com/NazmusSayad/gityo/raw/refs/heads/schema/schema.json"
+  "$schema": "https://github.com/NazmusSayad/gityo/raw/refs/heads/schema/schema.json",
+  "models": {
+    "default": {
+      "npm": "@openrouter/ai-sdk-provider",
+      "model": "openai/gpt-oss-120b:nitro",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    }
+  }
 }
