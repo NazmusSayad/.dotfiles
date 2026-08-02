@@ -1,6 +1,11 @@
 # Dependencies
 brew "re2c"
+brew "icu4c"
 brew "libomp"
+brew "libzip"
+brew "readline"
+brew "libsodium"
+brew "pkgconf"
 brew "autoconf"
 brew "pkg-config"
 brew "bison", link: true
