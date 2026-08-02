@@ -8,6 +8,7 @@ openrouter:
   models:
     - id: openai/gpt-oss-120b
       title: true
+    - id: deepseek/deepseek-v4-flash-0731
 
 # opencode-go:
 #   models:
