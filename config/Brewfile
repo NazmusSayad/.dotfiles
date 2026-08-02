@@ -1,9 +1,9 @@
 # Dependencies
 brew "re2c"
-brew "bison", link: true
 brew "libomp"
 brew "autoconf"
 brew "pkg-config"
+brew "bison", link: true
 
 # Shell
 brew "zsh"
