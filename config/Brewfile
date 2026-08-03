@@ -30,6 +30,7 @@ brew "batt", restart_service: true
 # Internet
 brew "wget"
 cask "localsend"
+cask "protonvpn"
 cask "google-chrome"
 
 # File System
