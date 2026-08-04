@@ -47,7 +47,7 @@ func main() {
 		fmt.Println(
 			aurora.Faint("󰊢 Merging"),
 			aurora.Yellow(targetBranch),
-			aurora.Faint("into "+aurora.Red("default branch").Faint().String()),
+			aurora.Faint("into "+aurora.Cyan("default branch").Faint().String()),
 		)
 	}
 
