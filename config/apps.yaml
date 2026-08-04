@@ -16,6 +16,11 @@ scoop:
   - direnv
   - starship
 
+  # AI
+  - extras/ollama-full
+  - versions/llama.cpp-cpu
+  - versions/llama.cpp-vulkan
+
   # System
   - btop
   - nircmd
