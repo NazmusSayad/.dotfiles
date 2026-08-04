@@ -16,10 +16,6 @@ scoop:
   - direnv
   - starship
 
-  # AI
-  - extras/lmstudio
-  - versions/llama.cpp-cpu
-
   # System
   - btop
   - nircmd
