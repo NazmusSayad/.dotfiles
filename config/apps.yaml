@@ -17,6 +17,7 @@ scoop:
   - starship
 
   # AI
+  - extras/lmstudio
   - versions/llama.cpp-cpu
 
   # System
