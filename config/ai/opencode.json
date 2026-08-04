@@ -54,7 +54,7 @@
       "whitelist": ["deepseek-v4-flash-free", "mimo-v2.5-free"]
     },
     "openrouter": {
-      "whitelist": ["deepseek/deepseek-v4-flash-0731", "openai/gpt-oss-120b"]
+      "whitelist": ["openai/gpt-oss-120b"]
     }
   }
 }
