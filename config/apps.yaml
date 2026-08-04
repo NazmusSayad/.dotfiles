@@ -18,7 +18,6 @@ scoop:
 
   # AI
   - extras/lmstudio
-  - versions/llama.cpp-cpu
 
   # System
   - btop
