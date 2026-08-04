@@ -18,7 +18,6 @@ scoop:
 
   # AI
   - versions/llama.cpp-cpu
-  - versions/llama.cpp-vulkan
 
   # System
   - btop
