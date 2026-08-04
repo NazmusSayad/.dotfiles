@@ -20,12 +20,18 @@
   },
   {
     "Source": "@/config/ai/skills",
-    "Target": ["~/.agents/skills", "~/.claude/skills", "~/.claude-work/skills"]
+    "Target": [
+      "~/.agents/skills",
+      "~/.claude/skills",
+      "~/.claude-uig/skills",
+      "~/.claude-work/skills"
+    ]
   },
   {
     "Source": "@/config/ai/commands",
     "Target": [
       "~/.claude/commands",
+      "~/.claude-uig/commands",
       "~/.claude-work/commands",
       "~/.config/opencode/commands"
     ]
@@ -58,35 +64,43 @@
   // Claude
   {
     "Source": "@/config/ai/AGENTS_README.md",
-    "Target": ["~/.claude-work/CLAUDE.md", "~/.claude/CLAUDE.md"]
+    "Target": [
+      "~/.claude/CLAUDE.md",
+      "~/.claude-uig/CLAUDE.md",
+      "~/.claude-work/CLAUDE.md"
+    ]
   },
   {
     "Source": "@/config/ai/claude.json",
-    "Target": ["~/.claude/settings.json", "~/.claude-work/settings.json"]
+    "Target": [
+      "~/.claude/settings.json",
+      "~/.claude-uig/settings.json",
+      "~/.claude-work/settings.json"
+    ]
   },
   {
     "Source": "~/.claude/plans",
-    "Target": "~/.claude-work/plans"
+    "Target": ["~/.claude-uig/plans", "~/.claude-work/plans"]
   },
   {
     "Source": "~/.claude/tasks",
-    "Target": "~/.claude-work/tasks"
+    "Target": ["~/.claude-uig/tasks", "~/.claude-work/tasks"]
   },
   {
     "Source": "~/.claude/projects",
-    "Target": "~/.claude-work/projects"
+    "Target": ["~/.claude-uig/projects", "~/.claude-work/projects"]
   },
   {
     "Source": "~/.claude/sessions",
-    "Target": "~/.claude-work/sessions"
+    "Target": ["~/.claude-uig/sessions", "~/.claude-work/sessions"]
   },
   {
     "Source": "~/.claude/session-env",
-    "Target": "~/.claude-work/session-env"
+    "Target": ["~/.claude-uig/session-env", "~/.claude-work/session-env"]
   },
   {
     "Source": "~/.claude/history.jsonl",
-    "Target": "~/.claude-work/history.jsonl"
+    "Target": ["~/.claude-uig/history.jsonl", "~/.claude-work/history.jsonl"]
   },
 
   // Opencode
