@@ -35,12 +35,12 @@ func main() {
 
 	branchCompare := ""
 	if baseBranch != "" {
-		branchCompare = baseBranch + "..." + targetBranch
+		branchCompare = targetBranch + "..." + baseBranch
 		fmt.Println(
 			aurora.Faint("󰊢 Merging"),
-			aurora.Yellow(targetBranch),
+			aurora.Yellow(baseBranch),
 			aurora.Faint("into"),
-			aurora.Red(baseBranch),
+			aurora.Red(targetBranch),
 		)
 	} else {
 		branchCompare = targetBranch
