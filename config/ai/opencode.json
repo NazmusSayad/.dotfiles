@@ -32,7 +32,8 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
-      "permission": { "edit": "deny", "question": "deny", "task": "deny" }
+      "permission": { "edit": "deny", "question": "deny", "task": "deny" },
+      "model": "opencode/deepseek-v4-flash-free"
     },
     "general": {
       "color": "#D46870",
