@@ -97,6 +97,9 @@ defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
+echo "Opening Chrome configuration profile..."
+open ./config/chrome/com.google.Chrome.mobileconfig
+
 killall Dock
 killall Finder
 killall SystemUIServer
