@@ -33,8 +33,7 @@
     "explore": {
       "color": "#ABB2BF",
       "permission": { "edit": "deny", "question": "deny", "task": "deny" },
-      "model": "opencode/deepseek-v4-flash-free",
-      "variant": "high"
+      "model": "openai/gpt-5.6-terra"
     },
     "general": {
       "color": "#D46870",
