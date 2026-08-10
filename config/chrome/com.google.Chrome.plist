@@ -48,6 +48,8 @@
 	<integer>1</integer>
 	<key>GeminiSettings</key>
 	<integer>1</integer>
+	<key>GenAiDefaultSettings</key>
+	<integer>2</integer>
 	<key>GeminiActOnWebSettings</key>
 	<integer>1</integer>
 	<key>GenAILocalFoundationalModelSettings</key>
