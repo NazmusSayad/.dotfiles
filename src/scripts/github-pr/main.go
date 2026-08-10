@@ -26,7 +26,7 @@ func main() {
 		baseBranch = os.Args[1]
 		targetBranch = os.Args[2]
 	} else {
-		fmt.Fprintln(os.Stderr, "Usage: gpc [branch]")
+		fmt.Fprintln(os.Stderr, "Usage: gpc [base-branch] [head-branch]")
 		os.Exit(1)
 	}
 
@@ -35,12 +35,12 @@ func main() {
 
 	branchCompare := ""
 	if baseBranch != "" {
-		branchCompare = targetBranch + "..." + baseBranch
+		branchCompare = baseBranch + "..." + targetBranch
 		fmt.Println(
 			aurora.Faint("󰊢 Merging"),
-			aurora.Yellow(baseBranch),
+			aurora.Yellow(targetBranch),
 			aurora.Faint("into"),
-			aurora.Red(targetBranch),
+			aurora.Red(baseBranch),
 		)
 	} else {
 		branchCompare = targetBranch
