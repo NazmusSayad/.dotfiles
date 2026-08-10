@@ -97,6 +97,10 @@ defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
+echo "Configuring Chrome policies..."
+sudo install -d -o root -g wheel -m 755 "/Library/Managed Preferences"
+sudo install -o root -g wheel -m 644 ./config/chrome/com.google.Chrome.plist "/Library/Managed Preferences/com.google.Chrome.plist"
+
 killall Dock
 killall Finder
 killall SystemUIServer
