@@ -66,6 +66,7 @@ apply_bool "PasswordLeakDetectionEnabled" false
 # Disable autofill
 apply_bool "AutofillAddressEnabled" false
 apply_bool "AutofillCreditCardEnabled" false
+apply_bool "PaymentMethodQueryEnabled" false
 
 # Enable AI settings (1 = Allow)
 apply_int "AIModeSettings" 1
