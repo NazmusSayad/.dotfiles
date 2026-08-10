@@ -33,7 +33,8 @@
     "explore": {
       "color": "#ABB2BF",
       "permission": { "edit": "deny", "question": "deny", "task": "deny" },
-      "model": "opencode/deepseek-v4-flash-free"
+      "model": "opencode/deepseek-v4-flash-free",
+      "variant": "high"
     },
     "general": {
       "color": "#D46870",

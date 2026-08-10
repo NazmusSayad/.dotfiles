@@ -45,6 +45,7 @@ openai:
       question: deny
   explore:
     color: "#ABB2BF"
+    variant: high
     permission:
       edit: deny
       task: deny
