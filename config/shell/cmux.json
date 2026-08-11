@@ -15,8 +15,7 @@
   },
   "terminal": {
     "showScrollBar": true,
-    "copyOnSelect": false,
-    "autoResumeAgentSessions": true
+    "copyOnSelect": false
   },
   "notifications": {
     "sound": "Funk",
