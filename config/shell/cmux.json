@@ -13,6 +13,16 @@
     "globalFontMagnification": 100,
     "openSupportedFilesInCmux": false
   },
+  "automation": {
+    "socketControlMode": "off",
+    "socketPassword": null,
+    "claudeCodeIntegration": false,
+    "workspaceAutoNaming": false,
+    "ampIntegration": false,
+    "cursorIntegration": false,
+    "geminiIntegration": false,
+    "kiroIntegration": false
+  },
   "terminal": {
     "showScrollBar": true,
     "copyOnSelect": false

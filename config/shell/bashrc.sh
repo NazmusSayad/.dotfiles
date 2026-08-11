@@ -10,6 +10,7 @@ if command -v uname >/dev/null 2>&1 && [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 [[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.path)"
+[[ -f ~/.dotfiles/.env ]] && eval "$(dotsh bash "$(cat ~/.dotfiles/.env)")"
 [[ -f ~/.env ]] && eval "$(dotsh bash "$(cat ~/.env)")"
 eval "$(direnv hook bash)"
 

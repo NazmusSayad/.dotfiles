@@ -11,6 +11,7 @@ fi
 chsh -s "$bash_path"
 
 echo "Configuring macOS settings..."
+launchctl setenv CMUX_DISABLE_SESSION_RESTORE 1
 sudo launchctl disable system/com.apple.assistantd
 sudo spctl --master-disable
 sudo mdutil -a -i off
