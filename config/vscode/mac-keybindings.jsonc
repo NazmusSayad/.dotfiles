@@ -861,5 +861,15 @@
   {
     "key": "cmd+shift+c",
     "command": "copyRelativeFilePath"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "-workbench.action.openAgentsWindow",
+    "when": "config.chat.agent.enabled && !accessibilityModeEnabled && !chatSetupDisabledInWorkspace && !chatSetupHidden && !isAuxiliaryWindow && !isSessionsWindow"
+  },
+  {
+    "key": "shift+alt+cmd+a",
+    "command": "-workbench.action.openAgentsWindow",
+    "when": "accessibilityModeEnabled && config.chat.agent.enabled && !chatSetupDisabledInWorkspace && !chatSetupHidden && !isAuxiliaryWindow && !isSessionsWindow"
   }
 ]

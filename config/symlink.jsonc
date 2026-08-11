@@ -155,7 +155,8 @@
   },
   {
     "Source": "@/config/shell/cmux.json",
-    "Target.Mac": "~/.config/cmux/cmux.json"
+    "Target.Mac": "~/.config/cmux/cmux.json",
+    "Copy": true
   },
   {
     "Source": "@/config/windows-terminal.json",
