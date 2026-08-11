@@ -1,52 +1,51 @@
 {
-  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
-  "schemaVersion": 1,
+  "$schema": "https:\/\/raw.githubusercontent.com\/manaflow-ai\/cmux\/main\/web\/data\/cmux.schema.json",
   "app": {
-    "appIcon": "dark",
     "appearance": "dark",
-    "menuBarOnly": false,
+    "appIcon": "dark",
     "confirmQuit": "never",
-    "minimalMode": true,
-    "sendAnonymousTelemetry": false,
-    "warnBeforeQuit": false,
-    "warnBeforeClosingTab": false,
     "globalFontMagnification": 100,
-    "openSupportedFilesInCmux": false
+    "menuBarOnly": false,
+    "minimalMode": true,
+    "openSupportedFilesInCmux": false,
+    "sendAnonymousTelemetry": false,
+    "warnBeforeClosingTab": false,
+    "warnBeforeQuit": false
   },
   "automation": {
-    "socketControlMode": "off",
-    "socketPassword": null,
-    "claudeCodeIntegration": false,
-    "workspaceAutoNaming": false,
     "ampIntegration": false,
+    "claudeCodeIntegration": false,
     "cursorIntegration": false,
     "geminiIntegration": false,
-    "kiroIntegration": false
-  },
-  "terminal": {
-    "showScrollBar": true,
-    "copyOnSelect": false
+    "kiroIntegration": false,
+    "socketControlMode": "off",
+    "workspaceAutoNaming": false
   },
   "notifications": {
-    "sound": "Funk",
     "dockBadge": true,
     "showInMenuBar": false,
+    "sound": "Funk",
     "suppressOnlyFocusedSurface": false
   },
+  "schemaVersion": 1,
   "sidebar": {
+    "branchLayout": "vertical",
     "hideAllDetails": false,
-    "showWorkspaceDescription": false,
-    "showBranchDirectory": true,
-    "showPullRequests": false,
-    "watchGitStatus": false,
     "makePullRequestsClickable": false,
-    "showSSH": false,
+    "showBranchDirectory": true,
     "showCustomMetadata": false,
-    "showPorts": false,
     "showLog": false,
-    "branchLayout": "vertical"
+    "showPorts": false,
+    "showPullRequests": false,
+    "showSSH": false,
+    "showWorkspaceDescription": false,
+    "watchGitStatus": false
   },
   "sidebarAppearance": {
     "matchTerminalBackground": true
+  },
+  "terminal": {
+    "copyOnSelect": false,
+    "showScrollBar": true
   }
 }
