@@ -57,6 +57,58 @@
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]
     },
-    "openai": { "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"] }
+    "openai": {
+      "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"],
+      "models": {
+        "gpt-5.6-luna": {
+          "attachment": true,
+          "cost": { "cache_read": 0.02, "input": 0.2, "output": 1.2 },
+          "family": "gpt-luna",
+          "id": "gpt-5.6-luna",
+          "limit": { "context": 256000, "input": 256000, "output": 128000 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "GPT-5.6 Luna",
+          "reasoning": true,
+          "release_date": "2026-07-09",
+          "temperature": false,
+          "tool_call": true
+        },
+        "gpt-5.6-sol": {
+          "attachment": true,
+          "cost": { "cache_read": 0.5, "input": 5, "output": 30 },
+          "family": "gpt-sol",
+          "id": "gpt-5.6-sol",
+          "limit": { "context": 256000, "input": 256000, "output": 128000 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "GPT-5.6 Sol",
+          "reasoning": true,
+          "release_date": "2026-07-09",
+          "temperature": false,
+          "tool_call": true
+        },
+        "gpt-5.6-terra": {
+          "attachment": true,
+          "cost": { "cache_read": 0.2, "input": 2, "output": 12 },
+          "family": "gpt-terra",
+          "id": "gpt-5.6-terra",
+          "limit": { "context": 256000, "input": 256000, "output": 128000 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "GPT-5.6 Terra",
+          "reasoning": true,
+          "release_date": "2026-07-09",
+          "temperature": false,
+          "tool_call": true
+        }
+      }
+    }
   }
 }
