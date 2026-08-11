@@ -29,7 +29,11 @@
     }
   ],
 
-  "words": ["NazmusSayad", "OiPer"],
+  "words": [
+    "NazmusSayad",
+    "OiPer",
+    "Claude"
+  ],
 
   "snippets": {
     "My GitHub": "https://github.com/NazmusSayad",
