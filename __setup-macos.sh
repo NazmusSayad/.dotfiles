@@ -100,9 +100,6 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 echo "Opening Chrome configuration profile..."
 open ./config/chrome/com.google.Chrome.mobileconfig
 
-echo "Configuring app settings..."
-launchctl setenv CMUX_DISABLE_SESSION_RESTORE 1
-
 killall Dock
 killall Finder
 killall SystemUIServer
