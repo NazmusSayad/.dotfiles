@@ -22,9 +22,8 @@ brew "zoxide"
 brew "direnv"
 brew "starship"
 
-# Termianl
+# Terminal
 cask "ghostty"
-cask "cmux"
 
 # System
 brew "mole"
