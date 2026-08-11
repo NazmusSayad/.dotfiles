@@ -16,12 +16,15 @@ brew "zsh"
 brew "bash"
 brew "fish"
 
-# Terminal or Shell Tools
+# CLI Tools
 brew "btop"
 brew "zoxide"
 brew "direnv"
 brew "starship"
+
+# Termianl
 cask "ghostty"
+cask "cmux"
 
 # System
 brew "mole"
