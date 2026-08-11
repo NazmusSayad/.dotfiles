@@ -3,7 +3,7 @@
   "schemaVersion": 1,
   "app": {
     "appIcon": "dark",
-    "appearance": "system",
+    "appearance": "dark",
     "menuBarOnly": false,
     "confirmQuit": "never",
     "minimalMode": true,
