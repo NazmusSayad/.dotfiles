@@ -10,6 +10,7 @@ if command -q uname; and test (uname) = Darwin
 end
 
 test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
+test -f ~/.dotfiles/.env; and dotsh fish "$(cat ~/.dotfiles/.env)" | source
 test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
 direnv hook fish | source
 
