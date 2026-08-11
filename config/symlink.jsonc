@@ -154,6 +154,10 @@
     "Target.Mac": "~/.config/ghostty/config"
   },
   {
+    "Source": "@/config/shell/cmux.json",
+    "Target.Mac": "~/.config/cmux/cmux.json"
+  },
+  {
     "Source": "@/config/windows-terminal.json",
     "Target.Win": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
   },
