@@ -7,6 +7,7 @@
     "DISABLE_INSTALLATION_CHECKS": "1",
     "CLAUDE_CODE_SHELL": "bash",
     "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_MAX_RETRIES": "100",
     "ENABLE_CLAUDEAI_MCP_SERVERS": "false",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
@@ -52,11 +53,9 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": [
-      "Working"
-    ]
+    "verbs": ["Working"]
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "awaySummaryEnabled": false,
   "askUserQuestionTimeout": "5m",
   "autoMemoryEnabled": false,
