@@ -9,6 +9,10 @@ scoop:
   - gcc
   - shfmt
   - extras/fvm
+  - versions/php82
+  - versions/php83
+  - versions/php84
+  - versions/php85
 
   # Shells
   - gsudo
