@@ -114,6 +114,12 @@
     "Target": "~/.local/share/opencode/auth.json"
   },
 
+  // PI
+  {
+    "Source": "@/config/ai/pi.json",
+    "Target": "~/.pi/agent/settings.json"
+  },
+
   // Terminal
   {
     "Source": "@/config/shell/alias.json",
