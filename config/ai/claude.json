@@ -58,7 +58,7 @@
       "Working"
     ]
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "awaySummaryEnabled": false,
   "askUserQuestionTimeout": "5m",
   "autoMemoryEnabled": false,
