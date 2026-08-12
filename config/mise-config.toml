@@ -119,7 +119,7 @@ minimum_release_age_excludes = [
   "deno",
   "uv",
   "pnpm",
-  "codex",
-  "claude",
-  "opencode",
+  "github:openai/codex",
+  "github:anomalyco/opencode",
+  "github:anthropics/claude-code",
 ]
