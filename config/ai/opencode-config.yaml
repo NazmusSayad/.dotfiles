@@ -1,24 +1,12 @@
-opencode:
-  models:
-    - id: mimo-v2.5-free
-    - id: deepseek-v4-flash-free
-
 openrouter:
   url: https://openrouter.ai/api/v1/models
   models:
     - id: openai/gpt-oss-120b
       title: true
 
-# opencode-go:
-#   models:
-#     - id: glm-5.2
-#     - id: minimax-m3
-#     - id: mimo-v2.5-pro
-#     - id: kimi-k2.7-code
-
-# github-copilot:
-#   models:
-#     - id: kimi-k2.7-code
+opencode:
+  models:
+    - id: deepseek-v4-flash-free
 
 openai:
   models:
