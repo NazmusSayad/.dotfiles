@@ -121,6 +121,7 @@ minimum_release_age_excludes = [
   "uv",
   "pnpm",
   "github:openai/codex",
+  "github:github/copilot-cli",
   "github:anomalyco/opencode",
   "github:anthropics/claude-code",
 ]
