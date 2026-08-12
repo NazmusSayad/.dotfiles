@@ -35,9 +35,9 @@ make = "latest"
 ninja = "latest"
 
 # AI Coding
-codex = "latest"
-claude = "latest"
-opencode = "latest"
+"github:openai/codex" = "latest"
+"github:anomalyco/opencode" = "latest"
+"github:anthropics/claude-code" = "latest"
 
 # JS/TS
 node = "lts"
