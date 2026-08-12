@@ -1,1 +1,9 @@
-{}
+{
+  "theme": "dark",
+  "quietStartup": true,
+  "tuiMode": "fullscreen",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-flash-0731",
+  "enabledModels": ["deepseek/deepseek-v4-flash-0731"],
+  "lastChangelogVersion": "0.84.1"
+}
