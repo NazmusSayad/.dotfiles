@@ -105,9 +105,10 @@
 
   // Opencode
   {
-    "Source": "@/.local/opencode-desktop.dat",
+    "Source": "@/config/ai/opencode/opencode-desktop.dat",
     "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat",
-    "Target.Mac": "~/Library/Application Support/ai.opencode.desktop/default.dat"
+    "Target.Mac": "~/Library/Application Support/ai.opencode.desktop/default.dat",
+    "Copy": true
   },
   {
     "Source": "@/.local/opencode-auth.json",
