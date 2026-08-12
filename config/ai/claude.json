@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "cleanupPeriodDays": 360,
   "env": {
     "IS_DEMO": "1",
     "DISABLE_UPDATES": "1",
@@ -53,9 +54,11 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["Working"]
+    "verbs": [
+      "Working"
+    ]
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "awaySummaryEnabled": false,
   "askUserQuestionTimeout": "5m",
   "autoMemoryEnabled": false,
