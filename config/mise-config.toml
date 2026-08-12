@@ -27,7 +27,7 @@ yazi = "latest"
 
 # Activities
 fastfetch = "latest"
-"aqua:wakatime/wakatime-cli" = "latest"
+"github:wakatime/wakatime-cli" = "latest"
 
 # Workflow
 just = "latest"
