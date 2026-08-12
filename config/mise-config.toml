@@ -36,6 +36,7 @@ ninja = "latest"
 
 # AI Coding
 "github:openai/codex" = "latest"
+"github:github/copilot-cli" = "latest"
 "github:anomalyco/opencode" = "latest"
 "github:anthropics/claude-code" = "latest"
 
