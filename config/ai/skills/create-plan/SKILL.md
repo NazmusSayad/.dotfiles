@@ -5,8 +5,8 @@ description: Helps understand how to create a plan. Use this skill when creating
 
 ## Planning
 
-- Find facts yourself instead of asking the user.
 - Resolve dependent decisions in order.
+- Find facts yourself instead of asking the user.
 - Do not finish the plan until all decisions are settled.
 
 ## Final Plan Output
