@@ -309,8 +309,6 @@
   "gitlens.gitkraken.mcp.autoEnabled": false,
   "gitlens.ai.enabled": false,
   "gitlens.telemetry.enabled": false,
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "editor.inlayHints.fontSize": 14,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.edits.allowCodeShifting": "never",
@@ -329,13 +327,14 @@
   "cSpell.language": "en,en-US,lorem",
   "cSpell.userWords": [
     "dotenv",
-    "uigraph",
+    "gityo",
     "HugeIcons",
     "Nazmus",
     "NazmusSayad",
     "opencode",
     "openrouter",
-    "Sayad"
+    "Sayad",
+    "uigraph"
   ],
   "cSpell.enabledNotifications": {
     "Lines too Long": false,

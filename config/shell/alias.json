@@ -27,12 +27,11 @@
   "nid": "ni -D",
   "pab": "pnpm approve-builds --all",
 
+  "gy": "gityo",
+  "gyy": "gityo --yolo",
+
   "j": "just",
   "m": "make",
-  "fl": "fvm flutter",
-
-  "pa": "php artisan",
-  "pas": "php artisan serve",
 
   "gz": "lazygit",
   "mgit": "monogit",
