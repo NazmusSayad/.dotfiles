@@ -125,6 +125,7 @@ winget:
   - Microsoft.DotNet.SDK.7
   - Microsoft.DotNet.SDK.8
   - Microsoft.DotNet.SDK.9
+  - Microsoft.DotNet.DesktopRuntime.10
 
   # VM & Container Tools
   - id: XP8CBJ40XLBWKX
