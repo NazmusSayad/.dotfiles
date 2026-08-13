@@ -7,4 +7,4 @@ Keep the plan focused on the user's request and intent. Find facts yourself inst
 
 Ask the user only for decisions or clarification. Use the question tool when available. Give useful options and recommend one.
 
-Write the final plan only after every decision is settled with the user. Do not include assumptions, guesses, open questions, or decisions left to make.
+Write the final plan only after every decision is settled with the user. Do not include assumptions, guesses, open questions, decisions left to make, or unrelated work.
