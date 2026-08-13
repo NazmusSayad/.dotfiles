@@ -5,14 +5,20 @@
   "cc": "claude",
   "ccc": "claude --continue",
   "ccr": "claude --resume",
+  "ccp": "claude --permission-mode plan",
+  "cccp": "claude --permission-mode plan --continue",
 
   "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
   "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
   "ucr": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --resume",
+  "ucp": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --permission-mode plan",
+  "uccp": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --permission-mode plan --continue",
 
   "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude",
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-work claude --resume",
+  "wcp": "CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode plan",
+  "wccp": "CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode plan --continue",
 
   "ocs": {
     "cmd": "opencode-server stop",
