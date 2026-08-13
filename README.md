@@ -39,10 +39,18 @@ I recommend checking this repo, taking ideas from it, and implementing them in a
 
 ## Agent Skills
 
-Add the `npm` agent skill with:
+This repository also includes the [skills repository](config/ai/skills) for reusable agent skills.
+
+Install all skills:
 
 ```shell
-skills add NazmusSayad/.dotfiles/config/ai/skills -s npm
+skills add NazmusSayad/skills
+```
+
+Install a specific skill:
+
+```shell
+skills add NazmusSayad/skills -s npm
 ```
 
 ## Getting Started
