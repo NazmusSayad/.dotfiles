@@ -102,6 +102,8 @@ hyperfine = "latest"
 "npm:chrome-devtools-mcp" = "latest"
 
 # Others
+"npm:@schpet/linear-cli" = "latest"
+"npm:agent-slack" = "latest"
 yt-dlp = "latest"
 
 [settings.node]
