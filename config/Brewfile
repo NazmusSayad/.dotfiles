@@ -53,6 +53,9 @@ cask "raycast"
 cask "unified-remote"
 cask "karabiner-elements"
 
+# Work
+cask "slack"
+
 # Cloud
 brew "awscli"
 
