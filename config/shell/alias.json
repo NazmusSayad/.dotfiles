@@ -2,17 +2,17 @@
   "oc": "opencode",
   "occ": "opencode --continue",
 
-  "co": "codex --yolo",
-  "coo": "codex resume --yolo --last",
-
   "cc": "claude",
   "ccc": "claude --continue",
+  "ccr": "claude --resume",
 
   "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
   "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
+  "ucr": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --resume",
 
   "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude",
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
+  "wcr": "CLAUDE_CONFIG_DIR=~/.claude-work claude --resume",
 
   "ocs": {
     "cmd": "opencode-server stop",
