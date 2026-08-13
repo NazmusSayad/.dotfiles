@@ -28,15 +28,6 @@
     ]
   },
   {
-    "Source": "@/config/ai/commands",
-    "Target": [
-      "~/.claude/commands",
-      "~/.claude-uig/commands",
-      "~/.claude-work/commands",
-      "~/.config/opencode/commands"
-    ]
-  },
-  {
     "Source": "@/config/ai/opencode.json",
     "Target": "~/.config/opencode/config.json"
   },
@@ -49,15 +40,15 @@
     "Target": "~/.config/opencode/agents"
   },
   {
-    "Source": "@/config/ai/themes",
+    "Source": "@/config/ai/opencode/themes",
     "Target": "~/.config/opencode/themes"
   },
   {
-    "Source": "@/config/ai/plugins",
+    "Source": "@/config/ai/opencode/plugins",
     "Target": "~/.config/opencode/plugins"
   },
   {
-    "Source": "@/config/ai/opencode-armor.json",
+    "Source": "@/config/ai/opencode/armor.json",
     "Target": "~/.opencode-armor.json"
   },
 
@@ -105,7 +96,7 @@
 
   // Opencode
   {
-    "Source": "@/config/ai/opencode/opencode-desktop.dat",
+    "Source": "@/config/ai/opencode/desktop.dat",
     "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat",
     "Target.Mac": "~/Library/Application Support/ai.opencode.desktop/default.dat",
     "Copy": true
