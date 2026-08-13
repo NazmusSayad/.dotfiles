@@ -1,5 +1,5 @@
 ---
-name: explain-to-user
+name: explain
 description: Guides clear explanations. Use when explaining something to the user.
 ---
 
