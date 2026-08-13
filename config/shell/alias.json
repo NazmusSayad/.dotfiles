@@ -5,14 +5,14 @@
   "co": "codex --yolo",
   "coo": "codex resume --yolo --last",
 
-  "cc": "claude --permission-mode bypassPermissions",
-  "ccc": "claude --permission-mode bypassPermissions --continue",
+  "cc": "claude",
+  "ccc": "claude --continue",
 
-  "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --permission-mode bypassPermissions",
-  "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --permission-mode bypassPermissions --continue",
+  "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
+  "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
 
-  "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions",
-  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode bypassPermissions --continue",
+  "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude",
+  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
 
   "ocs": {
     "cmd": "opencode-server stop",
