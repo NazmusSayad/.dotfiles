@@ -105,8 +105,6 @@ lazydocker = "latest"
 "npm:agent-slack" = "latest"
 yt-dlp = "latest"
 
-[settings.node]
-npm_shim = true
 
 [settings.npm]
 package_manager = "pnpm"
