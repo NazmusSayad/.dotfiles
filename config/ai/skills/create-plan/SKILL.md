@@ -1,6 +1,6 @@
 ---
 name: create-plan
-description: Guides clear and complete planning. MUST USE this skill when creating a plan.
+description: Guides clear and complete planning. Use this skill when creating a plan.
 ---
 
 Keep the plan focused on the user's request and intent. Find facts yourself instead of asking the user. Ask independent questions together. Use the user's answers to update later questions, and wait before asking questions that depend on them.
