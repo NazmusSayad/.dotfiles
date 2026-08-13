@@ -16,6 +16,10 @@ openai:
       context: 256000
       explore: true
 
+vercel:
+  models:
+    - id: deepseek/deepseek-v4-pro-0813
+
 ~agents:
   build:
     color: "#C18A57"
