@@ -178,12 +178,12 @@
   },
   {
     "Source": "@/config/obs/user-win.ini",
-    "Target.Win": "$APPDATA/obs-studio/user.ini",
-    "Copy": true
+    "Target.Win": "$APPDATA/obs-studio/user.ini"
   },
   {
     "Source": "@/config/obs/basic-mac",
-    "Target.Mac": "~/Library/Application Support/obs-studio/basic"
+    "Target.Mac": "~/Library/Application Support/obs-studio/basic",
+    "Copy": true
   },
   {
     "Source": "@/config/obs/user-mac.ini",
