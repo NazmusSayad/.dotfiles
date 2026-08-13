@@ -16,5 +16,4 @@ description: Helps understand how to create a plan. Use this skill when creating
 
 ## Final Plan Output
 
-- Do not include assumptions, guesses, open questions, or decisions to be made. Discuss them with the user before writing the final plan.
-- Do not finish the plan until all decisions are settled.
+- Write the final plan only after all decisions are settled with the user. Do not include assumptions, guesses, open questions, or decisions to be made.
