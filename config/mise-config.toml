@@ -76,8 +76,8 @@ java = "latest"
 
 # Dev
 sqlite = "latest"
-lazydocker = "latest"
 hyperfine = "latest"
+lazydocker = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 
@@ -88,13 +88,12 @@ hyperfine = "latest"
 # AI
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
+"npm:mytokens" = "latest"
 
 # Personal
 "npm:gityo" = "latest"
 "npm:netserv" = "latest"
-"npm:mytokens" = "latest"
 "npm:uni-run" = "latest"
-"npm:code-info" = "latest"
 "npm:create-src" = "latest"
 "npm:opencode-armor" = "latest"
 
@@ -135,6 +134,9 @@ minimum_release_age_excludes = [
 
   # My Tools
   "npm:gityo",
+  "npm:netserv",
+  "npm:uni-run",
   "npm:mytokens",
+  "npm:create-src",
   "npm:opencode-armor",
 ]
