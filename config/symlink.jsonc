@@ -27,30 +27,6 @@
       "~/.claude-work/skills"
     ]
   },
-  {
-    "Source": "@/config/ai/opencode.json",
-    "Target": "~/.config/opencode/config.json"
-  },
-  {
-    "Source": "@/config/ai/opencode-tui.json",
-    "Target": "~/.config/opencode/tui.json"
-  },
-  {
-    "Source": "@/config/ai/agents",
-    "Target": "~/.config/opencode/agents"
-  },
-  {
-    "Source": "@/config/ai/opencode/themes",
-    "Target": "~/.config/opencode/themes"
-  },
-  {
-    "Source": "@/config/ai/opencode/plugins",
-    "Target": "~/.config/opencode/plugins"
-  },
-  {
-    "Source": "@/config/ai/opencode/armor.json",
-    "Target": "~/.opencode-armor.json"
-  },
 
   // Claude
   {
@@ -96,6 +72,30 @@
 
   // Opencode
   {
+    "Source": "@/config/ai/opencode.json",
+    "Target": "~/.config/opencode/config.json"
+  },
+  {
+    "Source": "@/config/ai/opencode-tui.json",
+    "Target": "~/.config/opencode/tui.json"
+  },
+  {
+    "Source": "@/config/ai/agents",
+    "Target": "~/.config/opencode/agents"
+  },
+  {
+    "Source": "@/config/ai/opencode/themes",
+    "Target": "~/.config/opencode/themes"
+  },
+  {
+    "Source": "@/config/ai/opencode/plugins",
+    "Target": "~/.config/opencode/plugins"
+  },
+  {
+    "Source": "@/config/ai/opencode/armor.json",
+    "Target": "~/.opencode-armor.json"
+  },
+  {
     "Source": "@/config/ai/opencode/desktop.dat",
     "Target.Win": "$APPDATA/ai.opencode.desktop/default.dat",
     "Target.Mac": "~/Library/Application Support/ai.opencode.desktop/default.dat",
@@ -109,7 +109,8 @@
   // PI
   {
     "Source": "@/config/ai/pi.json",
-    "Target": "~/.pi/agent/settings.json"
+    "Target": "~/.pi/agent/settings.json",
+    "Copy": true
   },
 
   // Terminal
