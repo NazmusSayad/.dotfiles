@@ -44,13 +44,13 @@ This repository also includes the [skills repository](config/ai/skills) for reus
 Install all skills:
 
 ```shell
-skills add NazmusSayad/skills
+npx skills add NazmusSayad/skills
 ```
 
 Install a specific skill:
 
 ```shell
-skills add NazmusSayad/skills -s npm
+npx skills add NazmusSayad/skills -s npm
 ```
 
 ## Getting Started
