@@ -5,6 +5,6 @@
     "accounts": [{ "configDir": "~/.codex-sayad" }]
   },
   "opencode": {
-    "detect": "false"
+    "detect": false
   }
 }
