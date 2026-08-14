@@ -37,7 +37,6 @@ ninja = "latest"
 # AI Coding
 "github:openai/codex" = "latest"
 "github:earendil-works/pi" = "latest"
-"github:github/copilot-cli" = "latest"
 "github:anomalyco/opencode" = "latest"
 "github:anthropics/claude-code" = "latest"
 
@@ -127,7 +126,6 @@ minimum_release_age_excludes = [
   # AI Coding
   "github:openai/codex",
   "github:earendil-works/pi",
-  "github:github/copilot-cli",
   "github:anomalyco/opencode",
   "github:anthropics/claude-code",
 
