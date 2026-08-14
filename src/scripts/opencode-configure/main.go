@@ -136,6 +136,15 @@ func main() {
 		fmt.Println("failed to refresh opencode models")
 	}
 
+	fmt.Println(aurora.Cyan("Formatting opencode config..."))
+	prettierErr := helpers.ExecNativeCommand(
+		[]string{"npx", "-y", "prettier", "--write", configPath},
+		helpers.ExecCommandOptions{Silent: true},
+	)
+	if prettierErr != nil {
+		fmt.Println("failed to format opencode config")
+	}
+
 	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
 
