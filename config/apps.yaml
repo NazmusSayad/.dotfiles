@@ -81,6 +81,9 @@ winget:
   - qBittorrent.qBittorrent
   - Tonec.InternetDownloadManager
 
+  # Communication
+  - id: LinearOrbit.Linear
+
   # Media Tools
   - OBSProject.OBSStudio
   - ThioJoe.SvgThumbnailExtension
