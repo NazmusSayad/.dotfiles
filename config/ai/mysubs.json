@@ -2,7 +2,9 @@
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
   "codex": {
-    "accounts": [{ "configDir": "~/.codex-sayad" }]
+    "accounts": {
+      "sayad": { "configDir": "~/.codex-sayad" }
+    }
   },
   "opencode": {
     "detect": false
