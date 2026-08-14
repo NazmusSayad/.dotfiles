@@ -215,6 +215,10 @@
     "Target": "~/.uni-run.json"
   },
   {
+    "Source": "@/config/ai/mysubs.json",
+    "Target": "~/.config/mysubs/config.json"
+  },
+  {
     "Source": "@/config/gityo.json",
     "Target": "~/.config/gityo.json"
   },
