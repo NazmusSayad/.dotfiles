@@ -88,6 +88,7 @@ lazydocker = "latest"
 # AI
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
+"npm:mysubs" = "latest"
 "npm:mytokens" = "latest"
 
 # Personal
@@ -134,6 +135,7 @@ minimum_release_age_excludes = [
   "npm:gityo",
   "npm:netserv",
   "npm:uni-run",
+  "npm:mysubs",
   "npm:mytokens",
   "npm:create-src",
   "npm:opencode-armor",
