@@ -32,8 +32,7 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
-      "permission": { "edit": "deny", "question": "deny", "task": "deny" },
-      "model": "openai/gpt-5.6-terra"
+      "permission": { "edit": "deny", "question": "deny", "task": "deny" }
     },
     "general": {
       "color": "#D46870",

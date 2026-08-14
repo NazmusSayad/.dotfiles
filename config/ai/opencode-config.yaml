@@ -14,7 +14,6 @@ openai:
       context: 256000
     - id: gpt-5.6-terra
       context: 256000
-      explore: true
 
 ~agents:
   build:
