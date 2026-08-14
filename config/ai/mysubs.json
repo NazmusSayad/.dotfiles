@@ -1,3 +1,11 @@
 {
-  
+  "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
+  "codex": {
+    "accounts": [
+      {
+        "name": "Sayad",
+        "configDir": "~/.codex-sayad"
+      }
+    ]
+  }
 }
