@@ -114,7 +114,6 @@ winget:
   # AI & Code Editors
   - id: 9PLM9XGG6VKS
     name: Codex
-  - id: T3Tools.T3Code
   - id: Anthropic.Claude
   - id: SST.OpenCodeDesktop
   - id: Microsoft.VisualStudioCode
