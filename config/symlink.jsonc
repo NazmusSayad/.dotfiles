@@ -13,15 +13,16 @@
     "Target": "~/.config/fish/config.fish"
   },
 
-  // Agents
+  // AGENTS.md
   {
     "Source": "@/config/ai/AGENTS_README.md",
     "Target": ["~/.config/opencode/AGENTS.md", "~/.codex/AGENTS.md"]
   },
+
+  // Agents Skills
   {
-    "Source": "@/config/ai/skills",
+    "Source": "~/.agents/skills",
     "Target": [
-      "~/.agents/skills",
       "~/.claude/skills",
       "~/.claude-uig/skills",
       "~/.claude-work/skills"

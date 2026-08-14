@@ -37,22 +37,6 @@ I recommend checking this repo, taking ideas from it, and implementing them in a
 - **Code Editor Setup**
   Pre-configured VS Code settings, keybindings, extensions, snippets, and state sync helpers.
 
-## Agent Skills
-
-This repository also includes the [skills repository](config/ai/skills) for reusable agent skills.
-
-Install all skills:
-
-```shell
-npx skills add NazmusSayad/skills
-```
-
-Install a specific skill:
-
-```shell
-npx skills add NazmusSayad/skills -s npm
-```
-
 ## Getting Started
 
 ### Prerequisites

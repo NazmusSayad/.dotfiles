@@ -1,4 +1,0 @@
-[submodule "config/ai/skills"]
-	url = https://github.com/NazmusSayad/skills.git
-	path = config/ai/skills
-	branch = main
