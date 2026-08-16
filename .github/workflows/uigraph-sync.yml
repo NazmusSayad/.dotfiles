@@ -1,0 +1,32 @@
+name: UiGraph Sync
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: uigraph-sync-${{ github.repository }}
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    env:
+      UIGRAPH_TOKEN: ${{ secrets.UIGRAPH_ONBOARDING_TOKEN }}
+      UIGRAPH_GATEWAY_URL: ${{ vars.UIGRAPH_GATEWAY_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check generated artifacts
+        id: artifacts
+        run: |
+          if [ -d .uigraph ]; then echo "exists=true" >> "$GITHUB_OUTPUT"; else echo "exists=false" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.artifacts.outputs.exists == 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - if: steps.artifacts.outputs.exists == 'true'
+        run: go install github.com/uigraph-oss/uigraph-cli@latest
+      - if: steps.artifacts.outputs.exists == 'true'
+        run: uigraph-cli sync
