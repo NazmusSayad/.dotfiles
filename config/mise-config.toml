@@ -103,8 +103,6 @@ lazydocker = "latest"
 
 # Others
 "npm:@schpet/linear-cli" = "latest"
-"npm:@hoppscotch/cli" = "latest"
-"npm:agent-slack" = "latest"
 yt-dlp = "latest"
 
 
