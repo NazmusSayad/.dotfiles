@@ -10,3 +10,9 @@ service:
         url: https://github.com/NazmusSayad/.dotfiles
     ownership:
         team: E2E Test
+
+docs:
+  - name: Dotfiles Overview
+    path: .uigraph/docs/dotfiles-overview.md
+    fileType: markdown
+    description: Overview of the developer workstation setup and automation repository.
