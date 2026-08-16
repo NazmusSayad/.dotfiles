@@ -8,7 +8,7 @@
   },
   "claude": {
     "accounts": {
-      "sayad": { "configDir": "~/.claude-sayad" }
+      "work": { "configDir": "~/.claude-work" }
     }
   },
   "opencode": {
