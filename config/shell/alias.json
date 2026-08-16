@@ -22,6 +22,10 @@
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-work claude --resume",
 
+  "sc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude",
+  "scc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue",
+  "scr": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --resume",
+
   "ocs": {
     "cmd": "opencode-server stop",
     "platform": "windows"
