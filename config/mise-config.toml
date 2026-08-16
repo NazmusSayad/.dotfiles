@@ -58,6 +58,7 @@ go = "latest"
 air = "latest"
 gofumpt = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
+"github:golangci/golangci-lint" = "latest"
 
 # Rust
 rust = "stable"
