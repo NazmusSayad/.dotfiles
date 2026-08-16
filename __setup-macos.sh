@@ -21,7 +21,7 @@ chflags nohidden ~/Library
 
 echo "Configuring battery settings..."
 sudo batt limit 70
-sudo batt lower-limit-delta 5
+sudo batt lower-limit-delta 10
 sudo batt prevent-system-sleep enable
 sudo batt magsafe-led enable
 
@@ -32,7 +32,7 @@ defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 defaults write com.apple.dock tilesize -int 64
-defaults write com.apple.dock largesize -int 108
+defaults write com.apple.dock largesize -int 96
 defaults write com.apple.dock magnification -bool true
 
 defaults write com.apple.dock autohide -bool true
