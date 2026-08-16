@@ -6,6 +6,11 @@
       "sayad": { "configDir": "~/.codex-sayad" }
     }
   },
+  "claude": {
+    "accounts": {
+      "sayad": { "configDir": "~/.claude-sayad" }
+    }
+  },
   "opencode": {
     "detect": false
   }
