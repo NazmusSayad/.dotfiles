@@ -55,7 +55,6 @@ cask "karabiner-elements"
 
 # Work
 cask "slack"
-cask "linear"
 
 # Cloud
 brew "awscli"
