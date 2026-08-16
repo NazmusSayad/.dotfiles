@@ -202,6 +202,11 @@
     "Target.Mac": "~/Library/Preferences/pnpm/config.yaml"
   },
   {
+    "Source": "@/config/colima.yaml",
+    "Target.Mac": "~/.colima/default/colima.yaml",
+    "Copy": true
+  },
+  {
     "Source": "@/config/oiper.json",
     "Target.Win": "$APPDATA/com.oiper.desktop/config.json",
     "Target.Mac": "~/Library/Application Support/com.oiper.desktop/config.json"
