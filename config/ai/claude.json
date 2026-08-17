@@ -15,7 +15,6 @@
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "90",
     "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "300000",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-opus-4-8",
     "DISABLE_UPGRADE_COMMAND": "1",
     "CLAUDE_CODE_DISABLE_CRON": "1",
     "CLAUDE_CODE_DISABLE_ADVISOR_TOOL": "1",
@@ -32,7 +31,7 @@
     "disableAutoMode": "disable"
   },
   "model": "opus",
-  "availableModels": ["opus", "sonnet"],
+  "availableModels": ["opus"],
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
   "disableAgentView": true,
