@@ -31,7 +31,9 @@
     "disableAutoMode": "disable"
   },
   "model": "opus",
-  "availableModels": ["opus"],
+  "availableModels": [
+    "opus"
+  ],
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
   "disableAgentView": true,
@@ -54,7 +56,9 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["Working"]
+    "verbs": [
+      "Working"
+    ]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,

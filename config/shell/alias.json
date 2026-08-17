@@ -31,12 +31,12 @@
   "wcr4": "CLAUDE_CONFIG_DIR=~/.claude-work claude --model claude-opus-4-8 --resume",
   "wcc4": "CLAUDE_CONFIG_DIR=~/.claude-work claude --model claude-opus-4-8 --continue",
 
-  "sc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude",
-  "scr": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --resume",
-  "scc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue",
-  "sc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8",
-  "scr4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --resume",
-  "scc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --continue",
+  "sc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --effort medium",
+  "scr": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --resume --effort medium",
+  "scc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue --effort medium",
+  "sc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --effort medium",
+  "scr4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --resume --effort medium",
+  "scc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --continue --effort medium",
 
   "ocs": {
     "cmd": "opencode-server stop",
