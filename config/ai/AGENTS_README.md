@@ -3,4 +3,4 @@
 
 - Do not write comments unless instructed.
 
-- Perform relevant validation when necessary, and combine checks when possible.
+- Perform relevant validation when only necessary, and combine checks when possible.
