@@ -11,20 +11,32 @@
   "sor": "CODEX_HOME=~/.codex-sayad codex resume",
 
   "cc": "claude",
-  "ccc": "claude --continue",
   "ccr": "claude --resume",
+  "ccc": "claude --continue",
+  "cc4": "claude --model claude-opus-4-8",
+  "ccr4": "claude --model claude-opus-4-8 --resume",
+  "ccc4": "claude --model claude-opus-4-8 --continue",
 
   "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
-  "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
   "ucr": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --resume",
+  "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
+  "uc4": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --model claude-opus-4-8",
+  "ucr4": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --model claude-opus-4-8 --resume",
+  "ucc4": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --model claude-opus-4-8 --continue",
 
   "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude",
-  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-work claude --resume",
+  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
+  "wc4": "CLAUDE_CONFIG_DIR=~/.claude-work claude --model claude-opus-4-8",
+  "wcr4": "CLAUDE_CONFIG_DIR=~/.claude-work claude --model claude-opus-4-8 --resume",
+  "wcc4": "CLAUDE_CONFIG_DIR=~/.claude-work claude --model claude-opus-4-8 --continue",
 
   "sc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude",
-  "scc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue",
   "scr": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --resume",
+  "scc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue",
+  "sc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8",
+  "scr4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --resume",
+  "scc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --continue",
 
   "ocs": {
     "cmd": "opencode-server stop",
