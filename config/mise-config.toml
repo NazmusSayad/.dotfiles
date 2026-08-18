@@ -35,9 +35,9 @@ make = "latest"
 ninja = "latest"
 
 # AI Coding
-"github:openai/codex" = "latest"
-"github:earendil-works/pi" = "latest"
 "github:anomalyco/opencode" = "latest"
+"github:earendil-works/pi" = "latest"
+"github:openai/codex" = "latest"
 "github:anthropics/claude-code" = "latest"
 "github:google-antigravity/antigravity-cli" = "latest"
 
