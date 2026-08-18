@@ -82,7 +82,12 @@ lazydocker = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 
+# Cloud
+aws = "latest"
+"npm:@schpet/linear-cli" = "latest"
+
 # Web
+yt-dlp = "latest"
 "npm:serve" = "latest"
 "npm:live-server" = "latest"
 
@@ -101,11 +106,6 @@ lazydocker = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
-
-# Others
-"npm:@schpet/linear-cli" = "latest"
-yt-dlp = "latest"
-
 
 [settings.npm]
 package_manager = "pnpm"

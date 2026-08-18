@@ -54,8 +54,7 @@ cask "unified-remote"
 cask "karabiner-elements"
 
 # Cloud
-brew "awscli"
-brew "cloudflared"
+brew "cloudflared", restart_service: true
 
 # Git
 brew "git"
@@ -70,10 +69,10 @@ brew "mise"
 brew "fvm"
 
 # Docker
-brew "colima"
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
+brew "colima", restart_service: true
 
 # Fonts
 cask "font-fira-code-nerd-font"
