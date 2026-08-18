@@ -58,7 +58,9 @@
   "m": "make",
 
   "c": "code",
+  "c.": "code .",
   "ci": "code-insiders",
+  "ci.": "code-insiders .",
 
   "gz": "lazygit",
   "mgit": "monogit",
