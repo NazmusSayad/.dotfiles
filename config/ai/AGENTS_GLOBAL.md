@@ -1,0 +1,6 @@
+- Prefer clarity and simplicity over abstraction. Only introduce variables, functions, helpers, or types when logic becomes **very large** and **extremely complex**, or repetition happens **many times**, to keep code simple and easy to follow.
+- Use **explicit logic**: avoid `if true: 1; else: 0`, instead use `if true: 1; if false: 0; else: exception` to reduce ambiguity and prevent implicit fallbacks.
+
+- Do not write comments unless instructed.
+
+- Perform relevant validation when only necessary, and combine checks when possible.
