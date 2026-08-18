@@ -57,6 +57,9 @@
   "j": "just",
   "m": "make",
 
+  "c": "code",
+  "ci": "code-insiders",
+
   "gz": "lazygit",
   "mgit": "monogit",
   "gc": "git checkout",
@@ -74,22 +77,14 @@
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
-  "ex": {
-    "cmd": "explorer",
-    "platform": "windows"
-  },
-  "where": {
-    "cmd": "command -a",
-    "platform": "macos"
-  },
+  "ex": { "cmd": "explorer", "platform": "windows" },
+  "where": { "cmd": "command -a", "platform": "macos" },
+
+  "fix-next": "rm -rf .next",
   "fix-ports": {
     "cmd": "sudo net stop winnat",
     "platform": "windows"
   },
-  "fix-next": "rm -rf .next",
-
-  "c": "clear",
-  "x": "exit",
 
   "..": "cd ..",
   "...": "cd ../..",
