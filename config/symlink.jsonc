@@ -293,20 +293,38 @@
   // Code Editor
   {
     "Source": "@/config/vscode/snippets",
-    "Target.Win": "$APPDATA/Code/User/snippets",
-    "Target.Mac": "~/Library/Application Support/Code/User/snippets"
+    "Target.Win": [
+      "$APPDATA/Code/User/snippets",
+      "$APPDATA/Code - Insiders/User/snippets"
+    ],
+    "Target.Mac": [
+      "~/Library/Application Support/Code/User/snippets",
+      "~/Library/Application Support/Code - Insiders/User/snippets"
+    ]
   },
   {
     "Source": "@/config/vscode/settings.jsonc",
-    "Target.Win": "$APPDATA/Code/User/settings.json",
-    "Target.Mac": "~/Library/Application Support/Code/User/settings.json"
+    "Target.Win": [
+      "$APPDATA/Code/User/settings.json",
+      "$APPDATA/Code - Insiders/User/settings.json"
+    ],
+    "Target.Mac": [
+      "~/Library/Application Support/Code/User/settings.json",
+      "~/Library/Application Support/Code - Insiders/User/settings.json"
+    ]
   },
   {
     "Source": "@/config/vscode/keybindings.jsonc",
-    "Target.Win": "$APPDATA/Code/User/keybindings.json"
+    "Target.Win": [
+      "$APPDATA/Code/User/keybindings.json",
+      "$APPDATA/Code - Insiders/User/keybindings.json"
+    ]
   },
   {
     "Source": "@/config/vscode/mac-keybindings.jsonc",
-    "Target.Mac": "~/Library/Application Support/Code/User/keybindings.json"
+    "Target.Mac": [
+      "~/Library/Application Support/Code/User/keybindings.json",
+      "~/Library/Application Support/Code - Insiders/User/keybindings.json"
+    ]
   }
 ]
