@@ -35,6 +35,7 @@ cask "localsend"
 cask "protonvpn"
 cask "google-chrome"
 cask "helium-browser"
+cask "free-download-manager"
 
 # File System
 brew "zip"
