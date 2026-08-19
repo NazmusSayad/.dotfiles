@@ -8,7 +8,7 @@
   },
   "claude": {
     "accounts": {
-      "uig": { "configDir": "~/.claude-uig", "info": "Secondary" },
+      "uig": { "configDir": "~/.claude-uig", "info": "Unified" },
       "work": { "configDir": "~/.claude-work", "info": "Work" }
     }
   },
