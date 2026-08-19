@@ -8,8 +8,14 @@
   },
   "claude": {
     "accounts": {
-      "uig": { "configDir": "~/.claude-uig", "info": "Unified" },
+      "uig": { "configDir": "~/.claude-uig", "info": "Extra" },
       "work": { "configDir": "~/.claude-work", "info": "Work" }
+    }
+  },
+  "copilot": {
+    "detect": false,
+    "accounts": {
+      "NazmusSayad": { "source": "gh" }
     }
   },
   "opencode": {

@@ -38,6 +38,9 @@
   "scr4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --resume --effort medium",
   "scc4": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --model claude-opus-4-8 --continue --effort medium",
 
+  "ag": "antigravity --dangerously-skip-permissions",
+  "agc": "antigravity --dangerously-skip-permissions --continue",
+
   "ocs": {
     "cmd": "opencode-server stop",
     "platform": "windows"
