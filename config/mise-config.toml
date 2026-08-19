@@ -126,10 +126,11 @@ minimum_release_age_excludes = [
   "pnpm",
 
   # AI Coding
-  "github:openai/codex",
   "github:earendil-works/pi",
   "github:anomalyco/opencode",
+  "github:openai/codex",
   "github:anthropics/claude-code",
+  "github:google-antigravity/antigravity-cli",
 
   # My Tools
   "npm:gityo",
