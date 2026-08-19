@@ -6,3 +6,4 @@
 - Do not write comments unless instructed.
 
 - Perform relevant validation when only necessary, and combine checks when possible.
+- Use your file change tools to work with them instead of using shell.
