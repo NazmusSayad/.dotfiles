@@ -38,7 +38,7 @@ ninja = "latest"
 "github:anomalyco/opencode" = "latest"
 "github:earendil-works/pi" = "latest"
 "github:openai/codex" = "latest"
-"github:anthropics/claude-code" = "latest"
+"github:anthropics/claude-code" = "v2.1.233"
 "github:google-antigravity/antigravity-cli" = "latest"
 
 # JS/TS
