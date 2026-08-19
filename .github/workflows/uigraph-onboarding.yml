@@ -1,0 +1,61 @@
+name: UiGraph Onboarding
+
+on:
+  push:
+    branches:
+      - "uigraph/onboarding/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigraph-onboarding-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  onboard:
+    if: github.event.head_commit.author.name == 'uigraph-onboarding[bot]'
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.push.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate repository artifacts
+        env:
+          AI_PROVIDER_API_KEY: ${{ secrets.AI_PROVIDER_API_KEY }}
+          AI_PROVIDER_MODEL: ${{ secrets.AI_PROVIDER_MODEL || vars.AI_PROVIDER_MODEL }}
+          AI_PROVIDER_API_URL: ${{ secrets.AI_PROVIDER_API_URL || vars.AI_PROVIDER_API_URL }}
+          AI_PROVIDER_NPM: ${{ secrets.AI_PROVIDER_NPM || vars.AI_PROVIDER_NPM }}
+          UIGRAPH_API_URL: ${{ vars.UIGRAPH_API_URL || secrets.UIGRAPH_API_URL }}
+          UIGRAPH_TOKEN: ${{ secrets.UIGRAPH_TOKEN }}
+        run: npx --yes @uigraph/agents@experimental artifacts init --seeded
+      - name: Restrict generated changes
+        run: |
+          unexpected=$(git status --porcelain | awk '{print $2}' | grep -Ev '^(.uigraph.yaml|.uigraph/)' || true)
+          test -z "$unexpected" || { printf 'Generation changed unsupported paths:\n%s\n' "$unexpected"; exit 1; }
+      - name: Push generated artifacts
+        id: push
+        run: |
+          git config user.name "uigraph-artifact[bot]"
+          git config user.email "uigraph-artifact[bot]@users.noreply.github.com"
+          git add .uigraph.yaml
+          if [ -d .uigraph ]; then
+            git add .uigraph
+          fi
+          if git diff --cached --quiet; then
+            echo "Generation produced no changes"
+          else
+            git commit -m "chore(uigraph): generate repository artifacts"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          fi
+  sync:
+    needs: onboard
+    if: needs.onboard.outputs.sha != ''
+    uses: ./.github/workflows/uigraph-sync.yml
+    with:
+      ref: ${{ needs.onboard.outputs.sha }}
+    secrets: inherit

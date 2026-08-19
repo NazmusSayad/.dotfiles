@@ -1,0 +1,12 @@
+version: 1
+project:
+    name: Main Org
+service:
+    name: Dotfiles
+    category: service
+    description: Dotfiles service
+    repository:
+        provider: github
+        url: https://github.com/NazmusSayad/.dotfiles
+    ownership:
+        team: Architecture
