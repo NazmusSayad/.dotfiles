@@ -98,6 +98,14 @@
     ]
   },
   {
+    "Source": "~/.claude/shell-snapshots",
+    "Target": [
+      "~/.claude-uig/shell-snapshots",
+      "~/.claude-work/shell-snapshots",
+      "~/.claude-sayad/shell-snapshots"
+    ]
+  },
+  {
     "Source": "~/.claude/history.jsonl",
     "Target": [
       "~/.claude-uig/history.jsonl",
