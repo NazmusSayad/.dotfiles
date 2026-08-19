@@ -1,0 +1,18 @@
+flowchart TB
+  subgraph workstation[Developer Workstation]
+    repo[Checked-out Repository]
+    tools[Go and Shell Toolchain]
+    config[User Configuration and Build Output]
+  end
+  subgraph os[Operating System Runtime]
+    shell[Shells and Scheduled Tasks]
+    apps[Installed Applications]
+  end
+  github((GitHub))
+  providers((Model Providers))
+  repo --> tools
+  tools --> config
+  tools --> shell
+  tools --> apps
+  tools -->|HTTPS API| github
+  tools -->|HTTPS API| providers

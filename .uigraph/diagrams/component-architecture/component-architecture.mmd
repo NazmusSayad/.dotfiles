@@ -1,0 +1,18 @@
+flowchart TB
+  entry[Platform Entry Points]
+  config[Configuration Management]
+  build[Build and Compilation]
+  commands[Daily Go Commands]
+  helpers[Shared Helpers]
+  platform[Platform Integrations]
+  network[Network Integrations]
+  entry --> config
+  entry --> build
+  entry --> platform
+  commands --> helpers
+  commands --> platform
+  commands --> network
+  config --> helpers
+  build --> commands
+  platform --> helpers
+  network --> helpers

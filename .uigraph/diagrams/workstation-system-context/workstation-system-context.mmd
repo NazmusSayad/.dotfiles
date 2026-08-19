@@ -1,0 +1,15 @@
+flowchart LR
+  repo[Dotfiles Repository]
+  windows[Windows Workstation]
+  macos[macOS Workstation]
+  github((GitHub Releases API))
+  models((Model Provider APIs))
+  slack[Slack Application]
+  repo -->|setup scripts and config files| windows
+  repo -->|setup scripts and config files| macos
+  windows -->|process control| slack
+  windows -->|HTTP GET releases and assets| github
+  windows -->|HTTP GET model metadata| models
+  macos -->|process control| slack
+  macos -->|HTTP GET releases and assets| github
+  macos -->|HTTP GET model metadata| models

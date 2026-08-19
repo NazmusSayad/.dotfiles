@@ -1,12 +1,104 @@
 version: 1
+
 project:
-    name: Main Org
+  name: Main Org
+
 service:
-    name: Dotfiles
-    category: service
-    description: Dotfiles service
-    repository:
-        provider: github
-        url: https://github.com/NazmusSayad/.dotfiles
-    ownership:
-        team: Architecture
+  name: Dotfiles
+  category: service
+  description: Cross-platform workstation setup, configuration management, and Go utilities for Windows and macOS.
+  repository:
+    provider: github
+    url: https://github.com/NazmusSayad/.dotfiles
+  ownership:
+    team: Architecture
+
+dependencies:
+  - name: github-releases-api
+    service: GitHub Releases API
+    direction: downstream
+    criticality: soft
+    type: http
+    description: Reads latest release metadata and downloads matching release assets when release utilities are invoked.
+  - name: models-dev-api
+    service: models.dev API
+    direction: downstream
+    criticality: soft
+    type: http
+    description: Fetches provider and model metadata for OpenCode configuration.
+  - name: openrouter-api
+    service: OpenRouter API
+    direction: downstream
+    criticality: soft
+    type: http
+    description: Fetches OpenAI-compatible model listings when the OpenRouter integration is used.
+
+architectureDiagrams:
+  - name: Workstation System Context
+    path: .uigraph/diagrams/workstation-system-context/workstation-system-context.mmd
+    contextPath: .uigraph/diagrams/workstation-system-context/context.json
+  - name: Dotfiles Component Architecture
+    path: .uigraph/diagrams/component-architecture/component-architecture.mmd
+    contextPath: .uigraph/diagrams/component-architecture/context.json
+  - name: Configuration Provisioning Data Flow
+    path: .uigraph/diagrams/configuration-data-flow/configuration-data-flow.mmd
+    contextPath: .uigraph/diagrams/configuration-data-flow/context.json
+  - name: Workstation Deployment View
+    path: .uigraph/diagrams/workstation-deployment/workstation-deployment.mmd
+    contextPath: .uigraph/diagrams/workstation-deployment/context.json
+
+docs:
+  - name: Workstation Setup Runbook
+    path: .uigraph/docs/workstation-setup-runbook.md
+    fileType: markdown
+    description: Commands, prerequisites, platform setup paths, and operational cautions implemented by the repository.
+  - name: Configuration Contract
+    path: .uigraph/docs/configuration-contract.md
+    fileType: markdown
+    description: Repository configuration files, source-to-target mappings, and package-manager inputs.
+  - name: Go Utilities and Test Guide
+    path: .uigraph/docs/go-utilities-and-test-guide.md
+    fileType: markdown
+    description: Go module structure, build entry points, external integrations, and the checked-in unit-test surface.
+
+testPacks:
+  - name: Workstation Setup Regression
+    type: regression
+    environment: local workstation
+    testCases:
+      - title: Go utility unit tests pass
+        type: manual
+        order: 1
+        priority: p1
+        tags:
+          - go
+          - unit
+        description: Run `go test ./...` from the repository root and verify the checked-in helper tests pass.
+        stepsList:
+          - action: Run `go test ./...` from the repository root
+            expectedResult: Go packages compile and all tests pass.
+        expectedOutcome: The Go utility codebase is testable without modifying repository configuration.
+      - title: Windows configuration installer provisions links and startup entries
+        type: manual
+        order: 2
+        priority: p1
+        tags:
+          - windows
+          - setup
+        description: Review and run `__install-config.cmd` on Windows.
+        preconditions: Git, Bash, and Go are installed; administrator access is available where required.
+        stepsList:
+          - action: Run `__install-config.cmd`
+            expectedResult: Git and shell configuration scripts run, symlinks are initialized, Windows tasks are installed, and Start menu entries are installed.
+      - title: macOS setup applies shell and workstation settings
+        type: manual
+        order: 3
+        priority: p1
+        tags:
+          - macos
+          - setup
+        description: Review and run `__setup-macos.sh` on macOS.
+        preconditions: Homebrew and the required command-line tools are available; sudo access is available.
+        stepsList:
+          - action: Run `__setup-macos.sh` after reviewing its system changes
+            expectedResult: Git and shell configuration are sourced, macOS defaults and power settings are applied, the Chrome profile is opened, and affected system processes are restarted.

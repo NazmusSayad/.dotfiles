@@ -1,0 +1,20 @@
+{
+  "name": "Configuration Provisioning Data Flow",
+  "description": "Repository configuration is transformed into user files, links, build output, and operating-system state.",
+  "nodes": {
+    "package": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Package Definitions" },
+    "appcfg": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Application Configurations" },
+    "links": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Symlink and Copy Manager" },
+    "setup": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Platform Setup Scripts" },
+    "build": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Go Build Output" },
+    "user": { "name": "User Configuration", "type": "cloud", "cloud": "Operating System", "service": "User Configuration Directories" },
+    "os": { "name": "Operating System State", "type": "cloud", "cloud": "Operating System", "service": "System Settings and Tasks" }
+  },
+  "edges": {
+    "appcfg-links": { "label": "source and target mappings" },
+    "links-user": { "label": "links or copies" },
+    "setup-os": { "label": "commands and settings" },
+    "build-user": { "label": "compiled utilities" },
+    "build-os": { "label": "installed commands" }
+  }
+}

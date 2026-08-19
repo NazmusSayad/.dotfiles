@@ -1,0 +1,22 @@
+{
+  "name": "Workstation System Context",
+  "description": "External boundaries crossed by repository setup scripts and Go utilities.",
+  "nodes": {
+    "repo": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Dotfiles Repository" },
+    "windows": { "name": "Windows Workstation", "type": "cloud", "cloud": "Microsoft", "service": "Windows" },
+    "macos": { "name": "macOS Workstation", "type": "cloud", "cloud": "Apple", "service": "macOS" },
+    "github": { "name": "GitHub Releases API", "type": "cloud", "cloud": "GitHub", "service": "GitHub API" },
+    "models": { "name": "Model Provider APIs", "type": "cloud", "cloud": "External", "service": "OpenAI-compatible APIs" },
+    "slack": { "name": "Slack Application", "type": "cloud", "cloud": "Slack", "service": "Slack" }
+  },
+  "edges": {
+    "repo-windows": { "label": "setup scripts and config files" },
+    "repo-macos": { "label": "setup scripts and config files" },
+    "windows-slack": { "label": "process control" },
+    "windows-github": { "label": "HTTP GET releases and assets" },
+    "windows-models": { "label": "HTTP GET model metadata" },
+    "macos-slack": { "label": "process control" },
+    "macos-github": { "label": "HTTP GET releases and assets" },
+    "macos-models": { "label": "HTTP GET model metadata" }
+  }
+}

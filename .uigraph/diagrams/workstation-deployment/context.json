@@ -1,0 +1,21 @@
+{
+  "name": "Workstation Deployment View",
+  "description": "Deployment locations for repository files, local toolchains, OS runtime state, and remote APIs.",
+  "nodes": {
+    "repo": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Checked-out Repository" },
+    "tools": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Go and Shell Toolchain" },
+    "config": { "name": "User Configuration and Build Output", "type": "cloud", "cloud": "Operating System", "service": "User Filesystem" },
+    "shell": { "name": "Shells and Scheduled Tasks", "type": "cloud", "cloud": "Operating System", "service": "Shell and Task Scheduler" },
+    "apps": { "name": "Installed Applications", "type": "cloud", "cloud": "Operating System", "service": "Desktop Applications" },
+    "github": { "name": "GitHub", "type": "cloud", "cloud": "GitHub", "service": "GitHub" },
+    "providers": { "name": "Model Providers", "type": "cloud", "cloud": "External", "service": "OpenAI-compatible Providers" }
+  },
+  "groups": {
+    "workstation": { "name": "Developer Workstation", "nodes": ["repo", "tools", "config"] },
+    "os": { "name": "Operating System Runtime", "nodes": ["shell", "apps"] }
+  },
+  "edges": {
+    "tools-github": { "label": "HTTPS API" },
+    "tools-providers": { "label": "HTTPS API" }
+  }
+}

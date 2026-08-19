@@ -1,0 +1,15 @@
+flowchart LR
+  package[Package Definitions]
+  appcfg[Application Configurations]
+  links[Symlink and Copy Manager]
+  setup[Platform Setup Scripts]
+  build[Go Build Output]
+  user[User Configuration]
+  os[Operating System State]
+  package --> setup
+  appcfg --> links
+  links --> user
+  setup --> os
+  setup --> links
+  build --> user
+  build --> os

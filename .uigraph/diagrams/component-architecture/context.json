@@ -1,0 +1,13 @@
+{
+  "name": "Dotfiles Component Architecture",
+  "description": "Distinct code responsibilities evidenced by the entry points and src layout.",
+  "nodes": {
+    "entry": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Platform Entry Points", "data": { "Responsibilities": { "type": "Text Input", "value": "Windows CMD and macOS shell orchestration" } } },
+    "config": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Configuration Management", "data": { "Responsibilities": { "type": "Text Input", "value": "Symlinks, shell configuration, packages, and application settings" } } },
+    "build": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Build and Compilation", "data": { "Responsibilities": { "type": "Text Input", "value": "Compile Go utilities and AutoHotkey assets" } } },
+    "commands": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Daily Go Commands" },
+    "helpers": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Shared Helpers" },
+    "platform": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Platform Integrations" },
+    "network": { "type": "component", "componentId": "flow_diagram_component_service", "name": "Network Integrations" }
+  }
+}
