@@ -66,6 +66,14 @@
     ]
   },
   {
+    "Source": "~/.claude/plugins",
+    "Target": [
+      "~/.claude-uig/plugins",
+      "~/.claude-work/plugins",
+      "~/.claude-sayad/plugins"
+    ]
+  },
+  {
     "Source": "~/.claude/projects",
     "Target": [
       "~/.claude-uig/projects",
