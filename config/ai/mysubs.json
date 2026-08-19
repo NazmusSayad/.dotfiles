@@ -8,8 +8,8 @@
   },
   "claude": {
     "accounts": {
-      "uig": { "configDir": "~/.claude-uig" },
-      "work": { "configDir": "~/.claude-work" }
+      "uig": { "configDir": "~/.claude-uig", "info": "Secondary" },
+      "work": { "configDir": "~/.claude-work", "info": "Work" }
     }
   },
   "opencode": {
