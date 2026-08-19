@@ -112,6 +112,7 @@ yt-dlp = "latest"
 package_manager = "pnpm"
 
 [settings]
+yes = true
 auto_install = false
 exec_auto_install = true
 not_found_auto_install = true
@@ -129,8 +130,8 @@ minimum_release_age_excludes = [
   "github:earendil-works/pi",
   "github:anomalyco/opencode",
   "github:openai/codex",
-  "github:anthropics/claude-code",
   "github:google-antigravity/antigravity-cli",
+  "github:anthropics/claude-code",
 
   # My Tools
   "npm:gityo",
