@@ -6,4 +6,4 @@
 - Do not write comments unless instructed.
 
 - Perform relevant validation when only necessary, and combine checks when possible.
-- Prefer writing files with the correct tools instead of using scripts.
+- Prefer dedicated tools for working with files instead of using shell scripts.
