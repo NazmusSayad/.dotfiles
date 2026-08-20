@@ -68,6 +68,7 @@
   "disableAutoMode": "disable",
   "theme": "auto",
   "editorMode": "normal",
+  "outputStyle": "Consice",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": true,
   "fileCheckpointingEnabled": false,
