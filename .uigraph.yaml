@@ -1,10 +1,57 @@
 version: 1
+
+project:
+  name: Dotfiles Workstation Setup
+  environment: cross-platform
+
 service:
-    name: Dotfiles
-    category: service
-    description: Dotfiles service
-    repository:
-        provider: github
-        url: https://github.com/NazmusSayad/.dotfiles
-    ownership:
-        team: Architecture
+  name: Dotfiles
+  category: service
+  description: Cross-platform workstation setup, configuration, package management, and developer utility toolkit for Windows and macOS.
+  repository:
+    provider: github
+    url: https://github.com/NazmusSayad/.dotfiles
+  ownership:
+    team: Architecture
+
+dependencies:
+  - name: github-releases-api
+    service: GitHub Releases API
+    direction: downstream
+    criticality: hard
+    type: http
+    description: Fetches latest release metadata and downloads release assets used by utility setup flows.
+
+architectureDiagrams:
+  - name: System Context
+    path: .uigraph/diagrams/system-context/system-context.mmd
+    contextPath: .uigraph/diagrams/system-context/context.json
+  - name: Component Responsibilities
+    path: .uigraph/diagrams/component-responsibilities/component-responsibilities.mmd
+    contextPath: .uigraph/diagrams/component-responsibilities/context.json
+  - name: Configuration and Setup Data Flow
+    path: .uigraph/diagrams/configuration-data-flow/configuration-data-flow.mmd
+    contextPath: .uigraph/diagrams/configuration-data-flow/context.json
+  - name: Cross-Platform Deployment
+    path: .uigraph/diagrams/cross-platform-deployment/cross-platform-deployment.mmd
+    contextPath: .uigraph/diagrams/cross-platform-deployment/context.json
+
+testPacks:
+  - name: Workstation Setup Manual Pack
+    type: manual
+    environment: Windows or macOS
+    testCasesPath: .uigraph/tests/workstation-setup.yaml
+
+docs:
+  - name: Installation and Operations Guide
+    path: .uigraph/docs/installation-and-operations.md
+    fileType: markdown
+    description: Supported platforms, setup commands, privileges, and operational effects.
+  - name: Configuration Contract
+    path: .uigraph/docs/configuration-contract.md
+    fileType: markdown
+    description: Configuration files, formats, defaults, and generated destinations.
+  - name: Utility and Test Coverage
+    path: .uigraph/docs/utility-and-test-coverage.md
+    fileType: markdown
+    description: Go utility architecture, external boundaries, and existing unit-test coverage.

@@ -1,0 +1,14 @@
+flowchart LR
+  operator[Operator]
+  dotfiles[Dotfiles Toolkit]
+  repo[(Repository files)]
+  os[Operating system services]
+  packageManagers[Package managers]
+  github[GitHub Releases API]
+  home[User home directory]
+  operator -->|runs setup and utility commands| dotfiles
+  dotfiles -->|reads manifests and configs| repo
+  dotfiles -->|writes links, binaries, and settings| home
+  dotfiles -->|invokes commands and OS APIs| os
+  dotfiles -->|installs and updates configured tools| packageManagers
+  dotfiles -->|HTTPS release metadata and assets| github

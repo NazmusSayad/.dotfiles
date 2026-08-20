@@ -1,0 +1,14 @@
+flowchart LR
+  manifests[apps.yaml and Brewfile]
+  mappings[symlink.jsonc and shell configs]
+  loader[Go configuration loader]
+  commands[Compiled utility commands]
+  links[Home-directory links]
+  packages[Installed packages]
+  settings[OS and application settings]
+  manifests -->|YAML / Brewfile| loader
+  mappings -->|JSONC and TOML| loader
+  loader --> commands
+  commands -->|create or refresh| links
+  commands -->|sync manifests| packages
+  commands -->|apply platform configuration| settings

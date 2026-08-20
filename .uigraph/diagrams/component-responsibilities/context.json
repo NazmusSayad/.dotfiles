@@ -1,0 +1,14 @@
+{
+  "name": "Component Responsibilities",
+  "description": "Responsibilities evidenced by src/helpers and src/scripts.",
+  "nodes": {
+    "toolkit": { "name": "Dotfiles Toolkit", "type": "component" },
+    "config": { "name": "Configuration loader", "type": "component" },
+    "provisioning": { "name": "Package provisioning", "type": "component" },
+    "linking": { "name": "Symlink and environment manager", "type": "component" },
+    "platform": { "name": "Platform setup adapters", "type": "component" },
+    "utilities": { "name": "Git, Slack, and system utilities", "type": "component" },
+    "release": { "name": "GitHub release downloader", "type": "component" },
+    "tests": { "name": "JSON merge helper", "type": "component" }
+  }
+}

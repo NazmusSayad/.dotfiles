@@ -1,0 +1,17 @@
+{
+  "name": "Cross-Platform Deployment",
+  "description": "The repository is deployed onto Windows and macOS workstations through platform-specific setup paths.",
+  "nodes": {
+    "repo": { "name": "Dotfiles repository", "type": "database" },
+    "windows": { "name": "Windows workstation", "type": "component" },
+    "macos": { "name": "macOS workstation", "type": "component" },
+    "winShell": { "name": "CMD and PowerShell setup", "type": "component" },
+    "macShell": { "name": "Bash setup", "type": "component" },
+    "winTools": { "name": "MSYS2, Scoop, Winget, compiled tools", "type": "component" },
+    "macTools": { "name": "Homebrew, launch agents, compiled tools", "type": "component" }
+  },
+  "edges": {
+    "repo-windows": { "label": "clone and checkout" },
+    "repo-macos": { "label": "clone and checkout" }
+  }
+}

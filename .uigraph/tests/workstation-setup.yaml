@@ -1,0 +1,49 @@
+testCases:
+  - title: Review platform prerequisites before setup
+    type: manual
+    order: 1
+    priority: p0
+    stepsList:
+      - action: Confirm Windows 10/11 or macOS and Git are installed
+        expectedResult: The host meets the documented prerequisites
+      - action: Review the platform setup script and configuration manifests
+        expectedResult: The operator understands administrative, sudo, PATH, symlink, and restart side effects
+    expectedOutcome: Setup is approved for the selected workstation
+    preconditions: Repository has been cloned and the operator has reviewed README.md
+    requiresEvidence: true
+    isCritical: true
+
+  - title: Verify Windows installation contract
+    type: manual
+    order: 2
+    priority: p1
+    stepsList:
+      - action: Run __install-dotfiles.cmd as the intended Windows user
+        expectedResult: DOTFILES_DIR is set and .build/bin is added to the user PATH
+      - action: Run __setup-windows.cmd with Administrator privileges when system changes are desired
+        expectedResult: PowerShell scripts execute and the machine restart is requested
+    expectedOutcome: Windows environment variables, utilities, and optional system settings are provisioned
+    preconditions: Windows host with required privileges
+
+  - title: Verify macOS configuration contract
+    type: manual
+    order: 3
+    priority: p1
+    stepsList:
+      - action: Review config/Brewfile and run the approved Homebrew provisioning steps
+        expectedResult: Required formulae and casks are selected for installation
+      - action: Run __setup-macos.sh after reviewing sudo and defaults commands
+        expectedResult: Git, shell, macOS defaults, battery settings, and terminal/application settings are applied
+    expectedOutcome: macOS workstation configuration is applied without unreviewed destructive changes
+    preconditions: macOS host with Homebrew and sudo access
+
+  - title: Run Go unit-test suite
+    type: manual
+    order: 4
+    priority: p1
+    stepsList:
+      - action: Run go test ./...
+        expectedResult: JSON merge and patch tests pass
+    expectedOutcome: Existing helper behavior remains covered by the repository's unit tests
+    preconditions: Go 1.24.5-compatible toolchain is installed
+    isCritical: true

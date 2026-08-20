@@ -1,0 +1,21 @@
+{
+  "name": "System Context",
+  "description": "Boundaries crossed by the workstation setup and utility toolkit.",
+  "nodes": {
+    "operator": { "name": "Operator" },
+    "dotfiles": { "name": "Dotfiles Toolkit", "type": "component" },
+    "repo": { "name": "Repository files", "type": "database" },
+    "os": { "name": "Operating system services", "type": "cloud", "cloud": "Local OS", "service": "Operating System" },
+    "packageManagers": { "name": "Package managers", "type": "cloud", "cloud": "Local tools", "service": "Homebrew / Scoop / Winget / MSYS2" },
+    "github": { "name": "GitHub Releases API", "type": "cloud", "cloud": "GitHub", "service": "GitHub API" },
+    "home": { "name": "User home directory", "type": "database" }
+  },
+  "edges": {
+    "operator-dotfiles": { "label": "commands" },
+    "dotfiles-repo": { "label": "file reads" },
+    "dotfiles-home": { "label": "links and generated binaries" },
+    "dotfiles-os": { "label": "process and OS commands" },
+    "dotfiles-packageManagers": { "label": "package operations" },
+    "dotfiles-github": { "label": "HTTPS" }
+  }
+}

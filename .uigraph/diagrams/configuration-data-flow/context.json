@@ -1,0 +1,21 @@
+{
+  "name": "Configuration and Setup Data Flow",
+  "description": "Repository configuration is parsed into commands that update the workstation.",
+  "nodes": {
+    "manifests": { "name": "apps.yaml and Brewfile", "type": "database" },
+    "mappings": { "name": "symlink.jsonc and shell configs", "type": "database" },
+    "loader": { "name": "Go configuration loader", "type": "component" },
+    "commands": { "name": "Compiled utility commands", "type": "component" },
+    "links": { "name": "Home-directory links", "type": "database" },
+    "packages": { "name": "Installed packages", "type": "database" },
+    "settings": { "name": "OS and application settings", "type": "component" }
+  },
+  "edges": {
+    "manifests-loader": { "label": "YAML / Brewfile" },
+    "mappings-loader": { "label": "JSONC and TOML" },
+    "loader-commands": { "label": "typed configuration" },
+    "commands-links": { "label": "create or refresh" },
+    "commands-packages": { "label": "sync manifests" },
+    "commands-settings": { "label": "platform configuration" }
+  }
+}

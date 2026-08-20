@@ -1,0 +1,14 @@
+flowchart LR
+  repo[Dotfiles repository]
+  windows[Windows workstation]
+  macos[macOS workstation]
+  winShell[CMD and PowerShell setup]
+  macShell[Bash setup]
+  winTools[MSYS2, Scoop, Winget, compiled tools]
+  macTools[Homebrew, launch agents, compiled tools]
+  repo -->|clone and checkout| windows
+  repo -->|clone and checkout| macos
+  windows --> winShell
+  winShell --> winTools
+  macos --> macShell
+  macShell --> macTools

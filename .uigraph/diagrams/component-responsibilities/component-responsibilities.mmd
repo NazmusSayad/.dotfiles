@@ -1,0 +1,16 @@
+flowchart TB
+  toolkit[Dotfiles Toolkit]
+  config[Configuration loader]
+  provisioning[Package provisioning]
+  linking[Symlink and environment manager]
+  platform[Platform setup adapters]
+  utilities[Git, Slack, and system utilities]
+  release[GitHub release downloader]
+  tests[JSON merge helper]
+  toolkit --> config
+  toolkit --> provisioning
+  toolkit --> linking
+  toolkit --> platform
+  toolkit --> utilities
+  toolkit --> release
+  toolkit --> tests
