@@ -7,3 +7,4 @@
 
 .envrc
 .mcp.json
+**/.claude/settings.local.json
