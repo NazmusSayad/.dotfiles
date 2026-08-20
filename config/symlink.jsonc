@@ -33,8 +33,12 @@
   // Codex
   {
     "Source": "@/config/ai/codex.toml",
-    "Target": ["~/.codex/config.toml", "~/.codex-sayad/config.toml"],
+    "Target": "~/.codex/config.toml",
     "Copy": true
+  },
+  {
+    "Source": "~/.codex/config.toml",
+    "Target": "~/.codex-sayad/config.toml"
   },
 
   // Claude
