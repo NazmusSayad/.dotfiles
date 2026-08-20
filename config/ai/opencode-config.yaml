@@ -6,6 +6,7 @@ openrouter:
 
 opencode:
   models:
+    - id: x-preview-f-free
     - id: deepseek-v4-flash-free
 
 openai:
