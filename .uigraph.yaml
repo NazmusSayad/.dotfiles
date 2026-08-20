@@ -1,10 +1,55 @@
 version: 1
+
+project:
+  name: Dotfiles Workstation Automation
+  environment: local
+
 service:
-    name: Dotfiles
-    category: service
-    description: Dotfiles service
-    repository:
-        provider: github
-        url: https://github.com/NazmusSayad/.dotfiles
-    ownership:
-        team: Architecture
+  name: Dotfiles
+  category: service
+  description: Cross-platform workstation configuration, package management, shell setup, and developer utility automation for Windows and macOS.
+  repository:
+    provider: github
+    url: https://github.com/NazmusSayad/.dotfiles
+  ownership:
+    team: Architecture
+
+dependencies:
+  - name: github-release-api
+    service: GitHub Releases API
+    direction: downstream
+    criticality: hard
+    type: http
+    description: Release utilities query latest GitHub releases and download matching assets over HTTPS.
+  - name: models-dev-api
+    service: models.dev API
+    direction: downstream
+    criticality: soft
+    type: http
+    description: OpenCode model configuration can fetch provider metadata from models.dev; failures are returned to the invoking command.
+  - name: openrouter-models-api
+    service: OpenRouter Models API
+    direction: downstream
+    criticality: soft
+    type: http
+    description: OpenCode model configuration can fetch model metadata from OpenRouter using an optional API key.
+
+architectureDiagrams:
+  - name: System Context
+    path: .uigraph/diagrams/system-context/system-context.mmd
+    contextPath: .uigraph/diagrams/system-context/context.json
+  - name: Component Responsibilities
+    path: .uigraph/diagrams/component-responsibilities/component-responsibilities.mmd
+    contextPath: .uigraph/diagrams/component-responsibilities/context.json
+  - name: Configuration Data Flow
+    path: .uigraph/diagrams/configuration-data-flow/configuration-data-flow.mmd
+    contextPath: .uigraph/diagrams/configuration-data-flow/context.json
+  - name: Deployment and Execution
+    path: .uigraph/diagrams/deployment-execution/deployment-execution.mmd
+    contextPath: .uigraph/diagrams/deployment-execution/context.json
+
+docs:
+  - name: Workstation Automation Contract
+    path: .uigraph/docs/workstation-automation-contract.md
+    fileType: markdown
+    description: Commands, configuration files, environment inputs, external boundaries, and generated paths evidenced by the repository.

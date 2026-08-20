@@ -1,0 +1,17 @@
+{
+  "name": "Deployment and Execution",
+  "description": "Execution environments and deployment-like workstation targets evidenced by setup scripts.",
+  "nodes": {
+    "checkout": { "name": "Developer checkout" },
+    "shell": { "name": "Terminal: Bash, Fish, Zsh, or Windows cmd" },
+    "go": { "name": "Go 1.24.5 toolchain" },
+    "scripts": { "name": "Shell, cmd, and PowerShell entry points" },
+    "local": { "name": "Local workstation" },
+    "binaries": { "name": "Compiled .build/bin tools" },
+    "userConfig": { "name": "User and application config directories" },
+    "scheduler": { "name": "Windows Task Scheduler or macOS launch agents" },
+    "packageTools": { "name": "Installed package managers and applications" },
+    "network": { "name": "HTTPS-capable network" },
+    "external": { "name": "GitHub, models.dev, and OpenRouter endpoints" }
+  }
+}

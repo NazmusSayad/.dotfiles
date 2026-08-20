@@ -1,0 +1,19 @@
+{
+  "name": "Configuration Data Flow",
+  "description": "How checked-in configuration becomes workstation state and utilities.",
+  "nodes": {
+    "source": { "name": "Repository configuration" },
+    "parser": { "name": "Go configuration helpers" },
+    "platform": { "name": "Platform-specific setup" },
+    "links": { "name": "Symlink and copy planner" },
+    "packageLists": { "name": "Package manifests" },
+    "packageManagers": { "name": "Homebrew, Winget, Scoop, MSYS2" },
+    "home": { "name": "Home directory and application config paths" },
+    "osSettings": { "name": "OS settings and scheduled tasks" },
+    "compile": { "name": "Go compile-scripts entry point" },
+    "binaries": { "name": ".build/bin utilities" },
+    "daily": { "name": "Daily Git, package, Slack, and editor commands" },
+    "ai": { "name": "AI provider configuration" },
+    "modelCache": { "name": "In-memory model metadata" }
+  }
+}

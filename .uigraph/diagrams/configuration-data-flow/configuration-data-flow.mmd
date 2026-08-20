@@ -1,0 +1,13 @@
+flowchart LR
+  source[Repository configuration] --> parser[Go configuration helpers]
+  parser --> platform[Platform-specific setup]
+  parser --> links[Symlink and copy planner]
+  parser --> packageLists[Package manifests]
+  packageLists --> packageManagers[Homebrew, Winget, Scoop, MSYS2]
+  links --> home[Home directory and application config paths]
+  platform --> osSettings[OS settings and scheduled tasks]
+  source --> compile[Go compile-scripts entry point]
+  compile --> binaries[.build/bin utilities]
+  binaries --> daily[Daily Git, package, Slack, and editor commands]
+  source --> ai[AI provider configuration]
+  ai --> modelCache[In-memory model metadata]

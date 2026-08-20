@@ -1,0 +1,11 @@
+flowchart LR
+  user[User] -->|runs commands and reviews setup scripts| dotfiles[Dotfiles automation]
+  dotfiles -->|reads repository config and source| repo[Checked-out repository]
+  dotfiles -->|executes| os[Operating system services]
+  dotfiles -->|installs and upgrades packages| managers[Homebrew, Scoop, Winget, MSYS2]
+  dotfiles -->|HTTPS GET latest releases and assets| github[GitHub Releases API]
+  dotfiles -->|HTTPS GET model metadata| modelsdev[models.dev API]
+  dotfiles -->|HTTPS GET model metadata| openrouter[OpenRouter Models API]
+  dotfiles -->|starts or stops local application| slack[Local Slack application]
+  dotfiles -->|reads local secrets and API keys| env[Environment and .env inputs]
+  dotfiles -->|writes links and generated utilities| workstation[User workstation paths]

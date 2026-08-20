@@ -1,0 +1,17 @@
+{
+  "name": "System Context",
+  "description": "External boundaries crossed by the workstation automation repository.",
+  "nodes": {
+    "user": { "name": "User" },
+    "dotfiles": { "name": "Dotfiles automation" },
+    "repo": { "name": "Checked-out repository" },
+    "os": { "name": "Operating system services" },
+    "managers": { "name": "Homebrew, Scoop, Winget, MSYS2" },
+    "github": { "name": "GitHub Releases API" },
+    "modelsdev": { "name": "models.dev API" },
+    "openrouter": { "name": "OpenRouter Models API" },
+    "slack": { "name": "Local Slack application" },
+    "env": { "name": "Environment and .env inputs" },
+    "workstation": { "name": "User workstation paths" }
+  }
+}

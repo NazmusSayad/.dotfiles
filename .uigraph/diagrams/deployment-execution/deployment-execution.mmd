@@ -1,0 +1,12 @@
+flowchart TB
+  checkout[Developer checkout] --> shell[Terminal: Bash, Fish, Zsh, or Windows cmd]
+  shell --> go[Go 1.24.5 toolchain]
+  shell --> scripts[Shell, cmd, and PowerShell entry points]
+  scripts --> local[Local workstation]
+  go --> binaries[Compiled .build/bin tools]
+  binaries --> local
+  local --> userConfig[User and application config directories]
+  local --> scheduler[Windows Task Scheduler or macOS launch agents]
+  local --> packageTools[Installed package managers and applications]
+  local --> network[HTTPS-capable network]
+  network --> external[GitHub, models.dev, and OpenRouter endpoints]

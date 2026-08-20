@@ -1,0 +1,23 @@
+{
+  "name": "Component Responsibilities",
+  "description": "Distinct responsibilities implemented by repository directories and entry points.",
+  "nodes": {
+    "automation": { "name": "Dotfiles automation" },
+    "setup": { "name": "Platform setup" },
+    "config": { "name": "Configuration and symlink management" },
+    "packages": { "name": "Package synchronization" },
+    "utilities": { "name": "Compiled developer utilities" },
+    "integrations": { "name": "GitHub, Slack, and AI integrations" },
+    "windows": { "name": "Windows system policy scripts" },
+    "shell": { "name": "Shell and Git environment" },
+    "startup": { "name": "Startup tasks and launch agents" },
+    "editors": { "name": "VS Code and terminal configuration" },
+    "brew": { "name": "Homebrew" },
+    "windowsmgr": { "name": "Winget, Scoop, and MSYS2" },
+    "gittools": { "name": "Git workflow commands" },
+    "code": { "name": "Editor and coding helpers" },
+    "release": { "name": "GitHub release downloader" },
+    "model": { "name": "OpenCode model metadata" },
+    "slacktool": { "name": "Slack schedule control" }
+  }
+}
