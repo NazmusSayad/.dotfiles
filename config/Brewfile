@@ -29,12 +29,15 @@ cask "ghostty"
 brew "mole"
 brew "batt", restart_service: true
 
+# Browsers
+cask "google-chrome"
+cask "helium-browser"
+cask "zen"
+
 # Internet
 brew "wget"
 cask "localsend"
 cask "protonvpn"
-cask "google-chrome"
-cask "helium-browser"
 cask "free-download-manager"
 
 # File System
