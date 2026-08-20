@@ -67,6 +67,7 @@ brew "gnupg"
 # Development
 cask "visual-studio-code@insiders"
 cask "visual-studio-code"
+cask "tablepro"
 brew "shfmt"
 brew "mise"
 brew "fvm"
