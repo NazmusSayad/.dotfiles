@@ -30,6 +30,13 @@
     ]
   },
 
+  // Codex
+  {
+    "Source": "@/config/ai/codex.toml",
+    "Target": ["~/.codex/config.toml", "~/.codex-sayad/config.toml"],
+    "Copy": true
+  },
+
   // Claude
   {
     "Source": "@/config/ai/AGENTS_CLAUDE.md",
