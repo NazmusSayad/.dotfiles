@@ -2,13 +2,13 @@
   "oc": "opencode",
   "occ": "opencode --continue",
 
-  "co": "codex",
-  "coc": "codex resume --last",
-  "cor": "codex resume",
+  "co": "codex --dangerously-bypass-approvals-and-sandbox",
+  "coc": "codex resume --dangerously-bypass-approvals-and-sandbox --last",
+  "cor": "codex resume --dangerously-bypass-approvals-and-sandbox",
 
-  "so": "CODEX_HOME=~/.codex-sayad codex",
-  "soc": "CODEX_HOME=~/.codex-sayad codex resume --last",
-  "sor": "CODEX_HOME=~/.codex-sayad codex resume",
+  "so": "CODEX_HOME=~/.codex-sayad codex --dangerously-bypass-approvals-and-sandbox",
+  "soc": "CODEX_HOME=~/.codex-sayad codex resume --dangerously-bypass-approvals-and-sandbox --last",
+  "sor": "CODEX_HOME=~/.codex-sayad codex resume --dangerously-bypass-approvals-and-sandbox",
 
   "cc": "claude",
   "ccr": "claude --resume",
