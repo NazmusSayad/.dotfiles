@@ -1,0 +1,47 @@
+name: UiGraph Sync
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".uigraph.yaml"
+      - ".uigraph/**"
+  workflow_call:
+    inputs:
+      ref:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uigraph-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validating configuration
+        env:
+          UIGRAPH_GATEWAY_URL: ${{ vars.UIGRAPH_GATEWAY_URL || secrets.UIGRAPH_GATEWAY_URL }}
+          UIGRAPH_TOKEN: ${{ secrets.UIGRAPH_TOKEN }}
+        run: |
+          missing=""
+          test -n "$UIGRAPH_GATEWAY_URL" || missing="$missing UIGRAPH_GATEWAY_URL"
+          test -n "$UIGRAPH_TOKEN" || missing="$missing UIGRAPH_TOKEN"
+          test -z "$missing" || { printf 'Missing required configuration:%s\n' "$missing"; exit 1; }
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - run: go install github.com/uigraph-oss/uigraph-cli@main
+      - name: Sync
+        env:
+          UIGRAPH_TOKEN: ${{ secrets.UIGRAPH_TOKEN }}
+          UIGRAPH_GATEWAY_URL: ${{ vars.UIGRAPH_GATEWAY_URL || secrets.UIGRAPH_GATEWAY_URL }}
+        run: uigraph-cli sync
