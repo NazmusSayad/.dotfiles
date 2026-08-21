@@ -10,10 +10,6 @@
   "soc": "CODEX_HOME=~/.codex-sayad codex resume --last",
   "sor": "CODEX_HOME=~/.codex-sayad codex resume",
 
-  "cc": "claude",
-  "ccr": "claude --resume",
-  "ccc": "claude --continue",
-
   "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
   "ucr": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --resume",
   "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
@@ -21,10 +17,6 @@
   "wc": "CLAUDE_CONFIG_DIR=~/.claude-work claude",
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-work claude --resume",
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
-
-  "sc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --effort medium",
-  "scr": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --resume --effort medium",
-  "scc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue --effort medium",
 
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
