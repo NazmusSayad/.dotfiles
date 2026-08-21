@@ -246,6 +246,10 @@
     "Target": "~/.config/mysubs/config.json"
   },
   {
+    "Source": "@/config/ai/mytokens-group.json",
+    "Target": "~/.mytokens/groups.json"
+  },
+  {
     "Source": "@/config/gityo.json",
     "Target": "~/.config/gityo.json"
   },

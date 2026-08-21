@@ -1,0 +1,14 @@
+{
+  "x-preview-f-free": {
+    "provider": "openrouter",
+    "model": "stealth/ox-alpha"
+  },
+  "deepseek-v4-flash-free": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash"
+  },
+  "deepseek/deepseek-v4-flash-0731": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash"
+  }
+}
