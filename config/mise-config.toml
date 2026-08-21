@@ -37,7 +37,6 @@ ninja = "latest"
 # AI Coding
 "github:anomalyco/opencode" = "latest"
 "github:earendil-works/pi" = "latest"
-"github:vercel-labs/fx" = "latest"
 "github:anthropics/claude-code" = "latest"
 "github:openai/codex" = "latest"
 "github:google-antigravity/antigravity-cli" = "latest"
@@ -130,9 +129,8 @@ minimum_release_age_excludes = [
   "pnpm",
 
   # AI Coding
-  "github:anomalyco/opencode",
   "github:earendil-works/pi",
-  "github:vercel-labs/fx",
+  "github:anomalyco/opencode",
   "github:openai/codex",
   "github:google-antigravity/antigravity-cli",
   "github:anthropics/claude-code",
