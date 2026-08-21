@@ -13,12 +13,12 @@
     }
   },
   "copilot": {
-    "detect": false,
-    "accounts": {
-      "NazmusSayad": { "source": "gh" }
-    }
+    "detect": false
   },
   "opencode": {
+    "detect": false
+  },
+  "openrouter": {
     "detect": false
   }
 }
