@@ -97,6 +97,8 @@ defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
+launchctl disable "gui/$(id -u)/com.google.GoogleUpdater.wake"
+
 echo "Opening Chrome configuration profile..."
 open ./config/chrome/com.google.Chrome.mobileconfig
 
