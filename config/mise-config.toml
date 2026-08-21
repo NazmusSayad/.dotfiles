@@ -66,7 +66,7 @@ rust = "stable"
 rust-analyzer = "latest"
 
 # Others
-java = "latest"
+# java = "latest"
 # dart = "latest"
 # kotlin = "latest"
 # php = "latest"
