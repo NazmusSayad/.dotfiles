@@ -25,8 +25,7 @@
     "Target": [
       "~/.claude/skills",
       "~/.claude-uig/skills",
-      "~/.claude-work/skills",
-      "~/.claude-sayad/skills"
+      "~/.claude-work/skills"
     ]
   },
 
@@ -47,8 +46,7 @@
     "Target": [
       "~/.claude/CLAUDE.md",
       "~/.claude-uig/CLAUDE.md",
-      "~/.claude-work/CLAUDE.md",
-      "~/.claude-sayad/CLAUDE.md"
+      "~/.claude-work/CLAUDE.md"
     ]
   },
   {
@@ -56,73 +54,43 @@
     "Target": [
       "~/.claude/settings.json",
       "~/.claude-uig/settings.json",
-      "~/.claude-work/settings.json",
-      "~/.claude-sayad/settings.json"
+      "~/.claude-work/settings.json"
     ]
   },
   {
     "Source": "~/.claude/plans",
-    "Target": [
-      "~/.claude-uig/plans",
-      "~/.claude-work/plans",
-      "~/.claude-sayad/plans"
-    ]
+    "Target": ["~/.claude-uig/plans", "~/.claude-work/plans"]
   },
   {
     "Source": "~/.claude/tasks",
-    "Target": [
-      "~/.claude-uig/tasks",
-      "~/.claude-work/tasks",
-      "~/.claude-sayad/tasks"
-    ]
+    "Target": ["~/.claude-uig/tasks", "~/.claude-work/tasks"]
   },
   {
     "Source": "~/.claude/plugins",
-    "Target": [
-      "~/.claude-uig/plugins",
-      "~/.claude-work/plugins",
-      "~/.claude-sayad/plugins"
-    ]
+    "Target": ["~/.claude-uig/plugins", "~/.claude-work/plugins"]
   },
   {
     "Source": "~/.claude/projects",
-    "Target": [
-      "~/.claude-uig/projects",
-      "~/.claude-work/projects",
-      "~/.claude-sayad/projects"
-    ]
+    "Target": ["~/.claude-uig/projects", "~/.claude-work/projects"]
   },
   {
     "Source": "~/.claude/sessions",
-    "Target": [
-      "~/.claude-uig/sessions",
-      "~/.claude-work/sessions",
-      "~/.claude-sayad/sessions"
-    ]
+    "Target": ["~/.claude-uig/sessions", "~/.claude-work/sessions"]
   },
   {
     "Source": "~/.claude/session-env",
-    "Target": [
-      "~/.claude-uig/session-env",
-      "~/.claude-work/session-env",
-      "~/.claude-sayad/session-env"
-    ]
+    "Target": ["~/.claude-uig/session-env", "~/.claude-work/session-env"]
   },
   {
     "Source": "~/.claude/shell-snapshots",
     "Target": [
       "~/.claude-uig/shell-snapshots",
-      "~/.claude-work/shell-snapshots",
-      "~/.claude-sayad/shell-snapshots"
+      "~/.claude-work/shell-snapshots"
     ]
   },
   {
     "Source": "~/.claude/history.jsonl",
-    "Target": [
-      "~/.claude-uig/history.jsonl",
-      "~/.claude-work/history.jsonl",
-      "~/.claude-sayad/history.jsonl"
-    ]
+    "Target": ["~/.claude-uig/history.jsonl", "~/.claude-work/history.jsonl"]
   },
 
   // Opencode

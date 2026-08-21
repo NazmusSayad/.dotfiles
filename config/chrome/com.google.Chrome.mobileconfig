@@ -72,6 +72,26 @@
 			<key>GenAILocalFoundationalModelSettings</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.google.Keystone</string>
+			<key>PayloadIdentifier</key>
+			<string>com.google.Chrome.policies.keystone</string>
+			<key>PayloadUUID</key>
+			<string>7228B913-04E8-4DC1-BF15-C1F0C4FBFD2D</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadDisplayName</key>
+			<string>Google Chrome Update Policies</string>
+			<key>updatePolicies</key>
+			<dict>
+				<key>com.google.Chrome</key>
+				<dict>
+					<key>UpdateDefault</key>
+					<integer>3</integer>
+				</dict>
+			</dict>
+		</dict>
 	</array>
 	<key>PayloadType</key>
 	<string>Configuration</string>
