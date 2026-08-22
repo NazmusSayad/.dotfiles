@@ -1,4 +1,5 @@
 status is-interactive; or return
+test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
 
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
@@ -9,7 +10,6 @@ if command -q uname; and test (uname) = Darwin
     mise activate fish | source
 end
 
-test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
 test -f ~/.dotfiles/.env; and dotsh fish "$(cat ~/.dotfiles/.env)" | source
 test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
 direnv hook fish | source
