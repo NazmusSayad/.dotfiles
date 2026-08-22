@@ -28,7 +28,6 @@ cask "ghostty"
 # System
 brew "mole"
 brew "batt", restart_service: true
-cask "logi-options+"
 
 # Browsers
 cask "google-chrome"
