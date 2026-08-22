@@ -56,6 +56,10 @@
         },
         {
             "id": null,
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
             "keys": "ctrl+numpad_minus"
         },
         {
@@ -65,10 +69,6 @@
         {
             "id": null,
             "keys": "alt+right"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+w"
         },
         {
             "id": null,
@@ -87,12 +87,12 @@
             "keys": "ctrl+n"
         },
         {
-            "id": "Terminal.ClosePane",
-            "keys": "ctrl+w"
-        },
-        {
             "id": null,
             "keys": "ctrl+alt+left"
+        },
+        {
+            "id": "Terminal.ClosePane",
+            "keys": "ctrl+w"
         },
         {
             "id": null,
@@ -100,19 +100,11 @@
         },
         {
             "id": null,
-            "keys": "alt+shift+plus"
-        },
-        {
-            "id": null,
             "keys": "alt+space"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+comma"
+            "keys": "alt+shift+plus"
         },
         {
             "id": "User.paste",
@@ -120,11 +112,19 @@
         },
         {
             "id": null,
+            "keys": "ctrl+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": null,
             "keys": "ctrl+numpad_plus"
         },
         {
             "id": null,
-            "keys": "alt+down"
+            "keys": "ctrl+shift+4"
         },
         {
             "id": null,
@@ -132,7 +132,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+4"
+            "keys": "alt+down"
         },
         {
             "id": null,
@@ -152,7 +152,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+2"
+            "keys": "ctrl+shift+comma"
         },
         {
             "id": null,
@@ -160,11 +160,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+comma"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+3"
+            "keys": "ctrl+shift+2"
         },
         {
             "id": "Terminal.SelectAll",
@@ -172,7 +168,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+6"
+            "keys": "ctrl+shift+3"
         },
         {
             "id": null,
@@ -180,11 +176,15 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+7"
+            "keys": "ctrl+shift+6"
         },
         {
             "id": null,
             "keys": "ctrl+shift+home"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+7"
         },
         {
             "id": null,
@@ -204,11 +204,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+period"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+pgdn"
+            "keys": "ctrl+numpad0"
         },
         {
             "id": null,
@@ -216,7 +212,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+numpad0"
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+period"
         },
         {
             "id": null,
@@ -224,19 +224,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+9"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+2"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+7"
+            "keys": "ctrl+alt+9"
         },
         {
             "id": null,
             "keys": "ctrl+alt+4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+7"
         },
         {
             "id": null,
@@ -248,11 +248,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+1"
+            "keys": "alt+shift+left"
         },
         {
             "id": null,
-            "keys": "alt+shift+left"
+            "keys": "ctrl+alt+1"
         },
         {
             "id": null,
@@ -260,11 +260,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+5"
+            "keys": "alt+shift+right"
         },
         {
             "id": null,
-            "keys": "alt+shift+right"
+            "keys": "ctrl+alt+5"
         },
         {
             "id": null,
@@ -367,6 +367,12 @@
                 "hidden": false,
                 "name": "Windows PowerShell",
                 "startingDirectory": null
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
