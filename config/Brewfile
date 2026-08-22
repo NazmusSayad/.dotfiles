@@ -70,6 +70,7 @@ brew "gnupg"
 # Development
 cask "visual-studio-code@insiders"
 cask "visual-studio-code"
+cask "opencode-desktop"
 cask "tablepro"
 brew "shfmt"
 brew "fvm"
