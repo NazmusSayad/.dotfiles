@@ -1,5 +1,9 @@
 status is-interactive; or return
-test -f ~/.path; and set -x PATH $PATH (cat ~/.path)
+if test -f ~/.path
+    while read -l p
+        contains $p $PATH; or set -x PATH $PATH $p
+    end < ~/.path
+end
 
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source

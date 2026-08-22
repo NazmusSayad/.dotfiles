@@ -1,5 +1,9 @@
 [[ $- != *i* ]] && return
-[[ -f ~/.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.path)"
+if [[ -f ~/.path ]]; then
+	while read -r p; do
+		[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
+	done <~/.path
+fi
 
 if [[ "$OS" == "Windows_NT" ]]; then
 	eval "$(dotsh bash "$(mise env --dotenv)")"
