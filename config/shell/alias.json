@@ -59,6 +59,9 @@
   "dcd": "docker compose down",
   "dcr": "docker compose restart",
 
+  "x": "clear",
+  "xxx": "exit",
+
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
