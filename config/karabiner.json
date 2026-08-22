@@ -50,6 +50,24 @@
             ]
           },
           {
+            "description": "fn+F → Ctrl+Cmd+F (global fullscreen)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "f",
+                  "modifiers": { "mandatory": ["fn"] }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["left_control", "left_command"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Option+Space → Option+Shift+F",
             "manipulators": [
               {
