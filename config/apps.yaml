@@ -119,7 +119,9 @@ winget:
   - id: Anthropic.Claude
   - id: SST.OpenCodeDesktop
   - id: Microsoft.VisualStudioCode
-    name: VSCode
+    scope: User
+    interactiveInstall: true
+  - id: Microsoft.VisualStudioCode.Insiders
     scope: User
     interactiveInstall: true
 
