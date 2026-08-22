@@ -104,6 +104,6 @@
       "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]
     },
     "opencode": { "whitelist": ["x-preview-f-free"] },
-    "openrouter": { "whitelist": ["openai/gpt-oss-120b"] }
+    "openrouter": { "whitelist": ["openai/gpt-oss-120b", "stealth/ox-alpha"] }
   }
 }
