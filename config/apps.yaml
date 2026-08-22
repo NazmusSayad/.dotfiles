@@ -65,6 +65,8 @@ winget:
     interactiveUpgrade: true
 
   # Windows Tools
+  - id: 9MZ1SNWT0N5D
+    name: Windows Powershell
   - id: 9N0DX20HK701
     name: Windows Terminal
   - id: 9MSMLRH6LZF3
