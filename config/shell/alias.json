@@ -59,11 +59,14 @@
   "dcd": "docker compose down",
   "dcr": "docker compose restart",
 
+  "x": "clear",
+  "xxx": "exit",
+
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
   "ex": { "cmd": "explorer", "platform": "windows" },
-  "where": { "cmd": "command -a", "platform": "macos" },
+  "where": { "cmd": "which -a", "platform": "macos" },
 
   "fix-next": "rm -rf .next",
   "fix-ports": {

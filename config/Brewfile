@@ -59,7 +59,7 @@ cask "unified-remote"
 cask "karabiner-elements"
 
 # Cloud
-brew "cloudflared", restart_service: true
+brew "cloudflared"
 
 # Git
 brew "git"
@@ -70,16 +70,16 @@ brew "gnupg"
 # Development
 cask "visual-studio-code@insiders"
 cask "visual-studio-code"
+cask "opencode-desktop"
 cask "tablepro"
 brew "shfmt"
-brew "mise"
 brew "fvm"
 
 # Docker
+brew "colima"
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
-brew "colima", restart_service: true
 
 # Fonts
 cask "font-fira-code-nerd-font"
