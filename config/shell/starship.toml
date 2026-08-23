@@ -19,6 +19,7 @@ threshold = 2
 [hostname]
 disabled = false
 ssh_only = true
+format = '[$hostname](bold red) '
 
 [directory]
 disabled = false
