@@ -2,7 +2,7 @@
   "$schema": "https://github.com/NazmusSayad/opencode-armor/raw/refs/heads/schema/schema.json",
   "armor": {
     "blacklist": {
-      "commands": ["go build"]
+      "commands": ["go build", "colima"]
     }
   }
 }
