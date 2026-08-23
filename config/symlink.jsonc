@@ -21,9 +21,9 @@
   {
     "Source": "@/config/ai/AGENTS_GLOBAL.md",
     "Target": [
-      "~/.agents/README.md",
-      "~/.config/opencode/AGENTS.md",
-      "~/.codex/AGENTS.md"
+      "~/.AGENTS.md",
+      "~/.codex/AGENTS.md",
+      "~/.config/opencode/AGENTS.md"
     ]
   },
 

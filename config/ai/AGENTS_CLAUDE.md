@@ -1,4 +1,4 @@
-@~/.agents/README.md
+@~/.AGENTS.md
 
 - Prefer dedicated tools for working with files instead of using shell scripts.
 
