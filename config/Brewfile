@@ -27,7 +27,7 @@ cask "ghostty"
 
 # System
 brew "mole"
-brew "batt", restart_service: true
+brew "batt"
 
 # Browsers
 cask "google-chrome"
