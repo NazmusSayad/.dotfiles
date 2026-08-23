@@ -3,4 +3,4 @@
 
 - Do not write comments unless instructed.
 
-- Perform relevant validation when only necessary, and combine checks when possible.
+- Avoid adding test files unless instructed; perform relevant validation only when necessary, combining checks where possible.
