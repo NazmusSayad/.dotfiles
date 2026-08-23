@@ -20,11 +20,7 @@
   // AGENTS.md
   {
     "Source": "@/config/ai/AGENTS_GLOBAL.md",
-    "Target": [
-      "~/.AGENTS.md",
-      "~/.codex/AGENTS.md",
-      "~/.config/opencode/AGENTS.md"
-    ]
+    "Target": ["~/.codex/AGENTS.md", "~/.config/opencode/AGENTS.md"]
   },
 
   // Agents Skills
