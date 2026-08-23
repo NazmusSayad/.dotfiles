@@ -85,6 +85,7 @@ winget:
 
   # Communication
   - id: LinearOrbit.Linear
+  - id: Cloudflare.cloudflared
 
   # Media Tools
   - OBSProject.OBSStudio
