@@ -1,4 +1,4 @@
-format = "$shell$shlvl$directory$git_branch$git_state$git_status$line_break$character"
+format = "$shell$shlvl$hostname$directory$git_branch$git_state$git_status$line_break$character"
 follow_symlinks = false
 add_newline = false
 
@@ -16,6 +16,9 @@ disabled = false
 format = '[\[$shlvl\]](dimmed red) '
 threshold = 2
 
+[hostname]
+disabled = false
+ssh_only = true
 
 [directory]
 disabled = false
