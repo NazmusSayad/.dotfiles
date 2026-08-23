@@ -19,7 +19,7 @@ threshold = 2
 [hostname]
 disabled = false
 ssh_only = true
-format = '[{$hostname}](dimmed) '
+format = '[<$hostname>](dimmed) '
 
 [directory]
 disabled = false
