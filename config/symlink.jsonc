@@ -20,7 +20,11 @@
   // AGENTS.md
   {
     "Source": "@/config/ai/AGENTS_GLOBAL.md",
-    "Target": ["~/.codex/AGENTS.md", "~/.config/opencode/AGENTS.md"]
+    "Target": [
+      "~/.codex/AGENTS.md",
+      "~/.gemini/GEMINI.md",
+      "~/.config/opencode/AGENTS.md"
+    ]
   },
 
   // Agents Skills
@@ -29,7 +33,8 @@
     "Target": [
       "~/.claude/skills",
       "~/.claude-uig/skills",
-      "~/.claude-work/skills"
+      "~/.claude-work/skills",
+      "~/.gemini/antigravity-cli/skills"
     ]
   },
 
