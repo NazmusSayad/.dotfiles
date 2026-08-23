@@ -19,7 +19,7 @@
 
   // AGENTS.md
   {
-    "Source": "~/.agents/skills/AGENTS_GLOBAL.md",
+    "Source": "~/.agents/skills/AGENTS_CORE.md",
     "Target": [
       "~/.codex/AGENTS.md",
       "~/.gemini/GEMINI.md",
