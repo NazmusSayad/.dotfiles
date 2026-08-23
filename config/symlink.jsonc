@@ -19,7 +19,7 @@
 
   // AGENTS.md
   {
-    "Source": "@/config/ai/AGENTS_GLOBAL.md",
+    "Source": "~/.agents/skills/AGENTS_GLOBAL.md",
     "Target": [
       "~/.codex/AGENTS.md",
       "~/.gemini/GEMINI.md",
@@ -51,7 +51,7 @@
 
   // Claude
   {
-    "Source": "@/config/ai/AGENTS_CLAUDE.md",
+    "Source": "~/.agents/skills/AGENTS_CLAUDE.md",
     "Target": [
       "~/.claude/CLAUDE.md",
       "~/.claude-uig/CLAUDE.md",
