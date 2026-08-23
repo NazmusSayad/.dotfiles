@@ -12,6 +12,10 @@
     "Source": "@/config/shell/fishrc.fish",
     "Target": "~/.config/fish/config.fish"
   },
+  {
+    "Source": "@/config/shell/pwshrc.ps1",
+    "Target.Win": "~/Documents/PowerShell/profile.ps1"
+  },
 
   // AGENTS.md
   {
