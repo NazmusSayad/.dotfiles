@@ -68,6 +68,22 @@ func main() {
 		fmt.Println("Updated: nsswitch.conf")
 	}
 
+	PROFILE_PATH := filepath.Join(MSYS_PATH, "etc", "profile")
+	if content, err := os.ReadFile(PROFILE_PATH); err == nil {
+		BACKUP_PATH := PROFILE_PATH + ".bak"
+		if !utils.IsFileExists(BACKUP_PATH) {
+			_ = os.WriteFile(BACKUP_PATH, content, 0o644)
+			fmt.Println("Backup created:", BACKUP_PATH)
+		}
+
+		reMinimal := regexp.MustCompile(`(?m)^case "\$\{MSYS2_PATH_TYPE:-minimal\}" in$`)
+		updated := reMinimal.ReplaceAllString(string(content), `case "${MSYS2_PATH_TYPE:-inherit}" in`)
+		_ = os.WriteFile(PROFILE_PATH, []byte(updated), 0o644)
+		fmt.Println("Updated: /etc/profile (minimal->inherit)")
+	} else {
+		fmt.Println("Error reading /etc/profile:", err)
+	}
+
 	fmt.Println("Adding MSYS2_PATH_TYPE to env")
 	helpers.WriteEnv(helpers.ScopeMachine, "MSYS2_PATH_TYPE", "inherit")
 
