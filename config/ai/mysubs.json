@@ -1,7 +1,9 @@
 {
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
+
   "codex": {
+    "detect": false,
     "accounts": {
       "sayad": { "configDir": "~/.codex-sayad" }
     }
