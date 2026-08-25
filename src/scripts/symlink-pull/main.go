@@ -19,12 +19,12 @@ func main() {
 	}
 
 	for _, config := range symlinkConfigs {
-		if !config.Copy {
+		if len(config.CopyTargets) == 0 {
 			continue
 		}
 
 		sourcePath := helpers.ResolvePath(config.Source)
-		targetPath := helpers.ResolvePath(config.Targets[0])
+		targetPath := helpers.ResolvePath(config.CopyTargets[0])
 
 		if !utils.IsFileExists(targetPath) {
 			fmt.Println("Skipping, target not found:", targetPath)

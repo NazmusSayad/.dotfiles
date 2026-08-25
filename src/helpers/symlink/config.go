@@ -1,77 +1,105 @@
 package symlink
 
 import (
-	"encoding/json"
 	"fmt"
 	"runtime"
+	"sort"
 
 	helpers "dotfiles/src/helpers"
+	"gopkg.in/yaml.v3"
 )
 
 type StringOrArray []string
 
-func (s *StringOrArray) UnmarshalJSON(data []byte) error {
-	var single string
-	if err := json.Unmarshal(data, &single); err == nil {
-		*s = []string{single}
+func (s *StringOrArray) UnmarshalYAML(value *yaml.Node) error {
+	switch value.Kind {
+	case yaml.ScalarNode:
+		var target string
+		if err := value.Decode(&target); err != nil {
+			return err
+		}
+		*s = []string{target}
 		return nil
+	case yaml.SequenceNode:
+		return value.Decode((*[]string)(s))
+	default:
+		return fmt.Errorf("value must be a string or array of strings: %s", value.Value)
 	}
-
-	var array []string
-	if err := json.Unmarshal(data, &array); err == nil {
-		*s = array
-		return nil
-	}
-
-	return fmt.Errorf("value must be a string or array of strings: %s", string(data))
 }
 
 type Config struct {
-	Copy    bool
-	Source  string
-	Targets []string
+	Source      string
+	LinkTargets []string
+	CopyTargets []string
 }
 
-type rawConfig struct {
-	Copy      bool          `json:"Copy"`
-	Source    string        `json:"Source"`
-	Target    StringOrArray `json:"Target"`
-	TargetWin StringOrArray `json:"Target.Win"`
-	TargetMac StringOrArray `json:"Target.Mac"`
+type Entry struct {
+	Link    StringOrArray `yaml:"-"`
+	Win     StringOrArray `yaml:"Win"`
+	Mac     StringOrArray `yaml:"Mac"`
+	Copy    StringOrArray `yaml:"Copy"`
+	WinCopy StringOrArray `yaml:"Win.Copy"`
+	MacCopy StringOrArray `yaml:"Mac.Copy"`
+}
+
+func (e *Entry) UnmarshalYAML(node *yaml.Node) error {
+	switch node.Kind {
+	case yaml.ScalarNode, yaml.SequenceNode:
+		return node.Decode(&e.Link)
+	case yaml.MappingNode:
+		type plainEntry Entry
+		return node.Decode((*plainEntry)(e))
+	default:
+		return fmt.Errorf("invalid symlink entry: %s", node.Value)
+	}
+}
+
+func (e Entry) resolve() ([]string, []string) {
+	linkTargets := e.Link
+	copyTargets := e.Copy
+
+	switch runtime.GOOS {
+	case "windows":
+		if len(e.Win) > 0 {
+			linkTargets = e.Win
+		}
+		if len(e.WinCopy) > 0 {
+			copyTargets = e.WinCopy
+		}
+	case "darwin":
+		if len(e.Mac) > 0 {
+			linkTargets = e.Mac
+		}
+		if len(e.MacCopy) > 0 {
+			copyTargets = e.MacCopy
+		}
+	}
+
+	return []string(linkTargets), []string(copyTargets)
 }
 
 func ReadConfigs() []Config {
-	rawConfigs := helpers.ReadConfig[[]rawConfig]("@/config/symlink.jsonc")
+	rawConfigs := helpers.ReadConfig[map[string]Entry]("@/config/symlink.yml")
+
+	sources := make([]string, 0, len(rawConfigs))
+	for source := range rawConfigs {
+		sources = append(sources, source)
+	}
+	sort.Strings(sources)
 
 	var configs []Config
-	for _, raw := range rawConfigs {
-		targets := resolveTargets(raw)
-		if len(targets) == 0 {
+	for _, source := range sources {
+		linkTargets, copyTargets := rawConfigs[source].resolve()
+		if len(linkTargets) == 0 && len(copyTargets) == 0 {
 			continue
 		}
 
 		configs = append(configs, Config{
-			Copy:    raw.Copy,
-			Source:  raw.Source,
-			Targets: targets,
+			Source:      source,
+			LinkTargets: linkTargets,
+			CopyTargets: copyTargets,
 		})
 	}
 
 	return configs
-}
-
-func resolveTargets(raw rawConfig) []string {
-	if runtime.GOOS == "windows" && len(raw.TargetWin) > 0 {
-		return raw.TargetWin
-	}
-
-	if runtime.GOOS == "darwin" && len(raw.TargetMac) > 0 {
-		return raw.TargetMac
-	}
-
-	if len(raw.Target) > 0 {
-		return raw.Target
-	}
-
-	return nil
 }

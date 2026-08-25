@@ -20,14 +20,14 @@ func main() {
 	for _, config := range symlinkConfigs {
 		sourcePath := helpers.ResolvePath(config.Source)
 
-		for _, target := range config.Targets {
+		for _, target := range config.LinkTargets {
 			targetPath := helpers.ResolvePath(target)
+			helpers.GenerateSymlink(sourcePath, targetPath)
+		}
 
-			if config.Copy {
-				helpers.CopyFile(sourcePath, targetPath)
-			} else {
-				helpers.GenerateSymlink(sourcePath, targetPath)
-			}
+		for _, target := range config.CopyTargets {
+			targetPath := helpers.ResolvePath(target)
+			helpers.CopyFile(sourcePath, targetPath)
 		}
 	}
 }
