@@ -148,7 +148,7 @@
   // Terminal
   {
     "Source": "@/config/shell/alias.json",
-    "Target": "~/.config/shaka.json"
+    "Target": "~/.config/shaka/config.json"
   },
   {
     "Source": "@/config/shell/starship.toml",
