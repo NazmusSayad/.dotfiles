@@ -7,6 +7,7 @@ openrouter:
 
 opencode:
   models:
+    - id: muse-spark-1.2-contributor-free
     - id: x-preview-f-free
 
 openai:
