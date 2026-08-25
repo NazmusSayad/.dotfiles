@@ -56,9 +56,9 @@ func main() {
 
 	fmt.Print(
 		" Create Pull Request: ",
-		aurora.Yellow(baseBranch).Bold(),
+		aurora.Cyan(baseBranch).Bold(),
 		" <- ",
-		aurora.Cyan(targetBranch).Bold(),
+		aurora.Yellow(targetBranch).Bold(),
 		" ",
 		aurora.Faint("[Enter]: "),
 	)
