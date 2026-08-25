@@ -39,7 +39,7 @@ func main() {
 			"--limit",
 			"5",
 			"--json",
-			"tagName,createdAt",
+			"tagName,publishedAt",
 		).Output()
 		if err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to list recent releases"))
@@ -47,15 +47,15 @@ func main() {
 		}
 
 		var releases []struct {
-			TagName   string    `json:"tagName"`
-			CreatedAt time.Time `json:"createdAt"`
+			TagName     string    `json:"tagName"`
+			PublishedAt time.Time `json:"publishedAt"`
 		}
 		if err := json.Unmarshal(releasesOutput, &releases); err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read recent releases"))
 			os.Exit(1)
 		}
 		sort.Slice(releases, func(i, j int) bool {
-			return releases[i].CreatedAt.Before(releases[j].CreatedAt)
+			return releases[i].PublishedAt.Before(releases[j].PublishedAt)
 		})
 
 		if len(releases) == 0 {
@@ -74,7 +74,7 @@ func main() {
 				paddedTag := release.TagName + strings.Repeat(" ", longestTag-len(release.TagName))
 				fmt.Println(
 					aurora.Cyan(paddedTag),
-					aurora.Faint(humanize.Time(release.CreatedAt)),
+					aurora.Faint(humanize.Time(release.PublishedAt)),
 				)
 			}
 		}
