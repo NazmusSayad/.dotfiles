@@ -15,56 +15,55 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
+type pullRequest struct {
+	Number      int    `json:"number"`
+	URL         string `json:"url"`
+	BaseRefName string `json:"baseRefName"`
+	HeadRefName string `json:"headRefName"`
+}
+
 func main() {
 	baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(
 		os.Args[1:],
 		"Usage: ghm [base-branch] [head-branch]",
 	)
 
-	pullRequestsOutput, _, err := gh.Exec(
-		"pr",
-		"list",
-		"--state",
-		"open",
-		"--base",
-		baseBranch,
-		"--head",
-		targetBranch,
-		"--limit",
-		"1",
-		"--json",
-		"number,mergeable",
-	)
+	pullRequest, err := findPullRequest(baseBranch, targetBranch)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request"))
 		os.Exit(1)
 	}
 
-	var pullRequests []struct {
-		Number    int    `json:"number"`
-		Mergeable string `json:"mergeable"`
-	}
-	if err := json.Unmarshal(pullRequestsOutput.Bytes(), &pullRequests); err != nil {
-		fmt.Fprintln(os.Stderr, aurora.Red("Failed to read pull request"))
-		os.Exit(1)
-	}
-	if len(pullRequests) == 0 {
-		fmt.Fprintln(os.Stderr, aurora.Red("Open pull request not found"))
-		os.Exit(1)
+	createdPullRequest := false
+	if pullRequest.Number == 0 {
+		confirmed, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch)
+		if !confirmed {
+			return
+		}
+		if err != nil {
+			os.Exit(1)
+		}
+
+		pullRequest, err = findPullRequest(baseBranch, targetBranch)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request after creation"))
+			os.Exit(1)
+		}
+		if pullRequest.Number == 0 {
+			fmt.Fprintln(os.Stderr, aurora.Red("Pull request not found after creation"))
+			os.Exit(1)
+		}
+		createdPullRequest = true
 	}
 
-	pullRequest := pullRequests[0]
-	if pullRequest.Mergeable == "CONFLICTING" {
-		fmt.Fprintln(os.Stderr, aurora.Red("Pull request has merge conflicts"))
-		os.Exit(1)
-	}
-	if pullRequest.Mergeable != "MERGEABLE" {
-		fmt.Fprintln(os.Stderr, aurora.Red("Pull request mergeability is unknown"))
-		os.Exit(1)
+	if !createdPullRequest {
+		fmt.Println("", pullRequest.URL)
 	}
 
 	fmt.Print(
-		" Merge PR: ",
+		" Merge PR #",
+		aurora.Cyan(pullRequest.Number).Bold(),
+		": ",
 		aurora.Red(baseBranch).Bold(),
 		aurora.Faint("<-"),
 		aurora.Yellow(targetBranch).Bold(),
@@ -83,4 +82,42 @@ func main() {
 	); err != nil {
 		os.Exit(1)
 	}
+}
+
+func findPullRequest(baseBranch string, targetBranch string) (pullRequest, error) {
+	pullRequestsOutput, _, err := gh.Exec(
+		"pr",
+		"list",
+		"--state",
+		"open",
+		"--base",
+		baseBranch,
+		"--head",
+		targetBranch,
+		"--limit",
+		"100",
+		"--json",
+		"number,url,baseRefName,headRefName",
+	)
+	if err != nil {
+		return pullRequest{}, err
+	}
+
+	var pullRequests []pullRequest
+	if err := json.Unmarshal(pullRequestsOutput.Bytes(), &pullRequests); err != nil {
+		return pullRequest{}, err
+	}
+
+	var matchingPullRequest pullRequest
+	for _, candidate := range pullRequests {
+		if candidate.BaseRefName != baseBranch || candidate.HeadRefName != targetBranch {
+			continue
+		}
+		if matchingPullRequest.Number != 0 {
+			return pullRequest{}, fmt.Errorf("multiple open pull requests found for %s <- %s", baseBranch, targetBranch)
+		}
+		matchingPullRequest = candidate
+	}
+
+	return matchingPullRequest, nil
 }
