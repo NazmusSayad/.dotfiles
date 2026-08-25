@@ -29,15 +29,18 @@
     }
   ],
 
-  "words": [
-    "NazmusSayad",
-    "OiPer",
-    "Claude"
-  ],
+  "words": ["NazmusSayad", "OiPer", "Claude"],
 
   "snippets": {
+    "My Website": "https://nazmussayad.com",
     "My GitHub": "https://github.com/NazmusSayad",
-    "My Website": "https://nazmussayad.com"
+    "My Telegram": "https://t.me/NazmusSayad",
+    "My Twitter": "https://x.com/NazmusSayadX",
+    "My Facebook": "https://fb.com/NazmusSayad",
+    "My Instagram": "https://instagram.com/NazmusSayad",
+    "My .files": "https://github.com/NazmusSayad/.dotfiles",
+    "OiPer Website": "https://oiper.com",
+    "OiPer Desktop GitHub": "https://github.com/OiPer/desktop"
   },
 
   "profiles": [
