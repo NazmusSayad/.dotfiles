@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+	"slices"
+	"strings"
 
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/helpers/symlink"
@@ -17,17 +19,36 @@ func main() {
 		os.Exit(1)
 	}
 
+	newlyCreatedFiles := []string{}
+
 	for _, config := range symlinkConfigs {
 		sourcePath := helpers.ResolvePath(config.Source)
 
 		for _, target := range config.LinkTargets {
 			targetPath := helpers.ResolvePath(target)
-			helpers.GenerateSymlink(sourcePath, targetPath)
+			if helpers.GenerateSymlink(sourcePath, targetPath) == nil {
+				newlyCreatedFiles = append(newlyCreatedFiles, targetPath)
+			}
 		}
 
 		for _, target := range config.CopyTargets {
 			targetPath := helpers.ResolvePath(target)
-			helpers.CopyFile(sourcePath, targetPath)
+			if helpers.CopyFile(sourcePath, targetPath) == nil {
+				newlyCreatedFiles = append(newlyCreatedFiles, targetPath)
+			}
 		}
 	}
+
+	lockFile, _ := os.ReadFile(helpers.ResolvePath("@/.local/symlink.lock"))
+	for _, file := range strings.Split(string(lockFile), "\n") {
+		if file != "" && !slices.Contains(newlyCreatedFiles, file) {
+			os.RemoveAll(file)
+		}
+	}
+
+	os.WriteFile(
+		helpers.ResolvePath("@/.local/symlink.lock"),
+		[]byte(strings.Join(newlyCreatedFiles, "\n")),
+		0o644,
+	)
 }
