@@ -3,7 +3,6 @@
   "nerdFont": true,
 
   "codex": {
-    "detect": false,
     "accounts": {
       "sayad": { "configDir": "~/.codex-sayad" }
     }
@@ -11,8 +10,8 @@
   "claude": {
     "detect": false,
     "accounts": {
-      "uig": { "configDir": "~/.claude-uig", "info": "Extra" },
-      "work": { "configDir": "~/.claude-work", "info": "Work" }
+      "work": { "configDir": "~/.claude-work", "info": "Work" },
+      "uig": { "configDir": "~/.claude-uig", "info": "Extra" }
     }
   },
   "copilot": {
