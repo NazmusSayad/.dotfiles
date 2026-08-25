@@ -14,45 +14,10 @@ import (
 )
 
 func main() {
-	if !helpers.IsGitRepo() {
-		fmt.Fprintln(os.Stderr, aurora.Red("Not a git repository"))
-		os.Exit(1)
-	}
-
-	baseBranch := ""
-	targetBranch := helpers.GetCurrentGitBranchOrExit()
-
-	if len(os.Args) == 1 {
-	} else if len(os.Args) == 2 {
-		baseBranch = os.Args[1]
-	} else if len(os.Args) == 3 {
-		baseBranch = os.Args[1]
-		targetBranch = os.Args[2]
-	} else {
-		fmt.Fprintln(os.Stderr, "Usage: gpc [base-branch] [head-branch]")
-		os.Exit(1)
-	}
-
-	if baseBranch == "" {
-		defaultBranchOutput, _, err := gh.Exec(
-			"repo",
-			"view",
-			"--json",
-			"defaultBranchRef",
-			"--jq",
-			".defaultBranchRef.name",
-		)
-		if err != nil {
-			fmt.Fprintln(os.Stderr, aurora.Red("Failed to resolve default branch"))
-			os.Exit(1)
-		}
-
-		baseBranch = strings.TrimSpace(defaultBranchOutput.String())
-		if baseBranch == "" {
-			fmt.Fprintln(os.Stderr, aurora.Red("Default branch not found"))
-			os.Exit(1)
-		}
-	}
+	baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(
+		os.Args[1:],
+		"Usage: ghp [base-branch] [head-branch]",
+	)
 
 	fmt.Print(
 		" Create PR: ",
