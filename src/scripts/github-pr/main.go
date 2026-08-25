@@ -69,7 +69,12 @@ func main() {
 		return
 	}
 
-	args := []string{"gh", "pr", "create", "--head", targetBranch, "--base", baseBranch, "--fill"}
-
-	helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
+	helpers.ExecNativeCommand(
+		[]string{
+			"gh", "pr", "create", "--fill",
+			"--head", "refs/heads/" + targetBranch,
+			"--base", baseBranch,
+		},
+		helpers.ExecCommandOptions{Exit: true},
+	)
 }
