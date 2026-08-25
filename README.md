@@ -7,9 +7,7 @@ A complete automation system for setting up and managing your developer workstat
 
 ## Recommendation
 
-I don't want everyone to copy this entire repo and use it because it is my own opinionated setup, not something for everyone.
-
-I recommend checking this repo, taking ideas from it, and implementing them in a way that fulfills your own requirements.
+I don't want everyone to copy this entire repo and use it because it is my own opinionated setup, not something for everyone. I recommend checking this repo, taking ideas from it, and implementing them in a way that fulfills your own requirements.
 
 ## Features & Capabilities
 
