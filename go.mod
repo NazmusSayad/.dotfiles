@@ -6,6 +6,7 @@ require (
 	github.com/charmbracelet/bubbles v1.0.0
 	github.com/charmbracelet/bubbletea v1.3.10
 	github.com/charmbracelet/lipgloss v1.1.1-0.20250319133953-166f707985bc
+	github.com/cli/go-gh/v2 v2.12.2
 	github.com/dustin/go-humanize v1.0.1
 	github.com/logrusorgru/aurora/v4 v4.0.0
 	github.com/tidwall/jsonc v0.3.2
@@ -43,7 +44,6 @@ require (
 )
 
 require (
-	github.com/cli/go-gh/v2 v2.12.2 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
 	github.com/otiai10/mint v1.6.3 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
