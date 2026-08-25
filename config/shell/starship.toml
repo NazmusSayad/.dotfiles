@@ -29,7 +29,7 @@ style = "blue"
 [git_branch]
 disabled = false
 format = "[$symbol ](dimmed)[$branch](yellow)"
-symbol = ""
+symbol = ""
 
 [git_status]
 disabled = false
