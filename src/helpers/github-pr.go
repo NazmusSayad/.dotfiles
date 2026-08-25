@@ -1,6 +1,8 @@
 package helpers
 
 import (
+	"bufio"
+	"context"
 	"fmt"
 	"os"
 	"strings"
@@ -47,4 +49,29 @@ func GetGithubPullRequestBranchesOrExit(args []string, usage string) (string, st
 	}
 
 	return baseBranch, targetBranch
+}
+
+func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, error) {
+	fmt.Print(
+		" Create PR: ",
+		aurora.Red(baseBranch).Bold(),
+		aurora.Faint("<-"),
+		aurora.Yellow(targetBranch).Bold(),
+		aurora.Faint("[Press Enter]: "),
+	)
+
+	confirmation, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+	if strings.TrimRight(confirmation, "\r\n") != "" {
+		fmt.Println(aurora.Red("Pull request creation cancelled"))
+		return false, nil
+	}
+
+	err := gh.ExecInteractive(
+		context.Background(),
+		"pr", "create", "--fill",
+		"--assignee", "@me",
+		"--base", baseBranch,
+		"--head", "refs/heads/"+targetBranch,
+	)
+	return true, err
 }
