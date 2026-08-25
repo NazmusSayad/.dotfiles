@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
 	"strings"
 
 	"dotfiles/src/helpers"
@@ -30,29 +32,44 @@ func main() {
 		os.Exit(1)
 	}
 
-	remote := helpers.GetCurrentGitRemoteOrExit()
-	remoteUrl := helpers.GetGitRemoteUrlOrExit(remote)
+	if baseBranch == "" {
+		defaultBranchOutput, err := exec.Command(
+			"gh",
+			"repo",
+			"view",
+			"--json",
+			"defaultBranchRef",
+			"--jq",
+			".defaultBranchRef.name",
+		).Output()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, aurora.Red("Failed to resolve default branch"))
+			os.Exit(1)
+		}
 
-	branchCompare := ""
-	if baseBranch != "" {
-		branchCompare = baseBranch + "..." + targetBranch
-		fmt.Println(
-			aurora.Faint("󰊢 Merging"),
-			aurora.Yellow(targetBranch),
-			aurora.Faint("into"),
-			aurora.Red(baseBranch),
-		)
-	} else {
-		branchCompare = targetBranch
-		fmt.Println(
-			aurora.Faint("󰊢 Merging"),
-			aurora.Yellow(targetBranch),
-			aurora.Faint("into "+aurora.Cyan("default branch").Faint().String()),
-		)
+		baseBranch = strings.TrimSpace(string(defaultBranchOutput))
+		if baseBranch == "" {
+			fmt.Fprintln(os.Stderr, aurora.Red("Default branch not found"))
+			os.Exit(1)
+		}
 	}
 
-	url := strings.Join([]string{remoteUrl + "/compare/" + branchCompare + "?expand=1"}, "")
-	fmt.Println(aurora.Faint("󰏌 " + url))
+	fmt.Print(
+		" Create Pull Request: ",
+		aurora.Cyan(baseBranch).Bold(),
+		" <- ",
+		aurora.Yellow(targetBranch).Bold(),
+		" ",
+		aurora.Faint("[Enter]: "),
+	)
 
-	helpers.Open(url, helpers.ExecCommandOptions{Exit: true})
+	confirmation, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+	if strings.TrimRight(confirmation, "\r\n") != "" {
+		fmt.Println(aurora.Red("Pull request creation cancelled"))
+		return
+	}
+
+	args := []string{"gh", "pr", "create", "--head", targetBranch, "--base", baseBranch, "--fill"}
+
+	helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
 }
