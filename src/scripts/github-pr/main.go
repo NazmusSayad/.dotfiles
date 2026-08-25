@@ -32,16 +32,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if baseBranch != "" {
-		fmt.Print(
-			" Create PR ",
-			aurora.Yellow(baseBranch).Bold(),
-			" <- ",
-			aurora.Cyan(targetBranch).Bold(),
-			" ",
-			aurora.Faint("[Enter]: "),
-		)
-	} else {
+	if baseBranch == "" {
 		defaultBranchOutput, err := exec.Command(
 			"gh",
 			"repo",
@@ -56,32 +47,29 @@ func main() {
 			os.Exit(1)
 		}
 
-		defaultBranch := strings.TrimSpace(string(defaultBranchOutput))
-		if defaultBranch == "" {
+		baseBranch = strings.TrimSpace(string(defaultBranchOutput))
+		if baseBranch == "" {
 			fmt.Fprintln(os.Stderr, aurora.Red("Default branch not found"))
 			os.Exit(1)
 		}
-
-		fmt.Print(
-			" Create PR ",
-			aurora.Yellow(defaultBranch).Bold(),
-			" <- ",
-			aurora.Cyan(targetBranch).Bold(),
-			" ",
-			aurora.Faint("[Enter]: "),
-		)
 	}
+
+	fmt.Print(
+		" Create Pull Request: ",
+		aurora.Yellow(baseBranch).Bold(),
+		" <- ",
+		aurora.Cyan(targetBranch).Bold(),
+		" ",
+		aurora.Faint("[Enter]: "),
+	)
 
 	confirmation, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 	if strings.TrimRight(confirmation, "\r\n") != "" {
-		fmt.Println(aurora.Faint("Pull request creation cancelled"))
+		fmt.Println(aurora.Red("Pull request creation cancelled"))
 		return
 	}
 
-	args := []string{"gh", "pr", "create", "--head", targetBranch, "--fill"}
-	if baseBranch != "" {
-		args = append(args, "--base", baseBranch)
-	}
+	args := []string{"gh", "pr", "create", "--head", targetBranch, "--base", baseBranch, "--fill"}
 
 	helpers.ExecNativeCommand(args, helpers.ExecCommandOptions{Exit: true})
 }
