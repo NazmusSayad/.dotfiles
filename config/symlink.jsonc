@@ -269,6 +269,10 @@
 
   // System
   {
+    "Source": "@/config/hammerspoon.lua",
+    "Target.Mac": "~/.hammerspoon/init.lua"
+  },
+  {
     "Copy": true,
     "Source": "@/config/US Simplified.keylayout",
     "Target.Mac": "~/Library/Keyboard Layouts/US Simplified.keylayout"
