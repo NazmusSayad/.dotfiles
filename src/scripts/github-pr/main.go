@@ -2,13 +2,14 @@ package main
 
 import (
 	"bufio"
+	"context"
 	"fmt"
 	"os"
-	"os/exec"
 	"strings"
 
 	"dotfiles/src/helpers"
 
+	gh "github.com/cli/go-gh/v2"
 	"github.com/logrusorgru/aurora/v4"
 )
 
@@ -33,21 +34,20 @@ func main() {
 	}
 
 	if baseBranch == "" {
-		defaultBranchOutput, err := exec.Command(
-			"gh",
+		defaultBranchOutput, _, err := gh.Exec(
 			"repo",
 			"view",
 			"--json",
 			"defaultBranchRef",
 			"--jq",
 			".defaultBranchRef.name",
-		).Output()
+		)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to resolve default branch"))
 			os.Exit(1)
 		}
 
-		baseBranch = strings.TrimSpace(string(defaultBranchOutput))
+		baseBranch = strings.TrimSpace(defaultBranchOutput.String())
 		if baseBranch == "" {
 			fmt.Fprintln(os.Stderr, aurora.Red("Default branch not found"))
 			os.Exit(1)
@@ -68,13 +68,13 @@ func main() {
 		return
 	}
 
-	helpers.ExecNativeCommand(
-		[]string{
-			"gh", "pr", "create", "--fill",
-			"--assignee", "@me",
-			"--base", baseBranch,
-			"--head", "refs/heads/" + targetBranch,
-		},
-		helpers.ExecCommandOptions{Exit: true},
-	)
+	if err := gh.ExecInteractive(
+		context.Background(),
+		"pr", "create", "--fill",
+		"--assignee", "@me",
+		"--base", baseBranch,
+		"--head", "refs/heads/"+targetBranch,
+	); err != nil {
+		os.Exit(1)
+	}
 }
