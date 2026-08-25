@@ -57,7 +57,7 @@ func main() {
 	}
 
 	if !createdPullRequest {
-		fmt.Println("", pullRequest.URL)
+		fmt.Println(pullRequest.URL)
 	}
 
 	fmt.Print(
