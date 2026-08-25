@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"net/url"
 	"os"
 	"os/exec"
 	"strings"
@@ -102,7 +103,18 @@ func main() {
 		}
 
 		helpers.ExecNativeCommand(
-			[]string{"gh", "release", "delete", tag, "--cleanup-tag", "--yes"},
+			[]string{"gh", "release", "delete", tag, "--yes"},
+			helpers.ExecCommandOptions{Exit: true},
+		)
+
+		helpers.ExecNativeCommand(
+			[]string{
+				"gh",
+				"api",
+				"--method",
+				"DELETE",
+				"repos/{owner}/{repo}/git/refs/tags/" + url.PathEscape(tag),
+			},
 			helpers.ExecCommandOptions{Exit: true},
 		)
 	}
