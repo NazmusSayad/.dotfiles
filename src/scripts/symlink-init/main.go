@@ -8,6 +8,7 @@ import (
 
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/helpers/symlink"
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
@@ -42,6 +43,7 @@ func main() {
 	lockFile, _ := os.ReadFile(helpers.ResolvePath("@/.local/symlink.lock"))
 	for _, file := range strings.Split(string(lockFile), "\n") {
 		if file != "" && !slices.Contains(newlyCreatedFiles, file) {
+			fmt.Println(aurora.Yellow("Deleting stale link: " + file))
 			os.RemoveAll(file)
 		}
 	}
