@@ -73,7 +73,7 @@ func main() {
 			"gh", "pr", "create", "--fill",
 			"--assignee", "@me",
 			"--base", baseBranch,
-			"--head", targetBranch,
+			"--head", "refs/heads/" + targetBranch,
 		},
 		helpers.ExecCommandOptions{Exit: true},
 	)
