@@ -13,25 +13,25 @@ import (
 )
 
 type inputOfficeTimeOffDays struct {
-	Jan []int
-	Feb []int
-	Mar []int
-	Apr []int
-	May []int
-	Jun []int
-	Jul []int
-	Aug []int
-	Sep []int
-	Oct []int
-	Nov []int
-	Dec []int
+	Jan []int `yaml:"Jan"`
+	Feb []int `yaml:"Feb"`
+	Mar []int `yaml:"Mar"`
+	Apr []int `yaml:"Apr"`
+	May []int `yaml:"May"`
+	Jun []int `yaml:"Jun"`
+	Jul []int `yaml:"Jul"`
+	Aug []int `yaml:"Aug"`
+	Sep []int `yaml:"Sep"`
+	Oct []int `yaml:"Oct"`
+	Nov []int `yaml:"Nov"`
+	Dec []int `yaml:"Dec"`
 }
 
 type inputSlackConfig struct {
-	OfficeTimeStart    int
-	OfficeTimeFinish   int
-	OfficeTimeWeekends []string
-	OfficeTimeOffDays  inputOfficeTimeOffDays
+	OfficeTimeStart    int                    `yaml:"OfficeTimeStart"`
+	OfficeTimeFinish   int                    `yaml:"OfficeTimeFinish"`
+	OfficeTimeWeekends []string               `yaml:"OfficeTimeWeekends"`
+	OfficeTimeOffDays  inputOfficeTimeOffDays `yaml:"OfficeTimeOffDays"`
 }
 
 type OutputSlackConfig struct {
@@ -43,7 +43,7 @@ type OutputSlackConfig struct {
 
 func ReadSlackConfig() OutputSlackConfig {
 	configInput := helpers.ReadConfig[inputSlackConfig](
-		"@/config/slack-status.jsonc",
+		"@/config/slack-status.yml",
 		helpers.ReadConfigOptions{Silent: true},
 	)
 
