@@ -53,7 +53,7 @@ func GetGithubPullRequestBranchesOrExit(args []string, usage string) (string, st
 
 func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, error) {
 	fmt.Print(
-		" Create PR: ",
+		" Create PR",
 		aurora.Red(baseBranch).Bold(),
 		aurora.Faint("<-"),
 		aurora.Yellow(targetBranch).Bold(),
