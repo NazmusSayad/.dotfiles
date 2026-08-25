@@ -59,6 +59,8 @@
   "ex": { "cmd": "explorer", "platform": "windows" },
   "where": { "cmd": "which -a", "platform": "macos" },
 
+  "fix-claude.md": "rm ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
+
   "fix-next": "rm -rf .next",
   "fix-ports": {
     "cmd": "sudo net stop winnat",
