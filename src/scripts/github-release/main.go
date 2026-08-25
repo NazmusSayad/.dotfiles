@@ -2,18 +2,19 @@ package main
 
 import (
 	"bufio"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/url"
 	"os"
-	"os/exec"
 	"sort"
 	"strings"
 	"time"
 
 	"dotfiles/src/helpers"
 
+	gh "github.com/cli/go-gh/v2"
 	"github.com/dustin/go-humanize"
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -26,21 +27,21 @@ func main() {
 
 	helpers.InGitRepoOrExit()
 
+	ctx := context.Background()
 	reader := bufio.NewReader(os.Stdin)
 	tagFromArgs := len(os.Args) == 2
 	tag := ""
 	if tagFromArgs {
 		tag = strings.TrimSpace(os.Args[1])
 	} else {
-		releasesOutput, err := exec.Command(
-			"gh",
+		releasesOutput, _, err := gh.Exec(
 			"release",
 			"list",
 			"--limit",
 			"5",
 			"--json",
 			"tagName,publishedAt",
-		).Output()
+		)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to list recent releases"))
 			os.Exit(1)
@@ -50,7 +51,7 @@ func main() {
 			TagName     string    `json:"tagName"`
 			PublishedAt time.Time `json:"publishedAt"`
 		}
-		if err := json.Unmarshal(releasesOutput, &releases); err != nil {
+		if err := json.Unmarshal(releasesOutput.Bytes(), &releases); err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read recent releases"))
 			os.Exit(1)
 		}
@@ -94,7 +95,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if exec.Command("gh", "release", "view", tag, "--json", "tagName").Run() == nil {
+	if _, _, err := gh.Exec("release", "view", tag, "--json", "tagName"); err == nil {
 		fmt.Print(aurora.Yellow("Release " + tag + " already exists. Recreate it? [y/N]: ").Bold())
 		confirmation, err := reader.ReadString('\n')
 		if err != nil && err != io.EOF {
@@ -107,21 +108,19 @@ func main() {
 			return
 		}
 
-		helpers.ExecNativeCommand(
-			[]string{"gh", "release", "delete", tag, "--yes"},
-			helpers.ExecCommandOptions{Exit: true},
-		)
+		if err := gh.ExecInteractive(ctx, "release", "delete", tag, "--yes"); err != nil {
+			os.Exit(1)
+		}
 
-		helpers.ExecNativeCommand(
-			[]string{
-				"gh",
-				"api",
-				"--method",
-				"DELETE",
-				"repos/{owner}/{repo}/git/refs/tags/" + url.PathEscape(tag),
-			},
-			helpers.ExecCommandOptions{Exit: true},
-		)
+		if err := gh.ExecInteractive(
+			ctx,
+			"api",
+			"--method",
+			"DELETE",
+			"repos/{owner}/{repo}/git/refs/tags/"+url.PathEscape(tag),
+		); err != nil {
+			os.Exit(1)
+		}
 	} else if tagFromArgs {
 		fmt.Print(
 			"Create release ",
@@ -141,28 +140,34 @@ func main() {
 		}
 	}
 
-	defaultBranchOutput, err := exec.Command(
-		"gh",
+	defaultBranchOutput, _, err := gh.Exec(
 		"repo",
 		"view",
 		"--json",
 		"defaultBranchRef",
 		"--jq",
 		".defaultBranchRef.name",
-	).Output()
+	)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, aurora.Red("Failed to resolve default branch"))
 		os.Exit(1)
 	}
 
-	defaultBranch := strings.TrimSpace(string(defaultBranchOutput))
+	defaultBranch := strings.TrimSpace(defaultBranchOutput.String())
 	if defaultBranch == "" {
 		fmt.Fprintln(os.Stderr, aurora.Red("Default branch not found"))
 		os.Exit(1)
 	}
 
-	helpers.ExecNativeCommand(
-		[]string{"gh", "release", "create", tag, "--target", defaultBranch, "--generate-notes"},
-		helpers.ExecCommandOptions{Exit: true},
-	)
+	if err := gh.ExecInteractive(
+		ctx,
+		"release",
+		"create",
+		tag,
+		"--target",
+		defaultBranch,
+		"--generate-notes",
+	); err != nil {
+		os.Exit(1)
+	}
 }
