@@ -81,6 +81,7 @@ hyperfine = "latest"
 lazydocker = "latest"
 "npm:husky" = "latest"
 "npm:prettier" = "latest"
+"npm:lint-staged" = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 
