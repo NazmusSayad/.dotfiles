@@ -107,7 +107,8 @@ Once installed, you can use these commands from anywhere in your terminal:
 - `git-pull-all` / `gpa` - Pull all repositories in a workspace
 - `gpr` - Pull changes with rebase
 - `gpm` - Pull changes with merge
-- `github-pr` / `ghp` - Create GitHub pull requests
+
+and more...
 
 **Slack Management:**
 
