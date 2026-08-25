@@ -38,13 +38,26 @@ func main() {
 		}
 
 		entryName := entry.Name()
-		if isIgnoredOnMacos(entryName) {
+		scriptName := entryName
+		if strings.HasSuffix(entryName, ".win") {
+			if runtime.GOOS != "windows" {
+				continue
+			}
+			scriptName = strings.TrimSuffix(entryName, ".win")
+		} else if strings.HasSuffix(entryName, ".mac") {
+			if runtime.GOOS != "darwin" {
+				continue
+			}
+			scriptName = strings.TrimSuffix(entryName, ".mac")
+		}
+
+		if scriptName == "" {
 			continue
 		}
 
-		buildScript(sourceDir, outputDir, entryName, entryName)
+		buildScript(sourceDir, outputDir, entryName, scriptName)
 
-		aliasName := constants.BIN_SCRIPTS[entryName].Exe
+		aliasName := constants.BIN_SCRIPTS[scriptName].Exe
 		if aliasName != "" {
 			buildScript(sourceDir, outputDir, entryName, aliasName)
 		}
@@ -64,18 +77,4 @@ func buildScript(sourceDir string, outputDir string, entryName string, exe strin
 
 	fmt.Println(aurora.Faint("> Building with Go: ").String() + entryName + aurora.Faint(" -> ").String() + binName)
 	helpers.ExecNativeCommand([]string{"go", "build", "-o", filepath.Join(outputDir, binName), sourcePath})
-}
-
-func isIgnoredOnMacos(scriptName string) bool {
-	if runtime.GOOS != "darwin" {
-		return false
-	}
-
-	for _, allowedScript := range constants.MACOS_SCRIPTS_PREFIX {
-		if strings.HasPrefix(scriptName, allowedScript) {
-			return false
-		}
-	}
-
-	return true
 }

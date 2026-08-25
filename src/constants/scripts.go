@@ -80,12 +80,3 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe:       "wgu",
 	},
 }
-
-var MACOS_SCRIPTS_PREFIX = []string{
-	"packages-sync",
-	"symlink-init",
-	"symlink-pull",
-	"opencode-",
-	"github-",
-	"git-",
-}
