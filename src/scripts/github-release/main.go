@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"os/exec"
+	"sort"
 	"strings"
 	"time"
 
@@ -26,8 +27,9 @@ func main() {
 	helpers.InGitRepoOrExit()
 
 	reader := bufio.NewReader(os.Stdin)
+	tagFromArgs := len(os.Args) == 2
 	tag := ""
-	if len(os.Args) == 2 {
+	if tagFromArgs {
 		tag = strings.TrimSpace(os.Args[1])
 	} else {
 		releasesOutput, err := exec.Command(
@@ -37,7 +39,7 @@ func main() {
 			"--limit",
 			"5",
 			"--json",
-			"tagName,publishedAt",
+			"tagName,createdAt",
 		).Output()
 		if err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to list recent releases"))
@@ -45,13 +47,16 @@ func main() {
 		}
 
 		var releases []struct {
-			TagName     string    `json:"tagName"`
-			PublishedAt time.Time `json:"publishedAt"`
+			TagName   string    `json:"tagName"`
+			CreatedAt time.Time `json:"createdAt"`
 		}
 		if err := json.Unmarshal(releasesOutput, &releases); err != nil {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read recent releases"))
 			os.Exit(1)
 		}
+		sort.Slice(releases, func(i, j int) bool {
+			return releases[i].CreatedAt.Before(releases[j].CreatedAt)
+		})
 
 		if len(releases) == 0 {
 			fmt.Println(aurora.Faint("No existing releases"))
@@ -69,7 +74,7 @@ func main() {
 				paddedTag := release.TagName + strings.Repeat(" ", longestTag-len(release.TagName))
 				fmt.Println(
 					aurora.Cyan(paddedTag),
-					aurora.Faint(humanize.Time(release.PublishedAt)),
+					aurora.Faint(humanize.Time(release.CreatedAt)),
 				)
 			}
 		}
@@ -98,7 +103,7 @@ func main() {
 		}
 
 		if !strings.EqualFold(strings.TrimSpace(confirmation), "y") {
-			fmt.Println(aurora.Faint("Release recreation cancelled"))
+			fmt.Println(aurora.Red("Release recreation cancelled"))
 			return
 		}
 
@@ -117,10 +122,47 @@ func main() {
 			},
 			helpers.ExecCommandOptions{Exit: true},
 		)
+	} else if tagFromArgs {
+		fmt.Print(
+			"Create release ",
+			aurora.Cyan(tag).Bold(),
+			" ",
+			aurora.Faint("[Enter]: "),
+		)
+		confirmation, err := reader.ReadString('\n')
+		if err != nil && err != io.EOF {
+			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+			os.Exit(1)
+		}
+
+		if strings.TrimRight(confirmation, "\r\n") != "" {
+			fmt.Println(aurora.Red("Release creation cancelled"))
+			return
+		}
+	}
+
+	defaultBranchOutput, err := exec.Command(
+		"gh",
+		"repo",
+		"view",
+		"--json",
+		"defaultBranchRef",
+		"--jq",
+		".defaultBranchRef.name",
+	).Output()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, aurora.Red("Failed to resolve default branch"))
+		os.Exit(1)
+	}
+
+	defaultBranch := strings.TrimSpace(string(defaultBranchOutput))
+	if defaultBranch == "" {
+		fmt.Fprintln(os.Stderr, aurora.Red("Default branch not found"))
+		os.Exit(1)
 	}
 
 	helpers.ExecNativeCommand(
-		[]string{"gh", "release", "create", tag, "--generate-notes"},
+		[]string{"gh", "release", "create", tag, "--target", defaultBranch, "--generate-notes"},
 		helpers.ExecCommandOptions{Exit: true},
 	)
 }
