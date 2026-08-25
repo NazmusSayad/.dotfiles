@@ -131,7 +131,7 @@ Common files to edit:
 - `config/apps.yaml` - Applications and packages to install (Windows Winget/Scoop/MSYS2)
 - `config/Brewfile` - Packages to install (macOS Homebrew)
 - `config/symlink.yml` - Config files linked into your system
-- `config/slack-status.jsonc` - Slack startup schedule
+- `config/slack-status.yml` - Slack startup schedule
 - `config/shell/` - Shell aliases, prompt, and terminal settings
 - `config/vscode/` - VS Code settings, keybindings, extensions, snippets, and synced state
 
