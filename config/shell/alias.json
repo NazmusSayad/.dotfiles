@@ -62,8 +62,9 @@
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
+  "x": "clear",
   "xxx": "exit",
-  "x": { "cmd": "clear", "shellExclude": "pwsh" },
+  "clear": { "cmd": "Clear-Host", "shell": "pwsh" },
 
   "ex": { "cmd": "explorer", "platform": "windows" },
   "where": { "cmd": "which -a", "platform": "macos" },
