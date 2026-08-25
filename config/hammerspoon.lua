@@ -1,7 +1,8 @@
 local ignoredApps = {
   ["Finder"] = true,
   ["Hammerspoon"] = true,
-  ["Google Chrome"] = true
+  ["Google Chrome"] = true,
+  ["OiPer"] = true
 }
 
 local windowFilter = hs.window.filter.new(function(window)
