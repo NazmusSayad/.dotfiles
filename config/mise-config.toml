@@ -134,7 +134,7 @@ minimum_release_age_excludes = [
   "github:anthropics/claude-code",
   "github:google-antigravity/antigravity-cli",
 
-  # My Tools
+  # My NPM Tools
   "npm:gityo",
   "npm:netserv",
   "npm:uni-run",
@@ -142,4 +142,9 @@ minimum_release_age_excludes = [
   "npm:mytokens",
   "npm:create-src",
   "npm:opencode-armor",
+  
+  # My Rust Tools
+  "cargo:dotsh",
+  "cargo:shaka",
+  "cargo:pwshac",
 ]
