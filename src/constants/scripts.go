@@ -46,23 +46,9 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Clean Code Snippets",
 	},
 
-	"opencode-server": {
-		StartMenu: "OpenCode Server",
-	},
-
 	"opencode-configure": {
 		StartMenu: "OpenCode Configure",
 		Exe:       "oconfig",
-	},
-
-	"claude-pull": {
-		StartMenu: "Claude Pull",
-		Exe:       "ccp",
-	},
-
-	"claude-switch": {
-		StartMenu: "Claude Switch",
-		Exe:       "ccs",
 	},
 
 	"packages-sync": {

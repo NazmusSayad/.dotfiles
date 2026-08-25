@@ -21,15 +21,6 @@
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
 
-  "ocs": {
-    "cmd": "opencode-server stop",
-    "platform": "windows"
-  },
-  "ocrs": {
-    "cmd": "opencode-server stop; powershell -Command \"Start-Process opencode-server -WindowStyle Hidden\"",
-    "platform": "windows"
-  },
-
   "r": "nr",
   "nid": "ni -D",
   "pab": "pnpm approve-builds --all",
