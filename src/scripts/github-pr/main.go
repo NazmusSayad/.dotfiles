@@ -34,7 +34,7 @@ func main() {
 
 	if baseBranch != "" {
 		fmt.Print(
-			" Create PR ",
+			" Create PR ",
 			aurora.Yellow(baseBranch).Bold(),
 			" <- ",
 			aurora.Cyan(targetBranch).Bold(),
@@ -63,7 +63,7 @@ func main() {
 		}
 
 		fmt.Print(
-			" Create PR ",
+			" Create PR ",
 			aurora.Yellow(defaultBranch).Bold(),
 			" <- ",
 			aurora.Cyan(targetBranch).Bold(),
