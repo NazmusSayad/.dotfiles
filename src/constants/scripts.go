@@ -42,22 +42,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Symlink Init",
 	},
 
-	"code-init": {
-		StartMenu: "Code Init",
-	},
-
-	"code-ext-sync": {
-		StartMenu: "Code Extensions Sync",
-	},
-
-	"code-state-pull": {
-		StartMenu: "Code UI State Pull",
-	},
-
-	"code-state-push": {
-		StartMenu: "Code UI State Push",
-	},
-
 	"clean-code-snippets": {
 		StartMenu: "Clean Code Snippets",
 	},
@@ -98,7 +82,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 }
 
 var MACOS_SCRIPTS_PREFIX = []string{
-	"code-ext-sync",
 	"packages-sync",
 	"symlink-init",
 	"symlink-pull",
