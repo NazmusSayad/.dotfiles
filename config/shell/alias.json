@@ -62,6 +62,9 @@
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
+  "xxx": "exit",
+  "x": { "cmd": "clear", "shellExclude": "pwsh" },
+
   "ex": { "cmd": "explorer", "platform": "windows" },
   "where": { "cmd": "which -a", "platform": "macos" },
 
