@@ -55,12 +55,11 @@ func main() {
 	}
 
 	fmt.Print(
-		" Create Pull Request: ",
-		aurora.Cyan(baseBranch).Bold(),
-		" <- ",
+		" Create PR: ",
+		aurora.Red(baseBranch).Bold(),
+		aurora.Faint("<-"),
 		aurora.Yellow(targetBranch).Bold(),
-		" ",
-		aurora.Faint("[Enter]: "),
+		aurora.Faint("[Press Enter]: "),
 	)
 
 	confirmation, _ := bufio.NewReader(os.Stdin).ReadString('\n')
@@ -72,8 +71,9 @@ func main() {
 	helpers.ExecNativeCommand(
 		[]string{
 			"gh", "pr", "create", "--fill",
-			"--head", "refs/heads/" + targetBranch,
+			"--assignee", "@me",
 			"--base", baseBranch,
+			"--head", "refs/heads/" + targetBranch,
 		},
 		helpers.ExecCommandOptions{Exit: true},
 	)
