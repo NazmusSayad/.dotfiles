@@ -58,7 +58,7 @@ func main() {
 			confirmed := true
 			err = huh.NewConfirm().
 				Title(fmt.Sprint(
-					aurora.Magenta(" Merge PR "),
+					aurora.Magenta(" Merge PR"),
 					aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
 					aurora.Red(baseBranch),
 					aurora.Faint("<-"),
