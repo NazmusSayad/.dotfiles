@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
@@ -10,16 +10,28 @@ import (
 	"dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/manifoldco/promptui"
 )
 
 func main() {
 	fmt.Println(aurora.Red("This will reset the entire repository to the latest remote branch."))
-	fmt.Println("Write 'yes' and press [Enter] to confirm.")
-	fmt.Print("> ")
 
-	confirm, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-	confirm = strings.TrimRight(confirm, "\r\n")
-	if confirm != "yes" {
+	selection := promptui.Select{
+		Label: "Reset this repository?",
+		Items: []string{"Cancel", "Reset repository"},
+	}
+	_, choice, err := selection.Run()
+	if err != nil {
+		if !errors.Is(err, promptui.ErrAbort) &&
+			!errors.Is(err, promptui.ErrEOF) &&
+			!errors.Is(err, promptui.ErrInterrupt) {
+			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+			os.Exit(1)
+		}
+		fmt.Println(aurora.Green("Reset aborted"))
+		return
+	}
+	if choice != "Reset repository" {
 		fmt.Println(aurora.Green("Reset aborted"))
 		return
 	}
