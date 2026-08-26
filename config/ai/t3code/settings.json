@@ -1,0 +1,49 @@
+{
+  "enableProviderUpdateChecks": false,
+  "enableAgentBrowserAccess": false,
+  "addProjectBaseDirectory": "~/Desktop",
+  "textGenerationModelSelection": {
+    "instanceId": "opencode",
+    "model": "openrouter/openai/gpt-oss-120b",
+    "options": [
+      {
+        "id": "agent",
+        "value": "build"
+      }
+    ]
+  },
+  "providers": {
+    "cursor": {
+      "enabled": false
+    },
+    "grok": {
+      "enabled": false
+    },
+    "opencode": {
+      "enabled": false
+    }
+  },
+  "providerInstances": {
+    "claudeAgent": {
+      "driver": "claudeAgent",
+      "enabled": false,
+      "config": {
+        "binaryPath": "claude",
+        "homePath": "",
+        "customModels": [],
+        "launchArgs": "",
+        "autoCompactWindow": ""
+      }
+    },
+    "opencode": {
+      "driver": "opencode",
+      "enabled": true,
+      "config": {
+        "binaryPath": "opencode",
+        "serverUrl": "",
+        "serverPassword": "",
+        "customModels": []
+      }
+    }
+  }
+}
