@@ -68,10 +68,13 @@ brew "git-lfs"
 brew "git-delta"
 brew "gnupg"
 
-# Development
+# AI & Code Editors
 cask "visual-studio-code@insiders"
 cask "visual-studio-code"
 cask "opencode-desktop"
+cask "t3-code"
+
+# Development
 cask "tablepro"
 brew "shfmt"
 brew "fvm"
