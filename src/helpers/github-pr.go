@@ -71,7 +71,7 @@ func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, erro
 		"pr", "create", "--fill",
 		"--assignee", "@me",
 		"--base", baseBranch,
-		"--head", "refs/heads/"+targetBranch,
+		"--head", targetBranch,
 	)
 	return true, err
 }
