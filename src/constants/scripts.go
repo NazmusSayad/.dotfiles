@@ -56,7 +56,7 @@ var BIN_SCRIPTS = map[string]BinScript{
 
 	"opencode-configure": {
 		StartMenu: "OpenCode Configure",
-		Exe:       "oconfig",
+		Exe:       "ocfg",
 	},
 
 	"packages-sync": {
