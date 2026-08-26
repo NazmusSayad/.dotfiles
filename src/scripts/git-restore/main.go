@@ -1,24 +1,35 @@
 package main
 
 import (
-	"bufio"
+	"errors"
 	"fmt"
 	"os"
-	"strings"
 
 	"dotfiles/src/helpers"
 
+	"charm.land/huh/v2"
 	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
-	fmt.Println(aurora.Red("Restore and clean?"))
-
-	fmt.Println("Press [Enter] to confirm, or any other key to cancel: ")
-	line, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-	if strings.TrimRight(line, "\r\n") != "" {
+	confirmed := true
+	err := huh.NewConfirm().
+		Title("Restore and clean? ").
+		Inline(true).
+		Value(&confirmed).
+		WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+		Run()
+	if err != nil {
+		if errors.Is(err, huh.ErrUserAborted) {
+			fmt.Println(aurora.Red("Aborted."))
+			return
+		}
+		fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+		os.Exit(1)
+	}
+	if !confirmed {
 		fmt.Println(aurora.Red("Aborted."))
-		os.Exit(0)
+		return
 	}
 
 	helpers.ExecNativeCommand([]string{"git", "restore", "."})

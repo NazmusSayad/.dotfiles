@@ -12,7 +12,6 @@ require (
 	github.com/dustin/go-humanize v1.0.1
 	github.com/evanphx/json-patch v0.5.2
 	github.com/logrusorgru/aurora/v4 v4.0.0
-	github.com/manifoldco/promptui v0.9.0
 	github.com/otiai10/copy v1.14.1
 	github.com/spf13/cobra v1.10.1
 	github.com/tidwall/jsonc v0.3.3
@@ -36,7 +35,6 @@ require (
 	github.com/charmbracelet/x/term v0.2.2 // indirect
 	github.com/charmbracelet/x/termios v0.1.1 // indirect
 	github.com/charmbracelet/x/windows v0.2.2 // indirect
-	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
 	github.com/cli/safeexec v1.0.1 // indirect
 	github.com/clipperhouse/displaywidth v0.11.0 // indirect
 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect

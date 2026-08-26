@@ -9,29 +9,30 @@ import (
 
 	"dotfiles/src/helpers"
 
+	"charm.land/huh/v2"
 	"github.com/logrusorgru/aurora/v4"
-	"github.com/manifoldco/promptui"
 )
 
 func main() {
 	fmt.Println(aurora.Red("This will reset the entire repository to the latest remote branch."))
 
-	selection := promptui.Select{
-		Label: "Reset this repository?",
-		Items: []string{"Cancel", "Reset repository"},
-	}
-	_, choice, err := selection.Run()
+	confirmation := ""
+	err := huh.NewInput().
+		Title("Type YES to nuke this repository").
+		Value(&confirmation).
+		Validate(func(value string) error {
+			if value != "YES" {
+				return errors.New("enter YES to continue")
+			}
+			return nil
+		}).
+		WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+		Run()
 	if err != nil {
-		if !errors.Is(err, promptui.ErrAbort) &&
-			!errors.Is(err, promptui.ErrEOF) &&
-			!errors.Is(err, promptui.ErrInterrupt) {
+		if !errors.Is(err, huh.ErrUserAborted) {
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
 			os.Exit(1)
 		}
-		fmt.Println(aurora.Green("Reset aborted"))
-		return
-	}
-	if choice != "Reset repository" {
 		fmt.Println(aurora.Green("Reset aborted"))
 		return
 	}
