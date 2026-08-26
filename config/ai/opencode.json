@@ -110,7 +110,7 @@
       ]
     },
     "openrouter": {
-      "whitelist": ["openai/gpt-oss-120b"]
+      "whitelist": ["openai/gpt-oss-120b", "poolside/laguna-xs-2.1"]
     }
   }
 }
