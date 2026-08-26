@@ -10,15 +10,27 @@ import (
 	"dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/spf13/cobra"
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println(aurora.Red("Usage: c <repository-path> [additional-arguments]"))
-		os.Exit(1)
+	command := &cobra.Command{
+		Use:                "git-clone <repository-path> [additional-arguments]",
+		Short:              "Clone a Git repository",
+		Args:               cobra.MinimumNArgs(1),
+		DisableFlagParsing: true,
+		Run: func(_ *cobra.Command, args []string) {
+			clone(args)
+		},
 	}
 
-	inputPath := os.Args[1]
+	if err := command.Execute(); err != nil {
+		os.Exit(1)
+	}
+}
+
+func clone(args []string) {
+	inputPath := args[0]
 	resolvedPath := ""
 
 	re := regexp.MustCompile(`^[^/]+(/[^/]+)?$`)
@@ -39,7 +51,7 @@ func main() {
 	if resolvedPath != "" {
 		gitCloneArgs = append(gitCloneArgs, resolvedPath)
 	} else {
-		gitCloneArgs = append(gitCloneArgs, os.Args[1:]...)
+		gitCloneArgs = append(gitCloneArgs, args...)
 	}
 
 	helpers.ExecNativeCommand(
