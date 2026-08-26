@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"os"
@@ -11,6 +12,13 @@ import (
 	gh "github.com/cli/go-gh/v2"
 	"github.com/logrusorgru/aurora/v4"
 )
+
+type GithubPullRequest struct {
+	Number      int    `json:"number"`
+	URL         string `json:"url"`
+	BaseRefName string `json:"baseRefName"`
+	HeadRefName string `json:"headRefName"`
+}
 
 func GetGithubPullRequestBranchesOrExit(args []string) (string, string) {
 	baseBranch := ""
@@ -83,4 +91,42 @@ func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, erro
 		"--head", targetBranch,
 	)
 	return true, err
+}
+
+func FindGithubPullRequest(baseBranch string, targetBranch string) (GithubPullRequest, error) {
+	pullRequestsOutput, _, err := gh.Exec(
+		"pr",
+		"list",
+		"--state",
+		"open",
+		"--base",
+		baseBranch,
+		"--head",
+		targetBranch,
+		"--limit",
+		"100",
+		"--json",
+		"number,url,baseRefName,headRefName",
+	)
+	if err != nil {
+		return GithubPullRequest{}, err
+	}
+
+	var pullRequests []GithubPullRequest
+	if err := json.Unmarshal(pullRequestsOutput.Bytes(), &pullRequests); err != nil {
+		return GithubPullRequest{}, err
+	}
+
+	var matchingPullRequest GithubPullRequest
+	for _, candidate := range pullRequests {
+		if candidate.BaseRefName != baseBranch || candidate.HeadRefName != targetBranch {
+			continue
+		}
+		if matchingPullRequest.Number != 0 {
+			return GithubPullRequest{}, fmt.Errorf("multiple open pull requests found for %s <- %s", baseBranch, targetBranch)
+		}
+		matchingPullRequest = candidate
+	}
+
+	return matchingPullRequest, nil
 }
