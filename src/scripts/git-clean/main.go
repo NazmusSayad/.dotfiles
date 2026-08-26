@@ -9,8 +9,8 @@ import (
 
 	"dotfiles/src/helpers"
 
+	"charm.land/huh/v2"
 	"github.com/logrusorgru/aurora/v4"
-	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
 )
 
@@ -63,23 +63,22 @@ func cleanBranches(yes bool) {
 	fmt.Println(aurora.Yellow("Branches to delete:"), strings.Join(colorfulBranches, ", "))
 
 	if !yes {
-		prompt := promptui.Prompt{
-			Label:       "Press Enter to confirm, or type anything to cancel",
-			HideEntered: true,
-		}
-		confirmation, err := prompt.Run()
+		confirmed := true
+		err := huh.NewConfirm().
+			Title("Delete these branches? ").
+			Inline(true).
+			Value(&confirmed).
+			WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+			Run()
 		if err != nil {
-			if errors.Is(err, promptui.ErrAbort) ||
-				errors.Is(err, promptui.ErrEOF) ||
-				errors.Is(err, promptui.ErrInterrupt) {
-				fmt.Println(aurora.Green("Cancelled branch deletion"))
+			if errors.Is(err, huh.ErrUserAborted) {
 				return
 			}
 			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
 			os.Exit(1)
 		}
-		if confirmation != "" {
-			fmt.Println(aurora.Green("Cancelled branch deletion"))
+
+		if !confirmed {
 			return
 		}
 	}
