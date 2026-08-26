@@ -1,17 +1,18 @@
 package helpers
 
 import (
-	"bufio"
 	"context"
+	"errors"
 	"fmt"
 	"os"
 	"strings"
 
+	"charm.land/huh/v2"
 	gh "github.com/cli/go-gh/v2"
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func GetGithubPullRequestBranchesOrExit(args []string, usage string) (string, string) {
+func GetGithubPullRequestBranchesOrExit(args []string) (string, string) {
 	baseBranch := ""
 	targetBranch := GetCurrentGitBranchOrExit()
 
@@ -20,9 +21,6 @@ func GetGithubPullRequestBranchesOrExit(args []string, usage string) (string, st
 	} else if len(args) == 2 {
 		baseBranch = args[0]
 		targetBranch = args[1]
-	} else if len(args) > 2 {
-		fmt.Fprintln(os.Stderr, usage)
-		os.Exit(1)
 	}
 
 	if baseBranch != "" {
@@ -52,21 +50,32 @@ func GetGithubPullRequestBranchesOrExit(args []string, usage string) (string, st
 }
 
 func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, error) {
-	fmt.Print(
+	title := fmt.Sprint(
 		aurora.Green(" Create PR").String()+": ",
 		aurora.Red(baseBranch).Bold(),
 		aurora.Faint("<-"),
 		aurora.Yellow(targetBranch).Bold(),
-		aurora.Faint("[Press Enter]: "),
 	)
-
-	confirmation, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-	if strings.TrimRight(confirmation, "\r\n") != "" {
+	confirmed := true
+	err := huh.NewConfirm().
+		Title(title + " ").
+		Inline(true).
+		Value(&confirmed).
+		WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+		Run()
+	if err != nil {
+		if errors.Is(err, huh.ErrUserAborted) {
+			fmt.Println(aurora.Red("Pull request creation cancelled"))
+			return false, nil
+		}
+		return false, err
+	}
+	if !confirmed {
 		fmt.Println(aurora.Red("Pull request creation cancelled"))
 		return false, nil
 	}
 
-	err := gh.ExecInteractive(
+	err = gh.ExecInteractive(
 		context.Background(),
 		"pr", "create", "--fill",
 		"--assignee", "@me",

@@ -1,18 +1,19 @@
 package main
 
 import (
-	"bufio"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
-	"strings"
 
 	"dotfiles/src/helpers"
 
+	"charm.land/huh/v2"
 	gh "github.com/cli/go-gh/v2"
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/spf13/cobra"
 )
 
 type pullRequest struct {
@@ -23,62 +24,82 @@ type pullRequest struct {
 }
 
 func main() {
-	baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(
-		os.Args[1:],
-		"Usage: ghm [base-branch] [head-branch]",
-	)
+	command := &cobra.Command{
+		Use:   "github-pr-merge [base-branch] [head-branch]",
+		Short: "Merge a GitHub pull request",
+		Args:  cobra.MaximumNArgs(2),
+		Run: func(_ *cobra.Command, args []string) {
+			baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(args)
 
-	pullRequest, err := findPullRequest(baseBranch, targetBranch)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request"))
-		os.Exit(1)
+			pullRequest, err := findPullRequest(baseBranch, targetBranch)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request"))
+				os.Exit(1)
+			}
+
+			createdPullRequest := false
+			if pullRequest.Number == 0 {
+				confirmed, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch)
+				if !confirmed {
+					return
+				}
+				if err != nil {
+					os.Exit(1)
+				}
+
+				pullRequest, err = findPullRequest(baseBranch, targetBranch)
+				if err != nil {
+					fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request after creation"))
+					os.Exit(1)
+				}
+				if pullRequest.Number == 0 {
+					fmt.Fprintln(os.Stderr, aurora.Red("Pull request not found after creation"))
+					os.Exit(1)
+				}
+				createdPullRequest = true
+			}
+
+			if !createdPullRequest {
+				fmt.Println(pullRequest.URL)
+			}
+
+			title := fmt.Sprint(
+				aurora.Magenta(" Merge PR "),
+				aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
+				aurora.Red(baseBranch),
+				aurora.Faint("<-"),
+				aurora.Yellow(targetBranch),
+			)
+			confirmed := true
+			err = huh.NewConfirm().
+				Title(title + " ").
+				Inline(true).
+				Value(&confirmed).
+				WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+				Run()
+			if err != nil {
+				if errors.Is(err, huh.ErrUserAborted) {
+					fmt.Println(aurora.Red("Pull request merge cancelled"))
+					return
+				}
+				fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+				os.Exit(1)
+			}
+			if !confirmed {
+				fmt.Println(aurora.Red("Pull request merge cancelled"))
+				return
+			}
+
+			if err := gh.ExecInteractive(
+				context.Background(),
+				"pr", "merge", strconv.Itoa(pullRequest.Number), "--merge",
+			); err != nil {
+				os.Exit(1)
+			}
+		},
 	}
 
-	createdPullRequest := false
-	if pullRequest.Number == 0 {
-		confirmed, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch)
-		if !confirmed {
-			return
-		}
-		if err != nil {
-			os.Exit(1)
-		}
-
-		pullRequest, err = findPullRequest(baseBranch, targetBranch)
-		if err != nil {
-			fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request after creation"))
-			os.Exit(1)
-		}
-		if pullRequest.Number == 0 {
-			fmt.Fprintln(os.Stderr, aurora.Red("Pull request not found after creation"))
-			os.Exit(1)
-		}
-		createdPullRequest = true
-	}
-
-	if !createdPullRequest {
-		fmt.Println(pullRequest.URL)
-	}
-
-	fmt.Print(
-		aurora.Magenta(" Merge PR "),
-		aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
-		aurora.Red(baseBranch),
-		aurora.Faint("<-"),
-		aurora.Yellow(targetBranch),
-		aurora.Faint("[Press Enter]: "),
-	)
-
-	confirmation, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-	if strings.TrimRight(confirmation, "\r\n") != "" {
-		fmt.Println(aurora.Red("Pull request merge cancelled"))
-		return
-	}
-
-	if err := gh.ExecInteractive(
-		context.Background(),
-		"pr", "merge", strconv.Itoa(pullRequest.Number), "--merge",
-	); err != nil {
+	if err := command.Execute(); err != nil {
 		os.Exit(1)
 	}
 }

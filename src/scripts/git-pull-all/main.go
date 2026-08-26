@@ -18,31 +18,27 @@ func main() {
 		Short: "Pull and push changes for all branches",
 		Args:  cobra.NoArgs,
 		Run: func(_ *cobra.Command, _ []string) {
-			pullAll()
+			fmt.Println(aurora.Yellow("Pulling changes from all branches:"), strings.Join(getGitBranches(), ", "))
+
+			helpers.ExecNativeCommand(
+				[]string{"git", "pull", "--all"},
+				helpers.ExecCommandOptions{
+					Exit: true,
+				},
+			)
+
+			helpers.ExecNativeCommand(
+				[]string{"git", "push", "--progress"},
+				helpers.ExecCommandOptions{
+					Exit: true,
+				},
+			)
 		},
 	}
 
 	if err := command.Execute(); err != nil {
 		os.Exit(1)
 	}
-}
-
-func pullAll() {
-	fmt.Println(aurora.Yellow("Pulling changes from all branches:"), strings.Join(getGitBranches(), ", "))
-
-	helpers.ExecNativeCommand(
-		[]string{"git", "pull", "--all"},
-		helpers.ExecCommandOptions{
-			Exit: true,
-		},
-	)
-
-	helpers.ExecNativeCommand(
-		[]string{"git", "push", "--progress"},
-		helpers.ExecCommandOptions{
-			Exit: true,
-		},
-	)
 }
 
 func getGitBranches() []string {
