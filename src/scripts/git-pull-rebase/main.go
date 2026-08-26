@@ -7,20 +7,33 @@ import (
 	"dotfiles/src/helpers"
 
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/spf13/cobra"
 )
 
 func main() {
+	command := &cobra.Command{
+		Use:   "git-pull-rebase [branch]",
+		Short: "Pull changes using rebase and push the current branch",
+		Args:  cobra.MaximumNArgs(1),
+		Run: func(_ *cobra.Command, args []string) {
+			pullRebase(args)
+		},
+	}
+
+	if err := command.Execute(); err != nil {
+		os.Exit(1)
+	}
+}
+
+func pullRebase(args []string) {
 	currentBranch := helpers.GetCurrentGitBranchOrExit()
 
 	targetBranch := ""
-	if len(os.Args) == 1 {
+	if len(args) == 0 {
 		fmt.Println(aurora.Faint("No branch specified, using current branch"))
 		targetBranch = currentBranch
-	} else if len(os.Args) == 2 {
-		targetBranch = os.Args[1]
 	} else {
-		fmt.Fprintln(os.Stderr, "Usage: gp [branch]")
-		os.Exit(1)
+		targetBranch = args[0]
 	}
 
 	fmt.Printf(
