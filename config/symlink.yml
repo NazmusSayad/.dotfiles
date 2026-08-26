@@ -73,7 +73,7 @@
 "@/config/ai/agents": "~/.config/opencode/agents"
 "@/config/ai/opencode/themes": "~/.config/opencode/themes"
 "@/config/ai/opencode/plugins": "~/.config/opencode/plugins"
-"@/config/ai/opencode/armor.json": "~/.opencode-armor.json"
+"@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
 "@/config/ai/opencode/desktop.dat":
   Win.Copy: "$APPDATA/ai.opencode.desktop/default.dat"
   Mac.Copy: "~/Library/Application Support/ai.opencode.desktop/default.dat"
