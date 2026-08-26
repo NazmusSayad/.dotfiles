@@ -7,10 +7,14 @@
   Win: "~/Documents/PowerShell/profile.ps1"
 
 # AGENTS.md
-"~/.agents/skills/AGENTS_CORE.md":
+"~/.agents/skills/AGENTS_MD.md":
   - "~/.codex/AGENTS.md"
   - "~/.gemini/GEMINI.md"
   - "~/.config/opencode/AGENTS.md"
+  - "~/.claude/CLAUDE.md"
+  - "~/.claude-uig/CLAUDE.md"
+  - "~/.claude-work/CLAUDE.md"
+  - "~/.claude-imam/CLAUDE.md"
 
 # Agents Skills
 "~/.agents/skills":
@@ -25,11 +29,6 @@
 "~/.codex/config.toml": "~/.codex-sayad/config.toml"
 
 # Claude
-"~/.agents/skills/AGENTS_CLAUDE.md":
-  - "~/.claude/CLAUDE.md"
-  - "~/.claude-uig/CLAUDE.md"
-  - "~/.claude-work/CLAUDE.md"
-  - "~/.claude-imam/CLAUDE.md"
 "@/config/ai/claude.json":
   - "~/.claude/settings.json"
   - "~/.claude-uig/settings.json"
