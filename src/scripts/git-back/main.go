@@ -1,29 +1,29 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"dotfiles/src/helpers"
 
-	"github.com/logrusorgru/aurora/v4"
+	"github.com/spf13/cobra"
 )
 
 func main() {
-	commitHash := ""
-	if len(os.Args) > 1 {
-		commitHash = os.Args[1]
+	command := &cobra.Command{
+		Use:   "git-back <commit>",
+		Short: "Restore working tree files from a commit",
+		Args:  cobra.ExactArgs(1),
+		Run: func(_ *cobra.Command, args []string) {
+			helpers.ExecNativeCommand(
+				[]string{"git", "restore", "--source", args[0], "--", "."},
+				helpers.ExecCommandOptions{
+					Exit: true,
+				},
+			)
+		},
 	}
 
-	if commitHash == "" {
-		fmt.Println(aurora.Red("Commit hash required"))
+	if err := command.Execute(); err != nil {
 		os.Exit(1)
 	}
-
-	helpers.ExecNativeCommand(
-		[]string{"git", "restore", "--source", commitHash, "--", "."},
-		helpers.ExecCommandOptions{
-			Exit: true,
-		},
-	)
 }
