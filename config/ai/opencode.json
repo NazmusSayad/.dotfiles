@@ -104,13 +104,10 @@
       "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]
     },
     "opencode": {
-      "whitelist": [
-        "muse-spark-1.2-contributor-free",
-        "nemotron-3.5-lightning-free"
-      ]
+      "whitelist": ["muse-spark-1.2-contributor-free"]
     },
     "openrouter": {
-      "whitelist": ["openai/gpt-oss-120b", "poolside/laguna-xs-2.1"]
+      "whitelist": ["openai/gpt-oss-120b"]
     }
   }
 }
