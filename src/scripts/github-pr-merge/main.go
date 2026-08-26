@@ -55,16 +55,15 @@ func main() {
 				fmt.Println(pullRequest.URL)
 			}
 
-			title := fmt.Sprint(
-				aurora.Magenta(" Merge PR "),
-				aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
-				aurora.Red(baseBranch),
-				aurora.Faint("<-"),
-				aurora.Yellow(targetBranch),
-			)
 			confirmed := true
 			err = huh.NewConfirm().
-				Title(title + " ").
+				Title(fmt.Sprint(
+					aurora.Magenta(" Merge PR "),
+					aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
+					aurora.Red(baseBranch),
+					aurora.Faint("<-"),
+					aurora.Yellow(targetBranch),
+				)).
 				Inline(true).
 				Value(&confirmed).
 				WithTheme(huh.ThemeFunc(huh.ThemeBase)).
@@ -77,6 +76,7 @@ func main() {
 				fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
 				os.Exit(1)
 			}
+
 			if !confirmed {
 				fmt.Println(aurora.Red("Pull request merge cancelled"))
 				return
