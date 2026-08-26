@@ -19,6 +19,8 @@ func main() {
 	confirmation := ""
 	err := huh.NewInput().
 		Title("Type YES to nuke this repository").
+		Prompt(": ").
+		Inline(true).
 		Value(&confirmation).
 		Validate(func(value string) error {
 			if value != "YES" {

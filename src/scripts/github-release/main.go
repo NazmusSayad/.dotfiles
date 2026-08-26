@@ -83,6 +83,7 @@ func main() {
 				fmt.Println()
 				err = huh.NewInput().
 					Title(aurora.Green("Name").String()).
+					Prompt(": ").
 					Inline(true).
 					Value(&tag).
 					WithTheme(helpers.HuhTheme()).
