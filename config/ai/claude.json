@@ -50,10 +50,13 @@
       }
     }
   },
+  "outputStyle": "Consice",
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["Working"]
+    "verbs": [
+      "Working"
+    ]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
@@ -63,7 +66,6 @@
   "disableAutoMode": "disable",
   "theme": "auto",
   "editorMode": "normal",
-  "outputStyle": "Consice",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": true,
   "fileCheckpointingEnabled": false,
