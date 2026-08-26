@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"os"
@@ -16,13 +15,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type pullRequest struct {
-	Number      int    `json:"number"`
-	URL         string `json:"url"`
-	BaseRefName string `json:"baseRefName"`
-	HeadRefName string `json:"headRefName"`
-}
-
 func main() {
 	command := &cobra.Command{
 		Use:   "github-pr-merge [base-branch] [head-branch]",
@@ -31,7 +23,7 @@ func main() {
 		Run: func(_ *cobra.Command, args []string) {
 			baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(args)
 
-			pullRequest, err := findPullRequest(baseBranch, targetBranch)
+			pullRequest, err := helpers.FindGithubPullRequest(baseBranch, targetBranch)
 			if err != nil {
 				fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request"))
 				os.Exit(1)
@@ -47,7 +39,7 @@ func main() {
 					os.Exit(1)
 				}
 
-				pullRequest, err = findPullRequest(baseBranch, targetBranch)
+				pullRequest, err = helpers.FindGithubPullRequest(baseBranch, targetBranch)
 				if err != nil {
 					fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request after creation"))
 					os.Exit(1)
@@ -102,42 +94,4 @@ func main() {
 	if err := command.Execute(); err != nil {
 		os.Exit(1)
 	}
-}
-
-func findPullRequest(baseBranch string, targetBranch string) (pullRequest, error) {
-	pullRequestsOutput, _, err := gh.Exec(
-		"pr",
-		"list",
-		"--state",
-		"open",
-		"--base",
-		baseBranch,
-		"--head",
-		targetBranch,
-		"--limit",
-		"100",
-		"--json",
-		"number,url,baseRefName,headRefName",
-	)
-	if err != nil {
-		return pullRequest{}, err
-	}
-
-	var pullRequests []pullRequest
-	if err := json.Unmarshal(pullRequestsOutput.Bytes(), &pullRequests); err != nil {
-		return pullRequest{}, err
-	}
-
-	var matchingPullRequest pullRequest
-	for _, candidate := range pullRequests {
-		if candidate.BaseRefName != baseBranch || candidate.HeadRefName != targetBranch {
-			continue
-		}
-		if matchingPullRequest.Number != 0 {
-			return pullRequest{}, fmt.Errorf("multiple open pull requests found for %s <- %s", baseBranch, targetBranch)
-		}
-		matchingPullRequest = candidate
-	}
-
-	return matchingPullRequest, nil
 }
