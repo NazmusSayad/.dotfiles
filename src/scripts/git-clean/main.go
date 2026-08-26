@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
@@ -9,10 +8,29 @@ import (
 
 	"dotfiles/src/helpers"
 
+	"charm.land/huh/v2"
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/spf13/cobra"
 )
 
 func main() {
+	yes := false
+	command := &cobra.Command{
+		Use:   "git-clean",
+		Short: "Delete all local branches except the current branch",
+		Args:  cobra.NoArgs,
+		Run: func(_ *cobra.Command, _ []string) {
+			cleanBranches(yes)
+		},
+	}
+	command.Flags().BoolVarP(&yes, "yes", "y", false, "Delete branches without confirmation")
+
+	if err := command.Execute(); err != nil {
+		os.Exit(1)
+	}
+}
+
+func cleanBranches(yes bool) {
 	currentBranch := helpers.GetCurrentGitBranchOrExit()
 
 	branchesOut, _ := exec.Command("git", "branch", `--format=%(refname:short)`).Output()
@@ -42,12 +60,23 @@ func main() {
 	}
 
 	fmt.Println(aurora.Yellow("Branches to delete:"), strings.Join(colorfulBranches, ", "))
-	fmt.Print(aurora.Faint("Press [Enter] to confirm, or any other key to cancel: "))
 
-	line, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-	if strings.TrimRight(line, "\r\n") != "" {
-		fmt.Println(aurora.Green("Cancelled branch deletion"))
-		return
+	if !yes {
+		confirmed := false
+		err := huh.NewConfirm().
+			Title("Delete these branches?").
+			Affirmative("Delete").
+			Negative("Cancel").
+			Value(&confirmed).
+			Run()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+			os.Exit(1)
+		}
+		if !confirmed {
+			fmt.Println(aurora.Green("Cancelled branch deletion"))
+			return
+		}
 	}
 
 	helpers.ExecNativeCommand([]string{"git", "prune", "--progress"})
