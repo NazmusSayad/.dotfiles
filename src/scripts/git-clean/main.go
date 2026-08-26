@@ -68,7 +68,7 @@ func cleanBranches(yes bool) {
 			Title("Delete these branches? ").
 			Inline(true).
 			Value(&confirmed).
-			WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+			WithTheme(helpers.HuhTheme()).
 			Run()
 		if err != nil {
 			if errors.Is(err, huh.ErrUserAborted) {
