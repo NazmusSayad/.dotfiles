@@ -26,7 +26,7 @@ func main() {
 			}
 			return nil
 		}).
-		WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+		WithTheme(helpers.HuhTheme()).
 		Run()
 	if err != nil {
 		if !errors.Is(err, huh.ErrUserAborted) {

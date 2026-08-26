@@ -68,7 +68,7 @@ func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, erro
 		)).
 		Inline(true).
 		Value(&confirmed).
-		WithTheme(huh.ThemeFunc(huh.ThemeBase)).
+		WithTheme(HuhTheme()).
 		Run()
 	if err != nil {
 		if errors.Is(err, huh.ErrUserAborted) {
