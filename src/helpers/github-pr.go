@@ -58,15 +58,14 @@ func GetGithubPullRequestBranchesOrExit(args []string) (string, string) {
 }
 
 func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, error) {
-	title := fmt.Sprint(
-		aurora.Green(" Create PR").String()+": ",
-		aurora.Red(baseBranch).Bold(),
-		aurora.Faint("<-"),
-		aurora.Yellow(targetBranch).Bold(),
-	)
 	confirmed := true
 	err := huh.NewConfirm().
-		Title(title + " ").
+		Title(fmt.Sprint(
+			aurora.Green(" Create PR").String()+": ",
+			aurora.Red(baseBranch).Bold(),
+			aurora.Faint("<-"),
+			aurora.Yellow(targetBranch).Bold(),
+		)).
 		Inline(true).
 		Value(&confirmed).
 		WithTheme(huh.ThemeFunc(huh.ThemeBase)).
@@ -78,6 +77,7 @@ func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, erro
 		}
 		return false, err
 	}
+
 	if !confirmed {
 		fmt.Println(aurora.Red("Pull request creation cancelled"))
 		return false, nil
@@ -90,6 +90,7 @@ func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, erro
 		"--base", baseBranch,
 		"--head", targetBranch,
 	)
+
 	return true, err
 }
 
