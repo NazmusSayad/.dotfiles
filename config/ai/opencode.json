@@ -70,7 +70,7 @@
         },
         "gpt-5.6-sol": {
           "attachment": true,
-          "cost": { "cache_read": 0.5, "input": 5, "output": 30 },
+          "cost": { "cache_read": 0.4, "input": 4, "output": 20 },
           "family": "gpt-sol",
           "id": "gpt-5.6-sol",
           "limit": { "context": 256000, "input": 256000, "output": 128000 },
@@ -104,8 +104,8 @@
       "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]
     },
     "opencode": {
-      "whitelist": ["muse-spark-1.2-contributor-free", "x-preview-f-free"]
+      "whitelist": ["muse-spark-1.2-contributor-free"]
     },
-    "openrouter": { "whitelist": ["openai/gpt-oss-120b", "stealth/ox-alpha"] }
+    "openrouter": { "whitelist": ["openai/gpt-oss-120b"] }
   }
 }
