@@ -31,7 +31,6 @@
     "disableAutoMode": "disable"
   },
   "model": "opus",
-  "availableModels": ["opus"],
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
   "disableAgentView": true,
