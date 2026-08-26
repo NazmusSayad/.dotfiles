@@ -105,7 +105,7 @@ yt-dlp = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:create-src" = "latest"
-"npm:opencode-armor" = "latest"
+"npm:opencode-ext" = "latest"
 
 # MCP
 "npm:chrome-devtools-mcp" = "latest"
@@ -143,7 +143,7 @@ minimum_release_age_excludes = [
   "npm:mysubs",
   "npm:mytokens",
   "npm:create-src",
-  "npm:opencode-armor",
+  "npm:opencode-ext",
   
   # My Rust Tools
   "cargo:dotsh",
