@@ -55,11 +55,11 @@ func main() {
 			continue
 		}
 
-		buildScript(sourceDir, outputDir, entryName, scriptName)
-
 		aliasName := constants.BIN_SCRIPTS[scriptName].Exe
 		if aliasName != "" {
 			buildScript(sourceDir, outputDir, entryName, aliasName)
+		} else {
+			buildScript(sourceDir, outputDir, entryName, scriptName)
 		}
 	}
 }
