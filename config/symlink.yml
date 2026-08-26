@@ -84,6 +84,8 @@
   Copy: "~/.t3/userdata/settings.json"
 "@/config/ai/t3code/keybindings.json":
   Copy: "~/.t3/userdata/keybindings.json"
+"@/config/ai/t3code/client-settings.json":
+  Copy: "~/.t3/userdata/client-settings.json"
 
 # PI
 "@/config/ai/pi.json": { Copy: "~/.pi/agent/settings.json" }
