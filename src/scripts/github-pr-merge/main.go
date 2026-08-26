@@ -61,7 +61,8 @@ func main() {
 	}
 
 	fmt.Print(
-		" Merge PR ", aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
+		aurora.Magenta(" Merge PR "),
+		aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
 		aurora.Red(baseBranch),
 		aurora.Faint("<-"),
 		aurora.Yellow(targetBranch),
