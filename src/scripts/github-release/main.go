@@ -59,9 +59,7 @@ func main() {
 					return releases[i].PublishedAt.Before(releases[j].PublishedAt)
 				})
 
-				if len(releases) == 0 {
-					fmt.Println(aurora.Faint("No existing releases"))
-				} else {
+				if len(releases) > 0 {
 					fmt.Println(aurora.Blue("Recent:").Bold())
 
 					longestTag := 0
@@ -78,9 +76,10 @@ func main() {
 							aurora.Faint(humanize.Time(release.PublishedAt)),
 						)
 					}
+
+					fmt.Println()
 				}
 
-				fmt.Println()
 				err = huh.NewInput().
 					Title(aurora.Green("Name").String()).
 					Prompt(": ").
@@ -96,6 +95,7 @@ func main() {
 					fmt.Fprintln(os.Stderr, aurora.Red("Failed to read release"))
 					os.Exit(1)
 				}
+
 				tag = strings.TrimSpace(tag)
 			}
 
