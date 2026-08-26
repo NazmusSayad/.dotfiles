@@ -80,8 +80,10 @@
 "@/.local/opencode-auth.json": "~/.local/share/opencode/auth.json"
 
 # T3Code
-"@/config/ai/t3code/settings.json": "~/.t3/userdata/settings.json"
-"@/config/ai/t3code/keybindings.json": "~/.t3/userdata/keybindings.json"
+"@/config/ai/t3code/settings.json":
+  Copy: "~/.t3/userdata/settings.json"
+"@/config/ai/t3code/keybindings.json":
+  Copy: "~/.t3/userdata/keybindings.json"
 
 # PI
 "@/config/ai/pi.json": { Copy: "~/.pi/agent/settings.json" }
