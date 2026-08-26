@@ -14,7 +14,7 @@
   "snapshot": false,
 
   "shell": "{env:OPENCODE_SHELL}",
-  "plugin": ["opencode.env", "opencode-armor", "opencode-wakatime"],
+  "plugin": ["opencode-ext", "opencode-wakatime"],
 
   "mcp": {
     "chrome-devtools": {
