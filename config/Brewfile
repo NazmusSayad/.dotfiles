@@ -71,7 +71,6 @@ brew "gnupg"
 # AI & Code Editors
 cask "visual-studio-code@insiders"
 cask "visual-studio-code"
-cask "t3-code"
 
 # Development
 cask "tablepro"
