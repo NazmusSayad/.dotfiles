@@ -55,6 +55,24 @@
         "launchArgs": "",
         "customModels": []
       }
+    },
+    "claudeAgent_work": {
+      "driver": "claudeAgent",
+      "displayName": "Work",
+      "accentColor": "#16a34a",
+      "enabled": true,
+      "config": {
+        "homePath": "~/.claude-work"
+      }
+    },
+    "claudeAgent_uig": {
+      "driver": "claudeAgent",
+      "displayName": "UiG",
+      "accentColor": "#2563eb",
+      "enabled": true,
+      "config": {
+        "homePath": "~/.claude-uig"
+      }
     }
   }
 }
