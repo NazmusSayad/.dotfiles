@@ -26,7 +26,7 @@
   "providerInstances": {
     "claudeAgent": {
       "driver": "claudeAgent",
-      "enabled": false,
+      "enabled": true,
       "config": {
         "binaryPath": "claude",
         "homePath": "",
