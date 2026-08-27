@@ -18,9 +18,9 @@
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-work claude --resume",
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-work claude --continue",
 
-  "wi": "CLAUDE_CONFIG_DIR=~/.claude-imam claude",
-  "wir": "CLAUDE_CONFIG_DIR=~/.claude-imam claude --resume",
-  "wic": "CLAUDE_CONFIG_DIR=~/.claude-imam claude --continue",
+  "ic": "CLAUDE_CONFIG_DIR=~/.claude-imam claude",
+  "icr": "CLAUDE_CONFIG_DIR=~/.claude-imam claude --resume",
+  "icc": "CLAUDE_CONFIG_DIR=~/.claude-imam claude --continue",
 
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
