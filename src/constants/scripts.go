@@ -14,6 +14,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gbc",
 	},
 
+	"git-restore": {
+		Exe: "grs",
+	},
+
 	"git-pull": {
 		Exe: "gp",
 	},
