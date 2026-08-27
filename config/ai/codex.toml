@@ -14,3 +14,6 @@ status_line = [
   "five-hour-limit",
   "weekly-limit",
 ]
+
+[projects."/Users/sayad/Desktop/maileditor/Maileditor-frontend"]
+trust_level = "trusted"

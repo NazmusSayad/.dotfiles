@@ -44,6 +44,17 @@
         "serverPassword": "",
         "customModels": []
       }
+    },
+    "codex": {
+      "driver": "codex",
+      "enabled": false,
+      "config": {
+        "binaryPath": "codex",
+        "homePath": "",
+        "shadowHomePath": "",
+        "launchArgs": "",
+        "customModels": []
+      }
     }
   }
 }
