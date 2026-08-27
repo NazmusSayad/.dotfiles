@@ -72,7 +72,8 @@
 # Opencode
 "@/config/ai/opencode.json": "~/.config/opencode/config.json"
 "@/config/ai/opencode-tui.json": "~/.config/opencode/tui.json"
-"@/config/ai/agents": "~/.config/opencode/agents"
+"@/config/ai/opencode/agents": "~/.config/opencode/agents"
+"@/config/ai/opencode/sounds": "~/.config/opencode/sounds"
 "@/config/ai/opencode/themes": "~/.config/opencode/themes"
 "@/config/ai/opencode/plugins": "~/.config/opencode/plugins"
 "@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
