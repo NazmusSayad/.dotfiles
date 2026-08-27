@@ -10,6 +10,10 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gcl",
 	},
 
+	"git-branch-clean": {
+		Exe: "gbc",
+	},
+
 	"git-pull": {
 		Exe: "gp",
 	},
