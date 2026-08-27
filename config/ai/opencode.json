@@ -107,7 +107,7 @@
       "whitelist": ["muse-spark-1.2-contributor-free"]
     },
     "openrouter": {
-      "whitelist": ["openai/gpt-oss-120b"]
+      "whitelist": ["openai/gpt-oss-120b", "z-ai/glm-5.3-flash"]
     }
   }
 }
