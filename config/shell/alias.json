@@ -10,6 +10,10 @@
   "soc": "CODEX_HOME=~/.codex-sayad codex resume --last",
   "sor": "CODEX_HOME=~/.codex-sayad codex resume",
 
+  "cc": "claude",
+  "ccr": "claude --resume",
+  "ccc": "claude --continue",
+
   "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
   "ucr": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --resume",
   "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
