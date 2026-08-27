@@ -29,6 +29,8 @@
 "~/.codex/config.toml": "~/.codex-sayad/config.toml"
 
 # Claude
+"~/.agents/skills/CLAUDE_MD.md":
+  - "~/CLAUDE.md"
 "@/config/ai/claude.json":
   - "~/.claude/settings.json"
   - "~/.claude-uig/settings.json"
