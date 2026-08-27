@@ -9,6 +9,7 @@ scoop:
   - gcc
   - shfmt
   - extras/fvm
+  - composer
   - versions/php82
   - versions/php83
   - versions/php84
