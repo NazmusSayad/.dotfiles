@@ -1,10 +1,10 @@
 # Shell
 "@/config/shell/bashrc.sh": "~/.bashrc"
 "@/config/shell/fishrc.fish": "~/.config/fish/config.fish"
-"@/config/shell/profile.sh":
-  Mac: "~/.bash_profile"
 "@/config/shell/pwshrc.ps1":
   Win: "~/Documents/PowerShell/profile.ps1"
+"@/config/shell/profile.sh":
+  Mac: "~/.bash_profile"
 
 # AGENTS.md
 "~/.agents/skills/AGENTS_MD.md":
@@ -69,7 +69,7 @@
   - "~/.claude-work/history.jsonl"
   - "~/.claude-imam/history.jsonl"
 
-# Opencode
+# OpenCode
 "@/config/ai/opencode.json": "~/.config/opencode/config.json"
 "@/config/ai/opencode-tui.json": "~/.config/opencode/tui.json"
 "@/config/ai/opencode/agents": "~/.config/opencode/agents"
@@ -77,10 +77,15 @@
 "@/config/ai/opencode/themes": "~/.config/opencode/themes"
 "@/config/ai/opencode/plugins": "~/.config/opencode/plugins"
 "@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
+
+# OpenCode Desktop
+"@/.local/opencode-auth.json": "~/.local/share/opencode/auth.json"
 "@/config/ai/opencode/desktop.dat":
   Win.Copy: "$APPDATA/ai.opencode.desktop/default.dat"
   Mac.Copy: "~/Library/Application Support/ai.opencode.desktop/default.dat"
-"@/.local/opencode-auth.json": "~/.local/share/opencode/auth.json"
+
+# PI
+"@/config/ai/pi.json": { Copy: "~/.pi/agent/settings.json" }
 
 # T3Code
 "@/config/ai/t3code/settings.json":
@@ -89,9 +94,6 @@
   Copy: "~/.t3/userdata/keybindings.json"
 "@/config/ai/t3code/client-settings.json":
   Copy: "~/.t3/userdata/client-settings.json"
-
-# PI
-"@/config/ai/pi.json": { Copy: "~/.pi/agent/settings.json" }
 
 # Terminal
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
