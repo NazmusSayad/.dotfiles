@@ -2,6 +2,8 @@ local ignoredApps = {
   ["Finder"] = true,
   ["Hammerspoon"] = true,
   ["Google Chrome"] = true,
+  ["Code"] = true,
+  ["Code - Insiders"] = true,
   ["OiPer"] = true
 }
 
