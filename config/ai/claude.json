@@ -11,8 +11,9 @@
     "CLAUDE_CODE_MAX_RETRIES": "100",
     "ENABLE_CLAUDEAI_MCP_SERVERS": "false",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "100",
-    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "256000",
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "200000",
     "DISABLE_UPGRADE_COMMAND": "1",
     "CLAUDE_CODE_DISABLE_CRON": "1",
     "CLAUDE_CODE_DISABLE_ADVISOR_TOOL": "1",
@@ -53,9 +54,7 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": [
-      "Working"
-    ]
+    "verbs": ["Working"]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
