@@ -8,7 +8,7 @@
   },
 
   "agents": {
-    "general": [
+    "explore": [
       {
         "when": {
           "provider": "openai",
