@@ -29,6 +29,7 @@ cask "ghostty"
 brew "mole"
 brew "batt"
 cask "hammerspoon"
+cask "mos"
 
 # Browsers
 cask "google-chrome"
