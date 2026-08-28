@@ -48,7 +48,7 @@
     }
   },
 
-  "enabled_providers": ["openai", "opencode", "openrouter"],
+  "enabled_providers": ["openai", "openrouter"],
   "provider": {
     "openai": {
       "models": {
@@ -103,11 +103,8 @@
       },
       "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]
     },
-    "opencode": {
-      "whitelist": ["muse-spark-1.2-contributor-free"]
-    },
     "openrouter": {
-      "whitelist": ["openai/gpt-oss-120b", "z-ai/glm-5.3-flash"]
+      "whitelist": ["openai/gpt-oss-120b"]
     }
   }
 }
