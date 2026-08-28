@@ -16,9 +16,6 @@
   "copilot": {
     "detect": false
   },
-  "opencode": {
-    "detect": false
-  },
   "openrouter": {
     "detect": false
   }
