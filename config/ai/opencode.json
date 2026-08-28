@@ -48,7 +48,7 @@
     }
   },
 
-  "enabled_providers": ["openai", "openrouter"],
+  "enabled_providers": ["openai", "opencode-go", "openrouter"],
   "provider": {
     "openai": {
       "models": {
@@ -105,6 +105,7 @@
     },
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]
-    }
+    },
+    "opencode-go": { "whitelist": ["deepseek-v4-pro", "glm-5.3-flash", "hy3"] }
   }
 }

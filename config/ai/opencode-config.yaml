@@ -4,6 +4,12 @@ openrouter:
     - id: openai/gpt-oss-120b
       title: true
 
+opencode-go:
+  models:
+    - id: hy3
+    - id: glm-5.3-flash
+    - id: deepseek-v4-pro
+
 openai:
   models:
     - id: gpt-5.6-sol
