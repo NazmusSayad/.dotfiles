@@ -181,6 +181,7 @@ func main() {
 				os.Exit(1)
 			}
 
+			fmt.Println(aurora.Green("> Creating release: "+tag))
 			if err := gh.ExecInteractive(
 				ctx,
 				"release",
