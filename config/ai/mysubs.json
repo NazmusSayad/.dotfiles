@@ -2,11 +2,6 @@
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
 
-  "codex": {
-    "accounts": {
-      "sayad": { "configDir": "~/.codex-sayad" }
-    }
-  },
   "claude": {
     "accounts": {
       "work": { "configDir": "~/.claude-work", "info": "Work" },
