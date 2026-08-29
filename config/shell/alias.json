@@ -2,14 +2,6 @@
   "oc": "opencode",
   "occ": "opencode --continue",
 
-  "co": "codex",
-  "coc": "codex resume --last",
-  "cor": "codex resume",
-
-  "so": "CODEX_HOME=~/.codex-sayad codex",
-  "soc": "CODEX_HOME=~/.codex-sayad codex resume --last",
-  "sor": "CODEX_HOME=~/.codex-sayad codex resume",
-
   "cc": "claude",
   "ccr": "claude --resume",
   "ccc": "claude --continue",

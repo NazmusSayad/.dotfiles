@@ -45,17 +45,6 @@
         "customModels": []
       }
     },
-    "codex": {
-      "driver": "codex",
-      "enabled": false,
-      "config": {
-        "binaryPath": "codex",
-        "homePath": "",
-        "shadowHomePath": "",
-        "launchArgs": "",
-        "customModels": []
-      }
-    },
     "claudeAgent_work": {
       "driver": "claudeAgent",
       "displayName": "Work",

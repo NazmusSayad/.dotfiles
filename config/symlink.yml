@@ -8,9 +8,8 @@
 
 # AGENTS.md
 "~/.agents/skills/AGENTS_MD.md":
-  - "~/.codex/AGENTS.md"
-  - "~/.gemini/GEMINI.md"
   - "~/.config/opencode/AGENTS.md"
+  - "~/.gemini/GEMINI.md"
   - "~/.claude/CLAUDE.md"
   - "~/.claude-uig/CLAUDE.md"
   - "~/.claude-work/CLAUDE.md"
@@ -21,10 +20,6 @@
   - "~/.claude-uig/skills"
   - "~/.claude-work/skills"
   - "~/.gemini/antigravity-cli/skills"
-
-# Codex
-"@/config/ai/codex.toml": { Copy: "~/.codex/config.toml" }
-"~/.codex/config.toml": "~/.codex-sayad/config.toml"
 
 # Claude
 "~/.agents/skills/CLAUDE_MD.md":
@@ -129,7 +124,6 @@
 "@/config/oiper.json":
   Win: "$APPDATA/com.oiper.desktop/config.json"
   Mac: "~/Library/Application Support/com.oiper.desktop/config.json"
-"@/config/ai/codex-pets": "~/.codex/pets"
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/ai/mysubs.json": "~/.config/mysubs/config.json"
 "@/config/ai/mytokens-group.json": "~/.mytokens/groups.json"
