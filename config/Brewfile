@@ -60,9 +60,6 @@ cask "raycast"
 cask "unified-remote"
 cask "karabiner-elements"
 
-# Cloud
-brew "cloudflared"
-
 # Git
 brew "git"
 brew "git-lfs"
