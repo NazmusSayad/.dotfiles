@@ -66,6 +66,9 @@ gofumpt = "latest"
 rust = "stable"
 rust-analyzer = "latest"
 
+# Cloud
+cloudflared = "latest"
+
 # Others
 # java = "latest"
 # dart = "latest"
