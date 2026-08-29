@@ -137,12 +137,12 @@
 "@/config/nirc": "~/.nirc"
 
 # System
+"@/config/Windhawk.json":
+  Win: "$PROGRAMDATA/Windhawk/userprofile.json"
 "@/config/hammerspoon.lua":
   Mac: "~/.hammerspoon/init.lua"
 "@/config/US Simplified.keylayout":
   Mac.Copy: "~/Library/Keyboard Layouts/US Simplified.keylayout"
-"@/config/Windhawk.json":
-  Win: "$PROGRAMDATA/Windhawk/userprofile.json"
 
 # Private
 "$SYSTEM_FILE_DIR/AIMP":
