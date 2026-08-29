@@ -58,7 +58,6 @@ brew "imagemagick"
 # Productivity
 cask "raycast"
 cask "unified-remote"
-cask "karabiner-elements"
 
 # Git
 brew "git"
