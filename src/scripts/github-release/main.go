@@ -81,7 +81,7 @@ func main() {
 				}
 
 				err = huh.NewInput().
-					Title(aurora.Green("Name").String()).
+					Title(aurora.Cyan("Release tag").String()).
 					Prompt(": ").
 					Inline(true).
 					Value(&tag).
@@ -97,6 +97,7 @@ func main() {
 				}
 
 				tag = strings.TrimSpace(tag)
+				fmt.Println(aurora.Green("✔︎ Release tag:"), tag)
 			}
 
 			if tag == "" {
@@ -181,7 +182,6 @@ func main() {
 				os.Exit(1)
 			}
 
-			fmt.Println(aurora.Green("> Creating release: "+tag))
 			if err := gh.ExecInteractive(
 				ctx,
 				"release",
