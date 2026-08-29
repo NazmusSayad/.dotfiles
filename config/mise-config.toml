@@ -86,10 +86,6 @@ lazydocker = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
 
-# Cloud
-aws = "latest"
-"npm:@schpet/linear-cli" = "latest"
-
 # Web
 yt-dlp = "latest"
 "npm:serve" = "latest"
