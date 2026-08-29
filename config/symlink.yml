@@ -141,8 +141,6 @@
   Mac: "~/.hammerspoon/init.lua"
 "@/config/US Simplified.keylayout":
   Mac.Copy: "~/Library/Keyboard Layouts/US Simplified.keylayout"
-"@/config/karabiner.json":
-  Mac.Copy: "~/.config/karabiner/karabiner.json"
 "@/config/Windhawk.json":
   Win: "$PROGRAMDATA/Windhawk/userprofile.json"
 
