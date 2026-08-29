@@ -11,11 +11,11 @@ opencode-go:
 openai:
   models:
     - id: gpt-5.6-sol
-      context: 256000
+      context: 258000
     - id: gpt-5.6-terra
-      context: 256000
+      context: 258000
     - id: gpt-5.6-luna
-      context: 256000
+      context: 258000
 
 ~agents:
   build:
