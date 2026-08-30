@@ -18,14 +18,14 @@
 
   "cloudLLMs": [
     {
-      "id": "openrouter-nano",
-      "model": "openai/gpt-oss-20b:nitro",
-      "provider": "openrouter"
-    },
-    {
       "id": "openrouter-mini",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
+    },
+    {
+      "id": "01M19DRMXEB7CDECNH046B9RC6",
+      "model": "gpt-oss-120b",
+      "provider": "cerebras"
     }
   ],
 
@@ -45,32 +45,18 @@
 
   "profiles": [
     {
-      "id": "basic-profile",
-      "name": "Basic",
-      "icon": "Microphone",
-      "mode": "cloud",
-      "language": "en",
-      "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-nano",
-      "transcribeAsrModel": "medium.en",
-      "hotkeyHold.macos": "ShiftLeft+ControlLeft",
-      "hotkeyHold.windows": "ShiftLeft+ControlLeft",
-      "hotkeyToggle.macos": "ShiftRight+ControlLeft",
-      "hotkeyToggle.windows": "ShiftRight+ControlLeft"
-    },
-    {
       "id": "normal-profile",
       "name": "Normal",
       "icon": "TextFontIcon",
       "mode": "cloud",
       "language": "en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-mini",
-      "enhancementType": "normal",
-      "hotkeyHold.macos": "ShiftLeft+Alt",
+      "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
+      "hotkeyHold.macos": "ShiftLeft+ControlLeft",
       "hotkeyHold.windows": "ShiftLeft+MetaLeft",
-      "hotkeyToggle.macos": "ShiftRight+Alt",
-      "hotkeyToggle.windows": "ShiftRight+MetaLeft"
+      "hotkeyToggle.macos": "ShiftRight+ControlLeft",
+      "hotkeyToggle.windows": "ShiftRight+MetaLeft",
+      "enhancementType": "normal"
     },
     {
       "id": "prompt-profile",
@@ -79,11 +65,11 @@
       "mode": "cloud",
       "language": "en",
       "transcribeAsrId": "groq-whisper",
-      "enhancementLlmId": "openrouter-mini",
+      "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "prompt",
-      "hotkeyHold.macos": "ShiftLeft+MetaLeft",
+      "hotkeyHold.macos": "ShiftLeft+Alt",
       "hotkeyHold.windows": "ShiftLeft+Alt",
-      "hotkeyToggle.macos": "ShiftRight+MetaLeft",
+      "hotkeyToggle.macos": "ShiftRight+Alt",
       "hotkeyToggle.windows": "ShiftRight+Alt"
     },
     {
@@ -93,27 +79,12 @@
       "mode": "cloud",
       "language": "en",
       "transcribeAsrId": "groq-whisper",
+      "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "translate-bengali",
-      "enhancementLlmId": "openrouter-mini",
-      "hotkeyHold.macos": "ShiftLeft+MetaRight",
-      "hotkeyToggle.macos": "ShiftRight+MetaRight",
+      "hotkeyHold.macos": "ShiftLeft+MetaLeft",
       "hotkeyHold.windows": "ShiftLeft+AltGr",
+      "hotkeyToggle.macos": "ShiftRight+MetaLeft",
       "hotkeyToggle.windows": "ShiftRight+AltGr"
-    },
-    {
-      "id": "oiper",
-      "mode": "oiper",
-      "name": "OiPer",
-      "language": "en",
-      "hotkeyToggle.macos": "ShiftRight+AltGr",
-      "enhancementType": "normal",
-      "hotkeyHold.macos": "ShiftLeft+AltGr",
-      "icon": "ArtificialIntelligence04Icon",
-      "oiperAsrId": "quality",
-      "oiperLlmId": "mini",
-      "oiperMode": "advanced",
-      "hotkeyHold.windows": "ShiftLeft+MetaRight",
-      "hotkeyToggle.windows": "ShiftRight+MetaRight"
     }
   ]
 }
