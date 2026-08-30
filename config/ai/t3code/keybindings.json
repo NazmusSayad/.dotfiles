@@ -211,5 +211,10 @@
     "key": "mod+9",
     "command": "modelPicker.jump.9",
     "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+shift+p",
+    "command": "thread.pin",
+    "when": "!terminalFocus"
   }
 ]
