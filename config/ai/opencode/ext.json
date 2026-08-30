@@ -5,21 +5,5 @@
     "blacklist": {
       "commands": ["go build", "colima"]
     }
-  },
-
-  "agents": {
-    "explore": [
-      {
-        "when": {
-          "provider": "openai",
-          "model": "gpt-5.6-sol"
-        },
-
-        "use": {
-          "provider": "openai",
-          "model": "gpt-5.6-terra"
-        }
-      }
-    ]
   }
 }
