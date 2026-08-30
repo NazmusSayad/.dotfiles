@@ -1,8 +1,5 @@
 {
-  "writeClipboard": false,
-  "injectionMethod.macos": "Ctrl+V",
-  "injectionMethod.windows": "Ctrl+V",
-
+  "bypassHotkey": false,
   "cloudASRs": [
     {
       "id": "groq-whisper",
@@ -15,7 +12,6 @@
       "provider": "openrouter"
     }
   ],
-
   "cloudLLMs": [
     {
       "id": "openrouter-mini",
@@ -28,63 +24,149 @@
       "provider": "cerebras"
     }
   ],
-
-  "words": ["NazmusSayad", "OiPer", "Claude"],
-
-  "snippets": {
-    "My Website": "https://nazmussayad.com",
-    "My GitHub": "https://github.com/NazmusSayad",
-    "My Telegram": "https://t.me/NazmusSayad",
-    "My Twitter": "https://x.com/NazmusSayadX",
-    "My Facebook": "https://fb.com/NazmusSayad",
-    "My Instagram": "https://instagram.com/NazmusSayad",
-    "My .files": "https://github.com/NazmusSayad/.dotfiles",
-    "OiPer Website": "https://oiper.com",
-    "OiPer Desktop GitHub": "https://github.com/OiPer/desktop"
+  "defaultProfile": {
+    "autoSubmit.macos": "Disabled",
+    "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
+    "enhancementType": "basic",
+    "hotkeyHold.macos": "ShiftLeft+ControlLeft",
+    "hotkeyToggle.macos": "ShiftRight+ControlLeft",
+    "id": "default",
+    "language": "en",
+    "mode": "cloud",
+    "name": "Default",
+    "transcribeAsrId": "groq-whisper"
   },
-
+  "injectionMethod.macos": "Ctrl+V",
+  "injectionMethod.windows": "Ctrl+V",
   "profiles": [
     {
-      "id": "normal-profile",
-      "name": "Normal",
-      "icon": "TextFontIcon",
-      "mode": "cloud",
-      "language": "en",
-      "transcribeAsrId": "groq-whisper",
+      "autoSubmit.macos": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
-      "hotkeyHold.macos": "ShiftLeft+ControlLeft",
+      "enhancementType": "casual",
+      "hotkeyHold.macos": "ShiftLeft+Alt",
       "hotkeyHold.windows": "ShiftLeft+MetaLeft",
-      "hotkeyToggle.macos": "ShiftRight+ControlLeft",
+      "hotkeyToggle.macos": "ShiftRight+Alt",
       "hotkeyToggle.windows": "ShiftRight+MetaLeft",
-      "enhancementType": "normal"
+      "id": "normal-profile",
+      "language": "en",
+      "mode": "cloud",
+      "name": "Casual",
+      "transcribeAsrId": "groq-whisper"
     },
     {
-      "id": "prompt-profile",
-      "name": "Prompt",
-      "icon": "CodeXmlIcon",
-      "mode": "cloud",
-      "language": "en",
-      "transcribeAsrId": "groq-whisper",
+      "autoSubmit.macos": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "prompt",
-      "hotkeyHold.macos": "ShiftLeft+Alt",
+      "hotkeyHold.macos": "ShiftLeft+MetaLeft",
       "hotkeyHold.windows": "ShiftLeft+Alt",
-      "hotkeyToggle.macos": "ShiftRight+Alt",
-      "hotkeyToggle.windows": "ShiftRight+Alt"
+      "hotkeyToggle.macos": "ShiftRight+MetaLeft",
+      "hotkeyToggle.windows": "ShiftRight+Alt",
+      "id": "prompt-profile",
+      "language": "en",
+      "mode": "cloud",
+      "name": "Prompt",
+      "transcribeAsrId": "groq-whisper"
     },
     {
-      "id": "bangla",
-      "name": "Bangla",
-      "icon": "TranslationIcon",
-      "mode": "cloud",
-      "language": "en",
-      "transcribeAsrId": "groq-whisper",
+      "autoSubmit.macos": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "translate-bengali",
-      "hotkeyHold.macos": "ShiftLeft+MetaLeft",
+      "hotkeyHold.macos": "ShiftLeft+MetaRight",
       "hotkeyHold.windows": "ShiftLeft+AltGr",
-      "hotkeyToggle.macos": "ShiftRight+MetaLeft",
-      "hotkeyToggle.windows": "ShiftRight+AltGr"
+      "hotkeyToggle.macos": "ShiftRight+MetaRight",
+      "hotkeyToggle.windows": "ShiftRight+AltGr",
+      "id": "bangla",
+      "language": "en",
+      "mode": "cloud",
+      "name": "Bangla",
+      "transcribeAsrId": "groq-whisper"
     }
-  ]
+  ],
+  "snippets": [
+    {
+      "body": "https://nazmussayad.com",
+      "when": [
+        {
+          "value": "My Website"
+        }
+      ]
+    },
+    {
+      "body": "https://github.com/NazmusSayad",
+      "when": [
+        {
+          "value": "My GitHub"
+        }
+      ]
+    },
+    {
+      "body": "https://t.me/NazmusSayad",
+      "when": [
+        {
+          "value": "My Telegram"
+        }
+      ]
+    },
+    {
+      "body": "https://x.com/NazmusSayadX",
+      "when": [
+        {
+          "value": "My Twitter"
+        }
+      ]
+    },
+    {
+      "body": "https://fb.com/NazmusSayad",
+      "when": [
+        {
+          "value": "My Facebook"
+        }
+      ]
+    },
+    {
+      "body": "https://instagram.com/NazmusSayad",
+      "when": [
+        {
+          "value": "My Instagram"
+        }
+      ]
+    },
+    {
+      "body": "https://github.com/NazmusSayad/.dotfiles",
+      "when": [
+        {
+          "value": "My .files"
+        }
+      ]
+    },
+    {
+      "body": "https://oiper.com",
+      "when": [
+        {
+          "value": "OiPer Website"
+        }
+      ]
+    },
+    {
+      "body": "https://github.com/OiPer/desktop",
+      "when": [
+        {
+          "value": "OiPer Desktop GitHub"
+        }
+      ]
+    }
+  ],
+  "soundEffects": {
+    "emptyAudio": true,
+    "fail": true,
+    "startRecording": false,
+    "stopRecording": false
+  },
+  "whisperBackend.macos": "auto",
+  "words": [
+    "NazmusSayad",
+    "OiPer",
+    "Claude"
+  ],
+  "writeClipboard": false
 }
