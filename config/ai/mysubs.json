@@ -4,7 +4,7 @@
 
   "claude": {
     "accounts": {
-      "work": { "configDir": "~/.claude-work", "info": "Work" },
+      "wmb": { "configDir": "~/.claude-wmb", "info": "Work" },
       "uig": { "configDir": "~/.claude-uig", "info": "Extra" }
     }
   },

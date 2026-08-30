@@ -45,13 +45,13 @@
         "customModels": []
       }
     },
-    "claudeAgent_work": {
+    "claudeAgent_wmb": {
       "driver": "claudeAgent",
-      "displayName": "Work",
+      "displayName": "WMB",
       "accentColor": "#16a34a",
       "enabled": true,
       "config": {
-        "homePath": "~/.claude-work"
+        "homePath": "~/.claude-wmb"
       }
     },
     "claudeAgent_uig": {
