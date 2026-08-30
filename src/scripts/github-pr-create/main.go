@@ -20,17 +20,17 @@ func main() {
 			baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(args)
 
 			created, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch)
-			if err != nil {
+			if err != nil && !web {
 				os.Exit(1)
 			}
-			if web && created {
+			if web && (created || err != nil) {
 				pullRequest, err := helpers.FindGithubPullRequest(baseBranch, targetBranch)
 				if err != nil {
-					fmt.Fprintln(os.Stderr, aurora.Red("Failed to find created pull request"))
+					fmt.Fprintln(os.Stderr, aurora.Red("Failed to find pull request"))
 					os.Exit(1)
 				}
 				if pullRequest.Number == 0 {
-					fmt.Fprintln(os.Stderr, aurora.Red("Created pull request not found"))
+					fmt.Fprintln(os.Stderr, aurora.Red("Pull request not found"))
 					os.Exit(1)
 				}
 
