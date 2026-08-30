@@ -73,11 +73,11 @@
 
 # T3Code
 "@/config/ai/t3code/settings.json":
-  Win.Copy: "~/.t3/userdata/settings.json"
+  Copy: "~/.t3/userdata/settings.json"
 "@/config/ai/t3code/keybindings.json":
-  Win.Copy: "~/.t3/userdata/keybindings.json"
+  Copy: "~/.t3/userdata/keybindings.json"
 "@/config/ai/t3code/client-settings.json":
-  Win.Copy: "~/.t3/userdata/client-settings.json"
+  Copy: "~/.t3/userdata/client-settings.json"
 
 # Terminal
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
