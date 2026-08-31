@@ -25,9 +25,13 @@
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/CLAUDE.md"
 "@/config/ai/claude.json":
-  - "~/.claude/settings.json"
+  Copy: "~/.claude/settings.json"
+"~/.claude/settings.json":
   - "~/.claude-wmb/settings.json"
   - "~/.claude-uig/settings.json"
+"~/.claude/history.jsonl":
+  - "~/.claude-wmb/history.jsonl"
+  - "~/.claude-uig/history.jsonl"
 "~/.claude/plans":
   - "~/.claude-wmb/plans"
   - "~/.claude-uig/plans"
@@ -49,9 +53,6 @@
 "~/.claude/shell-snapshots":
   - "~/.claude-wmb/shell-snapshots"
   - "~/.claude-uig/shell-snapshots"
-"~/.claude/history.jsonl":
-  - "~/.claude-wmb/history.jsonl"
-  - "~/.claude-uig/history.jsonl"
 
 # OpenCode
 "@/config/ai/opencode.json": "~/.config/opencode/config.json"
