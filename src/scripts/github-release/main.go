@@ -21,6 +21,7 @@ import (
 )
 
 func main() {
+	yes := false
 	command := &cobra.Command{
 		Use:   "github-release [release]",
 		Short: "Create a GitHub release",
@@ -30,6 +31,11 @@ func main() {
 
 			ctx := context.Background()
 			tagFromArgs := len(args) == 1
+			if yes && !tagFromArgs {
+				fmt.Fprintln(os.Stderr, aurora.Red("Release tag is required with --yes"))
+				os.Exit(1)
+			}
+
 			tag := ""
 			if tagFromArgs {
 				tag = strings.TrimSpace(args[0])
@@ -140,7 +146,7 @@ func main() {
 				); err != nil {
 					os.Exit(1)
 				}
-			} else if tagFromArgs {
+			} else if tagFromArgs && !yes {
 				confirmed := true
 				err := huh.NewConfirm().
 					Title(fmt.Sprint("Create release ", aurora.Cyan(tag).Bold(), " ")).
@@ -195,6 +201,7 @@ func main() {
 			}
 		},
 	}
+	command.Flags().BoolVarP(&yes, "yes", "y", false, "Create the release without confirmation (requires a release tag)")
 
 	if err := command.Execute(); err != nil {
 		os.Exit(1)
