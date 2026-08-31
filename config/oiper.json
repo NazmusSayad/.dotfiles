@@ -27,9 +27,8 @@
   "defaultProfile": {
     "autoSubmit.macos": "Disabled",
     "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
-    "enhancementType": "basic",
-    "hotkeyHold.macos": "ShiftLeft+ControlLeft",
-    "hotkeyToggle.macos": "ShiftRight+ControlLeft",
+    "hotkeyHold.macos": "ControlLeft+Alt",
+    "hotkeyToggle.macos": "",
     "id": "default",
     "language": "en",
     "mode": "cloud",
@@ -39,6 +38,20 @@
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
   "profiles": [
+    {
+      "autoSubmit.macos": "Disabled",
+      "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
+      "enhancementType": "basic",
+      "hotkeyHold.macos": "ShiftLeft+ControlLeft",
+      "hotkeyHold.windows": "ShiftLeft+Alt",
+      "hotkeyToggle.macos": "ShiftRight+ControlLeft",
+      "hotkeyToggle.windows": "ShiftRight+Alt",
+      "id": "basic-profile",
+      "language": "en",
+      "mode": "cloud",
+      "name": "Basic",
+      "transcribeAsrId": "groq-whisper"
+    },
     {
       "autoSubmit.macos": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
