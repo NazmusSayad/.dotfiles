@@ -57,33 +57,35 @@ func GetGithubPullRequestBranchesOrExit(args []string) (string, string) {
 	return baseBranch, targetBranch
 }
 
-func CreateGithubPullRequest(baseBranch string, targetBranch string) (bool, error) {
-	confirmed := true
-	err := huh.NewConfirm().
-		Title(fmt.Sprint(
-			aurora.Green(" Create PR").String()+": ",
-			aurora.Red(baseBranch).Bold(),
-			aurora.Faint("<-"),
-			aurora.Yellow(targetBranch).Bold(),
-		)).
-		Inline(true).
-		Value(&confirmed).
-		WithTheme(HuhTheme()).
-		Run()
-	if err != nil {
-		if errors.Is(err, huh.ErrUserAborted) {
+func CreateGithubPullRequest(baseBranch string, targetBranch string, forceYes bool) (bool, error) {
+	if !forceYes {
+		confirmed := true
+		err := huh.NewConfirm().
+			Title(fmt.Sprint(
+				aurora.Green(" Create PR").String()+": ",
+				aurora.Red(baseBranch).Bold(),
+				aurora.Faint("<-"),
+				aurora.Yellow(targetBranch).Bold(),
+			)).
+			Inline(true).
+			Value(&confirmed).
+			WithTheme(HuhTheme()).
+			Run()
+		if err != nil {
+			if errors.Is(err, huh.ErrUserAborted) {
+				fmt.Println(aurora.Red("Pull request creation cancelled"))
+				return false, nil
+			}
+			return false, err
+		}
+
+		if !confirmed {
 			fmt.Println(aurora.Red("Pull request creation cancelled"))
 			return false, nil
 		}
-		return false, err
 	}
 
-	if !confirmed {
-		fmt.Println(aurora.Red("Pull request creation cancelled"))
-		return false, nil
-	}
-
-	err = gh.ExecInteractive(
+	err := gh.ExecInteractive(
 		context.Background(),
 		"pr", "create", "--fill",
 		"--assignee", "@me",

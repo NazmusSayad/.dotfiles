@@ -12,6 +12,7 @@ import (
 
 func main() {
 	web := false
+	yes := false
 	command := &cobra.Command{
 		Use:   "github-pr-create [base-branch] [head-branch]",
 		Short: "Create a GitHub pull request",
@@ -19,7 +20,7 @@ func main() {
 		Run: func(_ *cobra.Command, args []string) {
 			baseBranch, targetBranch := helpers.GetGithubPullRequestBranchesOrExit(args)
 
-			created, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch)
+			created, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch, yes)
 			if err != nil && !web {
 				os.Exit(1)
 			}
@@ -41,6 +42,7 @@ func main() {
 		},
 	}
 	command.Flags().BoolVarP(&web, "web", "w", false, "Open the pull request in a browser")
+	command.Flags().BoolVarP(&yes, "yes", "y", false, "Create the pull request without confirmation")
 
 	if err := command.Execute(); err != nil {
 		os.Exit(1)

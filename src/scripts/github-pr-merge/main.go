@@ -16,6 +16,7 @@ import (
 )
 
 func main() {
+	yes := false
 	command := &cobra.Command{
 		Use:   "github-pr-merge [base-branch] [head-branch]",
 		Short: "Merge a GitHub pull request",
@@ -31,7 +32,7 @@ func main() {
 
 			createdPullRequest := false
 			if pullRequest.Number == 0 {
-				confirmed, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch)
+				confirmed, err := helpers.CreateGithubPullRequest(baseBranch, targetBranch, yes)
 				if !confirmed {
 					return
 				}
@@ -55,31 +56,33 @@ func main() {
 				fmt.Println(pullRequest.URL)
 			}
 
-			confirmed := true
-			err = huh.NewConfirm().
-				Title(fmt.Sprint(
-					aurora.Magenta(" Merge PR"),
-					aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
-					aurora.Red(baseBranch),
-					aurora.Faint("<-"),
-					aurora.Yellow(targetBranch),
-				)).
-				Inline(true).
-				Value(&confirmed).
-				WithTheme(helpers.HuhTheme()).
-				Run()
-			if err != nil {
-				if errors.Is(err, huh.ErrUserAborted) {
+			if !yes {
+				confirmed := true
+				err = huh.NewConfirm().
+					Title(fmt.Sprint(
+						aurora.Magenta(" Merge PR"),
+						aurora.Cyan("#"+strconv.Itoa(pullRequest.Number)).Bold(), ": ",
+						aurora.Red(baseBranch),
+						aurora.Faint("<-"),
+						aurora.Yellow(targetBranch),
+					)).
+					Inline(true).
+					Value(&confirmed).
+					WithTheme(helpers.HuhTheme()).
+					Run()
+				if err != nil {
+					if errors.Is(err, huh.ErrUserAborted) {
+						fmt.Println(aurora.Red("Pull request merge cancelled"))
+						return
+					}
+					fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+					os.Exit(1)
+				}
+
+				if !confirmed {
 					fmt.Println(aurora.Red("Pull request merge cancelled"))
 					return
 				}
-				fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
-				os.Exit(1)
-			}
-
-			if !confirmed {
-				fmt.Println(aurora.Red("Pull request merge cancelled"))
-				return
 			}
 
 			if err := gh.ExecInteractive(
@@ -90,6 +93,7 @@ func main() {
 			}
 		},
 	}
+	command.Flags().BoolVarP(&yes, "yes", "y", false, "Merge the pull request without confirmation")
 
 	if err := command.Execute(); err != nil {
 		os.Exit(1)
