@@ -47,6 +47,7 @@
   "window.restoreWindows": "one",
   "window.density.editorTabHeight": "compact",
   "window.openFoldersInNewWindow": "off",
+  "window.restoreFullscreen": true,
   "window.newWindowDimensions": "fullscreen",
   "window.menuBarVisibilit y": "compact",
   "window.commandCenter": false,
