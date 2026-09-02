@@ -871,5 +871,10 @@
     "key": "shift+alt+cmd+a",
     "command": "-workbench.action.openAgentsWindow",
     "when": "accessibilityModeEnabled && config.chat.agent.enabled && !chatSetupDisabledInWorkspace && !chatSetupHidden && !isAuxiliaryWindow && !isSessionsWindow"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
   }
 ]
