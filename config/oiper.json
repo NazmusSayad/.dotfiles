@@ -26,8 +26,10 @@
   ],
   "defaultProfile": {
     "autoSubmit.macos": "Disabled",
+    "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
     "hotkeyHold.macos": "ControlLeft+Alt",
+    "hotkeyHold.windows": "ControlLeft+MetaLeft",
     "hotkeyToggle.macos": "",
     "id": "default",
     "language": "en",
@@ -40,12 +42,13 @@
   "profiles": [
     {
       "autoSubmit.macos": "Disabled",
+      "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "basic",
       "hotkeyHold.macos": "ShiftLeft+ControlLeft",
-      "hotkeyHold.windows": "ShiftLeft+Alt",
+      "hotkeyHold.windows": "ShiftLeft+ControlLeft",
       "hotkeyToggle.macos": "ShiftRight+ControlLeft",
-      "hotkeyToggle.windows": "ShiftRight+Alt",
+      "hotkeyToggle.windows": "ShiftRight+ControlLeft",
       "id": "basic-profile",
       "language": "en",
       "mode": "cloud",
@@ -54,12 +57,13 @@
     },
     {
       "autoSubmit.macos": "Disabled",
+      "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "prompt",
       "hotkeyHold.macos": "ShiftLeft+Alt",
-      "hotkeyHold.windows": "ShiftLeft+Alt",
+      "hotkeyHold.windows": "ShiftLeft+MetaLeft",
       "hotkeyToggle.macos": "ShiftRight+Alt",
-      "hotkeyToggle.windows": "ShiftRight+Alt",
+      "hotkeyToggle.windows": "ShiftRight+MetaLeft",
       "id": "prompt-profile",
       "language": "en",
       "mode": "cloud",
@@ -68,6 +72,7 @@
     },
     {
       "autoSubmit.macos": "Disabled",
+      "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "01M19DRMXEB7CDECNH046B9RC6",
       "enhancementType": "translate-bengali",
       "hotkeyHold.macos": "ShiftLeft+MetaLeft",
@@ -162,6 +167,7 @@
     "stopRecording": false
   },
   "whisperBackend.macos": "auto",
+  "whisperBackend.windows": "auto",
   "words": [
     "NazmusSayad",
     "OiPer",
