@@ -8,51 +8,40 @@
 
 # AGENTS.md
 "~/.agents/skills/AGENTS_MD.md":
-  - "~/.config/opencode/AGENTS.md"
   - "~/.gemini/GEMINI.md"
   - "~/.claude/CLAUDE.md"
   - "~/.claude-wmb/CLAUDE.md"
-  - "~/.claude-uig/CLAUDE.md"
+  - "~/.config/opencode/AGENTS.md"
 
 # Agents Skills
 "~/.agents/skills":
   - "~/.claude/skills"
   - "~/.claude-wmb/skills"
-  - "~/.claude-uig/skills"
   - "~/.gemini/antigravity-cli/skills"
 
 # Claude
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/CLAUDE.md"
 "@/config/ai/claude.json":
-  Copy: "~/.claude/settings.json"
+  - "~/.claude/settings.json"
 "~/.claude/settings.json":
   - "~/.claude-wmb/settings.json"
-  - "~/.claude-uig/settings.json"
 "~/.claude/history.jsonl":
   - "~/.claude-wmb/history.jsonl"
-  - "~/.claude-uig/history.jsonl"
 "~/.claude/plans":
   - "~/.claude-wmb/plans"
-  - "~/.claude-uig/plans"
 "~/.claude/tasks":
   - "~/.claude-wmb/tasks"
-  - "~/.claude-uig/tasks"
 "~/.claude/plugins":
   - "~/.claude-wmb/plugins"
-  - "~/.claude-uig/plugins"
 "~/.claude/projects":
   - "~/.claude-wmb/projects"
-  - "~/.claude-uig/projects"
 "~/.claude/sessions":
   - "~/.claude-wmb/sessions"
-  - "~/.claude-uig/sessions"
 "~/.claude/session-env":
   - "~/.claude-wmb/session-env"
-  - "~/.claude-uig/session-env"
 "~/.claude/shell-snapshots":
   - "~/.claude-wmb/shell-snapshots"
-  - "~/.claude-uig/shell-snapshots"
 
 # OpenCode
 "@/config/ai/opencode.json": "~/.config/opencode/config.json"
