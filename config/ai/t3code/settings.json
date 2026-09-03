@@ -54,15 +54,6 @@
         "homePath": "~/.claude-wmb"
       }
     },
-    "claudeAgent_uig": {
-      "driver": "claudeAgent",
-      "displayName": "UiG",
-      "accentColor": "#2563eb",
-      "enabled": true,
-      "config": {
-        "homePath": "~/.claude-uig"
-      }
-    },
     "codex": {
       "driver": "codex",
       "enabled": false,

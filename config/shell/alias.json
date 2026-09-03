@@ -6,17 +6,9 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
-  "uc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude",
-  "ucr": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --resume",
-  "ucc": "CLAUDE_CONFIG_DIR=~/.claude-uig claude --continue",
-
   "wc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude",
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --resume",
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --continue",
-
-  "ic": "CLAUDE_CONFIG_DIR=~/.claude-imam claude",
-  "icr": "CLAUDE_CONFIG_DIR=~/.claude-imam claude --resume",
-  "icc": "CLAUDE_CONFIG_DIR=~/.claude-imam claude --continue",
 
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
