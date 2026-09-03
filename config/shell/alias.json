@@ -20,8 +20,8 @@
   "gy": "gityo",
   "gyy": "gityo --yolo",
 
-  "j": "just",
   "m": "make",
+  "j": "just",
 
   "c": "code",
   "c.": "code .",
@@ -42,22 +42,17 @@
   "dcd": "docker compose down",
   "dcr": "docker compose restart",
 
-  "lsf": "ls -f",
-  "rmf": "rm -rf",
-
-  "xxx": "exit",
-  "x": { "cmd": "clear", "cmd.pwsh": "Clear-Host" },
-
   "ex": { "cmd": "explorer", "platform": "windows" },
   "where": { "cmd": "which -a", "platform": "macos" },
 
-  "fix-claude.md": "rm -f ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
-
   "fix-next": "rm -rf .next",
-  "fix-ports": {
-    "cmd": "sudo net stop winnat",
-    "platform": "windows"
-  },
+  "fix-ports": { "cmd": "sudo net stop winnat", "platform": "windows" },
+
+  "link-claude.md": "rm -f ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
+
+  "qq": "exit",
+  "lsf": "ls -f",
+  "rmf": "rm -rf",
 
   "..": "cd ..",
   "...": "cd ../..",
