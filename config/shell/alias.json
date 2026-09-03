@@ -50,9 +50,8 @@
 
   "link-claude.md": "rm -f ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
 
+  "q": "clear",
   "qq": "exit",
-  "cls": "clear",
-
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
