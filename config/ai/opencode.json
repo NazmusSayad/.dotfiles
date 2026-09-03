@@ -106,6 +106,8 @@
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]
     },
-    "opencode-go": { "whitelist": ["glm-5.3-flash"] }
+    "opencode-go": {
+      "whitelist": ["deepseek-v4-flash-vision-exp", "glm-5.3-flash"]
+    }
   }
 }
