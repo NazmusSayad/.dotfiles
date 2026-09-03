@@ -106,6 +106,7 @@ yt-dlp = "latest"
 "npm:opencode-ext" = "latest"
 
 # MCP
+"npm:@playwright/mcp" = "latest"
 "npm:chrome-devtools-mcp" = "latest"
 
 [settings.npm]
