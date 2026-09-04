@@ -20,7 +20,7 @@ echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
 
 echo "Configuring battery settings..."
-sudo batt limit 60
+sudo batt limit 70
 sudo batt lower-limit-delta 10
 sudo batt prevent-system-sleep enable
 sudo batt magsafe-led enable
