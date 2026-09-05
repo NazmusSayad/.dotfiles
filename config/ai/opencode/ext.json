@@ -8,6 +8,20 @@
   },
 
   "agents": {
+    "general": [
+      {
+        "when": {
+          "provider": "openai",
+          "model": "gpt-6-astra"
+        },
+
+        "use": {
+          "provider": "openai",
+          "model": "gpt-5.6-sol"
+        }
+      }
+    ],
+
     "explore": [
       {
         "when": {
