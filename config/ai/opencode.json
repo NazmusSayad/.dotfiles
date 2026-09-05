@@ -99,9 +99,30 @@
           "release_date": "2026-07-09",
           "temperature": false,
           "tool_call": true
+        },
+        "gpt-6-astra": {
+          "attachment": true,
+          "cost": { "cache_read": 1, "input": 10, "output": 50 },
+          "family": "gpt-astra",
+          "id": "gpt-6-astra",
+          "limit": { "context": 258000, "input": 258000, "output": 128000 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "GPT-6 Astra",
+          "reasoning": true,
+          "release_date": "2026-09-04",
+          "temperature": false,
+          "tool_call": true
         }
       },
-      "whitelist": ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]
+      "whitelist": [
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra"
+      ]
     },
     "openrouter": {
       "whitelist": ["openai/gpt-oss-120b"]
