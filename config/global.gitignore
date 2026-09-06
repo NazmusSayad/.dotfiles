@@ -8,6 +8,7 @@
 .envrc
 .mcp.json
 
+.playwright
 .playwright-cli
 .playwright-mcp
 
