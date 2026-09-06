@@ -39,7 +39,6 @@ cask "zen"
 # Internet
 brew "wget"
 cask "localsend"
-cask "protonvpn"
 cask "free-download-manager"
 
 # File System
