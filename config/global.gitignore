@@ -7,6 +7,8 @@
 
 .envrc
 .mcp.json
+
+.playwright-cli
 .playwright-mcp
 
 .agents/
