@@ -20,12 +20,12 @@
   - "~/.gemini/antigravity-cli/skills"
 
 # Claude
+"@/config/ai/claude.json":
+  Copy:
+    - "~/.claude/settings.json"
+    - "~/.claude-wmb/settings.json"
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/CLAUDE.md"
-"@/config/ai/claude.json":
-  - "~/.claude/settings.json"
-"~/.claude/settings.json":
-  - "~/.claude-wmb/settings.json"
 "~/.claude/history.jsonl":
   - "~/.claude-wmb/history.jsonl"
 "~/.claude/plans":
