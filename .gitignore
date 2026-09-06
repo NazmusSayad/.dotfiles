@@ -2,5 +2,8 @@
 .local
 .build
 .scoop
+
 .experiment
+.playwright-mcp
+
 node_modules
