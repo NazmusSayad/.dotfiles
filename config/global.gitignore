@@ -9,4 +9,6 @@
 .mcp.json
 .playwright-mcp
 
-**/.claude/settings.local.json
+.agents/
+.claude/
+.claude/settings.local.json
