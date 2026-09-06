@@ -3,8 +3,4 @@
 .build
 .scoop
 .experiment
-
-.mcp.json
-.playwright-mcp
-
 node_modules
