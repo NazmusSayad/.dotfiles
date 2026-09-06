@@ -105,7 +105,8 @@ yt-dlp = "latest"
 "npm:create-src" = "latest"
 "npm:opencode-ext" = "latest"
 
-# MCP
+# Browsers
+"npm:@playwright/cli" = "latest"
 "npm:@playwright/mcp" = "latest"
 "npm:chrome-devtools-mcp" = "latest"
 
