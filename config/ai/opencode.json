@@ -23,7 +23,18 @@
       "command": [
         "chrome-devtools-mcp",
         "--viewport=1440x900x1",
-        "--headless=true"
+        "--headless",
+        "--isolated"
+      ]
+    },
+    "playwright": {
+      "type": "local",
+      "enabled": false,
+      "command": [
+        "playwright-mcp",
+        "--viewport=1440x900x1",
+        "--headless",
+        "--isolated"
       ]
     }
   },
