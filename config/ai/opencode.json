@@ -18,8 +18,8 @@
 
   "mcp": {
     "chrome-devtools": {
-      "type": "local",
       "enabled": false,
+      "type": "local",
       "command": [
         "chrome-devtools-mcp",
         "--viewport=1440x900x1",
@@ -28,8 +28,8 @@
       ]
     },
     "playwright": {
-      "type": "local",
       "enabled": false,
+      "type": "local",
       "command": [
         "playwright-mcp",
         "--viewport=1440x900x1",
