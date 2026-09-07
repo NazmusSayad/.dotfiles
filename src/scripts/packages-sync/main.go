@@ -26,7 +26,10 @@ func main() {
 	// Mise
 	if runtime.GOOS == "darwin" {
 		fmt.Println("△", aurora.Faint("Updating Mise..."))
-		runCommand([]string{"mise", "self-update", "--yes"})
+		runCommand(
+			[]string{"mise", "self-update", "--yes"},
+			helpers.ExecCommandOptions{ExtraEnv: map[string]string{"GITHUB_TOKEN": githubToken}},
+		)
 	}
 
 	fmt.Println("✘", aurora.Faint("Uninstalling Mise packages..."))
