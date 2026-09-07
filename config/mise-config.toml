@@ -40,11 +40,13 @@ ninja = "latest"
 "github:anthropics/claude-code" = "latest"
 "github:google-antigravity/antigravity-cli" = "latest"
 
-# JS/TS
+# JS/TS Runtime
 node = "lts"
 bun = "latest"
 deno = "latest"
-pnpm = "latest"
+
+# JS/TS Tools
+pnpm = "11"
 "npm:tsx" = "latest"
 "npm:taze" = "latest"
 "npm:@antfu/ni" = "latest"
