@@ -46,7 +46,7 @@ bun = "latest"
 deno = "latest"
 
 # JS/TS Tools
-pnpm = "11"
+pnpm = "latest"
 "npm:tsx" = "latest"
 "npm:taze" = "latest"
 "npm:@antfu/ni" = "latest"
