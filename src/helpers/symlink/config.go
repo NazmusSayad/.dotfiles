@@ -31,15 +31,17 @@ type Config struct {
 	Source      string
 	LinkTargets []string
 	CopyTargets []string
+	InheritPerm bool
 }
 
 type Entry struct {
-	Link    StringOrArray `yaml:"-"`
-	Win     StringOrArray `yaml:"Win"`
-	Mac     StringOrArray `yaml:"Mac"`
-	Copy    StringOrArray `yaml:"Copy"`
-	WinCopy StringOrArray `yaml:"Win.Copy"`
-	MacCopy StringOrArray `yaml:"Mac.Copy"`
+	Link        StringOrArray `yaml:"-"`
+	Win         StringOrArray `yaml:"Win"`
+	Mac         StringOrArray `yaml:"Mac"`
+	Copy        StringOrArray `yaml:"Copy"`
+	WinCopy     StringOrArray `yaml:"Win.Copy"`
+	MacCopy     StringOrArray `yaml:"Mac.Copy"`
+	InheritPerm bool          `yaml:"InheritPerm"`
 }
 
 func (e *Entry) UnmarshalYAML(node *yaml.Node) error {
@@ -98,6 +100,7 @@ func ReadConfigs() []Config {
 			Source:      source,
 			LinkTargets: linkTargets,
 			CopyTargets: copyTargets,
+			InheritPerm: rawConfigs[source].InheritPerm,
 		})
 	}
 

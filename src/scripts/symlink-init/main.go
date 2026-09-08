@@ -13,6 +13,10 @@ import (
 
 func main() {
 	helpers.EnsureAdminExecution()
+	if err := helpers.ValidateInvokingUser(); err != nil {
+		fmt.Println(aurora.Red("UNEXPECTED: " + err.Error()))
+		os.Exit(1)
+	}
 	symlinkConfigs := symlink.ReadConfigs()
 
 	if len(symlinkConfigs) == 0 {
@@ -27,14 +31,14 @@ func main() {
 
 		for _, target := range config.LinkTargets {
 			targetPath := helpers.ResolvePath(target)
-			if helpers.GenerateSymlink(sourcePath, targetPath) == nil {
+			if helpers.GenerateSymlink(sourcePath, targetPath, config.InheritPerm) == nil {
 				newlyCreatedFiles = append(newlyCreatedFiles, targetPath)
 			}
 		}
 
 		for _, target := range config.CopyTargets {
 			targetPath := helpers.ResolvePath(target)
-			if helpers.CopyFile(sourcePath, targetPath) == nil {
+			if helpers.CopyFile(sourcePath, targetPath, config.InheritPerm) == nil {
 				newlyCreatedFiles = append(newlyCreatedFiles, targetPath)
 			}
 		}
@@ -48,9 +52,7 @@ func main() {
 		}
 	}
 
-	os.WriteFile(
-		helpers.ResolvePath("@/.local/symlink.lock"),
-		[]byte(strings.Join(newlyCreatedFiles, "\n")),
-		0o644,
-	)
+	lockPath := helpers.ResolvePath("@/.local/symlink.lock")
+	os.WriteFile(lockPath, []byte(strings.Join(newlyCreatedFiles, "\n")), 0o644)
+	helpers.ApplyUserOwnership(lockPath)
 }

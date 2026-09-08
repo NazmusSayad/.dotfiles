@@ -31,6 +31,6 @@ func main() {
 			continue
 		}
 
-		helpers.CopyFile(targetPath, sourcePath)
+		helpers.CopyFile(targetPath, sourcePath, config.InheritPerm)
 	}
 }
