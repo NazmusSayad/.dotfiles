@@ -1,13 +1,13 @@
 {
     "name": "Basic",
     "AuxAudioDevice1": {
-        "prev_ver": 537001985,
-        "name": "Macbook Microphone",
+        "prev_ver": 537001986,
+        "name": "Input",
         "uuid": "ae58dae6-b732-4a58-9d9b-3580cf6f988c",
         "id": "coreaudio_input_capture",
         "versioned_id": "coreaudio_input_capture",
         "settings": {
-            "device_id": "BuiltInMicrophoneDevice"
+            "device_id": "default"
         },
         "mixers": 255,
         "sync": 0,
@@ -15,7 +15,7 @@
         "volume": 1.0,
         "balance": 0.5,
         "enabled": true,
-        "muted": true,
+        "muted": false,
         "push-to-mute": false,
         "push-to-mute-delay": 0,
         "push-to-talk": false,
@@ -31,67 +31,10 @@
         "monitoring_type": 0,
         "private_settings": {}
     },
-    "AuxAudioDevice2": {
-        "prev_ver": 537001985,
-        "name": "Logitech Headphone",
-        "uuid": "94acf450-f9e7-43e3-ac1e-3d1bbfbd3ef4",
-        "id": "coreaudio_input_capture",
-        "versioned_id": "coreaudio_input_capture",
-        "settings": {
-            "device_id": "40-58-99-51-B7-2D:input"
-        },
-        "mixers": 255,
-        "sync": 0,
-        "flags": 0,
-        "volume": 1.0,
-        "balance": 0.5,
-        "enabled": true,
-        "muted": true,
-        "push-to-mute": false,
-        "push-to-mute-delay": 0,
-        "push-to-talk": false,
-        "push-to-talk-delay": 0,
-        "hotkeys": {
-            "libobs.mute": [],
-            "libobs.unmute": [],
-            "libobs.push-to-mute": [],
-            "libobs.push-to-talk": []
-        },
-        "deinterlace_mode": 0,
-        "deinterlace_field_order": 0,
-        "monitoring_type": 0,
-        "private_settings": {},
-        "filters": [
-            {
-                "prev_ver": 537001985,
-                "name": "Noise Suppression",
-                "uuid": "1a2a1b2e-5d6b-45b5-be99-ee968574ca2c",
-                "id": "noise_suppress_filter",
-                "versioned_id": "noise_suppress_filter_v2",
-                "settings": {},
-                "mixers": 255,
-                "sync": 0,
-                "flags": 0,
-                "volume": 1.0,
-                "balance": 0.5,
-                "enabled": true,
-                "muted": false,
-                "push-to-mute": false,
-                "push-to-mute-delay": 0,
-                "push-to-talk": false,
-                "push-to-talk-delay": 0,
-                "hotkeys": {},
-                "deinterlace_mode": 0,
-                "deinterlace_field_order": 0,
-                "monitoring_type": 0,
-                "private_settings": {}
-            }
-        ]
-    },
     "sources": [
         {
-            "prev_ver": 537001985,
-            "name": "Monitor",
+            "prev_ver": 537001986,
+            "name": "Output",
             "uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
             "id": "screen_capture",
             "versioned_id": "screen_capture",
@@ -123,7 +66,7 @@
             }
         },
         {
-            "prev_ver": 537001985,
+            "prev_ver": 537001986,
             "name": "Landscape",
             "uuid": "6936f226-fa1e-4af6-97a5-ff013d16c9b4",
             "id": "scene",
@@ -133,7 +76,7 @@
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Monitor",
+                        "name": "Output",
                         "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
                         "visible": true,
                         "locked": true,
