@@ -183,6 +183,10 @@
   },
   "whisperBackend.macos": "auto",
   "whisperBackend.windows": "auto",
-  "words": ["NazmusSayad", "OiPer", "Claude"],
+  "words": [
+    "NazmusSayad",
+    "OiPer",
+    "Claude"
+  ],
   "writeClipboard": false
 }
