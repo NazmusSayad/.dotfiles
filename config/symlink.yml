@@ -21,10 +21,11 @@
 
 # Claude
 "@/config/ai/claude.json":
-  - "~/.claude/settings.json"
-  - "~/.claude-wmb/settings.json"
+  Copy: "~/.claude/settings.json"
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/CLAUDE.md"
+"~/.claude/settings.json":
+  - "~/.claude-wmb/settings.json"
 "~/.claude/history.jsonl":
   - "~/.claude-wmb/history.jsonl"
 "~/.claude/plans":
