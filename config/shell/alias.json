@@ -7,9 +7,12 @@
   "ccc": "claude --continue --model opus",
 
   "wc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --model fable",
+  "wco": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --model opus",
   "wcr": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --resume --model fable",
+  "wcro": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --resume --model opus",
   "wcc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --continue --model fable",
-
+  "wcco": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --continue --model opus",
+  
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
 
