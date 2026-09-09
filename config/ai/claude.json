@@ -37,7 +37,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "opus",
+  "model": "fable",
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
   "disableAgentView": true,
