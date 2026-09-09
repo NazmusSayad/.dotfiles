@@ -2,13 +2,13 @@
   "oc": "opencode",
   "occ": "opencode --continue",
 
-  "cc": "claude",
-  "ccr": "claude --resume",
-  "ccc": "claude --continue",
+  "cc": "claude --model opus",
+  "ccr": "claude --resume --model opus",
+  "ccc": "claude --continue --model opus",
 
-  "wc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude",
-  "wcr": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --resume",
-  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --continue",
+  "wc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --model fable",
+  "wcr": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --resume --model fable",
+  "wcc": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --continue --model fable",
 
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
