@@ -19,6 +19,11 @@
       "provider": "cerebras"
     },
     {
+      "id": "cerebras-qwen-3.8-27b",
+      "model": "qwen-3.8-27b",
+      "provider": "cerebras"
+    },
+    {
       "id": "openrouter-mini",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
@@ -183,10 +188,6 @@
   },
   "whisperBackend.macos": "auto",
   "whisperBackend.windows": "auto",
-  "words": [
-    "NazmusSayad",
-    "OiPer",
-    "Claude"
-  ],
+  "words": ["NazmusSayad", "OiPer", "Claude"],
   "writeClipboard": false
 }
