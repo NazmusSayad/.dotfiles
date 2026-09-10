@@ -32,7 +32,7 @@ defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 defaults write com.apple.dock tilesize -int 64
-defaults write com.apple.dock largesize -int 88
+defaults write com.apple.dock largesize -int 72
 defaults write com.apple.dock magnification -bool true
 
 defaults write com.apple.dock autohide -bool true
