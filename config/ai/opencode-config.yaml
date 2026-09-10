@@ -7,7 +7,7 @@ openrouter:
 opencode-go:
   models:
     - id: glm-5.3-flash
-    - id: deepseek-flash
+    - id: deepseek-v4.1-flash
 
 openai:
   models:
