@@ -10,11 +10,6 @@
       "id": "openrouter-whisper",
       "model": "openai/whisper-large-v3",
       "provider": "openrouter"
-    },
-    {
-      "id": "01M25R4WGEWM8MR2CY5CGS7BK1",
-      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
-      "provider": "huggingface"
     }
   ],
   "cloudLLMs": [
@@ -47,15 +42,7 @@
   "defaultProfile": {
     "autoSubmit.macos": "Disabled",
     "autoSubmit.windows": "Disabled",
-    "defaultForApps": [
-      {
-        "appName": "Google Chrome"
-      },
-      {
-        "appName": "Visual Studio Code"
-      }
-    ],
-    "enhancementLlmId": "openrouter-qwen3-vl-8b-instruct",
+    "enhancementLlmId": "cerebras-gpt-oss-120b",
     "hotkeyHold.macos": "ControlLeft+Alt",
     "hotkeyHold.windows": "ControlLeft+MetaLeft",
     "hotkeyToggle.macos": "",
@@ -72,9 +59,7 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
-      "enhancementPrompt": "Boom!",
-      "enhancementTask": "Lets do it!",
-      "enhancementType": "#PROMPT",
+      "enhancementType": "basic",
       "hotkeyHold.macos": "ShiftLeft+ControlLeft",
       "hotkeyHold.windows": "ShiftLeft+ControlLeft",
       "hotkeyToggle.macos": "ShiftRight+ControlLeft",
@@ -118,18 +103,18 @@
   ],
   "snippets": [
     {
-      "body": "https://github.com/NazmusSayad",
-      "when": [
-        {
-          "value": "My GitHub"
-        }
-      ]
-    },
-    {
       "body": "https://nazmussayad.com",
       "when": [
         {
           "value": "My Website"
+        }
+      ]
+    },
+    {
+      "body": "https://github.com/NazmusSayad",
+      "when": [
+        {
+          "value": "My GitHub"
         }
       ]
     },
@@ -188,14 +173,6 @@
           "value": "OiPer Desktop GitHub"
         }
       ]
-    },
-    {
-      "body": "Superman",
-      "when": [
-        {
-          "value": "Super"
-        }
-      ]
     }
   ],
   "soundEffects": {
@@ -209,7 +186,7 @@
   "words": [
     "NazmusSayad",
     "OiPer",
-    "Not Claude"
+    "Claude"
   ],
   "writeClipboard": false
 }
