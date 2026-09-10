@@ -139,7 +139,7 @@
       "whitelist": ["openai/gpt-oss-120b"]
     },
     "opencode-go": {
-      "whitelist": ["glm-5.3-flash"]
+      "whitelist": ["deepseek-flash", "glm-5.3-flash"]
     }
   }
 }
