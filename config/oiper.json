@@ -63,7 +63,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementLlmId": "cerebras-qwen-3.8-27b",
       "enhancementType": "basic",
       "hotkeyHold.macos": "ShiftLeft+ControlLeft",
       "hotkeyHold.windows": "ShiftLeft+ControlLeft",
@@ -78,7 +78,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementLlmId": "cerebras-qwen-3.8-27b",
       "enhancementType": "prompt",
       "hotkeyHold.macos": "ShiftLeft+Alt",
       "hotkeyHold.windows": "ShiftLeft+MetaLeft",
@@ -93,7 +93,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementLlmId": "cerebras-qwen-3.8-27b",
       "enhancementType": "translate-bengali",
       "hotkeyHold.macos": "ShiftLeft+MetaLeft",
       "hotkeyHold.windows": "ShiftLeft+AltGr",
@@ -188,6 +188,10 @@
   },
   "whisperBackend.macos": "auto",
   "whisperBackend.windows": "auto",
-  "words": ["NazmusSayad", "OiPer", "Claude"],
+  "words": [
+    "NazmusSayad",
+    "OiPer",
+    "Claude"
+  ],
   "writeClipboard": false
 }
