@@ -30,8 +30,8 @@
         },
 
         "use": {
-          "provider": "openai",
-          "model": "gpt-5.6-sol"
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash"
         }
       },
 
@@ -42,8 +42,8 @@
         },
 
         "use": {
-          "provider": "openai",
-          "model": "gpt-5.6-terra"
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash"
         }
       }
     ]
