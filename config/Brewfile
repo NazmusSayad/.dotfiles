@@ -33,7 +33,6 @@ cask "mos"
 
 # Browsers
 cask "google-chrome"
-cask "helium-browser"
 cask "zen"
 
 # Internet
