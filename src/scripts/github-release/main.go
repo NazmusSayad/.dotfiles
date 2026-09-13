@@ -22,6 +22,7 @@ import (
 
 func main() {
 	yes := false
+	force := false
 	command := &cobra.Command{
 		Use:   "github-release [release]",
 		Short: "Create a GitHub release",
@@ -112,25 +113,27 @@ func main() {
 			}
 
 			if _, _, err := gh.Exec("release", "view", tag, "--json", "tagName"); err == nil {
-				recreate := false
-				err := huh.NewConfirm().
-					Title(aurora.Yellow("Release "+tag+" already exists. Recreate it?").Bold().String() + " ").
-					Inline(true).
-					Value(&recreate).
-					WithTheme(helpers.HuhTheme()).
-					Run()
-				if err != nil {
-					if errors.Is(err, huh.ErrUserAborted) {
+				if !force {
+					recreate := false
+					err := huh.NewConfirm().
+						Title(aurora.Yellow("Release "+tag+" already exists. Recreate it?").Bold().String() + " ").
+						Inline(true).
+						Value(&recreate).
+						WithTheme(helpers.HuhTheme()).
+						Run()
+					if err != nil {
+						if errors.Is(err, huh.ErrUserAborted) {
+							fmt.Println(aurora.Red("Release recreation cancelled"))
+							return
+						}
+						fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
+						os.Exit(1)
+					}
+
+					if !recreate {
 						fmt.Println(aurora.Red("Release recreation cancelled"))
 						return
 					}
-					fmt.Fprintln(os.Stderr, aurora.Red("Failed to read confirmation"))
-					os.Exit(1)
-				}
-
-				if !recreate {
-					fmt.Println(aurora.Red("Release recreation cancelled"))
-					return
 				}
 
 				if err := gh.ExecInteractive(ctx, "release", "delete", tag, "--yes"); err != nil {
@@ -202,6 +205,7 @@ func main() {
 		},
 	}
 	command.Flags().BoolVarP(&yes, "yes", "y", false, "Create the release without confirmation (requires a release tag)")
+	command.Flags().BoolVarP(&force, "force", "f", false, "Recreate the release without confirmation if it already exists")
 
 	if err := command.Execute(); err != nil {
 		os.Exit(1)
