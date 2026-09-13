@@ -1,16 +1,18 @@
 {
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
-
   "claude": {
     "accounts": {
       "wmb": { "configDir": "~/.claude-wmb", "info": "Work" }
     }
   },
-  "copilot": {
+  "antigravity": {
     "detect": false
   },
   "openrouter": {
+    "detect": false
+  },
+  "copilot": {
     "detect": false
   }
 }
