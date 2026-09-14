@@ -32,7 +32,7 @@
       "type": "local",
       "command": [
         "playwright-mcp",
-        "--viewport=1440x900x1",
+        "--viewport-size=1440x900",
         "--headless",
         "--isolated"
       ]
