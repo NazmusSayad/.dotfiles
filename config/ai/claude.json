@@ -45,6 +45,7 @@
   "disableArtifact": true,
   "enableArtifact": false,
   "defaultShell": "bash",
+  "allowAllClaudeAiMcps": false,
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true
   },
@@ -56,13 +57,12 @@
       }
     }
   },
+  "pluginSuggestionMarketplaces": [],
   "outputStyle": "Consice",
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": [
-      "Working"
-    ]
+    "verbs": ["Working"]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
