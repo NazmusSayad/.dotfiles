@@ -11,6 +11,7 @@ git config --global core.autocrlf false
 git config --global core.pager cat
 
 git config --global init.defaultBranch main
+git config --global advice.addIgnoredFile false
 git config --global pull.rebase false
 
 git config --global core.symlinks true
