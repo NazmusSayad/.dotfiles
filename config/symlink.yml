@@ -105,11 +105,13 @@
   Mac.Copy: "~/Library/Application Support/monogit/config.json"
 
 # Other
+"@/config/colima.yaml":
+  Mac.Copy: "~/.colima/default/colima.yaml"
+"@/config/docker-mac.json":
+  Mac.Copy: "~/.docker/config.json"
 "@/config/pnpm.yaml":
   Win: "$LOCALAPPDATA/pnpm/config.yaml"
   Mac: "~/Library/Preferences/pnpm/config.yaml"
-"@/config/colima.yaml":
-  Mac.Copy: "~/.colima/default/colima.yaml"
 "@/config/oiper.json":
   Win: "$APPDATA/com.oiper.desktop/config.json"
   Mac: "~/Library/Application Support/com.oiper.desktop/config.json"
