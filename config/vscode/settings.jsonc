@@ -383,5 +383,6 @@
   "explorer.copyPathSeparator": "/",
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "security.promptForLocalFileProtocolHandling": false
 }
