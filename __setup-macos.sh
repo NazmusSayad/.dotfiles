@@ -101,6 +101,7 @@ launchctl disable "gui/$(id -u)/com.google.GoogleUpdater.wake"
 
 echo "Opening Chrome configuration profile..."
 open ./config/chrome/com.google.Chrome.mobileconfig
+defaults write com.google.Chrome BackgroundModeEnabled -bool false
 
 killall Dock
 killall Finder
