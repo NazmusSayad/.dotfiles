@@ -23,8 +23,8 @@ fd = "latest"
 bat = "latest"
 lsd = "latest"
 fzf = "latest"
-dust = "latest"
 yazi = "latest"
+"github:bootandy/dust" = "latest"
 
 # Activities
 fastfetch = "latest"
