@@ -103,11 +103,11 @@ func main() {
 	}
 
 	fullConfig["agent"] = opencodeConfig.Agents
-	setAgentModel(fullConfig, "title", outputAgentModels.AgentsModel["title"])
-	setAgentModel(fullConfig, "general", outputAgentModels.AgentsModel["general"])
-	setAgentModel(fullConfig, "explore", outputAgentModels.AgentsModel["explore"])
-	setAgentModel(fullConfig, "summary", outputAgentModels.AgentsModel["summary"])
-	setAgentModel(fullConfig, "compaction", outputAgentModels.AgentsModel["compaction"])
+	setAgentModel(fullConfig, "title", outputAgentModels.AgentsModel["title"], outputAgentModels.AgentsOptions["title"])
+	setAgentModel(fullConfig, "general", outputAgentModels.AgentsModel["general"], outputAgentModels.AgentsOptions["general"])
+	setAgentModel(fullConfig, "explore", outputAgentModels.AgentsModel["explore"], outputAgentModels.AgentsOptions["explore"])
+	setAgentModel(fullConfig, "summary", outputAgentModels.AgentsModel["summary"], outputAgentModels.AgentsOptions["summary"])
+	setAgentModel(fullConfig, "compaction", outputAgentModels.AgentsModel["compaction"], outputAgentModels.AgentsOptions["compaction"])
 
 	newConfigBytes, err := json.Marshal(fullConfig)
 	if err != nil {
@@ -148,7 +148,7 @@ func main() {
 	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
 
-func setAgentModel(fullConfig map[string]any, agent string, modelId string) {
+func setAgentModel(fullConfig map[string]any, agent string, modelId string, options map[string]any) {
 	prevConfig := fullConfig["agent"].(map[string]any)[agent]
 	resolvedConfig := make(map[string]any)
 
@@ -161,9 +161,33 @@ func setAgentModel(fullConfig map[string]any, agent string, modelId string) {
 		maps.Copy(resolvedConfig, prevConfig.(map[string]any))
 	}
 
+	if len(options) > 0 {
+		agentOptions, _ := resolvedConfig["options"].(map[string]any)
+		resolvedConfig["options"] = mergeAgentOptions(options, agentOptions)
+	}
+
 	if len(resolvedConfig) > 0 {
 		fullConfig["agent"].(map[string]any)[agent] = resolvedConfig
 	} else {
 		delete(fullConfig["agent"].(map[string]any), agent)
 	}
+}
+
+func mergeAgentOptions(modelOptions, agentOptions map[string]any) map[string]any {
+	merged := maps.Clone(modelOptions)
+	if merged == nil {
+		merged = make(map[string]any)
+	}
+
+	for key, value := range agentOptions {
+		modelNested, modelIsMap := merged[key].(map[string]any)
+		agentNested, agentIsMap := value.(map[string]any)
+		if modelIsMap && agentIsMap {
+			merged[key] = mergeAgentOptions(modelNested, agentNested)
+		} else {
+			merged[key] = value
+		}
+	}
+
+	return merged
 }

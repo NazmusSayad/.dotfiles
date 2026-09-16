@@ -39,6 +39,12 @@ type OpencodeProviderConfigModel struct {
 	AsAgentExplore    bool `yaml:"explore,omitempty"`
 	AsAgentSummary    bool `yaml:"summary,omitempty"`
 	AsAgentCompaction bool `yaml:"compaction,omitempty"`
+
+	TitleOptions      map[string]any `yaml:"title_options,omitempty"`
+	GeneralOptions    map[string]any `yaml:"general_options,omitempty"`
+	ExploreOptions    map[string]any `yaml:"explore_options,omitempty"`
+	SummaryOptions    map[string]any `yaml:"summary_options,omitempty"`
+	CompactionOptions map[string]any `yaml:"compaction_options,omitempty"`
 }
 
 type OpenAiCompatibleModelsResponse struct {
