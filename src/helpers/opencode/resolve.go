@@ -10,9 +10,10 @@ import (
 )
 
 type OpencodeResolveAgentModels struct {
-	MainModel   string
-	SmallModel  string
-	AgentsModel map[string]string
+	MainModel     string
+	SmallModel    string
+	AgentsModel   map[string]string
+	AgentsOptions map[string]map[string]any
 }
 
 func ResolveOpencodeProvider(
@@ -143,29 +144,42 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 	}
 
 	if modelConfig.AsAgentTitle {
-		currentAgentModels = setAgentModel(currentAgentModels, "title", modelId)
+		currentAgentModels = setAgentModel(currentAgentModels, "title", modelId, modelConfig.TitleOptions)
 	}
 
 	if modelConfig.AsAgentGeneral {
-		currentAgentModels = setAgentModel(currentAgentModels, "general", modelId)
+		currentAgentModels = setAgentModel(currentAgentModels, "general", modelId, modelConfig.GeneralOptions)
 	}
 
 	if modelConfig.AsAgentExplore {
-		currentAgentModels = setAgentModel(currentAgentModels, "explore", modelId)
+		currentAgentModels = setAgentModel(currentAgentModels, "explore", modelId, modelConfig.ExploreOptions)
 	}
 
 	if modelConfig.AsAgentSummary {
-		currentAgentModels = setAgentModel(currentAgentModels, "summary", modelId)
+		currentAgentModels = setAgentModel(currentAgentModels, "summary", modelId, modelConfig.SummaryOptions)
 	}
 
 	if modelConfig.AsAgentCompaction {
-		currentAgentModels = setAgentModel(currentAgentModels, "compaction", modelId)
+		currentAgentModels = setAgentModel(currentAgentModels, "compaction", modelId, modelConfig.CompactionOptions)
 	}
 
 	return currentAgentModels
 }
 
-func setAgentModel(currentAgentModels OpencodeResolveAgentModels, agentId string, modelId string) OpencodeResolveAgentModels {
+func setAgentOptions(currentAgentModels OpencodeResolveAgentModels, agentId string, options map[string]any) OpencodeResolveAgentModels {
+	if len(options) == 0 {
+		return currentAgentModels
+	}
+
+	if currentAgentModels.AgentsOptions == nil {
+		currentAgentModels.AgentsOptions = make(map[string]map[string]any)
+	}
+
+	currentAgentModels.AgentsOptions[agentId] = options
+	return currentAgentModels
+}
+
+func setAgentModel(currentAgentModels OpencodeResolveAgentModels, agentId string, modelId string, options map[string]any) OpencodeResolveAgentModels {
 	if currentAgentModels.AgentsModel == nil {
 		currentAgentModels.AgentsModel = make(map[string]string)
 	}
@@ -179,7 +193,7 @@ func setAgentModel(currentAgentModels OpencodeResolveAgentModels, agentId string
 	}
 
 	currentAgentModels.AgentsModel[agentId] = modelId
-	return currentAgentModels
+	return setAgentOptions(currentAgentModels, agentId, options)
 }
 
 func applyModelContextCap(model OpencodeStandardModel, contextCap int) OpencodeStandardModel {
