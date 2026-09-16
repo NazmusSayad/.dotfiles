@@ -51,15 +51,12 @@
     },
     "plan": { "color": "#43ACB9", "permission": { "edit": "deny" } },
     "title": {
-      "model": "openrouter/openai/gpt-oss-120b",
-      "options": {
-        "provider": { "sort": "throughput" },
-        "reasoning": { "effort": "medium" }
-      }
+      "model": "cerebras/gpt-oss-120b",
+      "options": { "reasoning_effort": "medium" }
     }
   },
 
-  "enabled_providers": ["openai", "opencode-go", "openrouter"],
+  "enabled_providers": ["cerebras", "openai", "opencode-go"],
   "provider": {
     "openai": {
       "models": {
@@ -135,11 +132,9 @@
         "gpt-6-astra"
       ]
     },
-    "openrouter": {
-      "whitelist": ["openai/gpt-oss-120b"]
-    },
     "opencode-go": {
-      "whitelist": ["deepseek-v4.1-flash", "glm-5.3-flash"]
-    }
+      "whitelist": ["deepseek-v4.1-flash", "glm-5.3-flash", "union-alpha"]
+    },
+    "cerebras": { "whitelist": ["gpt-oss-120b"] }
   }
 }
