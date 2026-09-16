@@ -8,7 +8,10 @@
     }
   },
   "codex": {
-    "detect": false
+    "detect": false,
+    "accounts": {
+      "sayad": { "adapter": "opencode-oauth" }
+    }
   },
   "antigravity": {
     "detect": false
