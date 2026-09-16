@@ -19,6 +19,15 @@ sudo mdutil -a -E
 echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
 
+echo "Configuring power settings..."
+sudo pmset -a sleep 0
+sudo pmset -a powernap 0
+sudo pmset -a ttyskeepawake 0
+sudo pmset -a womp 0
+sudo pmset -a disksleep 0
+sudo pmset -a displaysleep 5
+sudo pmset -b lessbright 0
+
 echo "Configuring battery settings..."
 sudo batt limit 70
 sudo batt lower-limit-delta 10
