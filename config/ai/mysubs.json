@@ -1,10 +1,14 @@
 {
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
+
   "claude": {
     "accounts": {
       "wmb": { "configDir": "~/.claude-wmb", "info": "Work" }
     }
+  },
+  "codex": {
+    "detect": false
   },
   "antigravity": {
     "detect": false
