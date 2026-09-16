@@ -1,11 +1,17 @@
-openrouter:
-  url: https://openrouter.ai/api/v1/models
+# openrouter:
+#   url: https://openrouter.ai/api/v1/models
+#   models:
+#     - id: openai/gpt-oss-120b
+#       title: true
+
+cerebras:
   models:
-    - id: openai/gpt-oss-120b
+    - id: gpt-oss-120b
       title: true
 
 opencode-go:
   models:
+    - id: union-alpha
     - id: glm-5.3-flash
     - id: deepseek-v4.1-flash
 
@@ -40,5 +46,6 @@ openai:
       question: deny
   title:
     options:
-      reasoning: { effort: medium }
-      provider: { sort: throughput }
+      reasoning_effort: medium
+      # reasoning: { effort: medium }
+      # provider: { sort: throughput }
