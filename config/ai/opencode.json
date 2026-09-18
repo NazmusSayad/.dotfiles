@@ -132,9 +132,11 @@
       ]
     },
     "opencode-go": {
-      "whitelist": ["deepseek-v4.1-flash", "glm-5.3-flash", "union-alpha"]
+      "whitelist": ["deepseek-v4.1-flash", "glm-5.3-flash"]
     },
     "cerebras": { "whitelist": ["gpt-oss-120b"] },
-    "openrouter": { "whitelist": ["stealth/union-alpha"] }
+    "openrouter": {
+      "whitelist": []
+    }
   }
 }
