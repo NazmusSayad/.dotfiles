@@ -37,6 +37,8 @@
 
   "ghv": "gh repo view",
   "ghw": "gh repo view --web",
+  "ghp": "gityo-pr-create",
+  "ghm": "gityo-pr-merge",
 
   "dz": "lazydocker",
   "dc": "docker compose",
