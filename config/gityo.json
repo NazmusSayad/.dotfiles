@@ -2,9 +2,24 @@
   "$schema": "https://github.com/NazmusSayad/gityo/raw/refs/heads/schema/schema.json",
   "models": {
     "default": {
-      "model": "gpt-oss-120b",
-      "npm": "@ai-sdk/cerebras",
-      "apiKeyEnv": "CEREBRAS_API_KEY"
+      "model": "openai/gpt-oss-120b:nitro",
+      "npm": "@openrouter/ai-sdk-provider",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    "luna": {
+      "model": "openai/gpt-5.6-luna:nitro",
+      "npm": "@openrouter/ai-sdk-provider",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    "kimi": {
+      "model": "moonshotai/kimi-k2-thinking:nitro",
+      "npm": "@openrouter/ai-sdk-provider",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
+    },
+    "mercury": {
+      "model": "inception/mercury-2.5:nitro",
+      "npm": "@openrouter/ai-sdk-provider",
+      "apiKeyEnv": "OPENROUTER_API_KEY"
     }
   }
 }

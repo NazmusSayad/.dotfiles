@@ -29,8 +29,8 @@
       "provider": "openrouter"
     },
     {
-      "id": "openrouter-mercury-2.5-preview",
-      "model": "inception/mercury-2.5-preview:nitro",
+      "id": "openrouter-mercury-2.5",
+      "model": "inception/mercury-2.5:nitro",
       "provider": "openrouter"
     },
     {
@@ -57,13 +57,14 @@
     "name": "Default",
     "transcribeAsrId": "groq-whisper"
   },
+  "historyRetentionDays": 30,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
   "profiles": [
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-qwen-3.8-27b",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "basic",
       "hotkeyHold.macos": "ShiftLeft+ControlLeft",
       "hotkeyHold.windows": "ShiftLeft+ControlLeft",
@@ -78,7 +79,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-qwen-3.8-27b",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "prompt",
       "hotkeyHold.macos": "ShiftLeft+Alt",
       "hotkeyHold.windows": "ShiftLeft+MetaLeft",
@@ -93,7 +94,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-qwen-3.8-27b",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "translate-bengali",
       "hotkeyHold.macos": "ShiftLeft+MetaLeft",
       "hotkeyHold.windows": "ShiftLeft+AltGr",
