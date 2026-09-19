@@ -14,7 +14,9 @@ openrouter:
 opencode-go:
   models:
     - id: glm-5.3-flash
+      context: 200000
     - id: deepseek-v4.1-flash
+      context: 200000
       explore: true
 
 openai:
