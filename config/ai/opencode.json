@@ -133,7 +133,38 @@
       ]
     },
     "opencode-go": {
-      "whitelist": ["deepseek-v4.1-flash", "glm-5.3-flash"]
+      "whitelist": ["deepseek-v4.1-flash", "glm-5.3-flash"],
+      "models": {
+        "deepseek-v4.1-flash": {
+          "attachment": true,
+          "cost": { "cache_read": 0.003, "input": 0.15, "output": 0.6 },
+          "family": "deepseek-flash",
+          "id": "deepseek-v4.1-flash",
+          "limit": { "context": 200000, "output": 200000 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "name": "DeepSeek V4.1 Flash",
+          "reasoning": true,
+          "release_date": "2026-09-10",
+          "temperature": true,
+          "tool_call": true
+        },
+        "glm-5.3-flash": {
+          "attachment": true,
+          "cost": { "cache_read": 0.03, "input": 0.15, "output": 0.5 },
+          "family": "glm-flash",
+          "id": "glm-5.3-flash",
+          "limit": { "context": 200000, "output": 131072 },
+          "modalities": {
+            "input": ["text", "image", "video", "pdf"],
+            "output": ["text"]
+          },
+          "name": "GLM-5.3-Flash",
+          "reasoning": true,
+          "release_date": "2026-08-26",
+          "temperature": true,
+          "tool_call": true
+        }
+      }
     },
     "cerebras": { "whitelist": ["gpt-oss-120b"] },
     "openrouter": {
