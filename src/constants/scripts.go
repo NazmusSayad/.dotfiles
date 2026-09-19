@@ -34,14 +34,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gpm",
 	},
 
-	"github-pr-create": {
-		Exe: "ghp",
-	},
-
-	"github-pr-merge": {
-		Exe: "ghm",
-	},
-
 	"github-release": {
 		Exe: "ghr",
 	},
