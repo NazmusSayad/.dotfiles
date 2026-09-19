@@ -15,6 +15,7 @@ opencode-go:
   models:
     - id: glm-5.3-flash
     - id: deepseek-v4.1-flash
+      explore: true
 
 openai:
   models:

@@ -43,7 +43,8 @@
     "build": { "color": "#C18A57" },
     "explore": {
       "color": "#ABB2BF",
-      "permission": { "edit": "deny", "question": "deny", "task": "deny" }
+      "permission": { "edit": "deny", "question": "deny", "task": "deny" },
+      "model": "opencode-go/deepseek-v4.1-flash"
     },
     "general": {
       "color": "#D46870",
