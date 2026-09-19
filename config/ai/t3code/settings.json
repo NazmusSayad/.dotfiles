@@ -4,7 +4,7 @@
   "addProjectBaseDirectory": "~/Desktop",
   "textGenerationModelSelection": {
     "instanceId": "opencode",
-    "model": "openrouter/openai/gpt-oss-120b",
+    "model": "openrouter/cerebras/gpt-oss-120b",
     "options": [
       {
         "id": "agent",
