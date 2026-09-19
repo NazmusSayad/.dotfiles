@@ -22,7 +22,8 @@
   "pab": "pnpm approve-builds --all",
 
   "gy": "gityo",
-  "gyy": "gityo --yolo",
+  "ghp": "gityo-pr-create",
+  "ghm": "gityo-pr-merge",
 
   "m": "make",
   "j": "just",
@@ -37,8 +38,6 @@
 
   "ghv": "gh repo view",
   "ghw": "gh repo view --web",
-  "ghp": "gityo-pr-create",
-  "ghm": "gityo-pr-merge",
 
   "dz": "lazydocker",
   "dc": "docker compose",
