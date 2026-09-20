@@ -22,7 +22,7 @@
   "pab": "pnpm approve-builds --all",
 
   "gy": "gityo commit",
-  "gyy": "gityo commit --yolo",
+  "gyy": "gityo commit -y",
   "ghp": "gityo pr create",
   "ghm": "gityo pr merge",
 
