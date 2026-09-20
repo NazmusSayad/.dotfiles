@@ -21,10 +21,10 @@
   "nid": "ni -D",
   "pab": "pnpm approve-builds --all",
 
-  "gy": "gityo",
-  "gyy": "gityo --yolo",
-  "ghp": "gityo-pr-create",
-  "ghm": "gityo-pr-merge",
+  "gy": "gityo commit",
+  "gyy": "gityo commit --yolo",
+  "ghp": "gityo pr create",
+  "ghm": "gityo pr merge",
 
   "m": "make",
   "j": "just",
