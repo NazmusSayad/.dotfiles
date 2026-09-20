@@ -24,9 +24,7 @@
   "gy": "gityo",
   "gyy": "gityo --yolo",
   "ghp": "gityo-pr-create",
-  "ghpy": "gityo-pr-create --yolo",
   "ghm": "gityo-pr-merge",
-  "ghmy": "gityo-pr-merge --yolo",
 
   "m": "make",
   "j": "just",
