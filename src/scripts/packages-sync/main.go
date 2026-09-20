@@ -48,6 +48,9 @@ func main() {
 	)
 
 	fmt.Println("✘", aurora.Faint("Cleaning Mise packages..."))
+	runCommand([]string{"mise", "prune", "--yes"})
+
+	fmt.Println("✘", aurora.Faint("Cleaning Mise cache..."))
 	runCommand([]string{"mise", "cache", "clear", "--yes"})
 }
 
