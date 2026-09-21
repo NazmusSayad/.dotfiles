@@ -67,12 +67,42 @@
         },
         {
             "prev_ver": 537001986,
+            "name": "Window Capture",
+            "uuid": "1a08d3dc-5975-4b68-9d53-2409e52b54ce",
+            "id": "window_capture",
+            "versioned_id": "window_capture",
+            "settings": {
+                "owner_pid": 16474,
+                "owner_name": "Google Chrome",
+                "window_name": "stripe (Channel) - OiPer - Slack",
+                "window": 101,
+                "show_empty_names": true
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 537001986,
             "name": "Landscape",
             "uuid": "6936f226-fa1e-4af6-97a5-ff013d16c9b4",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
+                "id_counter": 3,
                 "custom_size": false,
                 "items": [
                     {
@@ -129,6 +159,61 @@
                             "duration": 300
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "Window Capture",
+                        "source_uuid": "1a08d3dc-5975-4b68-9d53-2409e52b54ce",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 2560.0,
+                            "y": 1664.0
+                        },
+                        "align": 5,
+                        "bounds_type": 2,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.5384615659713745,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 2560.0,
+                            "y": 1664.0
+                        },
+                        "bounds_rel": {
+                            "x": 3.076923131942749,
+                            "y": 2.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 300
+                        },
+                        "hide_transition": {
+                            "duration": 300
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -146,7 +231,9 @@
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -171,7 +258,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -7,
+    "scaling_level": -6,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
