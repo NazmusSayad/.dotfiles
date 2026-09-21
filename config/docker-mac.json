@@ -1,5 +1,7 @@
 {
-  "auths": {},
-  "currentContext": "colima",
-  "cliPluginsExtraDirs": ["/opt/homebrew/lib/docker/cli-plugins"]
+	"auths": {},
+	"currentContext": "colima",
+	"cliPluginsExtraDirs": [
+		"/opt/homebrew/lib/docker/cli-plugins"
+	]
 }
