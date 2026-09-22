@@ -20,6 +20,7 @@
   "r": "nr",
   "nid": "ni -D",
   "pab": "pnpm approve-builds --all",
+  "naa": "npm install-scripts approve --all",
 
   "gy": "gityo",
   "gyy": "gityo --yolo",
