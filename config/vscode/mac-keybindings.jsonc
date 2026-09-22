@@ -423,7 +423,7 @@
     "when": "!terminalCount"
   },
   {
-    "key": "ctrl+shift+`",
+    "key": "shift+cmd+`",
     "command": "workbench.action.terminal.new",
     "when": "terminalViewShowing"
   },
@@ -433,7 +433,7 @@
     "when": "terminalCount"
   },
   {
-    "key": "ctrl+alt+`",
+    "key": "alt+`",
     "command": "workbench.action.terminal.kill",
     "when": "terminalViewShowing"
   },
@@ -882,6 +882,8 @@
     "command": "-workbench.action.openAgentsWindow",
     "when": "accessibilityModeEnabled && config.chat.agent.enabled && !chatSetupDisabledInWorkspace && !chatSetupHidden && !isAuxiliaryWindow && !isSessionsWindow"
   },
+
+  // Window Management
   {
     "key": "cmd+w",
     "command": "-workbench.action.closeWindow",
