@@ -132,7 +132,7 @@
                     {
                         "name": "Mac Display",
                         "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
-                        "visible": true,
+                        "visible": false,
                         "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
@@ -150,7 +150,7 @@
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 344.5,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -158,16 +158,16 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.7307692766189575,
-                            "y": 1.7307692766189575
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 4431.0,
-                            "y": 2880.0
+                            "x": 2560.0,
+                            "y": 1664.0
                         },
                         "bounds_rel": {
                             "x": 3.076923131942749,
@@ -187,7 +187,7 @@
                     {
                         "name": "External Display",
                         "source_uuid": "4512cdbc-9266-4311-8825-aeac31320ce7",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -205,7 +205,7 @@
                         "id": 4,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
+                            "x": -199.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -213,8 +213,8 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.5777778029441833,
+                            "y": 0.5777778029441833
                         },
                         "scale_rel": {
                             "x": 1.0,
@@ -260,7 +260,7 @@
                         "id": 2,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 344.5,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -268,16 +268,16 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.7307692766189575,
-                            "y": 1.7307692766189575
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 4431.0,
-                            "y": 2880.0
+                            "x": 2560.0,
+                            "y": 1664.0
                         },
                         "bounds_rel": {
                             "x": 3.076923131942749,
@@ -311,10 +311,10 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": [],
                 "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": []
+                "libobs.hide_scene_item.4": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -367,8 +367,8 @@
         }
     },
     "resolution": {
-        "x": 2560,
-        "y": 1664
+        "x": 5120,
+        "y": 2880
     },
     "migration_resolution": {
         "x": 2560,
