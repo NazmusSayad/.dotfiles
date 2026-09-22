@@ -48,15 +48,21 @@
     "autoSubmit.macos": "Disabled",
     "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "cerebras-gpt-oss-120b",
-    "hotkeyHold.macos": "ControlLeft+Alt",
-    "hotkeyHold.windows": "ControlLeft+MetaLeft",
-    "hotkeyToggle.macos": "",
+    "hotkeyHold.macos": [
+      "ControlLeft+Alt",
+      "MetaLeft+Alt"
+    ],
+    "hotkeyHold.windows": [
+      "ControlLeft+MetaLeft"
+    ],
+    "hotkeyToggle.macos": [],
     "id": "default",
     "language": "en",
     "mode": "cloud",
     "name": "Default",
     "transcribeAsrId": "groq-whisper"
   },
+  "enableMultipleHotkeys": true,
   "historyRetentionDays": 30,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
@@ -66,14 +72,24 @@
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "basic",
-      "hotkeyHold.macos": "ShiftLeft+ControlLeft",
-      "hotkeyHold.windows": "ShiftLeft+ControlLeft",
-      "hotkeyToggle.macos": "ShiftRight+ControlLeft",
-      "hotkeyToggle.windows": "ShiftRight+ControlLeft",
+      "hotkeyHold.macos": [
+        "ShiftLeft+ControlLeft",
+        "ShiftLeft+MetaLeft"
+      ],
+      "hotkeyHold.windows": [
+        "ShiftLeft+ControlLeft"
+      ],
+      "hotkeyToggle.macos": [
+        "ShiftRight+ControlLeft",
+        "ShiftRight+MetaLeft"
+      ],
+      "hotkeyToggle.windows": [
+        "ShiftRight+ControlLeft"
+      ],
       "id": "basic-profile",
       "language": "en",
       "mode": "cloud",
-      "name": "Basic",
+      "name": "Simple",
       "transcribeAsrId": "groq-whisper"
     },
     {
@@ -81,29 +97,22 @@
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "prompt",
-      "hotkeyHold.macos": "ShiftLeft+Alt",
-      "hotkeyHold.windows": "ShiftLeft+MetaLeft",
-      "hotkeyToggle.macos": "ShiftRight+Alt",
-      "hotkeyToggle.windows": "ShiftRight+MetaLeft",
+      "hotkeyHold.macos": [
+        "ShiftLeft+Alt"
+      ],
+      "hotkeyHold.windows": [
+        "ShiftLeft+MetaLeft"
+      ],
+      "hotkeyToggle.macos": [
+        "ShiftRight+Alt"
+      ],
+      "hotkeyToggle.windows": [
+        "ShiftRight+MetaLeft"
+      ],
       "id": "prompt-profile",
       "language": "en",
       "mode": "cloud",
       "name": "Prompt",
-      "transcribeAsrId": "groq-whisper"
-    },
-    {
-      "autoSubmit.macos": "Disabled",
-      "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-gpt-oss-120b",
-      "enhancementType": "translate-bengali",
-      "hotkeyHold.macos": "ShiftLeft+MetaLeft",
-      "hotkeyHold.windows": "ShiftLeft+AltGr",
-      "hotkeyToggle.macos": "ShiftRight+MetaLeft",
-      "hotkeyToggle.windows": "ShiftRight+AltGr",
-      "id": "bangla",
-      "language": "en",
-      "mode": "cloud",
-      "name": "Bangla",
       "transcribeAsrId": "groq-whisper"
     }
   ],
