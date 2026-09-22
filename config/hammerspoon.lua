@@ -33,6 +33,43 @@ windowFilter:subscribe(hs.window.filter.windowDestroyed, function(window, appNam
   quitIfNoWindows(appName, app)
 end)
 
+-- Fn+F sends Cmd+F
+local fnFPressed = false
+fnFTap = hs.eventtap.new({
+  hs.eventtap.event.types.keyDown,
+  hs.eventtap.event.types.keyUp,
+  hs.eventtap.event.types.tapDisabledByTimeout,
+  hs.eventtap.event.types.tapDisabledByUserInput
+}, function(event)
+  local eventType = event:getType()
+
+  if eventType == hs.eventtap.event.types.tapDisabledByTimeout
+    or eventType == hs.eventtap.event.types.tapDisabledByUserInput then
+    fnFPressed = false
+    fnFTap:start()
+    return false
+  end
+
+  if event:getKeyCode() ~= hs.keycodes.map.f then return false end
+
+  if eventType == hs.eventtap.event.types.keyDown and event:getFlags().fn then
+    if not fnFPressed then
+      fnFPressed = true
+      hs.eventtap.keyStroke({ "cmd" }, "f", 0)
+    end
+    return true
+  end
+
+  if eventType == hs.eventtap.event.types.keyUp and fnFPressed then
+    fnFPressed = false
+    return true
+  end
+
+  return false
+end)
+
+fnFTap:start()
+
 -- Opt+Space sends Opt+Shift+F
 hs.hotkey.bind({ "alt" }, "space", function()
   hs.eventtap.keyStroke({ "alt", "shift" }, "f", 0)
