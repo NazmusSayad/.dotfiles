@@ -75,10 +75,6 @@ winget:
   - id: 9WZDNCRFHVN5
     name: Windows Calculator
 
-  # Productivity
-  - id: 9PFXXSHC64H3
-    name: Raycast
-
   # Internet
   - Google.Chrome
   - qBittorrent.qBittorrent
