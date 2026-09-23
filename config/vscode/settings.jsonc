@@ -76,11 +76,7 @@
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.external.windowsExec": "wt.exe",
-  "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
-  "terminal.integrated.profiles.windows": {
-    "Fish (MSYS2)": { "path": "fish.exe" },
-    "Bash (MSYS2)": { "path": "bash.exe" }
-  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.shellIntegration.decorationsEnabled": "gutter",
   "terminal.integrated.cursorBlinking": true,
