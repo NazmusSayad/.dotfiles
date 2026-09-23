@@ -49,8 +49,8 @@
     "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "cerebras-gpt-oss-120b",
     "hotkeyHold.macos": [
-      "ControlLeft+Alt",
-      "MetaLeft+Alt"
+      "Alt+ControlLeft",
+      "Alt+MetaLeft"
     ],
     "hotkeyHold.windows": [
       "ControlLeft+MetaLeft"
