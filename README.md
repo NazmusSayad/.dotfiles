@@ -83,6 +83,7 @@ Follow these steps to set up your development environment:
 
     ⚠️ **Important:** Review the scripts before running this step!
     - **Windows**: Run `__setup-windows.cmd` as Administrator to apply system settings, remove bloatware, disable services, and optimize performance (restarts automatically).
+    - **Windows 10**: Run `__setup-windows-10.cmd` as Administrator instead. It uses the Windows 10 specific scripts in `src/ps1-windows-10/`.
     - **macOS**: Run `__setup-macos.sh` after reviewing it, and use Homebrew to provision packages from `config/Brewfile`.
 
 6.  **Optional: Additional Setup**
@@ -136,7 +137,7 @@ Common files to edit:
 
 ## ⚠️ Important Notes
 
-- **Review Before Running:** The Windows setup scripts (`src/ps1-windows/`) will modify system settings and remove default Windows applications. Please review these scripts before running `__setup-windows.cmd` to ensure they match your preferences.
+- **Review Before Running:** The Windows setup scripts (`src/ps1-windows/`, `src/ps1-windows-10/`) will modify system settings and remove default Windows applications. Please review these scripts before running `__setup-windows.cmd` / `__setup-windows-10.cmd` to ensure they match your preferences.
 
 - **Administrator Rights:** Some Windows scripts require administrator privileges. macOS scripts may prompt for your password via sudo.
 
