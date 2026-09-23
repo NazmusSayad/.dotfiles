@@ -6,16 +6,16 @@
   "id": "{9059EF8C-3648-4201-9884-19D1D87EF615}",
   "mods": {
     "alt-tab-delayer": {
-      "latestVersion": "1.2.0",
-      "version": "1.2.0"
+      "version": "1.2.0",
+      "latestVersion": "1.2.0"
     },
     "disable-office-hotkeys": {
-      "latestVersion": "1.0.0",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "latestVersion": "1.0.0"
     },
     "taskbar-button-click": {
-      "latestVersion": "1.0.9",
-      "version": "1.0.9"
+      "version": "1.0.9",
+      "latestVersion": "1.0.9"
     },
     "disable-feedback-hub-hotkey": {
       "version": "1.0.0",
@@ -26,5 +26,5 @@
       "latestVersion": "1.0.0"
     }
   },
-  "os": "10.0.28000"
+  "os": "10.0.26300"
 }
