@@ -12,6 +12,7 @@ require (
 	github.com/cli/go-gh/v2 v2.13.0
 	github.com/dustin/go-humanize v1.0.1
 	github.com/evanphx/json-patch v0.5.2
+	github.com/joho/godotenv v1.5.1
 	github.com/logrusorgru/aurora/v4 v4.0.0
 	github.com/otiai10/copy v1.14.1
 	github.com/spf13/cobra v1.10.1
