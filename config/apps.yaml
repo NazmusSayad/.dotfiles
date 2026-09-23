@@ -80,9 +80,6 @@ winget:
   - qBittorrent.qBittorrent
   - Tonec.InternetDownloadManager
 
-  # Communication
-  - id: LinearOrbit.Linear
-
   # Media Tools
   - OBSProject.OBSStudio
   - ThioJoe.SvgThumbnailExtension
@@ -110,11 +107,7 @@ winget:
   - RamenSoftware.Windhawk
   - UnifiedIntents.UnifiedRemote
 
-  # AI & Code Editors
-  - id: 9PLM9XGG6VKS
-    name: Codex
-  - id: Anthropic.Claude
-  - id: SST.OpenCodeDesktop
+  # Code Editors
   - id: Microsoft.VisualStudioCode
     scope: User
     interactiveInstall: true
