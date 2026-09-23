@@ -32,7 +32,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
   "disableAgentView": true,
@@ -58,7 +58,9 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["Working"]
+    "verbs": [
+      "Working"
+    ]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
