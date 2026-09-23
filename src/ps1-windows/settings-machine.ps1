@@ -154,5 +154,33 @@ reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskC
 # Deleting QueueReporting
 reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{E3176A65-4E44-4ED3-AA73-3283660ACB9C}" /f
 
+# Disables Windows Ready Print Driver Ranking (Prefers Manufacturer Drivers)
+reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\DriverRanking" /v UseWindowsReadyPrintDriverRankingGroupPolicy /t REG_DWORD /d 0 /f
+
+# Hides the Recommended Section in the Start Menu
+reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v HideRecommendedSection /t REG_DWORD /d 1 /f
+
+# Disables App Access to Privacy Sensitive Capabilities (System Wide)
+$capabilities = @(
+    'userNotificationListener',
+    'userAccountInformation',
+    'contacts',
+    'appointments',
+    'phoneCall',
+    'phoneCallHistory',
+    'email',
+    'userDataTasks',
+    'chat',
+    'radios',
+    'bluetoothSync',
+    'appDiagnostics',
+    'passkeys',
+    'passkeysEnumeration',
+    'systemAIModels'
+)
+foreach ($capability in $capabilities) {
+    SystemSettingsAdminFlows.exe SetCamSystemGlobal $capability 0
+}
+
 # Enable Windows Sudo
 sudo config --enable default
