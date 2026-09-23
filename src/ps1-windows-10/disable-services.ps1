@@ -56,7 +56,8 @@ $servicesToDisable = @(
   'BthAvctpSvc',
   'HvHost',
   'HomeGroupListener',
-  'HomeGroupProvider'
+  'HomeGroupProvider',
+  'SysMain'
 )
 
 $servicesToManual = @(
