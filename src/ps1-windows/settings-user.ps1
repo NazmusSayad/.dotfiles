@@ -166,3 +166,44 @@ reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explore
 # Set Scrollbar Size to Small
 reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v ScrollHeight /t REG_SZ /d -120 /f
 reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v ScrollWidth  /t REG_SZ /d -120 /f
+
+# Use Legacy Default Printer Mode (Stops Windows from Managing the Default Printer)
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v LegacyDefaultPrinterMode /t REG_DWORD /d 1 /f
+
+# Disables Cross Device Experiences (Phone Link, Resume)
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Mobility" /v CrossDeviceEnabled /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration" /v IsOneDriveResumeAllowed /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration" /v IsResumeAllowed /t REG_DWORD /d 0 /f
+
+# Disables Pen Visual Feedback for Mouse
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\EnhancedPenSupport" /v MouseFeedbackEnabled /t REG_DWORD /d 0 /f
+
+# Disables Precision Touchpad
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad\Status" /v Enabled /t REG_DWORD /d 0 /f
+
+# Disables AutoPlay for All Media and Devices
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" /v DisableAutoplay /t REG_DWORD /d 1 /f
+
+# Disables Dynamic (Ambient) Lighting
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Lighting" /v AmbientLightingEnabled /t REG_DWORD /d 0 /f
+
+# Disables Touch Keyboard Autocorrection, Spellchecking and Typing Insights
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7" /v EnableAutocorrection /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7" /v EnableSpellchecking /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Input\Settings" /v InsightsEnabled /t REG_DWORD /d 0 /f
+
+# Disables Opening Game Bar with the Controller Guide Button
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar" /v UseNexusForGameBarEnabled /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar" /v GamepadNexusChordEnabled /t REG_DWORD /d 0 /f
+
+# Disables Narrator Shortcut (Win + Ctrl + Enter)
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Narrator\NoRoam" /v WinEnterLaunchEnabled /t REG_DWORD /d 0 /f
+
+# Disables Search History and Cloud Content Search
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsDeviceSearchHistoryEnabled /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsMSACloudSearchEnabled /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsAADCloudSearchEnabled /t REG_DWORD /d 0 /f
+
+# Disables Voice Activation for Apps
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps" /v AgentActivationEnabled /t REG_DWORD /d 0 /f
+reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps" /v AgentActivationOnLockScreenEnabled /t REG_DWORD /d 0 /f
