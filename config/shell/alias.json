@@ -57,8 +57,9 @@
   "claude-chrome": "claude mcp add --scope project chrome-devtools -- chrome-devtools-mcp --viewport-size=1440x900 --headless --isolated",
   "claude-playwright": "claude mcp add --scope project playwright -- playwright-mcp --viewport-size=1440x900 --headless --isolated",
 
-  "q": "clear",
-  "qq": "exit",
+  "q": { "cmd": "clear", "cmd.pwsh": "Clear-Host" },
+  "qq": { "cmd": "exit", "cmd.pwsh": "exit" },
+
   "lsf": "ls -f",
   "rmf": "rm -rf",
 
