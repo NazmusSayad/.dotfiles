@@ -93,12 +93,20 @@ func main() {
 			if models == nil {
 				models = make(map[string]any)
 			}
-			for modelID := range modelsDotDevResponse[providerID].Models {
-				isConfigured := slices.ContainsFunc(configuredModels, func(model opencode.OpencodeProviderConfigModel) bool {
-					return model.ID == modelID
-				})
-				if !isConfigured {
-					models[modelID] = map[string]any{"disabled": true}
+			for catalogModelID, catalogModel := range modelsDotDevResponse[providerID].Models {
+				catalogModelIDs := []string{catalogModelID}
+				if catalogModel.Experimental != nil {
+					for mode := range catalogModel.Experimental.Modes {
+						catalogModelIDs = append(catalogModelIDs, catalogModelID+"-"+mode)
+					}
+				}
+				for _, modelID := range catalogModelIDs {
+					isConfigured := slices.ContainsFunc(configuredModels, func(model opencode.OpencodeProviderConfigModel) bool {
+						return model.ID == modelID
+					})
+					if !isConfigured {
+						models[modelID] = map[string]any{"disabled": true}
+					}
 				}
 			}
 			if len(models) > 0 {
