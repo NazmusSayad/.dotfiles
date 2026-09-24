@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"runtime"
+	"strconv"
 	"syscall"
 
 	"github.com/logrusorgru/aurora/v4"
@@ -57,7 +59,13 @@ func main() {
 
 func stopAll(processes []*exec.Cmd, exited chan string, running int) {
 	for _, cmd := range processes {
-		if cmd.Process != nil {
+		if cmd.Process == nil {
+			continue
+		}
+		switch runtime.GOOS {
+		case "windows":
+			exec.Command("taskkill", "/T", "/F", "/PID", strconv.Itoa(cmd.Process.Pid)).Run()
+		default:
 			cmd.Process.Kill()
 		}
 	}
