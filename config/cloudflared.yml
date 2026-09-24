@@ -1,0 +1,5 @@
+tunnel: opencode
+ingress:
+  - hostname: oc.sayad.dev
+    service: http://127.0.0.1:4747
+  - service: http_status:404

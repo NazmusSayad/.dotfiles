@@ -47,6 +47,7 @@
 "@/config/ai/opencode/sounds": "~/.config/opencode/sounds"
 "@/config/ai/opencode/themes": "~/.config/opencode/themes"
 "@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
+"@/config/cloudflared.yml": "~/.cloudflared/config.yml"
 
 # OpenCode Desktop
 "@/config/ai/opencode/desktop.dat":
