@@ -42,12 +42,10 @@
   - "~/.claude-wmb/shell-snapshots"
 
 # OpenCode
-"@/config/ai/opencode.json": "~/.config/opencode/config.json"
-"@/config/ai/opencode-tui.json": "~/.config/opencode/tui.json"
-"@/config/ai/opencode/agents": "~/.config/opencode/agents"
+"@/config/ai/opencode/opencode.compile.json": "~/.config/opencode/opencode.json"
+"@/config/ai/opencode/cli.compile.json": "~/.config/opencode/cli.json"
 "@/config/ai/opencode/sounds": "~/.config/opencode/sounds"
 "@/config/ai/opencode/themes": "~/.config/opencode/themes"
-"@/config/ai/opencode/plugins": "~/.config/opencode/plugins"
 "@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
 
 # OpenCode Desktop

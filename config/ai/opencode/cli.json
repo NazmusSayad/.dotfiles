@@ -1,0 +1,11 @@
+{
+  "theme": { "name": "one-eye-care", "mode": "dark" },
+  "mouse": true,
+  "cursor": { "style": "line", "blinking": true },
+  "scroll": { "speed": 0.001, "acceleration": true },
+  "attention": {
+    "notifications": true,
+    "sound": true,
+    "sounds": { "subagent_done": "./sounds/silent.mp3" }
+  }
+}

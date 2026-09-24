@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"maps"
 	"os"
+	"path/filepath"
+	"slices"
 
 	"dotfiles/src/helpers"
 	"dotfiles/src/helpers/opencode"
@@ -16,16 +18,13 @@ import (
 
 func main() {
 	providersConfig, opencodeConfig := opencode.ReadConfig()
-	authConfigPath := helpers.ResolvePath("~/.local/share/opencode/auth.json")
-	authConfig := helpers.ReadConfig[opencode.AuthConfig](authConfigPath, helpers.ReadConfigOptions{SkipError: true})
-
 	modelsDotDevResponse, modelsDotDevError := opencode.FetchModelsDotDev()
 	if modelsDotDevError != nil {
 		fmt.Println("failed to fetch models.dev models:", modelsDotDevError)
 		return
 	}
 
-	openrouterModelsResponse, openrouterModelsError := opencode.FetchOpenrouterModels(authConfig)
+	openrouterModelsResponse, openrouterModelsError := opencode.FetchOpenrouterModels()
 	if openrouterModelsError != nil {
 		fmt.Println("failed to fetch openrouter models:", openrouterModelsError)
 		return
@@ -44,7 +43,6 @@ func main() {
 			modelsDotDevResponse[providerID],
 			openrouterModelsResponse,
 			outputAgentModels,
-			authConfig,
 		)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s failed to resolve provider %q: %v\n", aurora.Yellow("warn:"), providerID, err)
@@ -67,10 +65,13 @@ func main() {
 
 	enabledProviders := make([]string, 0)
 	for providerID := range outputProviderConfig {
-		enabledProviders = append(enabledProviders, providerID)
+		if len(providersConfig[providerID].Models) > 0 {
+			enabledProviders = append(enabledProviders, providerID)
+		}
 	}
 
-	configPath := helpers.ResolvePath("@/config/ai/opencode.json")
+	configPath := helpers.ResolvePath("@/config/ai/opencode/opencode.json")
+	compiledConfigPath := helpers.ResolvePath("@/config/ai/opencode/opencode.compile.json")
 	configBytes, err := os.ReadFile(configPath)
 	if err != nil {
 		fmt.Println("failed to read opencode config:", err)
@@ -83,8 +84,40 @@ func main() {
 		os.Exit(1)
 	}
 
-	fullConfig["provider"] = outputProviderConfig
-	fullConfig["enabled_providers"] = utils.SortArrayOfString(enabledProviders)
+	providers := make(map[string]any)
+	for providerID, provider := range outputProviderConfig {
+		resolved := resolveProvider(provider)
+		configuredModels := providersConfig[providerID].Models
+		if len(configuredModels) > 0 {
+			models, _ := resolved["models"].(map[string]any)
+			if models == nil {
+				models = make(map[string]any)
+			}
+			for modelID := range modelsDotDevResponse[providerID].Models {
+				isConfigured := slices.ContainsFunc(configuredModels, func(model opencode.OpencodeProviderConfigModel) bool {
+					return model.ID == modelID
+				})
+				if !isConfigured {
+					models[modelID] = map[string]any{"disabled": true}
+				}
+			}
+			if len(models) > 0 {
+				resolved["models"] = models
+			}
+		}
+		providers[providerID] = resolved
+	}
+	fullConfig["providers"] = providers
+	policies := []map[string]string{{"action": "provider.use", "resource": "*", "effect": "deny"}}
+	for _, providerID := range utils.SortArrayOfString(enabledProviders) {
+		policies = append(policies, map[string]string{"action": "provider.use", "resource": providerID, "effect": "allow"})
+	}
+	experimental, _ := fullConfig["experimental"].(map[string]any)
+	if experimental == nil {
+		experimental = make(map[string]any)
+	}
+	experimental["policies"] = policies
+	fullConfig["experimental"] = experimental
 
 	if outputAgentModels.MainModel != "" {
 		fmt.Println(aurora.Green("Setting main model to:"), aurora.Yellow(outputAgentModels.MainModel))
@@ -94,15 +127,7 @@ func main() {
 		delete(fullConfig, "model")
 	}
 
-	if outputAgentModels.SmallModel != "" {
-		fmt.Println(aurora.Green("Setting small model to:"), aurora.Yellow(outputAgentModels.SmallModel))
-		fullConfig["small_model"] = outputAgentModels.SmallModel
-	} else {
-		fmt.Println(aurora.Faint("Unsetting small model"))
-		delete(fullConfig, "small_model")
-	}
-
-	fullConfig["agent"] = opencodeConfig.Agents
+	fullConfig["agents"] = opencodeConfig.Agents
 	setAgentModel(fullConfig, "title", outputAgentModels.AgentsModel["title"], outputAgentModels.AgentsOptions["title"])
 	setAgentModel(fullConfig, "general", outputAgentModels.AgentsModel["general"], outputAgentModels.AgentsOptions["general"])
 	setAgentModel(fullConfig, "explore", outputAgentModels.AgentsModel["explore"], outputAgentModels.AgentsOptions["explore"])
@@ -121,35 +146,70 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := os.WriteFile(configPath, []byte(mergedConfigRaw), 0o644); err != nil {
-		fmt.Println("failed to write opencode config:", err)
+	if err := os.WriteFile(compiledConfigPath, []byte(mergedConfigRaw), 0o644); err != nil {
+		fmt.Println("failed to write compiled opencode config:", err)
+		os.Exit(1)
+	}
+
+	cliConfigPath := helpers.ResolvePath("@/config/ai/opencode/cli.json")
+	compiledCliConfigPath := helpers.ResolvePath("@/config/ai/opencode/cli.compile.json")
+	cliConfigBytes, err := os.ReadFile(cliConfigPath)
+	if err != nil {
+		fmt.Println("failed to read opencode cli config:", err)
+		os.Exit(1)
+	}
+
+	var cliConfig map[string]any
+	if err := json.Unmarshal(jsonc.ToJSON(cliConfigBytes), &cliConfig); err != nil {
+		fmt.Println("failed to decode opencode cli config:", err)
+		os.Exit(1)
+	}
+
+	attention, _ := cliConfig["attention"].(map[string]any)
+	sounds, _ := attention["sounds"].(map[string]any)
+	for soundID, soundPath := range sounds {
+		path, ok := soundPath.(string)
+		if !ok {
+			fmt.Printf("invalid sound path for %q: %v\n", soundID, soundPath)
+			os.Exit(1)
+		}
+		if !filepath.IsAbs(path) {
+			sounds[soundID] = filepath.ToSlash(filepath.Join(helpers.ResolvePath("~/.config/opencode"), path))
+		}
+	}
+
+	newCliConfigBytes, err := json.Marshal(cliConfig)
+	if err != nil {
+		fmt.Println("failed to encode cli config:", err)
+		os.Exit(1)
+	}
+
+	mergedCliConfigRaw, err := helpers.MergeJSONObject(string(cliConfigBytes), string(newCliConfigBytes))
+	if err != nil {
+		fmt.Println("failed to merge cli config:", err)
+		os.Exit(1)
+	}
+
+	if err := os.WriteFile(compiledCliConfigPath, []byte(mergedCliConfigRaw), 0o644); err != nil {
+		fmt.Println("failed to write compiled opencode cli config:", err)
 		os.Exit(1)
 	}
 
 	fmt.Println()
-	fmt.Println(aurora.Cyan("Refreshing opencode models..."))
-	refreshErr := helpers.ExecNativeCommand(
-		[]string{"opencode", "models", "--refresh"},
-		helpers.ExecCommandOptions{Silent: true},
-	)
-	if refreshErr != nil {
-		fmt.Println("failed to refresh opencode models")
-	}
-
-	fmt.Println(aurora.Cyan("Formatting opencode config..."))
+	fmt.Println(aurora.Cyan("Formatting compiled opencode configs..."))
 	prettierErr := helpers.ExecNativeCommand(
-		[]string{"npx", "-y", "prettier", "--write", configPath},
+		[]string{"mise", "exec", "--", "prettier", "--write", compiledConfigPath, compiledCliConfigPath},
 		helpers.ExecCommandOptions{Silent: true},
 	)
 	if prettierErr != nil {
-		fmt.Println("failed to format opencode config")
+		fmt.Println("failed to format compiled opencode configs")
 	}
 
 	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
 
 func setAgentModel(fullConfig map[string]any, agent string, modelId string, options map[string]any) {
-	prevConfig := fullConfig["agent"].(map[string]any)[agent]
+	prevConfig := fullConfig["agents"].(map[string]any)[agent]
 	resolvedConfig := make(map[string]any)
 
 	if modelId != "" {
@@ -162,14 +222,19 @@ func setAgentModel(fullConfig map[string]any, agent string, modelId string, opti
 	}
 
 	if len(options) > 0 {
-		agentOptions, _ := resolvedConfig["options"].(map[string]any)
-		resolvedConfig["options"] = mergeAgentOptions(options, agentOptions)
+		request := make(map[string]any)
+		if prevRequest, ok := resolvedConfig["request"].(map[string]any); ok {
+			maps.Copy(request, prevRequest)
+		}
+		agentBody, _ := request["body"].(map[string]any)
+		request["body"] = mergeAgentOptions(options, agentBody)
+		resolvedConfig["request"] = request
 	}
 
 	if len(resolvedConfig) > 0 {
-		fullConfig["agent"].(map[string]any)[agent] = resolvedConfig
+		fullConfig["agents"].(map[string]any)[agent] = resolvedConfig
 	} else {
-		delete(fullConfig["agent"].(map[string]any), agent)
+		delete(fullConfig["agents"].(map[string]any), agent)
 	}
 }
 
@@ -190,4 +255,68 @@ func mergeAgentOptions(modelOptions, agentOptions map[string]any) map[string]any
 	}
 
 	return merged
+}
+
+func resolveProvider(provider opencode.OpencodeStandardProvider) map[string]any {
+	result := make(map[string]any)
+	if provider.API != "" {
+		result["settings"] = map[string]any{"baseURL": provider.API}
+	}
+	if len(provider.Env) > 0 {
+		result["env"] = provider.Env
+	}
+	if len(provider.Models) > 0 {
+		models := make(map[string]any)
+		for id, model := range provider.Models {
+			entry := map[string]any{"name": model.Name}
+			if model.ID != "" {
+				entry["modelID"] = model.ID
+			}
+			if model.Family != "" {
+				entry["family"] = model.Family
+			}
+			if model.Limit != nil {
+				entry["limit"] = model.Limit
+			}
+			if model.Cost != nil {
+				cost := map[string]any{"input": model.Cost.Input, "output": model.Cost.Output}
+				if model.Cost.CacheRead > 0 {
+					cost["cache"] = map[string]any{"read": model.Cost.CacheRead}
+				}
+				entry["cost"] = cost
+			}
+			if model.Modalities != nil || model.ToolCall != nil {
+				capabilities := map[string]any{"tools": true, "input": []string{"text", "image"}, "output": []string{"text"}}
+				if model.ToolCall != nil {
+					capabilities["tools"] = *model.ToolCall
+				}
+				if model.Modalities != nil {
+					capabilities["input"] = model.Modalities.Input
+					capabilities["output"] = model.Modalities.Output
+				}
+				entry["capabilities"] = capabilities
+			}
+			if model.Options != nil {
+				entry["settings"] = model.Options
+			}
+			if len(model.Headers) > 0 {
+				entry["headers"] = model.Headers
+			}
+			if len(model.Variants) > 0 {
+				variants := make([]map[string]any, 0, len(model.Variants))
+				ids := make([]string, 0, len(model.Variants))
+				for variantID := range model.Variants {
+					ids = append(ids, variantID)
+				}
+				slices.Sort(ids)
+				for _, variantID := range ids {
+					variants = append(variants, map[string]any{"id": variantID, "settings": model.Variants[variantID]})
+				}
+				entry["variants"] = variants
+			}
+			models[id] = entry
+		}
+		result["models"] = models
+	}
+	return result
 }

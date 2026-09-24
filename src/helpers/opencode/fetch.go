@@ -111,15 +111,15 @@ func FetchModels(providerID string, providerURL string, apiKey string) (map[stri
 	return models, nil
 }
 
-func FetchOpenrouterModels(auth AuthConfig) (map[string]OpencodeStandardModel, error) {
+func FetchOpenrouterModels() (map[string]OpencodeStandardModel, error) {
 	return FetchModels(
 		"openrouter", OPENROUTER_MODELS_URL,
-		ResolveApiKey("openrouter", ModelsDotDevProvider{Env: []string{"OPENROUTER_API_KEY"}}, auth),
+		ResolveApiKey(ModelsDotDevProvider{Env: []string{"OPENROUTER_API_KEY"}}),
 	)
 }
 
 func FetchModelsDotDev() (map[string]ModelsDotDevProvider, error) {
-	resp, err := http.Get("https://models.dev/api.json")
+	resp, err := http.Get("https://models.opencode.ai/api.json")
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch models.dev API: %w", err)
 	}

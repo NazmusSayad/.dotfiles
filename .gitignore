@@ -5,3 +5,5 @@
 .env.lock
 .experiment
 node_modules
+opencode.compile.json
+cli.compile.json
