@@ -36,8 +36,7 @@ make = "latest"
 ninja = "latest"
 
 # AI Coding
-"github:anomalyco/opencode" = "latest"
-"http:opencode2" = { version = "latest", version_list_url = "https://opencode.ai/update/api/latest/cli/opencode", version_json_path = ".version", url = 'https://opencode.ai/files/bin/{{ version }}/opencode-windows-x64.zip', rename_exe = "opencode2" }
+"http:opencode" = { version = "latest", version_list_url = "https://opencode.ai/update/api/latest/cli/opencode", version_json_path = ".version", url = 'https://opencode.ai/files/bin/{{ version }}/opencode-windows-x64.zip' }
 "github:anthropics/claude-code" = "latest"
 "github:google-antigravity/antigravity-cli" = "latest"
 
@@ -134,7 +133,7 @@ minimum_release_age_excludes = [
   "pnpm",
 
   # AI Coding
-  "github:anomalyco/opencode",
+  "http:opencode",
   "github:anthropics/claude-code",
   "github:google-antigravity/antigravity-cli",
 
