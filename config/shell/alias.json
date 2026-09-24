@@ -14,6 +14,8 @@
   "wcrf": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --resume --model fable",
   "wccf": "CLAUDE_CONFIG_DIR=~/.claude-wmb claude --continue --model fable",
 
+  "codex-sayad": "CODEX_HOME=~/.codex-sayad codex",
+
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
 
