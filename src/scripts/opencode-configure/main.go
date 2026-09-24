@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"maps"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"slices"
 
@@ -82,6 +83,21 @@ func main() {
 	if err := json.Unmarshal(jsonc.ToJSON(configBytes), &fullConfig); err != nil {
 		fmt.Println("failed to decode opencode config:", err)
 		os.Exit(1)
+	}
+
+	if shell, hasShell := fullConfig["shell"]; hasShell {
+		shellName, ok := shell.(string)
+		if !ok {
+			fmt.Println("invalid shell in opencode config:", shell)
+			os.Exit(1)
+		}
+		shellPath, err := exec.LookPath(shellName)
+		if err != nil {
+			fmt.Println("failed to find shell:", err)
+			os.Exit(1)
+		}
+		fmt.Println(aurora.Green("Setting shell to:"), aurora.Yellow(shellPath))
+		fullConfig["shell"] = shellPath
 	}
 
 	providers := make(map[string]any)
