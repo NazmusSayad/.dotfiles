@@ -45,5 +45,9 @@
   {
     "Path": "clean-code-snippets",
     "AsUser": true
+  },
+  {
+    "Path": "opencode-server",
+    "AsUser": true
   }
 ]
