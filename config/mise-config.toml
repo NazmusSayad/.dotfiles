@@ -37,6 +37,7 @@ ninja = "latest"
 
 # AI Coding
 "github:anomalyco/opencode" = "latest"
+"http:opencode2" = { version = "latest", version_list_url = "https://opencode.ai/update/api/latest/cli/opencode", version_json_path = ".version", url = 'https://opencode.ai/files/bin/{{ version }}/opencode-windows-x64.zip', rename_exe = "opencode2" }
 "github:anthropics/claude-code" = "latest"
 "github:google-antigravity/antigravity-cli" = "latest"
 
