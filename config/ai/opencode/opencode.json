@@ -1,0 +1,31 @@
+{
+  "update": "disable",
+  "share": "disabled",
+  "snapshots": false,
+  "shell": "bash",
+  "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
+  "mcp": {
+    "servers": {
+      "chrome-devtools": {
+        "disabled": true,
+        "type": "local",
+        "command": [
+          "chrome-devtools-mcp",
+          "--viewport=1440x900x1",
+          "--headless",
+          "--isolated"
+        ]
+      },
+      "playwright": {
+        "disabled": true,
+        "type": "local",
+        "command": [
+          "playwright-mcp",
+          "--viewport-size=1440x900",
+          "--headless",
+          "--isolated"
+        ]
+      }
+    }
+  }
+}

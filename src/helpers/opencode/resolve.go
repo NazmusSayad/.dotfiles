@@ -11,19 +11,18 @@ import (
 
 type OpencodeResolveAgentModels struct {
 	MainModel     string
-	SmallModel    string
 	AgentsModel   map[string]string
 	AgentsOptions map[string]map[string]any
 }
 
 func ResolveOpencodeProvider(
 	providerId string, providerConfig OpencodeProviderConfig, modelsDotDevProvider ModelsDotDevProvider,
-	openrouterModels map[string]OpencodeStandardModel, currentAgentModels OpencodeResolveAgentModels, authConfig AuthConfig,
+	openrouterModels map[string]OpencodeStandardModel, currentAgentModels OpencodeResolveAgentModels,
 ) (OpencodeStandardProvider, OpencodeResolveAgentModels, error) {
 	var fetchedModels map[string]OpencodeStandardModel
 
 	if providerConfig.URL != "" {
-		apiKey := ResolveApiKey(providerId, modelsDotDevProvider, authConfig)
+		apiKey := ResolveApiKey(modelsDotDevProvider)
 		if models, err := FetchModels(providerId, providerConfig.URL, apiKey); err == nil {
 			fetchedModels = models
 		} else {
@@ -105,14 +104,8 @@ func ResolveOpencodeProvider(
 		resolvedModelsMap[modelConfig.ID] = applyModelContextCap(*resolvedModel, modelConfig.ContextCap)
 	}
 
-	whitelist := make([]string, 0)
-	for _, configuredModel := range providerConfig.Models {
-		whitelist = append(whitelist, configuredModel.ID)
-	}
-
 	return OpencodeStandardProvider{
-		Models:    utils.Ternary(len(resolvedModelsMap) > 0, resolvedModelsMap, nil),
-		Whitelist: utils.SortArrayOfString(whitelist),
+		Models: utils.Ternary(len(resolvedModelsMap) > 0, resolvedModelsMap, nil),
 	}, currentAgentModels, nil
 }
 
@@ -129,18 +122,6 @@ func resolveAgentModel(providerId string, modelConfig OpencodeProviderConfigMode
 		}
 
 		currentAgentModels.MainModel = modelId
-	}
-
-	if modelConfig.AsSmall {
-		if currentAgentModels.SmallModel != "" {
-			fmt.Printf(
-				"%s Multiple models marked as small model. Models %s and %s will be used as the small model.\n",
-				aurora.Red("ERROR:"), currentAgentModels.SmallModel, modelConfig.ID,
-			)
-			os.Exit(1)
-		}
-
-		currentAgentModels.SmallModel = modelId
 	}
 
 	if modelConfig.AsAgentTitle {

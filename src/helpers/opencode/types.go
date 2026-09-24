@@ -1,12 +1,5 @@
 package opencode
 
-type AuthProvider struct {
-	Type string `json:"type"`
-	Key  string `json:"key"`
-}
-
-type AuthConfig map[string]AuthProvider
-
 type OpencodeSettingsConfig struct {
 	Agents map[string]any `yaml:"~agents,omitempty"`
 }
@@ -31,8 +24,7 @@ type OpencodeProviderConfigModel struct {
 	Headers  map[string]string `yaml:"headers,omitempty"`
 	Variants map[string]any    `yaml:"variants,omitempty"`
 
-	AsMain  bool `yaml:"main,omitempty"`
-	AsSmall bool `yaml:"small,omitempty"`
+	AsMain bool `yaml:"main,omitempty"`
 
 	AsAgentTitle      bool `yaml:"title,omitempty"`
 	AsAgentGeneral    bool `yaml:"general,omitempty"`
@@ -104,10 +96,9 @@ type OpencodeStandardCost struct {
 }
 
 type OpencodeStandardProvider struct {
-	API       string                           `json:"api,omitempty"`
-	Env       []string                         `json:"env,omitempty"`
-	Models    map[string]OpencodeStandardModel `json:"models"`
-	Whitelist []string                         `json:"whitelist"`
+	API    string                           `json:"api,omitempty"`
+	Env    []string                         `json:"env,omitempty"`
+	Models map[string]OpencodeStandardModel `json:"models"`
 }
 
 type ModelsDotDevProvider struct {

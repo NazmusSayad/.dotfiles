@@ -35,16 +35,16 @@ openai:
     color: "#C18A57"
   plan:
     color: "#43ACB9"
-    permission:
-      edit: deny
+    permissions:
+      - { action: edit, resource: "*", effect: deny }
   general:
     color: "#D46870"
-    permission:
-      task: deny
-      question: deny
+    permissions:
+      - { action: subagent, resource: "*", effect: deny }
+      - { action: question, resource: "*", effect: deny }
   explore:
     color: "#ABB2BF"
-    permission:
-      edit: deny
-      task: deny
-      question: deny
+    permissions:
+      - { action: edit, resource: "*", effect: deny }
+      - { action: subagent, resource: "*", effect: deny }
+      - { action: question, resource: "*", effect: deny }
