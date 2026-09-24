@@ -49,7 +49,6 @@
 "@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
 
 # OpenCode Desktop
-"@/.local/opencode-auth.json": "~/.local/share/opencode/auth.json"
 "@/config/ai/opencode/desktop.dat":
   Win.Copy: "$APPDATA/ai.opencode.desktop/default.dat"
   Mac.Copy: "~/Library/Application Support/ai.opencode.desktop/default.dat"
