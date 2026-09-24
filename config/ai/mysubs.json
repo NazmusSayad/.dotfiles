@@ -2,17 +2,17 @@
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
 
+  "codex": {
+    "accounts": {
+      "sayad": { "configDir": "~/.codex-sayad" }
+    }
+  },
   "claude": {
     "accounts": {
       "wmb": { "configDir": "~/.claude-wmb", "info": "Work" }
     }
   },
-  "codex": {
-    "detect": false,
-    "accounts": {
-      "sayad": { "adapter": "opencode-oauth" }
-    }
-  },
+
   "antigravity": {
     "detect": false
   },
