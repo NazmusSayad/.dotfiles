@@ -344,6 +344,7 @@
   "workbench.editor.dragToOpenWindow": false,
   "workbench.browser.showInTitleBar": false,
   "workbench.editor.useModal": "off",
+  "workbench.experimental.modernUI": false,
   "claudeCode.preferredLocation": "sidebar",
   "claudeCode.hideOnboarding": true,
   "claudeCode.disableLoginPrompt": true,
