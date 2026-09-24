@@ -100,7 +100,6 @@
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
-  "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.overviewRulerBorder": false,
