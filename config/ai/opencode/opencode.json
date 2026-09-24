@@ -4,6 +4,7 @@
   "snapshots": false,
   "shell": "bash",
   "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
+  "plugins": ["-opencode.browser"],
   "mcp": {
     "servers": {
       "chrome-devtools": {
