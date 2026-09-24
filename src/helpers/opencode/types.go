@@ -76,6 +76,12 @@ type OpencodeStandardModel struct {
 	Options     any                         `json:"options,omitempty"`
 	Headers     map[string]string           `json:"headers,omitempty"`
 	Variants    map[string]any              `json:"variants,omitempty"`
+
+	Experimental *OpencodeStandardExperimental `json:"experimental,omitempty"`
+}
+
+type OpencodeStandardExperimental struct {
+	Modes map[string]any `json:"modes,omitempty"`
 }
 
 type OpencodeStandardModalities struct {
