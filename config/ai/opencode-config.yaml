@@ -5,9 +5,9 @@ cerebras:
 
 opencode-go:
   models:
-    - id: glm-5.3-flash
+    - id: space-bunny-free
       context: 300000
-    - id: deepseek-v4.1-flash
+    - id: muse-spark-1.3-contributor-free
       context: 300000
 
 openai:
