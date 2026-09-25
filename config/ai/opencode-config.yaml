@@ -3,7 +3,7 @@ cerebras:
     - id: gpt-oss-120b
       title: true
 
-opencode-go:
+opencode:
   models:
     - id: space-bunny-free
       context: 300000
