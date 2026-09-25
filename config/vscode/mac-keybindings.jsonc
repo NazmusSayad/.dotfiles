@@ -433,7 +433,7 @@
     "when": "terminalCount"
   },
   {
-    "key": "alt+`",
+    "key": "shift+alt+`",
     "command": "workbench.action.terminal.kill",
     "when": "terminalViewShowing"
   },
@@ -896,5 +896,10 @@
   {
     "key": "ctrl+r",
     "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+shift+alt+`",
+    "command": "-workbench.action.terminal.newInNewWindow",
+    "when": "terminalHasBeenCreated || terminalProcessSupported"
   }
 ]
