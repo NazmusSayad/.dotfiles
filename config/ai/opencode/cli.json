@@ -7,5 +7,33 @@
     "notifications": true,
     "sound": true,
     "sounds": { "subagent_done": "./sounds/silent.mp3" }
+  },
+  "animations": true,
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": true,
+    "thinking": "hide",
+    "markdown": "rendered",
+    "grouping": "auto",
+    "image_preview": true,
+    "tps": false,
+    "new_location": "inherit",
+    "permissions": "prompt"
+  },
+  "tabs": {
+    "mode": "on",
+    "scope": "cwd",
+    "layout": "vertical",
+    "indicators": "status"
+  },
+  "diffs": {
+    "view": "split"
+  },
+  "prompt": {
+    "paste": "full",
+    "image_preview": true
+  },
+  "terminal": {
+    "copy": "select"
   }
 }
