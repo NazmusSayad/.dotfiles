@@ -49,8 +49,8 @@
     "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "cerebras-gpt-oss-120b",
     "hotkeyHold.macos": [
-      "Alt+ControlLeft",
-      "Alt+MetaLeft"
+      "ControlLeft+Alt",
+      "MetaLeft+ControlLeft"
     ],
     "hotkeyHold.windows": [
       "MetaLeft+ControlLeft"
@@ -74,7 +74,8 @@
       "enhancementType": "basic",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
-        "ShiftLeft+MetaLeft"
+        "ShiftLeft+MetaLeft",
+        "F14"
       ],
       "hotkeyHold.windows": [
         "ShiftLeft+ControlLeft"
@@ -98,7 +99,8 @@
       "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "prompt",
       "hotkeyHold.macos": [
-        "ShiftLeft+Alt"
+        "ShiftLeft+Alt",
+        "MetaLeft+F14"
       ],
       "hotkeyHold.windows": [
         "ShiftLeft+MetaLeft"
