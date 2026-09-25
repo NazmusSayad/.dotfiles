@@ -399,6 +399,11 @@
 
   // ` and terminal realted
   {
+    "key": "ctrl+shift+alt+`",
+    "command": "-workbench.action.terminal.newInNewWindow",
+    "when": "terminalHasBeenCreated || terminalProcessSupported"
+  },
+  {
     "key": "ctrl+shift+`",
     "command": "-workbench.action.terminal.new",
     "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
@@ -896,10 +901,5 @@
   {
     "key": "ctrl+r",
     "command": "-workbench.action.openRecent"
-  },
-  {
-    "key": "ctrl+shift+alt+`",
-    "command": "-workbench.action.terminal.newInNewWindow",
-    "when": "terminalHasBeenCreated || terminalProcessSupported"
   }
 ]
