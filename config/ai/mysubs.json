@@ -19,6 +19,9 @@
   "openrouter": {
     "detect": false
   },
+  "opencode": {
+    "detect": false
+  },
   "copilot": {
     "detect": false
   }
