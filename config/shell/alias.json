@@ -28,6 +28,7 @@
   "gyy": "gityo --yolo",
   "ghp": "gityo pr create",
   "ghm": "gityo pr merge",
+  "ghr": "gityo release",
 
   "m": "make",
   "j": "just",
