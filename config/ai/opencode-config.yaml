@@ -22,19 +22,14 @@ openai:
       context: 258000
 
 ~agents:
-  build:
-    color: "#C18A57"
   plan:
-    color: "#43ACB9"
     permissions:
       - { action: edit, resource: "*", effect: deny }
   general:
-    color: "#D46870"
     permissions:
       - { action: subagent, resource: "*", effect: deny }
       - { action: question, resource: "*", effect: deny }
   explore:
-    color: "#ABB2BF"
     permissions:
       - { action: edit, resource: "*", effect: deny }
       - { action: subagent, resource: "*", effect: deny }
