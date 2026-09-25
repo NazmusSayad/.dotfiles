@@ -255,6 +255,7 @@
   ],
   "yaml.extension.recommendations": false,
   "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.experimental.showMoves": true,
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   "git.blame.statusBarItem.enabled": false,
   "git.replaceTagsWhenPull": true,
@@ -381,5 +382,5 @@
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
   "workbench.activityBar.location": "hidden",
-  "security.promptForLocalFileProtocolHandling": false
+  "security.promptForLocalFileProtocolHandling": false,
 }
