@@ -9,7 +9,6 @@ require (
 	github.com/charmbracelet/bubbletea v1.3.10
 	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
 	github.com/charmbracelet/x/ansi v0.11.8
-	github.com/evanphx/json-patch v0.5.2
 	github.com/joho/godotenv v1.5.1
 	github.com/logrusorgru/aurora/v4 v4.0.0
 	github.com/otiai10/copy v1.14.1
@@ -49,7 +48,6 @@ require (
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/otiai10/mint v1.6.3 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.16.0 // indirect
 	github.com/sahilm/fuzzy v0.1.3 // indirect

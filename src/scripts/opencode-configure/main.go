@@ -164,13 +164,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	mergedConfigRaw, err := helpers.MergeJSONObject(string(configBytes), string(newConfigBytes))
-	if err != nil {
-		fmt.Println("failed to merge config:", err)
-		os.Exit(1)
-	}
-
-	if err := os.WriteFile(compiledConfigPath, []byte(mergedConfigRaw), 0o644); err != nil {
+	if err := os.WriteFile(compiledConfigPath, newConfigBytes, 0o644); err != nil {
 		fmt.Println("failed to write compiled opencode config:", err)
 		os.Exit(1)
 	}
@@ -208,13 +202,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	mergedCliConfigRaw, err := helpers.MergeJSONObject(string(cliConfigBytes), string(newCliConfigBytes))
-	if err != nil {
-		fmt.Println("failed to merge cli config:", err)
-		os.Exit(1)
-	}
-
-	if err := os.WriteFile(compiledCliConfigPath, []byte(mergedCliConfigRaw), 0o644); err != nil {
+	if err := os.WriteFile(compiledCliConfigPath, newCliConfigBytes, 0o644); err != nil {
 		fmt.Println("failed to write compiled opencode cli config:", err)
 		os.Exit(1)
 	}
