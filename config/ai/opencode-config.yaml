@@ -5,8 +5,6 @@ cerebras:
 
 opencode:
   models:
-    - id: space-bunny-free
-      context: 300000
     - id: muse-spark-1.3-contributor-free
       context: 300000
 
