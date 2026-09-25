@@ -24,6 +24,11 @@
       "provider": "cerebras"
     },
     {
+      "id": "openrouter-kimi",
+      "model": "moonshotai/kimi-k2-0905:nitro",
+      "provider": "openrouter"
+    },
+    {
       "id": "openrouter-mini",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
@@ -70,7 +75,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementLlmId": "cerebras-qwen-3.8-27b",
       "enhancementType": "basic",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
