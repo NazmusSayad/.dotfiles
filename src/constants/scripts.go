@@ -34,10 +34,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 		Exe: "gpm",
 	},
 
-	"github-release": {
-		Exe: "ghr",
-	},
-
 	"slack-status": {
 		Exe: "ss",
 	},
