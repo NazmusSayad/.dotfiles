@@ -6,8 +6,7 @@ if [[ -f ~/.path ]]; then
 fi
 
 if [[ "$OS" == "Windows_NT" ]]; then
-	# eval "$(dotsh bash "$(mise env --dotenv)")"
-	eval "$(mise activate bash)"
+	eval "$(dotsh bash "$(mise env --dotenv)")"
 fi
 
 if command -v uname >/dev/null 2>&1 && [[ "$(uname)" == "Darwin" ]]; then
