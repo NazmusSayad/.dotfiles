@@ -219,16 +219,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println()
-	fmt.Println(aurora.Cyan("Formatting compiled opencode configs..."))
-	prettierErr := helpers.ExecNativeCommand(
-		[]string{"mise", "exec", "--", "prettier", "--write", compiledConfigPath, compiledCliConfigPath},
-		helpers.ExecCommandOptions{Silent: true},
-	)
-	if prettierErr != nil {
-		fmt.Println("failed to format compiled opencode configs")
-	}
-
 	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
 
