@@ -3,21 +3,12 @@ cerebras:
     - id: gpt-oss-120b
       title: true
 
-openrouter:
-  models:
-    # - id: openai/gpt-oss-120b
-    #   title: true
-    #   title_options:
-    #     reasoning: { effort: medium }
-    #     provider: { sort: throughput }
-
 opencode-go:
   models:
     - id: glm-5.3-flash
       context: 300000
     - id: deepseek-v4.1-flash
       context: 300000
-      explore: true
 
 openai:
   models:
