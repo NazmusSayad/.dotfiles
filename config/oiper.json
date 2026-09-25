@@ -79,7 +79,8 @@
       "enhancementType": "basic",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
-        "ShiftLeft+MetaLeft"
+        "ShiftLeft+MetaLeft",
+        "F14"
       ],
       "hotkeyHold.windows": [
         "ShiftLeft+ControlLeft"
