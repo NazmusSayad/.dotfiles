@@ -6,14 +6,12 @@
 !.env.*.example
 
 .envrc
+
 .mcp.json
+.claude/settings.local.json
 
 .playwright
 .playwright-cli
 .playwright-mcp
-
-.agents/
-.claude/
-.claude/settings.local.json
 
 node_modules/
