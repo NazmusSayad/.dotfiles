@@ -58,7 +58,7 @@
       "MetaLeft+ControlLeft"
     ],
     "hotkeyHold.windows": [
-      "MetaLeft+ControlLeft"
+      "ControlLeft+MetaLeft"
     ],
     "hotkeyToggle.macos": [],
     "id": "default",
