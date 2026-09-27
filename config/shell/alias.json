@@ -6,10 +6,6 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
-  "pc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude",
-  "pcr": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --resume",
-  "pcc": "CLAUDE_CONFIG_DIR=~/.claude-sayad claude --continue",
-
   "codex-sayad": "CODEX_HOME=~/.codex-sayad codex",
 
   "ag": "antigravity --dangerously-skip-permissions",

@@ -45,15 +45,6 @@
         "customModels": []
       }
     },
-    "claudeAgent_wmb": {
-      "driver": "claudeAgent",
-      "displayName": "WMB",
-      "accentColor": "#16a34a",
-      "enabled": true,
-      "config": {
-        "homePath": "~/.claude-sayad"
-      }
-    },
     "codex": {
       "driver": "codex",
       "enabled": false,
