@@ -80,7 +80,7 @@
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
         "ShiftLeft+MetaLeft",
-        "F14"
+        "F15"
       ],
       "hotkeyHold.windows": [
         "ShiftLeft+ControlLeft"
@@ -105,7 +105,7 @@
       "enhancementType": "prompt",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
-        "MetaLeft+F14"
+        "MetaLeft+F15"
       ],
       "hotkeyHold.windows": [
         "ShiftLeft+MetaLeft"
