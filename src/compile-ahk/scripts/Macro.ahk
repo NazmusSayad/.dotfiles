@@ -4,7 +4,8 @@
 ::@env::<redacted>
 ::@mail::<redacted>
 
-#Space::+!F
+!Space::+!F
+#c::Send "^c"
 #PrintScreen::#^+PrintScreen
 
 #`:: {
