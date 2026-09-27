@@ -27,3 +27,7 @@ on_cd() {
 	zoxide add "$PWD"
 }
 PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+
+if [[ "$OS" == "Windows_NT" ]]; then
+	PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "`cygpath -w "$PWD" -C ANSI`"'
+fi
