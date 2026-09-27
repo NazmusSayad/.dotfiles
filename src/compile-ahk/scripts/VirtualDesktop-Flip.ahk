@@ -1,6 +1,6 @@
 #NoTrayIcon
 
-^F19:: {
+^F20:: {
   static goRight := true
 
   if (goRight) {
