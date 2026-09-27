@@ -24,6 +24,8 @@
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
   - "~/.claude-sayad/CLAUDE.md"
+  
+# Claude Accounts
 "~/.claude/history.jsonl":
   - "~/.claude-sayad/history.jsonl"
 "~/.claude/plans":
