@@ -5,7 +5,6 @@
 ::@mail::<redacted>
 
 !Space::+!F
-#c::Send "^c"
 #PrintScreen::#^+PrintScreen
 
 #`:: {
