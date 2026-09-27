@@ -3,13 +3,17 @@
   "nerdFont": true,
 
   "codex": {
+    "detect": false,
     "accounts": {
+      "work": { "configDir": "~/.codex" },
       "sayad": { "configDir": "~/.codex-sayad" }
     }
   },
   "claude": {
+    "detect": false,
     "accounts": {
-      "wmb": { "configDir": "~/.claude-sayad", "info": "Work" }
+      "work": { "configDir": "~/.claude", "info": "Work" },
+      "personal": { "configDir": "~/.claude-sayad" }
     }
   },
 
