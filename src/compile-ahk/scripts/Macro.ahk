@@ -4,7 +4,8 @@
 ::@env::sayadenv@gmail.com
 ::@mail::247sayad@gmail.com
 
-#Space::+!F
+!Space::+!F
+#c::Send "^c"
 #PrintScreen::#^+PrintScreen
 
 #`:: {

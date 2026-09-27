@@ -17,13 +17,17 @@
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "100",
     "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "250000",
     "DISABLE_UPGRADE_COMMAND": "1",
+    "CLAUDE_CODE_DISABLE_FAST_MODE": "1", 
     "CLAUDE_CODE_DISABLE_CRON": "1",
+    "CLAUDE_CODE_DISABLE_CFC_PROMPT": "1",
     "CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT": "1",
     "CLAUDE_CODE_DISABLE_ADVISOR_TOOL": "1",
+    "CLAUDE_CODE_DISABLE_BUNDLED_SKILLS": "1",
     "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS": "1",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
     "ANTHROPIC_DEFAULT_FABLE_MODEL": "claude-fable-5-1",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5"
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
   },
   "attribution": {
     "commit": "",
@@ -61,9 +65,7 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": [
-      "Working"
-    ]
+    "verbs": ["Working"]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
