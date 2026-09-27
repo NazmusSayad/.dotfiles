@@ -74,7 +74,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-qwen-3.8-27b",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "basic",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
@@ -101,7 +101,7 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementLlmId": "openrouter-kimi",
       "enhancementType": "prompt",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
