@@ -74,3 +74,8 @@ fnFTap:start()
 hs.hotkey.bind({ "alt" }, "space", function()
   hs.eventtap.keyStroke({ "alt", "shift" }, "f", 0)
 end)
+
+-- F13 sends Cmd+Shift+4
+hs.hotkey.bind({}, "f13", function()
+  hs.eventtap.keyStroke({ "cmd", "shift" }, "4", 0)
+end)
