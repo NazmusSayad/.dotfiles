@@ -193,7 +193,7 @@
                     {
                         "name": "External Display",
                         "source_uuid": "4d923b62-db57-47bd-85de-bf1281e6d317",
-                        "visible": false,
+                        "visible": true,
                         "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
@@ -248,7 +248,7 @@
                     {
                         "name": "Built-in Display",
                         "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
-                        "visible": true,
+                        "visible": false,
                         "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
@@ -315,12 +315,12 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.6": [],
+                "libobs.hide_scene_item.6": [],
                 "libobs.show_scene_item.5": [],
                 "libobs.hide_scene_item.5": [],
-                "libobs.show_scene_item.6": [],
-                "libobs.hide_scene_item.6": []
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -373,8 +373,8 @@
         }
     },
     "resolution": {
-        "x": 5120,
-        "y": 2880
+        "x": 3840,
+        "y": 2160
     },
     "migration_resolution": {
         "x": 2560,
