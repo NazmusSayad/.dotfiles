@@ -34,8 +34,10 @@
 
   "gz": "lazygit",
   "mgit": "monogit",
+
   "gc": "git checkout",
   "gcn": "git checkout -b",
+  "gpa": "git push --all",
 
   "ghv": "gh repo view",
   "ghw": "gh repo view --web",
