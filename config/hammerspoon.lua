@@ -79,3 +79,42 @@ end)
 hs.hotkey.bind({}, "f13", function()
   hs.eventtap.keyStroke({ "cmd", "shift" }, "4", 0)
 end)
+
+-- F20 holds Cmd and presses Tab, releases Cmd on key up
+local switcherHeld = false
+switcherTap = hs.eventtap.new({
+  hs.eventtap.event.types.keyDown,
+  hs.eventtap.event.types.keyUp,
+  hs.eventtap.event.types.flagsChanged
+}, function(event)
+  if event:getKeyCode() ~= hs.keycodes.map.f20 then
+    if switcherHeld then
+      local flags = event:getFlags()
+      flags.cmd = true
+      event:setFlags(flags)
+    end
+    return false
+  end
+
+  local eventType = event:getType()
+
+  if eventType == hs.eventtap.event.types.keyDown then
+    if event:getProperty(hs.eventtap.event.properties.keyboardEventAutorepeat) == 0 then
+      switcherHeld = true
+      hs.eventtap.event.newKeyEvent("cmd", true):post()
+      hs.eventtap.event.newKeyEvent({ "cmd" }, "tab", true):post()
+      hs.eventtap.event.newKeyEvent({ "cmd" }, "tab", false):post()
+    end
+    return true
+  end
+
+  if eventType == hs.eventtap.event.types.keyUp then
+    switcherHeld = false
+    hs.eventtap.event.newKeyEvent("cmd", false):post()
+    return true
+  end
+
+  return false
+end)
+
+switcherTap:start()
