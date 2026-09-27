@@ -5,7 +5,6 @@
 ::@mail::247sayad@gmail.com
 
 !Space::+!F
-#c::Send "^c"
 #PrintScreen::#^+PrintScreen
 
 #`:: {
