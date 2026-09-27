@@ -56,7 +56,11 @@
         },
         {
             "id": null,
-            "keys": "alt+right"
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad_minus"
         },
         {
             "id": "User.find",
@@ -64,27 +68,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+numpad_minus"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "id": "User.copy.224984B4",
-            "keys": "ctrl+c"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+d"
+            "keys": "alt+right"
         },
         {
             "id": null,
             "keys": "ctrl+shift+k"
         },
         {
-            "id": "User.duplicateTab",
-            "keys": "ctrl+n"
+            "id": null,
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "id": "User.copy.224984B4",
+            "keys": "ctrl+c"
         },
         {
             "id": null,
@@ -141,10 +137,6 @@
         {
             "id": null,
             "keys": "alt+up"
-        },
-        {
-            "id": "Terminal.OpenNewTab",
-            "keys": "ctrl+t"
         },
         {
             "id": null,
@@ -301,6 +293,10 @@
         {
             "id": null,
             "keys": "shift+insert"
+        },
+        {
+            "id": "User.duplicateTab",
+            "keys": "ctrl+t"
         }
     ],
     "launchMode": "default",
