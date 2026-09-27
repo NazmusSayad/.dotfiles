@@ -1,32 +1,18 @@
 {
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
+  "detect": false,
 
   "codex": {
-    "detect": false,
     "accounts": {
       "work": { "configDir": "~/.codex" },
       "sayad": { "configDir": "~/.codex-sayad" }
     }
   },
   "claude": {
-    "detect": false,
     "accounts": {
       "work": { "configDir": "~/.claude", "info": "Work" },
       "personal": { "configDir": "~/.claude-sayad" }
     }
-  },
-
-  "antigravity": {
-    "detect": false
-  },
-  "openrouter": {
-    "detect": false
-  },
-  "opencode": {
-    "detect": false
-  },
-  "copilot": {
-    "detect": false
   }
 }
