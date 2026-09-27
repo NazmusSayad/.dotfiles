@@ -53,7 +53,8 @@
   "syncClaudeAiPlugins": false,
   "syncClaudeAiSkills": false,
   "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true
+    "claude-code-wakatime@wakatime": true,
+    "cowork-plugin-management@synced": false
   },
   "extraKnownMarketplaces": {
     "wakatime": {
@@ -68,7 +69,9 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["Working"]
+    "verbs": [
+      "Working"
+    ]
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
