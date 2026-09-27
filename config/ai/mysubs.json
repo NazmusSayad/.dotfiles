@@ -9,7 +9,7 @@
   },
   "claude": {
     "accounts": {
-      "wmb": { "configDir": "~/.claude-wmb", "info": "Work" }
+      "wmb": { "configDir": "~/.claude-sayad", "info": "Work" }
     }
   },
 
