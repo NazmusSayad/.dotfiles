@@ -3,7 +3,7 @@
     "AuxAudioDevice1": {
         "prev_ver": 537001986,
         "name": "Input",
-        "uuid": "ae58dae6-b732-4a58-9d9b-3580cf6f988c",
+        "uuid": "a129f4f4-16f4-45b3-82ce-18e7c2e7b28a",
         "id": "coreaudio_input_capture",
         "versioned_id": "coreaudio_input_capture",
         "settings": {
@@ -15,7 +15,7 @@
         "volume": 1.0,
         "balance": 0.5,
         "enabled": true,
-        "muted": true,
+        "muted": false,
         "push-to-mute": false,
         "push-to-mute-delay": 0,
         "push-to-talk": false,
@@ -34,7 +34,7 @@
     "sources": [
         {
             "prev_ver": 537001986,
-            "name": "Mac Display",
+            "name": "Built-in Display",
             "uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
             "id": "screen_capture",
             "versioned_id": "screen_capture",
@@ -67,29 +67,30 @@
         },
         {
             "prev_ver": 537001986,
-            "name": "Window Capture",
-            "uuid": "1a08d3dc-5975-4b68-9d53-2409e52b54ce",
-            "id": "window_capture",
-            "versioned_id": "window_capture",
+            "name": "External Display",
+            "uuid": "4d923b62-db57-47bd-85de-bf1281e6d317",
+            "id": "screen_capture",
+            "versioned_id": "screen_capture",
             "settings": {
-                "owner_pid": 16474,
-                "owner_name": "Google Chrome",
-                "window_name": "stripe (Channel) - OiPer - Slack",
-                "window": 101,
-                "show_empty_names": true
+                "display_uuid": "8AF304F6-59BC-4E4F-B83E-F36E10D34FAF"
             },
-            "mixers": 0,
+            "mixers": 255,
             "sync": 0,
             "flags": 0,
             "volume": 1.0,
             "balance": 0.5,
             "enabled": true,
-            "muted": false,
+            "muted": true,
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
-            "hotkeys": {},
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
@@ -97,12 +98,12 @@
         },
         {
             "prev_ver": 537001986,
-            "name": "External Display",
-            "uuid": "4512cdbc-9266-4311-8825-aeac31320ce7",
-            "id": "display_capture",
-            "versioned_id": "display_capture",
+            "name": "Output",
+            "uuid": "d6931488-764f-428f-bf73-a92b38f374ba",
+            "id": "sck_audio_capture",
+            "versioned_id": "sck_audio_capture",
             "settings": {},
-            "mixers": 0,
+            "mixers": 255,
             "sync": 0,
             "flags": 0,
             "volume": 1.0,
@@ -113,7 +114,12 @@
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
-            "hotkeys": {},
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
@@ -126,35 +132,35 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 4,
+                "id_counter": 6,
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Mac Display",
-                        "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
-                        "visible": false,
-                        "locked": true,
+                        "name": "Output",
+                        "source_uuid": "d6931488-764f-428f-bf73-a92b38f374ba",
+                        "visible": true,
+                        "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
-                            "x": 2560.0,
-                            "y": 1664.0
+                            "x": 3840.0,
+                            "y": 2160.0
                         },
                         "align": 5,
-                        "bounds_type": 1,
+                        "bounds_type": 0,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 1,
+                        "id": 6,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": -1.5384615659713745,
+                            "x": -1.7777777910232544,
                             "y": -1.0
                         },
                         "scale": {
@@ -166,12 +172,12 @@
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 2560.0,
-                            "y": 1664.0
+                            "x": 0.0,
+                            "y": 0.0
                         },
                         "bounds_rel": {
-                            "x": 3.076923131942749,
-                            "y": 2.0
+                            "x": 0.0,
+                            "y": 0.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -186,26 +192,26 @@
                     },
                     {
                         "name": "External Display",
-                        "source_uuid": "4512cdbc-9266-4311-8825-aeac31320ce7",
-                        "visible": true,
-                        "locked": false,
+                        "source_uuid": "4d923b62-db57-47bd-85de-bf1281e6d317",
+                        "visible": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
-                            "x": 5120.0,
-                            "y": 2880.0
+                            "x": 3840.0,
+                            "y": 2160.0
                         },
                         "align": 5,
-                        "bounds_type": 0,
+                        "bounds_type": 2,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 4,
+                        "id": 5,
                         "group_item_backup": false,
                         "pos": {
-                            "x": -199.0,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -213,20 +219,20 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 0.5777778029441833,
-                            "y": 0.5777778029441833
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 3840.0,
+                            "y": 2160.0
                         },
                         "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 3.555555582046509,
+                            "y": 2.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -240,10 +246,10 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Window Capture",
-                        "source_uuid": "1a08d3dc-5975-4b68-9d53-2409e52b54ce",
-                        "visible": false,
-                        "locked": false,
+                        "name": "Built-in Display",
+                        "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
+                        "visible": true,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 2560.0,
@@ -257,30 +263,30 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 2,
+                        "id": 1,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": -1.5384615659713745,
+                            "x": -1.7777777910232544,
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.9999999403953552,
+                            "y": 0.9999999403953552
                         },
                         "scale_rel": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.770370364189148,
+                            "y": 0.770370364189148
                         },
                         "bounds": {
-                            "x": 2560.0,
-                            "y": 1664.0
+                            "x": 3840.0,
+                            "y": 2160.0
                         },
                         "bounds_rel": {
-                            "x": 3.076923131942749,
+                            "x": 3.555555582046509,
                             "y": 2.0
                         },
                         "scale_filter": "disable",
@@ -311,10 +317,10 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
+                "libobs.show_scene_item.5": [],
+                "libobs.hide_scene_item.5": [],
+                "libobs.show_scene_item.6": [],
+                "libobs.hide_scene_item.6": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -339,7 +345,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -5,
+    "scaling_level": -9,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
