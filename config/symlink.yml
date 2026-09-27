@@ -14,34 +14,13 @@
 # Agents Skills
 "~/.agents/skills":
   - "~/.claude/skills"
-  - "~/.claude-sayad/skills"
   - "~/.gemini/antigravity-cli/skills"
 
 # Claude
 "@/config/ai/claude.json":
   - "~/.claude/settings.json"
-  - "~/.claude-sayad/settings.json"
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
-  - "~/.claude-sayad/CLAUDE.md"
-  
-# Claude Accounts
-"~/.claude/history.jsonl":
-  - "~/.claude-sayad/history.jsonl"
-"~/.claude/plans":
-  - "~/.claude-sayad/plans"
-"~/.claude/tasks":
-  - "~/.claude-sayad/tasks"
-"~/.claude/plugins":
-  - "~/.claude-sayad/plugins"
-"~/.claude/projects":
-  - "~/.claude-sayad/projects"
-"~/.claude/sessions":
-  - "~/.claude-sayad/sessions"
-"~/.claude/session-env":
-  - "~/.claude-sayad/session-env"
-"~/.claude/shell-snapshots":
-  - "~/.claude-sayad/shell-snapshots"
 
 # OpenCode
 "@/config/ai/opencode/opencode.compile.json": "~/.config/opencode/opencode.json"

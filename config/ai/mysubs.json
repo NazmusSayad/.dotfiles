@@ -11,8 +11,7 @@
   },
   "claude": {
     "accounts": {
-      "work": { "configDir": "~/.claude", "info": "Work" },
-      "personal": { "configDir": "~/.claude-sayad" }
+      "work": { "configDir": "~/.claude", "info": "Work" }
     }
   }
 }
