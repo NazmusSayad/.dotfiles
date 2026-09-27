@@ -82,7 +82,8 @@
         "F15"
       ],
       "hotkeyHold.windows": [
-        "ShiftLeft+ControlLeft"
+        "ShiftLeft+ControlLeft",
+        "F15"
       ],
       "hotkeyToggle.macos": [
         "ShiftRight+ControlLeft",
@@ -104,10 +105,11 @@
       "enhancementType": "prompt",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
-        "MetaLeft+F15"
+        "ShiftLeft+F15"
       ],
       "hotkeyHold.windows": [
-        "ShiftLeft+MetaLeft"
+        "ShiftLeft+MetaLeft",
+        "ShiftLeft+F15"
       ],
       "hotkeyToggle.macos": [
         "ShiftRight+Alt"
