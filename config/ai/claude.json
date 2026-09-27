@@ -53,8 +53,7 @@
   "defaultShell": "bash",
   "allowAllClaudeAiMcps": false,
   "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true,
-    "cowork-plugin-management@synced": false
+    "claude-code-wakatime@wakatime": true
   },
   "extraKnownMarketplaces": {
     "wakatime": {
