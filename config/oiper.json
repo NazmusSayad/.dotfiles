@@ -58,7 +58,7 @@
       "MetaLeft+ControlLeft"
     ],
     "hotkeyHold.windows": [
-      "Alt+AltGr"
+      "AltGr+MetaRight"
     ],
     "hotkeyToggle.macos": [],
     "id": "default",
