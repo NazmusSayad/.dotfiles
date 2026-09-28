@@ -35,17 +35,6 @@
   Win.Copy: "$APPDATA/ai.opencode.desktop/default.dat"
   Mac.Copy: "~/Library/Application Support/ai.opencode.desktop/default.dat"
 
-# PI
-"@/config/agents/pi.json": { Copy: "~/.pi/agent/settings.json" }
-
-# T3Code
-"@/config/agents/t3code/settings.json":
-  Win.Copy: "~/.t3/userdata/settings.json"
-"@/config/agents/t3code/keybindings.json":
-  Win.Copy: "~/.t3/userdata/keybindings.json"
-"@/config/agents/t3code/client-settings.json":
-  Win.Copy: "~/.t3/userdata/client-settings.json"
-
 # Terminal
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
 "@/config/shell/starship.toml": "~/.config/starship.toml"
