@@ -12,11 +12,16 @@ export default {
   id: "env-loader",
   async setup(ctx: any) {
     await ctx.shell.hook("create.before", (event: any) => {
+      const targetDir: string | undefined =
+        event.cwd ?? ctx.location?.directory ?? ctx.location?.project?.directory
+
+      if (!targetDir) return
+
       let raw: string
       try {
         const result = spawnSync("direnv", ["export", "json"], {
           env: process.env,
-          cwd: event.cwd,
+          cwd: targetDir,
           timeout: 10000,
           shell: true
         })
