@@ -12,7 +12,7 @@
   - "~/.gemini/antigravity-cli/skills"
 
 # AGENTS.md
-"@/config/agents/AGENTS.md":
+"@/config/agents/AGENTS_MD.md":
   - "~/.gemini/GEMINI.md"
   - "~/.config/opencode/AGENTS.md"
 "@/config/agents/CLAUDE_MD.md":
