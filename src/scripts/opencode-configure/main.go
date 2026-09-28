@@ -71,8 +71,8 @@ func main() {
 		}
 	}
 
-	configPath := helpers.ResolvePath("@/config/ai/opencode/opencode.json")
-	compiledConfigPath := helpers.ResolvePath("@/config/ai/opencode/opencode.compile.json")
+	configPath := helpers.ResolvePath("@/config/agents/opencode/opencode.json")
+	compiledConfigPath := helpers.ResolvePath("@/config/agents/opencode/opencode.compile.json")
 	configBytes, err := os.ReadFile(configPath)
 	if err != nil {
 		fmt.Println("failed to read opencode config:", err)
@@ -169,8 +169,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	cliConfigPath := helpers.ResolvePath("@/config/ai/opencode/cli.json")
-	compiledCliConfigPath := helpers.ResolvePath("@/config/ai/opencode/cli.compile.json")
+	cliConfigPath := helpers.ResolvePath("@/config/agents/opencode/cli.json")
+	compiledCliConfigPath := helpers.ResolvePath("@/config/agents/opencode/cli.compile.json")
 	cliConfigBytes, err := os.ReadFile(cliConfigPath)
 	if err != nil {
 		fmt.Println("failed to read opencode cli config:", err)

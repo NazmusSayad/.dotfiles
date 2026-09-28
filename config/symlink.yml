@@ -17,33 +17,33 @@
   - "~/.gemini/antigravity-cli/skills"
 
 # Claude
-"@/config/ai/claude.json":
+"@/config/agents/claude.json":
   - "~/.claude/settings.json"
 "~/.agents/skills/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
 
 # OpenCode
-"@/config/ai/opencode/opencode.compile.json": "~/.config/opencode/opencode.json"
-"@/config/ai/opencode/cli.compile.json": "~/.config/opencode/cli.json"
-"@/config/ai/opencode/sounds": "~/.config/opencode/sounds"
-"@/config/ai/opencode/themes": "~/.config/opencode/themes"
-"@/config/ai/opencode/ext.json": "~/.opencode-ext.json"
+"@/config/agents/opencode/opencode.compile.json": "~/.config/opencode/opencode.json"
+"@/config/agents/opencode/cli.compile.json": "~/.config/opencode/cli.json"
+"@/config/agents/opencode/sounds": "~/.config/opencode/sounds"
+"@/config/agents/opencode/themes": "~/.config/opencode/themes"
+"@/config/agents/opencode/ext.json": "~/.opencode-ext.json"
 "@/config/cloudflared.yml": "~/.cloudflared/config.yml"
 
 # OpenCode Desktop
-"@/config/ai/opencode/desktop.dat":
+"@/config/agents/opencode/desktop.dat":
   Win.Copy: "$APPDATA/ai.opencode.desktop/default.dat"
   Mac.Copy: "~/Library/Application Support/ai.opencode.desktop/default.dat"
 
 # PI
-"@/config/ai/pi.json": { Copy: "~/.pi/agent/settings.json" }
+"@/config/agents/pi.json": { Copy: "~/.pi/agent/settings.json" }
 
 # T3Code
-"@/config/ai/t3code/settings.json":
+"@/config/agents/t3code/settings.json":
   Win.Copy: "~/.t3/userdata/settings.json"
-"@/config/ai/t3code/keybindings.json":
+"@/config/agents/t3code/keybindings.json":
   Win.Copy: "~/.t3/userdata/keybindings.json"
-"@/config/ai/t3code/client-settings.json":
+"@/config/agents/t3code/client-settings.json":
   Win.Copy: "~/.t3/userdata/client-settings.json"
 
 # Terminal
@@ -94,8 +94,8 @@
   Win: "$APPDATA/com.oiper.desktop/config.json"
   Mac: "~/Library/Application Support/com.oiper.desktop/config.json"
 "@/config/uni-run.json": "~/.uni-run.json"
-"@/config/ai/mysubs.json": "~/.config/mysubs/config.json"
-"@/config/ai/mytokens-group.json": "~/.mytokens/groups.json"
+"@/config/agents/mysubs.json": "~/.config/mysubs/config.json"
+"@/config/agents/mytokens-group.json": "~/.mytokens/groups.json"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 
