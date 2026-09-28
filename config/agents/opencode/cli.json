@@ -18,7 +18,8 @@
     "image_preview": true,
     "tps": false,
     "new_location": "inherit",
-    "permissions": "prompt"
+    "permissions": "prompt",
+    "verbosity": "low"
   },
   "tabs": {
     "mode": "on",
@@ -31,7 +32,8 @@
   },
   "prompt": {
     "paste": "full",
-    "image_preview": true
+    "image_preview": true,
+    "editor": false
   },
   "terminal": {
     "copy": "select"
