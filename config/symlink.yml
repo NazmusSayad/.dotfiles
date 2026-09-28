@@ -25,6 +25,7 @@
 # OpenCode
 "@/config/agents/opencode/opencode.compile.json": "~/.config/opencode/opencode.json"
 "@/config/agents/opencode/cli.compile.json": "~/.config/opencode/cli.json"
+"@/config/agents/opencode/plugins": "~/.config/opencode/plugins"
 "@/config/agents/opencode/sounds": "~/.config/opencode/sounds"
 "@/config/agents/opencode/themes": "~/.config/opencode/themes"
 "@/config/agents/opencode/ext.json": "~/.opencode-ext.json"
