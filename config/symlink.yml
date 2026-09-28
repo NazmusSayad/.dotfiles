@@ -6,21 +6,21 @@
 "@/config/shell/profile.sh":
   Mac: "~/.bash_profile"
 
-# AGENTS.md
-"~/.agents/skills/AGENTS_MD.md":
-  - "~/.gemini/GEMINI.md"
-  - "~/.config/opencode/AGENTS.md"
-
 # Agents Skills
-"~/.agents/skills":
+"@/config/agents/skills":
   - "~/.claude/skills"
   - "~/.gemini/antigravity-cli/skills"
 
-# Claude
+# AGENTS.md
+"@/config/agents/AGENTS.md":
+  - "~/.gemini/GEMINI.md"
+  - "~/.config/opencode/AGENTS.md"
+"@/config/agents/CLAUDE_MD.md":
+  - "~/.claude/CLAUDE.md"
+
+# Claude Code
 "@/config/agents/claude.json":
   - "~/.claude/settings.json"
-"~/.agents/skills/CLAUDE_MD.md":
-  - "~/.claude/CLAUDE.md"
 
 # OpenCode
 "@/config/agents/opencode/opencode.compile.json": "~/.config/opencode/opencode.json"
