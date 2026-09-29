@@ -20,7 +20,7 @@ Use the simplest clear, readable, and direct solution that fully satisfies the r
 
 Use explicit logic to prevent ambiguity and implicit fallbacks. For example, prefer `if true: 1; if false: 0; else: exception` over `if true: 1; else: 0`.
 
-Do not write comments unless instructed. Do not refactor, clean up, reformat, rename, or otherwise improve unrelated work. Remove code made unused by your changes, but don't remove pre-existing dead code unless asked.
+Do not write comments. Do not refactor, clean up, reformat, rename, or otherwise improve unrelated work. Remove code made unused by your changes, but don't remove pre-existing dead code unless asked.
 
 ## Verification
 
@@ -42,6 +42,8 @@ Do not mask symptoms with unnecessary workarounds.
 
 Communicate clearly and directly in language the user can understand. Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
 
+When useful, use a relevant emoji as a visual marker for important context such as assumptions, caveats, warnings, errors, or action ownership. Keep it occasional and unobtrusive.
+
 Keep only useful details. Avoid unnecessary jargon and technical details unless they improve clarity or help the user act.
 
 ## Guidelines
@@ -51,3 +53,7 @@ Do not execute any Git write operation unless explicitly requested.
 Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
 
 Avoid disrupting development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
+
+## Behavior
+
+When the user is discussing, brainstorming, exploring, or sharing an idea or suggestion, engage in the discussion. Do not turn a question, problem description, or idea into an investigation or implementation task. Answer what the user asked; a request for an explanation needs an explanation, not a fix. Only make edits or implement changes when the user explicitly requests them.
