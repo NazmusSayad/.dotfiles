@@ -41,7 +41,20 @@
   "includeGitInstructions": false,
   "permissions": {
     "defaultMode": "bypassPermissions",
-    "disableAutoMode": "disable"
+    "disableAutoMode": "disable",
+    "deny": [
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "NotebookEdit",
+      "SendFeedback",
+      "ShareOnboardingGuide",
+      "DesignSync",
+      "ReportFindings",
+      "ScheduleWakeup",
+      "RemoteTrigger",
+      "EnterWorktree",
+      "ExitWorktree"
+    ]
   },
   "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
