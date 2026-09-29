@@ -135,6 +135,7 @@ minimum_release_age_excludes = [
 
   # AI Coding
   "http:opencode",
+  "github:openai/codex",
   "github:anthropics/claude-code",
   "github:google-antigravity/antigravity-cli",
 
