@@ -56,7 +56,7 @@
       "ExitWorktree"
     ]
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
   "disableAgentView": true,
