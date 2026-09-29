@@ -84,8 +84,8 @@
   Win: "$APPDATA/com.oiper.desktop/config.json"
   Mac: "~/Library/Application Support/com.oiper.desktop/config.json"
 "@/config/uni-run.json": "~/.uni-run.json"
-"@/agents/mysubs.json": "~/.config/mysubs/config.json"
-"@/agents/mytokens-group.json": "~/.mytokens/groups.json"
+"@/config/mysubs.json": "~/.config/mysubs/config.json"
+"@/config/mytokens-group.json": "~/.mytokens/groups.json"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 
