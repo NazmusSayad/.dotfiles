@@ -14,9 +14,8 @@
 # AGENTS.md
 "@/agents/AGENTS_MD.md":
   - "~/.gemini/GEMINI.md"
-  - "~/.config/opencode/AGENTS.md"
-"@/agents/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
+  - "~/.config/opencode/AGENTS.md"
 
 # Claude Code
 "@/agents/claude.json":
