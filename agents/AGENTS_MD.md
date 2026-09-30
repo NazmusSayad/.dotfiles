@@ -26,7 +26,7 @@ Do not write comments. Do not refactor, clean up, reformat, rename, or otherwise
 
 Do not write tests (eg: unit, integration, regression, or smoke tests) unless explicitly requested.
 
-Do not run validation commands or checks unless necessary. When possible, run multiple validation commands together.
+Do not run validation commands or checks unless necessary. When possible, run multiple validation commands together. Do not build the entire application just to verify changes.
 
 Before considering the work complete, verify that the result satisfies the user's actual request. Do not claim that it works without sufficient evidence.
 
@@ -52,7 +52,7 @@ Do not execute any Git write operation unless explicitly requested.
 
 Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
 
-Avoid disrupting development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
+Never start or disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
 
 ## Behavior
 
