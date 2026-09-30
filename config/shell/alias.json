@@ -63,5 +63,8 @@
   "..": "cd ..",
   "...": "cd ../..",
   "....": "cd ../../..",
-  ".....": "cd ../../../.."
+  ".....": "cd ../../../..",
+
+  "health-open": "node ~/.health/dist/index.mjs open",
+  "health-collect": "node ~/.health/dist/index.mjs collect"
 }
