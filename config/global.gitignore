@@ -1,11 +1,14 @@
 .DS_Store
+.envrc
 
 .env
 .env.*
 !.env.example
 !.env.*.example
 
-.envrc
+.tmp/
+.local/
+node_modules/
 
 .mcp.json
 .claude/settings.local.json
@@ -13,5 +16,3 @@
 .playwright
 .playwright-cli
 .playwright-mcp
-
-node_modules/
