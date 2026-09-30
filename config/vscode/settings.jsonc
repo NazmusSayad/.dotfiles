@@ -254,7 +254,7 @@
     "moment"
   ],
   "yaml.extension.recommendations": false,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.experimental.showMoves": true,
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   "git.blame.statusBarItem.enabled": false,
