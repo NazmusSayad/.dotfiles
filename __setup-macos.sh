@@ -96,6 +96,9 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.spaces spans-displays -bool false
 
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write com.apple.finder AppleShowAllFiles -bool true
