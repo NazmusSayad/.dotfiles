@@ -167,6 +167,7 @@ func Configure() {
 		fmt.Println("failed to write compiled opencode config:", err)
 		os.Exit(1)
 	}
+	helpers.ApplyUserOwnership(compiledConfigPath)
 
 	cliConfigPath := helpers.ResolvePath("@/agents/opencode/cli.json")
 	compiledCliConfigPath := helpers.ResolvePath("~/.config/opencode/cli.json")
@@ -205,6 +206,7 @@ func Configure() {
 		fmt.Println("failed to write compiled opencode cli config:", err)
 		os.Exit(1)
 	}
+	helpers.ApplyUserOwnership(compiledCliConfigPath)
 
 	fmt.Println(aurora.Green("Successfully updated OpenCode config!"))
 }
