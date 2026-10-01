@@ -34,6 +34,15 @@ sudo batt lower-limit-delta 10
 sudo batt prevent-system-sleep enable
 sudo batt magsafe-led enable
 
+echo "Disabling Software Update notifications..."
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool false
+sudo softwareupdate --schedule off
+
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
