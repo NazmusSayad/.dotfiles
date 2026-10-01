@@ -9,6 +9,7 @@ import (
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/helpers/opencode"
 	"dotfiles/src/helpers/symlink"
+
 	"github.com/logrusorgru/aurora/v4"
 )
 
@@ -29,11 +30,13 @@ func main() {
 
 	for _, config := range symlinkConfigs {
 		sourcePath := helpers.ResolvePath(config.Source)
+		fmt.Println(aurora.Blue(config.Source))
 
 		for _, target := range config.LinkTargets {
 			targetPath := helpers.ResolvePath(target)
 			if helpers.GenerateSymlink(sourcePath, targetPath, config.InheritPerm) == nil {
 				newlyCreatedFiles = append(newlyCreatedFiles, targetPath)
+				fmt.Println(aurora.Blue("->"), aurora.Faint(target))
 			}
 		}
 
@@ -41,8 +44,11 @@ func main() {
 			targetPath := helpers.ResolvePath(target)
 			if helpers.CopyFile(sourcePath, targetPath, config.InheritPerm) == nil {
 				newlyCreatedFiles = append(newlyCreatedFiles, targetPath)
+				fmt.Println(aurora.Blue("=>"), aurora.Faint(targetPath))
 			}
 		}
+
+		fmt.Println()
 	}
 
 	lockFile, _ := os.ReadFile(helpers.ResolvePath("@/.local/symlink.lock"))
@@ -57,5 +63,6 @@ func main() {
 	os.WriteFile(lockPath, []byte(strings.Join(newlyCreatedFiles, "\n")), 0o644)
 	helpers.ApplyUserOwnership(lockPath)
 
+	fmt.Println()
 	opencode.Configure()
 }

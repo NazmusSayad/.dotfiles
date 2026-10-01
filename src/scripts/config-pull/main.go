@@ -7,6 +7,8 @@ import (
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/helpers/symlink"
 	"dotfiles/src/utils"
+
+	"github.com/logrusorgru/aurora/v4"
 )
 
 func main() {
@@ -23,8 +25,14 @@ func main() {
 			continue
 		}
 
+		targetRaw := config.CopyTargets[0]
+		if targetRaw == "" {
+			fmt.Println("Skipping, empty target for source:", config.Source)
+			continue
+		}
+
+		targetPath := helpers.ResolvePath(targetRaw)
 		sourcePath := helpers.ResolvePath(config.Source)
-		targetPath := helpers.ResolvePath(config.CopyTargets[0])
 
 		if !utils.IsFileExists(targetPath) {
 			fmt.Println("Skipping, target not found:", targetPath)
@@ -32,5 +40,9 @@ func main() {
 		}
 
 		helpers.CopyFile(targetPath, sourcePath, config.InheritPerm)
+
+		fmt.Println(aurora.Blue(targetPath))
+		fmt.Println(aurora.Blue("=>"), aurora.Faint(config.Source))
+		fmt.Println()
 	}
 }
