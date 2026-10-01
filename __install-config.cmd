@@ -8,7 +8,7 @@ git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
 echo.
 echo ^> Symlinking...
-call go run ./src/scripts/symlink-init/main.go
+call go run ./src/scripts/config-init/main.go
 
 echo.
 echo ^> Installing tasks...

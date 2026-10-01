@@ -42,8 +42,8 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "GPG Unlock",
 	},
 
-	"symlink-init": {
-		StartMenu: "Symlink Init",
+	"config-init": {
+		StartMenu: "Config Init",
 	},
 
 	"clean-code-snippets": {
