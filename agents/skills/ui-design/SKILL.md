@@ -19,7 +19,7 @@ Let the interface's job shape its hierarchy. Product UI favors clarity and repea
 
 Choose one direction across type, color, spacing, shape, layout, and interaction. Spend boldness in one place. Every element should improve comprehension, navigation, feedback, or brand expression.
 
-Use spacing, type, and composition before adding containers or decoration. Use one familiar icon family where icons improve recognition or scanning. Do not add icons to every action, and prefer clear text over an ambiguous symbol.
+Use spacing, type, and composition before adding containers or decoration. Use icons when they make an action or idea recognizable at a glance, improve scanning, or communicate meaning in limited space. Keep their style consistent.
 
 Design the relevant states and content extremes at narrow and wide widths. Use motion only when it clarifies feedback, state, space, or cause and effect. Keep frequent interactions nearly instant and respect reduced-motion preferences.
 
