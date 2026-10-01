@@ -34,15 +34,13 @@
     "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
   },
   "attribution": {
-    "sessionUrl": false,
     "commit": "",
-    "pr": ""
+    "pr": "",
+    "sessionUrl": false
   },
   "includeCoAuthoredBy": false,
   "includeGitInstructions": false,
   "permissions": {
-    "defaultMode": "bypassPermissions",
-    "disableAutoMode": "disable",
     "deny": [
       "EnterPlanMode",
       "ExitPlanMode",
@@ -55,7 +53,9 @@
       "RemoteTrigger",
       "EnterWorktree",
       "ExitWorktree"
-    ]
+    ],
+    "defaultMode": "bypassPermissions",
+    "disableAutoMode": "disable"
   },
   "model": "opus",
   "enableAllProjectMcpServers": false,
@@ -103,5 +103,6 @@
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "disableBrowserExternalNavigation": true,
-  "autoInstallIdeExtension": false
+  "autoInstallIdeExtension": false,
+  "workflowKeywordTriggerEnabled": false
 }
