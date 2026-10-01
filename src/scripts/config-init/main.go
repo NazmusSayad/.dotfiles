@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	helpers "dotfiles/src/helpers"
+	"dotfiles/src/helpers/opencode"
 	"dotfiles/src/helpers/symlink"
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -55,4 +56,6 @@ func main() {
 	lockPath := helpers.ResolvePath("@/.local/symlink.lock")
 	os.WriteFile(lockPath, []byte(strings.Join(newlyCreatedFiles, "\n")), 0o644)
 	helpers.ApplyUserOwnership(lockPath)
+
+	opencode.Configure()
 }
