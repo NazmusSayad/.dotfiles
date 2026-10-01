@@ -39,6 +39,11 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write com.apple.applicationaccess allowPasswordAutoFill -bool false
+defaults write com.apple.applicationaccess safariAllowAutoFill -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
+
+sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
 
 disabled_symbolic_hotkeys=(
 	7 8 9 10 11 12 13
