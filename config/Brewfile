@@ -27,7 +27,6 @@ cask "ghostty"
 
 # System
 brew "mole"
-brew "batt"
 cask "logi-options+"
 cask "hammerspoon"
 cask "mos"
