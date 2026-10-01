@@ -40,6 +40,17 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+disabled_symbolic_hotkeys=(
+	15 16 17 18 19 20 21 22 23 24 25 26
+	28 29 30 31
+	59 64 65 160 162
+	215 216 217 218 219
+	225 226 227 228 229 230 231 232
+)
+for hotkey in "${disabled_symbolic_hotkeys[@]}"; do
+	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '{ enabled = false; }'
+done
+
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock largesize -int 81
 defaults write com.apple.dock magnification -bool true
