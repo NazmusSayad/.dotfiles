@@ -1,6 +1,6 @@
 ---
 name: prompt
-description: Creates and tunes prompts that express the user's intended task without adding the model's own goals, requirements, or process.
+description: Creates and revises agent-facing prompts, including skills, system instructions, agent files, task prompts, and reusable rules.
 
 disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
@@ -8,30 +8,48 @@ metadata: { opencode/autoinvoke: false }
 
 ## Audience
 
-The audience for a prompt is an AI agent, not the user who requested it. An agent is nondeterministic: the prompt guides how it interprets the task and makes decisions.
+The audience for a prompt is an AI agent, not the user who requested it. An agent is nondeterministic: a prompt shapes how it interprets context and makes decisions rather than mechanically determining one result.
 
-## Preserve the intended task
+A task prompt, skill, system instruction, agent file, or reusable rule is an agent-facing prompt. They share that purpose but govern different situations and timescales.
 
-A prompt should make the user's task clearer, not replace it with a different task that seems better to the writer. Preserve the intended outcome, scope, facts, actors, qualifiers, uncertainty, negation, requested action, output, tone, and force where they matter. A cleaner sentence is worse if it changes who does what, turns a statement into a task, answers a question that should be preserved, or softens the meaning.
+## Define the document's job
 
-Treat examples, references, and surrounding conversation as evidence of intent, not as requirements to copy wholesale. Do not invent capabilities, source material, audiences, constraints, success criteria, or work the user did not request. A prompt for discussion, evaluation, or explanation must not silently become a request to implement.
+Identify the behavior the document should influence, when it applies, and where it belongs. A task prompt directs one task. A skill teaches subject-specific judgment across a class of tasks. Agent and system instructions establish broader behavior within their scope.
 
-## Specify what matters
+Put an instruction at the narrowest scope where it remains true. Do not repeat guidance already supplied by a broader source. For reusable prompts, names, descriptions, paths, and activation metadata are part of the design when they determine whether the instructions are discovered or loaded.
 
-Pin down choices that determine whether the result is correct. Leave the rest to the model's judgment. Include context when it prevents a plausible misunderstanding, and add a constraint only when it comes from the user's request or the real environment. Do not define every case or solve the task inside the prompt.
+A skill should teach its subject, not explain its invocation or read like documentation for a human newcomer. Generic agent workflow does not belong unless it is part of the skill's actual subject.
 
-State the desired behavior directly. Name a failure mode when it is realistic and important, not to build an exhaustive list of everything the model must avoid. Do not explain familiar concepts or add personas, reasoning rituals, retries, self-review loops, tool instructions, or rigid schemas unless the task genuinely needs them.
+## Preserve the intended behavior
 
-## Let structure follow the job
+Clarify and organize the user's intent without replacing it with the prompt writer's preferences. Preserve the outcome, scope, facts, actors, qualifiers, uncertainty, negation, tone, force, and whether the user wants discussion, evaluation, creation, or execution. Semantic fidelity matters more than literal wording.
 
-There is no universal prompt template. Do not force every prompt into role, context, task, constraints, and output sections. Keep a simple request short. Use headings, lists, examples, or a required output shape only when they make distinct instructions easier to follow or the result easier to use.
+Separate outcomes, constraints, and methods. Do not prescribe a method merely because it sounds prudent or resembles prompt-engineering practice. Include it when the method itself matters, the environment requires it, or evidence shows that it prevents a relevant failure.
 
-Examples should clarify a real boundary rather than decorate the prompt. Prefer actual representative inputs and outputs when they exist. An invented example can introduce behavior the user never wanted.
+Treat references, examples, and surrounding conversation as evidence of intent, not requirements to copy wholesale. Distinguish instructions from quoted material, facts, examples, and other content when the agent could plausibly confuse them.
 
-## Tune from evidence
+## Guide judgment
 
-When a prompt already exists, preserve what works and change the part responsible for the observed failure. Tune it instead of rewriting it around a preferred prompting style. Make the smallest change that fixes the problem without weakening useful behavior elsewhere.
+State the decisions that matter and leave harmless choices to the agent. Broad guidance should provide useful criteria, distinctions, priorities, and boundaries without trying to define every future case. If the prompt solves every decision in advance, the agent has no judgment left to apply.
 
-Test each prompt against its own purpose using real or representative cases. Do not copy a fix into other prompts merely because they look related. One failure does not justify a broad rule unless the evidence shows the same underlying problem.
+Use force deliberately. Reserve absolute language for hard requirements and express defaults or preferences as such. When important concerns can conflict, state which one takes priority instead of relying on repetition or emphasis.
 
-Every instruction in the finished prompt should trace back to the user's goal, the actual context, or an observed failure. Remove anything added only because it sounds like good prompt engineering.
+Every instruction needs a basis in the intended outcome, actual environment, domain, or evidence from use. A brief reason can help the agent apply a broad rule to situations the writer cannot predict. Do not add explanations for concepts the agent already understands unless the explanation changes how it should decide.
+
+Prefer a positive selection principle over a catalog of prohibitions. Name a failure mode when it is plausible, consequential, and not already prevented by clearer guidance. Add personas, procedures, tool rules, schemas, examples, or review steps only when they materially improve the intended behavior.
+
+## Let form follow purpose
+
+There is no universal prompt template. Use sections, lists, examples, schemas, or required output shapes when they help the agent distinguish instructions or produce a usable result. Do not force every document into role, context, task, constraints, and output sections.
+
+Examples should clarify a real boundary, not decorate the prompt or define the entire valid range by accident. Make clear what an example demonstrates when its incidental details could be mistaken for rules.
+
+Keep the document concise by removing onboarding, repetition, generic rituals, and details that do not affect behavior. Do not remove subject-specific distinctions merely to make it shorter.
+
+## Create, revise, and evaluate
+
+Creating a prompt requires recovering the intended behavior and choosing the right scope. Revising one requires identifying what already works and what behavior is failing. Make the smallest effective change when the existing framing is sound; replace the framing when it is the source of the problem.
+
+Evaluate the prompt according to its job. Use real or representative inputs and outputs for narrow task prompts when practical. Review broad skills and durable instructions through varied situations, competing interpretations, boundaries, and conflicts. A finite set of cases cannot prove how a nondeterministic agent will behave in every future context.
+
+Do not turn one failure or successful fix into a universal rule without evidence of a broader pattern. Every instruction should have a clear behavioral purpose grounded in intent, context, scope, or evidence. Remove anything that cannot meet that test.
