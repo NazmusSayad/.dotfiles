@@ -12,6 +12,8 @@ openai:
   models:
     - id: gpt-6.1-sol
       context: 258000
+    - id: gpt-5.6-sol
+      context: 258000
     - id: gpt-6-luna
       context: 258000
 
