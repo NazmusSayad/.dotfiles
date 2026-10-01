@@ -55,6 +55,27 @@ for hotkey in "${disabled_symbolic_hotkeys[@]}"; do
 	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '<dict><key>enabled</key><false/></dict>'
 done
 
+disabled_text_services=(
+	"com.apple.services.addToiTunesAsSpokenTrack - Add to Music as a Spoken Track - runWorkflowAsService"
+	"com.apple.ChineseTextConverterService - Convert Text to Full Width - convertTextToFullWidth"
+	"com.apple.ChineseTextConverterService - Convert Text to Half Width - convertTextToHalfWidth"
+	"com.apple.ChineseTextConverterService - Convert Text from Traditional to Simplified Chinese - convertTextToSimplifiedChinese"
+	"com.apple.ChineseTextConverterService - Convert Text from Simplified to Traditional Chinese - convertTextToTraditionalChinese"
+	"com.apple.Stickies - Make Sticky - makeStickyFromTextService"
+	"com.apple.TextEdit - New TextEdit Window Containing Selection - openSelection"
+	"com.apple.finder - Finder/Open - open"
+	"com.apple.finder - Finder/Reveal - reveal"
+	"com.apple.finder - Finder/Show Info - showInfo"
+	"com.apple.Terminal - Open man Page in Terminal - openManPage"
+	"com.apple.Terminal - Search man Page Index in Terminal - searchManPages"
+	"org.hammerspoon.Hammerspoon - Send to Hammerspoon - processDockIconDraggedText"
+	"org.localsend.localsendApp - Send to LocalSend - handleSendTextService"
+	"com.apple.services.showMap - Show Map - runWorkflowAsService"
+)
+for service in "${disabled_text_services[@]}"; do
+	defaults write pbs NSServicesStatus -dict-add "$service" '<dict><key>presentation_modes</key><dict><key>ContextMenu</key><false/><key>ServicesMenu</key><false/></dict><key>enabled_context_menu</key><false/><key>enabled_services_menu</key><false/><key>key_equivalent</key><string></string></dict>'
+done
+
 defaults write com.apple.dock tilesize -int 64
 defaults write com.apple.dock largesize -int 81
 defaults write com.apple.dock magnification -bool true
