@@ -52,7 +52,6 @@ func CopyFile(source string, target string, inheritPerm bool) error {
 		inheritDirOwnership(createdDirs)
 	}
 
-	fmt.Println(aurora.Blue(source), aurora.Green("=>"), aurora.Cyan(target))
 	return nil
 }
 
@@ -94,7 +93,6 @@ func GenerateSymlink(source string, target string, inheritPerm bool) error {
 		inheritOwnership(target, createdDirs)
 	}
 
-	fmt.Println(aurora.Blue(source), aurora.Green("->"), aurora.Cyan(target))
 	return nil
 }
 
