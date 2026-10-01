@@ -65,6 +65,7 @@
   "disableWorkflows": true,
   "disableArtifact": true,
   "enableArtifact": false,
+  "workflowKeywordTriggerEnabled": false,
   "defaultShell": "bash",
   "allowAllClaudeAiMcps": false,
   "enabledPlugins": {
@@ -103,6 +104,5 @@
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "disableBrowserExternalNavigation": true,
-  "autoInstallIdeExtension": false,
-  "workflowKeywordTriggerEnabled": false
+  "autoInstallIdeExtension": false
 }
