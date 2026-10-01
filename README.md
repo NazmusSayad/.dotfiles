@@ -118,7 +118,7 @@ and more...
 
 **System Setup:**
 
-- `symlink-init` - Recreate all configuration file symlinks
+- `config-init` - Recreate all configuration file symlinks
 - `msys-init` - Set up MSYS2 development environment (Windows)
 - `windows-startup` - Run configured Windows startup tasks
 
