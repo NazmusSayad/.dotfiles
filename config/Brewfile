@@ -57,6 +57,7 @@ brew "imagemagick"
 tap "abue-ammar/tinycast"
 cask "unified-remote"
 cask "tinycast"
+cask "macshot"
 
 # Git
 brew "git"
