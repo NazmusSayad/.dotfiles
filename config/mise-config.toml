@@ -7,7 +7,7 @@ gh = "latest"
 glab = "latest"
 lazygit = "latest"
 "github:unhappychoice/gitlogue" = "latest"
-"github:JoaoOliveira889/monogit" = "latest"
+# "github:JoaoOliveira889/monogit" = "latest"
 
 # System
 cmake = "latest"
