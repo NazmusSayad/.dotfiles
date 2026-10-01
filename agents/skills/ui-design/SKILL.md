@@ -32,6 +32,14 @@ Use real product content and assets when available. Do not invent claims, metric
 - Make every layout work at narrow and wide widths. Resolve overflow, wrapping, touch targets, and content extremes explicitly.
 - Prefer semantic elements and visible keyboard focus. Accessibility and responsiveness are part of the design, not a later pass.
 
+## Use motion deliberately
+
+Before adding motion, name its purpose: feedback, state change, spatial continuity, explanation, or preventing a jarring change. If it has no purpose, do not animate it. Frequent and keyboard-driven actions should be instant or nearly instant.
+
+Use the simplest suitable tool. Prefer CSS transitions for small state changes and add a motion library only for gestures, springs, layout transitions, or coordinated exits. Animate transform and opacity when possible, name transition properties explicitly, and keep routine UI motion under 300ms. Entrances and exits usually use ease-out; movement within the screen usually uses ease-in-out.
+
+Ship reduced-motion behavior with the animation. Gate hover effects to devices that support hover.
+
 ## Avoid AI design slop
 
 Do not place pills, badges, icons, or eyebrow labels above headings or titles.
@@ -55,11 +63,3 @@ Do not fabricate product interfaces or substitute simulated screens for the actu
 Do not create, draw, or hand-code brand logos from scratch instead of using the real logo from an official source or a library.
 
 Avoid generic gradient decoration and identical reveal effects on every section. Any pattern listed here is acceptable when the brief or content genuinely requires it, except fabricating product interfaces or brand assets.
-
-## Use motion deliberately
-
-Before adding motion, name its purpose: feedback, state change, spatial continuity, explanation, or preventing a jarring change. If it has no purpose, do not animate it. Frequent and keyboard-driven actions should be instant or nearly instant.
-
-Use the simplest suitable tool. Prefer CSS transitions for small state changes and add a motion library only for gestures, springs, layout transitions, or coordinated exits. Animate transform and opacity when possible, name transition properties explicitly, and keep routine UI motion under 300ms. Entrances and exits usually use ease-out; movement within the screen usually uses ease-in-out.
-
-Ship reduced-motion behavior with the animation. Gate hover effects to devices that support hover.
