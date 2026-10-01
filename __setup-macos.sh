@@ -41,14 +41,18 @@ defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 disabled_symbolic_hotkeys=(
+	7 8 9 10 11 12 13
 	15 16 17 18 19 20 21 22 23 24 25 26
-	28 29 30 31
-	59 64 65 160 162
-	215 216 217 218 219
+	27 28 29 30 31 32 33 34 35 36 37
+	52 53 54 55 56 57 59 60 61 64 65 79 80 81 82
+	118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133
+	159 160 162 163 175 190
+	215 216 217 218 219 222
 	225 226 227 228 229 230 231 232
+	260
 )
 for hotkey in "${disabled_symbolic_hotkeys[@]}"; do
-	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '{ enabled = false; }'
+	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '<dict><key>enabled</key><false/></dict>'
 done
 
 defaults write com.apple.dock tilesize -int 64
