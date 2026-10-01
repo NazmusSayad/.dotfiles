@@ -51,6 +51,7 @@
   "fix-ports": { "cmd": "sudo net stop winnat", "platform": "windows" },
 
   "claude-link": "rm -f ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
+  "claude-skills": "mkdir -p ./.claude && rm -rf ./.claude/skills && ln -s ../.agents/skills ./.claude/skills",
   "claude-chrome": "claude mcp add --scope project chrome-devtools -- chrome-devtools-mcp --viewport-size=1440x900 --headless --isolated",
   "claude-playwright": "claude mcp add --scope project playwright -- playwright-mcp --viewport-size=1440x900 --headless --isolated",
 
