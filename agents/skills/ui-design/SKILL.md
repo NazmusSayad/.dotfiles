@@ -63,11 +63,3 @@ Before adding motion, name its purpose: feedback, state change, spatial continui
 Use the simplest suitable tool. Prefer CSS transitions for small state changes and add a motion library only for gestures, springs, layout transitions, or coordinated exits. Animate transform and opacity when possible, name transition properties explicitly, and keep routine UI motion under 300ms. Entrances and exits usually use ease-out; movement within the screen usually uses ease-in-out.
 
 Ship reduced-motion behavior with the animation. Gate hover effects to devices that support hover.
-
-## Inspect the result
-
-When rendering tools are available, inspect the actual interface at desktop and mobile sizes. Check hierarchy, alignment, spacing, contrast, wrapping, overflow, states, focus, and whether the result still matches the brief. Fix related issues together instead of polishing one pixel at a time.
-
-Do not claim a visual result you have not inspected. If inspection is unavailable, state what still needs a visual check.
-
-For implementation work, the code is the deliverable. Keep the explanation brief. For reviews, report the highest-impact issues first, cite `file:line`, and give a concrete fix for each issue.
