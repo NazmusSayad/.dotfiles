@@ -1,8 +1,15 @@
 status is-interactive; or return
-if test -f ~/.path
-    while read -l p
-        contains $p $PATH; or set -x PATH $PATH $p
-    end < ~/.path
+if test (uname) = Darwin
+    if test -f ~/.dotfiles/.env.path
+        while read -l p
+            contains $p $PATH; or set -x PATH $PATH $p
+        end < ~/.dotfiles/.env.path
+    end
+    if test -f ~/.env.path
+        while read -l p
+            contains $p $PATH; or set -x PATH $PATH $p
+        end < ~/.env.path
+    end
 end
 
 if test "$OS" = Windows_NT

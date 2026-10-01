@@ -1,8 +1,16 @@
 [[ $- != *i* ]] && return
-if [[ -f ~/.path ]]; then
-	while read -r p; do
-		[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
-	done <~/.path
+
+if [[ "$(uname)" == "Darwin" ]]; then
+	if [[ -f ~/.dotfiles/.env.path ]]; then
+		while read -r p; do
+			[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
+		done <~/.dotfiles/.env.path
+	fi
+	if [[ -f ~/.env.path ]]; then
+		while read -r p; do
+			[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
+		done <~/.env.path
+	fi
 fi
 
 if [[ "$OS" == "Windows_NT" ]]; then
