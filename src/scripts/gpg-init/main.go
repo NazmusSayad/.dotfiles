@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 
 	"dotfiles/src/utils"
@@ -40,12 +39,11 @@ func main() {
 	fmt.Println("User email     :", gitEmail)
 
 	listKeysOut, _ := exec.Command("gpg", "--list-secret-keys", "--keyid-format", "LONG").Output()
-	hasKeys := strings.Contains(string(listKeysOut), "sec")
+	hasKeys := strings.Contains(string(listKeysOut), "sec ")
 
 	if !hasKeys {
 		fmt.Println(aurora.Yellow(">> No GPG keys found, generating new key..."))
 
-		batchFilePath := filepath.Join(os.TempDir(), "gpg_batch.txt")
 		batchContent := strings.Join([]string{
 			"Key-Type: RSA",
 			"Key-Length: 4096",
@@ -58,17 +56,11 @@ func main() {
 			"",
 		}, "\n")
 
-		fileWriteErr := os.WriteFile(batchFilePath, []byte(batchContent), 0o644)
-		if fileWriteErr != nil {
-			fmt.Println(aurora.Red("Error: failed to write batch file: " + fileWriteErr.Error()))
-			os.Exit(1)
-		}
-
-		generateCmd := exec.Command("gpg", "--batch", "--generate-key", batchFilePath)
-		generateCmdErr := generateCmd.Run()
-		os.Remove(batchFilePath)
-
-		if generateCmdErr != nil {
+		generateCmd := exec.Command("gpg", "--batch", "--generate-key")
+		generateCmd.Stdin = strings.NewReader(batchContent)
+		generateCmd.Stdout = os.Stdout
+		generateCmd.Stderr = os.Stderr
+		if err := generateCmd.Run(); err != nil {
 			os.Exit(1)
 		}
 	}
@@ -77,11 +69,10 @@ func main() {
 
 	var gpgKeyID string
 	for line := range strings.SplitSeq(string(listKeysOut), "\n") {
-		if strings.Contains(line, "sec") {
+		if strings.HasPrefix(line, "sec ") {
 			parts := strings.Split(line, "/")
 			if len(parts) > 1 {
-				keyPart := strings.Fields(parts[1])[0]
-				gpgKeyID = keyPart
+				gpgKeyID = strings.Fields(parts[1])[0]
 				break
 			}
 		}
@@ -92,7 +83,8 @@ func main() {
 	}
 
 	exec.Command("git", "config", "--global", "user.signingkey", gpgKeyID).Run()
-	exec.Command("git", "config", "--global", "gpg.program", "gpg.exe").Run()
+	exec.Command("git", "config", "--global", "gpg.program", "gpg").Run()
+	exec.Command("git", "config", "--global", "gpg.format", "openpgp").Run()
 
 	exec.Command("git", "config", "--global", "commit.gpgsign", "true").Run()
 	exec.Command("git", "config", "--global", "tag.gpgsign", "true").Run()
