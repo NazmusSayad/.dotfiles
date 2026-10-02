@@ -11,11 +11,12 @@
   - "~/.claude/skills"
   - "~/.gemini/antigravity-cli/skills"
 
-# AGENTS.md
+# AGENTS.md, CLAUDE.md
 "@/agents/AGENTS_MD.md":
-  - "~/.gemini/GEMINI.md"
-  - "~/.claude/CLAUDE.md"
   - "~/.config/opencode/AGENTS.md"
+  - "~/.gemini/GEMINI.md"
+"@/agents/CLAUDE_MD.md":
+  - "~/.claude/CLAUDE.md"
 
 # Claude Code
 "@/agents/claude.json":
