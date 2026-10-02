@@ -20,7 +20,28 @@ func main() {
 		panic(err)
 	}
 
+	hourlyTriggers := []helpers.WindowsTaskTrigger{}
+	for hour := range 24 {
+		hourlyTriggers = append(hourlyTriggers, helpers.WindowsTaskTrigger{
+			Type:   helpers.WindowsTaskTriggerTypeDaily,
+			Hour:   hour,
+			Minute: 0,
+		})
+	}
+
 	tasks := map[string]string{
+		"__AGENTS PING TASK__": helpers.GenerateWindowsTaskXML(helpers.WindowsTaskOptions{
+			Author:   "Nazmus Sayad",
+			Mode:     helpers.WindowsTaskRunLevelLeastPrivilege,
+			Triggers: hourlyTriggers,
+			Actions: []helpers.WindowsTaskAction{
+				{
+					Command:   runHidden,
+					Arguments: []string{"agents-ping.exe"},
+				},
+			},
+		}),
+
 		"__SLACK STARTUP TASK___": helpers.GenerateWindowsTaskXML(helpers.WindowsTaskOptions{
 			Author: "Nazmus Sayad",
 			Mode:   helpers.WindowsTaskRunLevelLeastPrivilege,
