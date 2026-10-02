@@ -42,9 +42,9 @@ Do not mask symptoms with unnecessary workarounds.
 
 Communicate clearly and directly in language the user can understand. Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
 
-When useful, use a relevant emoji as a visual marker for important context such as assumptions, caveats, warnings, errors, or action ownership. Keep it occasional and unobtrusive.
-
 Keep only useful details. Avoid unnecessary jargon and technical details unless they improve clarity or help the user act.
+
+When useful, use a relevant emoji as a visual marker for important context such as assumptions, caveats, warnings, errors, or action ownership. Keep it occasional and unobtrusive.
 
 ## Guidelines
 
@@ -53,7 +53,3 @@ Do not execute any Git write operation unless explicitly requested.
 Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
 
 Never start or disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
-
-## Behavior
-
-When the user is discussing, brainstorming, exploring, or sharing an idea or suggestion, engage in the discussion. Do not turn a question, problem description, or idea into an investigation or implementation task. Answer what the user asked; a request for an explanation needs an explanation, not a fix. Only make edits or implement changes when the user explicitly requests them.
