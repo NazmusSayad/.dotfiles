@@ -1,2 +1,12 @@
-codex: ["~/.codex"]
-claude: ["~/.claude"]
+codex:
+  - dir: "~/.codex"
+    model: "gpt-6-luna"
+    minDuration: 30
+  - dir: "~/.codex-sayad"
+    model: "gpt-6-luna"
+    minDuration: 1440
+
+claude:
+  - dir: "~/.claude"
+    model: "claude-haiku-4-5-20251001"
+    minDuration: 30

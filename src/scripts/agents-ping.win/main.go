@@ -11,9 +11,15 @@ import (
 	"dotfiles/src/helpers"
 )
 
+type agentConfig struct {
+	Dir         string `yaml:"dir"`
+	Model       string `yaml:"model"`
+	MinDuration int    `yaml:"minDuration"`
+}
+
 type config struct {
-	Codex  []string `yaml:"codex"`
-	Claude []string `yaml:"claude"`
+	Codex  []agentConfig `yaml:"codex"`
+	Claude []agentConfig `yaml:"claude"`
 }
 
 func main() {
@@ -34,19 +40,29 @@ func main() {
 		panic(err)
 	}
 
-	for _, profile := range config.Codex {
-		run(lastRuns, logPath, "codex", "CODEX_HOME", profile, "--no-daemon", "exec", "--skip-git-repo-check", "hi")
+	for _, agent := range config.Codex {
+		arguments := []string{"--no-daemon"}
+		if agent.Model != "" {
+			arguments = append(arguments, "--model", agent.Model)
+		}
+		arguments = append(arguments, "exec", "--skip-git-repo-check", "hi")
+		run(lastRuns, logPath, "codex", "CODEX_HOME", agent, arguments...)
 	}
 
-	for _, profile := range config.Claude {
-		run(lastRuns, logPath, "claude", "CLAUDE_CONFIG_DIR", profile, "-p", "hi")
+	for _, agent := range config.Claude {
+		arguments := []string{}
+		if agent.Model != "" {
+			arguments = append(arguments, "--model", agent.Model)
+		}
+		arguments = append(arguments, "-p", "hi")
+		run(lastRuns, logPath, "claude", "CLAUDE_CONFIG_DIR", agent, arguments...)
 	}
 }
 
-func run(lastRuns map[string]time.Time, logPath string, command string, environmentVariable string, profile string, arguments ...string) {
-	resolvedProfile := helpers.ResolvePath(profile)
+func run(lastRuns map[string]time.Time, logPath string, command string, environmentVariable string, agent agentConfig, arguments ...string) {
+	resolvedProfile := helpers.ResolvePath(agent.Dir)
 	account := command + ":" + resolvedProfile
-	if lastRun, exists := lastRuns[account]; exists && time.Since(lastRun) < 30*time.Minute {
+	if lastRun, exists := lastRuns[account]; exists && time.Since(lastRun) < time.Duration(agent.MinDuration)*time.Minute {
 		return
 	}
 
@@ -62,7 +78,7 @@ func run(lastRuns map[string]time.Time, logPath string, command string, environm
 	cmd.Env = append(os.Environ(), environmentVariable+"="+resolvedProfile)
 
 	if err := cmd.Run(); err != nil {
-		fmt.Printf("%s (%s): %v\n", command, profile, err)
+		fmt.Printf("%s (%s): %v\n", command, agent.Dir, err)
 		return
 	}
 
