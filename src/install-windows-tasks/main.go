@@ -20,7 +20,10 @@ func main() {
 		panic(err)
 	}
 
-	hourlyTriggers := []helpers.WindowsTaskTrigger{}
+	hourlyTriggers := []helpers.WindowsTaskTrigger{
+		{Type: helpers.WindowsTaskTriggerTypeBoot},
+		{Type: helpers.WindowsTaskTriggerTypeLogon},
+	}
 	for hour := range 24 {
 		hourlyTriggers = append(hourlyTriggers, helpers.WindowsTaskTrigger{
 			Type:   helpers.WindowsTaskTriggerTypeDaily,
