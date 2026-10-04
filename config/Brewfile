@@ -52,6 +52,7 @@ cask "vlc"
 cask "obs"
 brew "ffmpeg"
 brew "imagemagick"
+cask "iriunwebcam"
 
 # Productivity
 tap "abue-ammar/tinycast"
