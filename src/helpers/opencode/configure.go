@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"slices"
 
 	"dotfiles/src/helpers"
@@ -90,13 +91,18 @@ func Configure() {
 			fmt.Println("invalid shell in opencode config:", shell)
 			os.Exit(1)
 		}
-		shellPath, err := exec.LookPath(shellName)
-		if err != nil {
-			fmt.Println("failed to find shell:", err)
-			os.Exit(1)
+		if runtime.GOOS == "windows" {
+			fmt.Println(aurora.Green("Setting shell to:"), aurora.Yellow("bash"))
+			fullConfig["shell"] = "bash"
+		} else {
+			shellPath, err := exec.LookPath(shellName)
+			if err != nil {
+				fmt.Println("failed to find shell:", err)
+				os.Exit(1)
+			}
+			fmt.Println(aurora.Green("Setting shell to:"), aurora.Yellow(shellPath))
+			fullConfig["shell"] = shellPath
 		}
-		fmt.Println(aurora.Green("Setting shell to:"), aurora.Yellow(shellPath))
-		fullConfig["shell"] = shellPath
 	}
 
 	providers := make(map[string]any)
