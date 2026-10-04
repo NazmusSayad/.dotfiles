@@ -57,8 +57,8 @@ sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Aut
 disabled_symbolic_hotkeys=(
 	7 8 9 10 11 12 13
 	15 16 17 18 19 20 21 22 23 24 25 26
-	27 28 29 30 31 34 35 36 37
-	52 53 54 55 56 57 59 60 61 64 65 80 82
+	27 28 29 30 31 36 37
+	52 53 54 55 56 57 59 60 61 64 65
 	118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133
 	159 160 162 163 175 190
 	215 216 217 218 219 222
@@ -66,10 +66,14 @@ disabled_symbolic_hotkeys=(
 	260
 )
 enabled_symbolic_hotkeys=(
-	"32 126"
-	"33 125"
-	"79 123"
-	"81 124"
+	"32 126 8650752"
+	"34 126 8781824"
+	"33 125 8650752"
+	"35 125 8781824"
+	"79 123 8650752"
+	"80 123 8781824"
+	"81 124 8650752"
+	"82 124 8781824"
 )
 
 defaults delete com.apple.symbolichotkeys AppleSymbolicHotKeys
@@ -77,9 +81,8 @@ for hotkey in "${disabled_symbolic_hotkeys[@]}"; do
 	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '<dict><key>enabled</key><false/></dict>'
 done
 for hotkey in "${enabled_symbolic_hotkeys[@]}"; do
-	hotkey_id=${hotkey%% *}
-	key_code=${hotkey##* }
-	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey_id" "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>$key_code</integer><integer>8650752</integer></array><key>type</key><string>standard</string></dict></dict>"
+	IFS=' ' read -r hotkey_id key_code modifier <<< "$hotkey"
+	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey_id" "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>$key_code</integer><integer>$modifier</integer></array><key>type</key><string>standard</string></dict></dict>"
 done
 
 disabled_text_services=(
