@@ -11,6 +11,9 @@ git config --global core.autocrlf false
 git config --global core.pager delta
 git config --global interactive.diffFilter "delta --color-only"
 git config --global delta.navigate true
+git config --global diff.tool difftastic
+git config --global difftool.prompt false
+git config --global difftool.difftastic.cmd 'difft "$LOCAL" "$REMOTE"'
 
 git config --global init.defaultBranch main
 git config --global advice.addIgnoredFile false
