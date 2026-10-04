@@ -1,0 +1,7 @@
+interface:
+  display_name: "OpenCode"
+  short_description: "Apply private OpenCode-specific instructions"
+  default_prompt: "Use $opencode for this OpenCode-specific task."
+
+policy:
+  allow_implicit_invocation: false

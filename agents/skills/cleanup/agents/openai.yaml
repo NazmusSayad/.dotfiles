@@ -1,0 +1,7 @@
+interface:
+  display_name: "Cleanup"
+  short_description: "Remove unnecessary code and simplify what remains"
+  default_prompt: "Use $cleanup to simplify this code without changing its behavior."
+
+policy:
+  allow_implicit_invocation: false

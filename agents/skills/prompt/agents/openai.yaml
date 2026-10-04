@@ -1,0 +1,7 @@
+interface:
+  display_name: "Prompt"
+  short_description: "Create and refine effective agent prompts"
+  default_prompt: "Use $prompt to create or improve this agent prompt."
+
+policy:
+  allow_implicit_invocation: false
