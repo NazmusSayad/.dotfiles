@@ -46,7 +46,7 @@ sudo softwareupdate --schedule off
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool false
+defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool true
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.applicationaccess allowPasswordAutoFill -bool false
 defaults write com.apple.applicationaccess safariAllowAutoFill -bool false
@@ -65,10 +65,19 @@ disabled_symbolic_hotkeys=(
 	225 226 227 228 229 230 231 232
 	260
 )
+enabled_symbolic_hotkeys=(
+	"79 123"
+	"81 124"
+)
 
 defaults delete com.apple.symbolichotkeys AppleSymbolicHotKeys
 for hotkey in "${disabled_symbolic_hotkeys[@]}"; do
 	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '<dict><key>enabled</key><false/></dict>'
+done
+for hotkey in "${enabled_symbolic_hotkeys[@]}"; do
+	hotkey_id=${hotkey%% *}
+	key_code=${hotkey##* }
+	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey_id" "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>$key_code</integer><integer>8650752</integer></array><key>type</key><string>standard</string></dict></dict>"
 done
 
 disabled_text_services=(
