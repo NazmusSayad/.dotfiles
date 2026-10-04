@@ -72,7 +72,7 @@
             "id": "screen_capture",
             "versioned_id": "screen_capture",
             "settings": {
-                "display_uuid": "8AF304F6-59BC-4E4F-B83E-F36E10D34FAF"
+                "display_uuid": "8765A63C-780D-4732-8710-4FCFA7E158FB"
             },
             "mixers": 255,
             "sync": 0,
@@ -345,7 +345,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -11,
+    "scaling_level": -9,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
