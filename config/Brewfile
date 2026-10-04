@@ -63,6 +63,7 @@ cask "macshot"
 brew "git"
 brew "git-lfs"
 brew "git-delta"
+brew "difftastic"
 brew "gnupg"
 
 # AI & Code Editors
