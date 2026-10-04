@@ -65,6 +65,8 @@ disabled_symbolic_hotkeys=(
 	225 226 227 228 229 230 231 232
 	260
 )
+
+defaults delete com.apple.symbolichotkeys AppleSymbolicHotKeys
 for hotkey in "${disabled_symbolic_hotkeys[@]}"; do
 	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$hotkey" '<dict><key>enabled</key><false/></dict>'
 done
