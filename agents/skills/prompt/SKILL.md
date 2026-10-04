@@ -14,9 +14,11 @@ A task prompt, skill, system instruction, agent file, or reusable rule is an age
 
 ## Define the document's job
 
-Identify the behavior the document should influence, when it applies, and where it belongs. A task prompt directs one task. A skill teaches subject-specific judgment across a class of tasks. Agent and system instructions establish broader behavior within their scope.
+Identify the behavior the document should change, when it applies, and where it belongs. State the meaningful difference between a run with the document and one without it. A task prompt directs one task. A skill teaches subject-specific judgment across a class of tasks. Agent and system instructions establish broader behavior within their scope.
 
-Put an instruction at the narrowest scope where it remains true. Do not repeat guidance already supplied by a broader source. For reusable prompts, names, descriptions, paths, and activation metadata are part of the design when they determine whether the instructions are discovered or loaded.
+Put an instruction at the narrowest scope where it remains true. Do not repeat guidance already supplied by a broader source. For reusable prompts, names, descriptions, paths, and activation metadata are context pointers: they tell the agent what material exists and when to load it. A pointer should name the distinct conditions that need the material without repeating its contents.
+
+Choose automatic skill invocation only when the agent or another skill must discover the material. A manually invoked skill needs a short human-facing summary. An automatically invoked skill needs a model-facing description that names each distinct trigger. Keep always-loaded pointers short, but not so vague that the relevant material stays hidden.
 
 A skill should teach its subject, not explain its invocation or read like documentation for a human newcomer. Generic agent workflow does not belong unless it is part of the skill's actual subject.
 
@@ -27,6 +29,14 @@ Clarify and organize the user's intent without replacing it with the prompt writ
 Separate outcomes, constraints, and methods. Do not prescribe a method merely because it sounds prudent or resembles prompt-engineering practice. Include it when the method itself matters, the environment requires it, or evidence shows that it prevents a relevant failure.
 
 Treat references, examples, and surrounding conversation as evidence of intent, not requirements to copy wholesale. Distinguish instructions from quoted material, facts, examples, and other content when the agent could plausibly confuse them.
+
+## Organize information by need
+
+Distinguish ordered steps from reference material. Put required actions in the order the agent should perform them, and give each step a checkable completion condition when premature completion would matter. Keep definitions, rules, and caveats for one concept together so the agent encounters them as a unit.
+
+Keep material needed in every case in the main document. Move branch-specific detail into a referenced file when doing so makes the main path clearer, and write the pointer so the applicable branch reliably loads it. Split by sequence only when hiding later work helps the agent complete the current step rather than rush toward the end.
+
+Use one authoritative location for each meaning. Treat code, configuration, commands, and directory structure as sources the agent can inspect rather than facts the prompt must copy. Restate them only when discovery is costly or the prompt must explain a convention, reason, or non-obvious hazard that the environment does not reveal.
 
 ## Guide judgment
 
@@ -44,12 +54,12 @@ There is no universal prompt template. Use sections, lists, examples, schemas, o
 
 Examples should clarify a real boundary, not decorate the prompt or define the entire valid range by accident. Make clear what an example demonstrates when its incidental details could be mistaken for rules.
 
-Keep the document concise by removing onboarding, repetition, generic rituals, and details that do not affect behavior. Do not remove subject-specific distinctions merely to make it shorter.
+Keep the document concise by removing onboarding, repetition, generic rituals, and details that do not affect behavior. Test each sentence against the agent's likely default: if removing it would not change a relevant decision or action, remove it. Do not remove subject-specific distinctions merely to make it shorter.
 
 ## Create, revise, and evaluate
 
-Creating a prompt requires recovering the intended behavior and choosing the right scope. Revising one requires identifying what already works and what behavior is failing. Make the smallest effective change when the existing framing is sound; replace the framing when it is the source of the problem.
+Creating a prompt requires recovering the intended behavior and choosing the right scope. Revising one requires identifying what already works, what behavior is failing, and whether the cause is discovery, ambiguity, conflict, missing judgment criteria, or an unclear completion condition. Make the smallest effective change when the existing framing is sound; replace the framing when it is the source of the problem.
 
-Evaluate the prompt according to its job. Use real or representative inputs and outputs for narrow task prompts when practical. Review broad skills and durable instructions through varied situations, competing interpretations, boundaries, and conflicts. A finite set of cases cannot prove how a nondeterministic agent will behave in every future context.
+Evaluate the prompt according to its job. Use real or representative inputs and outputs for narrow task prompts when practical. Review broad skills and durable instructions through varied situations, competing interpretations, boundaries, and conflicts. Check whether the right material loads, the agent preserves the intended behavior, and required work reaches its completion criteria. A finite set of cases cannot prove how a nondeterministic agent will behave in every future context.
 
 Do not turn one failure or successful fix into a universal rule without evidence of a broader pattern. Every instruction should have a clear behavioral purpose grounded in intent, context, scope, or evidence. Remove anything that cannot meet that test.
