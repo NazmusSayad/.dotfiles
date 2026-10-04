@@ -45,7 +45,7 @@ func main() {
 		if agent.Model != "" {
 			arguments = append(arguments, "--model", agent.Model)
 		}
-		arguments = append(arguments, "exec", "--skip-git-repo-check", "hi")
+		arguments = append(arguments, "exec", "--skip-git-repo-check", "ping")
 		run(lastRuns, logPath, "codex", "CODEX_HOME", agent, arguments...)
 	}
 
@@ -54,7 +54,7 @@ func main() {
 		if agent.Model != "" {
 			arguments = append(arguments, "--model", agent.Model)
 		}
-		arguments = append(arguments, "-p", "hi")
+		arguments = append(arguments, "-p", "ping")
 		run(lastRuns, logPath, "claude", "CLAUDE_CONFIG_DIR", agent, arguments...)
 	}
 }
