@@ -8,7 +8,7 @@ metadata: { opencode/autoinvoke: false }
 
 # Migrate to Oxc
 
-Use [create-src](https://github.com/NazmusSayad/create-src) as the reference. Inspect its current root and template configurations rather than copying details from this skill.
+Clone [create-src](https://github.com/NazmusSayad/create-src) into a temporary directory and use the clone as the reference. Inspect its current root and template configurations rather than copying details from this skill.
 
 ## Goal
 
