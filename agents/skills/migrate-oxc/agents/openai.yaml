@@ -1,0 +1,7 @@
+interface:
+  display_name: "Migrate to Oxc"
+  short_description: "Move ESLint and Prettier projects to Oxc"
+  default_prompt: "Use $migrate-oxc to migrate this project from ESLint and Prettier to Oxc."
+
+policy:
+  allow_implicit_invocation: false

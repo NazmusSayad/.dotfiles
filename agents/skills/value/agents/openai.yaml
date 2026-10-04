@@ -1,0 +1,7 @@
+interface:
+  display_name: "Value"
+  short_description: "Assess value for the intended audience"
+  default_prompt: "Use $value to assess and improve this idea for its intended audience."
+
+policy:
+  allow_implicit_invocation: false

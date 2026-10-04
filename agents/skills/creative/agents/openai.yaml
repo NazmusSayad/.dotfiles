@@ -1,0 +1,7 @@
+interface:
+  display_name: "Creative"
+  short_description: "Rethink a task beyond the default approach"
+  default_prompt: "Use $creative to find a stronger approach to this task."
+
+policy:
+  allow_implicit_invocation: false

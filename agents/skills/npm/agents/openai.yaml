@@ -1,0 +1,4 @@
+interface:
+  display_name: "npm"
+  short_description: "Manage Node.js packages and project scripts"
+  default_prompt: "Use $npm to manage this project's dependencies or scripts."

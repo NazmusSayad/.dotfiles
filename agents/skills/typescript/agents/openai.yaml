@@ -1,0 +1,4 @@
+interface:
+  display_name: "TypeScript"
+  short_description: "Apply clean, maintainable TypeScript practices"
+  default_prompt: "Use $typescript to review and improve this TypeScript code."

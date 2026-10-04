@@ -1,0 +1,4 @@
+interface:
+  display_name: "React"
+  short_description: "Apply practical React coding conventions"
+  default_prompt: "Use $react to review and improve this React code."
