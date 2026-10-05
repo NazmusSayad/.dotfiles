@@ -3,7 +3,11 @@
   "share": "disabled",
   "snapshots": false,
   "shell": "bash",
-  "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
+  "permissions": [
+    { "action": "*", "resource": "*", "effect": "allow" },
+    { "action": "opencode_session_rename", "resource": "*", "effect": "deny" }
+  ],
+
   "plugins": ["-opencode.browser"],
   "mcp": {
     "servers": {
