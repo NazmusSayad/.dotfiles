@@ -124,7 +124,6 @@
         "ShiftRight+MetaLeft"
       ],
       "id": "prompt-profile",
-      "language": "en",
       "mode": "cloud",
       "name": "ElevenLabs",
       "transcribeAsrId": "elevenlabs-scribe"
