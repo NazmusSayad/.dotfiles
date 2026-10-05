@@ -17,9 +17,16 @@ type agentConfig struct {
 	MinDuration int    `yaml:"minDuration"`
 }
 
+type openCodeOpenAIConfig struct {
+	Credential  string `yaml:"credential"`
+	Model       string `yaml:"model"`
+	MinDuration int    `yaml:"minDuration"`
+}
+
 type config struct {
-	Codex  []agentConfig `yaml:"codex"`
-	Claude []agentConfig `yaml:"claude"`
+	Codex          []agentConfig          `yaml:"codex"`
+	OpenCodeOpenAI []openCodeOpenAIConfig `yaml:"opencode-openai"`
+	Claude         []agentConfig          `yaml:"claude"`
 }
 
 func main() {
@@ -49,6 +56,10 @@ func main() {
 		run(lastRuns, logPath, "codex", "CODEX_HOME", agent, arguments...)
 	}
 
+	for _, agent := range config.OpenCodeOpenAI {
+		runOpenCodeOpenAI(lastRuns, logPath, agent)
+	}
+
 	for _, agent := range config.Claude {
 		arguments := []string{}
 		if agent.Model != "" {
@@ -57,6 +68,45 @@ func main() {
 		arguments = append(arguments, "-p", "ping")
 		run(lastRuns, logPath, "claude", "CLAUDE_CONFIG_DIR", agent, arguments...)
 	}
+}
+
+func runOpenCodeOpenAI(lastRuns map[string]time.Time, logPath string, agent openCodeOpenAIConfig) {
+	if agent.Credential == "" {
+		fmt.Println("opencode-openai: credential is required")
+		return
+	}
+	if agent.Model == "" {
+		fmt.Printf("opencode-openai (%s): model is required\n", agent.Credential)
+		return
+	}
+
+	account := "opencode-openai:" + agent.Credential
+	if lastRun, exists := lastRuns[account]; exists && time.Since(lastRun) < time.Duration(agent.MinDuration)*time.Minute {
+		return
+	}
+
+	directory, err := os.MkdirTemp("", "agents-ping-")
+	if err != nil {
+		fmt.Printf("opencode-openai (%s): %v\n", agent.Credential, err)
+		return
+	}
+	defer os.RemoveAll(directory)
+
+	switchCommand := exec.Command("opencode", "auth", "switch", "openai", agent.Credential)
+	switchCommand.Dir = directory
+	if err := switchCommand.Run(); err != nil {
+		fmt.Printf("opencode auth switch (%s): %v\n", agent.Credential, err)
+		return
+	}
+
+	pingCommand := exec.Command("opencode", "run", "--model", "openai/"+agent.Model, "ping")
+	pingCommand.Dir = directory
+	if err := pingCommand.Run(); err != nil {
+		fmt.Printf("opencode-openai (%s): %v\n", agent.Credential, err)
+		return
+	}
+
+	recordRun(lastRuns, logPath, account)
 }
 
 func run(lastRuns map[string]time.Time, logPath string, command string, environmentVariable string, agent agentConfig, arguments ...string) {
@@ -82,6 +132,10 @@ func run(lastRuns map[string]time.Time, logPath string, command string, environm
 		return
 	}
 
+	recordRun(lastRuns, logPath, account)
+}
+
+func recordRun(lastRuns map[string]time.Time, logPath string, account string) {
 	lastRuns[account] = time.Now()
 	data, err := json.MarshalIndent(lastRuns, "", "  ")
 	if err != nil {
