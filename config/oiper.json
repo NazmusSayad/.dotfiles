@@ -102,7 +102,7 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "openrouter-kimi",
-      "enhancementType": "prompt",
+      "enhancementType": "normal",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ShiftLeft+F15"
@@ -120,7 +120,7 @@
       "id": "prompt-profile",
       "language": "en",
       "mode": "cloud",
-      "name": "Prompt",
+      "name": "Normal",
       "transcribeAsrId": "groq-whisper"
     }
   ],
