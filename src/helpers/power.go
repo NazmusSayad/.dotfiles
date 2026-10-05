@@ -16,10 +16,6 @@ func PowerRestart() error {
 func changePowerState(restart bool) error {
 	switch runtime.GOOS {
 	case "darwin":
-		if err := disableMacOSWindowRestore(); err != nil {
-			return err
-		}
-
 		action := "shut down"
 		if restart {
 			action = "restart"
@@ -55,15 +51,4 @@ func changePowerState(restart bool) error {
 	default:
 		return fmt.Errorf("power actions are not supported on %s", runtime.GOOS)
 	}
-}
-
-func disableMacOSWindowRestore() error {
-	keys := []string{"TALLogoutSavesState", "LoginwindowLaunchesRelaunchApps"}
-	for _, key := range keys {
-		if err := ExecNativeCommand([]string{"defaults", "write", "com.apple.loginwindow", key, "-bool", "false"}); err != nil {
-			return fmt.Errorf("failed to disable macOS window restore: %w", err)
-		}
-	}
-
-	return nil
 }
