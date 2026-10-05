@@ -12,9 +12,9 @@
       "provider": "openrouter"
     },
     {
-      "id": "elevenlabs-scribe",
       "apiKeyEnv": "ELEVENLABS_API_KEY",
       "apiUrl": "https://api.elevenlabs.io/v1",
+      "id": "elevenlabs-scribe",
       "model": "scribe_v2",
       "spec": "elevenlabs"
     }
@@ -102,14 +102,13 @@
       "id": "basic-profile",
       "language": "en",
       "mode": "cloud",
-      "name": "Simple",
+      "name": "Everything",
       "transcribeAsrId": "groq-whisper"
     },
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "openrouter-kimi",
-      "enhancementType": "normal",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ShiftLeft+F15"
@@ -127,8 +126,8 @@
       "id": "prompt-profile",
       "language": "en",
       "mode": "cloud",
-      "name": "Normal",
-      "transcribeAsrId": "groq-whisper"
+      "name": "ElevenLabs",
+      "transcribeAsrId": "elevenlabs-scribe"
     }
   ],
   "snippets": [
