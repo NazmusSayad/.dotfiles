@@ -17,11 +17,13 @@ func changePowerState(restart bool) error {
 	switch runtime.GOOS {
 	case "darwin":
 		action := "shut down"
+		script := `tell application "loginwindow" to «event aevtrsdn»`
 		if restart {
 			action = "restart"
+			script = `tell application "loginwindow" to «event aevtrrst»`
 		}
 
-		if err := ExecNativeCommand([]string{"osascript", "-e", `tell application "System Events" to ` + action}); err != nil {
+		if err := ExecNativeCommand([]string{"osascript", "-e", script}); err != nil {
 			return fmt.Errorf("failed to %s macOS: %w", action, err)
 		}
 
