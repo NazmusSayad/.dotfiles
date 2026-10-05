@@ -5,6 +5,7 @@
   "shell": "bash",
   "permissions": [
     { "action": "*", "resource": "*", "effect": "allow" },
+    { "action": "opencode_session_move", "resource": "*", "effect": "deny" },
     { "action": "opencode_session_rename", "resource": "*", "effect": "deny" }
   ],
 
