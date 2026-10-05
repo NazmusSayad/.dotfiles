@@ -1,11 +1,3 @@
-codex:
-  - dir: "~/.codex"
-    model: "gpt-6-luna"
-    minDuration: 30
-  - dir: "~/.codex-sayad"
-    model: "gpt-6-luna"
-    minDuration: 1440
-
 opencode-openai:
   - credential: "Work"
     model: "gpt-6-luna"
