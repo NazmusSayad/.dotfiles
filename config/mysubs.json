@@ -13,5 +13,8 @@
     "accounts": {
       "work": { "configDir": "~/.claude", "info": "Work" }
     }
+  },
+  "opencode2-codex": {
+    "detect": true
   }
 }
