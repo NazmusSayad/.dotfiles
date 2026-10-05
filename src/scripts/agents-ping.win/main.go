@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -35,16 +35,28 @@ func main() {
 	if err := os.MkdirAll(logDirectory, 0o755); err != nil {
 		panic(err)
 	}
-	logPath := filepath.Join(logDirectory, "agents-ping.json")
+	statePath := filepath.Join(logDirectory, "agents-ping.json")
+	logPath := filepath.Join(logDirectory, "agents-ping.log")
+	logFile, err := os.OpenFile(logPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
+	if err != nil {
+		panic(err)
+	}
+	defer logFile.Close()
+	logger := log.New(logFile, "", log.LstdFlags)
+	logger.Println("agents ping started")
+	defer logger.Println("agents ping finished")
+
 	lastRuns := map[string]time.Time{}
 
-	data, err := os.ReadFile(logPath)
+	data, err := os.ReadFile(statePath)
 	if err == nil {
 		if err := json.Unmarshal(data, &lastRuns); err != nil {
-			panic(err)
+			logger.Printf("%s: failed to decode ping state: %v", statePath, err)
+			return
 		}
 	} else if !os.IsNotExist(err) {
-		panic(err)
+		logger.Printf("%s: failed to read ping state: %v", statePath, err)
+		return
 	}
 
 	for _, agent := range config.Codex {
@@ -53,11 +65,11 @@ func main() {
 			arguments = append(arguments, "--model", agent.Model)
 		}
 		arguments = append(arguments, "exec", "--skip-git-repo-check", "ping")
-		run(lastRuns, logPath, "codex", "CODEX_HOME", agent, arguments...)
+		run(lastRuns, statePath, logger, "codex", "CODEX_HOME", agent, arguments...)
 	}
 
 	for _, agent := range config.OpenCodeOpenAI {
-		runOpenCodeOpenAI(lastRuns, logPath, agent)
+		runOpenCodeOpenAI(lastRuns, statePath, logger, agent)
 	}
 
 	for _, agent := range config.Claude {
@@ -66,59 +78,69 @@ func main() {
 			arguments = append(arguments, "--model", agent.Model)
 		}
 		arguments = append(arguments, "-p", "ping")
-		run(lastRuns, logPath, "claude", "CLAUDE_CONFIG_DIR", agent, arguments...)
+		run(lastRuns, statePath, logger, "claude", "CLAUDE_CONFIG_DIR", agent, arguments...)
 	}
 }
 
-func runOpenCodeOpenAI(lastRuns map[string]time.Time, logPath string, agent openCodeOpenAIConfig) {
+func runOpenCodeOpenAI(lastRuns map[string]time.Time, statePath string, logger *log.Logger, agent openCodeOpenAIConfig) {
 	if agent.Credential == "" {
-		fmt.Println("opencode-openai: credential is required")
+		logger.Println("opencode-openai: credential is required")
 		return
 	}
 	if agent.Model == "" {
-		fmt.Printf("opencode-openai (%s): model is required\n", agent.Credential)
+		logger.Printf("opencode-openai (%s): model is required", agent.Credential)
 		return
 	}
 
 	account := "opencode-openai:" + agent.Credential
 	if lastRun, exists := lastRuns[account]; exists && time.Since(lastRun) < time.Duration(agent.MinDuration)*time.Minute {
+		logger.Printf("opencode-openai (%s): skipped; last successful ping was %s", agent.Credential, lastRun.Format(time.RFC3339))
 		return
 	}
+	logger.Printf("opencode-openai (%s, %s): starting", agent.Credential, agent.Model)
 
 	directory, err := os.MkdirTemp("", "agents-ping-")
 	if err != nil {
-		fmt.Printf("opencode-openai (%s): %v\n", agent.Credential, err)
+		logger.Printf("opencode-openai (%s): failed to create temporary directory: %v", agent.Credential, err)
 		return
 	}
 	defer os.RemoveAll(directory)
 
 	switchCommand := exec.Command("opencode", "auth", "switch", "openai", agent.Credential)
 	switchCommand.Dir = directory
+	switchCommand.Stdout = logger.Writer()
+	switchCommand.Stderr = logger.Writer()
 	if err := switchCommand.Run(); err != nil {
-		fmt.Printf("opencode auth switch (%s): %v\n", agent.Credential, err)
+		logger.Printf("opencode-openai (%s): account switch failed: %v", agent.Credential, err)
 		return
 	}
+	logger.Printf("opencode-openai (%s): account switched", agent.Credential)
 
 	pingCommand := exec.Command("opencode", "run", "--model", "openai/"+agent.Model, "ping")
 	pingCommand.Dir = directory
+	pingCommand.Stdout = logger.Writer()
+	pingCommand.Stderr = logger.Writer()
 	if err := pingCommand.Run(); err != nil {
-		fmt.Printf("opencode-openai (%s): %v\n", agent.Credential, err)
+		logger.Printf("opencode-openai (%s): ping failed: %v", agent.Credential, err)
 		return
 	}
 
-	recordRun(lastRuns, logPath, account)
+	logger.Printf("opencode-openai (%s): ping succeeded", agent.Credential)
+	recordRun(lastRuns, statePath, logger, account)
 }
 
-func run(lastRuns map[string]time.Time, logPath string, command string, environmentVariable string, agent agentConfig, arguments ...string) {
+func run(lastRuns map[string]time.Time, statePath string, logger *log.Logger, command string, environmentVariable string, agent agentConfig, arguments ...string) {
 	resolvedProfile := helpers.ResolvePath(agent.Dir)
 	account := command + ":" + resolvedProfile
 	if lastRun, exists := lastRuns[account]; exists && time.Since(lastRun) < time.Duration(agent.MinDuration)*time.Minute {
+		logger.Printf("%s (%s): skipped; last successful ping was %s", command, agent.Dir, lastRun.Format(time.RFC3339))
 		return
 	}
+	logger.Printf("%s (%s, %s): starting", command, agent.Dir, agent.Model)
 
 	directory, err := os.MkdirTemp("", "agents-ping-")
 	if err != nil {
-		fmt.Printf("%s: %v\n", command, err)
+		logger.Printf("%s (%s): failed to create temporary directory: %v", command, agent.Dir, err)
 		return
 	}
 	defer os.RemoveAll(directory)
@@ -126,23 +148,26 @@ func run(lastRuns map[string]time.Time, logPath string, command string, environm
 	cmd := exec.Command(command, arguments...)
 	cmd.Dir = directory
 	cmd.Env = append(os.Environ(), environmentVariable+"="+resolvedProfile)
+	cmd.Stdout = logger.Writer()
+	cmd.Stderr = logger.Writer()
 
 	if err := cmd.Run(); err != nil {
-		fmt.Printf("%s (%s): %v\n", command, agent.Dir, err)
+		logger.Printf("%s (%s): ping failed: %v", command, agent.Dir, err)
 		return
 	}
 
-	recordRun(lastRuns, logPath, account)
+	logger.Printf("%s (%s): ping succeeded", command, agent.Dir)
+	recordRun(lastRuns, statePath, logger, account)
 }
 
-func recordRun(lastRuns map[string]time.Time, logPath string, account string) {
+func recordRun(lastRuns map[string]time.Time, statePath string, logger *log.Logger, account string) {
 	lastRuns[account] = time.Now()
 	data, err := json.MarshalIndent(lastRuns, "", "  ")
 	if err != nil {
-		fmt.Printf("%s: %v\n", logPath, err)
+		logger.Printf("%s: failed to encode ping state: %v", statePath, err)
 		return
 	}
-	if err := os.WriteFile(logPath, data, 0o644); err != nil {
-		fmt.Printf("%s: %v\n", logPath, err)
+	if err := os.WriteFile(statePath, data, 0o644); err != nil {
+		logger.Printf("%s: failed to write ping state: %v", statePath, err)
 	}
 }
