@@ -43,8 +43,10 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdate
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool false
 sudo softwareupdate --schedule off
 
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.loginwindow TALLogoutSavesState -bool false
+defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 
 defaults write NSGlobalDomain AppleSymbolicHotKeysEnabled -bool true
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
