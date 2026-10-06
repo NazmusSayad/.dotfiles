@@ -84,7 +84,7 @@
       <ol class="steps">
         <li id="phase-persist">
           <h3>Store private views</h3>
-          <p>Add a database table for views, with one owner for each view. Add server functions to make, list, change, and delete views. Only a signed-in user can use them.</p>
+          <p>Add the saved-view table and the server functions in <code>saved-views.ts</code>. Only a signed-in user can use the functions.</p>
           <ul>
             <li>Do not let one owner have two views with the same name.</li>
             <li>Send each view only to its owner.</li>
@@ -96,21 +96,23 @@
         </li>
         <li id="phase-interface">
           <h3>Add the save and open controls</h3>
-          <p>Put a list of saved views next to the filter controls. Put a save button in the filter panel.</p>
+          <p>Put <code>SavedViewMenu.tsx</code> next to the filter controls. Put a save button in the filter panel. The button opens <code>SaveViewDialog.tsx</code>.</p>
           <ul>
             <li>The user can always see and change the current filters.</li>
-            <li>Use a dialog box only to give or change a name.</li>
+            <li>Use the dialog box only to give or change a name.</li>
             <li>When the dialog box closes, move the keyboard focus back to the control that opened it.</li>
           </ul>
           <dl class="fields">
             <div><dt><i class="fa-solid fa-link text-dim"></i> Depends on</dt><dd><a href="#phase-persist">Store private views</a>, with its final error messages</dd></div>
+            <div><dt><i class="fa-solid fa-circle-check text-dim"></i> Done when</dt><dd>The menu and the dialog box work with the server functions, not with test data.</dd></div>
           </dl>
         </li>
         <li id="phase-release">
           <h3>Test and turn on</h3>
-          <p>Test the full feature while it is behind the current on/off switch for accounts. Then turn it on for internal users.</p>
+          <p>Keep the feature off with the current on/off switch for accounts while you test it. Then turn it on for internal users.</p>
           <dl class="fields">
             <div><dt><i class="fa-solid fa-link text-dim"></i> Depends on</dt><dd><a href="#phase-interface">Add the save and open controls</a></dd></div>
+            <div><dt><i class="fa-solid fa-circle-check text-dim"></i> Done when</dt><dd>All <a href="#done">checks before release</a> pass.</dd></div>
             <div><dt><i class="fa-solid fa-rotate-left text-dim"></i> To undo</dt><dd>Turn off the switch. Saved views stay in the database and do nothing. You can keep them.</dd></div>
           </dl>
         </li>

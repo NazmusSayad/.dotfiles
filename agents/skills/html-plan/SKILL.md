@@ -46,7 +46,7 @@ Use the simplest form that shows the source's actual structure:
 |---|---|
 | Reasons and context | Paragraphs |
 | Parallel items | Bulleted list |
-| Ordered actions or phases | `.steps` |
+| Ordered actions or phases | `.steps`; each step says what it changes and, when the source states them, its rules, dependencies, completion check, and undo |
 | Three or more items that share two or more fields | Table |
 | The parts of the plan and their results | Summary table; add a status column only when the source gives statuses |
 | Files to change | Folder tree with one very short line per file; omit it when the list does not help, such as for very large changes |
