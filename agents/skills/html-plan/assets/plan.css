@@ -150,15 +150,17 @@ h2 > i, h3 > i { margin-right: .2em; font-size: .8em; }
   text-decoration: none;
 }
 .contents a:hover { color: var(--accent); text-decoration: underline; }
-@media (min-width: 72rem) {
+@media (min-width: 75rem) {
   .page:has(> .contents) {
-    grid-template-columns: 12rem minmax(0, 46rem);
-    grid-template-areas: "nav header" "nav main";
+    grid-template-columns: minmax(12rem, 1fr) minmax(0, 46rem) minmax(0, .6fr);
+    grid-template-areas: "nav header ." "nav main .";
+    column-gap: 6rem;
   }
   .page:has(> .contents) .contents {
     position: sticky;
     top: var(--s6);
     align-self: start;
+    justify-self: end;
     max-height: calc(100vh - var(--s6) * 2);
     overflow-y: auto;
     margin-top: 0;
