@@ -36,7 +36,6 @@ make = "latest"
 ninja = "latest"
 
 # AI Coding
-"github:openai/codex" = "latest"
 "github:anthropics/claude-code" = "latest"
 "github:google-antigravity/antigravity-cli" = "latest"
 "http:opencode" = { version = "latest", version_list_url = "https://opencode.ai/update/api/latest/cli/opencode", version_json_path = ".version", url = 'https://opencode.ai/files/bin/{{ version }}/opencode-{{ os(macos="darwin") }}-{{ arch() }}.zip' }
@@ -135,7 +134,6 @@ minimum_release_age_excludes = [
 
   # AI Coding
   "http:opencode",
-  "github:openai/codex",
   "github:anthropics/claude-code",
   "github:google-antigravity/antigravity-cli",
 

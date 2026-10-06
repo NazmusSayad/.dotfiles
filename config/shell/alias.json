@@ -6,8 +6,6 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
-  "codex-sayad": "CODEX_HOME=~/.codex-sayad codex",
-
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
 
