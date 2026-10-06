@@ -63,11 +63,11 @@ A linear sequence is a list, not a diagram. Undated phases never become a timeli
 
 ## Template
 
-Copy `examples/saved-views-plan.html` to the output path and replace its content with the plan. Keep its stylesheet and script. The stylesheet also styles components the example does not use: `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`; read their rules to build the markup. Add CSS only for a structure no component covers, built from the existing tokens. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
+Copy `examples/saved-views-plan.html` to the output path and replace its content with the plan. Keep its two stylesheet links and its script. Never edit `assets/plan.css` and never write CSS in the plan. The stylesheet also styles components the example does not use: `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`; read their rules in `assets/plan.css` to build the markup. Use Font Awesome icons the way the example does: folders and files in the file tree, a check on decisions, a cross on rejected options, a warning on risks, and an icon on each status and field label. Pick each icon for its meaning. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
 
 ## Output
 
-Write one file at the path the user gives, otherwise `<topic>-plan.html` in the working directory. Do not overwrite an existing file without permission. The file must work offline, with no external assets.
+Write one file at the path the user gives, otherwise `<topic>-plan.html` in the working directory. Do not overwrite an existing file without permission. Use no external assets except the two stylesheets the example links.
 
 ## Verification
 
