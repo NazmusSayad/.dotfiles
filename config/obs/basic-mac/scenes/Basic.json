@@ -62,7 +62,8 @@
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
             "private_settings": {
-                "mixer_pinned": false
+                "mixer_pinned": false,
+                "mixer_hidden": true
             }
         },
         {
@@ -94,7 +95,9 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
-            "private_settings": {}
+            "private_settings": {
+                "mixer_hidden": true
+            }
         },
         {
             "prev_ver": 537001986,
@@ -127,19 +130,51 @@
         },
         {
             "prev_ver": 537001986,
+            "name": "Camera",
+            "uuid": "96245b46-7fa8-47ef-be5d-e24184bc85c9",
+            "id": "macos-avcapture",
+            "versioned_id": "macos-avcapture",
+            "settings": {
+                "device_name": "Iriun Camera",
+                "device": "5A0B78EA-4C72-485C-B87D-086EC8E5E180"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 537001986,
             "name": "Landscape",
             "uuid": "6936f226-fa1e-4af6-97a5-ff013d16c9b4",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 6,
+                "id_counter": 8,
                 "custom_size": false,
                 "items": [
                     {
                         "name": "Output",
                         "source_uuid": "d6931488-764f-428f-bf73-a92b38f374ba",
                         "visible": true,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 3840.0,
@@ -299,6 +334,61 @@
                             "duration": 300
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "Camera",
+                        "source_uuid": "96245b46-7fa8-47ef-be5d-e24184bc85c9",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 3840.0,
+                            "y": 2160.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 8,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 3163.0,
+                            "y": 1779.0
+                        },
+                        "pos_rel": {
+                            "x": 1.150925874710083,
+                            "y": 0.6472222805023193
+                        },
+                        "scale": {
+                            "x": 0.3526041805744171,
+                            "y": 0.35277777910232544
+                        },
+                        "scale_rel": {
+                            "x": 0.3526041805744171,
+                            "y": 0.35277777910232544
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 300
+                        },
+                        "hide_transition": {
+                            "duration": 300
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -320,7 +410,9 @@
                 "libobs.show_scene_item.5": [],
                 "libobs.hide_scene_item.5": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.8": [],
+                "libobs.hide_scene_item.8": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -345,7 +437,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -9,
+    "scaling_level": -10,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
