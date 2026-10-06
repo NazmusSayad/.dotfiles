@@ -35,7 +35,7 @@ Structure must not imply relationships the source does not establish. Number ite
 
 A reader should learn from the first screen what the plan delivers, its scope, and its approach. Write the lede last, from statements already in the document. After the header, follow the order a reader needs: why, what is in and out, how, in what order, what is decided or open, and how completion is checked. Include only the sections the source supports.
 
-Headings name their content in plain words and sentence case. A heading may state a conclusion only when the source states it. Write short, direct sentences in active voice, one idea per paragraph, with qualifiers beside the claims they limit. Bold only a few key terms, never whole sentences. Leave out filler, hype, emoji, rhetorical questions, and closing recaps. Do not mention the conversation, the source format, the skill, or how the document was made, except in the footer.
+Headings name their content in plain words and sentence case. Never place a heading directly below another; put a short description between them. A heading may state a conclusion only when the source states it. Write short, direct sentences in active voice, one idea per paragraph, with qualifiers beside the claims they limit. Bold only a few key terms, never whole sentences. Leave out filler, hype, emoji, rhetorical questions, and closing recaps. Do not mention the conversation, the source format, the skill, or how the document was made, except in the footer.
 
 Text you write yourself, such as the lede, section intros, captions, and figure descriptions, restates the source. It never adds claims.
 
@@ -54,9 +54,9 @@ Prose carries the plan, and formatting must earn its place. Use the simplest for
 | Work with stated start and end dates | `.gantt` |
 | Stated branches, loops, parallel paths, or relationships among four or more parts | SVG diagram |
 | Supplied numbers worth comparing | `.bars` |
-| Decisions, risks, or assumptions with explanations | `.register` |
+| Decisions, risks, assumptions, or rejected alternatives with explanations | Bulleted list, each item opening with the item in bold |
 | Conflicts, blockers, or open points that belong inside a section | `.callout` |
-| Optional evidence and rejected alternatives | `<details>` |
+| Optional evidence | `<details>` |
 
 A linear sequence is a list, not a flowchart. Undated phases never become a timeline or Gantt chart, and spacing must not suggest durations the source does not give. Draw a diagram only when it shows a relationship faster than a paragraph can. Give it one question to answer, at most about ten nodes, a verb label on each arrow, and no node or edge the source does not state. Split a larger diagram or use a table instead.
 
