@@ -337,11 +337,6 @@ th code, td code { white-space: nowrap; overflow-wrap: normal; }
 tbody tr:last-child > * { border-bottom: 0; }
 th.num, td.num { min-width: 0; text-align: right; white-space: nowrap; }
 
-.register > div { padding: var(--s4) 0; }
-.register > div + div { border-top: 1px solid var(--border); }
-.register dt { font-weight: 650; }
-.register dd { margin-top: var(--s1); color: var(--text-dim); }
-
 .callout {
   padding: var(--s4) var(--s5);
   border: 1px solid var(--border);
@@ -526,7 +521,7 @@ details > summary + * { margin-top: var(--s1); }
   h2, h3, summary { break-after: avoid; }
   main > section, main > section:first-child { margin-top: 28pt; }
   p, li { orphans: 3; widows: 3; }
-  figure, tr, pre, .callout, .register > div, .timeline > li, .gantt-row { break-inside: avoid; }
+  figure, tr, pre, .callout, .timeline > li, .gantt-row { break-inside: avoid; }
   thead { display: table-header-group; }
   .table-scroll, .figure-frame { overflow: visible; }
   .diagram { min-width: 0; }
@@ -622,6 +617,7 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="steps">
       <h2>{{Steps heading}}</h2>
+      <p>{{Short description restating the source}}</p>
       <ol class="steps">
         <li id="step-1">
           <h3>{{Step title}}</h3>
@@ -641,6 +637,7 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="schedule">
       <h2>{{Schedule heading}}</h2>
+      <p>{{Short description restating the source}}</p>
       <ol class="timeline">
         <li>
           <time datetime="{{YYYY-MM-DD}}">{{Stated date}}</time>
@@ -690,12 +687,13 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="decisions">
       <h2>{{Decisions heading}}</h2>
-      <dl class="register">
-        <div><dt>{{Decision, risk, or assumption}}</dt><dd>{{Stated reason or mitigation}}</dd></div>
-      </dl>
+      <ul>
+        <li><strong>{{Decision, risk, or assumption}}.</strong> {{Stated reason or mitigation}}</li>
+        <li><strong>Rejected: {{alternative}}.</strong> {{Stated reason it was rejected}}</li>
+      </ul>
       <details>
-        <summary>{{Rejected alternative}}</summary>
-        <p>{{Stated reason it was rejected}}</p>
+        <summary>{{Optional evidence}}</summary>
+        <p>{{Evidence the source gives}}</p>
       </details>
     </section>
 

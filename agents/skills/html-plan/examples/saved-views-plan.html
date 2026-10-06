@@ -337,11 +337,6 @@ th code, td code { white-space: nowrap; overflow-wrap: normal; }
 tbody tr:last-child > * { border-bottom: 0; }
 th.num, td.num { min-width: 0; text-align: right; white-space: nowrap; }
 
-.register > div { padding: var(--s4) 0; }
-.register > div + div { border-top: 1px solid var(--border); }
-.register dt { font-weight: 650; }
-.register dd { margin-top: var(--s1); color: var(--text-dim); }
-
 .callout {
   padding: var(--s4) var(--s5);
   border: 1px solid var(--border);
@@ -526,7 +521,7 @@ details > summary + * { margin-top: var(--s1); }
   h2, h3, summary { break-after: avoid; }
   main > section, main > section:first-child { margin-top: 28pt; }
   p, li { orphans: 3; widows: 3; }
-  figure, tr, pre, .callout, .register > div, .timeline > li, .gantt-row { break-inside: avoid; }
+  figure, tr, pre, .callout, .timeline > li, .gantt-row { break-inside: avoid; }
   thead { display: table-header-group; }
   .table-scroll, .figure-frame { overflow: visible; }
   .diagram { min-width: 0; }
@@ -682,21 +677,19 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="decisions">
       <h2>Decisions and risks</h2>
+      <p>Three decisions and one rejected alternative shape this release. Each risk has a stated mitigation.</p>
       <h3>Decisions</h3>
-      <dl class="register">
-        <div><dt>Store the canonical query string</dt><dd>It reuses the current parsing, validation, browser history, and bookmark behavior.</dd></div>
-        <div><dt>Keep views private in this release</dt><dd>Ownership stays binary; sharing and permission design stay out of scope.</dd></div>
-        <div><dt>Use the existing account feature flag</dt><dd>The rollout gets a reversible switch without a second release mechanism.</dd></div>
-      </dl>
-      <details>
-        <summary>Rejected: structured filter records</summary>
-        <p>Storing each filter as separate fields would duplicate the URL schema and need a migration whenever filter syntax changes.</p>
-      </details>
+      <ul>
+        <li><strong>Store the canonical query string.</strong> It reuses the current parsing, validation, browser history, and bookmark behavior.</li>
+        <li><strong>Keep views private in this release.</strong> Ownership stays binary; sharing and permission design stay out of scope.</li>
+        <li><strong>Use the existing account feature flag.</strong> The rollout gets a reversible switch without a second release mechanism.</li>
+        <li><strong>Rejected: structured filter records.</strong> Storing each filter as separate fields would duplicate the URL schema and need a migration whenever filter syntax changes.</li>
+      </ul>
       <h3>Risks</h3>
-      <dl class="register">
-        <div><dt>Stored queries outlive filter changes</dt><dd>Mitigation: the route ignores unknown parameters, and the API rejects queries the current parser cannot read.</dd></div>
-        <div><dt>Long names crowd the selector</dt><dd>Mitigation: cap names at 60 characters and keep the full value in accessible text.</dd></div>
-      </dl>
+      <ul>
+        <li><strong>Stored queries outlive filter changes.</strong> Mitigation: the route ignores unknown parameters, and the API rejects queries the current parser cannot read.</li>
+        <li><strong>Long names crowd the selector.</strong> Mitigation: cap names at 60 characters and keep the full value in accessible text.</li>
+      </ul>
       <aside class="callout">
         <p class="callout-title">Open question: default view</p>
         <p>Not part of this release. The incident list keeps its current default filters.</p>
