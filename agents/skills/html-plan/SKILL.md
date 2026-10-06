@@ -35,7 +35,7 @@ Write every piece of text in the document, including headings, labels, lists, ta
 
 Every sentence must help the reader understand the plan. Delete any sentence that only introduces, repeats, or sums up what is already on the page. Do not write captions or footers.
 
-Open with one or two sentences that say what the plan delivers. Then follow the order a reader needs: what is in and out, how it works, the steps, what is decided or open, and how completion is checked. Never place a heading directly below another; put a short description between them. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
+Open with one or two sentences that say what the plan delivers. Then follow the order a reader needs: what is in and out, how it works, the steps, what is decided or open, and how completion is checked. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
 
 ## Form
 
