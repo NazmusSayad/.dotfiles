@@ -15,29 +15,29 @@
     <h1>Saved incident views</h1>
     <p class="lede">Users can save the filters of the incident list under a private name and open them again with one click. A saved view keeps only the filter part of the page address, so the page address stays the one place for filter settings.</p>
     <dl class="brief">
-      <div><dt>Outcome</dt><dd>Searches that users do frequently open with one click.</dd></div>
-      <div><dt>Scope</dt><dd>Private views with names.</dd></div>
-      <div><dt>Approach</dt><dd>Three phases, in this order: storage, controls, release.</dd></div>
-      <div><dt>Limit</dt><dd>The page address stays the one place for filter settings.</dd></div>
+      <div><dt><i class="fa-solid fa-flag-checkered fa-fw text-dim"></i> Outcome</dt><dd>Searches that users do frequently open with one click.</dd></div>
+      <div><dt><i class="fa-solid fa-crosshairs fa-fw text-dim"></i> Scope</dt><dd>Private views with names.</dd></div>
+      <div><dt><i class="fa-solid fa-route fa-fw text-dim"></i> Approach</dt><dd>Three phases, in this order: storage, controls, release.</dd></div>
+      <div><dt><i class="fa-solid fa-lock fa-fw text-dim"></i> Limit</dt><dd>The page address stays the one place for filter settings.</dd></div>
     </dl>
   </header>
 
   <nav class="contents">
     <ol>
-      <li><a href="#scope">Scope</a></li>
-      <li><a href="#flow">How a view works</a></li>
-      <li><a href="#phases">Phases</a></li>
-      <li><a href="#summary">Summary</a></li>
-      <li><a href="#files">Files to change</a></li>
-      <li><a href="#decisions">Decisions and risks</a></li>
-      <li><a href="#done">Checks before release</a></li>
+      <li><a href="#scope"><i class="fa-solid fa-crosshairs fa-fw text-dim"></i> Scope</a></li>
+      <li><a href="#flow"><i class="fa-solid fa-diagram-project fa-fw text-dim"></i> How a view works</a></li>
+      <li><a href="#phases"><i class="fa-solid fa-list-ol fa-fw text-dim"></i> Phases</a></li>
+      <li><a href="#summary"><i class="fa-solid fa-table-list fa-fw text-dim"></i> Summary</a></li>
+      <li><a href="#files"><i class="fa-solid fa-folder-tree fa-fw text-dim"></i> Files to change</a></li>
+      <li><a href="#decisions"><i class="fa-solid fa-scale-balanced fa-fw text-dim"></i> Decisions and risks</a></li>
+      <li><a href="#done"><i class="fa-solid fa-list-check fa-fw text-dim"></i> Checks before release</a></li>
     </ol>
   </nav>
 
   <main>
 
     <section id="scope">
-      <h2>Scope</h2>
+      <h2><i class="fa-solid fa-crosshairs fa-fw text-accent"></i> Scope</h2>
       <ul>
         <li>Make, open, and delete a private view, and change its name.</li>
         <li>Keep the owner, the name, the filter text, and the time of each change.</li>
@@ -47,7 +47,7 @@
     </section>
 
     <section id="flow">
-      <h2>How a view works</h2>
+      <h2><i class="fa-solid fa-diagram-project fa-fw text-accent"></i> How a view works</h2>
       <figure>
         <div class="figure-frame">
           <svg class="diagram" viewBox="0 0 720 170">
@@ -80,7 +80,7 @@
     </section>
 
     <section id="phases">
-      <h2>Phases</h2>
+      <h2><i class="fa-solid fa-list-ol fa-fw text-accent"></i> Phases</h2>
       <ol class="steps">
         <li id="phase-persist">
           <h3>Store private views</h3>
@@ -91,7 +91,7 @@
             <li>Keep the filter text as it is. Do not split it into separate fields.</li>
           </ul>
           <dl class="fields">
-            <div><dt><i class="fa-solid fa-circle-check"></i> Done when</dt><dd>Tests of the server functions cover owners, duplicate names, incorrect filter text, and delete.</dd></div>
+            <div><dt><i class="fa-solid fa-circle-check text-dim"></i> Done when</dt><dd>Tests of the server functions cover owners, duplicate names, incorrect filter text, and delete.</dd></div>
           </dl>
         </li>
         <li id="phase-interface">
@@ -103,76 +103,76 @@
             <li>When the dialog box closes, move the keyboard focus back to the control that opened it.</li>
           </ul>
           <dl class="fields">
-            <div><dt><i class="fa-solid fa-link"></i> Depends on</dt><dd><a href="#phase-persist">Store private views</a>, with its final error messages</dd></div>
+            <div><dt><i class="fa-solid fa-link text-dim"></i> Depends on</dt><dd><a href="#phase-persist">Store private views</a>, with its final error messages</dd></div>
           </dl>
         </li>
         <li id="phase-release">
           <h3>Test and turn on</h3>
           <p>Test the full feature while it is behind the current on/off switch for accounts. Then turn it on for internal users.</p>
           <dl class="fields">
-            <div><dt><i class="fa-solid fa-link"></i> Depends on</dt><dd><a href="#phase-interface">Add the save and open controls</a></dd></div>
-            <div><dt><i class="fa-solid fa-rotate-left"></i> To undo</dt><dd>Turn off the switch. Saved views stay in the database and do nothing. You can keep them.</dd></div>
+            <div><dt><i class="fa-solid fa-link text-dim"></i> Depends on</dt><dd><a href="#phase-interface">Add the save and open controls</a></dd></div>
+            <div><dt><i class="fa-solid fa-rotate-left text-dim"></i> To undo</dt><dd>Turn off the switch. Saved views stay in the database and do nothing. You can keep them.</dd></div>
           </dl>
         </li>
       </ol>
     </section>
 
     <section id="summary">
-      <h2>Summary</h2>
+      <h2><i class="fa-solid fa-table-list fa-fw text-accent"></i> Summary</h2>
       <div class="table-scroll">
         <table>
           <thead>
             <tr><th>Work</th><th>Result</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><th><a href="#phase-persist">Store private views</a></th><td>The server keeps each view for its owner.</td><td><i class="fa-regular fa-circle"></i> Not started</td></tr>
-            <tr><th><a href="#phase-interface">Add the save and open controls</a></th><td>Users can save and open views.</td><td><i class="fa-regular fa-circle"></i> Not started</td></tr>
-            <tr><th><a href="#phase-release">Test and turn on</a></th><td>Internal users get the feature.</td><td><i class="fa-regular fa-circle"></i> Not started</td></tr>
+            <tr><th><a href="#phase-persist">Store private views</a></th><td>The server keeps each view for its owner.</td><td><i class="fa-regular fa-circle text-dim"></i> Not started</td></tr>
+            <tr><th><a href="#phase-interface">Add the save and open controls</a></th><td>Users can save and open views.</td><td><i class="fa-regular fa-circle text-dim"></i> Not started</td></tr>
+            <tr><th><a href="#phase-release">Test and turn on</a></th><td>Internal users get the feature.</td><td><i class="fa-regular fa-circle text-dim"></i> Not started</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section id="files">
-      <h2>Files to change</h2>
+      <h2><i class="fa-solid fa-folder-tree fa-fw text-accent"></i> Files to change</h2>
       <ul class="fa-ul">
-        <li><span class="fa-li"><i class="fa-regular fa-folder"></i></span><code>db/migrations/</code>
+        <li><span class="fa-li"><i class="fa-regular fa-folder text-dim"></i></span><code>db/migrations/</code>
           <ul class="fa-ul">
-            <li><span class="fa-li"><i class="fa-regular fa-file"></i></span><code>*_saved_views.sql</code>: adds the saved-view table.</li>
+            <li><span class="fa-li"><i class="fa-regular fa-file text-dim"></i></span><code>*_saved_views.sql</code>: adds the saved-view table.</li>
           </ul>
         </li>
-        <li><span class="fa-li"><i class="fa-regular fa-folder"></i></span><code>src/server/</code>
+        <li><span class="fa-li"><i class="fa-regular fa-folder text-dim"></i></span><code>src/server/</code>
           <ul class="fa-ul">
-            <li><span class="fa-li"><i class="fa-regular fa-file"></i></span><code>saved-views.ts</code>: makes, reads, changes, and deletes views.</li>
+            <li><span class="fa-li"><i class="fa-regular fa-file text-dim"></i></span><code>saved-views.ts</code>: makes, reads, changes, and deletes views.</li>
           </ul>
         </li>
-        <li><span class="fa-li"><i class="fa-regular fa-folder"></i></span><code>src/incidents/</code>
+        <li><span class="fa-li"><i class="fa-regular fa-folder text-dim"></i></span><code>src/incidents/</code>
           <ul class="fa-ul">
-            <li><span class="fa-li"><i class="fa-regular fa-file"></i></span><code>SavedViewMenu.tsx</code>: lists saved views.</li>
-            <li><span class="fa-li"><i class="fa-regular fa-file"></i></span><code>SaveViewDialog.tsx</code>: asks for a view name.</li>
+            <li><span class="fa-li"><i class="fa-regular fa-file text-dim"></i></span><code>SavedViewMenu.tsx</code>: lists saved views.</li>
+            <li><span class="fa-li"><i class="fa-regular fa-file text-dim"></i></span><code>SaveViewDialog.tsx</code>: asks for a view name.</li>
           </ul>
         </li>
       </ul>
     </section>
 
     <section id="decisions">
-      <h2>Decisions and risks</h2>
-      <h3>Decisions</h3>
+      <h2><i class="fa-solid fa-scale-balanced fa-fw text-accent"></i> Decisions and risks</h2>
+      <h3><i class="fa-solid fa-gavel fa-fw text-accent"></i> Decisions</h3>
       <ul class="fa-ul">
-        <li><span class="fa-li"><i class="fa-solid fa-circle-check"></i></span><strong>Keep the filter text from the page address.</strong> The current code already reads it, checks it, and uses it for browser history and bookmarks.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-check"></i></span><strong>Views are private in this release.</strong> Each view has one owner.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-check"></i></span><strong>Use the current on/off switch for accounts.</strong> You can turn the feature off at any time, and no new release tool is necessary.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-xmark"></i></span><strong>Rejected: keep each filter in a separate field.</strong> This copies the filter rules into a second place. Then each change to the filter rules needs a database change.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Keep the filter text from the page address.</strong> The current code already reads it, checks it, and uses it for browser history and bookmarks.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Views are private in this release.</strong> Each view has one owner.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Use the current on/off switch for accounts.</strong> You can turn the feature off at any time, and no new release tool is necessary.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-xmark text-risk"></i></span><strong>Rejected: keep each filter in a separate field.</strong> This copies the filter rules into a second place. Then each change to the filter rules needs a database change.</li>
       </ul>
-      <h3>Risks</h3>
+      <h3><i class="fa-solid fa-triangle-exclamation fa-fw text-warn"></i> Risks</h3>
       <ul class="fa-ul">
-        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation"></i></span><strong>Saved filter text can become old when the filters change.</strong> The incident list ignores filters that it does not know. The server refuses filter text that the current code cannot read.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation"></i></span><strong>Long names do not fit in the list.</strong> Names have a limit of 60 characters. Screen readers still get the full name.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-warn"></i></span><strong>Saved filter text can become old when the filters change.</strong> The incident list ignores filters that it does not know. The server refuses filter text that the current code cannot read.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-warn"></i></span><strong>Long names do not fit in the list.</strong> Names have a limit of 60 characters. Screen readers still get the full name.</li>
       </ul>
     </section>
 
     <section id="done">
-      <h2>Checks before release</h2>
+      <h2><i class="fa-solid fa-list-check fa-fw text-accent"></i> Checks before release</h2>
       <ul class="checklist">
         <li>A user can make, open, and delete a view, and change its name.</li>
         <li>A different user cannot read or change that view.</li>
