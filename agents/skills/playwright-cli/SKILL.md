@@ -39,11 +39,11 @@ Use `run-code "async page => { ... }"` or `run-code --filename=script.js` for Pl
 
 ## File naming
 
-Name screenshots and other captures by what they show, never by order: no numeric prefixes such as `01-`. Put the captures for one scenario in a kebab-case folder named after it inside `.playwright/` at the project root, such as `.playwright/card-hover/` or `.playwright/empty-template-list/`. Save each capture once.
+Name screenshots and other captures by what they show, never by order: no numeric prefixes such as `01-`. Put them at the project root as `.playwright/<group>/<scenario>.png`, where the folder groups related scenarios and both names are kebab-case, such as `.playwright/template-cards/hover.png` or `.playwright/template-cards/empty-list.png`.
 
 ## Before and after
 
-When a change affects what a page shows, capture each affected scenario before and after the change as `.playwright/<scenario>/before.png` and `.playwright/<scenario>/after.png`. Capture the before state before changing the code. Keep the page, viewport, data, and interaction state identical in both so that only the change differs. Show both to the user.
+When a change affects what a page shows, capture each affected scenario before and after the change as `.playwright/<group>/<scenario>-before.png` and `.playwright/<group>/<scenario>-after.png`. Capture the before state before changing the code. Keep the page, viewport, data, and interaction state identical in both so that only the change differs. Show both to the user.
 
 ## Demo videos
 
