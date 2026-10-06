@@ -47,6 +47,8 @@ Use the simplest form that shows the source's actual structure:
 | Parallel items | Bulleted list |
 | Ordered actions or phases | `.steps` |
 | Three or more items that share two or more fields | Table |
+| Summary of the whole plan: each part, its result, and its status | Table, in a Summary section before the files |
+| Files to change | Folder tree, each file with one very short line on its change; leave out when the list does not help, such as for very large changes |
 | Completion checks | `.checklist` |
 | Events with stated dates | `.timeline` |
 | Work with stated start and end dates | `.gantt` |
