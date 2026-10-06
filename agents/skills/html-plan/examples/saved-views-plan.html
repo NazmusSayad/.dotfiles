@@ -64,8 +64,8 @@ body {
 
 h1, h2, h3, p, ul, ol, dl, dd, figure, pre, table { margin: 0; }
 h1, h2, h3 { text-wrap: balance; }
-p, li, dd, figcaption { text-wrap: pretty; }
-p, li, dd, figcaption, .lede { max-width: var(--measure); }
+p, li, dd { text-wrap: pretty; }
+p, li, dd, .lede { max-width: var(--measure); }
 h1 {
   max-width: 24ch;
   font: 600 clamp(2rem, 1.35rem + 2.6vw, 2.875rem)/1.1 var(--font-display);
@@ -114,7 +114,7 @@ pre code { padding: 0; background: none; font-size: inherit; }
 .page {
   display: grid;
   grid-template-columns: minmax(0, 46rem);
-  grid-template-areas: "header" "nav" "main" "footer";
+  grid-template-areas: "header" "nav" "main";
   justify-content: center;
   column-gap: var(--s7);
   padding: var(--s8) var(--s5);
@@ -169,7 +169,7 @@ pre code { padding: 0; background: none; font-size: inherit; }
 @media (min-width: 72rem) {
   .page:has(> .contents) {
     grid-template-columns: 12rem minmax(0, 46rem);
-    grid-template-areas: "nav header" "nav main" "nav footer";
+    grid-template-areas: "nav header" "nav main";
   }
   .page:has(> .contents) .contents {
     position: sticky;
@@ -309,12 +309,6 @@ table {
   line-height: 1.5;
   font-variant-numeric: tabular-nums;
 }
-caption {
-  padding: var(--s3) var(--s4);
-  border-bottom: 1px solid var(--border);
-  font-weight: 650;
-  text-align: left;
-}
 th, td {
   min-width: 9rem;
   padding: var(--s3) var(--s4);
@@ -373,7 +367,6 @@ th.num, td.num { min-width: 0; text-align: right; white-space: nowrap; }
 .status.risk { color: var(--risk); }
 .status.risk::before { border-radius: 1px; background: currentColor; }
 
-figcaption { margin-top: var(--s3); color: var(--text-dim); font-size: .9375rem; }
 .figure-frame {
   overflow-x: auto;
   padding: var(--s4);
@@ -490,13 +483,6 @@ details[open] > summary::before { transform: rotate(45deg); }
 details > :not(summary) { margin-bottom: var(--s4); }
 details > summary + * { margin-top: var(--s1); }
 
-.doc-footer {
-  grid-area: footer;
-  margin-top: var(--s8);
-  color: var(--text-dim);
-  font-size: .875rem;
-}
-
 @media (max-width: 40rem) {
   .page { padding: var(--s6) var(--s4) var(--s7); }
   .brief > div, .timeline > li { grid-template-columns: minmax(0, 1fr); gap: var(--s1); }
@@ -529,7 +515,6 @@ details > summary + * { margin-top: var(--s1); }
   a { color: inherit; }
   a[href^="http"]::after { content: " (" attr(href) ")"; color: var(--text-dim); font-size: .85em; overflow-wrap: anywhere; }
   .status, .checklist li::before, .gantt-track, .gantt-track span, .bars .bar { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .doc-footer { margin-top: 24pt; }
 }
 @media print {
   details::details-content { content-visibility: visible; display: block; }
@@ -584,7 +569,6 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="flow">
       <h2>How a view works</h2>
-      <p>The feature stores no parallel filter state. Bookmarks, browser navigation, and saved views all run through the same route.</p>
       <figure>
         <div class="figure-frame">
           <svg class="diagram" viewBox="0 0 720 170">
@@ -608,7 +592,6 @@ details > summary + * { margin-top: var(--s1); }
             <text class="sub" x="615" y="103">existing filter code</text>
           </svg>
         </div>
-        <figcaption>The saved record is a pointer to URL state, never a second copy of the filters.</figcaption>
       </figure>
       <ol class="figure-text">
         <li>The operator filters the incident list and chooses <strong>Save current view</strong>.</li>
@@ -619,7 +602,6 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="phases">
       <h2>Phases</h2>
-      <p>Persistence sets the contract, the interface consumes it, and release checks confirm that saved views add no second filter state.</p>
       <ol class="steps">
         <li id="phase-persist">
           <h3>Persist private views</h3>
@@ -658,10 +640,8 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="files">
       <h2>Affected files</h2>
-      <p>The route stays unchanged. New code stores view definitions and connects them to the existing filter state.</p>
       <div class="table-scroll">
         <table>
-          <caption>Files, changes, and the evidence each change needs</caption>
           <thead>
             <tr><th>File</th><th>Change</th><th>Evidence</th></tr>
           </thead>
@@ -691,8 +671,8 @@ details > summary + * { margin-top: var(--s1); }
         <li><strong>Long names crowd the selector.</strong> Mitigation: cap names at 60 characters and keep the full value in accessible text.</li>
       </ul>
       <aside class="callout">
-        <p class="callout-title">Open question: default view</p>
-        <p>Not part of this release. The incident list keeps its current default filters.</p>
+        <p class="callout-title">Open question: can a user set a saved view to open by default?</p>
+        <p>Not decided. This release leaves it out, so the incident list keeps its current default filters.</p>
       </aside>
     </section>
 
@@ -711,10 +691,6 @@ details > summary + * { margin-top: var(--s1); }
     </section>
 
   </main>
-
-  <footer class="doc-footer">
-    <p>Illustrative example. Names, paths, and decisions are sample content, not repository facts.</p>
-  </footer>
 
 </div>
 <script>

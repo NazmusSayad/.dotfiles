@@ -33,9 +33,9 @@ You may reorder, group, split sentences, and choose the form of each part, but k
 
 Write every piece of text in the document, including headings, labels, lists, tables, captions, and diagram text, in strict ASD-STE100 Simplified Technical English. There are no exceptions. Use no jargon. Every word must give the reader value.
 
-The first screen tells the reader what the plan delivers, its scope, and its approach. Then follow the order a reader needs: why, what is in and out, how, in what order, what is decided or open, and how completion is checked.
+Every sentence must help the reader understand the plan. Delete any sentence that only introduces, repeats, or sums up what is already on the page. Do not write captions or footers.
 
-Never place a heading directly below another; put a short description between them. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
+Open with one or two sentences that say what the plan delivers. Then follow the order a reader needs: what is in and out, how it works, the steps, what is decided or open, and how completion is checked. Never place a heading directly below another; put a short description between them. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
 
 ## Form
 
@@ -56,13 +56,11 @@ Use the simplest form that shows the source's actual structure:
 | Conflicts, blockers, or open points inside a section | `.callout` |
 | Optional evidence | `<details>` |
 
-A linear sequence is a list, not a diagram. Undated phases never become a timeline or Gantt chart. A diagram answers one question, has at most about ten nodes, a verb on each arrow, and no node or arrow the source does not state. Each figure has a caption that states its point, and the document reads completely without its figures.
+A linear sequence is a list, not a diagram. Undated phases never become a timeline or Gantt chart. A diagram answers one question, has at most about ten nodes, a verb on each arrow, and no node or arrow the source does not state. The document reads completely without its figures.
 
 ## Template
 
-Copy `assets/template.html` to the output path and fill the copy. Delete the components the plan does not need, repeat the ones it does, and order sections to suit the plan. Do not change the stylesheet; add CSS only for a structure no component covers, built from the existing tokens. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, use the template's SVG classes, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
-
-`examples/saved-views-plan.html` shows a filled template. Do not copy its content.
+Copy `examples/saved-views-plan.html` to the output path and replace its content with the plan. Keep its stylesheet and script. The stylesheet also styles components the example does not use: `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`; read their rules to build the markup. Add CSS only for a structure no component covers, built from the existing tokens. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
 
 ## Output
 
@@ -71,7 +69,6 @@ Write one file at the path the user gives, otherwise `<topic>-plan.html` in the 
 ## Verification
 
 1. Every item from your list appears, nothing appears without a source, and exact text matches.
-2. No `{{` remains.
-3. If a browser is available, check the page at about 1280px and 390px wide and in print preview for overflow, overlapping diagram labels, and unreadable tables. Fix and check again.
+2. If a browser is available, check the page at about 1280px and 390px wide and in print preview for overflow, overlapping diagram labels, and unreadable tables. Fix and check again.
 
 Reply with the path, one sentence on what the document covers, and anything a reviewer needs: gaps, unresolved conflicts, structure you inferred, and content you left out.
