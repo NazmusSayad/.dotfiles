@@ -24,20 +24,20 @@
 
   <nav class="contents">
     <ol>
-      <li><a href="#scope"><i class="fa-solid fa-crosshairs fa-fw"></i> Scope</a></li>
-      <li><a href="#flow"><i class="fa-solid fa-diagram-project fa-fw"></i> How a view works</a></li>
-      <li><a href="#phases"><i class="fa-solid fa-list-ol fa-fw"></i> Phases</a></li>
-      <li><a href="#summary"><i class="fa-solid fa-table-list fa-fw"></i> Summary</a></li>
-      <li><a href="#files"><i class="fa-solid fa-folder-tree fa-fw"></i> Files to change</a></li>
-      <li><a href="#notes"><i class="fa-solid fa-clipboard-list fa-fw"></i> Notes</a></li>
-      <li><a href="#done"><i class="fa-solid fa-list-check fa-fw"></i> Checks before release</a></li>
+      <li><a href="#scope"><i class="fa-regular fa-circle-dot fa-fw"></i> Scope</a></li>
+      <li><a href="#flow"><i class="fa-regular fa-map fa-fw"></i> How a view works</a></li>
+      <li><a href="#phases"><i class="fa-regular fa-rectangle-list fa-fw"></i> Phases</a></li>
+      <li><a href="#notes"><i class="fa-regular fa-note-sticky fa-fw"></i> Notes</a></li>
+      <li><a href="#summary"><i class="fa-regular fa-clipboard fa-fw"></i> Summary</a></li>
+      <li><a href="#files"><i class="fa-regular fa-folder-open fa-fw"></i> Files to change</a></li>
+      <li><a href="#done"><i class="fa-regular fa-square-check fa-fw"></i> Checks before release</a></li>
     </ol>
   </nav>
 
   <main>
 
     <section id="scope">
-      <h2><i class="fa-solid fa-crosshairs fa-fw text-accent"></i> Scope</h2>
+      <h2>Scope</h2>
       <ul>
         <li>Make, open, and delete a private view, and change its name.</li>
         <li>Keep the owner, the name, the filter text, and the time of each change.</li>
@@ -47,7 +47,7 @@
     </section>
 
     <section id="flow">
-      <h2><i class="fa-solid fa-diagram-project fa-fw text-accent"></i> How a view works</h2>
+      <h2>How a view works</h2>
       <figure>
         <div class="figure-frame">
           <svg class="diagram" viewBox="0 0 720 170">
@@ -80,7 +80,7 @@
     </section>
 
     <section id="phases">
-      <h2><i class="fa-solid fa-list-ol fa-fw text-accent"></i> Phases</h2>
+      <h2>Phases</h2>
       <ol class="steps">
         <li id="phase-persist">
           <h3>Store private views</h3>
@@ -117,8 +117,22 @@
       </ol>
     </section>
 
+    <section id="notes">
+      <h2>Notes</h2>
+      <ul class="fa-ul">
+        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Keep the filter text from the page address.</strong> The current code already reads it, checks it, and uses it for browser history and bookmarks.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Views are private in this release.</strong> Each view has one owner.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Use the current on/off switch for accounts.</strong> You can turn the feature off at any time, and no new release tool is necessary.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-xmark text-risk"></i></span><strong>Rejected: keep each filter in a separate field.</strong> This copies the filter rules into a second place. Then each change to the filter rules needs a database change.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-warn"></i></span><strong>Saved filter text can become old when the filters change.</strong> The incident list ignores filters that it does not know. The server refuses filter text that the current code cannot read.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-warn"></i></span><strong>Long names do not fit in the list.</strong> Names have a limit of 60 characters. Screen readers still get the full name.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-question text-accent"></i></span><strong>How many views can one user keep?</strong> The plan does not give a limit.</li>
+        <li><span class="fa-li"><i class="fa-solid fa-circle-question text-accent"></i></span><strong>What does the list show when a saved view has filters that the incident list does not know?</strong> The incident list ignores those filters, but the user does not see a message.</li>
+      </ul>
+    </section>
+
     <section id="summary">
-      <h2><i class="fa-solid fa-table-list fa-fw text-accent"></i> Summary</h2>
+      <h2>Summary</h2>
       <div class="table-scroll">
         <table>
           <thead>
@@ -134,7 +148,7 @@
     </section>
 
     <section id="files">
-      <h2><i class="fa-solid fa-folder-tree fa-fw text-accent"></i> Files to change</h2>
+      <h2>Files to change</h2>
       <ul class="fa-ul">
         <li><span class="fa-li"><i class="fa-regular fa-folder text-dim"></i></span><code>db/migrations/</code>
           <ul class="fa-ul">
@@ -155,22 +169,8 @@
       </ul>
     </section>
 
-    <section id="notes">
-      <h2><i class="fa-solid fa-clipboard-list fa-fw text-accent"></i> Notes</h2>
-      <ul class="fa-ul">
-        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Keep the filter text from the page address.</strong> The current code already reads it, checks it, and uses it for browser history and bookmarks.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Views are private in this release.</strong> Each view has one owner.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-check text-ok"></i></span><strong>Use the current on/off switch for accounts.</strong> You can turn the feature off at any time, and no new release tool is necessary.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-xmark text-risk"></i></span><strong>Rejected: keep each filter in a separate field.</strong> This copies the filter rules into a second place. Then each change to the filter rules needs a database change.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-warn"></i></span><strong>Saved filter text can become old when the filters change.</strong> The incident list ignores filters that it does not know. The server refuses filter text that the current code cannot read.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-warn"></i></span><strong>Long names do not fit in the list.</strong> Names have a limit of 60 characters. Screen readers still get the full name.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-question text-accent"></i></span><strong>How many views can one user keep?</strong> The plan does not give a limit.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-circle-question text-accent"></i></span><strong>What does the list show when a saved view has filters that the incident list does not know?</strong> The incident list ignores those filters, but the user does not see a message.</li>
-      </ul>
-    </section>
-
     <section id="done">
-      <h2><i class="fa-solid fa-list-check fa-fw text-accent"></i> Checks before release</h2>
+      <h2>Checks before release</h2>
       <ul class="checklist">
         <li>A user can make, open, and delete a view, and change its name.</li>
         <li>A different user cannot read or change that view.</li>
