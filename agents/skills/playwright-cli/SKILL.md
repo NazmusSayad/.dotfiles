@@ -1,6 +1,6 @@
 ---
 name: playwright-cli
-description: Drives a live browser through the global `playwright-cli` command to inspect, interact with and capture web pages. Use when working with `playwright-cli`.
+description: Drives a live browser through the global `playwright-cli` command to inspect, interact with and capture web pages. MUST USE this skill when before working with `playwright-cli`.
 ---
 
 ## How it works
