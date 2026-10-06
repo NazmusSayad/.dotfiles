@@ -55,7 +55,7 @@ Use the simplest form that shows the source's actual structure:
 | Work with stated start and end dates | `.gantt` |
 | Stated branches, loops, parallel paths, or links among four or more parts | SVG diagram |
 | Given numbers worth comparing | `.bars` |
-| Decisions, risks, assumptions, or rejected options with reasons | Bulleted list, each item opening with the item in bold |
+| Decisions, rejected options, risks, assumptions, and open questions | One bulleted list in the Notes section, each item opening with the item in bold and an icon that shows its kind |
 | Conflicts, blockers, or open points inside a section | `.callout` |
 | Optional evidence | `<details>` |
 

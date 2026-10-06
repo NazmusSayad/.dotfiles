@@ -167,7 +167,8 @@ h2 > i, h3 > i { margin-right: .2em; font-size: .8em; }
     padding: .5rem 0 0;
   }
   .contents ol { display: block; }
-  .contents a { min-height: 0; padding: .35rem 0; color: var(--text-dim); }
+  .page:has(> .contents) .contents { font-size: .8125rem; }
+  .contents a { min-height: 0; padding: .25rem 0; color: #8a9099; }
 }
 
 main { grid-area: main; }
