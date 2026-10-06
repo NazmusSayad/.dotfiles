@@ -25,23 +25,6 @@
   --radius: 6px;
   color-scheme: light;
 }
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121417;
-    --surface: #1b1e22;
-    --border: #2c3036;
-    --border-strong: #707781;
-    --text: #e8e8e4;
-    --text-dim: #a4aab2;
-    --accent: #9aabff;
-    --accent-soft: #1f2645;
-    --ok: #6cc492;
-    --warn: #e3b94d;
-    --risk: #f0806b;
-    color-scheme: dark;
-  }
-}
-
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 html { scroll-behavior: smooth; }
