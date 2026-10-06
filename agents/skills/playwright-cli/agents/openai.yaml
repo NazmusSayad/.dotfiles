@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright CLI"
+  short_description: "Use a live browser to check and try things"
+  default_prompt: "Use $playwright-cli to open and operate this page in a browser."
