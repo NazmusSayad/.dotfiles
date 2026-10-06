@@ -529,7 +529,7 @@ details > summary + * { margin-top: var(--s1); }
     <p class="lede">Users can save the filters of the incident list under a private name and open them again with one click. A saved view keeps only the filter part of the page address, so the page address stays the one place for filter settings.</p>
     <dl class="brief">
       <div><dt>Outcome</dt><dd>Searches that users do frequently open with one click.</dd></div>
-      <div><dt>Scope</dt><dd>Private views with names only. No sharing.</dd></div>
+      <div><dt>Scope</dt><dd>Private views with names.</dd></div>
       <div><dt>Approach</dt><dd>Three phases, in this order: storage, controls, release.</dd></div>
       <div><dt>Limit</dt><dd>The page address stays the one place for filter settings.</dd></div>
     </dl>
@@ -551,19 +551,11 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="scope">
       <h2>Scope</h2>
-      <h3>Included</h3>
       <ul>
         <li>Make, open, and delete a private view, and change its name.</li>
         <li>Keep the owner, the name, the filter text, and the time of each change.</li>
         <li>Show which view is open. The filter controls stay as they are.</li>
         <li>All controls continue to work with the keyboard and on small screens.</li>
-      </ul>
-      <h3>Not included</h3>
-      <ul>
-        <li>Views that other users or teams can see.</li>
-        <li>Permissions, pins, sort order, or folders for views.</li>
-        <li>Changes to how filters or the incident search work.</li>
-        <li>Changes to bookmarks that users already have in their browsers.</li>
       </ul>
     </section>
 
@@ -649,7 +641,6 @@ details > summary + * { margin-top: var(--s1); }
             <tr><th><a href="#phase-persist">Store private views</a></th><td>The server keeps each view for its owner.</td><td>Not started</td></tr>
             <tr><th><a href="#phase-interface">Add the save and open controls</a></th><td>Users can save and open views.</td><td>Not started</td></tr>
             <tr><th><a href="#phase-release">Test and turn on</a></th><td>Internal users get the feature.</td><td>Not started</td></tr>
-            <tr><th>Open a saved view by default</th><td>Not decided.</td><td>Not in this release</td></tr>
           </tbody>
         </table>
       </div>
@@ -682,7 +673,7 @@ details > summary + * { margin-top: var(--s1); }
       <h3>Decisions</h3>
       <ul>
         <li><strong>Keep the filter text from the page address.</strong> The current code already reads it, checks it, and uses it for browser history and bookmarks.</li>
-        <li><strong>Views are private in this release.</strong> Each view has one owner. Shared views and permissions are not in this plan.</li>
+        <li><strong>Views are private in this release.</strong> Each view has one owner.</li>
         <li><strong>Use the current on/off switch for accounts.</strong> You can turn the feature off at any time, and no new release tool is necessary.</li>
         <li><strong>Rejected: keep each filter in a separate field.</strong> This copies the filter rules into a second place. Then each change to the filter rules needs a database change.</li>
       </ul>
@@ -691,10 +682,6 @@ details > summary + * { margin-top: var(--s1); }
         <li><strong>Saved filter text can become old when the filters change.</strong> The incident list ignores filters that it does not know. The server refuses filter text that the current code cannot read.</li>
         <li><strong>Long names do not fit in the list.</strong> Names have a limit of 60 characters. Screen readers still get the full name.</li>
       </ul>
-      <aside class="callout">
-        <p class="callout-title">Open question: can a user set a saved view to open by default?</p>
-        <p>This is not decided. This release does not include it, so the incident list keeps its current default filters.</p>
-      </aside>
     </section>
 
     <section id="done">
