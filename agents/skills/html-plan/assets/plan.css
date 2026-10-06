@@ -32,7 +32,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 1.0625rem/1.6 var(--font-text);
+  font: 1.0625rem/1.75 var(--font-text);
   font-kerning: normal;
   font-synthesis: none;
 }
