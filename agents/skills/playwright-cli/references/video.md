@@ -4,7 +4,7 @@ For a quick recording of steps you run as commands, use `video-start`, `video-ch
 
 | Method                                                      | Use                                                                                                                                                       |
 | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `start({ path, size, fps })` / `stop()`                     | Record to WebM                                                                                                                                            |
+| `start({ path, size, fps })` / `stop()`                     | Record to WebM; convert to `.mp4` afterwards                                                                                                              |
 | `showActions({ cursor, duration, position, style })`        | Animated cursor travelling to each action, plus optional click point, target highlight, and action title. Actions are paced by `duration` (default 500ms) |
 | `hideActions()`                                             | Stop annotating actions and hide the cursor                                                                                                               |
 | `showChapter(title, { description, duration, styleSheet })` | Full-screen card over a blurred page; blocks until `duration` ends                                                                                        |
@@ -15,7 +15,7 @@ For a quick recording of steps you run as commands, use `video-start`, `video-ch
 - `style.point`, `style.highlight` and `style.title` are CSS declaration strings. `point` and `highlight` are hidden unless set. `point` is zero-sized and centred on the click point, so give it a size. Prefer `outline` over `border` for `highlight`. Use `title: 'display: none'` to keep the cursor without the callout.
 - Overlays are `pointer-events: none`, so sticky overlays can stay visible while the code clicks and types.
 - Use `pressSequentially(text, { delay: 60 })` for natural typing and `waitForTimeout(500)` to `waitForTimeout(1500)` between steps.
-- Give `start` an absolute path under `.playwright/<group>/`.
+- Give `start` an absolute `.webm` path under `.playwright/<group>/`, then convert it to `.mp4` with `ffmpeg` and delete the `.webm`.
 
 ```bash
 playwright-cli run-code "$(cat <<'EOF'
