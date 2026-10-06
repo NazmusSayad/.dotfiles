@@ -526,12 +526,12 @@ details > summary + * { margin-top: var(--s1); }
 
   <header class="doc-header">
     <h1>Saved incident views</h1>
-    <p class="lede">Operators can save a filter combination under a private name and reopen it in one click. A saved view stores the current query string, so the URL stays the single source of filter state.</p>
+    <p class="lede">Users can save the filters of the incident list under a private name and open them again with one click. A saved view keeps only the filter part of the page address, so the page address stays the one place for filter settings.</p>
     <dl class="brief">
-      <div><dt>Outcome</dt><dd>Frequent searches become one-click views.</dd></div>
-      <div><dt>Scope</dt><dd>Private, named views only. No sharing.</dd></div>
-      <div><dt>Approach</dt><dd>Three dependent phases: persistence, interface, release.</dd></div>
-      <div><dt>Constraint</dt><dd>The URL remains the filter source of truth.</dd></div>
+      <div><dt>Outcome</dt><dd>Searches that users do frequently open with one click.</dd></div>
+      <div><dt>Scope</dt><dd>Private views with names only. No sharing.</dd></div>
+      <div><dt>Approach</dt><dd>Three phases, in this order: storage, controls, release.</dd></div>
+      <div><dt>Limit</dt><dd>The page address stays the one place for filter settings.</dd></div>
     </dl>
   </header>
 
@@ -540,9 +540,9 @@ details > summary + * { margin-top: var(--s1); }
       <li><a href="#scope">Scope</a></li>
       <li><a href="#flow">How a view works</a></li>
       <li><a href="#phases">Phases</a></li>
-      <li><a href="#files">Affected files</a></li>
+      <li><a href="#files">Files to change</a></li>
       <li><a href="#decisions">Decisions and risks</a></li>
-      <li><a href="#done">Completion checks</a></li>
+      <li><a href="#done">Checks before release</a></li>
     </ol>
   </nav>
 
@@ -550,20 +550,20 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="scope">
       <h2>Scope</h2>
-      <p>A saved view is a name plus the current query string. Reopening one restores that query through the route users already bookmark and share.</p>
+      <p>A saved view is a name and the filter part of the page address. When a user opens a saved view, the incident list uses the same page address that users bookmark and share now.</p>
       <h3>Included</h3>
       <ul>
-        <li>Create, rename, open, and delete a private view.</li>
-        <li>Persist the owner, name, query string, and timestamps.</li>
-        <li>Show the active view without replacing the filter controls.</li>
-        <li>Keep keyboard access and narrow-screen behavior intact.</li>
+        <li>Make, open, and delete a private view, and change its name.</li>
+        <li>Keep the owner, the name, the filter text, and the time of each change.</li>
+        <li>Show which view is open. The filter controls stay as they are.</li>
+        <li>All controls continue to work with the keyboard and on small screens.</li>
       </ul>
       <h3>Not included</h3>
       <ul>
-        <li>Shared or team-owned views.</li>
-        <li>View permissions, pinning, ordering, or folders.</li>
-        <li>Changes to filter syntax or incident search.</li>
-        <li>Migration of existing browser bookmarks.</li>
+        <li>Views that other users or teams can see.</li>
+        <li>Permissions, pins, sort order, or folders for views.</li>
+        <li>Changes to how filters or the incident search work.</li>
+        <li>Changes to bookmarks that users already have in their browsers.</li>
       </ul>
     </section>
 
@@ -579,24 +579,24 @@ details > summary + * { margin-top: var(--s1); }
             </defs>
             <path class="edge" d="M190 85H262" marker-end="url(#arrow)"/>
             <path class="edge" d="M450 85H522" marker-end="url(#arrow)"/>
-            <text class="edge-label" x="226" y="73">captures</text>
-            <text class="edge-label" x="486" y="73">replays</text>
+            <text class="edge-label" x="226" y="73">saves</text>
+            <text class="edge-label" x="486" y="73">opens</text>
             <rect class="node" x="20" y="45" width="170" height="80" rx="6"/>
             <rect class="node key" x="270" y="45" width="180" height="80" rx="6"/>
             <rect class="node" x="530" y="45" width="170" height="80" rx="6"/>
-            <text x="105" y="81">Incident URL</text>
-            <text class="sub" x="105" y="103">holds the query</text>
+            <text x="105" y="81">Page address</text>
+            <text class="sub" x="105" y="103">has the filters</text>
             <text x="360" y="81">Saved view</text>
-            <text class="sub" x="360" y="103">name + query string</text>
-            <text x="615" y="81">Incident route</text>
-            <text class="sub" x="615" y="103">existing filter code</text>
+            <text class="sub" x="360" y="103">name + filter text</text>
+            <text x="615" y="81">Incident list</text>
+            <text class="sub" x="615" y="103">current filter code</text>
           </svg>
         </div>
       </figure>
       <ol class="figure-text">
-        <li>The operator filters the incident list and chooses <strong>Save current view</strong>.</li>
-        <li>The server stores the name and canonical query string under that user.</li>
-        <li>Opening the view navigates to the stored query; the existing filter code renders the result.</li>
+        <li>The user sets filters on the incident list and clicks <strong>Save current view</strong>.</li>
+        <li>The server keeps the name and the filter text for that user.</li>
+        <li>When the user opens the view, the incident list loads that filter text. The current filter code shows the results.</li>
       </ol>
     </section>
 
@@ -604,52 +604,52 @@ details > summary + * { margin-top: var(--s1); }
       <h2>Phases</h2>
       <ol class="steps">
         <li id="phase-persist">
-          <h3>Persist private views</h3>
-          <p>Add the record, the ownership constraint, and authenticated create, list, update, and delete operations.</p>
+          <h3>Store private views</h3>
+          <p>Add a database table for views, with one owner for each view. Add server functions to make, list, change, and delete views. Only a signed-in user can use them.</p>
           <ul>
-            <li>Reject duplicate names for the same owner.</li>
-            <li>Return records only to their owner.</li>
-            <li>Store the canonical query string without parsing it into a second schema.</li>
+            <li>Do not let one owner have two views with the same name.</li>
+            <li>Send each view only to its owner.</li>
+            <li>Keep the filter text as it is. Do not split it into separate fields.</li>
           </ul>
           <dl class="fields">
-            <div><dt>Done when</dt><dd>API checks cover ownership, duplicate names, malformed queries, and deletion.</dd></div>
+            <div><dt>Done when</dt><dd>Tests of the server functions cover owners, duplicate names, incorrect filter text, and delete.</dd></div>
           </dl>
         </li>
         <li id="phase-interface">
-          <h3>Add save and open controls</h3>
-          <p>Place a saved-view selector beside the filter controls and a save action inside the filter panel.</p>
+          <h3>Add the save and open controls</h3>
+          <p>Put a list of saved views next to the filter controls. Put a save button in the filter panel.</p>
           <ul>
-            <li>Keep the active query visible and editable.</li>
-            <li>Use a dialog only for naming or renaming.</li>
-            <li>Return focus to the invoking control when the dialog closes.</li>
+            <li>The user can always see and change the current filters.</li>
+            <li>Use a dialog box only to give or change a name.</li>
+            <li>When the dialog box closes, move the keyboard focus back to the control that opened it.</li>
           </ul>
           <dl class="fields">
-            <div><dt>Depends on</dt><dd><a href="#phase-persist">Persist private views</a>: the API and its final error responses.</dd></div>
+            <div><dt>Depends on</dt><dd><a href="#phase-persist">Store private views</a>, with its final error messages</dd></div>
           </dl>
         </li>
         <li id="phase-release">
-          <h3>Verify and enable</h3>
-          <p>Exercise the complete flow behind the existing account feature flag, then enable it for internal operators.</p>
+          <h3>Test and turn on</h3>
+          <p>Test the full feature while it is behind the current on/off switch for accounts. Then turn it on for internal users.</p>
           <dl class="fields">
-            <div><dt>Depends on</dt><dd><a href="#phase-interface">Add save and open controls</a></dd></div>
-            <div><dt>Rollback</dt><dd>Disable the flag. Stored records stay inert and can be kept.</dd></div>
+            <div><dt>Depends on</dt><dd><a href="#phase-interface">Add the save and open controls</a></dd></div>
+            <div><dt>To undo</dt><dd>Turn off the switch. Saved views stay in the database and do nothing. You can keep them.</dd></div>
           </dl>
         </li>
       </ol>
     </section>
 
     <section id="files">
-      <h2>Affected files</h2>
+      <h2>Files to change</h2>
       <div class="table-scroll">
         <table>
           <thead>
-            <tr><th>File</th><th>Change</th><th>Evidence</th></tr>
+            <tr><th>File</th><th>Change</th><th>Test</th></tr>
           </thead>
           <tbody>
-            <tr><th><code>db/migrations/*_saved_views.sql</code></th><td>Add the owned saved-view record and uniqueness constraint.</td><td>Migration applies and rolls back on a populated development database.</td></tr>
-            <tr><th><code>src/server/saved-views.ts</code></th><td>Expose owner-scoped CRUD operations.</td><td>API checks prove isolation between two users.</td></tr>
-            <tr><th><code>src/incidents/SavedViewMenu.tsx</code></th><td>List, open, rename, and delete private views.</td><td>Opening a record updates the URL and the existing controls.</td></tr>
-            <tr><th><code>src/incidents/SaveViewDialog.tsx</code></th><td>Collect and validate a name for the current query.</td><td>Keyboard, duplicate-name, error, and focus-return paths pass.</td></tr>
+            <tr><th><code>db/migrations/*_saved_views.sql</code></th><td>Add the saved-view table. One owner cannot have two views with the same name.</td><td>The change applies and can be undone on a development database that has data.</td></tr>
+            <tr><th><code>src/server/saved-views.ts</code></th><td>Make, read, change, and delete views for their owner only.</td><td>Tests show that a user cannot get the views of a different user.</td></tr>
+            <tr><th><code>src/incidents/SavedViewMenu.tsx</code></th><td>List, open, and delete private views, and change their names.</td><td>Opening a view changes the page address and the filter controls.</td></tr>
+            <tr><th><code>src/incidents/SaveViewDialog.tsx</code></th><td>Get a name for the current filters and check it.</td><td>Tests pass for keyboard use, duplicate names, errors, and focus return.</td></tr>
           </tbody>
         </table>
       </div>
@@ -657,36 +657,36 @@ details > summary + * { margin-top: var(--s1); }
 
     <section id="decisions">
       <h2>Decisions and risks</h2>
-      <p>Three decisions and one rejected alternative shape this release. Each risk has a stated mitigation.</p>
+      <p>Three decisions and one rejected option set how this release works. Each risk has a plan to make it smaller.</p>
       <h3>Decisions</h3>
       <ul>
-        <li><strong>Store the canonical query string.</strong> It reuses the current parsing, validation, browser history, and bookmark behavior.</li>
-        <li><strong>Keep views private in this release.</strong> Ownership stays binary; sharing and permission design stay out of scope.</li>
-        <li><strong>Use the existing account feature flag.</strong> The rollout gets a reversible switch without a second release mechanism.</li>
-        <li><strong>Rejected: structured filter records.</strong> Storing each filter as separate fields would duplicate the URL schema and need a migration whenever filter syntax changes.</li>
+        <li><strong>Keep the filter text from the page address.</strong> The current code already reads it, checks it, and uses it for browser history and bookmarks.</li>
+        <li><strong>Views are private in this release.</strong> Each view has one owner. Shared views and permissions are not in this plan.</li>
+        <li><strong>Use the current on/off switch for accounts.</strong> You can turn the feature off at any time, and no new release tool is necessary.</li>
+        <li><strong>Rejected: keep each filter in a separate field.</strong> This copies the filter rules into a second place. Then each change to the filter rules needs a database change.</li>
       </ul>
       <h3>Risks</h3>
       <ul>
-        <li><strong>Stored queries outlive filter changes.</strong> Mitigation: the route ignores unknown parameters, and the API rejects queries the current parser cannot read.</li>
-        <li><strong>Long names crowd the selector.</strong> Mitigation: cap names at 60 characters and keep the full value in accessible text.</li>
+        <li><strong>Saved filter text can become old when the filters change.</strong> The incident list ignores filters that it does not know. The server refuses filter text that the current code cannot read.</li>
+        <li><strong>Long names do not fit in the list.</strong> Names have a limit of 60 characters. Screen readers still get the full name.</li>
       </ul>
       <aside class="callout">
         <p class="callout-title">Open question: can a user set a saved view to open by default?</p>
-        <p>Not decided. This release leaves it out, so the incident list keeps its current default filters.</p>
+        <p>This is not decided. This release does not include it, so the incident list keeps its current default filters.</p>
       </aside>
     </section>
 
     <section id="done">
-      <h2>Completion checks</h2>
+      <h2>Checks before release</h2>
       <ul class="checklist">
-        <li>A user can create, rename, open, and delete a view.</li>
-        <li>Another user cannot read or change that view.</li>
-        <li>Opening a view restores the exact canonical query.</li>
-        <li>Browser back and forward still work.</li>
-        <li>The complete flow works by keyboard.</li>
-        <li>The menu and dialog fit at 390px without page overflow.</li>
-        <li>Existing bookmarked filters behave unchanged.</li>
-        <li>Disabling the feature flag removes every new control.</li>
+        <li>A user can make, open, and delete a view, and change its name.</li>
+        <li>A different user cannot read or change that view.</li>
+        <li>Opening a view gives the same filters that the user saved.</li>
+        <li>The browser back and forward buttons work.</li>
+        <li>All steps work with the keyboard only.</li>
+        <li>The list and the dialog box fit on a screen 390 pixels wide, with no sideways scrolling.</li>
+        <li>Bookmarks that users already have work as before.</li>
+        <li>When the switch is off, no new control shows.</li>
       </ul>
     </section>
 
