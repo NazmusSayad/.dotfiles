@@ -47,7 +47,7 @@ h1 {
   letter-spacing: -.02em;
 }
 h2 {
-  font: 600 1.625rem/1.2 var(--font-display);
+  font: 600 1.875rem/1.2 var(--font-display);
   letter-spacing: -.01em;
 }
 h3 {
@@ -92,7 +92,6 @@ pre code { padding: 0; background: none; font-size: inherit; }
 .text-warn { color: var(--warn); }
 .text-risk { color: var(--risk); }
 .fa-ul .fa-ul { margin-top: var(--s2); }
-h2 > i, h3 > i { margin-right: .2em; font-size: .8em; }
 .contents i, .brief dt > i { margin-right: .35em; }
 
 .page {

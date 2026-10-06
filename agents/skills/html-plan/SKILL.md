@@ -65,7 +65,7 @@ A linear sequence is a list, not a diagram. Undated phases never become a timeli
 
 Copy `examples/saved-views-plan.html` to the output path and replace its content with the plan. Keep its two stylesheet links and its script, and add no other external assets. Never edit `assets/plan.css` and never write CSS in the plan. For components the example does not show, such as `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`, read their rules in `assets/plan.css` to build the markup.
 
-Use Font Awesome icons where the example uses them, each chosen for its meaning and colored with a `text-*` class on the icon itself. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
+Use Font Awesome icons where the example uses them, each chosen for its meaning and colored with a `text-*` class on the icon itself. Section headings have no icons. In the contents list, use outline icons (`fa-regular`). The free outline set is small, so use only icons it includes. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
 
 ## Output
 
