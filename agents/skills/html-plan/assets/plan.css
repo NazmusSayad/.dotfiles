@@ -103,11 +103,14 @@ pre {
 pre code { padding: 0; background: none; font-size: inherit; }
 ::selection { background: var(--accent-soft); }
 
-.fa-circle-check { color: var(--ok); }
-.fa-triangle-exclamation { color: var(--warn); }
-.fa-circle-xmark { color: var(--risk); }
-.fa-folder, .fa-file, .fa-circle, .fields dt i { color: var(--text-dim); }
+.text-accent { color: var(--accent); }
+.text-dim { color: var(--text-dim); }
+.text-ok { color: var(--ok); }
+.text-warn { color: var(--warn); }
+.text-risk { color: var(--risk); }
 .fa-ul .fa-ul { margin-top: var(--s2); }
+h2 > i, h3 > i { margin-right: .2em; font-size: .8em; }
+.contents i, .brief dt > i { margin-right: .35em; }
 
 .page {
   display: grid;
