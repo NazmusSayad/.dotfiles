@@ -1,0 +1,7 @@
+interface:
+  display_name: "Report"
+  short_description: "Write a report"
+  default_prompt: "Use $report to write a report."
+
+policy:
+  allow_implicit_invocation: false
