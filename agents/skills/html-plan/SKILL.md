@@ -1,6 +1,6 @@
 ---
 name: html-plan
-description: Renders an existing plan or plan discussion as a polished, standalone HTML document.
+description: Renders an existing plan or plan discussion as a polished HTML document.
 
 disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
@@ -32,11 +32,11 @@ You may reorder, group, split sentences, and choose the form of each part, but k
 
 ## Writing
 
-Write every piece of text in the document, including headings, labels, lists, tables, captions, and diagram text, in strict ASD-STE100 Simplified Technical English. There are no exceptions. Use no jargon. Every word must give the reader value.
+Write every piece of text, including headings, labels, and diagram text, in strict ASD-STE100 Simplified Technical English, with no jargon. There are no exceptions.
 
-Every sentence must help the reader understand the plan. Delete any sentence that only introduces, repeats, or sums up what is already on the page. Do not write captions or footers.
+Every sentence must help the reader understand the plan. Delete any sentence that only introduces, repeats, or sums up what is already on the page, and write no captions or footers.
 
-Open with one or two sentences that say what the plan delivers. Then follow the order a reader needs: what is in, how it works, the steps, what is decided or open, and how completion is checked. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
+Open with one or two sentences that say what the plan delivers. Follow the example's section order and drop the sections the source does not support. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
 
 ## Form
 
@@ -48,8 +48,8 @@ Use the simplest form that shows the source's actual structure:
 | Parallel items | Bulleted list |
 | Ordered actions or phases | `.steps` |
 | Three or more items that share two or more fields | Table |
-| Summary of the whole plan: each part, its result, and its status | Table, in a Summary section before the files |
-| Files to change | Folder tree, each file with one very short line on its change; leave out when the list does not help, such as for very large changes |
+| The parts of the plan and their results | Summary table; add a status column only when the source gives statuses |
+| Files to change | Folder tree with one very short line per file; omit it when the list does not help, such as for very large changes |
 | Completion checks | `.checklist` |
 | Events with stated dates | `.timeline` |
 | Work with stated start and end dates | `.gantt` |
@@ -63,11 +63,13 @@ A linear sequence is a list, not a diagram. Undated phases never become a timeli
 
 ## Template
 
-Copy `examples/saved-views-plan.html` to the output path and replace its content with the plan. Keep its two stylesheet links and its script. Never edit `assets/plan.css` and never write CSS in the plan. The stylesheet also styles components the example does not use: `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`; read their rules in `assets/plan.css` to build the markup. Use Font Awesome icons the way the example does: on each section heading and its contents link, on each summary label under the title, folders and files in the file tree, a check on decisions, a cross on rejected options, a warning on risks, and an icon on each status and field label. Pick each icon for its meaning, and color it with a `text-*` class on the icon itself. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
+Copy `examples/saved-views-plan.html` to the output path and replace its content with the plan. Keep its two stylesheet links and its script, and add no other external assets. Never edit `assets/plan.css` and never write CSS in the plan. For components the example does not show, such as `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`, read their rules in `assets/plan.css` to build the markup.
+
+Use Font Awesome icons where the example uses them, each chosen for its meaning and colored with a `text-*` class on the icon itself. Keep the contents list only when there are four or more sections. Give sections and steps `id`s so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
 
 ## Output
 
-Write one file at the path the user gives, otherwise `<topic>-plan.html` in the working directory. Do not overwrite an existing file without permission. Use no external assets except the two stylesheets the example links.
+Write the plan to `~/tmp/plans/<project>/<task>.html`, where `<project>` is the name of the current project folder and `<task>` is a short kebab-case name for the task. Create the folders if they do not exist. When you create the file, open it in the default browser. When you change an existing plan, do not open it.
 
 ## Verification
 
