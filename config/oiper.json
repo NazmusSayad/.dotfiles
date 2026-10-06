@@ -102,7 +102,7 @@
       "id": "basic-profile",
       "language": "en",
       "mode": "cloud",
-      "name": "Everything",
+      "name": "English",
       "transcribeAsrId": "groq-whisper"
     },
     {
@@ -124,8 +124,9 @@
         "ShiftRight+MetaLeft"
       ],
       "id": "prompt-profile",
+      "language": "bn",
       "mode": "cloud",
-      "name": "ElevenLabs",
+      "name": "Bangla",
       "transcribeAsrId": "elevenlabs-scribe"
     }
   ],
