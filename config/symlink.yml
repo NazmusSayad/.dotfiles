@@ -8,6 +8,7 @@
 
 # Agents Skills
 "@/agents/skills":
+  - "~/.agents/skills"
   - "~/.claude/skills"
   - "~/.gemini/antigravity-cli/skills"
 
