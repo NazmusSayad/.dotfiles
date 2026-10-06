@@ -540,6 +540,7 @@ details > summary + * { margin-top: var(--s1); }
       <li><a href="#scope">Scope</a></li>
       <li><a href="#flow">How a view works</a></li>
       <li><a href="#phases">Phases</a></li>
+      <li><a href="#summary">Summary</a></li>
       <li><a href="#files">Files to change</a></li>
       <li><a href="#decisions">Decisions and risks</a></li>
       <li><a href="#done">Checks before release</a></li>
@@ -637,21 +638,43 @@ details > summary + * { margin-top: var(--s1); }
       </ol>
     </section>
 
-    <section id="files">
-      <h2>Files to change</h2>
+    <section id="summary">
+      <h2>Summary</h2>
       <div class="table-scroll">
         <table>
           <thead>
-            <tr><th>File</th><th>Change</th><th>Test</th></tr>
+            <tr><th>Work</th><th>Result</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><th><code>db/migrations/*_saved_views.sql</code></th><td>Add the saved-view table. One owner cannot have two views with the same name.</td><td>The change applies and can be undone on a development database that has data.</td></tr>
-            <tr><th><code>src/server/saved-views.ts</code></th><td>Make, read, change, and delete views for their owner only.</td><td>Tests show that a user cannot get the views of a different user.</td></tr>
-            <tr><th><code>src/incidents/SavedViewMenu.tsx</code></th><td>List, open, and delete private views, and change their names.</td><td>Opening a view changes the page address and the filter controls.</td></tr>
-            <tr><th><code>src/incidents/SaveViewDialog.tsx</code></th><td>Get a name for the current filters and check it.</td><td>Tests pass for keyboard use, duplicate names, errors, and focus return.</td></tr>
+            <tr><th><a href="#phase-persist">Store private views</a></th><td>The server keeps each view for its owner.</td><td>Not started</td></tr>
+            <tr><th><a href="#phase-interface">Add the save and open controls</a></th><td>Users can save and open views.</td><td>Not started</td></tr>
+            <tr><th><a href="#phase-release">Test and turn on</a></th><td>Internal users get the feature.</td><td>Not started</td></tr>
+            <tr><th>Open a saved view by default</th><td>Not decided.</td><td>Not in this release</td></tr>
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section id="files">
+      <h2>Files to change</h2>
+      <ul>
+        <li><code>db/migrations/</code>
+          <ul>
+            <li><code>*_saved_views.sql</code>: adds the saved-view table.</li>
+          </ul>
+        </li>
+        <li><code>src/server/</code>
+          <ul>
+            <li><code>saved-views.ts</code>: makes, reads, changes, and deletes views.</li>
+          </ul>
+        </li>
+        <li><code>src/incidents/</code>
+          <ul>
+            <li><code>SavedViewMenu.tsx</code>: lists saved views.</li>
+            <li><code>SaveViewDialog.tsx</code>: asks for a view name.</li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
     <section id="decisions">
