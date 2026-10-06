@@ -1,0 +1,7 @@
+interface:
+  display_name: "HTML Plan"
+  short_description: "Turn an existing plan into clear HTML"
+  default_prompt: "Use $html-plan to turn this plan into a clear HTML document."
+
+policy:
+  allow_implicit_invocation: false
