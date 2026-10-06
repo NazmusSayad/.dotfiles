@@ -23,7 +23,7 @@ The document is a rendering of the plan. You may reorder sections for reading, g
 - Add nothing. No task, requirement, owner, date, estimate, duration, status, priority, dependency, risk, metric, or architecture the source does not state. A plausible addition is still an invention.
 - Drop nothing that affects the work. Every commitment, constraint, qualifier, edge case, and completion check survives.
 - Preserve force and certainty. "Must" stays must, "maybe" stays maybe, a proposal stays a proposal, and planned work never reads as done. Do not resolve hedges or open questions.
-- Keep exact text exact: names, numbers, dates, identifiers, paths, commands, code, and the source's own terms. Call each thing by the source's name for it, every time.
+- Keep exact text exact: names, numbers, dates, identifiers, paths, commands, and code. Call each thing by one name, every time.
 - Keep categories visible. Decisions, proposals, assumptions, and open questions are labeled as what they are.
 - Show conflicts. If the source contradicts itself without resolving it, show both statements in a callout; do not choose one.
 
@@ -32,6 +32,8 @@ Missing information stays missing. Omit any section or table column the source n
 Structure must not imply relationships the source does not establish. Number items only when the source gives an order.
 
 ## Writing
+
+Write every piece of text in the document, including headings, labels, lists, tables, captions, and diagram text, in strict ASD-STE100 Simplified Technical English. There are no exceptions. Use no jargon. Every word must give the reader value.
 
 A reader should learn from the first screen what the plan delivers, its scope, and its approach. Write the lede last, from statements already in the document. After the header, follow the order a reader needs: why, what is in and out, how, in what order, what is decided or open, and how completion is checked. Include only the sections the source supports.
 
