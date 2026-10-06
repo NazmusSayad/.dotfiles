@@ -68,6 +68,7 @@ rust-analyzer = "latest"
 
 # Cloud
 cloudflared = "latest"
+"github:openclaw/gogcli" = "latest"
 
 # Others
 # java = "latest"
