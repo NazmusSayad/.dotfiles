@@ -1,0 +1,7 @@
+interface:
+  display_name: "Customize OpenCode"
+  short_description: "Customize OpenCode"
+  default_prompt: "Use $customize-opencode to customize OpenCode."
+
+policy:
+  allow_implicit_invocation: false
