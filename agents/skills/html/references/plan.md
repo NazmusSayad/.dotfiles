@@ -22,11 +22,7 @@ You may reorder, group, split sentences, and choose the form of each part, but k
 
 ## Writing
 
-Write every piece of text, including headings, labels, and diagram text, in strict ASD-STE100 Simplified Technical English, with no exceptions.
-
-Every sentence must help the reader understand the plan. Delete any sentence that only introduces, repeats, or sums up what is already on the page. Write no captions or footers.
-
-Open with one or two sentences that say what the plan delivers. Follow the example's section order and drop sections the plan does not support. Bold only a few key terms. Do not mention the discussion, the source, or this skill.
+Follow the example's section order and drop sections the plan does not support. Do not mention the discussion or the source.
 
 ## Form
 
@@ -59,7 +55,3 @@ Use `examples/plan.html` as the template and replace its content with the plan. 
 Use Font Awesome icons where the example uses them. Choose each icon for its meaning and put a `text-*` color class on the icon itself. Section headings have no icons. In the contents list, use outline icons (`fa-regular`). The free outline set is small, so use only icons it includes.
 
 Keep the contents list only when there are four or more sections. Give sections and steps `id` values so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
-
-## Review
-
-Check the initial item list against the finished document. Report gaps, unresolved conflicts, structure you inferred, and plan content you left out.

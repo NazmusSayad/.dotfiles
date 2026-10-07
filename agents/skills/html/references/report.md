@@ -10,7 +10,7 @@ Do not infer a cause, trend, recommendation, or status that the source does not 
 
 ## Writing
 
-Open with one or two sentences that identify what the report covers and its most important stated result. Keep domain terms that carry exact meaning. Use plain, direct language around them.
+State the report's most important supplied result in the opening. Keep domain terms that carry exact meaning.
 
 Separate observations, source conclusions, and unresolved questions when the distinction matters. State limitations close to the affected finding. Do not hide a caveat in optional details when it changes how the reader should interpret a result.
 

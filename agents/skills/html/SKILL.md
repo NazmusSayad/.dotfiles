@@ -37,9 +37,15 @@ Do not invent facts, evidence, conclusions, statuses, dates, owners, priorities,
 
 Reorder and reshape material only as the selected profile permits. Fidelity to the source and the user's explicit document instructions takes priority over visual consistency.
 
-## Document
+## Writing
 
-Make every sentence useful. Do not add introductions, captions, summaries, or footers that repeat information already present. Do not mention this skill or the act of producing the document.
+Write headings, labels, diagram text, and prose in ASD-STE100 Simplified Technical English. Preserve exact technical names, identifiers, paths, commands, and code even when they do not follow that language standard.
+
+Every sentence must help the reader understand the material. Delete any sentence that only introduces, repeats, or sums up what is already on the page. Write no captions or footers.
+
+Open with one or two sentences that state what the document provides. Include only sections supported by the source. Bold only a few terms that readers must find quickly. Do not mention this skill or the act of producing the document.
+
+## Document
 
 Use semantic HTML and the simplest component that represents the actual relationship in the content. The document must remain understandable without icons, color, or figures. Give sections and other link targets stable `id` values. Include a contents list only when the document has four or more sections.
 
@@ -55,6 +61,6 @@ Write to `~/tmp/html/<project>/<document>.html`, where `<project>` is the curren
 
 ## Verification
 
-Do not open the document in a browser only to check it. Check the HTML structure, internal links, stylesheet path, profile requirements, source coverage, and all displayed values. Confirm that the document still communicates its meaning without figures.
+Do not open the document in a browser to check it. Check only that the HTML is correct and that the document follows every rule in this skill.
 
-Reply with the output path, one sentence about what the document covers, and any omissions, unresolved conflicts, inferred structure, or other facts a reviewer needs.
+Reply with the path, one sentence on what the document covers, and anything a reviewer needs: gaps, unresolved conflicts, structure you inferred, and content you left out.

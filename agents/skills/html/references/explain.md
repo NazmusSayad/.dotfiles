@@ -10,9 +10,7 @@ Do not invent an analogy, example, rationale, or implementation detail. If the s
 
 ## Writing
 
-Write in ASD-STE100 Simplified Technical English. Preserve exact names, identifiers, paths, commands, code, and quoted text. Define an unavoidable technical term in plain language the first time it appears.
-
-Start with the direct answer or the concept's purpose. Give context before detail. Keep related rules and exceptions together. Do not end with a summary that only repeats the explanation.
+Give the direct answer or the concept's purpose in the opening. Define an unavoidable technical term in plain language the first time it appears. Give context before detail. Keep related rules and exceptions together.
 
 ## Structure
 
