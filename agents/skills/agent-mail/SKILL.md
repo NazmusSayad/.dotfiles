@@ -1,6 +1,9 @@
 ---
 name: agent-mail
 description: Reads emails sent to the agent's mail domain.
+
+disable-model-invocation: true
+metadata: { opencode/autoinvoke: false }
 ---
 
 ## List
