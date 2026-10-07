@@ -15,6 +15,7 @@ cmake = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
 "aqua:Songmu/timeout" = "latest"
+"ttyd" = "latest"
 
 # File System
 jq = "latest"
