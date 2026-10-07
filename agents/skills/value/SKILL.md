@@ -1,6 +1,6 @@
 ---
 name: value
-description: Judges whether an idea, result, or proposed change makes sense and offers value to its intended audience. Improves that value when requested.
+description: Judges whether an idea, result, or proposed change makes sense and offers value to its intended audience.
 
 disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
