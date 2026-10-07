@@ -28,6 +28,8 @@ func main() {
 	}
 
 	var limit int
+	var from, subject, text, after, before string
+	var unread, includeTrash bool
 	listCommand := &cobra.Command{
 		Use:   "list",
 		Short: "List mails, newest first",
@@ -36,6 +38,42 @@ func main() {
 			if limit < 1 || limit > 100 {
 				fmt.Fprintln(os.Stderr, "--limit must be between 1 and 100")
 				os.Exit(1)
+			}
+
+			query := []string{"to:" + domain}
+			for _, filter := range []struct{ name, operator, value string }{
+				{"from", "from:", from},
+				{"subject", "subject:", subject},
+				{"text", "", text},
+			} {
+				if filter.value == "" {
+					continue
+				}
+				if strings.Contains(filter.value, `"`) {
+					fmt.Fprintln(os.Stderr, "--"+filter.name+` must not contain "`)
+					os.Exit(1)
+				}
+				query = append(query, filter.operator+`"`+filter.value+`"`)
+			}
+			for _, filter := range []struct{ name, operator, value string }{
+				{"after", "after:", after},
+				{"before", "before:", before},
+			} {
+				if filter.value == "" {
+					continue
+				}
+				date, err := time.Parse("2006-01-02", filter.value)
+				if err != nil {
+					fmt.Fprintln(os.Stderr, "--"+filter.name+" must be a date like 2026-10-07")
+					os.Exit(1)
+				}
+				query = append(query, filter.operator+date.Format("2006/01/02"))
+			}
+			if unread {
+				query = append(query, "is:unread")
+			}
+			if includeTrash {
+				query = append(query, "in:anywhere")
 			}
 
 			var result struct {
@@ -47,14 +85,14 @@ func main() {
 					Subject string `json:"subject"`
 				} `json:"messages"`
 			}
-			gog(&result, "gmail", "messages", "search", "to:"+domain, "--max", strconv.Itoa(limit))
+			gog(&result, "gmail", "messages", "search", strings.Join(query, " "), "--max", strconv.Itoa(limit))
 
-			fmt.Println("# List of mails")
 			if len(result.Messages) == 0 {
 				fmt.Println()
 				fmt.Println("No mails found.")
 				return
 			}
+
 			for _, message := range result.Messages {
 				sent, err := time.Parse(time.RFC3339, message.DateISO)
 				if err != nil {
@@ -70,6 +108,13 @@ func main() {
 		},
 	}
 	listCommand.Flags().IntVar(&limit, "limit", 5, "Number of mails to list (1-100)")
+	listCommand.Flags().StringVar(&from, "from", "", "Only mails from this sender (name or address)")
+	listCommand.Flags().StringVar(&subject, "subject", "", "Only mails whose subject contains this phrase")
+	listCommand.Flags().StringVar(&text, "text", "", "Only mails containing this phrase anywhere")
+	listCommand.Flags().StringVar(&after, "after", "", "Only mails after this date (YYYY-MM-DD)")
+	listCommand.Flags().StringVar(&before, "before", "", "Only mails before this date (YYYY-MM-DD)")
+	listCommand.Flags().BoolVar(&unread, "unread", false, "Only unread mails")
+	listCommand.Flags().BoolVar(&includeTrash, "include-trash", false, "Also include mails in trash and spam")
 	command.AddCommand(listCommand)
 
 	var format string
