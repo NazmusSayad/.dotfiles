@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>How browser cache validation works</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+<link rel="stylesheet" href="file:///Users/sayad/.dotfiles/agents/skills/html/assets/styles.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <h1>How browser cache validation works</h1>
+    <p class="lede">Cache validation lets a browser check whether a stored response is still current. The server can confirm the stored response without sending the response body again.</p>
+  </header>
+
+  <nav class="contents">
+    <ol>
+      <li><a href="#parts"><i class="fa-regular fa-rectangle-list fa-fw"></i> Parts</a></li>
+      <li><a href="#flow"><i class="fa-regular fa-map fa-fw"></i> Request flow</a></li>
+      <li><a href="#results"><i class="fa-regular fa-circle-check fa-fw"></i> Results</a></li>
+      <li><a href="#boundary"><i class="fa-regular fa-circle-question fa-fw"></i> Important boundary</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="parts">
+      <h2>Parts</h2>
+      <ul>
+        <li>An <strong>ETag</strong> is a value that identifies one version of a response.</li>
+        <li>The browser stores the response body and its ETag.</li>
+        <li>The server compares the stored ETag with the ETag of the current response.</li>
+      </ul>
+    </section>
+
+    <section id="flow">
+      <h2>Request flow</h2>
+      <figure>
+        <div class="figure-frame">
+          <svg class="diagram" viewBox="0 0 760 290">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path class="arrowhead" d="M0 0L10 5L0 10Z"/>
+              </marker>
+            </defs>
+            <path class="edge" d="M205 65H280" marker-end="url(#arrow)"/>
+            <path class="edge" d="M470 65H545" marker-end="url(#arrow)"/>
+            <path class="edge" d="M640 105V190H505" marker-end="url(#arrow)"/>
+            <path class="edge" d="M640 105V240H205" marker-end="url(#arrow)"/>
+            <text class="edge-label" x="242" y="53">sends ETag</text>
+            <text class="edge-label" x="508" y="53">checks version</text>
+            <text class="edge-label" x="590" y="178">same</text>
+            <text class="edge-label" x="425" y="228">different</text>
+            <rect class="node" x="15" y="25" width="190" height="80" rx="6"/>
+            <rect class="node key" x="280" y="25" width="190" height="80" rx="6"/>
+            <rect class="node" x="545" y="25" width="190" height="80" rx="6"/>
+            <rect class="node" x="315" y="160" width="190" height="70" rx="6"/>
+            <rect class="node" x="15" y="205" width="190" height="70" rx="6"/>
+            <text x="110" y="59">Stored response</text>
+            <text class="sub" x="110" y="81">body + ETag</text>
+            <text x="375" y="59">Conditional request</text>
+            <text class="sub" x="375" y="81">If-None-Match</text>
+            <text x="640" y="59">Server</text>
+            <text class="sub" x="640" y="81">compares ETags</text>
+            <text x="410" y="188">304 response</text>
+            <text class="sub" x="410" y="210">no response body</text>
+            <text x="110" y="233">200 response</text>
+            <text class="sub" x="110" y="255">new body + ETag</text>
+          </svg>
+        </div>
+      </figure>
+      <ol class="figure-text">
+        <li>The browser sends the stored ETag in the <code>If-None-Match</code> request header.</li>
+        <li>The server compares that value with the ETag of the current response.</li>
+        <li>The server sends <code>304 Not Modified</code> when the values match. The browser uses the stored body.</li>
+        <li>The server sends <code>200 OK</code>, the current body, and its ETag when the values do not match.</li>
+      </ol>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Comparison</th><th>Server response</th><th>Browser action</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>ETags match</th><td><code>304 Not Modified</code>, without the body</td><td>Use the stored body</td></tr>
+            <tr><th>ETags do not match</th><td><code>200 OK</code>, with the current body and ETag</td><td>Use and store the new response</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="boundary">
+      <h2>Important boundary</h2>
+      <div class="callout">
+        <p class="callout-title">Validation and freshness are different.</p>
+        <p>A fresh stored response can be used without contacting the server. Validation starts when the browser must ask whether a stored response is still current.</p>
+      </div>
+    </section>
+  </main>
+
+</div>
+<script>
+  const closedDetails = [];
+  addEventListener("beforeprint", () => {
+    for (const details of document.querySelectorAll("details:not([open])")) {
+      details.open = true;
+      closedDetails.push(details);
+    }
+  });
+  addEventListener("afterprint", () => {
+    for (const details of closedDetails.splice(0)) details.open = false;
+  });
+</script>
+</body>
+</html>

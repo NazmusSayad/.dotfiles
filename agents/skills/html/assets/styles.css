@@ -132,6 +132,31 @@ pre code { padding: 0; background: none; font-size: inherit; }
 .meta dt { color: var(--text-dim); }
 .meta dd { font-weight: 600; }
 
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--s5);
+  margin-top: var(--s6);
+}
+.metrics > div {
+  padding-top: var(--s3);
+  border-top: 2px solid var(--border-strong);
+}
+.metrics dt {
+  color: var(--text-dim);
+  font-size: .8125rem;
+  line-height: 1.4;
+}
+.metrics dd {
+  margin-top: var(--s1);
+  font: 600 1.75rem/1.2 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.metrics dd span {
+  color: var(--text-dim);
+  font: 400 .875rem/1.4 var(--font-text);
+}
+
 .contents {
   grid-area: nav;
   margin-top: var(--s7);
@@ -500,7 +525,7 @@ details > summary + * { margin-top: var(--s1); }
   h2, h3, summary { break-after: avoid; }
   main > section, main > section:first-child { margin-top: 28pt; }
   p, li { orphans: 3; widows: 3; }
-  figure, tr, pre, .callout, .timeline > li, .gantt-row { break-inside: avoid; }
+  figure, tr, pre, .callout, .timeline > li, .gantt-row, .metrics > div { break-inside: avoid; }
   thead { display: table-header-group; }
   .table-scroll, .figure-frame { overflow: visible; }
   .diagram { min-width: 0; }

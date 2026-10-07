@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Repository labels</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+<link rel="stylesheet" href="file:///Users/sayad/.dotfiles/agents/skills/html/assets/styles.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <h1>Repository labels</h1>
+    <p class="lede">Labels describe the kind of work in an issue, the affected area, and whether the issue needs special attention.</p>
+  </header>
+
+  <nav class="contents">
+    <ol>
+      <li><a href="#use"><i class="fa-regular fa-circle-check fa-fw"></i> Use</a></li>
+      <li><a href="#groups"><i class="fa-regular fa-rectangle-list fa-fw"></i> Label groups</a></li>
+      <li><a href="#rules"><i class="fa-regular fa-note-sticky fa-fw"></i> Naming rules</a></li>
+      <li><a href="#automation"><i class="fa-regular fa-folder-open fa-fw"></i> Automation detail</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="use">
+      <h2>Use</h2>
+      <ul>
+        <li>Give each issue one type label.</li>
+        <li>Add all area labels that apply.</li>
+        <li>Add an attention label only while its condition is true.</li>
+      </ul>
+    </section>
+
+    <section id="groups">
+      <h2>Label groups</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Group</th><th>Purpose</th><th>Labels</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Type</th><td>Identifies the kind of work</td><td><code>bug</code>, <code>feature</code>, <code>maintenance</code></td></tr>
+            <tr><th>Area</th><td>Identifies affected code or documentation</td><td><code>area/api</code>, <code>area/web</code>, <code>area/docs</code></td></tr>
+            <tr><th>Attention</th><td>Identifies a condition that needs action</td><td><code>needs-info</code>, <code>blocked</code>, <code>security-review</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <p class="callout-title">Priority is not a label.</p>
+        <p>The project board stores priority. Keeping it there prevents two different priority values on one issue.</p>
+      </div>
+    </section>
+
+    <section id="rules">
+      <h2>Naming rules</h2>
+      <ul>
+        <li>Use lowercase words.</li>
+        <li>Join words with a hyphen.</li>
+        <li>Use a slash between a group and a value, as in <code>area/web</code>.</li>
+        <li>Do not put a team name in a label.</li>
+      </ul>
+    </section>
+
+    <section id="automation">
+      <h2>Automation detail</h2>
+      <details>
+        <summary>Labels applied from changed paths</summary>
+        <ul>
+          <li>A change under <code>src/api/</code> adds <code>area/api</code>.</li>
+          <li>A change under <code>src/web/</code> adds <code>area/web</code>.</li>
+          <li>A change under <code>docs/</code> adds <code>area/docs</code>.</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+</div>
+<script>
+  const closedDetails = [];
+  addEventListener("beforeprint", () => {
+    for (const details of document.querySelectorAll("details:not([open])")) {
+      details.open = true;
+      closedDetails.push(details);
+    }
+  });
+  addEventListener("afterprint", () => {
+    for (const details of closedDetails.splice(0)) details.open = false;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Incident response — week 40</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+<link rel="stylesheet" href="file:///Users/sayad/.dotfiles/agents/skills/html/assets/styles.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <h1>Incident response — week 40</h1>
+    <p class="lede">The team resolved 31 of 34 incidents from 28 September through 4 October 2026. Response time stayed within the 15-minute target for critical incidents, while three lower-priority incidents remained open at the end of the period.</p>
+    <dl class="meta">
+      <div><dt>Period</dt><dd>28 September–4 October 2026</dd></div>
+      <div><dt>Scope</dt><dd>Production incidents handled by the platform team</dd></div>
+      <div><dt>Source</dt><dd>Incident system export at 09:00 UTC on 5 October 2026</dd></div>
+    </dl>
+    <dl class="metrics">
+      <div><dt>Incidents opened</dt><dd>34</dd></div>
+      <div><dt>Incidents resolved</dt><dd>31 <span>91%</span></dd></div>
+      <div><dt>Median response</dt><dd>8 <span>minutes</span></dd></div>
+      <div><dt>Open at period end</dt><dd>3</dd></div>
+    </dl>
+  </header>
+
+  <nav class="contents">
+    <ol>
+      <li><a href="#volume"><i class="fa-regular fa-chart-bar fa-fw"></i> Volume</a></li>
+      <li><a href="#service"><i class="fa-regular fa-clock fa-fw"></i> Response targets</a></li>
+      <li><a href="#open"><i class="fa-regular fa-rectangle-list fa-fw"></i> Open incidents</a></li>
+      <li><a href="#limits"><i class="fa-regular fa-circle-question fa-fw"></i> Limits</a></li>
+      <li><a href="#sources"><i class="fa-regular fa-folder-open fa-fw"></i> Sources</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="volume">
+      <h2>Volume</h2>
+      <p>Authentication had the largest incident count. The source records the following incidents by service:</p>
+      <dl class="bars">
+        <div><dt>Authentication</dt><dd><span class="bar" style="--value: 100%"></span><span>12</span></dd></div>
+        <div><dt>Payments</dt><dd><span class="bar" style="--value: 75%"></span><span>9</span></dd></div>
+        <div><dt>Search</dt><dd><span class="bar" style="--value: 58.33%"></span><span>7</span></dd></div>
+        <div><dt>Other services</dt><dd><span class="bar" style="--value: 50%"></span><span>6</span></dd></div>
+      </dl>
+    </section>
+
+    <section id="service">
+      <h2>Response targets</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Priority</th><th class="num">Incidents</th><th>Target</th><th>Within target</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Critical</th><td class="num">4</td><td>15 minutes</td><td><span class="status ok">4 of 4</span></td></tr>
+            <tr><th>High</th><td class="num">11</td><td>30 minutes</td><td><span class="status warn">9 of 11</span></td></tr>
+            <tr><th>Normal</th><td class="num">19</td><td>4 hours</td><td><span class="status ok">19 of 19</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="open">
+      <h2>Open incidents</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Incident</th><th>Service</th><th>Priority</th><th>Status at period end</th></tr>
+          </thead>
+          <tbody>
+            <tr><th><code>INC-1842</code></th><td>Payments</td><td>High</td><td>Monitoring</td></tr>
+            <tr><th><code>INC-1847</code></th><td>Authentication</td><td>Normal</td><td>Fix in review</td></tr>
+            <tr><th><code>INC-1851</code></th><td>Search</td><td>Normal</td><td>Cause under investigation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="limits">
+      <h2>Limits</h2>
+      <div class="callout warn">
+        <p class="callout-title">The export records the first response, not the first useful response.</p>
+        <p>The response-time results can show whether an acknowledgment was timely. They cannot show whether that acknowledgment helped resolve the incident.</p>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>Sources</h2>
+      <details>
+        <summary>Export and field definitions</summary>
+        <ul>
+          <li><code>incident-export-2026-10-05.csv</code> supplies incident identifiers, services, priorities, timestamps, and period-end statuses.</li>
+          <li><code>response-targets-v3.md</code> supplies the target for each priority.</li>
+          <li>Response time is the interval from the recorded incident start to the first recorded team response.</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+</div>
+<script>
+  const closedDetails = [];
+  addEventListener("beforeprint", () => {
+    for (const details of document.querySelectorAll("details:not([open])")) {
+      details.open = true;
+      closedDetails.push(details);
+    }
+  });
+  addEventListener("afterprint", () => {
+    for (const details of closedDetails.splice(0)) details.open = false;
+  });
+</script>
+</body>
+</html>
