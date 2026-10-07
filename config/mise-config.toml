@@ -68,8 +68,11 @@ rust-analyzer = "latest"
 
 # Cloud
 cloudflared = "latest"
-"osv-scanner" = "latest"
 "github:openclaw/gogcli" = "latest"
+
+# Security
+"osv-scanner" = "latest"
+"github:SocketDev/sfw-free" = "latest"
 
 # Others
 # java = "latest"
