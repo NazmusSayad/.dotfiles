@@ -17,13 +17,13 @@ import (
 func main() {
 	command := &cobra.Command{
 		Use:   "agent-mail",
-		Short: "Read mails labeled Test",
+		Short: "Read mails",
 	}
 
 	var limit int
 	listCommand := &cobra.Command{
 		Use:   "list",
-		Short: "List mails labeled Test, newest first",
+		Short: "List mails, newest first",
 		Args:  cobra.NoArgs,
 		Run: func(_ *cobra.Command, _ []string) {
 			if limit < 1 || limit > 100 {
@@ -45,7 +45,7 @@ func main() {
 			fmt.Println("# List of mails")
 			if len(result.Messages) == 0 {
 				fmt.Println()
-				fmt.Println("No mails labeled Test found.")
+				fmt.Println("No mails found.")
 				return
 			}
 			for _, message := range result.Messages {
