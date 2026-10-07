@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent Mail"
+  short_description: "Read emails sent to the agent's mail domain"
+  default_prompt: "Use $agent-mail to find and read the latest email."
+
+policy:
+  allow_implicit_invocation: false
