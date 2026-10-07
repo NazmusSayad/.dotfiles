@@ -107,6 +107,7 @@ yt-dlp = "latest"
 
 # Personal
 "npm:gityo" = "latest"
+"npm:manygit" = "latest"
 "npm:netserv" = "latest"
 "npm:uni-run" = "latest"
 "npm:create-src" = "latest"
@@ -144,6 +145,7 @@ minimum_release_age_excludes = [
 
   # My NPM Tools
   "npm:gityo",
+  "npm:manygit",
   "npm:netserv",
   "npm:uni-run",
   "npm:mysubs",
