@@ -22,7 +22,7 @@ playwright-cli run-code "$(cat <<'EOF'
 async (page) => {
   await page.screencast.start({
     path: "/path/to/project/.playwright-cli/todo/add-item.webm",
-    size: { width: 1280, height: 800 },
+    size: { width: 1440, height: 810 },
     fps: 60
   })
   await page.screencast.showActions({
