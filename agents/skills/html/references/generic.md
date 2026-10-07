@@ -8,9 +8,9 @@ Preserve every item that affects the source's meaning or the user's stated purpo
 
 ## Writing
 
-Honor a stated audience, tone, and level of detail. Otherwise use plain, direct language and preserve exact domain terms. Do not make the document sound like a plan, report, or tutorial unless the material has that purpose.
+Honor a stated audience and level of detail. Preserve exact domain terms. Do not make the document sound like a plan, report, or tutorial unless the material has that purpose.
 
-Open with the content itself. Add a short orientation sentence only when readers need it to understand what follows. Do not create conventional sections such as Summary, Recommendations, or Next steps without supporting content.
+Do not create conventional sections such as Summary, Recommendations, or Next steps without supporting content.
 
 ## Structure
 
