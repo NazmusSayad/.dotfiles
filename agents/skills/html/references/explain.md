@@ -24,6 +24,6 @@ Choose structure from the relationship being explained:
 - Use a callout for a boundary, exception, or common point of confusion that materially changes understanding.
 - Put optional low-level detail in `<details>`.
 
-Every figure needs a prose or list equivalent. A linear sequence normally needs a list rather than a diagram.
+Every figure needs a prose or list equivalent.
 
 The explanation example demonstrates a short purpose statement, a relationship diagram with a text equivalent, rules, and an important boundary. Include only structures the source needs.
