@@ -24,7 +24,7 @@ func main() {
 	command := &cobra.Command{
 		Use:   "agent-mail",
 		Short: "Read mails",
-		Long:  "Read mails. Includes all mails sent to *@" + domain + ".",
+		Long:  "Read all mails sent to *@" + domain + ".",
 	}
 
 	var limit int
