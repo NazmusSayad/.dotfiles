@@ -11,11 +11,13 @@ opencode:
 openai:
   models:
     - id: gpt-5.6-sol
-      context: 258000
+      context: 270000
     - id: gpt-6.1-sol
-      context: 258000
+      context: 270000
+    - id: gpt-6-astra
+      context: 270000
     - id: gpt-6-luna
-      context: 258000
+      context: 270000
 
 ~agents:
   plan:
