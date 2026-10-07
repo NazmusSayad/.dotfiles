@@ -27,7 +27,7 @@
   "ci": "code-insiders",
 
   "gz": "lazygit",
-  "mgit": "monogit",
+  "mgit": "manygit",
 
   "gc": "git checkout",
   "gcn": "git checkout -b",
