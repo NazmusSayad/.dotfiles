@@ -27,7 +27,7 @@ Choose the profile from the document's purpose. Read its reference and example b
 
 Use the primary purpose when material contains more than one kind of content. Preserve secondary content under that profile instead of silently dropping it. Read `references/components.md` for shared component and visualization rules.
 
-References are requirements for their profiles. Examples show suitable structure and markup, but their incidental content and section order are not requirements.
+References are requirements for their profiles. Examples show suitable structure and markup. Their incidental content and section order are not requirements unless the selected profile says otherwise.
 
 ## Fidelity
 
@@ -43,7 +43,7 @@ Make every sentence useful. Do not add introductions, captions, summaries, or fo
 
 Use semantic HTML and the simplest component that represents the actual relationship in the content. The document must remain understandable without icons, color, or figures. Give sections and other link targets stable `id` values. Include a contents list only when the document has four or more sections.
 
-Start from the selected example's document shell. Keep its Font Awesome stylesheet, local stylesheet, and print script, and add no other external assets. Link the local stylesheet as:
+Start from the selected example's document shell. Keep its Font Awesome stylesheet, local stylesheet, and print script, and add no other external assets. Never edit `assets/styles.css` while producing a document, and do not put a `<style>` block or other CSS in the output. Link the local stylesheet as:
 
 `file:///Users/sayad/.dotfiles/agents/skills/html/assets/styles.css`
 
