@@ -1,0 +1,7 @@
+interface:
+  display_name: "Plugin Authoring"
+  short_description: "Create and manage plugins for Claude Code"
+  default_prompt: "Use $plugin-authoring to create and manage plugins for Claude Code."
+
+policy:
+  allow_implicit_invocation: false
