@@ -15,9 +15,16 @@ import (
 )
 
 func main() {
+	domain := os.Getenv("AGENT_MAIL_DOMAIN")
+	if domain == "" {
+		fmt.Fprintln(os.Stderr, "AGENT_MAIL_DOMAIN is not set")
+		os.Exit(1)
+	}
+
 	command := &cobra.Command{
 		Use:   "agent-mail",
 		Short: "Read mails",
+		Long:  "Read mails. Includes all mails sent to *@" + domain + ".",
 	}
 
 	var limit int
@@ -40,7 +47,7 @@ func main() {
 					Subject string `json:"subject"`
 				} `json:"messages"`
 			}
-			gog(&result, "gmail", "messages", "search", "label:Test", "--max", strconv.Itoa(limit))
+			gog(&result, "gmail", "messages", "search", "to:"+domain, "--max", strconv.Itoa(limit))
 
 			fmt.Println("# List of mails")
 			if len(result.Messages) == 0 {
