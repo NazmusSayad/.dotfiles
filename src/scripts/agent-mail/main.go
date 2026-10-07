@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/jaytaylor/html2text"
 	"github.com/spf13/cobra"
 )
 
@@ -70,13 +71,7 @@ func main() {
 		Short: "Show a mail",
 		Args:  cobra.ExactArgs(1),
 		Run: func(_ *cobra.Command, args []string) {
-			var mimeType string
-			switch format {
-			case "text":
-				mimeType = "text/plain"
-			case "html":
-				mimeType = "text/html"
-			default:
+			if format != "text" && format != "html" {
 				fmt.Fprintln(os.Stderr, "--format must be text or html")
 				os.Exit(1)
 			}
@@ -96,18 +91,26 @@ func main() {
 			}
 			gog(&result, "gmail", "get", args[0])
 
-			data := findPartData(result.Message.Payload, mimeType)
-			if data == "" {
+			textData := findPartData(result.Message.Payload, "text/plain")
+			htmlData := findPartData(result.Message.Payload, "text/html")
+			var decoded string
+			if format == "text" && textData != "" {
+				decoded = decodePartData(textData)
+			} else if htmlData == "" {
 				fmt.Fprintln(os.Stderr, "mail has no "+format+" body")
 				os.Exit(1)
-			}
-			decoded, err := base64.RawURLEncoding.DecodeString(strings.TrimRight(data, "="))
-			if err != nil {
-				fmt.Fprintln(os.Stderr, "failed to decode mail body:", err)
-				os.Exit(1)
+			} else if format == "html" {
+				decoded = decodePartData(htmlData)
+			} else {
+				text, err := html2text.FromString(decodePartData(htmlData))
+				if err != nil {
+					fmt.Fprintln(os.Stderr, "failed to convert html body to text:", err)
+					os.Exit(1)
+				}
+				decoded = text
 			}
 
-			body := strings.TrimRight(string(decoded), " \r\n")
+			body := strings.TrimRight(decoded, " \r\n")
 			if format == "text" {
 				lastLineStart := strings.LastIndex(body, "\n") + 1
 				if strings.Trim(body[lastLineStart:], "- ") == "" {
@@ -151,6 +154,15 @@ func findPartData(part messagePart, mimeType string) string {
 		}
 	}
 	return ""
+}
+
+func decodePartData(data string) string {
+	decoded, err := base64.RawURLEncoding.DecodeString(strings.TrimRight(data, "="))
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "failed to decode mail body:", err)
+		os.Exit(1)
+	}
+	return string(decoded)
 }
 
 func gog(result any, args ...string) {
