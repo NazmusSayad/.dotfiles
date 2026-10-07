@@ -1,0 +1,5 @@
+interface:
+  display_name: "KISS"
+  short_description: "Keep it stupid simple"
+policy:
+  allow_implicit_invocation: false
