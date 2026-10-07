@@ -15,13 +15,13 @@ For a quick recording of steps you run as commands, use `video-start`, `video-ch
 - `style.point`, `style.highlight` and `style.title` are CSS declaration strings. `point` and `highlight` are hidden unless set. `point` is zero-sized and centred on the click point, so give it a size. Prefer `outline` over `border` for `highlight`. Use `title: 'display: none'` to keep the cursor without the callout.
 - Overlays are `pointer-events: none`, so sticky overlays can stay visible while the code clicks and types.
 - Use `pressSequentially(text, { delay: 60 })` for natural typing and `waitForTimeout(500)` to `waitForTimeout(1500)` between steps.
-- Give `start` an absolute `.webm` path under `.playwright/<group>/`, then convert it to `.mp4` with `ffmpeg` and delete the `.webm`.
+- Give `start` an absolute `.webm` path under `.playwright-cli/<group>/`, then convert it to `.mp4` with `ffmpeg` and delete the `.webm`.
 
 ```bash
 playwright-cli run-code "$(cat <<'EOF'
 async (page) => {
   await page.screencast.start({
-    path: "/path/to/project/.playwright/todo/add-item.webm",
+    path: "/path/to/project/.playwright-cli/todo/add-item.webm",
     size: { width: 1280, height: 800 },
     fps: 60
   })
