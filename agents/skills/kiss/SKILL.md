@@ -18,6 +18,4 @@ Every sentence must help the reader. Delete any sentence that only introduces, r
 
 ## Code
 
-Write the most direct code that a reader can follow from top to bottom. Use the language, platform, and existing project code before you add new code or dependencies.
-
-Do not add variables, functions, types, or other abstractions unless they make complex logic clearer or remove substantial repetition. Handle the cases that can actually occur, and make each case explicit instead of relying on hidden fallbacks.
+Choose the simplest design and code that works. Prefer straightforward logic over clever tricks, and keep each part small and easy to understand. Avoid complexity that the problem does not need.
