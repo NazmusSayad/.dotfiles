@@ -1,5 +1,5 @@
 interface:
   display_name: "KISS"
-  short_description: "Keep it stupid simple: cut it down to what matters"
+  short_description: "Keep it stupid simple: strict ASD-STE100 writing"
 policy:
   allow_implicit_invocation: false
