@@ -11,11 +11,11 @@ lazygit = "latest"
 
 # System
 cmake = "latest"
+"ttyd" = "latest"
+"aqua:Songmu/timeout" = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
-"aqua:Songmu/timeout" = "latest"
-"ttyd" = "latest"
 
 # File System
 jq = "latest"
