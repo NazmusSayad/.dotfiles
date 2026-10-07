@@ -1,6 +1,6 @@
 # Components
 
-Use components for the relationship they express, not for decoration. Read the selected example and `assets/document.css` when exact markup is unclear.
+Use components for the relationship they express, not for decoration. Read the selected example and `assets/styles.css` when exact markup is unclear.
 
 ## Selection
 

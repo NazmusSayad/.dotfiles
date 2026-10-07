@@ -45,7 +45,7 @@ Use semantic HTML and the simplest component that represents the actual relation
 
 Start from the selected example's document shell. Keep its Font Awesome stylesheet, local stylesheet, and print script, and add no other external assets. Link the local stylesheet as:
 
-`file:///Users/sayad/.dotfiles/agents/skills/html/assets/document.css`
+`file:///Users/sayad/.dotfiles/agents/skills/html/assets/styles.css`
 
 Use Font Awesome icons only when they improve scanning or identify meaning. Put a `text-*` color class on meaningful icons. Section headings have no icons. Contents icons use the free outline set (`fa-regular`).
 
