@@ -50,7 +50,7 @@ func ViewMail(id string, format string) error {
 	markdown.WriteString("**From:** " + result.Headers.From + "\n")
 	markdown.WriteString("**To:** " + result.Headers.To + "\n")
 	markdown.WriteString("**Date:** " + result.Headers.Date + " | " + timeAgo(time.UnixMilli(result.Message.InternalDate)) + "\n")
-	markdown.WriteString("\n---\n")
+	markdown.WriteString("\n---\n\n")
 	markdown.WriteString(body + "\n")
 	fmt.Print(markdown.String())
 	return nil
