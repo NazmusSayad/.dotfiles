@@ -1,6 +1,6 @@
 ---
-name: explain
-description: "Stop. That last message did not land: explain it."
+name: kiss
+description: "Stop. That's too complicated: keep it stupid simple."
 disable-model-invocation: true
 ---
 
