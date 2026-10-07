@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"os/exec"
@@ -12,6 +13,11 @@ import (
 )
 
 func main() {
+	nameFlag := flag.String("name", "", "Key user name (default: git config user.name)")
+	emailFlag := flag.String("email", "", "Key user email (default: git config user.email)")
+	fileFlag := flag.String("file", "", "Git config file to write (default: global config)")
+	flag.Parse()
+
 	if !utils.IsCommandInPath("git") {
 		fmt.Println(aurora.Red("Error: Git not installed"))
 		os.Exit(1)
@@ -22,11 +28,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	gitNameOut, _ := exec.Command("git", "config", "--get", "user.name").Output()
-	gitName := strings.TrimSpace(string(gitNameOut))
+	gitName := *nameFlag
+	if gitName == "" {
+		gitNameOut, _ := exec.Command("git", "config", "--get", "user.name").Output()
+		gitName = strings.TrimSpace(string(gitNameOut))
+	}
 
-	gitEmailOut, _ := exec.Command("git", "config", "--get", "user.email").Output()
-	gitEmail := strings.TrimSpace(string(gitEmailOut))
+	gitEmail := *emailFlag
+	if gitEmail == "" {
+		gitEmailOut, _ := exec.Command("git", "config", "--get", "user.email").Output()
+		gitEmail = strings.TrimSpace(string(gitEmailOut))
+	}
 
 	if gitEmail == "" || gitName == "" {
 		fmt.Println(aurora.Red("Error: Git user.email or user.name not configured"))
@@ -38,7 +50,9 @@ func main() {
 	fmt.Println("User name      :", gitName)
 	fmt.Println("User email     :", gitEmail)
 
-	listKeysOut, _ := exec.Command("gpg", "--list-secret-keys", "--keyid-format", "LONG").Output()
+	keyQuery := "<" + gitEmail + ">"
+
+	listKeysOut, _ := exec.Command("gpg", "--list-secret-keys", "--keyid-format", "LONG", keyQuery).Output()
 	hasKeys := strings.Contains(string(listKeysOut), "sec ")
 
 	if !hasKeys {
@@ -65,7 +79,7 @@ func main() {
 		}
 	}
 
-	listKeysOut, _ = exec.Command("gpg", "--list-secret-keys", "--keyid-format", "LONG").Output()
+	listKeysOut, _ = exec.Command("gpg", "--list-secret-keys", "--keyid-format", "LONG", keyQuery).Output()
 
 	var gpgKeyID string
 	for line := range strings.SplitSeq(string(listKeysOut), "\n") {
@@ -82,12 +96,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	exec.Command("git", "config", "--global", "user.signingkey", gpgKeyID).Run()
-	exec.Command("git", "config", "--global", "gpg.program", "gpg").Run()
-	exec.Command("git", "config", "--global", "gpg.format", "openpgp").Run()
+	configScope := []string{"config", "--global"}
+	if *fileFlag != "" {
+		configScope = []string{"config", "--file", *fileFlag}
+	}
 
-	exec.Command("git", "config", "--global", "commit.gpgsign", "true").Run()
-	exec.Command("git", "config", "--global", "tag.gpgsign", "true").Run()
+	exec.Command("git", append(configScope, "user.signingkey", gpgKeyID)...).Run()
+	exec.Command("git", append(configScope, "gpg.program", "gpg")...).Run()
+	exec.Command("git", append(configScope, "gpg.format", "openpgp")...).Run()
+
+	exec.Command("git", append(configScope, "commit.gpgsign", "true")...).Run()
+	exec.Command("git", append(configScope, "tag.gpgsign", "true")...).Run()
 
 	exportCmd := exec.Command("gpg", "--armor", "--export", gpgKeyID)
 	exportCmd.Stdout = os.Stdout
