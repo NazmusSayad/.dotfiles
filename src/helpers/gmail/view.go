@@ -47,9 +47,9 @@ func ViewMail(id string, format string) error {
 	var markdown strings.Builder
 	markdown.WriteString("# " + result.Headers.Subject + "\n")
 	markdown.WriteString("**ID:** " + result.Message.ID + "\n")
-	markdown.WriteString("**Date:** " + result.Headers.Date + " | " + timeAgo(time.UnixMilli(result.Message.InternalDate)) + "\n")
 	markdown.WriteString("**From:** " + result.Headers.From + "\n")
 	markdown.WriteString("**To:** " + result.Headers.To + "\n")
+	markdown.WriteString("**Date:** " + result.Headers.Date + " | " + timeAgo(time.UnixMilli(result.Message.InternalDate)) + "\n")
 	markdown.WriteString("\n---\n")
 	markdown.WriteString(body + "\n")
 	fmt.Print(markdown.String())
