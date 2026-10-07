@@ -24,4 +24,4 @@ Use a timeline for dated events and status labels only for statuses supplied by 
 
 End with sources or notes only when the source material supports them. Do not add recommendations merely because reports commonly contain them.
 
-The report example demonstrates metadata, headline measures, comparisons, a status table, a limitation, and source details. Its subject and section order are not a required report template.
+The report example demonstrates metadata, headline measures, comparisons, a status table, a limitation, and source details. Its subject matter is not report content.
