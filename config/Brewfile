@@ -23,7 +23,6 @@ brew "direnv"
 brew "starship"
 
 # Terminal
-brew "ttyd"
 cask "ghostty"
 
 # System
