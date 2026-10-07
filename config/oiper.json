@@ -90,6 +90,7 @@
       ],
       "hotkeyHold.windows": [
         "ShiftLeft+ControlLeft",
+        "ShiftLeft+MetaLeft",
         "F15"
       ],
       "hotkeyToggle.macos": [
@@ -97,7 +98,8 @@
         "ShiftRight+MetaLeft"
       ],
       "hotkeyToggle.windows": [
-        "ShiftRight+ControlLeft"
+        "ShiftRight+ControlLeft",
+        "ShiftRight+MetaLeft"
       ],
       "id": "basic-profile",
       "language": "en",
@@ -114,14 +116,14 @@
         "ShiftLeft+F15"
       ],
       "hotkeyHold.windows": [
-        "ShiftLeft+MetaLeft",
+        "ShiftLeft+Alt",
         "ShiftLeft+F15"
       ],
       "hotkeyToggle.macos": [
         "ShiftRight+Alt"
       ],
       "hotkeyToggle.windows": [
-        "ShiftRight+MetaLeft"
+        "ShiftRight+Alt"
       ],
       "id": "prompt-profile",
       "language": "bn",
