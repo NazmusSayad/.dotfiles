@@ -181,6 +181,7 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+defaults write com.apple.HIToolbox AppleFnUsageType -int 0
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
