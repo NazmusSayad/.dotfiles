@@ -1,0 +1,5 @@
+interface:
+  display_name: "KISS writer"
+  short_description: "Keep writing stupid simple, in strict ASD-STE100"
+policy:
+  allow_implicit_invocation: false
