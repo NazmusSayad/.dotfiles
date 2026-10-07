@@ -29,7 +29,7 @@ Each command prints the page URL, title, the Playwright code it ran, and a link 
 
 ## Captures
 
-- Name captures by what they show, never by order such as `01-`. Put them at the project root as `.playwright/<group>/<scenario>.png` in kebab-case, where the folder groups related scenarios, such as `.playwright/template-cards/hover.png`. Pass the path with `--filename`; the default is a timestamped name.
+- Name captures by what they show, never by order such as `01-`. Put them at the project root as `.playwright-cli/<group>/<scenario>.png` in kebab-case, where the folder groups related scenarios, such as `.playwright-cli/template-cards/hover.png`. Pass the path with `--filename`; the default is a timestamped name.
 - When a change alters visual appearance such as layout, styling or imagery, capture each affected scenario as `<scenario>-before.png` and `<scenario>-after.png`, with the same page, viewport, data and interaction state. For the before state, run `git stash push -- <files being compared>`, capture, then `git stash pop` and capture the after state. If the pop fails, stop and tell the user. List both paths for the user.
 - Output images as `.png`, videos as `.mp4` and audio as `.mp3`. Playwright records WebM, so convert recordings with `ffmpeg` and keep only the converted file.
 - For any demo video, read [references/video.md](references/video.md).
