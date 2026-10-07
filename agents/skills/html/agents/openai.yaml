@@ -1,7 +1,7 @@
 interface:
-  display_name: "HTML Plan"
-  short_description: "Turn an existing plan into clear HTML"
-  default_prompt: "Use $html-plan to turn this plan into a clear HTML document."
+  display_name: "HTML"
+  short_description: "Turn existing material into polished HTML"
+  default_prompt: "Use $html to turn this material into a polished HTML document."
 
 policy:
   allow_implicit_invocation: false
