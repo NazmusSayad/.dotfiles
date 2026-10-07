@@ -1,0 +1,7 @@
+interface:
+  display_name: "ttyd"
+  short_description: "Serve a themed bash terminal in the browser"
+  default_prompt: "Use $ttyd to open a terminal in the browser."
+
+policy:
+  allow_implicit_invocation: false
