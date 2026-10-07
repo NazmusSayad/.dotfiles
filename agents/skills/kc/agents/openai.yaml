@@ -1,0 +1,5 @@
+interface:
+  display_name: "KISS code"
+  short_description: "Keep code stupid simple"
+policy:
+  allow_implicit_invocation: false
