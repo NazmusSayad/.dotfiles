@@ -1,38 +1,65 @@
 # Plan profile
 
-Render the plan where it ended. In a discussion, a later statement that reverses an earlier statement replaces it. State settled points as facts rather than retelling the discussion.
+## Source state
 
-## Coverage
+Before writing, list every item the plan states: problem and background, outcome, scope, restrictions, steps, decisions and reasons, rejected options, dependencies, owners, dates, statuses, assumptions, risks, open questions, files, commands, and completion checks. Use the list to place each item and to check coverage at the end.
 
-Inventory the problem and background, intended outcome, scope, restrictions, ordered and parallel work, decisions and reasons, rejected options, dependencies, owners, dates, statuses, assumptions, risks, open questions, files, commands, and completion checks. Include every stated item that affects the work.
-
-Leave out features and tasks that are not part of the plan. Show an excluded item only when the source directly forbids it and that restriction affects execution.
+For a discussion, render where it ended. State settled points as facts, not as a story of the discussion. A later statement that reverses an earlier statement replaces it.
 
 ## Fidelity
 
-- Do not add a task, owner, date, estimate, status, priority, dependency, risk, metric, or completion check.
-- Keep the source's order for actions and phases.
-- Keep force and certainty. A requirement stays a requirement, a possibility stays a possibility, and planned work never reads as completed work.
-- Call each item by one name. Keep names, numbers, dates, paths, commands, and code exact.
-- Label decisions, proposals, assumptions, risks, rejected options, and open questions accurately.
-- Show unresolved contradictions together in a callout.
-- Omit fields the source never addresses. If a field exists for some comparable items but not another, write “Not stated.” If the source says TBD, write “Not decided.”
-- Number items only when the source defines an order.
+You may reorder, group, split sentences, and choose the form of each part, but keep any order the plan gives. Do not change what the plan says. Fidelity wins over every other rule in this profile.
+
+- Add nothing the plan does not state: no task, owner, date, estimate, status, priority, dependency, risk, or metric.
+- Drop nothing that affects the work.
+- Leave out features and tasks that are not part of the plan, including items the plan lists as out of scope or not needed. Show something as not allowed only when the plan forbids it directly and explicitly.
+- Keep force and certainty. “Must” stays must, “maybe” stays maybe, and planned work never reads as done.
+- Keep names, numbers, dates, identifiers, paths, commands, and code exact. Call each thing by one name.
+- Label decisions, proposals, assumptions, and open questions as what they are.
+- When the plan contradicts itself without a resolution, show both statements in a callout.
+- Omit what the plan never addresses. Where a field is given for some items but not others, write “Not stated.” Where the plan says TBD, write “Not decided.”
+- Number items only when the plan gives an order.
 
 ## Writing
 
-Write headings, labels, diagram text, and prose in ASD-STE100 Simplified Technical English. Preserve exact technical names, identifiers, paths, commands, and code even when they do not follow that language standard.
+Write every piece of text, including headings, labels, and diagram text, in strict ASD-STE100 Simplified Technical English, with no exceptions.
 
-Open with one or two sentences that state what the plan delivers. Include only sections supported by the source. Bold only a few terms that readers must find quickly.
+Every sentence must help the reader understand the plan. Delete any sentence that only introduces, repeats, or sums up what is already on the page. Write no captions or footers.
 
-## Structure
+Open with one or two sentences that say what the plan delivers. Follow the example's section order and drop sections the plan does not support. Bold only a few key terms. Do not mention the discussion, the source, or this skill.
 
-Use paragraphs for the problem, background, reasons, and context. Use ordinary bullets for parallel items. Use `.steps` for ordered work; each step states what changes and includes its stated rules, dependencies, completion check, and undo procedure.
+## Form
 
-Use a summary table when the source gives several parts of the plan and their results. Add a status column only when statuses are stated. Use a compact folder tree for a useful file list, but omit it when the list would be too large to help. Use `.checklist` for completion checks.
+Use the simplest form that shows the plan's actual structure:
 
-Use a timeline only for events with stated dates and a Gantt chart only for work with stated start and end dates. A sequence without dates is a list, not a timeline. Use a relationship diagram only for stated branches, loops, parallel paths, or links among four or more parts.
+| Plan content | Form |
+|---|---|
+| The problem the plan solves | Problem section: paragraphs for the background, and charts or diagrams when the plan gives numbers or structure |
+| Reasons and context | Paragraphs |
+| Parallel items | Bulleted list |
+| Ordered actions or phases | `.steps`; each step says what it changes and, when the plan states them, its rules, dependencies, completion check, and undo |
+| Three or more items that share two or more fields | Table |
+| The parts of the plan and their results | Summary table; add a status column only when the plan gives statuses |
+| Files to change | Folder tree with one very short line per file; omit it when the list does not help, such as for very large changes |
+| Completion checks | `.checklist` |
+| Events with stated dates | `.timeline` |
+| Work with stated start and end dates | `.gantt` |
+| Stated branches, loops, parallel paths, or links among four or more parts | SVG diagram |
+| Given numbers worth comparing | `.bars` |
+| Decisions, rejected options, risks, assumptions, and open questions | One bulleted list in the Notes section, each item opening with the item in bold and an icon that shows its kind |
+| Conflicts, blockers, or open points inside a section | `.callout` |
+| Optional evidence | `<details>` |
 
-Put decisions, rejected options, risks, assumptions, and open questions in one Notes list when they are not clearer beside the work they affect. Open each note with a bold statement and an icon that identifies its kind.
+A linear sequence is a list, not a diagram. Undated phases never become a timeline or Gantt chart. A diagram answers one question, has at most about ten nodes, has a verb on each arrow, and contains no node or arrow that the plan does not state. The document must read completely without its figures.
 
-The plan example demonstrates a detailed plan with a brief, contents, comparison bars, a flow, ordered phases, notes, a summary, a file tree, and completion checks. Use only the parts supported by the source.
+## Template
+
+Use `examples/plan.html` as the template and replace its content with the plan. Keep its two stylesheet links and its script, and add no other external assets. For components the example does not show, such as `.timeline`, `.gantt`, `.bars`, `.callout`, `.status`, `.diagram`, and `<details>`, read their rules in `references/components.md` and `assets/styles.css` before writing the markup.
+
+Use Font Awesome icons where the example uses them. Choose each icon for its meaning and put a `text-*` color class on the icon itself. Section headings have no icons. In the contents list, use outline icons (`fa-regular`). The free outline set is small, so use only icons it includes.
+
+Keep the contents list only when there are four or more sections. Give sections and steps `id` values so cross-references become links. In diagrams, fit the `viewBox` to the drawing, keep 40 or more units between nodes, and keep labels clear of lines.
+
+## Review
+
+Check the initial item list against the finished document. Report gaps, unresolved conflicts, structure you inferred, and plan content you left out.
