@@ -14,6 +14,22 @@ For a quick recording of steps you run as commands, use `video-start`, `video-ch
 - `showActions` `cursor` is `'pointer'` (default) or `'none'`. `position` is `top-left|top|top-right|bottom-left|bottom|bottom-right`.
 - `style.point`, `style.highlight` and `style.title` are CSS declaration strings. `point` and `highlight` are hidden unless set. `point` is zero-sized and centred on the click point, so give it a size. Prefer `outline` over `border` for `highlight`. Use `title: 'display: none'` to keep the cursor without the callout.
 - Overlays are `pointer-events: none`, so sticky overlays can stay visible while the code clicks and types.
+- Hard constraint: every scroll in a video must be smooth. Never let the page jump. Playwright actions such as `click`, `fill` and `hover` scroll their target into view instantly, and `mouse.wheel` and `window.scrollTo` jump too, so before acting on any element outside the viewport, smooth-scroll it into view and wait for the scroll to finish:
+
+  ```js
+  await target.evaluate(
+    (el) =>
+      new Promise((resolve) => {
+        const { top, bottom } = el.getBoundingClientRect()
+        if (top >= 0 && bottom <= innerHeight) return resolve()
+        addEventListener("scrollend", resolve, { once: true })
+        el.scrollIntoView({ behavior: "smooth", block: "center" })
+      })
+  )
+  ```
+
+  For scrolls not tied to an element, use `window.scrollBy({ top, behavior: "smooth" })` with the same `scrollend` wait. If the page sets `scroll-behavior` or `prefers-reduced-motion` in a way that disables smooth scrolling, stop and tell the user instead of recording jumps.
+
 - Use `pressSequentially(text, { delay: 60 })` for natural typing and `waitForTimeout(500)` to `waitForTimeout(1500)` between steps.
 - Give `start` an absolute `.webm` path under `.playwright-cli/<group>/`, then convert it to `.mp4` with `ffmpeg` and delete the `.webm`.
 
