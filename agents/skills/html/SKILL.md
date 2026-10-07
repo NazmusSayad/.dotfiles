@@ -50,6 +50,8 @@ You may reorder, group, split sentences, and choose the form of each part, but k
 
 Write every piece of text, including headings, labels, and diagram text, in strict ASD-STE100 Simplified Technical English, with no jargon. There are no exceptions.
 
+Write for the audience and level of detail the user states. If a technical term is unavoidable, explain it in plain words the first time you use it. Give context before detail. Keep related rules and exceptions together.
+
 Every sentence must help the reader understand the document. Delete any sentence that only introduces, repeats, or sums up what is already on the page, and write no captions or footers.
 
 Follow the example's section order and drop the sections the source does not support. Bold only a few key terms. Do not mention the conversation, the source, or this skill.
