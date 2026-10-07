@@ -1,5 +1,0 @@
-interface:
-  display_name: "Explain"
-  short_description: "Explain that: simpler, with the context I'm missing"
-policy:
-  allow_implicit_invocation: false
