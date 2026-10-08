@@ -17,6 +17,11 @@
       "id": "elevenlabs-scribe",
       "model": "scribe_v2",
       "spec": "elevenlabs"
+    },
+    {
+      "id": "01M4ED99CDWAHHXYFZM9DZF013",
+      "model": "elevenlabs/scribe-v2",
+      "provider": "openrouter"
     }
   ],
   "cloudLLMs": [
