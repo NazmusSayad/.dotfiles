@@ -1,6 +1,10 @@
 {
   "$schema": "https://github.com/NazmusSayad/gityo/raw/refs/heads/schema/schema.json",
-  "model": "oss",
+
+  "prModel": "kimi",
+  "commitModel": "oss",
+  "releaseModel": "luna",
+
   "models": {
     "oss": {
       "model": "openai/gpt-oss-120b:nitro",
