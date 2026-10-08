@@ -1,23 +1,17 @@
 {
   "$schema": "https://github.com/NazmusSayad/gityo/raw/refs/heads/schema/schema.json",
 
-  "prModel": "kimi",
-  "commitModel": "oss",
-  "releaseModel": "luna",
+  "model": "quality",
+  "commitModel": "speed",
 
   "models": {
-    "oss": {
+    "speed": {
       "model": "openai/gpt-oss-120b:nitro",
       "npm": "@openrouter/ai-sdk-provider",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
-    "luna": {
+    "quality": {
       "model": "openai/gpt-6-luna:nitro",
-      "npm": "@openrouter/ai-sdk-provider",
-      "apiKeyEnv": "OPENROUTER_API_KEY"
-    },
-    "kimi": {
-      "model": "moonshotai/kimi-k2-thinking:nitro",
       "npm": "@openrouter/ai-sdk-provider",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     }
