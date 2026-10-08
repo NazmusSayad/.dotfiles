@@ -14,6 +14,7 @@ Each command prints the page URL, title, the Playwright code it ran, and a link 
 - Prefer `snapshot` over `screenshot` unless visual appearance matters.
 - On large pages, use `find "text"`, `find --regex "/pattern/i"`, or `snapshot --depth=N` followed by `snapshot <ref>` instead of reading the whole snapshot.
 - Prefer `open --mobile` when a mobile layout is acceptable.
+- Always run headless. Pass `--headed` to `open` only when the user explicitly asks for a visible browser.
 - Read attributes, values and computed styles that the snapshot omits with `eval "el => ..." <ref>`.
 - For anything no command covers, including waiting for a condition instead of sleeping, use `run-code "async page => { ... }"`. Pass long code through a quoted heredoc inside `"$(cat <<'EOF' ... )"`, with the closing `EOF` on its own line, so shell quoting cannot break it.
 - When the page status or snapshot lists WebMCP tools, prefer `webmcp-call` over driving the UI.
