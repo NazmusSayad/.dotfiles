@@ -16,6 +16,7 @@ scoop:
   - versions/php85
 
   # Shells
+  - ttyd
   - gsudo
   - zoxide
   - direnv
