@@ -1,16 +1,16 @@
 {
   "$schema": "https://github.com/NazmusSayad/gityo/raw/refs/heads/schema/schema.json",
 
-  "model": "quality",
-  "commitModel": "speed",
+  "model": "luna",
+  "commitModel": "oss",
 
   "models": {
-    "speed": {
+    "oss": {
       "model": "openai/gpt-oss-120b:nitro",
       "npm": "@openrouter/ai-sdk-provider",
       "apiKeyEnv": "OPENROUTER_API_KEY"
     },
-    "quality": {
+    "luna": {
       "model": "openai/gpt-6-luna:nitro",
       "npm": "@openrouter/ai-sdk-provider",
       "apiKeyEnv": "OPENROUTER_API_KEY"
