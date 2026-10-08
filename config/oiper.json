@@ -72,10 +72,11 @@
     "language": "en",
     "mode": "cloud",
     "name": "Default",
-    "transcribeAsrId": "groq-whisper"
+    "transcribeAsrId": "groq-whisper",
+    "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
   },
   "enableMultipleHotkeys": true,
-  "historyRetentionDays": 30,
+  "historyRetentionDays": 0,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
   "localModelLoading": "on-recording-start",
@@ -108,7 +109,8 @@
       "mode": "cloud",
       "name": "English",
       "overlayStyle": "block",
-      "transcribeAsrId": "groq-whisper"
+      "transcribeAsrId": "groq-whisper",
+      "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
     },
     {
       "autoSubmit.macos": "Disabled",
@@ -134,7 +136,8 @@
       "name": "Bangla",
       "overlayShowName": true,
       "overlayStyle": "bars",
-      "transcribeAsrId": "elevenlabs-scribe"
+      "transcribeAsrId": "elevenlabs-scribe",
+      "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
     }
   ],
   "snippets": [
