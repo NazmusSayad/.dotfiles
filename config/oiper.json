@@ -77,11 +77,12 @@
   "historyRetentionDays": 30,
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
+  "localModelLoading": "on-recording-start",
   "profiles": [
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "openrouter-mini",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "basic",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
@@ -105,6 +106,7 @@
       "language": "en",
       "mode": "cloud",
       "name": "English",
+      "overlayStyle": "block",
       "transcribeAsrId": "groq-whisper"
     },
     {
@@ -129,6 +131,8 @@
       "language": "bn",
       "mode": "cloud",
       "name": "Bangla",
+      "overlayShowName": true,
+      "overlayStyle": "bars",
       "transcribeAsrId": "elevenlabs-scribe"
     }
   ],
