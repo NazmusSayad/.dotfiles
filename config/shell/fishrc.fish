@@ -14,6 +14,10 @@ end
 
 if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
+
+    function __windows_terminal_report_cwd --on-event fish_prompt
+        printf '\e]9;9;%s\e\\' (cygpath -w "$PWD" -C ANSI)
+    end
 end
 
 if command -q uname; and test (uname) = Darwin
@@ -29,7 +33,7 @@ shaka fish | source
 zoxide init fish | source
 starship init fish | source
 
-zoxide add $PWD
+zoxide add $PWD 2>/dev/null
 function on_cd --on-variable PWD
-    zoxide add $PWD
+    zoxide add $PWD 2>/dev/null
 end
