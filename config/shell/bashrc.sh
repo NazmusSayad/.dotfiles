@@ -30,9 +30,9 @@ eval "$(shaka bash)"
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 
-zoxide add "$PWD"
+zoxide add "$PWD" 2>/dev/null
 on_cd() {
-	zoxide add "$PWD"
+	zoxide add "$PWD" 2>/dev/null
 }
 PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 
