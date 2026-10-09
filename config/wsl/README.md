@@ -11,10 +11,10 @@ Checked on 2026-10-09:
 - `ttysh.service` is installed, enabled, and running as `sayad`.
 - Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
 - The DNS route for `sh.sayad.dev` points to the existing tunnel, and the updated ingress config passes validation.
-- The Windows tunnel launcher was restarted. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to ttysh.
+- The Windows cloudflared connector is running. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to ttysh.
 - A hidden WSL keep-alive process is running so Ubuntu does not stop when the last terminal closes.
 
-OpenCode is not installed in Ubuntu. The `Desktop` tunnel runs on Windows through the existing `opencode-server` launcher.
+OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent cloudflared process on Windows.
 
 ## Device setup
 
@@ -94,8 +94,6 @@ mise exec -- ttysh --host 127.0.0.1 --port 47474
 ```yaml
 tunnel: Desktop
 ingress:
-  - hostname: oc.sayad.dev
-    service: http://127.0.0.1:4747
   - hostname: sh.sayad.dev
     service: http://127.0.0.1:47474
   - service: http_status:404
@@ -109,26 +107,15 @@ Create the hostname's DNS route from Windows if it is missing:
 cloudflared tunnel route dns Desktop sh.sayad.dev
 ```
 
-Restart the existing tunnel connector after editing its ingress configuration. The current connector is started by the Windows `opencode-server` launcher, so restarting that launcher also restarts the Windows OpenCode server. Do not launch a second connector with different ingress rules for the same tunnel.
+`start.ps1` starts ttysh, the WSL keep-alive process, and `cloudflared tunnel run`. It skips processes that are already running. Windows startup runs this script through `launch.jsonc`.
 
-The launcher source runs `cloudflared tunnel run` without a tunnel name. After its next compile, cloudflared will read `Desktop` from `../cloudflared.yml`, so later tunnel renames will not require a launcher source change.
-
-The launcher was restarted as a hidden Windows process during setup. Find its PID from PowerShell:
+To reload the tunnel after changing `cloudflared.yml`, stop its cloudflared process and run:
 
 ```powershell
-Get-CimInstance Win32_Process | Where-Object Name -eq opencode-server.exe | Select-Object ProcessId
+& F:\.dotfiles\config\wsl\start.ps1
 ```
 
-To reload it, stop that specific process tree with `taskkill /PID <PID> /T /F`, replacing `<PID>` with the displayed ID, then run `opencode-server` in a Windows terminal. This briefly interrupts `oc.sayad.dev` and `sh.sayad.dev`.
-
-The launcher's password is saved in the Windows user environment. An old PowerShell session may not have inherited it. Load it without displaying or copying its value:
-
-```powershell
-$env:OPENCODE_SERVER_PASSWORD = [Environment]::GetEnvironmentVariable('OPENCODE_SERVER_PASSWORD', 'User')
-opencode-server
-```
-
-The current hidden launcher's logs are in `%LOCALAPPDATA%\Temp\opencode\wsl-tunnel.stdout.log` and `wsl-tunnel.stderr.log`. No OpenCode installation in Ubuntu is needed.
+The connector logs are in `%LOCALAPPDATA%\Temp\desktop-tunnel\stdout.log` and `stderr.log`.
 
 ## Recreate the Linux tool setup
 
@@ -190,6 +177,7 @@ Use `ni`, `nr`, and `nlx` for project package workflows. `npm:ttysh` is a mise p
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
 - The hostname returns 502: cloudflared cannot reach ttysh. Check that Ubuntu is running and ttysh is listening.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
+- If signing into `sh.sayad.dev` visits another hostname, edit the Cloudflare Access application so its only public hostname is `sh.sayad.dev`. Cloudflare preemptively visits every domain in small multi-domain applications to issue authorization cookies.
 - Shells survive ttysh server crashes according to the package documentation. They do not survive Windows shutdown or `wsl --shutdown`.
 - The installed npm package is `ttysh` `0.0.2`, but its binary reports `ttysh 0.0.0` with `--version`. Use `mise ls npm:ttysh` to check the installed package version.
 - Avoid `wsl --shutdown` during normal work; it also stops Docker's WSL environment.
