@@ -5,17 +5,22 @@ if [[ "$OS" == "Windows_NT" && -n "$DOTFILES_DIR" ]]; then
 	dotfiles_dir="$(cygpath -u "$DOTFILES_DIR")"
 fi
 
-if [[ "$(uname)" == "Darwin" ]]; then
-	if [[ -f "$dotfiles_dir/.env.path" ]]; then
-		while read -r p; do
-			[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
-		done <"$dotfiles_dir/.env.path"
-	fi
-	if [[ -f ~/.env.path ]]; then
-		while read -r p; do
-			[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
-		done <~/.env.path
-	fi
+path_file=""
+if [[ "$OS" == "Windows_NT" ]]; then
+	path_file="$dotfiles_dir/.path.win"
+elif [[ "$(uname)" == "Darwin" ]]; then
+	path_file="$dotfiles_dir/.path.mac"
+elif [[ -n "$WSL_DISTRO_NAME" || "$(uname -r)" == *[Mm]icrosoft* ]]; then
+	path_file="$dotfiles_dir/.path.wsl"
+fi
+
+if [[ -f "$path_file" ]]; then
+	while IFS= read -r p || [[ -n "$p" ]]; do
+		p="${p%$'\r'}"
+		[[ -z "$p" ]] && continue
+		[[ "$OS" == "Windows_NT" ]] && p="$(cygpath -u "$p")"
+		[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
+	done <"$path_file"
 fi
 
 if [[ "$OS" == "Windows_NT" ]]; then
