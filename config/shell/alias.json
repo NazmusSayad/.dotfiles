@@ -6,6 +6,10 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
+  "ec": "CLAUDE_CONFIG_DIR=~/.claude-extra claude",
+  "ecr": "CLAUDE_CONFIG_DIR=~/.claude-extra claude --resume",
+  "ecc": "CLAUDE_CONFIG_DIR=~/.claude-extra claude --continue",
+
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
 
