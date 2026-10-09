@@ -1,21 +1,17 @@
 status is-interactive; or return
 set -g fish_greeting
 
-if test "$OS" = Windows_NT
+if command -q uname; and test (uname) = Darwin
+    brew shellenv fish | source
+    "$HOME/.local/bin/mise" activate fish | source
+else if test (uname) = Linux
+    "$HOME/.local/bin/mise" activate fish | source
+else if test "$OS" = Windows_NT
     dotsh fish (mise env --dotenv) | source
 
     function __windows_terminal_report_cwd --on-event fish_prompt
         printf '\e]9;9;%s\e\\' (cygpath -w "$PWD" -C ANSI)
     end
-end
-
-if test (uname) = Linux
-    "$HOME/.local/bin/mise" activate fish | source
-end
-
-if command -q uname; and test (uname) = Darwin
-    brew shellenv fish | source
-    "$HOME/.local/bin/mise" activate fish | source
 end
 
 set -l dotfiles_dir "$HOME/.dotfiles"
