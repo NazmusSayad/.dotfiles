@@ -10,6 +10,7 @@ brew "libsodium"
 brew "pkgconf"
 brew "autoconf"
 brew "pkg-config"
+brew "coreutils"
 
 # Shell
 brew "zsh"
