@@ -16,6 +16,9 @@ cmake = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = "latest"
 
+# Shell
+"npm:ttysh" = "latest"
+
 # File System
 jq = "latest"
 yq = "latest"
@@ -144,6 +147,7 @@ minimum_release_age_excludes = [
   "github:google-antigravity/antigravity-cli",
 
   # My NPM Tools
+  "npm:ttysh",
   "npm:gityo",
   "npm:manygit",
   "npm:netserv",
