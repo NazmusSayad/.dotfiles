@@ -121,6 +121,7 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "openrouter-kimi",
+      "enhancementType": "basic",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ShiftLeft+F15"
