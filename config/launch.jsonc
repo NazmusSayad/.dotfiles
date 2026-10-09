@@ -11,7 +11,7 @@
     "Wait": true
   },
   {
-    "Path": "@/.build/bin/windows-env.exe",
+    "Path": "@/.local/bin.win/windows-env.exe",
     "Wait": true
   },
   {
@@ -26,19 +26,19 @@
   },
 
   {
-    "Path": "@/.build/ahk/AHK-Macro.exe",
+    "Path": "@/.local/ahk/AHK-Macro.exe",
     "AsAdmin": true
   },
   {
-    "Path": "@/.build/ahk/AHK-ScrollWheel.exe",
+    "Path": "@/.local/ahk/AHK-ScrollWheel.exe",
     "AsAdmin": true
   },
   {
-    "Path": "@/.build/ahk/AHK-WindowManager.exe",
+    "Path": "@/.local/ahk/AHK-WindowManager.exe",
     "AsAdmin": true
   },
   {
-    "Path": "@/.build/ahk/AHK-VirtualDesktop-W11.exe",
+    "Path": "@/.local/ahk/AHK-VirtualDesktop-W11.exe",
     "AsAdmin": true
   },
 

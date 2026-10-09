@@ -12,6 +12,7 @@ import (
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
+	"github.com/otiai10/copy"
 )
 
 func main() {
@@ -21,10 +22,23 @@ func main() {
 	}
 
 	sourceDir := filepath.Join(cwd, constants.SCRIPTS_SOURCE_DIR)
-	outputDir := filepath.Join(cwd, constants.BUILD_SCRIPTS_DIR)
+	var outputDir string
+	switch runtime.GOOS {
+	case "windows":
+		outputDir = filepath.Join(cwd, ".local", "bin.win")
+	case "darwin":
+		outputDir = filepath.Join(cwd, ".local", "bin.mac")
+	case "linux":
+		outputDir = filepath.Join(cwd, ".local", "bin.wsl")
+	default:
+		panic("unsupported platform: " + runtime.GOOS)
+	}
 
-	if !utils.IsFileExists(outputDir) {
-		os.MkdirAll(outputDir, 0o755)
+	if err := os.RemoveAll(outputDir); err != nil {
+		panic(err)
+	}
+	if err := os.MkdirAll(outputDir, 0o755); err != nil {
+		panic(err)
 	}
 
 	entries, err := os.ReadDir(sourceDir)
@@ -61,6 +75,11 @@ func main() {
 		} else {
 			buildScript(sourceDir, outputDir, entryName, scriptName)
 		}
+	}
+
+	fmt.Println(aurora.Faint("> Copying etc/bin -> ").String() + outputDir)
+	if err := copy.Copy(filepath.Join(cwd, "etc", "bin"), outputDir); err != nil {
+		panic(err)
 	}
 }
 
