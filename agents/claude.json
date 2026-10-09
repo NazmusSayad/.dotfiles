@@ -59,6 +59,7 @@
   "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
   "disableBundledSkills": true,
+  "disableAgentView": true,
   "disableRemoteControl": true,
   "disableWorkflows": true,
   "disableArtifact": true,
