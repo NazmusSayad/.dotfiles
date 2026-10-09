@@ -19,14 +19,14 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent 
 ## Device setup
 
 - Distro: `Ubuntu-26.04`, running on WSL 2.
-- Linux account: `sayad`, with Bash as its shell.
+- Linux account: `sayad`, with Bash as its login shell.
 - Windows dotfiles: `F:\.dotfiles`, available inside Ubuntu at `/mnt/f/.dotfiles`.
 - Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, `ttysh`, and the Ubuntu Starship package.
 - Mise config: `~/.config/mise/config.toml`, linked to the main `../mise-config.toml` used by this dotfiles repository.
 - `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
-- ttysh's `shell.command` is `/bin/bash`, so new browser tabs explicitly open Bash.
+- ttysh's `shell.command` is `/usr/bin/fish`, so browser tabs open Fish without changing the WSL login shell.
 - ttysh listener: `127.0.0.1:47474` inside Ubuntu.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
@@ -141,6 +141,8 @@ mkdir -p ~/.config/direnv
 ln -s /mnt/f/.dotfiles/config/shell/direnv.toml ~/.config/direnv/direnv.toml
 ln -s /mnt/f/.dotfiles ~/.dotfiles
 ln -s /mnt/f/.dotfiles/config/shell/bashrc.sh ~/.bashrc
+mkdir -p ~/.config/fish
+ln -s /mnt/f/.dotfiles/config/shell/fishrc.fish ~/.config/fish/config.fish
 ~/.local/bin/mise trust ~/.config/mise/config.toml
 ~/.local/bin/mise install
 ```
@@ -149,7 +151,7 @@ Install the Linux shell and build dependencies through Ubuntu. This leaves the m
 
 ```bash
 sudo apt update
-sudo apt install build-essential direnv starship zoxide
+sudo apt install build-essential direnv fish starship zoxide
 ```
 
 Install and enable the service inside Ubuntu:
