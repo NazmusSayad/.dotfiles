@@ -83,14 +83,10 @@ func initAndroidSdkEnv() {
 }
 
 func initDotEnv() error {
-	homeDir, err := os.UserHomeDir()
-	if err != nil {
-		return err
-	}
-
-	dotfilesEnvPath := helpers.ResolvePath("@/.env")
+	sharedEnvPath := helpers.ResolvePath("@/.env")
+	localEnvPath := helpers.ResolvePath("@/.local/.env")
 	env := make(map[string]string)
-	for _, path := range []string{dotfilesEnvPath, filepath.Join(homeDir, ".env")} {
+	for _, path := range []string{sharedEnvPath, localEnvPath} {
 		values, err := godotenv.Read(path)
 		if errors.Is(err, os.ErrNotExist) {
 			continue
@@ -104,7 +100,7 @@ func initDotEnv() error {
 		}
 	}
 
-	lockPath := dotfilesEnvPath + ".lock"
+	lockPath := localEnvPath + ".lock"
 	lockData, err := os.ReadFile(lockPath)
 	if err != nil && !errors.Is(err, os.ErrNotExist) {
 		return fmt.Errorf("read %s: %w", lockPath, err)
