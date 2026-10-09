@@ -1,0 +1,14 @@
+[Unit]
+Description=ttysh browser terminal
+After=network.target
+
+[Service]
+User=sayad
+WorkingDirectory=/home/sayad
+Environment=HOME=/home/sayad
+ExecStart=/home/sayad/.local/bin/mise exec -- ttysh --host 127.0.0.1 --port 47474
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
