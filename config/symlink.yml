@@ -1,9 +1,9 @@
 # Shell
-"@/config/shell/bashrc.sh": "~/.bashrc"
-"@/config/shell/fishrc.fish": "~/.config/fish/config.fish"
-"@/config/shell/pwshrc.ps1":
+"@/config/shell/bash/bashrc.sh": "~/.bashrc"
+"@/config/shell/fish/fishrc.fish": "~/.config/fish/config.fish"
+"@/config/shell/pwsh/pwshrc.ps1":
   Win: "~/Documents/PowerShell/profile.ps1"
-"@/config/shell/profile.sh":
+"@/config/shell/bash/profile.sh":
   Mac: "~/.bash_profile"
 
 # Agents Skills
