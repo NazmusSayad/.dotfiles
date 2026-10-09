@@ -2,7 +2,7 @@ status is-interactive; or return
 set -g fish_greeting
 
 if command -q uname; and test (uname) = Darwin
-    brew shellenv fish | source
+    /opt/homebrew/bin/brew shellenv fish | source
     "$HOME/.local/bin/mise" activate fish | source
 else if test (uname) = Linux
     "$HOME/.local/bin/mise" activate fish | source
