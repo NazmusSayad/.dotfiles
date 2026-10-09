@@ -1,6 +1,11 @@
 if [[ "$(uname)" == "Darwin" ]]; then
-[[ -f ~/.dotfiles/.env.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.dotfiles/.env.path)"
-[[ -f ~/.env.path ]] && export PATH="$PATH:$(paste -sd ':' ~/.env.path)"
+	if [[ -f ~/.dotfiles/.path.mac ]]; then
+		while IFS= read -r p || [[ -n "$p" ]]; do
+			p="${p%$'\r'}"
+			[[ -z "$p" ]] && continue
+			[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
+		done <~/.dotfiles/.path.mac
+	fi
 fi
 
 eval "$(/opt/homebrew/bin/brew shellenv bash)"

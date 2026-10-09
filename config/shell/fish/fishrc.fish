@@ -5,17 +5,24 @@ if test "$OS" = Windows_NT; and test -n "$DOTFILES_DIR"
     set dotfiles_dir (cygpath -u "$DOTFILES_DIR")
 end
 
-if test (uname) = Darwin
-    if test -f $dotfiles_dir/.env.path
-        while read -l p
-            contains $p $PATH; or set -x PATH $PATH $p
-        end < $dotfiles_dir/.env.path
-    end
-    if test -f ~/.env.path
-        while read -l p
-            contains $p $PATH; or set -x PATH $PATH $p
-        end < ~/.env.path
-    end
+set -l path_file ''
+if test "$OS" = Windows_NT
+    set path_file $dotfiles_dir/.path.win
+else if test (uname) = Darwin
+    set path_file $dotfiles_dir/.path.mac
+else if test -n "$WSL_DISTRO_NAME"; or string match -qi '*microsoft*' (uname -r)
+    set path_file $dotfiles_dir/.path.wsl
+end
+
+if test -f "$path_file"
+    while read -l p
+        set p (string replace -r '\r$' '' -- "$p")
+        test -z "$p"; and continue
+        if test "$OS" = Windows_NT
+            set p (cygpath -u "$p")
+        end
+        contains -- "$p" $PATH; or set -gx PATH $PATH "$p"
+    end < "$path_file"
 end
 
 if test "$OS" = Windows_NT
