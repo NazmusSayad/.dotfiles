@@ -7,7 +7,7 @@ Run Linux shells at https://sh.sayad.dev through the existing `opencode` Cloudfl
 Checked on 2026-10-09:
 
 - Ubuntu and the Linux `sayad` account are configured.
-- Node.js `24.21.0`, pnpm `12.10.1`, `@antfu/ni` `30.6.0`, and the npm package `ttysh` `0.0.2` are installed.
+- Node.js `24.21.0`, pnpm `12.10.1`, `@antfu/ni` `30.6.0`, the npm package `ttysh` `0.0.2`, and Ubuntu's Starship `1.22.1` package are installed.
 - `ttysh.service` is installed, enabled, and running as `sayad`.
 - Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
 - The DNS route for `sh.sayad.dev` points to the existing tunnel, and the updated ingress config passes validation.
@@ -21,10 +21,11 @@ OpenCode is not installed in Ubuntu. The name `opencode` refers to the existing 
 - Distro: `Ubuntu-26.04`, running on WSL 2.
 - Linux account: `sayad`, with Bash as its shell.
 - Windows dotfiles: `F:\.dotfiles`, available inside Ubuntu at `/mnt/f/.dotfiles`.
-- Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, and `ttysh`.
+- Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, `ttysh`, and the Ubuntu Starship package.
 - Mise config: `~/.config/mise/config.toml`, linked to the main `../mise-config.toml` used by this dotfiles repository.
-- Bash loads mise and Starship from `bashrc.sh`. Starship uses the shared `../shell/starship.toml` config.
+- Bash loads mise and Starship from `bashrc.sh`. Ubuntu installs Starship with `apt`, while Starship uses the shared `../shell/starship.toml` config.
 - ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
+- ttysh's `shell.command` is `/bin/bash`, so new browser tabs explicitly open Bash.
 - ttysh listener: `127.0.0.1:47474` inside Ubuntu.
 - Tunnel: `opencode`, UUID `3e3fbb6c-25de-4bad-aa96-fa04d4eeba18`, running on Windows.
 
@@ -136,7 +137,7 @@ wsl --install -d Ubuntu-26.04
 wsl --set-default Ubuntu-26.04
 ```
 
-Inside Ubuntu, install mise and link the small WSL-specific config. These commands assume there is no existing mise config to overwrite:
+Inside Ubuntu, install mise and link the repository's main mise config. These commands assume there is no existing mise config to overwrite:
 
 ```bash
 mkdir -p ~/.cache ~/.config/mise
@@ -146,6 +147,13 @@ ln -s /mnt/f/.dotfiles/config/mise-config.toml ~/.config/mise/config.toml
 ln -s /mnt/f/.dotfiles/config/shell/starship.toml ~/.config/starship.toml
 ~/.local/bin/mise trust ~/.config/mise/config.toml
 ~/.local/bin/mise install
+```
+
+Install Starship separately through Ubuntu. This leaves the main mise config unchanged:
+
+```bash
+sudo apt update
+sudo apt install starship
 ```
 
 Add this line once to Ubuntu's `~/.bashrc`, then reopen the shell:
