@@ -27,7 +27,7 @@ OpenCode is not installed in Ubuntu. The `Desktop` tunnel runs on Windows throug
 - ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
 - ttysh's `shell.command` is `/bin/bash`, so new browser tabs explicitly open Bash.
 - ttysh listener: `127.0.0.1:47474` inside Ubuntu.
-- Tunnel: `Desktop`, UUID `3e3fbb6c-25de-4bad-aa96-fa04d4eeba18`, running on Windows.
+- Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
 
