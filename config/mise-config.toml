@@ -123,6 +123,9 @@ yt-dlp = "latest"
 [settings.npm]
 package_manager = "pnpm"
 
+[settings.python]
+compile = false
+
 [settings]
 yes = true
 cache_prune_age = "7d"
