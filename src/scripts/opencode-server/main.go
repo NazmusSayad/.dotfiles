@@ -20,7 +20,7 @@ func main() {
 
 	processes := []*exec.Cmd{
 		exec.Command("opencode", "serve", "--port", "4747", "--cors", "https://oc.sayad.dev"),
-		exec.Command("cloudflared", "tunnel", "run", "opencode"),
+		exec.Command("cloudflared", "tunnel", "run", "Desktop"),
 	}
 
 	sig := make(chan os.Signal, 1)
