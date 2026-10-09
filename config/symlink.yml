@@ -18,6 +18,7 @@
   - "~/.gemini/GEMINI.md"
 "@/agents/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
+  - "~/.claude-extra/CLAUDE.md"
 
 # Claude Code
 "@/agents/claude.json":
