@@ -12,7 +12,7 @@ Checked on 2026-10-09:
 - Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
 - The DNS route for `sh.sayad.dev` points to the existing tunnel, and the updated ingress config passes validation.
 - The Windows cloudflared connector is running. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to ttysh.
-- A hidden WSL keep-alive process is running so Ubuntu does not stop when the last terminal closes.
+- A hidden Windows-side WSL watchdog is running so Ubuntu does not stop when the last terminal closes and automatically relaunches after an unexpected termination.
 
 OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent cloudflared process on Windows.
 
@@ -68,13 +68,13 @@ Local address on Windows: http://127.0.0.1:47474. Remote address: https://sh.say
 
 The service starts when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
-Start ttysh and a hidden WSL keep-alive process from PowerShell:
+Start ttysh and the hidden WSL watchdog from PowerShell:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
 ```
 
-The script reuses an existing keep-alive process if one is running. It does not install a Windows startup task. Run it after signing in or after stopping WSL. The PC must be awake and the Windows tunnel must also be running.
+The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled ttysh systemd service starts during the new boot. It does not install a Windows startup task. The PC must be awake and the Windows tunnel must also be running.
 
 Restart or stop the service from Ubuntu:
 
@@ -110,7 +110,7 @@ Create the hostname's DNS route from Windows if it is missing:
 cloudflared tunnel route dns Desktop sh.sayad.dev
 ```
 
-`start.ps1` starts ttysh, the WSL keep-alive process, and `cloudflared tunnel run`. It skips processes that are already running. Windows startup runs this script through `launch.jsonc`.
+`start.ps1` starts ttysh, the Windows-side WSL watchdog, and `cloudflared tunnel run`. It skips processes that are already running. Windows startup runs this script through `launch.jsonc`.
 
 To reload the tunnel after changing `cloudflared.yml`, stop its cloudflared process and run:
 

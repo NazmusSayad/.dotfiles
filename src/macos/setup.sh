@@ -1,8 +1,5 @@
 #!/bin/bash
 
-source ./etc/git-config.sh
-source ./etc/shell-config.sh
-
 echo "Configuring shell settings..."
 bash_path=$(which bash)
 if ! grep -qxF "$bash_path" /etc/shells; then
