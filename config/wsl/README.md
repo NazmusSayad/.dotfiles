@@ -1,6 +1,6 @@
 # Ubuntu WSL and ttysh
 
-Run Linux shells at https://sh.sayad.dev through the existing `opencode` Cloudflare tunnel. Authentication is managed separately in Cloudflare.
+Run Linux shells at https://sh.sayad.dev through the existing `Desktop` Cloudflare tunnel. Authentication is managed separately in Cloudflare.
 
 ## Setup status
 
@@ -14,7 +14,7 @@ Checked on 2026-10-09:
 - The Windows tunnel launcher was restarted, and `https://sh.sayad.dev/` returns HTTP 200 with the ttysh page.
 - A hidden WSL keep-alive process is running so Ubuntu does not stop when the last terminal closes.
 
-OpenCode is not installed in Ubuntu. The name `opencode` refers to the existing Windows tunnel. Its Windows launcher is `opencode-server`.
+OpenCode is not installed in Ubuntu. The `Desktop` tunnel runs on Windows through the existing `opencode-server` launcher.
 
 ## Device setup
 
@@ -27,7 +27,7 @@ OpenCode is not installed in Ubuntu. The name `opencode` refers to the existing 
 - ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
 - ttysh's `shell.command` is `/bin/bash`, so new browser tabs explicitly open Bash.
 - ttysh listener: `127.0.0.1:47474` inside Ubuntu.
-- Tunnel: `opencode`, UUID `3e3fbb6c-25de-4bad-aa96-fa04d4eeba18`, running on Windows.
+- Tunnel: `Desktop`, UUID `3e3fbb6c-25de-4bad-aa96-fa04d4eeba18`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
 
@@ -92,7 +92,7 @@ mise exec -- ttysh --host 127.0.0.1 --port 47474
 `../cloudflared.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. It must contain both hostname routes, followed by the catch-all:
 
 ```yaml
-tunnel: opencode
+tunnel: Desktop
 ingress:
   - hostname: oc.sayad.dev
     service: http://127.0.0.1:4747
@@ -106,7 +106,7 @@ Windows cloudflared reaches Ubuntu through WSL's localhost forwarding. No router
 Create the hostname's DNS route from Windows if it is missing:
 
 ```powershell
-cloudflared tunnel route dns opencode sh.sayad.dev
+cloudflared tunnel route dns Desktop sh.sayad.dev
 ```
 
 Restart the existing tunnel connector after editing its ingress configuration. The current connector is started by the Windows `opencode-server` launcher, so restarting that launcher also restarts the Windows OpenCode server. Do not launch a second connector with different ingress rules for the same tunnel.
