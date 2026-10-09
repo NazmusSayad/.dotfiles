@@ -106,6 +106,7 @@
 "@/config/pnpm.yaml":
   Win: "$LOCALAPPDATA/pnpm/config.yaml"
   Mac: "~/Library/Preferences/pnpm/config.yaml"
+  Wsl: "~/.config/pnpm/config.yaml"
 "@/config/oiper.json":
   Win: "$APPDATA/com.oiper.desktop/config.json"
   Mac: "~/Library/Application Support/com.oiper.desktop/config.json"

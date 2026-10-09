@@ -38,9 +38,11 @@ type Entry struct {
 	Link        StringOrArray `yaml:"-"`
 	Win         StringOrArray `yaml:"Win"`
 	Mac         StringOrArray `yaml:"Mac"`
+	Wsl         StringOrArray `yaml:"Wsl"`
 	Copy        StringOrArray `yaml:"Copy"`
 	WinCopy     StringOrArray `yaml:"Win.Copy"`
 	MacCopy     StringOrArray `yaml:"Mac.Copy"`
+	WslCopy     StringOrArray `yaml:"Wsl.Copy"`
 	InheritPerm bool          `yaml:"InheritPerm"`
 }
 
@@ -74,6 +76,15 @@ func (e Entry) resolve() ([]string, []string) {
 		}
 		if len(e.MacCopy) > 0 {
 			copyTargets = e.MacCopy
+		}
+	case "linux":
+		if helpers.IsWSL() {
+			if len(e.Wsl) > 0 {
+				linkTargets = e.Wsl
+			}
+			if len(e.WslCopy) > 0 {
+				copyTargets = e.WslCopy
+			}
 		}
 	}
 

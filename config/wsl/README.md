@@ -23,6 +23,8 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent 
 - Windows dotfiles: `F:\.dotfiles`, available inside Ubuntu at `/mnt/f/.dotfiles`.
 - Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, `ttysh`, and the Ubuntu Starship package.
 - Mise config: `~/.config/mise/config.toml`, linked to the main `../mise-config.toml` used by this dotfiles repository.
+- `config-init` detects WSL and creates the portable links from `../symlink.yml`, including OpenCode and CLI configuration.
+- Running `config-init` on Windows also runs it inside `Ubuntu-26.04` as `sayad`, keeping both environments updated from one command.
 - `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
@@ -133,18 +135,12 @@ Inside Ubuntu, install mise and link the repository's main mise config. These co
 mkdir -p ~/.cache ~/.config/mise
 curl -fsSL https://mise.run -o ~/.cache/mise-install.sh
 sh ~/.cache/mise-install.sh
-ln -s /mnt/f/.dotfiles/config/mise-config.toml ~/.config/mise/config.toml
-ln -s /mnt/f/.dotfiles/config/shell/starship.toml ~/.config/starship.toml
-mkdir -p ~/.config/shaka
-ln -s /mnt/f/.dotfiles/config/shell/alias.json ~/.config/shaka/config.json
-mkdir -p ~/.config/direnv
-ln -s /mnt/f/.dotfiles/config/shell/direnv.toml ~/.config/direnv/direnv.toml
 ln -s /mnt/f/.dotfiles ~/.dotfiles
-ln -s /mnt/f/.dotfiles/config/shell/bashrc.sh ~/.bashrc
-mkdir -p ~/.config/fish
-ln -s /mnt/f/.dotfiles/config/shell/fishrc.fish ~/.config/fish/config.fish
+ln -s ~/.dotfiles/config/mise-config.toml ~/.config/mise/config.toml
 ~/.local/bin/mise trust ~/.config/mise/config.toml
 ~/.local/bin/mise install
+cd ~/.dotfiles
+~/.local/bin/mise exec -- go run ./src/scripts/config-init/main.go
 ```
 
 Install the Linux shell and build dependencies through Ubuntu. This leaves the main mise config unchanged:
