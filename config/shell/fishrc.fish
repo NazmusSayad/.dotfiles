@@ -1,4 +1,6 @@
 status is-interactive; or return
+set -g fish_greeting
+
 if test (uname) = Darwin
     if test -f ~/.dotfiles/.env.path
         while read -l p
@@ -18,6 +20,11 @@ if test "$OS" = Windows_NT
     function __windows_terminal_report_cwd --on-event fish_prompt
         printf '\e]9;9;%s\e\\' (cygpath -w "$PWD" -C ANSI)
     end
+end
+
+if test (uname) = Linux
+    set -gx PATH $HOME/.local/bin $PATH
+    $HOME/.local/bin/mise activate fish | source
 end
 
 if command -q uname; and test (uname) = Darwin
