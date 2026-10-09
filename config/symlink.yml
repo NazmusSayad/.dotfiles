@@ -22,6 +22,33 @@
 # Claude Code
 "@/agents/claude.json":
   - "~/.claude/settings.json"
+  - "~/.claude-extra/settings.json"
+
+# Claude Accounts
+"~/.claude/history.jsonl":
+  - "~/.claude-extra/history.jsonl"
+"~/.claude/jobs":
+  - "~/.claude-extra/jobs"
+"~/.claude/plans":
+  - "~/.claude-extra/plans"
+"~/.claude/tasks":
+  - "~/.claude-extra/tasks"
+"~/.claude/cache":
+  - "~/.claude-extra/cache"
+"~/.claude/state":
+  - "~/.claude-extra/state"
+"~/.claude/plugins":
+  - "~/.claude-extra/plugins"
+"~/.claude/projects":
+  - "~/.claude-extra/projects"
+"~/.claude/sessions":
+  - "~/.claude-extra/sessions"
+"~/.claude/paste-cache":
+  - "~/.claude-extra/paste-cache"
+"~/.claude/session-env":
+  - "~/.claude-extra/session-env"
+"~/.claude/shell-snapshots":
+  - "~/.claude-extra/shell-snapshots"
 
 # OpenCode
 "@/agents/opencode/plugins": "~/.config/opencode/plugins"
