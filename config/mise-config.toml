@@ -14,7 +14,6 @@ cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = { version = "latest", os = ["windows"] }
-"go:github.com/Songmu/timeout/cmd/go-timeout" = "latest"
 
 # Shell
 "npm:ttysh" = "latest"
