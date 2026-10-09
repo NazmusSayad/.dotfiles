@@ -1,10 +1,15 @@
 [[ $- != *i* ]] && return
 
+dotfiles_dir="$HOME/.dotfiles"
+if [[ "$OS" == "Windows_NT" && -n "$DOTFILES_DIR" ]]; then
+	dotfiles_dir="$(cygpath -u "$DOTFILES_DIR")"
+fi
+
 if [[ "$(uname)" == "Darwin" ]]; then
-	if [[ -f ~/.dotfiles/.env.path ]]; then
+	if [[ -f "$dotfiles_dir/.env.path" ]]; then
 		while read -r p; do
 			[[ ":$PATH:" != *":$p:"* ]] && export PATH="$PATH:$p"
-		done <~/.dotfiles/.env.path
+		done <"$dotfiles_dir/.env.path"
 	fi
 	if [[ -f ~/.env.path ]]; then
 		while read -r p; do
@@ -27,8 +32,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 	eval "$(mise activate bash)"
 fi
 
-[[ -f ~/.dotfiles/.env ]] && eval "$(dotsh bash "$(cat ~/.dotfiles/.env)")"
-[[ -f ~/.env ]] && eval "$(dotsh bash "$(cat ~/.env)")"
+[[ -f "$dotfiles_dir/.env" ]] && eval "$(dotsh bash "$(cat "$dotfiles_dir/.env")")"
+[[ -f "$dotfiles_dir/.local/.env" ]] && eval "$(dotsh bash "$(cat "$dotfiles_dir/.local/.env")")"
 eval "$(direnv hook bash)"
 
 eval "$(shaka bash)"

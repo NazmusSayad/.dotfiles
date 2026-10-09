@@ -1,11 +1,15 @@
 status is-interactive; or return
 set -g fish_greeting
+set -l dotfiles_dir ~/.dotfiles
+if test "$OS" = Windows_NT; and test -n "$DOTFILES_DIR"
+    set dotfiles_dir (cygpath -u "$DOTFILES_DIR")
+end
 
 if test (uname) = Darwin
-    if test -f ~/.dotfiles/.env.path
+    if test -f $dotfiles_dir/.env.path
         while read -l p
             contains $p $PATH; or set -x PATH $PATH $p
-        end < ~/.dotfiles/.env.path
+        end < $dotfiles_dir/.env.path
     end
     if test -f ~/.env.path
         while read -l p
@@ -32,8 +36,8 @@ if command -q uname; and test (uname) = Darwin
     mise activate fish | source
 end
 
-test -f ~/.dotfiles/.env; and dotsh fish "$(cat ~/.dotfiles/.env)" | source
-test -f ~/.env; and dotsh fish "$(cat ~/.env)" | source
+test -f $dotfiles_dir/.env; and dotsh fish "$(cat $dotfiles_dir/.env)" | source
+test -f $dotfiles_dir/.local/.env; and dotsh fish "$(cat $dotfiles_dir/.local/.env)" | source
 direnv hook fish | source
 
 shaka fish | source
