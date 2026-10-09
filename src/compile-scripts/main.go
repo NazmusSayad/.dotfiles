@@ -12,7 +12,6 @@ import (
 	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
-	"github.com/otiai10/copy"
 )
 
 func main() {
@@ -75,11 +74,6 @@ func main() {
 		} else {
 			buildScript(sourceDir, outputDir, entryName, scriptName)
 		}
-	}
-
-	fmt.Println(aurora.Faint("> Copying etc/bin -> ").String() + outputDir)
-	if err := copy.Copy(filepath.Join(cwd, "etc", "bin"), outputDir); err != nil {
-		panic(err)
 	}
 }
 
