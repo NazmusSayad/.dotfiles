@@ -17,7 +17,12 @@ if [[ "$OS" == "Windows_NT" ]]; then
 	eval "$(dotsh bash "$(mise env --dotenv)")"
 fi
 
-if command -v uname >/dev/null 2>&1 && [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$(uname)" == "Linux" ]]; then
+	export PATH="$HOME/.local/bin:$PATH"
+	eval "$("$HOME/.local/bin/mise" activate bash)"
+fi
+
+if [[ "$(uname)" == "Darwin" ]]; then
 	eval "$(brew shellenv bash)"
 	eval "$(mise activate bash)"
 fi

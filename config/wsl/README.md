@@ -23,7 +23,8 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent 
 - Windows dotfiles: `F:\.dotfiles`, available inside Ubuntu at `/mnt/f/.dotfiles`.
 - Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, `ttysh`, and the Ubuntu Starship package.
 - Mise config: `~/.config/mise/config.toml`, linked to the main `../mise-config.toml` used by this dotfiles repository.
-- Bash loads mise and Starship from `bashrc.sh`. Ubuntu installs Starship with `apt`, while Starship uses the shared `../shell/starship.toml` config.
+- `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
+- Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
 - ttysh's `shell.command` is `/bin/bash`, so new browser tabs explicitly open Bash.
 - ttysh listener: `127.0.0.1:47474` inside Ubuntu.
@@ -134,24 +135,22 @@ curl -fsSL https://mise.run -o ~/.cache/mise-install.sh
 sh ~/.cache/mise-install.sh
 ln -s /mnt/f/.dotfiles/config/mise-config.toml ~/.config/mise/config.toml
 ln -s /mnt/f/.dotfiles/config/shell/starship.toml ~/.config/starship.toml
+mkdir -p ~/.config/shaka
+ln -s /mnt/f/.dotfiles/config/shell/alias.json ~/.config/shaka/config.json
+mkdir -p ~/.config/direnv
+ln -s /mnt/f/.dotfiles/config/shell/direnv.toml ~/.config/direnv/direnv.toml
+ln -s /mnt/f/.dotfiles ~/.dotfiles
+ln -s /mnt/f/.dotfiles/config/shell/bashrc.sh ~/.bashrc
 ~/.local/bin/mise trust ~/.config/mise/config.toml
 ~/.local/bin/mise install
 ```
 
-Install Starship separately through Ubuntu. This leaves the main mise config unchanged:
+Install the Linux shell and build dependencies through Ubuntu. This leaves the main mise config unchanged:
 
 ```bash
 sudo apt update
-sudo apt install starship
+sudo apt install build-essential direnv starship zoxide
 ```
-
-Add this line once to Ubuntu's `~/.bashrc`, then reopen the shell:
-
-```bash
-source /mnt/f/.dotfiles/config/wsl/bashrc.sh
-```
-
-Do not replace Ubuntu's `.bashrc` with `../shell/bashrc.sh`. That shared file currently expects Windows/macOS tools and does not activate mise on Linux.
 
 Install and enable the service inside Ubuntu:
 

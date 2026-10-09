@@ -14,7 +14,7 @@ cmake = "latest"
 "aqua:Songmu/timeout" = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
-"cargo:pwshac" = "latest"
+"cargo:pwshac" = { version = "latest", os = ["windows"] }
 
 # Shell
 "npm:ttysh" = "latest"
