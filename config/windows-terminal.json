@@ -345,6 +345,12 @@
                 "pathTranslationStyle": "msys2"
             },
             {
+                "commandline": "wsl.exe -d Ubuntu-26.04 --cd ~",
+                "guid": "{cbcfbdad-7de1-42a4-a9c3-0f293c290008}",
+                "hidden": false,
+                "name": "Ubuntu (WSL)"
+            },
+            {
                 "commandline": "bash.exe",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed4b}",
                 "hidden": false,

@@ -1,0 +1,12 @@
+[tools]
+node = "lts"
+pnpm = "latest"
+"npm:@antfu/ni" = "latest"
+"npm:ttysh" = "latest"
+
+[settings]
+yes = true
+minimum_release_age_excludes = ["node", "pnpm", "npm:ttysh"]
+
+[settings.npm]
+package_manager = "pnpm"

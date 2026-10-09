@@ -2,4 +2,6 @@ tunnel: opencode
 ingress:
   - hostname: oc.sayad.dev
     service: http://127.0.0.1:4747
+  - hostname: sh.sayad.dev
+    service: http://127.0.0.1:47831
   - service: http_status:404
