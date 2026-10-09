@@ -12,7 +12,7 @@ for /f "tokens=1" %%p in ('tasklist /fi "IMAGENAME eq AHK-*" /nh 2^>nul ^| finds
 if defined killed sudo taskkill /F /IM AHK-* >nul 2>&1
 
 echo ^> Cleaning AHK build directory...
-if exist ".build\ahk" rmdir /s /q ".build\ahk"
+if exist ".local\ahk" rmdir /s /q ".local\ahk"
 
 echo.
 echo ^> Compiling AutoHotkey scripts...
@@ -22,7 +22,7 @@ if defined killed (
     echo.
     echo ^> Restarting AHK scripts...
     for %%n in (%killed%) do (
-        set "exe=%CD%\.build\ahk\%%n.exe"
+        set "exe=%CD%\.local\ahk\%%n.exe"
         if exist "!exe!" (
             echo ^> Restarting: !exe!
             sudo "!exe!"
