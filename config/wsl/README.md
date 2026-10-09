@@ -11,7 +11,7 @@ Checked on 2026-10-09:
 - `ttysh.service` is installed, enabled, and running as `sayad`.
 - Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
 - The DNS route for `sh.sayad.dev` points to the existing tunnel, and the updated ingress config passes validation.
-- The Windows tunnel launcher was restarted, and `https://sh.sayad.dev/` returns HTTP 200 with the ttysh page.
+- The Windows tunnel launcher was restarted. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to ttysh.
 - A hidden WSL keep-alive process is running so Ubuntu does not stop when the last terminal closes.
 
 OpenCode is not installed in Ubuntu. The `Desktop` tunnel runs on Windows through the existing `opencode-server` launcher.
@@ -110,6 +110,8 @@ cloudflared tunnel route dns Desktop sh.sayad.dev
 ```
 
 Restart the existing tunnel connector after editing its ingress configuration. The current connector is started by the Windows `opencode-server` launcher, so restarting that launcher also restarts the Windows OpenCode server. Do not launch a second connector with different ingress rules for the same tunnel.
+
+The launcher source runs `cloudflared tunnel run` without a tunnel name. After its next compile, cloudflared will read `Desktop` from `../cloudflared.yml`, so later tunnel renames will not require a launcher source change.
 
 The launcher was restarted as a hidden Windows process during setup. Find its PID from PowerShell:
 
