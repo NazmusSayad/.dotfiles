@@ -77,6 +77,7 @@
 "@/config/shell/lsd-config.yaml": "~/.config/lsd/config.yaml"
 
 # Terminal Emulators
+"@/config/sshtty.json": "~/.sshtty/config.json"
 "@/config/shell/ghostty.conf":
   Mac: "~/.config/ghostty/config"
 "@/config/shell/cmux.json":
