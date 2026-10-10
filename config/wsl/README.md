@@ -1,17 +1,17 @@
 # Ubuntu WSL and sshtty
 
-Run Linux shells at https://sh.sayad.dev through the existing `Desktop` Cloudflare tunnel. Authentication is managed separately in Cloudflare.
+Run Linux shells at https://wsl.sayad.dev and native Windows shells at https://win.sayad.dev through the existing Windows `Desktop` Cloudflare tunnel. Authentication is managed separately in Cloudflare.
 
 ## Setup status
 
-Checked on 2026-10-09:
+Checked on 2026-10-10:
 
 - Ubuntu and the Linux `sayad` account are configured.
 - Node.js `24.21.0`, pnpm `12.10.1`, `@antfu/ni` `30.6.0`, the npm package `sshtty`, and Ubuntu's Starship `1.22.1` package are installed.
 - `sshtty.service` is installed, enabled, and running as `sayad`.
 - Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
-- The DNS route for `sh.sayad.dev` points to the existing tunnel, and the updated ingress config passes validation.
-- The Windows cloudflared connector is running. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to sshtty.
+- Both hostname DNS routes point to the existing `Desktop` tunnel, and the ingress config passes validation.
+- The Windows cloudflared connector handles both hostnames. Unauthenticated requests redirect to the existing Cloudflare Access login.
 - A hidden Windows-side WSL watchdog is running so Ubuntu does not stop when the last terminal closes and automatically relaunches after an unexpected termination.
 
 OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent cloudflared process on Windows.
@@ -30,6 +30,7 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent 
 - sshtty data: `/home/sayad/.sshtty`. Keep it in Linux, not on a Windows mount.
 - sshtty's `shell.command` is `/usr/bin/fish`, so browser tabs open Fish without changing the WSL login shell.
 - sshtty listener: `127.0.0.1:47474` inside Ubuntu.
+- Native Windows sshtty listener: `127.0.0.1:47831`, with its own `%USERPROFILE%\.sshtty\config.json` and PowerShell shell. Linux settings stay in `/home/sayad/.sshtty/config.json`.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
@@ -64,11 +65,11 @@ sudo systemctl status sshtty --no-pager
 journalctl -u sshtty -n 50 --no-pager
 ```
 
-Local address on Windows: http://127.0.0.1:47474. Remote address: https://sh.sayad.dev.
+WSL local address: http://127.0.0.1:47474. Remote address: https://wsl.sayad.dev. Native Windows uses http://127.0.0.1:47831 and https://win.sayad.dev.
 
 The service starts when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
-Start sshtty and the hidden WSL watchdog from PowerShell:
+Start both sshtty servers, the existing WSL watchdog, and the Windows tunnel from PowerShell:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
@@ -92,13 +93,15 @@ mise exec -- sshtty --host 127.0.0.1 --port 47474
 
 ## Tunnel routing
 
-`../cloudflared.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. It must contain both hostname routes, followed by the catch-all:
+`../win-cloudflared.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. It must contain both hostname routes, followed by the catch-all:
 
 ```yaml
 tunnel: Desktop
 ingress:
-  - hostname: sh.sayad.dev
+  - hostname: wsl.sayad.dev
     service: http://127.0.0.1:47474
+  - hostname: win.sayad.dev
+    service: http://127.0.0.1:47831
   - service: http_status:404
 ```
 
@@ -107,12 +110,13 @@ Windows cloudflared reaches Ubuntu through WSL's localhost forwarding. No router
 Create the hostname's DNS route from Windows if it is missing:
 
 ```powershell
-cloudflared tunnel route dns Desktop sh.sayad.dev
+cloudflared tunnel route dns Desktop wsl.sayad.dev
+cloudflared tunnel route dns Desktop win.sayad.dev
 ```
 
-`start.ps1` starts sshtty, the Windows-side WSL watchdog, and `cloudflared tunnel run`. It skips processes that are already running. Windows startup runs this script through `launch.jsonc`.
+`start.ps1` starts both sshtty servers, the Windows-side WSL watchdog, and one Windows `cloudflared tunnel run` connector. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. No cloudflared service runs inside WSL.
 
-To reload the tunnel after changing `cloudflared.yml`, stop its cloudflared process and run:
+To reload the tunnel after changing `win-cloudflared.yml`, stop its cloudflared process and run:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
@@ -174,7 +178,7 @@ Use `ni`, `nr`, and `nlx` for project package workflows. `npm:sshtty` is a mise 
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
 - The hostname returns 502: cloudflared cannot reach sshtty. Check that Ubuntu is running and sshtty is listening.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
-- If signing into `sh.sayad.dev` visits another hostname, edit the Cloudflare Access application so its only public hostname is `sh.sayad.dev`. Cloudflare preemptively visits every domain in small multi-domain applications to issue authorization cookies.
+- Keep the Cloudflare Access applications for `wsl.sayad.dev` and `win.sayad.dev` separate to avoid cross-hostname login redirects.
 - Shells survive sshtty server crashes according to the package documentation. They do not survive Windows shutdown or `wsl --shutdown`.
 - Avoid `wsl --shutdown` during normal work; it also stops Docker's WSL environment.
 

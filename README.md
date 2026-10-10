@@ -92,7 +92,7 @@ Follow these steps to set up your development environment:
 
 ### Using the Tools
 
-For Ubuntu WSL and the browser shell at `sh.sayad.dev`, see [the WSL setup and workflow guide](config/wsl/README.md).
+For the browser shells at `wsl.sayad.dev` and `win.sayad.dev`, see [the WSL setup and workflow guide](config/wsl/README.md).
 
 Once installed, you can use these commands from anywhere in your terminal:
 
