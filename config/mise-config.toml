@@ -16,7 +16,7 @@ cmake = "latest"
 "cargo:pwshac" = { version = "latest", os = ["windows"] }
 
 # Shell
-"npm:sshtty" = "latest"
+"github:nazmussayad/sshtty" = "latest"
 
 # File System
 jq = "latest"
@@ -149,7 +149,6 @@ minimum_release_age_excludes = [
   "github:google-antigravity/antigravity-cli",
 
   # My NPM Tools
-  "npm:sshtty",
   "npm:gityo",
   "npm:manygit",
   "npm:netserv",
@@ -158,6 +157,7 @@ minimum_release_age_excludes = [
   "npm:mytokens",
   "npm:create-src",
   "npm:opencode-ext",
+  "github:nazmussayad/sshtty",
 
   # My Rust Tools
   "cargo:dotsh",
