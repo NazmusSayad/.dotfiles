@@ -151,7 +151,7 @@ Install the Linux shell and build dependencies through Ubuntu. This leaves the m
 
 ```bash
 sudo apt update
-sudo apt install build-essential direnv fish starship zoxide
+sudo apt install build-essential direnv fish starship zoxide ripgrep btop ttyd shfmt zip unzip ffmpeg imagemagick git-lfs
 ```
 
 Install and enable the service inside Ubuntu:

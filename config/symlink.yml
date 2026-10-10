@@ -116,6 +116,8 @@
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
 "@/config/win-cloudflared.yml":
   Win: "~/.cloudflared/config.yml"
+"@/config/wsl/wslconfig.ini":
+  Win: "~/.wslconfig"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 
