@@ -29,3 +29,14 @@ zoxide add $PWD 2>/dev/null
 function on_cd --on-variable PWD
     zoxide add $PWD 2>/dev/null
 end
+
+function claude
+    set -l config "$HOME/.claude.json"
+    if test -n "$CLAUDE_CONFIG_DIR"
+        set config "$CLAUDE_CONFIG_DIR/.claude.json"
+    end
+    set -l dir (git rev-parse --show-toplevel 2>/dev/null; or pwd)
+    set -l trusted (jq --arg d "$dir" '.projects[$d].hasTrustDialogAccepted = true' "$config" | string collect)
+    and printf '%s\n' "$trusted" >"$config"
+    command claude $argv
+end

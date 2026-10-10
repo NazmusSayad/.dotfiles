@@ -7,6 +7,7 @@ elif [[ "$(uname)" == "Linux" ]]; then
 	eval "$("$HOME/.local/bin/mise" activate bash)"
 elif [[ "$OS" == "Windows_NT" ]]; then
 	eval "$(dotsh bash "$(mise env --dotenv)")"
+	PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "`cygpath -w "$PWD" -C ANSI`"'
 fi
 
 eval "$(dotsh init bash --home "${DOTFILES_DIR:-$HOME/.dotfiles}")"
@@ -22,6 +23,11 @@ on_cd() {
 }
 PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 
-if [[ "$OS" == "Windows_NT" ]]; then
-	PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "`cygpath -w "$PWD" -C ANSI`"'
-fi
+claude() {
+	local config="${CLAUDE_CONFIG_DIR:-$HOME}/.claude.json"
+	local dir trusted
+	dir=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+	trusted=$(jq --arg d "$dir" '.projects[$d].hasTrustDialogAccepted = true' "$config") &&
+		printf '%s\n' "$trusted" >"$config"
+	command claude "$@"
+}
