@@ -66,4 +66,4 @@ Do not turn one failure or successful fix into a universal rule without evidence
 
 ## Writing a skill
 
-A skill is a prompt too, so everything above applies. The description of an automatically invoked skill has two sentences: the first says what the skill is, and the second starts with "Use" and names the situations that need it. The description of a manually invoked skill is one sentence that says what the skill does. When a skill grows out of real work, keep what generalizes to the whole class of tasks and leave out the details of the work it came from.
+A skill is a prompt too, so everything above applies. The description of an automatically invoked skill has two sentences: the first says what the skill is, and the second names the situations that need it. The description of a manually invoked skill is one sentence that says what the skill does. When a skill grows out of real work, keep what generalizes to the whole class of tasks and leave out the details of the work it came from.
