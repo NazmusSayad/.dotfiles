@@ -2,8 +2,7 @@
 
 ## Footage in
 
-- Takes arrive raw and unclipped: one continuous recording per scene, constant 60 fps H.264. No trimming, speed changes or joins before the edit.
-- Keep failed takes and add `-take2`, `-take3`. Don't overwrite.
+- Takes arrive raw and untouched (see [material.md](material.md)): one continuous recording per scene, constant 60 fps H.264.
 - Before using a take, check it with `ffprobe` (1920x1080, 60/1) and look at a contact sheet of frames across the whole take. A take can finish "successfully" and still be wrong, for example when the input had no focus and nothing was typed.
 - If the footage shows something the user's real setup doesn't (gaps, padding, cut-off panels), re-record with the setup fixed. Don't crop or scale it away.
 
