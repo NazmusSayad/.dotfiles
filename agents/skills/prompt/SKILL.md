@@ -63,3 +63,7 @@ Creating a prompt requires recovering the intended behavior and choosing the rig
 Evaluate the prompt according to its job. Use real or representative inputs and outputs for narrow task prompts when practical. Review broad skills and durable instructions through varied situations, competing interpretations, boundaries, and conflicts. Check whether the right material loads, the agent preserves the intended behavior, and required work reaches its completion criteria. A finite set of cases cannot prove how a nondeterministic agent will behave in every future context.
 
 Do not turn one failure or successful fix into a universal rule without evidence of a broader pattern. Every instruction should have a clear behavioral purpose grounded in intent, context, scope, or evidence. Remove anything that cannot meet that test.
+
+## Skills
+
+A skill is a prompt too, so everything above applies. Its description has two sentences: the first says what the skill is, the second says when to use it. When a skill grows out of real work, keep what generalizes to the whole class of tasks and leave out the details of the work it came from.

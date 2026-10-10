@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video"
+  short_description: "Promo videos from real footage"
+  default_prompt: "Use $video to make a promo video for this project."
