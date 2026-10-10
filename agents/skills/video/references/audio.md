@@ -1,8 +1,10 @@
 # Audio
 
+Start with music only. Add a voice-over later only if the user asks for one; until then, the captions carry the story.
+
 ## Choosing
 
-- Instrumental only, no vocals and no voice-over. Check for vocals before offering a track.
+- Pick an instrumental track with no vocals. Check for vocals before offering a track.
 - Choose music for the feeling it should give the viewer, decided from the audience and the story: calm confidence, curiosity, a lift at the big claim. Write that feeling down before searching, and check every candidate against it.
 - Avoid the generic stock tracks heard in every product video: the same upbeat ukulele, plinky corporate pop or bland background loop. If a track could sit under any ad, keep looking. It should have a character that fits this product.
 - Aim for relaxed but modern: a smooth, steady groove that feels confident, not sleepy and not aggressive. Chillout-style house works well; hard-hitting, energetic tracks feel like an ad shouting at the viewer.
