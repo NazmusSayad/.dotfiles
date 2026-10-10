@@ -1,0 +1,9 @@
+{
+  "name": "opencode-skill-commands",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./tui": "./tui.ts"
+  }
+}

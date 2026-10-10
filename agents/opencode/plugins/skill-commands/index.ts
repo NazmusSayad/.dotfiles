@@ -1,46 +1,11 @@
+import { Plugin, type Skill } from "@opencode/plugin"
 import { YAML } from "bun"
 import { readFile } from "node:fs/promises"
 
-type Prompt = {
-  text: string
-  skills?: { id: string }[]
-}
-
-type Invocation = {
-  sessionID: string
-  prompt: Prompt
-  delivery: "steer" | "queue"
-}
-
-type Context = {
-  skill: {
-    list(): Promise<{
-      data: { id: string; description?: string; path: string }[]
-    }>
-  }
-  command: {
-    transform(callback: (editor: {
-      add(command: {
-        name: string
-        description?: string
-        execute(input: Invocation): Promise<void>
-      }): void
-    }) => void): Promise<unknown>
-    reload(): Promise<void>
-  }
-  session: {
-    prompt(input: Prompt & {
-      sessionID: string
-      delivery: "steer" | "queue"
-    }): Promise<unknown>
-  }
-}
-
-async function loadCommands(ctx: Context) {
-  const skills = await ctx.skill.list()
+async function loadCommands(skills: readonly Skill.Info[]) {
   const commands = []
 
-  for (const skill of skills.data) {
+  for (const skill of skills) {
     if (skill.path.startsWith("/builtin/")) continue
 
     try {
@@ -83,10 +48,11 @@ async function loadCommands(ctx: Context) {
   return commands
 }
 
-export default {
+export default Plugin.define({
   id: "skill-commands",
-  async setup(ctx: Context) {
-    let commands = await loadCommands(ctx)
+  async setup(ctx) {
+    const skills = await ctx.skill.list()
+    let commands = await loadCommands(skills.data)
 
     await ctx.command.transform((editor) => {
       for (const command of commands) {
@@ -112,7 +78,8 @@ export default {
       if (refreshing) return
       refreshing = true
       try {
-        const next = await loadCommands(ctx)
+        const skills = await ctx.skill.list()
+        const next = await loadCommands(skills.data)
         if (JSON.stringify(next) !== JSON.stringify(commands)) {
           commands = next
           await ctx.command.reload()
@@ -126,4 +93,4 @@ export default {
 
     return () => clearInterval(timer)
   }
-}
+})
