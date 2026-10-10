@@ -16,7 +16,7 @@ cmake = "latest"
 "cargo:pwshac" = { version = "latest", os = ["windows"] }
 
 # Shell
-"npm:ttysh" = "latest"
+"npm:sshtty" = "latest"
 
 # File System
 jq = "latest"
@@ -149,7 +149,7 @@ minimum_release_age_excludes = [
   "github:google-antigravity/antigravity-cli",
 
   # My NPM Tools
-  "npm:ttysh",
+  "npm:sshtty",
   "npm:gityo",
   "npm:manygit",
   "npm:netserv",
