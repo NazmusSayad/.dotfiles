@@ -1,0 +1,16 @@
+{
+  "shell": {
+    "macos": {
+      "command": "/opt/homebrew/bin/fish --features no-query-term",
+      "cwd": "~/Desktop"
+    },
+    "linux": {
+      "command": "/usr/bin/fish --features no-query-term",
+      "cwd": "~/Desktop"
+    },
+    "windows": {
+      "command": "fish.exe --features no-query-term",
+      "cwd": "~/Desktop"
+    }
+  }
+}
