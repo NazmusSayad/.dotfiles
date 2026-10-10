@@ -30,7 +30,8 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent 
 - sshtty data: `/home/sayad/.sshtty`. Keep it in Linux, not on a Windows mount.
 - sshtty's `shell.command` is `/usr/bin/fish`, so browser tabs open Fish without changing the WSL login shell.
 - sshtty listener: `127.0.0.1:47474` inside Ubuntu.
-- Native Windows sshtty listener: `127.0.0.1:47831`, with its own `%USERPROFILE%\.sshtty\config.json` and PowerShell shell. Linux settings stay in `/home/sayad/.sshtty/config.json`.
+- Native Windows sshtty listener: `127.0.0.1:47831`, with a PowerShell shell.
+- sshtty settings: `../sshtty.json`, linked to `~/.sshtty/config.json` on both Windows and Ubuntu. Each side reads its own `shell` entry. Fish runs with `--features no-query-term` so tabs started without a connected browser do not wait for a terminal response.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
