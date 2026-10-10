@@ -5,7 +5,7 @@ let model = ''
 let effort = ''
 let context = ''
 
-async function refresh($: EngineInterface) {
+async function refreshGit($: EngineInterface) {
   const { exitCode, stdout } = await $.process.run(['git', 'status', '--porcelain=v2', '--branch'])
   git = ''
   if (exitCode === 0) {
@@ -16,9 +16,12 @@ async function refresh($: EngineInterface) {
     git = `${head}${isDirty ? '*' : ''}${ahead !== '+0' ? '↑' : ''}${behind !== '-0' ? '↓' : ''}`
   }
 
-  const { context: usage } = await $.session.usage()
-  context = usage.percent === undefined ? '' : `(${usage.percent}%)`
+  $.ui.invalidate('ui.render')
+}
 
+async function refreshContext($: EngineInterface) {
+  const { context: usage } = await $.session.usage({ breakdown: 'summary' })
+  context = usage.breakdown === undefined ? '' : `(${usage.breakdown.percentage}%)`
   $.ui.invalidate('ui.render')
 }
 
@@ -29,8 +32,9 @@ export const register: Register = on => {
       model = last.model
       effort = last.effort
     }
-    await refresh($)
-    $.clock.every(5000, () => refresh($))
+    await refreshGit($)
+    await refreshContext($)
+    $.clock.every(5000, () => refreshGit($))
 
     return next(e)
   })
@@ -46,7 +50,8 @@ export const register: Register = on => {
   })
 
   on('turn.complete', async ($, e, next) => {
-    await refresh($)
+    await refreshGit($)
+    await refreshContext($)
 
     return next(e)
   })
