@@ -17,8 +17,10 @@ echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
 
 echo "Configuring power settings..."
+sudo pmset -a disablesleep 1
 sudo pmset -a sleep 0
 sudo pmset -a powernap 0
+sudo pmset -a tcpkeepalive 0
 sudo pmset -a ttyskeepawake 0
 sudo pmset -a womp 0
 sudo pmset -a disksleep 0
