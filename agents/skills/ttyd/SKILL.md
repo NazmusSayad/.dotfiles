@@ -1,9 +1,6 @@
 ---
 name: ttyd
-description: Serves a bash terminal in the browser through `ttyd` with the user's Ghostty theme, font and fully loaded bash setup.
-
-disable-model-invocation: true
-metadata: { opencode/autoinvoke: false }
+description: Opens a terminal in the browser.
 ---
 
 ## Start a server
