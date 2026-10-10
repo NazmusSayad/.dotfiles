@@ -46,7 +46,7 @@ Use force deliberately. Reserve absolute language for hard requirements and expr
 
 Every instruction needs a basis in the intended outcome, actual environment, domain, or evidence from use. A brief reason can help the agent apply a broad rule to situations the writer cannot predict. Do not add explanations for concepts the agent already understands unless the explanation changes how it should decide.
 
-Prefer a positive selection principle over a catalog of prohibitions. Name a failure mode when it is plausible, consequential, and not already prevented by clearer guidance. Add personas, procedures, tool rules, schemas, examples, or review steps only when they materially improve the intended behavior.
+Name a failure mode when it is plausible, consequential, and not already prevented by clearer guidance. Add personas, procedures, tool rules, schemas, examples, or review steps only when they materially improve the intended behavior.
 
 ## Let form follow purpose
 
