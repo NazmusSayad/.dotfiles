@@ -1,5 +1,5 @@
 ---
-name: video
+name: vimotion
 description: Guidelines for making a complete video with story, music and motion in Remotion. Use when creating an edited video.
 ---
 
