@@ -51,8 +51,7 @@ async function loadCommands(skills: readonly Skill.Info[]) {
 export default Plugin.define({
   id: "skill-commands",
   async setup(ctx) {
-    const skills = await ctx.skill.list()
-    let commands = await loadCommands(skills.data)
+    let commands = await loadCommands((await ctx.skill.list()).data)
 
     await ctx.command.transform((editor) => {
       for (const command of commands) {
@@ -73,24 +72,20 @@ export default Plugin.define({
       }
     })
 
-    let refreshing = false
-    const timer = setInterval(async () => {
-      if (refreshing) return
-      refreshing = true
-      try {
-        const skills = await ctx.skill.list()
-        const next = await loadCommands(skills.data)
-        if (JSON.stringify(next) !== JSON.stringify(commands)) {
-          commands = next
+    async function refresh() {
+      for await (const event of ctx.event.subscribe()) {
+        if (event.type !== "skill.updated") continue
+        try {
+          commands = await loadCommands((await ctx.skill.list()).data)
           await ctx.command.reload()
+        } catch (error) {
+          console.error("[skill-commands] Refresh failed:", error)
         }
-      } catch (error) {
-        console.error("[skill-commands] Refresh failed:", error)
-      } finally {
-        refreshing = false
       }
-    }, 5000)
+    }
 
-    return () => clearInterval(timer)
+    void refresh().catch((error) => {
+      console.error("[skill-commands] Event subscription failed:", error)
+    })
   }
 })
