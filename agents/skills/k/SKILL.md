@@ -1,5 +1,5 @@
 ---
-name: kiss
+name: k
 description: "Keep it stupid simple."
 disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
