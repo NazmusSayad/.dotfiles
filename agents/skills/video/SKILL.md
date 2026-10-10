@@ -1,6 +1,6 @@
 ---
 name: video
-description: Guidelines for making polished product videos from real footage, edited in Remotion. Use when creating a video.
+description: Guidelines for making a complete video with story, music and motion in Remotion. Use when creating an edited video.
 ---
 
 ## Rules
