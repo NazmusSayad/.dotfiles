@@ -15,4 +15,4 @@ Do not use object or array destructuring in declarations, assignments, parameter
 
 ## Asynchronous
 
-Prefer `async`/`await` over callbacks or `.then()` chains
+Prefer `async`/`await` over callbacks or `.then()` chains.
