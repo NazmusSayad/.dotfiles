@@ -24,6 +24,11 @@ async function refresh($: EngineInterface) {
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
+    const last = (await $.store.get('last')) as { model: string; effort: string } | undefined
+    if (last !== undefined) {
+      model = last.model
+      effort = last.effort
+    }
     await refresh($)
 
     return next(e)
@@ -33,6 +38,7 @@ export const register: Register = on => {
     if (e.agentId === undefined) {
       model = e.model.replace(/^claude-([a-z])([a-z]*)-(\d+)-(\d+).*$/, (_, first, rest, major, minor) => `${first.toUpperCase()}${rest} ${major}.${minor}`)
       effort = e.effort === undefined ? '' : String(e.effort).replace(/^./, first => first.toUpperCase())
+      await $.store.set('last', { model, effort })
     }
 
     return yield* next(e)
