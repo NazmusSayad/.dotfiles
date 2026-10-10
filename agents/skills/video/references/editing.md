@@ -7,6 +7,12 @@
 - Before using a take, check it with `ffprobe` (1920x1080, 60/1) and look at a contact sheet of frames across the whole take. A take can finish "successfully" and still be wrong, for example when the input had no focus and nothing was typed.
 - If the footage shows something the user's real setup doesn't (gaps, padding, cut-off panels), re-record with the setup fixed. Don't crop or scale it away.
 
+## Privacy check
+
+- Before a take goes into the edit, scan its frames for anything personal or secret (see [content.md](content.md)), including text that only flashes by.
+- Re-record with a clean setup when you can. When you can't, blur the area in Remotion for every frame it's visible, strongly enough that nothing can be read, and track it if it moves.
+- Check the rendered video again, because a cut or zoom can expose something the raw check missed.
+
 ## Remotion
 
 Do all editing in Remotion. Don't build a custom renderer.
@@ -14,7 +20,7 @@ Do all editing in Remotion. Don't build a custom renderer.
 - Keep the whole edit as data in one file, such as `src/edit.ts`. Each shot has its cue, an enter transition, captions timed relative to the shot, and clips as `{ file, in, out }` in raw-file seconds.
 - Symlink the footage folder into `public/`, and generate an index of every file's size, fps and duration with `ffprobe`. Warn when a file isn't 60 fps.
 - Play clips with `<OffthreadVideo trimBefore={Math.round(in * fps)} muted />` so each source frame maps to one output frame.
-- Add a check that throws when a shot's cut misses its music cue, naming the shot to lengthen. When you swap clips, keep the shot's total length unless you also move the cue.
+- Add a check that throws when a shot's cut misses its beat cue, naming the shot to lengthen. When you swap clips, keep the shot's total length unless you also move the cue.
 
 ## Cutting
 
