@@ -10,6 +10,7 @@
 "@/agents/skills":
   - "~/.agents/skills"
   - "~/.claude/skills"
+  - "~/.claude-extra/skills"
   - "~/.gemini/antigravity-cli/skills"
 
 # AGENTS.md, CLAUDE.md
