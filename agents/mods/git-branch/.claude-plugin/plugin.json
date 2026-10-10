@@ -1,0 +1,1 @@
+{ "name": "git-branch", "version": "0.1.0", "description": "Shows the current git branch at the end of the prompt hint line" }

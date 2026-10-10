@@ -22,6 +22,7 @@
   - "~/.claude-extra/CLAUDE.md"
 
 # Claude Code
+"@/agents/mods": "~/.claude.mods"
 "@/agents/claude.json":
   - "~/.claude/settings.json"
   - "~/.claude-extra/settings.json"
