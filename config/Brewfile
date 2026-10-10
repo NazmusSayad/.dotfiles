@@ -33,10 +33,6 @@ cask "logi-options+"
 cask "hammerspoon"
 cask "mos"
 
-# Browsers
-cask "google-chrome"
-cask "zen"
-
 # Internet
 brew "wget"
 brew "caddy"
