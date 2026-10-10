@@ -2,20 +2,18 @@
 
 ## Footage in
 
-- Takes arrive raw and untouched (see [material.md](material.md)): one continuous recording per scene, constant 60 fps H.264.
-- Before using a take, check it with `ffprobe` (1920x1080, 60/1) and look at a contact sheet of frames across the whole take. A take can finish "successfully" and still be wrong, for example when the input had no focus and nothing was typed.
+Before using a take, measure it and look at frames across the whole take. A take can run without errors and still show the wrong thing.
 
 ## Remotion
 
 Do all editing in Remotion. Don't build a custom renderer.
 
-- Keep the whole edit as data in one file, such as `src/edit.ts`. Each shot has its cue, an enter transition, captions timed relative to the shot, and clips as `{ file, in, out }` in raw-file seconds.
-- Symlink the footage folder into `public/`, and generate an index of every file's size, fps and duration with `ffprobe`. Warn when a file isn't 60 fps.
+- Keep the whole edit as data in one file: each shot has its beat cue, a transition, captions timed relative to the shot, and clips as `{ file, in, out }` in raw-file seconds.
 - Play clips with `<OffthreadVideo trimBefore={Math.round(in * fps)} muted />` so each source frame maps to one output frame.
-- Add a check that throws when a shot's cut misses its beat cue, naming the shot to lengthen. When you swap clips, keep the shot's total length unless you also move the cue.
+- Add a check that fails when a shot's cut misses its beat cue. When you swap clips, keep the shot's length unless you also move the cue.
 
 ## Cutting
 
-- Find cut points by looking at frames around each moment. Logged times only tell you roughly where to look. Apps react later than the keystroke.
-- Cut into a moment just before it happens, and out just after the result is readable.
+- Find cut points by looking at frames around each moment. Apps react later than the input that triggers them.
+- Cut in just before a moment and out just after its result is readable.
 - Several short clips from one take beat one long clip: show the action, then jump to the result.
