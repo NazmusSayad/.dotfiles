@@ -11,7 +11,7 @@ async function refresh($: EngineInterface) {
   if (exitCode === 0) {
     const lines = stdout.split('\n')
     const head = lines.find(line => line.startsWith('# branch.head '))?.slice(14) ?? ''
-    const [ahead, behind] = (lines.find(line => line.startsWith('# branch.ab '))?.slice(11) ?? '+0 -0').split(' ')
+    const [ahead, behind] = (lines.find(line => line.startsWith('# branch.ab '))?.slice(12) ?? '+0 -0').split(' ')
     const isDirty = lines.some(line => line !== '' && !line.startsWith('#'))
     git = `${head}${isDirty ? '*' : ''}${ahead !== '+0' ? '↑' : ''}${behind !== '-0' ? '↓' : ''}`
   }
@@ -30,6 +30,7 @@ export const register: Register = on => {
       effort = last.effort
     }
     await refresh($)
+    $.clock.every(5000, () => refresh($))
 
     return next(e)
   })
