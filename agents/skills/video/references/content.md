@@ -1,6 +1,6 @@
 # Content
 
-Everything on screen is real: the product, its data, and every asset around it.
+Everything on screen is real: the product, its data, and every asset around it. Prepare it so nothing private ends up on screen: a clean shell, a clean project, test accounts.
 
 ## Brand assets
 
@@ -14,8 +14,3 @@ Everything on screen is real: the product, its data, and every asset around it.
 - Show the product with real data in a real context, such as its own repository or a realistic real project. No invented sample data.
 - Prepare real content before recording: logos for every place the product shows one, real files, real images.
 - Images, fonts and audio need a licence that allows this use. Record each source and licence in `CREDITS.md`.
-
-## Privacy
-
-- Nothing personal or secret appears on screen: tokens, keys, passwords, environment variables, shell history, private files, emails, or personal names and paths beyond what the user is fine with.
-- Prevent it at the source: a clean shell, a clean project, test accounts.

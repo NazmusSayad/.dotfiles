@@ -7,12 +7,6 @@
 - Before using a take, check it with `ffprobe` (1920x1080, 60/1) and look at a contact sheet of frames across the whole take. A take can finish "successfully" and still be wrong, for example when the input had no focus and nothing was typed.
 - If the footage shows something the user's real setup doesn't (gaps, padding, cut-off panels), re-record with the setup fixed. Don't crop or scale it away.
 
-## Privacy check
-
-- Before a take goes into the edit, scan its frames for anything personal or secret (see [content.md](content.md)), including text that only flashes by.
-- Re-record with a clean setup when you can. When you can't, blur the area in Remotion for every frame it's visible, strongly enough that nothing can be read, and track it if it moves.
-- Check the rendered video again, because a cut or zoom can expose something the raw check missed.
-
 ## Remotion
 
 Do all editing in Remotion. Don't build a custom renderer.

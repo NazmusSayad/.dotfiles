@@ -14,11 +14,12 @@ description: Guidelines for making polished product videos from real footage, ed
 Work through these in order. Read each file when you reach that stage.
 
 1. **Planning:** [references/planning.md](references/planning.md). Decide who the audience is first, then the story, the scenes, the claims and the shot list, before touching footage.
-2. **Content:** [references/content.md](references/content.md). Gather real assets, including official logos for every brand shown, and keep private data off screen.
+2. **Content:** [references/content.md](references/content.md). Gather real assets, including official logos for every brand shown.
 3. **Design:** [references/design.md](references/design.md). Set the palette, background, type and layouts.
-4. **Editing:** [references/editing.md](references/editing.md). Check takes for quality and privacy, then turn them into timed shots in Remotion.
+4. **Editing:** [references/editing.md](references/editing.md). Check takes, then turn them into timed shots in Remotion.
 5. **Motion design:** [references/motion-design.md](references/motion-design.md). Animate transitions, camera moves and the big moments.
 6. **Audio:** [references/audio.md](references/audio.md). Pick the track, then lock the cuts to its beat.
-7. **Rendering:** [references/rendering.md](references/rendering.md). Render, verify and deliver the video.
+7. **Review:** [references/review.md](references/review.md). Check the whole edit for privacy, glitches, flashes, mistimed cuts and cropping before rendering.
+8. **Rendering:** [references/rendering.md](references/rendering.md). Render, verify and deliver the video.
 
 Audio is listed after motion design, but choose the track early (during planning if you can): the beat grid sets the cut points for the edit.
