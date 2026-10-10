@@ -1,12 +1,10 @@
 ---
 name: migrate-oxc
-description: Migrate ESLint and Prettier projects to Oxlint and Oxfmt.
+description: Migrates ESLint and Prettier projects to Oxlint and Oxfmt.
 
 disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
-
-# Migrate to Oxc
 
 Clone [create-src](https://github.com/NazmusSayad/create-src) into a temporary directory and use the clone as the reference. Match its configuration structure exactly, but derive the actual rules, severities, options, ignores, and overrides from the project being migrated.
 
@@ -24,7 +22,7 @@ Follow the reference architecture:
 - Use `.mts` for ESM-style TypeScript configs in CommonJS packages; otherwise follow the package module format.
 - Keep an explicit ESLint-compatible recommended rule map where Oxlint's preset is not equivalent.
 - Prefer native Oxlint rules and plugins. Use JS plugins only for gaps the project actually relies on.
-- Do not build custom compatibility layers for unsupported ESLint rules. Preserve what Oxc supports and clearly identify intentional losses. In the reference migration, `@typescript-eslint/naming-convention` was intentionally dropped rather than reimplemented.
+- Do not build custom compatibility layers for unsupported ESLint rules. Preserve what Oxc supports and clearly identify intentional losses.
 - Preserve project-specific rules and overrides instead of forcing one config everywhere. React plugins and settings belong only in React projects; limits, test exceptions, and unused-variable patterns stay where they originally applied.
 - Keep each generated template self-contained.
 - Keep `.oxfmtrc.json` minimal and project-specific. Enable Tailwind sorting only for Tailwind projects, and do not copy unrelated ignores from the reference.

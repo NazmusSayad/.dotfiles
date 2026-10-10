@@ -1,6 +1,6 @@
 ---
 name: ttyd
-description: Opens a terminal in the browser.
+description: Opens a terminal in the browser. Use when a shell needs to run in a browser tab.
 ---
 
 ## Start a server

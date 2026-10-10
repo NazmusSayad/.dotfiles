@@ -2,6 +2,7 @@
 name: kw
 description: "KISS writer: keep writing stupid simple, in strict ASD-STE100."
 disable-model-invocation: true
+metadata: { opencode/autoinvoke: false }
 ---
 
 Write every piece of text, including headings and labels, in strict ASD-STE100 Simplified Technical English, with no jargon.
