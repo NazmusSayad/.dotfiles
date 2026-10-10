@@ -901,5 +901,13 @@
   {
     "key": "ctrl+r",
     "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
   }
 ]
