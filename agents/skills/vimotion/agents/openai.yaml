@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vimotion"
+  short_description: "Promo videos from real footage"
+  default_prompt: "Use $vimotion to make a promo video for this project."
