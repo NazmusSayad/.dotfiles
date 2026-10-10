@@ -9,8 +9,8 @@ if ($null -eq $keepAlive) {
     Start-Process powershell.exe -ArgumentList @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $keepAliveScript) -WindowStyle Hidden
 }
 
-wsl.exe -d Ubuntu-26.04 -u root --exec /bin/systemctl start ttysh
-if ($LASTEXITCODE -ne 0) { throw 'Failed to start ttysh in Ubuntu.' }
+wsl.exe -d Ubuntu-26.04 -u root --exec /bin/systemctl start sshtty
+if ($LASTEXITCODE -ne 0) { throw 'Failed to start sshtty in Ubuntu.' }
 
 $tunnel = Get-CimInstance Win32_Process | Where-Object {
     $_.Name -eq 'cloudflared.exe' -and $_.CommandLine -match 'tunnel\s+run'

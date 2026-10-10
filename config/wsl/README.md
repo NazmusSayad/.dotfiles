@@ -1,4 +1,4 @@
-# Ubuntu WSL and ttysh
+# Ubuntu WSL and sshtty
 
 Run Linux shells at https://sh.sayad.dev through the existing `Desktop` Cloudflare tunnel. Authentication is managed separately in Cloudflare.
 
@@ -7,11 +7,11 @@ Run Linux shells at https://sh.sayad.dev through the existing `Desktop` Cloudfla
 Checked on 2026-10-09:
 
 - Ubuntu and the Linux `sayad` account are configured.
-- Node.js `24.21.0`, pnpm `12.10.1`, `@antfu/ni` `30.6.0`, the npm package `ttysh` `0.0.2`, and Ubuntu's Starship `1.22.1` package are installed.
-- `ttysh.service` is installed, enabled, and running as `sayad`.
+- Node.js `24.21.0`, pnpm `12.10.1`, `@antfu/ni` `30.6.0`, the npm package `sshtty`, and Ubuntu's Starship `1.22.1` package are installed.
+- `sshtty.service` is installed, enabled, and running as `sayad`.
 - Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
 - The DNS route for `sh.sayad.dev` points to the existing tunnel, and the updated ingress config passes validation.
-- The Windows cloudflared connector is running. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to ttysh.
+- The Windows cloudflared connector is running. `https://sh.sayad.dev/` returns HTTP 200 through Cloudflare Access, which then forwards authenticated requests to sshtty.
 - A hidden Windows-side WSL watchdog is running so Ubuntu does not stop when the last terminal closes and automatically relaunches after an unexpected termination.
 
 OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent cloudflared process on Windows.
@@ -21,15 +21,15 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent 
 - Distro: `Ubuntu-26.04`, running on WSL 2.
 - Linux account: `sayad`, with Bash as its login shell.
 - Windows dotfiles: `F:\.dotfiles`, available inside Ubuntu at `/mnt/f/.dotfiles`.
-- Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, `ttysh`, and the Ubuntu Starship package.
+- Linux tools: mise, Node.js LTS, pnpm, `@antfu/ni`, `sshtty`, and the Ubuntu Starship package.
 - Mise config: `~/.config/mise/config.toml`, linked to the main `../mise-config.toml` used by this dotfiles repository.
 - `config-init` detects WSL and creates the portable links from `../symlink.yml`, including OpenCode and CLI configuration.
 - Running `config-init` on Windows also runs it inside `Ubuntu-26.04` as `sayad`, keeping both environments updated from one command.
 - `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
-- ttysh data: `/home/sayad/.ttysh`. Keep it in Linux, not on a Windows mount.
-- ttysh's `shell.command` is `/usr/bin/fish`, so browser tabs open Fish without changing the WSL login shell.
-- ttysh listener: `127.0.0.1:47474` inside Ubuntu.
+- sshtty data: `/home/sayad/.sshtty`. Keep it in Linux, not on a Windows mount.
+- sshtty's `shell.command` is `/usr/bin/fish`, so browser tabs open Fish without changing the WSL login shell.
+- sshtty listener: `127.0.0.1:47474` inside Ubuntu.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
@@ -54,40 +54,40 @@ This enables password-based `sudo`. Do not put the password in this repository.
 
 Use `~/projects` for Linux development. Windows files are available at `/mnt/c` and `/mnt/f`; Linux files are available in Explorer at `\\wsl.localhost\Ubuntu-26.04\home\sayad`.
 
-## Run ttysh
+## Run sshtty
 
-The `ttysh.service` file runs ttysh as `sayad`, not root. From Ubuntu:
+The `sshtty.service` file runs sshtty as `sayad`, not root. From Ubuntu:
 
 ```bash
-sudo systemctl start ttysh
-sudo systemctl status ttysh --no-pager
-journalctl -u ttysh -n 50 --no-pager
+sudo systemctl start sshtty
+sudo systemctl status sshtty --no-pager
+journalctl -u sshtty -n 50 --no-pager
 ```
 
 Local address on Windows: http://127.0.0.1:47474. Remote address: https://sh.sayad.dev.
 
 The service starts when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
-Start ttysh and the hidden WSL watchdog from PowerShell:
+Start sshtty and the hidden WSL watchdog from PowerShell:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
 ```
 
-The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled ttysh systemd service starts during the new boot. It does not install a Windows startup task. The PC must be awake and the Windows tunnel must also be running.
+The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled sshtty systemd service starts during the new boot. It does not install a Windows startup task. The PC must be awake and the Windows tunnel must also be running.
 
 Restart or stop the service from Ubuntu:
 
 ```bash
-sudo systemctl restart ttysh
-sudo systemctl stop ttysh
+sudo systemctl restart sshtty
+sudo systemctl stop sshtty
 ```
 
 For a foreground session, stop the service first, then run:
 
 ```bash
 cd ~
-mise exec -- ttysh --host 127.0.0.1 --port 47474
+mise exec -- sshtty --host 127.0.0.1 --port 47474
 ```
 
 ## Tunnel routing
@@ -110,7 +110,7 @@ Create the hostname's DNS route from Windows if it is missing:
 cloudflared tunnel route dns Desktop sh.sayad.dev
 ```
 
-`start.ps1` starts ttysh, the Windows-side WSL watchdog, and `cloudflared tunnel run`. It skips processes that are already running. Windows startup runs this script through `launch.jsonc`.
+`start.ps1` starts sshtty, the Windows-side WSL watchdog, and `cloudflared tunnel run`. It skips processes that are already running. Windows startup runs this script through `launch.jsonc`.
 
 To reload the tunnel after changing `cloudflared.yml`, stop its cloudflared process and run:
 
@@ -153,35 +153,34 @@ sudo apt install build-essential direnv fish starship zoxide
 Install and enable the service inside Ubuntu:
 
 ```bash
-sudo install -m 644 /mnt/f/.dotfiles/config/wsl/ttysh.service /etc/systemd/system/ttysh.service
+sudo install -m 644 /mnt/f/.dotfiles/config/wsl/sshtty.service /etc/systemd/system/sshtty.service
 sudo systemctl daemon-reload
-sudo systemctl enable --now ttysh
+sudo systemctl enable --now sshtty
 ```
 
-Update ttysh from Ubuntu, then restart it:
+Update sshtty from Ubuntu, then restart it:
 
 ```bash
 cd ~
-mise upgrade npm:ttysh
-sudo systemctl restart ttysh
+mise upgrade npm:sshtty
+sudo systemctl restart sshtty
 ```
 
-Use `ni`, `nr`, and `nlx` for project package workflows. `npm:ttysh` is a mise package identifier; the installed command is `ttysh`.
+Use `ni`, `nr`, and `nlx` for project package workflows. `npm:sshtty` is a mise package identifier; the installed command is `sshtty`.
 
 ## Troubleshooting
 
-- Windows localhost fails: check `systemctl status ttysh` inside Ubuntu first, then `curl -I http://127.0.0.1:47474` in both environments.
+- Windows localhost fails: check `systemctl status sshtty` inside Ubuntu first, then `curl -I http://127.0.0.1:47474` in both environments.
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
-- The hostname returns 502: cloudflared cannot reach ttysh. Check that Ubuntu is running and ttysh is listening.
+- The hostname returns 502: cloudflared cannot reach sshtty. Check that Ubuntu is running and sshtty is listening.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
 - If signing into `sh.sayad.dev` visits another hostname, edit the Cloudflare Access application so its only public hostname is `sh.sayad.dev`. Cloudflare preemptively visits every domain in small multi-domain applications to issue authorization cookies.
-- Shells survive ttysh server crashes according to the package documentation. They do not survive Windows shutdown or `wsl --shutdown`.
-- The installed npm package is `ttysh` `0.0.2`, but its binary reports `ttysh 0.0.0` with `--version`. Use `mise ls npm:ttysh` to check the installed package version.
+- Shells survive sshtty server crashes according to the package documentation. They do not survive Windows shutdown or `wsl --shutdown`.
 - Avoid `wsl --shutdown` during normal work; it also stops Docker's WSL environment.
 
 ## References
 
-- [ttysh usage and data location](https://github.com/NazmusSayad/ttysh#readme)
+- [sshtty usage and data location](https://github.com/NazmusSayad/sshtty#readme)
 - [WSL networking and localhost forwarding](https://learn.microsoft.com/en-us/windows/wsl/networking)
 - [WSL systemd behavior](https://learn.microsoft.com/en-us/windows/wsl/systemd)
 - [mise npm backend](https://mise.jdx.dev/dev-tools/backends/npm.html)
