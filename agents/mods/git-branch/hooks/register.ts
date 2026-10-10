@@ -26,6 +26,6 @@ export const register: Register = on => {
       return next(e)
     }
 
-    return next({ ...e, props: { ...e.props, tail: ` · ${branch}` } })
+    return next({ ...e, props: { ...e.props, tail: branch} })
   })
 }
