@@ -4,8 +4,8 @@
   "detect": false,
   "claude": {
     "accounts": {
-      "work": { "configDir": "~/.claude", "info": "Work" },
-      "extra": { "configDir": "~/.claude-extra" }
+      "extra": { "configDir": "~/.claude-extra" },
+      "work": { "configDir": "~/.claude", "info": "Work" }
     }
   },
   "opencode2-codex": {
