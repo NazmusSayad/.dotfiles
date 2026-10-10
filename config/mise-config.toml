@@ -6,6 +6,8 @@
 gh = "latest"
 glab = "latest"
 lazygit = "latest"
+delta = "latest"
+difftastic = "latest"
 "github:unhappychoice/gitlogue" = "latest"
 # "github:JoaoOliveira889/monogit" = "latest"
 
