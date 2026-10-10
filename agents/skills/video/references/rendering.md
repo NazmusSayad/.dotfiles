@@ -19,5 +19,5 @@
 
 ## Delivery
 
-- Keep the full-quality master. For a repo, commit a smaller copy (CRF ~24 kept 1080p60 sharp at about 14 MB per minute).
+- Keep the full-quality master. When a smaller copy is needed, re-encode it from the master at the same resolution and frame rate, and check that text stays sharp.
 - In a README, use absolute GitHub URLs if the README is also published to npm. GitHub doesn't play repo-stored videos inline; for an inline player, the user drags the file into the README editor on github.com.

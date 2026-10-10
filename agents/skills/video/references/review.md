@@ -1,6 +1,6 @@
 # Review
 
-Review the whole edit before the final render, and again after any change. Look at frames instead of trusting the timeline: render stills in Remotion at every cut (the last frame of the outgoing clip and the first of the incoming one), step frame by frame through each transition, and make a contact sheet of the whole video.
+Review the whole edit before the final render, and again after any change. Look at frames instead of trusting the timeline: render stills in Remotion (`npx remotion still <comp> out.png --frame=N`) at every cut (the last frame of the outgoing clip and the first of the incoming one), step frame by frame through each transition, and make a contact sheet of the whole video.
 
 ## Privacy
 
@@ -33,7 +33,7 @@ Review the whole edit before the final render, and again after any change. Look 
 
 ## Text and audio
 
-- Typos, product and brand names spelled as their owners spell them, captions on screen long enough to read twice.
+- Typos, and product and brand names spelled as their owners spell them.
 - No clicks at audio joins; the music fades out with the video and ends with it.
 
 After the final render, repeat the privacy and flash checks on the rendered file, because a zoom or transition can expose something the edit didn't show.
