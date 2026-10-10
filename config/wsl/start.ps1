@@ -12,6 +12,15 @@ if ($null -eq $keepAlive) {
 wsl.exe -d Ubuntu-26.04 -u root --exec /bin/systemctl start sshtty
 if ($LASTEXITCODE -ne 0) { throw 'Failed to start sshtty in Ubuntu.' }
 
+$server = Get-CimInstance Win32_Process | Where-Object {
+    $_.Name -eq 'sshtty.exe' -and $_.CommandLine -match '--port\s+47831\b'
+} | Select-Object -First 1
+
+if ($null -eq $server) {
+    $mise = (Get-Command mise -ErrorAction Stop).Source
+    Start-Process $mise -ArgumentList 'exec -- sshtty --host 127.0.0.1 --port 47831' -WorkingDirectory $HOME -WindowStyle Hidden
+}
+
 $tunnel = Get-CimInstance Win32_Process | Where-Object {
     $_.Name -eq 'cloudflared.exe' -and $_.CommandLine -match 'tunnel\s+run'
 } | Select-Object -First 1

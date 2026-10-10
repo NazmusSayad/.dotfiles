@@ -113,7 +113,8 @@
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/mysubs.json": "~/.config/mysubs/config.json"
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
-"@/config/cloudflared.yml": "~/.cloudflared/config.yml"
+"@/config/win-cloudflared.yml":
+  Win: "~/.cloudflared/config.yml"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 
