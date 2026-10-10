@@ -1,0 +1,7 @@
+interface:
+  display_name: "PR"
+  short_description: "Commit, push, and create or update a pull request"
+  default_prompt: "Use $pr to commit and push the intended changes, then create or update their pull request."
+
+policy:
+  allow_implicit_invocation: false
