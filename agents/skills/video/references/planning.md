@@ -2,7 +2,7 @@
 
 ## Audience
 
-Decide who is watching before anything else. Every later choice (story, features, claims, pace, captions, music) serves them.
+Decide who is watching before anything else. Every later choice (story, features, claims, pace, captions, audio) serves them.
 
 - Name the audience concretely: for example, developers who live in the terminal and run coding agents, not "users".
 - Write down what they already know, what they care about, and what problem they feel today.
