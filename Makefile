@@ -1,4 +1,7 @@
-.PHONY: compile git macos shell
+.PHONY: skills compile git macos shell
+
+skills:
+	bash ./etc/bundle-skills.sh
 
 compile:
 	go run ./src/compile-scripts/main.go
