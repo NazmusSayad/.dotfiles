@@ -14,20 +14,14 @@ Material is everything the video is built from: recordings, screenshots, logos, 
 - Prepare before recording: logos for every place the product shows one, real files, real images. Keep private data off screen at the source: a clean environment, a clean project, test accounts.
 - Images, fonts and audio need a licence that allows this use. Record each source and licence in `CREDITS.md`.
 
-## Recording setup
+## Capture
 
-- Record at the final resolution and frame rate or higher. On a 2x display, a 960x540 window captures as a sharp 1920x1080.
-- Use the user's real product settings, and act at a human pace with pauses long enough to read each result.
+The source decides the quality: nothing in the edit can fix blurry, choppy or compressed footage.
 
-## Catches
-
-The source decides the quality: nothing in the edit fixes blurry, choppy or compressed footage.
-
-- Built-in browser recorders didn't deliver a true 60 fps. Capture the real, visible window natively instead.
-- Heavy work during a capture (renders, encodes) drops frames.
-- Measure every take, and look at it.
-- If the footage doesn't match the user's real setup, the setup is wrong. Fix it and re-record; don't crop.
+- Capture at the final quality or higher. Don't assume a tool's recording meets the target; measure it, and switch methods if it falls short.
+- Keep the machine quiet while capturing, so nothing competes with the recording.
+- When footage looks wrong, find the cause in how it was captured and record again. Don't hide it in the edit.
 
 ## Tools
 
-A tool you know can still behave differently in another environment. Don't script from memory: read its help, try each step while watching the result, then script what worked. Judge by what happened on screen, not by the script finishing. With Playwright, for example, a click doesn't always focus the input, so a take can "succeed" with nothing typed.
+A tool you know can still behave differently in another environment. Don't script from memory or guess: read its help, try each step while watching the result, then script what worked. Judge by the actual result, not by a command or script finishing without errors.
