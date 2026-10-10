@@ -2,7 +2,7 @@
 
 ## Palette
 
-- Take colors from the product itself: import its real theme or brand file instead of picking colors by eye.
+- Take colors from the product itself: import its real theme or brand file instead of picking colors by eye. If the product has no colors of its own and the user hasn't said anything, choose a restrained palette that looks good and fits the product's character.
 - Use a near-black background, white and grey text, and one flat accent color from the product for key words and symbols (a command prompt `$`, the word that carries the claim).
 - No multicolor gradients, no colored glows, no rainbow borders. They read as AI-made.
 
@@ -26,7 +26,6 @@ Each layer should be barely visible on its own. Together they stop the backgroun
 
 ## Layout
 
-- Present footage in a simple browser or phone frame with rounded corners and a deep, soft shadow.
+- Present footage in a simple, generic window or phone frame with rounded corners and a deep, soft shadow. The frame is plain chrome, never an imitation of the product's UI.
 - Two layouts cover most shots: the title above the footage, or the title beside it with the footage tilted slightly toward the title in 3D. Alternate them so consecutive shots don't feel the same.
-- Footage fills its frame. No padding or empty space the real product doesn't have.
 - Text cards (the claim, the wordmark, the closing command) use the same type, palette and background as the rest, with nothing else on screen.

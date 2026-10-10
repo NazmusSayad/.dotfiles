@@ -42,4 +42,4 @@ When several agents work in parallel, this file is their shared brief.
 
 ## Takes
 
-For each scene, plan one raw take: what happens, in what order, and what the screen must look like before it starts. Each take should note the raw-file time of each real moment (when something appears, not when the key was pressed) so the edit can cut on them.
+For each scene, plan one raw take: what happens, in what order, and what the screen must look like before it starts. Each take should note the raw-file time of each real moment (when something appears, not when the key was pressed) so the edit knows roughly where to look; the exact cut points come from frames.
