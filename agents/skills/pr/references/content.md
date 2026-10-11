@@ -21,12 +21,12 @@ Then use these sections in this order, each under a `##` heading. Drop Other opt
 - **Before and after:** the change shown as a before and after, with a bold label for each part, in this order:
   - **Before:** how it worked before this PR.
   - **After:** how it works now.
-  - **Advantages:** what the change makes better. Add only when there are real ones.
-  - **Disadvantages:** what the change makes worse. Add only when there are real ones.
+  - **Advantages:** direct benefits introduced by the PR. Add only when they clarify the change beyond After.
+  - **Disadvantages:** direct regressions or tradeoffs introduced by the PR. Omit this label when the PR makes nothing worse. A pre-existing limitation is not a disadvantage.
 
   Before and After can each be anything that makes the difference clear: a single line of text, output, a screenshot, or a video recording.
 
-- **Risk:** one or two sentences on who or what the change touches, what could break, and why it is safe or risky. Only say something breaks when you can name what breaks. Say whether reverting the PR fully undoes it, and call out anything a revert can't undo.
+- **Risk:** one or two sentences on who or what the change touches, what this change could break, and why it is safe or risky. Do not move unrelated or pre-existing problems here. Only say something breaks when you can name what breaks. Say whether reverting the PR fully undoes it, and call out anything a revert can't undo.
 
 - **Evidence:** proof that the change works, not a claim that tests pass. Show the exact test that failed before and passes now, as pseudocode, or the output that changed. For a performance change, give one number with its unit as `before → after`. Say what you couldn't check.
 
@@ -38,7 +38,7 @@ Then use these sections in this order, each under a `##` heading. Drop Other opt
 
   Keep one to three bullets in each group. Name both sides of a rename or move, and call out changes the task didn't ask for.
 
-- **Checklist:** a task list of the work this PR needs. Tick the items that are done and leave unfinished items unticked.
+- **Checklist:** a task list of only the work and checks required for this PR. Do not add unrelated fixes, pre-existing problems, or optional future work. Tick the items that are done and leave required unfinished items unticked.
 
 - **Other options:** only the alternatives a reviewer would otherwise ask about.
 
