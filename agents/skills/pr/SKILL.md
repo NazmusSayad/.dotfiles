@@ -22,4 +22,4 @@ Check for this branch's PR with `gh pr view`. If it's open, update it. If there 
 
 Read [references/content.md](references/content.md), then write the title and body for the whole PR, not just the latest commit.
 
-Return the PR link and any problem.
+After successfully creating or updating the PR, return only the PR URL with no additional text or follow-up messages. If something goes wrong, report the problem.
