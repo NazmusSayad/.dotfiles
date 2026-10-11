@@ -1,3 +1,5 @@
+Start from the whole picture: describe the PR as a whole, not only the latest changes or what this conversation covered.
+
 The PR body is a briefing, not a lab notebook. A reviewer who has the diff open should learn why the change exists, what it changes, what it leaves out, what could break, and how you know it works, in under a minute.
 
 Write every piece of text, including headings and labels, in strict ASD-STE100 Simplified Technical English, with no jargon. Use the project's own names for things, and name a real symbol or path only when it carries the change. Give the consequence, not the mechanics. Skip preambles. Keep the body under about 40 lines and move longer background, full output, or logs into a collapsed `<details>` section at the end.
@@ -35,4 +37,4 @@ Add a Mermaid diagram when the change affects how parts connect or the order in 
 
 ## Updating
 
-When the PR already exists, rewrite the title and body to describe the whole PR as it is now, without update notes. Keep attachments, diagrams, and evidence that still hold, and replace the ones that don't.
+When the PR already exists, its current body already covers the earlier work, so use it as the starting point and focus on what changed since. Rewrite the title and body so they describe the whole PR as it is now: add the new work, update anything it changed, and remove anything that no longer applies. Don't add update notes. Keep attachments, diagrams, and evidence that still hold, and replace the ones that don't.
