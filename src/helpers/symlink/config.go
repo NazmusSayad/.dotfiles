@@ -32,17 +32,19 @@ type Config struct {
 	LinkTargets []string
 	CopyTargets []string
 	InheritPerm bool
+	Create      string
 }
 
 type Entry struct {
-	Link        StringOrArray `yaml:"-"`
-	Win         StringOrArray `yaml:"Win"`
-	Mac         StringOrArray `yaml:"Mac"`
-	Wsl         StringOrArray `yaml:"Wsl"`
+	Link        StringOrArray `yaml:"Link"`
 	Copy        StringOrArray `yaml:"Copy"`
-	WinCopy     StringOrArray `yaml:"Win.Copy"`
-	MacCopy     StringOrArray `yaml:"Mac.Copy"`
-	WslCopy     StringOrArray `yaml:"Wsl.Copy"`
+	LinkWin     StringOrArray `yaml:"LinkWin"`
+	LinkMac     StringOrArray `yaml:"LinkMac"`
+	LinkWsl     StringOrArray `yaml:"LinkWsl"`
+	CopyWin     StringOrArray `yaml:"CopyWin"`
+	CopyMac     StringOrArray `yaml:"CopyMac"`
+	CopyWsl     StringOrArray `yaml:"CopyWsl"`
+	Create      string        `yaml:"Create"`
 	InheritPerm bool          `yaml:"InheritPerm"`
 }
 
@@ -64,26 +66,26 @@ func (e Entry) resolve() ([]string, []string) {
 
 	switch runtime.GOOS {
 	case "windows":
-		if len(e.Win) > 0 {
-			linkTargets = e.Win
+		if len(e.LinkWin) > 0 {
+			linkTargets = e.LinkWin
 		}
-		if len(e.WinCopy) > 0 {
-			copyTargets = e.WinCopy
+		if len(e.CopyWin) > 0 {
+			copyTargets = e.CopyWin
 		}
 	case "darwin":
-		if len(e.Mac) > 0 {
-			linkTargets = e.Mac
+		if len(e.LinkMac) > 0 {
+			linkTargets = e.LinkMac
 		}
-		if len(e.MacCopy) > 0 {
-			copyTargets = e.MacCopy
+		if len(e.CopyMac) > 0 {
+			copyTargets = e.CopyMac
 		}
 	case "linux":
 		if helpers.IsWSL() {
-			if len(e.Wsl) > 0 {
-				linkTargets = e.Wsl
+			if len(e.LinkWsl) > 0 {
+				linkTargets = e.LinkWsl
 			}
-			if len(e.WslCopy) > 0 {
-				copyTargets = e.WslCopy
+			if len(e.CopyWsl) > 0 {
+				copyTargets = e.CopyWsl
 			}
 		}
 	}
@@ -107,11 +109,18 @@ func ReadConfigs() []Config {
 			continue
 		}
 
+		switch rawConfigs[source].Create {
+		case "", "Folder", "File":
+		default:
+			panic(fmt.Sprintf("SYMLINK: invalid Create value %q for %s", rawConfigs[source].Create, source))
+		}
+
 		configs = append(configs, Config{
 			Source:      source,
 			LinkTargets: linkTargets,
 			CopyTargets: copyTargets,
 			InheritPerm: rawConfigs[source].InheritPerm,
+			Create:      rawConfigs[source].Create,
 		})
 	}
 
