@@ -18,11 +18,28 @@ Start with a brief statement, without a heading, that says what this PR is and w
 
 Then use these sections in this order, each under a `##` heading. Drop Other options when it has nothing to say.
 
-- **Before and after:** the change shown as a before and after. Each side can be anything that makes the difference clear: a single line of text, output, a screenshot, or a video recording. Add the advantages and disadvantages of the change when there are real ones.
+- **Before and after:** the change shown as a before and after, with a bold label for each part, in this order:
+  - **Before:** how it worked before this PR.
+  - **After:** how it works now.
+  - **Advantages:** what the change makes better. Add only when there are real ones.
+  - **Disadvantages:** what the change makes worse. Add only when there are real ones.
+
+  Before and After can each be anything that makes the difference clear: a single line of text, output, a screenshot, or a video recording.
+
 - **Risk:** one or two sentences on who or what the change touches, what could break, and why it is safe or risky. Only say something breaks when you can name what breaks. Say whether reverting the PR fully undoes it, and call out anything a revert can't undo.
+
 - **Evidence:** proof that the change works, not a claim that tests pass. Show the exact test that failed before and passes now, as pseudocode, or the output that changed. For a performance change, give one number with its unit as `before → after`. Say what you couldn't check.
-- **What changed:** what the PR changes and what it leaves out on purpose, in one to three short bullets, not a file list. Name both sides of a rename or move, and call out changes the task didn't ask for.
+
+- **What changed:** what the PR changes and what it leaves out on purpose, in short bullets, not a file list. Group the bullets under a bold label for each group, in this order, and use only the groups that apply:
+  - **New features:** things users can do that they couldn't before.
+  - **Improvements:** changes to behavior that already exists.
+  - **Bug fixes:** wrong behavior that now works correctly.
+  - **Breaking changes:** what stops working and what users must do.
+
+  Keep one to three bullets in each group. Name both sides of a rename or move, and call out changes the task didn't ask for.
+
 - **Checklist:** a task list of the work this PR needs. Tick the items that are done and leave unfinished items unticked.
+
 - **Other options:** only the alternatives a reviewer would otherwise ask about.
 
 ## Attachments
