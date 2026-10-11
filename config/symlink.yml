@@ -140,13 +140,6 @@
   Win.Copy: "$APPDATA/qBittorrent/qBittorrent.ini"
 
 # Code Editor
-"@/config/vscode/snippets":
-  Win:
-    - "$APPDATA/Code/User/snippets"
-    - "$APPDATA/Code - Insiders/User/snippets"
-  Mac:
-    - "~/Library/Application Support/Code/User/snippets"
-    - "~/Library/Application Support/Code - Insiders/User/snippets"
 "@/config/vscode/settings.jsonc":
   Win:
     - "$APPDATA/Code/User/settings.json"

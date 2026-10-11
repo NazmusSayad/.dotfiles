@@ -43,10 +43,6 @@
   },
 
   {
-    "Path": "clean-code-snippets",
-    "AsUser": true
-  },
-  {
     "Path": "powershell.exe",
     "Args": [
       "-NoProfile",

@@ -46,10 +46,6 @@ var BIN_SCRIPTS = map[string]BinScript{
 		StartMenu: "Config Init",
 	},
 
-	"clean-code-snippets": {
-		StartMenu: "Clean Code Snippets",
-	},
-
 	"opencode-configure": {
 		StartMenu: "OpenCode Configure",
 	},
