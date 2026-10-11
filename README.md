@@ -33,7 +33,7 @@ I don't want everyone to copy this entire repo and use it because it is my own o
   Configure applications and scripts to run automatically on system startup, with support for both user and administrator privileges.
 
 - **Code Editor Setup**
-  Pre-configured VS Code settings, keybindings, extensions, snippets, and state sync helpers.
+  Pre-configured VS Code settings, keybindings, extensions, and state sync helpers.
 
 ## Getting Started
 
@@ -135,7 +135,7 @@ Common files to edit:
 - `config/symlink.yml` - Config files linked into your system
 - `config/slack-status.yml` - Slack startup schedule
 - `config/shell/` - Shell aliases, prompt, and terminal settings
-- `config/vscode/` - VS Code settings, keybindings, extensions, snippets, and synced state
+- `config/vscode/` - VS Code settings, keybindings, extensions, and synced state
 
 ## ⚠️ Important Notes
 
