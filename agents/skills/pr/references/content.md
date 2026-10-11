@@ -14,9 +14,10 @@ A short instruction that says what the change does, with no trailing period.
 
 ## Body
 
-Use these sections in this order, each under a `##` heading. Drop Other options when it has nothing to say.
+Start with a brief statement, without a heading, that says what this PR is and why it exists. Link the issue when there is one.
 
-- **Why:** the problem and the approach in one to three short sentences. Link the issue when there is one.
+Then use these sections in this order, each under a `##` heading. Drop Other options when it has nothing to say.
+
 - **Before and after:** the change shown as a before and after. Each side can be anything that makes the difference clear: a single line of text, output, a screenshot, or a video recording.
 - **Risk:** one or two sentences on who or what the change touches, what could break, and why it is safe or risky. Only say something breaks when you can name what breaks. Say whether reverting the PR fully undoes it, and call out anything a revert can't undo.
 - **Evidence:** proof that the change works, not a claim that tests pass. Show the exact test that failed before and passes now, as pseudocode, or the output that changed. For a performance change, give one number with its unit as `before → after`. Say what you couldn't check.
@@ -33,7 +34,7 @@ Never add attachment files to git. `gh` supports attachments (gh 2.99.0 or later
 
 ## Diagrams
 
-Add a Mermaid diagram when the change affects how parts connect or the order in which things happen. GitHub draws it in the PR. Keep it small, show only what changed, and show before and after when the flow itself changed. Place it next to the text it explains.
+Add a Mermaid diagram when the change affects how parts connect or the order in which things happen. GitHub draws it in the PR. Keep it small, show only what changed, and show before and after when the flow itself changed. Place it in a section next to the text it explains, never in the opening statement.
 
 ## Updating
 
