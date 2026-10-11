@@ -2,9 +2,9 @@
 "@/config/shell/bash/bashrc.sh": "~/.bashrc"
 "@/config/shell/fish/fishrc.fish": "~/.config/fish/config.fish"
 "@/config/shell/pwsh/pwshrc.ps1":
-  Win: "~/Documents/PowerShell/profile.ps1"
+  LinkWin: "~/Documents/PowerShell/profile.ps1"
 "@/config/shell/bash/profile.sh":
-  Mac: "~/.bash_profile"
+  LinkMac: "~/.bash_profile"
 
 # Agents Skills
 "@/agents/skills":
@@ -29,29 +29,41 @@
 
 # Claude Accounts
 "~/.claude/history.jsonl":
-  - "~/.claude-extra/history.jsonl"
+  Create: File
+  Link: "~/.claude-extra/history.jsonl"
 "~/.claude/jobs":
-  - "~/.claude-extra/jobs"
+  Create: Folder
+  Link: "~/.claude-extra/jobs"
 "~/.claude/plans":
-  - "~/.claude-extra/plans"
+  Create: Folder
+  Link: "~/.claude-extra/plans"
 "~/.claude/tasks":
-  - "~/.claude-extra/tasks"
+  Create: Folder
+  Link: "~/.claude-extra/tasks"
 "~/.claude/cache":
-  - "~/.claude-extra/cache"
+  Create: Folder
+  Link: "~/.claude-extra/cache"
 "~/.claude/state":
-  - "~/.claude-extra/state"
+  Create: Folder
+  Link: "~/.claude-extra/state"
 "~/.claude/plugins":
-  - "~/.claude-extra/plugins"
+  Create: Folder
+  Link: "~/.claude-extra/plugins"
 "~/.claude/projects":
-  - "~/.claude-extra/projects"
+  Create: Folder
+  Link: "~/.claude-extra/projects"
 "~/.claude/sessions":
-  - "~/.claude-extra/sessions"
+  Create: Folder
+  Link: "~/.claude-extra/sessions"
 "~/.claude/paste-cache":
-  - "~/.claude-extra/paste-cache"
+  Create: Folder
+  Link: "~/.claude-extra/paste-cache"
 "~/.claude/session-env":
-  - "~/.claude-extra/session-env"
+  Create: Folder
+  Link: "~/.claude-extra/session-env"
 "~/.claude/shell-snapshots":
-  - "~/.claude-extra/shell-snapshots"
+  Create: Folder
+  Link: "~/.claude-extra/shell-snapshots"
 
 # OpenCode
 "@/agents/opencode/plugins": "~/.config/opencode/plugins"
@@ -61,8 +73,8 @@
 
 # OpenCode Desktop
 "@/agents/opencode/desktop.dat":
-  Win.Copy: "$APPDATA/ai.opencode.desktop/default.dat"
-  Mac.Copy: "~/Library/Application Support/ai.opencode.desktop/default.dat"
+  CopyWin: "$APPDATA/ai.opencode.desktop/default.dat"
+  CopyMac: "~/Library/Application Support/ai.opencode.desktop/default.dat"
 
 # Terminal
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
@@ -70,88 +82,88 @@
 "@/config/shell/direnv.toml": "~/.config/direnv/direnv.toml"
 "@/config/mise-config.toml": "~/.config/mise/config.toml"
 "@/config/shell/fastfetch-win.jsonc":
-  Win: "~/.config/fastfetch/config.jsonc"
+  LinkWin: "~/.config/fastfetch/config.jsonc"
 "@/config/shell/fastfetch-mac.jsonc":
-  Mac: "~/.config/fastfetch/config.jsonc"
+  LinkMac: "~/.config/fastfetch/config.jsonc"
 "@/config/shell/btop.conf": "~/.config/btop/btop.conf"
 "@/config/shell/lsd-config.yaml": "~/.config/lsd/config.yaml"
 
 # Terminal Emulators
 "@/config/sshtty.json": "~/.sshtty/config.json"
 "@/config/shell/ghostty.conf":
-  Mac: "~/.config/ghostty/config"
+  LinkMac: "~/.config/ghostty/config"
 "@/config/shell/cmux.json":
-  Mac.Copy: "~/.config/cmux/cmux.json"
+  CopyMac: "~/.config/cmux/cmux.json"
 "@/config/windows-terminal.json":
-  Win: "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+  LinkWin: "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 # OBS
 "@/config/obs/basic-win":
-  Win.Copy: "$APPDATA/obs-studio/basic"
+  CopyWin: "$APPDATA/obs-studio/basic"
 "@/config/obs/user-win.ini":
-  Win.Copy: "$APPDATA/obs-studio/user.ini"
+  CopyWin: "$APPDATA/obs-studio/user.ini"
 "@/config/obs/basic-mac":
-  Mac.Copy: "~/Library/Application Support/obs-studio/basic"
+  CopyMac: "~/Library/Application Support/obs-studio/basic"
 "@/config/obs/user-mac.ini":
-  Mac.Copy: "~/Library/Application Support/obs-studio/user.ini"
+  CopyMac: "~/Library/Application Support/obs-studio/user.ini"
 
 # Git
 "@/config/global.gitignore": "~/.gitignore"
 "@/config/monogit.json":
-  Win.Copy: "$APPDATA/monogit/config.json"
-  Mac.Copy: "~/Library/Application Support/monogit/config.json"
+  CopyWin: "$APPDATA/monogit/config.json"
+  CopyMac: "~/Library/Application Support/monogit/config.json"
 
 # Other
 "@/config/colima.yaml":
-  Mac.Copy: "~/.colima/default/colima.yaml"
+  CopyMac: "~/.colima/default/colima.yaml"
 "@/config/docker-mac.json":
-  Mac.Copy: "~/.docker/config.json"
+  CopyMac: "~/.docker/config.json"
 "@/config/pnpm.yaml":
-  Win: "$LOCALAPPDATA/pnpm/config.yaml"
-  Mac: "~/Library/Preferences/pnpm/config.yaml"
-  Wsl: "~/.config/pnpm/config.yaml"
+  LinkWin: "$LOCALAPPDATA/pnpm/config.yaml"
+  LinkMac: "~/Library/Preferences/pnpm/config.yaml"
+  LinkWsl: "~/.config/pnpm/config.yaml"
 "@/config/oiper.json":
-  Win: "$APPDATA/com.oiper.desktop/config.json"
-  Mac: "~/Library/Application Support/com.oiper.desktop/config.json"
+  LinkWin: "$APPDATA/com.oiper.desktop/config.json"
+  LinkMac: "~/Library/Application Support/com.oiper.desktop/config.json"
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/mysubs.json": "~/.config/mysubs/config.json"
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
 "@/config/win-cloudflared.yml":
-  Win: "~/.cloudflared/config.yml"
+  LinkWin: "~/.cloudflared/config.yml"
 "@/config/wsl/wslconfig.ini":
-  Win: "~/.wslconfig"
+  LinkWin: "~/.wslconfig"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 
 # System
 "@/config/Windhawk.json":
-  Win: "$PROGRAMDATA/Windhawk/userprofile.json"
+  LinkWin: "$PROGRAMDATA/Windhawk/userprofile.json"
 "@/config/hammerspoon.lua":
-  Mac: "~/.hammerspoon/init.lua"
+  LinkMac: "~/.hammerspoon/init.lua"
 "@/config/US Simplified.keylayout":
-  Mac.Copy: "~/Library/Keyboard Layouts/US Simplified.keylayout"
+  CopyMac: "~/Library/Keyboard Layouts/US Simplified.keylayout"
 
 # Private
 "$SYSTEM_FILE_DIR/AIMP":
-  Win: "$APPDATA/AIMP"
+  LinkWin: "$APPDATA/AIMP"
 "$SYSTEM_FILE_DIR/WinRar.ini":
-  Win: "~/scoop/apps/winrar/current/WinRar.ini"
+  LinkWin: "~/scoop/apps/winrar/current/WinRar.ini"
 "$SYSTEM_FILE_DIR/qBittorrent.ini":
-  Win.Copy: "$APPDATA/qBittorrent/qBittorrent.ini"
+  CopyWin: "$APPDATA/qBittorrent/qBittorrent.ini"
 
 # Code Editor
 "@/config/vscode/settings.jsonc":
-  Win:
+  LinkWin:
     - "$APPDATA/Code/User/settings.json"
     - "$APPDATA/Code - Insiders/User/settings.json"
-  Mac:
+  LinkMac:
     - "~/Library/Application Support/Code/User/settings.json"
     - "~/Library/Application Support/Code - Insiders/User/settings.json"
 "@/config/vscode/keybindings.jsonc":
-  Win:
+  LinkWin:
     - "$APPDATA/Code/User/keybindings.json"
     - "$APPDATA/Code - Insiders/User/keybindings.json"
 "@/config/vscode/mac-keybindings.jsonc":
-  Mac:
+  LinkMac:
     - "~/Library/Application Support/Code/User/keybindings.json"
     - "~/Library/Application Support/Code - Insiders/User/keybindings.json"

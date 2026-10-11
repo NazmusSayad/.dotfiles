@@ -96,6 +96,43 @@ func GenerateSymlink(source string, target string, inheritPerm bool) error {
 	return nil
 }
 
+func CreateSource(source string, kind string, inheritPerm bool) error {
+	if !inheritPerm {
+		if err := ValidateInvokingUser(); err != nil {
+			fmt.Println(aurora.Red("UNEXPECTED: " + err.Error()))
+			return err
+		}
+	}
+
+	createdDirs, ok := createTargetDirs(source)
+	if !inheritPerm {
+		defer ApplyUserOwnership(append(createdDirs, source)...)
+	}
+	if !ok {
+		return fmt.Errorf("failed to create source directories for: %s", source)
+	}
+
+	var err error
+	switch kind {
+	case "Folder":
+		err = os.Mkdir(source, 0o755)
+	case "File":
+		err = os.WriteFile(source, nil, 0o644)
+	default:
+		err = fmt.Errorf("invalid create kind: %s", kind)
+	}
+	if err != nil {
+		fmt.Println(aurora.BrightRed("UNEXPECTED: Error creating source: " + err.Error()))
+		return fmt.Errorf("error creating source: %w", err)
+	}
+
+	if inheritPerm {
+		inheritDirOwnership(append(createdDirs, source))
+	}
+
+	return nil
+}
+
 func createTargetDirs(target string) ([]string, bool) {
 	targetDir := filepath.Dir(target)
 	if utils.IsFileExists(targetDir) {
