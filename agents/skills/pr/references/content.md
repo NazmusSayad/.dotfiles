@@ -52,7 +52,7 @@ Never add attachment files to git. `gh` supports attachments (gh 2.99.0 or later
 
 ## Diagrams
 
-Add a Mermaid diagram when the change affects how parts connect or the order in which things happen. GitHub draws it in the PR. Keep it small, show only what changed, and show before and after when the flow itself changed. Place it in a section next to the text it explains, never in the opening statement.
+Use one small Mermaid diagram when it helps explain changed connections or flow. Share unchanged nodes and connections, not separate Before and After diagrams or subgraphs. Give connections short action or condition labels. Distinguish shared, old-only, and new-only parts so historical paths cannot look current. Prefer `-->` for shared paths, `-.->` labeled Before only for removed paths, and `==>` labeled After only for added paths. Show changes within a node rather than duplicate it when its connections stay the same. Use syntax GitHub renders and place the diagram next to the text it explains, never in the opening statement.
 
 ## Updating
 
