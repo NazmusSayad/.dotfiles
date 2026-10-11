@@ -1,0 +1,7 @@
+interface:
+  display_name: "Round"
+  short_description: "Try something different each time a result is rejected"
+  default_prompt: "Use $round to work on this until I accept the result."
+
+policy:
+  allow_implicit_invocation: false
