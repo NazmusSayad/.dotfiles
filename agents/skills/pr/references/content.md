@@ -22,6 +22,7 @@ Then use these sections in this order, each under a `##` heading. Drop Other opt
 - **Risk:** one or two sentences on who or what the change touches, what could break, and why it is safe or risky. Only say something breaks when you can name what breaks. Say whether reverting the PR fully undoes it, and call out anything a revert can't undo.
 - **Evidence:** proof that the change works, not a claim that tests pass. Show the exact test that failed before and passes now, as pseudocode, or the output that changed. For a performance change, give one number with its unit as `before → after`. Say what you couldn't check.
 - **What changed:** what the PR changes and what it leaves out on purpose, in one to three short bullets, not a file list. Name both sides of a rename or move, and call out changes the task didn't ask for.
+- **Checklist:** a task list of the work this PR needs. Tick the items that are done and leave unfinished items unticked.
 - **Other options:** only the alternatives a reviewer would otherwise ask about.
 
 ## Attachments
