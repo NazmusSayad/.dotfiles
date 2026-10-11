@@ -12,5 +12,32 @@
       "command": "fish.exe --features no-query-term",
       "cwd": "~/Desktop"
     }
+  },
+  "font": {
+    "family": "FiraCode Nerd Font",
+    "size": 14.0,
+    "lineHeight": 1.35,
+    "ligatures": true
+  },
+  "cursor": {
+    "style": "bar",
+    "blink": true
+  },
+  "padding": {
+    "top": 4,
+    "right": 4,
+    "bottom": 4,
+    "left": 6
+  },
+  "scrollback": 100000,
+  "theme": {
+    "name": "one-dark-darker",
+    "boldIsBright": true
+  },
+  "engine": "ghostty",
+  "behavior": {
+    "shiftEnterNewline": true,
+    "showGitBranch": true,
+    "captureShortcuts": true
   }
 }
