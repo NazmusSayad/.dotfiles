@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -74,6 +75,28 @@ func main() {
 		} else {
 			buildScript(sourceDir, outputDir, entryName, scriptName)
 		}
+	}
+
+	if runtime.GOOS == "windows" {
+		compileWSL()
+	}
+}
+
+func compileWSL() {
+	fmt.Println()
+	fmt.Println(aurora.Blue("Compiling scripts for WSL"))
+	cmd := exec.Command(
+		"wsl.exe",
+		"--distribution", "Ubuntu-26.04",
+		"--user", "sayad",
+		"--cd", "~",
+		"--exec", "/bin/bash", "-lc",
+		`cd "$HOME/.dotfiles" && "$HOME/.local/bin/mise" exec -- go run ./src/compile-scripts/main.go`,
+	)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		fmt.Println(aurora.Red("Failed to compile scripts for WSL: " + err.Error()))
 	}
 }
 
