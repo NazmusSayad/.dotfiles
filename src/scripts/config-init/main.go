@@ -11,6 +11,7 @@ import (
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/helpers/opencode"
 	"dotfiles/src/helpers/symlink"
+	"dotfiles/src/utils"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -35,6 +36,12 @@ func main() {
 	for _, config := range symlinkConfigs {
 		sourcePath := helpers.ResolvePath(config.Source)
 		fmt.Println(aurora.Blue(config.Source))
+
+		if config.Create != "" && !utils.IsFileExists(sourcePath) {
+			if helpers.CreateSource(sourcePath, config.Create, config.InheritPerm) == nil {
+				fmt.Println(aurora.Blue("+"), aurora.Faint(config.Create))
+			}
+		}
 
 		for _, target := range config.LinkTargets {
 			targetPath := helpers.ResolvePath(target)
