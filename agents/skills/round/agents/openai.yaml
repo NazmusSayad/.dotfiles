@@ -1,6 +1,6 @@
 interface:
   display_name: "Round"
-  short_description: "Try something different each time a result is rejected"
+  short_description: "Solve a problem back and forth with user feedback"
   default_prompt: "Use $round to work on this until I accept the result."
 
 policy:
