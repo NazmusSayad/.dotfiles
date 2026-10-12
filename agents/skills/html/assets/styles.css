@@ -37,7 +37,7 @@ body {
   font-synthesis: none;
 }
 
-h1, h2, h3, p, ul, ol, dl, dd, figure, pre, table { margin: 0; }
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd, figure, pre, table, blockquote, hr { margin: 0; }
 h1, h2, h3 { text-wrap: balance; }
 p, li, dd { text-wrap: pretty; }
 p, li, dd, .lede { max-width: var(--measure); }
@@ -54,6 +54,21 @@ h3 {
   font-size: 1.125rem;
   font-weight: 650;
   line-height: 1.35;
+}
+h4, h5, h6 { font-size: 1rem; font-weight: 650; line-height: 1.4; }
+blockquote {
+  padding-left: var(--s4);
+  border-left: 3px solid var(--border);
+  color: var(--text-dim);
+}
+hr { border: 0; border-top: 1px solid var(--border); }
+img, video { max-width: 100%; height: auto; }
+kbd {
+  padding: .1em .35em;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font: .8125em var(--font-mono);
 }
 ul, ol { padding-left: 1.25rem; }
 p, li { line-height: 1.6; }
@@ -210,6 +225,17 @@ main > section > * + * { margin-top: var(--s4); }
 main > section > * + h3 { margin-top: var(--s6); }
 main > section > p + p { margin-top: var(--s5); }
 .section-lede { color: var(--text-dim); }
+main > * + * { margin-top: var(--s6); }
+
+.message {
+  padding: var(--s4) var(--s5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.message + .message { margin-top: var(--s5); }
+.message-meta { color: var(--text-dim); font-size: .875rem; }
+.message > * + *, .message :is(blockquote, li, details) > * + * { margin-top: var(--s4); }
+.message :is(h1, h2) { font-size: 1.375rem; }
 
 .steps { padding: 0; list-style: none; counter-reset: step; }
 .steps > li {

@@ -1,7 +1,7 @@
 interface:
   display_name: "HTML"
-  short_description: "Turn existing material into polished HTML"
-  default_prompt: "Use $html to turn this material into a polished HTML document."
+  short_description: "Build HTML pages in a fixed visual style"
+  default_prompt: "Use $html to build an HTML page from this material in its visual style."
 
 policy:
   allow_implicit_invocation: false
