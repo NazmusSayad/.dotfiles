@@ -1,4 +1,7 @@
 .DS_Store
+.worktree
+.worktrees
+
 .envrc
 
 .env
