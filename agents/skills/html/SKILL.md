@@ -62,6 +62,20 @@ Copy the selected example to the output path and replace its content with the so
 
 Read `references/components.md` to choose the form of each part and to build its markup.
 
+## Representation mode
+
+Use this mode when the user uses this skill as a reference for how a page should look, whatever the page contains: a shared chat, copied comments, a file, or anything they describe. The look comes from this skill. Everything else comes from the user.
+
+Keep the look exactly. Follow the Template section, start from `examples/generic.html`, remove all of its content, and build every part from `references/components.md`.
+
+The content and structure are exactly what the user shared or asked for. This wins over every other rule, including the look. Source, Profile, Fidelity, Writing, and Verification do not apply.
+
+- Copy shared material exactly as it appears where the user found it: same words, order, formatting, links, code, and images. Do not summarize, reword, regroup, split, or translate it.
+- Add nothing the user did not ask for: no title, intro, headings, labels, notes, or grouping.
+- When no component fits the content without changing it, change the form, never the content.
+- For a conversation, keep who said what and where each message starts and ends.
+- When the request leaves the content unclear, or the content contains secrets, ask before writing.
+
 ## Output
 
 Write the document to `~/tmp/html/<project>/<document>.html`, where `<project>` is the name of the current project folder and `<document>` is a short kebab-case name for the document. Create the folders if they do not exist. When you create the file, open it in the default browser. When you change an existing document, do not open it.
