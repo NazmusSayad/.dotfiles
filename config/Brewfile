@@ -35,8 +35,6 @@ cask "mos"
 
 # Internet
 brew "wget"
-brew "caddy"
-brew "mkcert"
 cask "localsend"
 cask "free-download-manager"
 
