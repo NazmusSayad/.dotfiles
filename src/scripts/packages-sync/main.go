@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
 	"runtime"
 
 	"dotfiles/src/helpers"
@@ -52,6 +54,27 @@ func main() {
 
 	fmt.Println("✘", aurora.Faint("Cleaning Mise cache..."))
 	runCommand([]string{"mise", "cache", "clear", "--yes"})
+
+	if runtime.GOOS == "windows" {
+		wslSync()
+	}
+}
+
+func wslSync() {
+	fmt.Println(aurora.Blue("Syncing WSL packages"))
+	cmd := exec.Command(
+		"wsl.exe",
+		"--distribution", "Ubuntu-26.04",
+		"--user", "sayad",
+		"--cd", "~",
+		"--exec", "/bin/bash", "-lc",
+		`cd "$HOME/.dotfiles" && "$HOME/.local/bin/mise" exec -- ./.local/bin.wsl/psy`,
+	)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		fmt.Println(aurora.Red("Failed to sync WSL packages: " + err.Error()))
+	}
 }
 
 func homebrewSync() {
