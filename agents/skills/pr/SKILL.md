@@ -6,7 +6,7 @@ disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
-When this run is done, continue normally. Commit or push only when the user asks, and don't remind the user about `pr` or unpublished changes.
+When this run is done, continue normally. Commit or push only when the user asks. Don't offer or remind the user to commit, push, or run `pr`, and don't mention unpublished changes.
 
 Look at the full diff, including uncommitted and new files. Ask if it's unclear which changes belong in the PR.
 
