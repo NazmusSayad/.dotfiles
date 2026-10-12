@@ -7,6 +7,11 @@
       "provider": "claude",
       "configDir": "~/.claude",
       "alias": "c"
+    },
+    {
+      "provider": "claude",
+      "configDir": "~/.claude-extra",
+      "info": "Work"
     }
   ]
 }
