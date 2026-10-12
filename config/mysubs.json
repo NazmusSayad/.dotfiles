@@ -5,8 +5,8 @@
   "accounts": [
     {
       "provider": "claude",
-      "configDir": "~/.claude-extra",
-      "alias": "cs"
+      "configDir": "~/.claude",
+      "info": "Work"
     },
     {
       "provider": "opencode2-codex",
@@ -14,8 +14,8 @@
     },
     {
       "provider": "claude",
-      "configDir": "~/.claude",
-      "info": "Work"
+      "configDir": "~/.claude-extra",
+      "alias": "cs"
     }
   ]
 }
