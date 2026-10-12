@@ -6,7 +6,7 @@ disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
-Each run publishes once. After that, keep working normally and don't commit, push, or suggest running `pr` again on your own.
+When this run is done, continue normally. Commit or push only when the user asks, and don't remind the user about `pr` or unpublished changes.
 
 Look at the full diff, including uncommitted and new files. Ask if it's unclear which changes belong in the PR.
 
