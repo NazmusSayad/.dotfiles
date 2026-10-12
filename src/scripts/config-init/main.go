@@ -94,7 +94,7 @@ func configureWSL() {
 		"--user", "sayad",
 		"--cd", "~",
 		"--exec", "/bin/bash", "-lc",
-		`cd "$HOME/.dotfiles" && "$HOME/.local/bin/mise" exec -- go run ./src/scripts/config-init/main.go`,
+		`cd "$HOME/.dotfiles" && "$HOME/.local/bin/mise" exec -- ./.local/bin.wsl/config-init`,
 	)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
