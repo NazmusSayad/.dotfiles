@@ -2,13 +2,20 @@
   "$schema": "https://github.com/NazmusSayad/mysubs/raw/refs/heads/schema/schema.json",
   "nerdFont": true,
   "detect": false,
-  "claude": {
-    "accounts": {
-      "extra": { "configDir": "~/.claude-extra" },
-      "work": { "configDir": "~/.claude", "info": "Work" }
+  "accounts": [
+    {
+      "provider": "claude",
+      "configDir": "~/.claude-extra",
+      "alias": "cs"
+    },
+    {
+      "provider": "opencode2-codex",
+      "label": "Work"
+    },
+    {
+      "provider": "claude",
+      "configDir": "~/.claude",
+      "info": "Work"
     }
-  },
-  "opencode2-codex": {
-    "detect": true
-  }
+  ]
 }
