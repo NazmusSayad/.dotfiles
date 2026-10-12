@@ -98,6 +98,7 @@ lazydocker = "latest"
 "npm:lint-staged" = "latest"
 "npm:concurrently" = "latest"
 "github:boyter/scc" = "latest"
+"github:NazmusSayad/makefmt" = "latest"
 
 # Web
 yt-dlp = "latest"
@@ -160,10 +161,11 @@ minimum_release_age_excludes = [
   "npm:mytokens",
   "npm:create-src",
   "npm:opencode-ext",
-  "github:nazmussayad/sshtty",
 
   # My Rust Tools
   "cargo:dotsh",
   "cargo:shaka",
   "cargo:pwshac",
+  "github:nazmussayad/sshtty",
+  "github:NazmusSayad/makefmt",
 ]
