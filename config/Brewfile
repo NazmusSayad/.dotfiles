@@ -72,6 +72,7 @@ cask "visual-studio-code"
 cask "android-studio"
 cask "tablepro"
 brew "watchman"
+brew "cocoapods"
 brew "shfmt"
 brew "fvm"
 
