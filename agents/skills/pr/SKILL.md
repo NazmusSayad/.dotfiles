@@ -20,6 +20,4 @@ Push the branch, and ask before force pushing. Then update the open PR, or creat
 
 Read [references/content.md](references/content.md), then write the title and body for the whole PR, not just the latest commit.
 
-If the repository uses a code review bot, request its review if it does not start, and wait for it. Fix each valid point, then commit, push, and update the PR body. Skip a point that is wrong, outside this PR, or against what the user asked for, reply to it on the PR with a short reason, and list it in your final reply. Repeat within this run until no valid points remain.
-
 After success, reply with the status of the commits and the PR, with the PR URL on a new line. Add no other text, fluff, or follow-up messages.
