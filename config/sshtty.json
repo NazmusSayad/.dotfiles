@@ -34,10 +34,13 @@
     "name": "one-dark-darker",
     "boldIsBright": true
   },
-  "engine": "ghostty",
+  "emptyScreenAnimation": false,
   "behavior": {
     "shiftEnterNewline": true,
     "showGitBranch": true,
-    "captureShortcuts": true
+    "captureShortcuts": true,
+    "bellFlash": true,
+    "bellSound": true,
+    "terminalIdentity": "sshtty"
   }
 }
