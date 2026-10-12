@@ -1,4 +1,4 @@
-# Explanation profile
+# Explanation
 
 An explanation helps a stated audience understand a concept, system, event, or process. It clarifies existing material without adding unsupported examples or behavior.
 

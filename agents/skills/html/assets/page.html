@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+  <main>
+  </main>
+
+</div>
+<script>
+  const closedDetails = [];
+  addEventListener("beforeprint", () => {
+    for (const details of document.querySelectorAll("details:not([open])")) {
+      details.open = true;
+      closedDetails.push(details);
+    }
+  });
+  addEventListener("afterprint", () => {
+    for (const details of closedDetails.splice(0)) details.open = false;
+  });
+</script>
+</body>
+</html>

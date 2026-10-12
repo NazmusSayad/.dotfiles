@@ -1,4 +1,4 @@
-# Report profile
+# Report
 
 A report presents recorded findings, measurements, events, or status. It does not create new findings from incomplete source material.
 
