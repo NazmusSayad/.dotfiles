@@ -6,7 +6,7 @@
     {
       "provider": "claude",
       "configDir": "~/.claude",
-      "info": "Work"
+      "alias": "c"
     }
   ]
 }
