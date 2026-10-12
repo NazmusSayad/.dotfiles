@@ -9,10 +9,6 @@
       "info": "Work"
     },
     {
-      "provider": "opencode2-codex",
-      "label": "Work"
-    },
-    {
       "provider": "claude",
       "configDir": "~/.claude-extra",
       "alias": "cs"
