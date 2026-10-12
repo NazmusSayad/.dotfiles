@@ -69,7 +69,9 @@ cask "visual-studio-code@insiders"
 cask "visual-studio-code"
 
 # Development
+cask "android-studio"
 cask "tablepro"
+brew "watchman"
 brew "shfmt"
 brew "fvm"
 
