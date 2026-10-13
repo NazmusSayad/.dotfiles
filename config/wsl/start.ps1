@@ -20,14 +20,3 @@ if ($null -eq $server) {
     $mise = (Get-Command mise -ErrorAction Stop).Source
     Start-Process $mise -ArgumentList 'exec -- sshtty --host 127.0.0.1 --port 47831' -WorkingDirectory $HOME -WindowStyle Hidden
 }
-
-$tunnel = Get-CimInstance Win32_Process | Where-Object {
-    $_.Name -eq 'cloudflared.exe' -and $_.CommandLine -match 'tunnel\s+run'
-} | Select-Object -First 1
-
-if ($null -eq $tunnel) {
-    $logDirectory = Join-Path $env:LOCALAPPDATA 'Temp\desktop-tunnel'
-    New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
-    $cloudflared = (Get-Command cloudflared -ErrorAction Stop).Source
-    Start-Process $cloudflared -ArgumentList 'tunnel run' -WindowStyle Hidden -RedirectStandardOutput (Join-Path $logDirectory 'stdout.log') -RedirectStandardError (Join-Path $logDirectory 'stderr.log')
-}
