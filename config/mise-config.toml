@@ -70,7 +70,7 @@ rust = "stable"
 rust-analyzer = "latest"
 
 # Cloud
-cloudflared = "latest"
+cloudflared = { version = "latest", os = ["macos"] }
 "github:openclaw/gogcli" = "latest"
 
 # Security
