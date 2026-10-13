@@ -117,7 +117,41 @@ cloudflared tunnel route dns Desktop win.sayad.dev
 
 `start.ps1` starts both sshtty servers and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
 
-The native service is installed using `cloudflared service install` from an administrator terminal. Machine-specific paths and the resolved tunnel UUID belong in the Windows service command line, not the dotfiles config. Cloudflared's installer enables automatic startup and repeatedly restarts the service after failures with a 20-second delay, including non-crash failures. No retry wrapper is needed. The credentials stay outside the repository.
+### Windows service setup and recovery
+
+Installing the cloudflared executable does not install its Windows service. The native service was installed with:
+
+```powershell
+sudo cloudflared service install
+```
+
+Installation alone did not connect `Desktop`. The service ran as SYSTEM without the user's configuration. Its registered command line was then configured using values discovered from this machine:
+
+- The executable path came from `Get-Command cloudflared`.
+- The configuration path came from resolving `../win-cloudflared.yml` in this repository.
+- The tunnel UUID came from `cloudflared tunnel list --output json --name Desktop`.
+- The credentials file came from the current user's `.cloudflared` directory, using the resolved UUID. SYSTEM already had read access.
+- The log directory came from `$env:ProgramData`, under `cloudflared\logs`.
+
+The resulting service command has this form:
+
+```text
+"<cloudflared executable>" --config "<dotfiles config>" --log-directory "<log directory>" tunnel run --credentials-file "<credentials file>" <resolved tunnel UUID>
+```
+
+The service's `PathName` was updated through `Invoke-CimMethod` using the `Win32_Service.Change` method, then the service was restarted. Machine-specific paths and the resolved UUID are stored only in Windows service settings, not the dotfiles config. The credentials stay outside the repository. `start.ps1` no longer starts a separate connector.
+
+Cloudflared's installer sets automatic startup, so the service starts after a Windows reboot without running `start.ps1` or logging in. It also configures Windows to restart the service after failures with a 20-second delay, indefinitely, including non-crash failures. If startup fails while offline, Windows keeps restarting it so it can connect when internet returns. No retry wrapper is needed. An intentional service stop does not trigger recovery.
+
+The running service, four active Cloudflare connections, automatic startup, and recovery settings were verified after setup. A Windows reboot and an offline recovery cycle were not tested. To inspect the service and tunnel:
+
+```powershell
+Get-Service Cloudflared
+sc.exe qc Cloudflared
+sc.exe qfailure Cloudflared
+sc.exe qfailureflag Cloudflared
+cloudflared tunnel info Desktop
+```
 
 To reload the tunnel after changing `win-cloudflared.yml`, run:
 
