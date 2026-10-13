@@ -9,7 +9,7 @@ Checked on 2026-10-10:
 - Ubuntu and the Linux `sayad` account are configured.
 - Node.js `24.21.0`, pnpm `12.10.1`, `@antfu/ni` `30.6.0`, the npm package `sshtty`, and Ubuntu's Starship `1.22.1` package are installed.
 - `sshtty.service` is installed, enabled, and running as `sayad`.
-- Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:47474`.
+- Ubuntu and Windows both return HTTP 200 at `http://127.0.0.1:10101`.
 - Both hostname DNS routes point to the existing `Desktop` tunnel, and the ingress config passes validation.
 - The Windows cloudflared connector handles both hostnames. Unauthenticated requests redirect to the existing Cloudflare Access login.
 - A hidden Windows-side WSL watchdog is running so Ubuntu does not stop when the last terminal closes and automatically relaunches after an unexpected termination.
@@ -29,8 +29,8 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as the native `Clo
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - sshtty data: `/home/sayad/.sshtty`. Keep it in Linux, not on a Windows mount.
 - sshtty's `shell.command` is `/usr/bin/fish`, so browser tabs open Fish without changing the WSL login shell.
-- sshtty listener: `127.0.0.1:47474` inside Ubuntu.
-- Native Windows sshtty listener: `127.0.0.1:47831`, with a PowerShell shell.
+- sshtty listener: `127.0.0.1:10101` inside Ubuntu.
+- Native Windows sshtty listener: `127.0.0.1:20202`, with a PowerShell shell.
 - sshtty settings: `../sshtty.json`, linked to `~/.sshtty/config.json` on both Windows and Ubuntu. Each side reads its own `shell` entry. Fish runs with `--features no-query-term` so tabs started without a connected browser do not wait for a terminal response.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
@@ -66,7 +66,7 @@ sudo systemctl status sshtty --no-pager
 journalctl -u sshtty -n 50 --no-pager
 ```
 
-WSL local address: http://127.0.0.1:47474. Remote address: https://wsl.sayad.dev. Native Windows uses http://127.0.0.1:47831 and https://win.sayad.dev.
+WSL local address: http://127.0.0.1:10101. Remote address: https://wsl.sayad.dev. Native Windows uses http://127.0.0.1:20202 and https://win.sayad.dev.
 
 The service starts when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
@@ -89,7 +89,7 @@ For a foreground session, stop the service first, then run:
 
 ```bash
 cd ~
-mise exec -- sshtty --host 127.0.0.1 --port 47474
+mise exec -- sshtty --host 127.0.0.1 --port 10101
 ```
 
 ## Tunnel routing
@@ -100,9 +100,9 @@ mise exec -- sshtty --host 127.0.0.1 --port 47474
 tunnel: Desktop
 ingress:
   - hostname: wsl.sayad.dev
-    service: http://127.0.0.1:47474
+    service: http://127.0.0.1:10101
   - hostname: win.sayad.dev
-    service: http://127.0.0.1:47831
+    service: http://127.0.0.1:20202
   - service: http_status:404
 ```
 
@@ -211,7 +211,7 @@ Use `ni`, `nr`, and `nlx` for project package workflows. `npm:sshtty` is a mise 
 
 ## Troubleshooting
 
-- Windows localhost fails: check `systemctl status sshtty` inside Ubuntu first, then `curl -I http://127.0.0.1:47474` in both environments.
+- Windows localhost fails: check `systemctl status sshtty` inside Ubuntu first, then `curl -I http://127.0.0.1:10101` in both environments.
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
 - The hostname returns 502: cloudflared cannot reach sshtty. Check that Ubuntu is running and sshtty is listening.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
