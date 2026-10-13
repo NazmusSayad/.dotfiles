@@ -80,13 +80,14 @@
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
 "@/config/shell/starship.toml": "~/.config/starship.toml"
 "@/config/shell/direnv.toml": "~/.config/direnv/direnv.toml"
+"@/config/shell/lsd-config.yaml": "~/.config/lsd/config.yaml"
 "@/config/mise-config.toml": "~/.config/mise/config.toml"
 "@/config/shell/fastfetch-win.jsonc":
   LinkWin: "~/.config/fastfetch/config.jsonc"
 "@/config/shell/fastfetch-mac.jsonc":
   LinkMac: "~/.config/fastfetch/config.jsonc"
-"@/config/shell/btop.conf": "~/.config/btop/btop.conf"
-"@/config/shell/lsd-config.yaml": "~/.config/lsd/config.yaml"
+"@/config/shell/btop-mac.conf":
+  LinkMac: "~/.config/btop/btop.conf"
 
 # Terminal Emulators
 "@/config/shell/ghostty.conf":
