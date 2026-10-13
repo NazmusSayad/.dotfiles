@@ -64,6 +64,8 @@
     "**/.next": true,
     "**/node_modules": true,
     "**/next-env.d.ts": true,
+    "**/.playwright-cli": true,
+    "**/.playwright-mcp": true,
     "**/tsconfig.tsbuildinfo": true
   },
   "search.quickOpen.includeHistory": false,
@@ -187,6 +189,15 @@
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
+  "[makefile]": {
+    "editor.defaultFormatter": "NazmusSayad.makefmt",
+    "editor.formatOnSave": true
+  },
+  "[just]": {
+    "editor.defaultFormatter": "NazmusSayad.makefmt",
+    "editor.formatOnSave": true
+  },
+  "makefmt.trimTrailingWhitespace": true,
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.closingBraceHints.enable": false,
   "xml.format.preservedNewlines": 1,
@@ -386,5 +397,5 @@
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
   "workbench.activityBar.location": "hidden",
-  "security.promptForLocalFileProtocolHandling": false,
+  "security.promptForLocalFileProtocolHandling": false
 }
