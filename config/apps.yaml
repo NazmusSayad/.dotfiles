@@ -78,6 +78,7 @@ winget:
 
   # Internet
   - Google.Chrome
+  - Cloudflare.cloudflared
   - qBittorrent.qBittorrent
   - Tonec.InternetDownloadManager
 
