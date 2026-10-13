@@ -86,8 +86,8 @@
   LinkWin: "~/.config/fastfetch/config.jsonc"
 "@/config/shell/fastfetch-mac.jsonc":
   LinkMac: "~/.config/fastfetch/config.jsonc"
-"@/config/shell/btop-mac.conf":
-  LinkMac: "~/.config/btop/btop.conf"
+"@/config/shell/btop.conf":
+  Copy: "~/.config/btop/btop.conf"
 
 # Terminal Emulators
 "@/config/shell/ghostty.conf":
