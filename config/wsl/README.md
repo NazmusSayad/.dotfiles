@@ -14,7 +14,7 @@ Checked on 2026-10-10:
 - The Windows cloudflared connector handles both hostnames. Unauthenticated requests redirect to the existing Cloudflare Access login.
 - A hidden Windows-side WSL watchdog is running so Ubuntu does not stop when the last terminal closes and automatically relaunches after an unexpected termination.
 
-OpenCode is not part of this setup. The `Desktop` tunnel runs as an independent cloudflared process on Windows.
+OpenCode is not part of this setup. The `Desktop` tunnel runs as the native `Cloudflared` Windows service.
 
 ## Device setup
 
@@ -70,13 +70,13 @@ WSL local address: http://127.0.0.1:47474. Remote address: https://wsl.sayad.dev
 
 The service starts when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
-Start both sshtty servers, the existing WSL watchdog, and the Windows tunnel from PowerShell:
+Start both sshtty servers and the existing WSL watchdog from PowerShell. The Windows tunnel starts separately as a service:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
 ```
 
-The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled sshtty systemd service starts during the new boot. It does not install a Windows startup task. The PC must be awake and the Windows tunnel must also be running.
+The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled sshtty systemd service starts during the new boot. It does not install a Windows startup task. The PC must be awake. The tunnel service starts automatically with Windows.
 
 Restart or stop the service from Ubuntu:
 
@@ -94,7 +94,7 @@ mise exec -- sshtty --host 127.0.0.1 --port 47474
 
 ## Tunnel routing
 
-`../win-cloudflared.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. It must contain both hostname routes, followed by the catch-all:
+`../win-cloudflared.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. The Windows service reads the dotfiles config directly. It must contain both hostname routes, followed by the catch-all:
 
 ```yaml
 tunnel: Desktop
@@ -115,15 +115,17 @@ cloudflared tunnel route dns Desktop wsl.sayad.dev
 cloudflared tunnel route dns Desktop win.sayad.dev
 ```
 
-`start.ps1` starts both sshtty servers, the Windows-side WSL watchdog, and one Windows `cloudflared tunnel run` connector. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. No cloudflared service runs inside WSL.
+`start.ps1` starts both sshtty servers and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
 
-To reload the tunnel after changing `win-cloudflared.yml`, stop its cloudflared process and run:
+The native service is installed using `cloudflared service install` from an administrator terminal. Machine-specific paths and the resolved tunnel UUID belong in the Windows service command line, not the dotfiles config. Cloudflared's installer enables automatic startup and repeatedly restarts the service after failures with a 20-second delay, including non-crash failures. No retry wrapper is needed. The credentials stay outside the repository.
+
+To reload the tunnel after changing `win-cloudflared.yml`, run:
 
 ```powershell
-& F:\.dotfiles\config\wsl\start.ps1
+sudo powershell.exe -NoProfile -Command "Restart-Service Cloudflared"
 ```
 
-The connector logs are in `%LOCALAPPDATA%\Temp\desktop-tunnel\stdout.log` and `stderr.log`.
+The connector logs are in `%ProgramData%\cloudflared\logs\cloudflared.log`, with automatic size-based rotation. Service startup and failure events are also recorded in the Windows Application event log under `Cloudflared`.
 
 ## Recreate the Linux tool setup
 
