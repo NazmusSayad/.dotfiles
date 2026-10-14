@@ -1,0 +1,6 @@
+interface:
+  display_name: "Uncomment"
+  short_description: "Remove comments the code does not need"
+
+policy:
+  allow_implicit_invocation: false
