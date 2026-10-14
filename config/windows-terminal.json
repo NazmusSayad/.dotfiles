@@ -56,11 +56,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+numpad_minus"
+            "keys": "alt+right"
         },
         {
             "id": "User.find",
@@ -68,19 +64,23 @@
         },
         {
             "id": null,
-            "keys": "alt+right"
+            "keys": "ctrl+numpad_minus"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": "User.copy.224984B4",
+            "keys": "ctrl+c"
         },
         {
             "id": null,
             "keys": "ctrl+shift+d"
         },
         {
-            "id": "User.copy.224984B4",
-            "keys": "ctrl+c"
+            "id": null,
+            "keys": "ctrl+shift+k"
         },
         {
             "id": null,
@@ -340,7 +340,8 @@
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell (pwsh)",
-                "source": "Windows.Terminal.PowershellCore"
+                "source": "Windows.Terminal.PowershellCore",
+                "startingDirectory": null
             },
             {
                 "commandline": "fish.exe",
