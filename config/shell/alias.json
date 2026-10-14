@@ -33,6 +33,8 @@
   "gz": "lazygit",
   "mgit": "manygit",
 
+  "gd": "git diff",
+  "gs": "git status",
   "gc": "git checkout",
   "gcn": "git checkout -b",
   "gpa": "git push --all",
