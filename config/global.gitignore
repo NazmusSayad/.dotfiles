@@ -20,3 +20,4 @@ node_modules/
 .playwright
 .playwright-cli
 .playwright-mcp
+.playwright-profiles
