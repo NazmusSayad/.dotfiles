@@ -1,0 +1,4 @@
+ci: false
+scriptShell: bash
+virtual-store-dir: C:\.pnpm
+virtual-store-dir-max-length: 40
