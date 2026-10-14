@@ -29,6 +29,7 @@ bat = "latest"
 lsd = "latest"
 fzf = "latest"
 yazi = "latest"
+superfile = "latest"
 "github:bootandy/dust" = "latest"
 
 # Activities
