@@ -78,7 +78,7 @@
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.external.windowsExec": "wt.exe",
-  "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.profiles.windows": {
     "Fish (MSYS2)": { "path": "fish.exe" },
     "Bash (MSYS2)": { "path": "bash.exe" }
