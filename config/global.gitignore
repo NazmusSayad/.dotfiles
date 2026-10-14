@@ -18,6 +18,4 @@ node_modules/
 .claude/settings.local.json
 
 .playwright
-.playwright-cli
-.playwright-mcp
-.playwright-profiles
+.playwright-*
