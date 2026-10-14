@@ -119,9 +119,10 @@
 "@/config/docker-mac.json":
   CopyMac: "~/.docker/config.json"
 "@/config/pnpm.yaml":
-  LinkWin: "$LOCALAPPDATA/pnpm/config.yaml"
-  LinkMac: "~/Library/Preferences/pnpm/config.yaml"
   LinkWsl: "~/.config/pnpm/config.yaml"
+  LinkMac: "~/Library/Preferences/pnpm/config.yaml"
+"@/config/pnpm-win.yaml":
+  LinkWin: "$LOCALAPPDATA/pnpm/config.yaml"
 "@/config/oiper.json":
   LinkWin: "$APPDATA/com.oiper.desktop/config.json"
   LinkMac: "~/Library/Application Support/com.oiper.desktop/config.json"
