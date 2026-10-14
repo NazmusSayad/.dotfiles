@@ -1,13 +1,12 @@
 .uigraph
 .DS_Store
 
-.worktree
-.worktrees
-
-.envrc
+.worktree/
+.worktrees/
 
 .env
 .env.*
+.envrc
 !.env.example
 !.env.*.example
 
