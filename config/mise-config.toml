@@ -79,16 +79,6 @@ cloudflared = { version = "latest", os = ["macos", "linux"] }
 "osv-scanner" = "latest"
 "github:SocketDev/sfw-free" = "latest"
 
-# Others
-# java = "latest"
-# dart = "latest"
-# kotlin = "latest"
-# php = "latest"
-# zig = "latest"
-# ruby = "latest"
-# "conda:lua" = "latest"
-# "conda:luajit" = "latest"
-
 # Dev
 sqlite = "latest"
 hyperfine = "latest"
