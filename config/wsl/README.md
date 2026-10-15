@@ -1,6 +1,6 @@
 # Ubuntu WSL and sshtty
 
-Run Linux shells at https://wsl.sayad.dev and native Windows shells at https://win.sayad.dev through the existing Windows `Desktop` Cloudflare tunnel. Authentication is managed separately in Cloudflare.
+Run Linux shells at https://wsl.sayad.cc and native Windows shells at https://win.sayad.cc through the existing Windows `Desktop` Cloudflare tunnel. Any other local port opens at `https://<port>.sayad.cc`. Authentication is managed separately in Cloudflare.
 
 ## Setup status
 
@@ -66,7 +66,7 @@ sudo systemctl status sshtty --no-pager
 journalctl -u sshtty -n 50 --no-pager
 ```
 
-WSL local address: http://127.0.0.1:10101. Remote address: https://wsl.sayad.dev. Native Windows uses http://127.0.0.1:20202 and https://win.sayad.dev.
+WSL local address: http://127.0.0.1:10101. Remote address: https://wsl.sayad.cc. Native Windows uses http://127.0.0.1:20202 and https://win.sayad.cc.
 
 The service starts when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
@@ -94,25 +94,46 @@ mise exec -- sshtty --host 127.0.0.1 --port 10101
 
 ## Tunnel routing
 
-`../win-cloudflared.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. The Windows service reads the dotfiles config directly. It must contain both hostname routes, followed by the catch-all:
+`../cloudflared-win.yml` is linked to `%USERPROFILE%\.cloudflared\config.yml` on Windows. The Windows service reads the dotfiles config directly. It must contain both hostname routes and the `*.sayad.cc` route to Caddy, followed by the catch-all:
 
 ```yaml
 tunnel: Desktop
 ingress:
-  - hostname: wsl.sayad.dev
+  - hostname: wsl.sayad.cc
     service: http://127.0.0.1:10101
-  - hostname: win.sayad.dev
+  - hostname: win.sayad.cc
     service: http://127.0.0.1:20202
+  - hostname: "*.sayad.cc"
+    service: http://127.0.0.1:10100
   - service: http_status:404
 ```
 
 Windows cloudflared reaches Ubuntu through WSL's localhost forwarding. No router port forwarding or public listener is needed.
 
-Create the hostname's DNS route from Windows if it is missing:
+Create the hostname's DNS route from Windows if it is missing. The Windows `cert.pem` must be logged in to the `sayad.cc` zone:
 
 ```powershell
-cloudflared tunnel route dns Desktop wsl.sayad.dev
-cloudflared tunnel route dns Desktop win.sayad.dev
+cloudflared tunnel route dns Desktop wsl.sayad.cc
+cloudflared tunnel route dns Desktop win.sayad.cc
+cloudflared tunnel route dns Desktop *.sayad.cc
+```
+
+### Any local port
+
+`https://<port>.sayad.cc` opens `localhost:<port>` on Windows or Ubuntu. The tunnel sends `*.sayad.cc` to Caddy at `127.0.0.1:10100`, and `../caddy-win.caddyfile` forwards each request to the port in the first label. Caddy sends `Host: localhost:<port>`, so dev servers that only accept `localhost` work.
+
+Caddy is installed with winget and runs as the auto-start `Caddy` Windows service under LocalSystem, restarting after failures with a 20-second delay. The service was created with:
+
+```powershell
+New-Service -Name Caddy -DisplayName Caddy -StartupType Automatic -BinaryPathName '"<caddy executable>" run --config "F:\.dotfiles\config\caddy-win.caddyfile" --adapter caddyfile'
+sc.exe failure Caddy reset= 0 actions= restart/20000
+sc.exe failureflag Caddy 1
+```
+
+To reload Caddy after changing `caddy-win.caddyfile`, run:
+
+```powershell
+sudo powershell.exe -NoProfile -Command "Restart-Service Caddy"
 ```
 
 `start.ps1` starts both sshtty servers and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
@@ -128,7 +149,7 @@ sudo cloudflared service install
 Installation alone did not connect `Desktop`. The service ran as SYSTEM without the user's configuration. Its registered command line was then configured using values discovered from this machine:
 
 - The executable path came from `Get-Command cloudflared`.
-- The configuration path came from resolving `../win-cloudflared.yml` in this repository.
+- The configuration path came from resolving `../cloudflared-win.yml` in this repository.
 - The tunnel UUID came from `cloudflared tunnel list --output json --name Desktop`.
 - The credentials file came from the current user's `.cloudflared` directory, using the resolved UUID. SYSTEM already had read access.
 - The log directory came from `$env:ProgramData`, under `cloudflared\logs`.
@@ -153,7 +174,7 @@ sc.exe qfailureflag Cloudflared
 cloudflared tunnel info Desktop
 ```
 
-To reload the tunnel after changing `win-cloudflared.yml`, run:
+To reload the tunnel after changing `cloudflared-win.yml`, run:
 
 ```powershell
 sudo powershell.exe -NoProfile -Command "Restart-Service Cloudflared"
@@ -215,7 +236,7 @@ Use `ni`, `nr`, and `nlx` for project package workflows. `npm:sshtty` is a mise 
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
 - The hostname returns 502: cloudflared cannot reach sshtty. Check that Ubuntu is running and sshtty is listening.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
-- Keep the Cloudflare Access applications for `wsl.sayad.dev` and `win.sayad.dev` separate to avoid cross-hostname login redirects.
+- Keep the Cloudflare Access applications for `wsl.sayad.cc` and `win.sayad.cc` separate to avoid cross-hostname login redirects.
 - Shells survive sshtty server crashes according to the package documentation. They do not survive Windows shutdown or `wsl --shutdown`.
 - Avoid `wsl --shutdown` during normal work; it also stops Docker's WSL environment.
 
