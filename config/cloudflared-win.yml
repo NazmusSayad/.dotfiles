@@ -1,8 +1,8 @@
 tunnel: Desktop
 ingress:
-  - hostname: wsl.sayad.dev
+  - hostname: <redacted>
     service: http://127.0.0.1:10101
-  - hostname: win.sayad.dev
+  - hostname: <redacted>
     service: http://127.0.0.1:20202
   - hostname: "<redacted>"
     service: http://127.0.0.1:10100
