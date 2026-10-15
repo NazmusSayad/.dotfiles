@@ -1,4 +1,3 @@
-.uigraph
 .DS_Store
 
 .worktree/
@@ -19,3 +18,6 @@ node_modules/
 
 .playwright
 .playwright-*
+
+.uigraph
+.uigraph.yaml
