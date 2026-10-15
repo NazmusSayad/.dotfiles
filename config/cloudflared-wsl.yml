@@ -1,7 +1,0 @@
-tunnel: Desktop
-ingress:
-  - hostname: wsl.sayad.dev
-    service: http://127.0.0.1:10101
-  - hostname: win.sayad.dev
-    service: http://127.0.0.1:20202
-  - service: http_status:404
