@@ -10,6 +10,10 @@
   "ecr": "CLAUDE_CONFIG_DIR=~/.claude-extra claude --resume",
   "ecc": "CLAUDE_CONFIG_DIR=~/.claude-extra claude --continue",
 
+  "tc": "CLAUDE_CONFIG_DIR=~/.claude-test claude",
+  "tcr": "CLAUDE_CONFIG_DIR=~/.claude-test claude --resume",
+  "tcc": "CLAUDE_CONFIG_DIR=~/.claude-test claude --continue",
+
   "ag": "antigravity --dangerously-skip-permissions",
   "agc": "antigravity --dangerously-skip-permissions --continue",
 
