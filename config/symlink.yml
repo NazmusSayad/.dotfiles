@@ -129,8 +129,10 @@
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/mysubs.json": "~/.config/mysubs/config.json"
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
-"@/config/win-cloudflared.yml":
+"@/config/cloudflared-win.yml":
   LinkWin: "~/.cloudflared/config.yml"
+"@/config/cloudflared-wsl.yml":
+  LinkWsl: "~/.cloudflared/config.yml"
 "@/config/wsl/wslconfig.ini":
   LinkWin: "~/.wslconfig"
 "@/config/gityo.json": "~/.config/gityo.json"
