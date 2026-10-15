@@ -1,6 +1,12 @@
 http://:10100 {
 	bind 127.0.0.1
+
+	@origin header Origin *
+	request_header @origin Origin http://localhost:{labels.2}
+
 	reverse_proxy localhost:{labels.2} {
 		header_up Host {upstream_hostport}
+		header_up -X-Forwarded-Host
+		header_down Location ^https?://localhost:\d+ https://{host}
 	}
 }
