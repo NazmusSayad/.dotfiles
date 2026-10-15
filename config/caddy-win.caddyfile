@@ -1,0 +1,6 @@
+http://:10100 {
+	bind 127.0.0.1
+	reverse_proxy localhost:{labels.2} {
+		header_up Host {upstream_hostport}
+	}
+}
