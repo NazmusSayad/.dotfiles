@@ -73,6 +73,7 @@ rust = "stable"
 rust-analyzer = "latest"
 
 # Cloud
+caddy = { version = "latest", os = ["linux"] }
 cloudflared = { version = "latest", os = ["macos", "linux"] }
 "github:openclaw/gogcli" = "latest"
 
