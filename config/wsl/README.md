@@ -1,6 +1,6 @@
 # Ubuntu WSL and offsite
 
-Run offsite, the Claude Code web UI, inside Ubuntu at https://wsl.sayad.cc through the existing Windows `Desktop` Cloudflare tunnel. The sshtty browser terminal runs alongside it, at https://sshwsl.sayad.cc in Ubuntu and https://sshwin.sayad.cc on Windows. Any other local port opens at `https://<port>.sayad.cc`. Authentication is managed separately in Cloudflare.
+Run offsite, the Claude Code web UI, inside Ubuntu at https://wsl.sayad.cc through the existing Windows `Desktop` Cloudflare tunnel, and natively on Windows at https://win.sayad.cc. The sshtty browser terminal runs alongside it, at https://sshwsl.sayad.cc in Ubuntu and https://sshwin.sayad.cc on Windows. Any other local port opens at `https://<port>.sayad.cc`. Authentication is managed separately in Cloudflare.
 
 ## Setup status
 
@@ -29,7 +29,7 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as the native `Clo
 - offsite listener: `127.0.0.1:10101` inside Ubuntu, the port the tunnel already sends `wsl.sayad.cc` to.
 - sshtty listeners: `127.0.0.1:10102` inside Ubuntu for `sshwsl.sayad.cc`, and `127.0.0.1:20203` on Windows for `sshwin.sayad.cc`.
 - offsite and sshtty have no login of their own. Cloudflare Access is the only thing protecting their hostnames, so keep it on and keep both on `127.0.0.1`.
-- offsite does not run on Windows for now. The `win.sayad.cc` route still points at `127.0.0.1:20202` but has no server behind it.
+- Windows offsite listener: `127.0.0.1:20202` for `win.sayad.cc`. It uses the Windows `C:\Users\sayad\.offsite` and `C:\Users\sayad\.claude`, separate from Ubuntu's.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
@@ -69,7 +69,7 @@ offsite: http://127.0.0.1:10101 in WSL, https://wsl.sayad.cc remotely. sshtty: h
 
 The services start when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
-Start offsite, sshtty on both sides, and the existing WSL watchdog from PowerShell. The Windows tunnel starts separately as a service:
+Start offsite and sshtty on both sides, and the existing WSL watchdog, from PowerShell. The Windows tunnel starts separately as a service:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
@@ -92,7 +92,7 @@ mise exec -- offsite --host 127.0.0.1 --port 10101
 mise exec -- sshtty --host 127.0.0.1 --port 10102
 ```
 
-The Windows sshtty is a hidden `sshtty.exe` process on port `20203`, not a service. To restart it, stop that process and run `start.ps1` again.
+On Windows, offsite on port `20202` and sshtty on port `20203` are hidden processes, not services. offsite runs as `mise.exe`, `cmd.exe`, and a `node.exe` running `offsite.js`. To restart either one, stop its processes and run `start.ps1` again. To update the Windows offsite, run `mise upgrade npm:offsite` in PowerShell, then restart it.
 
 ## Tunnel routing
 
@@ -144,7 +144,7 @@ To reload Caddy after changing `caddy-win.caddyfile`, run:
 sudo powershell.exe -NoProfile -Command "Restart-Service Caddy"
 ```
 
-`start.ps1` starts offsite and sshtty in Ubuntu, sshtty on Windows, and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
+`start.ps1` starts offsite and sshtty in Ubuntu and on Windows, and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
 
 ### Windows service setup and recovery
 
