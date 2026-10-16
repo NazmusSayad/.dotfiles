@@ -19,6 +19,7 @@ cmake = "latest"
 "cargo:pwshac" = { version = "latest", os = ["windows"] }
 
 # Shell
+"npm:offsite" = { version = "latest", os = ["windows"] }
 "github:nazmussayad/sshtty" = "latest"
 
 # File System
