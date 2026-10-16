@@ -9,14 +9,14 @@ if ($null -eq $keepAlive) {
     Start-Process powershell.exe -ArgumentList @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $keepAliveScript) -WindowStyle Hidden
 }
 
-wsl.exe -d Ubuntu-26.04 -u root --exec /bin/systemctl start sshtty
-if ($LASTEXITCODE -ne 0) { throw 'Failed to start sshtty in Ubuntu.' }
+wsl.exe -d Ubuntu-26.04 -u root --exec /bin/systemctl start offsite sshtty
+if ($LASTEXITCODE -ne 0) { throw 'Failed to start offsite and sshtty in Ubuntu.' }
 
 $server = Get-CimInstance Win32_Process | Where-Object {
-    $_.Name -eq 'sshtty.exe' -and $_.CommandLine -match '--port\s+20202\b'
+    $_.Name -eq 'sshtty.exe' -and $_.CommandLine -match '--port\s+20203\b'
 } | Select-Object -First 1
 
 if ($null -eq $server) {
     $mise = (Get-Command mise -ErrorAction Stop).Source
-    Start-Process $mise -ArgumentList 'exec -- sshtty --host 127.0.0.1 --port 20202' -WorkingDirectory $HOME -WindowStyle Hidden
+    Start-Process $mise -ArgumentList 'exec -- sshtty --host 127.0.0.1 --port 20203' -WorkingDirectory $HOME -WindowStyle Hidden
 }
