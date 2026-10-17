@@ -5,7 +5,7 @@ edge:
 ingress:
   - hostname: sshwin.sayad.cc
     service: http://127.0.0.1:20203
-  - hostname: offsite.sayad.cc
+  - hostname: offsitewsl.sayad.cc
     service: http://127.0.0.1:10101
   - hostname: "*.sayad.cc"
     service: http://127.0.0.1:10100
