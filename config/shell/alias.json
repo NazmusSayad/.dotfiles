@@ -38,6 +38,7 @@
   "mgit": "manygit",
 
   "gd": "git diff",
+  "gds": "git diff --stat",
   "gs": "git status",
   "gc": "git checkout",
   "gcn": "git checkout -b",
