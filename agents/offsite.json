@@ -48,11 +48,11 @@
         "effort": "high"
       },
       "claude-fable-5-1": {
-        "hidden": false,
+        "hidden": true,
         "effort": "high"
       },
       "claude-sonnet-5-5": {
-        "hidden": false,
+        "hidden": true,
         "effort": "high"
       },
       "claude-haiku-5-5": {
