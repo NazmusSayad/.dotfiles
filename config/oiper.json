@@ -90,7 +90,7 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "openrouter-mini",
-      "enhancementType": "basic",
+      "enhancementType": "normal",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
         "ShiftLeft+MetaLeft",
