@@ -40,6 +40,7 @@
   "gd": "git diff",
   "gds": "git diff --stat",
   "gs": "git status",
+  "gss": "git status --short",
   "gc": "git checkout",
   "gcn": "git checkout -b",
   "gpa": "git push --all",
