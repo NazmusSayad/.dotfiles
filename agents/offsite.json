@@ -1,0 +1,66 @@
+{
+  "claudeBaseDir": {
+    "macos": null,
+    "linux": null,
+    "windows": null
+  },
+  "claudeAccounts": [
+    {
+      "id": "909c98fb-6032-45e3-af98-22357fdfbae3",
+      "provider": "claude",
+      "name": "Personal",
+      "configDir": {
+        "macos": "/Users/sayad/.claude",
+        "linux": null,
+        "windows": null
+      },
+      "enabled": true,
+      "hiddenModels": {}
+    },
+    {
+      "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
+      "provider": "claude",
+      "name": "Work",
+      "configDir": {
+        "macos": "/Users/sayad/.claude-extra",
+        "linux": null,
+        "windows": null
+      },
+      "enabled": true,
+      "hiddenModels": {}
+    }
+  ],
+  "codexAccounts": [],
+  "enabledProviders": {
+    "claude": true,
+    "codex": false,
+    "opencode": false
+  },
+  "commitMessage": {
+    "provider": null,
+    "accountId": null,
+    "model": null
+  },
+  "models": {
+    "claude": {},
+    "codex": {},
+    "opencode": {}
+  },
+  "delivery": "steer",
+  "autoResolve": {
+    "questions": 3,
+    "permissions": 1,
+    "permissionDecision": "allow"
+  },
+  "terminal": {
+    "shell": {
+      "macos": null,
+      "linux": null,
+      "windows": null
+    },
+    "behavior": {
+      "terminalIdentity": "offsite",
+      "shellIntegration": true
+    }
+  }
+}

@@ -79,6 +79,9 @@
   CopyWin: "$APPDATA/ai.opencode.desktop/default.dat"
   CopyMac: "~/Library/Application Support/ai.opencode.desktop/default.dat"
 
+# OffSite
+"@/agents/offsite.json": "~/.offsite/config.json"
+
 # Terminal
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
 "@/config/shell/starship.toml": "~/.config/starship.toml"
