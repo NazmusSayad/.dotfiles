@@ -1,6 +1,6 @@
 # Ubuntu WSL and offsite
 
-Run offsite, the Claude Code web UI, inside Ubuntu at https://wsl.sayad.cc through the existing Windows `Desktop` Cloudflare tunnel, and natively on Windows at https://win.sayad.cc. The sshtty browser terminal runs alongside it, at https://sshwsl.sayad.cc in Ubuntu and https://sshwin.sayad.cc on Windows. Any other local port opens at `https://<port>.sayad.cc`. Authentication is managed separately in Cloudflare.
+Run offsite, the Claude Code web UI, inside Ubuntu at https://offsitewsl.sayad.cc through the existing Windows `Desktop` Cloudflare tunnel. The sshtty browser terminal runs natively on Windows at https://sshwin.sayad.cc. offsite does not run on Windows, and sshtty does not run in Ubuntu. Any other local port opens at `https://<port>.sayad.cc`. Authentication is managed separately in Cloudflare.
 
 ## Setup status
 
@@ -26,10 +26,9 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as the native `Clo
 - `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - offsite data: `/home/sayad/.offsite`. Claude Code data: `/home/sayad/.claude`. Keep both in Linux, not on a Windows mount.
-- offsite listener: `127.0.0.1:10101` inside Ubuntu, the port the tunnel already sends `wsl.sayad.cc` to.
-- sshtty listeners: `127.0.0.1:10102` inside Ubuntu for `sshwsl.sayad.cc`, and `127.0.0.1:20203` on Windows for `sshwin.sayad.cc`.
+- offsite listener: `127.0.0.1:10101` inside Ubuntu, the port the tunnel sends `offsitewsl.sayad.cc` to.
+- sshtty listener: `127.0.0.1:20203` on Windows for `sshwin.sayad.cc`.
 - offsite and sshtty have no login of their own. Cloudflare Access is the only thing protecting their hostnames, so keep it on and keep both on `127.0.0.1`.
-- Windows offsite listener: `127.0.0.1:20202` for `win.sayad.cc`. It uses the Windows `C:\Users\sayad\.offsite` and `C:\Users\sayad\.claude`, separate from Ubuntu's.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
@@ -56,43 +55,41 @@ Use `~/projects` for Linux development. Windows files are available at `/mnt/c` 
 
 ## Run offsite and sshtty
 
-The `offsite.service` and `sshtty.service` files run offsite and sshtty as `sayad`, not root. From Ubuntu:
+The `offsite.service` file runs offsite as `sayad`, not root. From Ubuntu:
 
 ```bash
-sudo systemctl start offsite sshtty
-sudo systemctl status offsite sshtty --no-pager
+sudo systemctl start offsite
+sudo systemctl status offsite --no-pager
 journalctl -u offsite -n 50 --no-pager
-journalctl -u sshtty -n 50 --no-pager
 ```
 
-offsite: http://127.0.0.1:10101 in WSL, https://wsl.sayad.cc remotely. sshtty: http://127.0.0.1:10102 in WSL, https://sshwsl.sayad.cc remotely.
+offsite: http://127.0.0.1:10101 in WSL, https://offsitewsl.sayad.cc remotely. sshtty: http://127.0.0.1:20203 on Windows, https://sshwin.sayad.cc remotely.
 
 The services start when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
-Start offsite and sshtty on both sides, and the existing WSL watchdog, from PowerShell. The Windows tunnel starts separately as a service:
+Start offsite in Ubuntu, sshtty on Windows, and the existing WSL watchdog, from PowerShell. The Windows tunnel starts separately as a service:
 
 ```powershell
 & F:\.dotfiles\config\wsl\start.ps1
 ```
 
-The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled offsite and sshtty systemd services start during the new boot. It does not install a Windows startup task. The PC must be awake. The tunnel service starts automatically with Windows.
+The script reuses an existing watchdog if one is running. The watchdog relaunches Ubuntu within a few seconds if the distro stops, and the enabled offsite systemd service starts during the new boot. It does not install a Windows startup task. The PC must be awake. The tunnel service starts automatically with Windows.
 
-Restart or stop a service from Ubuntu:
+Restart or stop the service from Ubuntu:
 
 ```bash
 sudo systemctl restart offsite
-sudo systemctl stop sshtty
+sudo systemctl stop offsite
 ```
 
 For a foreground session, stop the service first, then run:
 
 ```bash
 cd ~
-mise exec -- offsite --host 127.0.0.1 --port 10101
-mise exec -- sshtty --host 127.0.0.1 --port 10102
+mise exec -- offsite serve --no-pair --host 127.0.0.1 --port 10101
 ```
 
-On Windows, offsite on port `20202` and sshtty on port `20203` are hidden processes, not services. offsite runs as `mise.exe`, `cmd.exe`, and a `node.exe` running `offsite.js`. To restart either one, stop its processes and run `start.ps1` again. To update the Windows offsite, run `mise upgrade npm:offsite` in PowerShell, then restart it.
+On Windows, sshtty on port `20203` is a hidden process, not a service. To restart it, stop its processes and run `start.ps1` again. To update it, run `mise upgrade github:nazmussayad/sshtty` in PowerShell, then restart it.
 
 ## Tunnel routing
 
@@ -101,14 +98,10 @@ On Windows, offsite on port `20202` and sshtty on port `20203` are hidden proces
 ```yaml
 tunnel: Desktop
 ingress:
-  - hostname: wsl.sayad.cc
-    service: http://127.0.0.1:10101
-  - hostname: win.sayad.cc
-    service: http://127.0.0.1:20202
-  - hostname: sshwsl.sayad.cc
-    service: http://127.0.0.1:10102
   - hostname: sshwin.sayad.cc
     service: http://127.0.0.1:20203
+  - hostname: offsitewsl.sayad.cc
+    service: http://127.0.0.1:10101
   - hostname: "*.sayad.cc"
     service: http://127.0.0.1:10100
   - service: http_status:404
@@ -120,11 +113,10 @@ Create the hostname's DNS route from Windows if it is missing. The Windows `cert
 
 ```powershell
 cloudflared tunnel route dns Desktop wsl.sayad.cc
-cloudflared tunnel route dns Desktop win.sayad.cc
 cloudflared tunnel route dns Desktop *.sayad.cc
 ```
 
-`sshwsl.sayad.cc` and `sshwin.sayad.cc` have no DNS routes of their own. The `*.sayad.cc` record already sends them to the tunnel.
+`offsitewsl.sayad.cc` and `sshwin.sayad.cc` have no DNS routes of their own. The `*.sayad.cc` record already sends them to the tunnel.
 
 ### Any local port
 
@@ -144,7 +136,7 @@ To reload Caddy after changing `caddy-win.caddyfile`, run:
 sudo powershell.exe -NoProfile -Command "Restart-Service Caddy"
 ```
 
-`start.ps1` starts offsite and sshtty in Ubuntu and on Windows, and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
+`start.ps1` starts offsite in Ubuntu, sshtty on Windows, and the Windows-side WSL watchdog. It skips processes that are already running. The existing dotfiles startup launcher calls this script through `launch.jsonc`. It does not launch cloudflared. No cloudflared service runs inside WSL.
 
 ### Windows service setup and recovery
 
@@ -220,34 +212,32 @@ sudo apt update
 sudo apt install build-essential direnv fish starship zoxide ripgrep btop ttyd shfmt zip unzip ffmpeg imagemagick git-lfs
 ```
 
-Install and enable the services inside Ubuntu:
+Install and enable the service inside Ubuntu:
 
 ```bash
 sudo install -m 644 /mnt/f/.dotfiles/config/wsl/offsite.service /etc/systemd/system/offsite.service
-sudo install -m 644 /mnt/f/.dotfiles/config/wsl/sshtty.service /etc/systemd/system/sshtty.service
 sudo systemctl daemon-reload
-sudo systemctl enable --now offsite sshtty
+sudo systemctl enable --now offsite
 ```
 
 Log in to Claude Code once inside Ubuntu with `claude`. offsite uses that login.
 
-Update offsite and sshtty from Ubuntu, then restart them:
+Update offsite from Ubuntu, then restart it:
 
 ```bash
 cd ~
-mise upgrade npm:offsite github:nazmussayad/sshtty
-sudo systemctl restart offsite sshtty
+mise upgrade npm:offsite
+sudo systemctl restart offsite
 ```
 
 Use `ni`, `nr`, and `nlx` for project package workflows. `npm:offsite` is a mise package identifier; the installed command is `offsite`.
 
 ## Troubleshooting
 
-- Windows localhost fails: check `systemctl status offsite sshtty` inside Ubuntu first, then `curl -I http://127.0.0.1:10101` and `curl -I http://127.0.0.1:10102` in both environments.
+- Windows localhost fails: check `systemctl status offsite` inside Ubuntu first, then `curl -I http://127.0.0.1:10101` in both environments, and `curl -I http://127.0.0.1:20203` on Windows.
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
-- The hostname returns 502: cloudflared cannot reach offsite or sshtty. Check that Ubuntu is running and the server is listening on its port.
+- The hostname returns 502: cloudflared cannot reach offsite or sshtty. Check that Ubuntu is running for offsite, and that the server is listening on its port.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
-- Keep the Cloudflare Access applications for `wsl.sayad.cc` and `win.sayad.cc` separate to avoid cross-hostname login redirects.
 - Restarting the service stops running Claude sessions and terminal tabs. Sessions are saved and can be resumed.
 - Avoid `wsl --shutdown` during normal work; it also stops Docker's WSL environment.
 

@@ -134,6 +134,8 @@
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
 "@/config/cloudflared-win.yml":
   LinkWin: "~/.cloudflared/config.yml"
+"@/config/offsite-mac.plist":
+  CopyMac: "~/Library/LaunchAgents/cc.sayad.offsite.plist"
 "@/config/wsl/wslconfig.ini":
   LinkWin: "~/.wslconfig"
 "@/config/gityo.json": "~/.config/gityo.json"
