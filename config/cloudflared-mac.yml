@@ -1,0 +1,5 @@
+tunnel: Mac
+ingress:
+  - hostname: offsitemac.sayad.cc
+    service: http://127.0.0.1:10101
+  - service: http_status:404

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>cc.sayad.cloudflared</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/sayad/.local/bin/mise</string>
+    <string>exec</string>
+    <string>--</string>
+    <string>cloudflared</string>
+    <string>tunnel</string>
+    <string>run</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/sayad</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/sayad/Library/Logs/cloudflared.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/sayad/Library/Logs/cloudflared.log</string>
+</dict>
+</plist>
