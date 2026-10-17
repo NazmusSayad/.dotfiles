@@ -42,7 +42,24 @@
     "model": null
   },
   "models": {
-    "claude": {},
+    "claude": {
+      "claude-opus-5-5": {
+        "hidden": false,
+        "effort": "high"
+      },
+      "claude-fable-5-1": {
+        "hidden": false,
+        "effort": "high"
+      },
+      "claude-sonnet-5-5": {
+        "hidden": false,
+        "effort": "high"
+      },
+      "claude-haiku-5-5": {
+        "hidden": false,
+        "effort": "high"
+      }
+    },
     "codex": {},
     "opencode": {}
   },
