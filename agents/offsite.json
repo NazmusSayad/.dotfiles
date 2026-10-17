@@ -71,9 +71,9 @@
   },
   "terminal": {
     "shell": {
-      "macos": null,
-      "linux": null,
-      "windows": null
+      "macos": "fish",
+      "linux": "fish",
+      "windows": "pwsh"
     },
     "behavior": {
       "terminalIdentity": "offsite",
