@@ -37,9 +37,9 @@
     "opencode": false
   },
   "commitMessage": {
-    "provider": null,
-    "accountId": null,
-    "model": null
+    "provider": "claude",
+    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
+    "model": "claude-haiku-5-5"
   },
   "models": {
     "claude": {
