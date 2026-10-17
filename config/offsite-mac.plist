@@ -12,6 +12,7 @@
     <string>offsite</string>
     <string>web</string>
     <string>--no-pair</string>
+    <string>--pwa</string>
     <string>--host</string>
     <string>127.0.0.1</string>
     <string>--port</string>
