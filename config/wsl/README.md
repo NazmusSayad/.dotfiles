@@ -220,6 +220,13 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now offsite
 ```
 
+Write new files to disk within about a second instead of up to 45 seconds, so a power cut does not leave recently written files empty:
+
+```bash
+sudo install -m 644 /mnt/f/.dotfiles/config/wsl/sysctl.conf /etc/sysctl.d/90-flush.conf
+sudo sysctl --system
+```
+
 Log in to Claude Code once inside Ubuntu with `claude`. offsite uses that login.
 
 Update offsite from Ubuntu, then restart it:
