@@ -10,7 +10,7 @@
     <string>exec</string>
     <string>--</string>
     <string>offsite</string>
-    <string>serve</string>
+    <string>web</string>
     <string>--no-pair</string>
     <string>--host</string>
     <string>127.0.0.1</string>
