@@ -5,7 +5,9 @@ cerebras:
 
 opencode:
   models:
-    - id: muse-spark-1.3-contributor-free
+    - id: deepseek-v4.1-flash-free
+      context: 300000
+    - id: glm-5.3-flash-free
       context: 300000
 
 openai:
