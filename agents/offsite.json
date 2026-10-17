@@ -11,7 +11,7 @@
       "name": "Personal",
       "configDir": {
         "macos": "/Users/sayad/.claude",
-        "linux": null,
+        "linux": "/home/sayad/.claude",
         "windows": null
       },
       "enabled": true,
@@ -23,7 +23,7 @@
       "name": "Work",
       "configDir": {
         "macos": "/Users/sayad/.claude-extra",
-        "linux": null,
+        "linux": "/home/sayad/.claude-extra",
         "windows": null
       },
       "enabled": true,
