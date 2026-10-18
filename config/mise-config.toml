@@ -32,6 +32,7 @@ fzf = "latest"
 yazi = "latest"
 superfile = "latest"
 "github:bootandy/dust" = "latest"
+"github:microsoft/edit" = "latest"
 
 # Activities
 fastfetch = "latest"
