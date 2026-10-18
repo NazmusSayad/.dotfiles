@@ -64,6 +64,9 @@ pnpm = "latest"
 uv = "latest"
 python = "latest"
 
+# Mobile Apps
+"pipx:fb-idb" = { version = "latest", os = ["macos"] }
+
 # GO
 go = "latest"
 air = "latest"
