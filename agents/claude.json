@@ -32,7 +32,7 @@
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
     "ANTHROPIC_DEFAULT_FABLE_MODEL": "claude-fable-5-1",
     "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
-    "CLAUDE_CODE_PLUGIN_DIRS": "~/.claude.mods/git-branch"
+    "CLAUDE_CODE_PLUGIN_DIRS": "~/.claude.mods/git-branch:~/.claude.mods/env-loader"
   },
   "attribution": {
     "commit": "",
@@ -60,9 +60,6 @@
   },
   "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
-  "skillOverrides": {
-    "plugin-authoring": "off"
-  },
   "disableBundledSkills": true,
   "disableAgentView": true,
   "disableRemoteControl": true,
