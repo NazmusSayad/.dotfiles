@@ -67,12 +67,16 @@ cask "visual-studio-code@insiders"
 cask "visual-studio-code"
 
 # Development
-cask "android-studio"
 cask "tablepro"
 brew "watchman"
 brew "cocoapods"
 brew "shfmt"
 brew "fvm"
+
+# Mobile Apps
+tap "facebook/fb"
+brew "idb-companion"
+cask "android-studio"
 
 # Docker
 brew "colima"
