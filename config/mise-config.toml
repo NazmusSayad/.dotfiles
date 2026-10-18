@@ -64,9 +64,6 @@ pnpm = "latest"
 uv = "latest"
 python = "latest"
 
-# Mobile Apps
-"pipx:fb-idb" = { version = "latest", os = ["macos"] }
-
 # GO
 go = "latest"
 air = "latest"
@@ -107,6 +104,7 @@ yt-dlp = "latest"
 "npm:devrage" = "latest"
 "npm:mysubs" = "latest"
 "npm:mytokens" = "latest"
+"pypi:mcp-proxy" = "latest"
 
 # Personal
 "npm:gityo" = "latest"
