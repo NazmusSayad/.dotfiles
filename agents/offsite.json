@@ -10,8 +10,8 @@
       "provider": "claude",
       "name": "Personal",
       "configDir": {
-        "macos": "/Users/sayad/.claude",
-        "linux": "/home/sayad/.claude",
+        "macos": null,
+        "linux": null,
         "windows": null
       },
       "enabled": true,
@@ -24,7 +24,7 @@
       "configDir": {
         "macos": "/Users/sayad/.claude-extra",
         "linux": "/home/sayad/.claude-extra",
-        "windows": null
+        "windows": "C:\\Users\\sayad\\.claude-extra"
       },
       "enabled": true,
       "hiddenModels": {}
@@ -64,11 +64,9 @@
     "opencode": {}
   },
   "delivery": "steer",
-  "autoResolve": {
-    "questions": 3,
-    "permissions": 1,
-    "permissionDecision": "allow"
-  },
+  "autoSkipQuestionTimeout": 180,
+  "autoPermissionMode": "allow",
+  "autoPermissionTimeout": 15,
   "terminal": {
     "shell": {
       "macos": "fish",
