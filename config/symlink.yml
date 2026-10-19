@@ -3,7 +3,7 @@
 "@/config/shell/fish/fishrc.fish": "~/.config/fish/config.fish"
 "@/config/shell/pwsh/pwshrc.ps1":
   LinkWin: "~/Documents/PowerShell/profile.ps1"
-"@/config/shell/bash/profile.sh":
+"@/config/shell/bash/profile.mac.sh":
   LinkMac: "~/.bash_profile"
 
 # Agents Skills
