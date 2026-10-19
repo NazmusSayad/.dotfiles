@@ -4,6 +4,11 @@
     "linux": null,
     "windows": null
   },
+  "workingDir": {
+    "macos": "~/Desktop",
+    "linux": "~/Desktop",
+    "windows": null
+  },
   "claudeAccounts": [
     {
       "id": "909c98fb-6032-45e3-af98-22357fdfbae3",
@@ -24,7 +29,7 @@
       "configDir": {
         "macos": "/Users/sayad/.claude-extra",
         "linux": "/home/sayad/.claude-extra",
-        "windows": "C:\\Users\\sayad\\.claude-extra"
+        "windows": null
       },
       "enabled": true,
       "hiddenModels": {}
