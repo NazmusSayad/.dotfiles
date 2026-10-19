@@ -54,6 +54,10 @@ Avoid using Git for ordinary file operations or exploring Git history unless req
 
 Never start or disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
 
-<do_not_implement_before_instruction>
-Do not jump into implementation or change files unless clearly instructed to make changes. When the user is discussing, brainstorming, exploring, or sharing an idea or suggestion, engage in the discussion; do not turn a question, problem description, or idea into an investigation or implementation task. When the user's intent is ambiguous, default to providing information and recommendations rather than taking action. Answer what the user asked; a request for an explanation needs only an explanation. Only proceed with edits, modifications, or implementations when the user explicitly requests them.
-</do_not_implement_before_instruction>
+## Questions and Discussion
+
+A question, a request to understand something, or a discussion gets an answer, not an action. Do not start work or make changes unless explicitly requested.
+
+Asking whether something is possible is not a request to do it. During a discussion, deciding on a change is not a request to make it, even when phrased as a command.
+
+When the user wants to understand something, explain exactly what they asked about, at the level they asked.
