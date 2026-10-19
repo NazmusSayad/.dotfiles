@@ -12,15 +12,9 @@ The audit is a report that helps the user understand what keeps going wrong betw
 
 The most important findings are repeated ones: mistakes the agent made again and again, and problems the user's prompting caused again and again. One-off incidents matter only when they were costly.
 
-## Reading the history
+## Scope
 
-Session transcripts are JSONL files in `~/.claude/projects/<project>/<session>.jsonl`. Subagent transcripts live in `<session>/subagents/` and can be skipped unless a finding depends on what a subagent did. `~/.claude/history.jsonl` lists every prompt the user typed with its `sessionId`; prompts whose session has no transcript left show what the user asked but not how the agent responded.
-
-Most `user` entries are not the user's prompts. Only entries with `origin.kind == "human"` are typed prompts. Entries with `isMeta` are skill expansions or system context, `tool_result` blocks are tool output, and `[Request interrupted by user...]` marks an interruption. Tool results with `is_error` include tool calls the user rejected, often with their reason. `AskUserQuestion` results contain the user's answers. `isCompactSummary` marks a context compaction. Skill loads appear as `Skill` tool calls and as `isMeta` entries starting with `Base directory for this skill:`.
-
-If the user names a date range or project, analyze only the sessions in that scope. Otherwise analyze the whole history.
-
-The history is far too large to read in one context, and most of its size is tool output. Condense each session to the user's prompts, interruptions, rejections, answers, and the agent's text and tool calls, keeping tool output only as its size and any errors. Then split the sessions into batches and analyze them with parallel subagents, giving each its session list and the path to this file. The analysis is complete when every session with a human prompt has been assigned to exactly one batch and every batch has returned findings with evidence, not summaries of what each session was about.
+Analyze the user's history in `~/.claude`. If the user names a date range or project, analyze only that; otherwise analyze all of it. The analysis is complete when every session in scope has been analyzed and returned findings with evidence, not summaries of what each session was about.
 
 ## What to look for
 
@@ -52,7 +46,7 @@ Communication problems are failures even when the agent's actions were right: re
 
 Skill loading problems show up in which skills loaded and when:
 
-- **Missed loads:** an automatically invoked skill whose subject came up but that did not load. Manually invoked skills, marked `disable-model-invocation: true`, never load on their own and do not count.
+- **Missed loads:** an automatically invoked skill whose subject came up but that did not load.
 - **Wrong loads:** a skill that loaded for work outside its subject.
 - **Unused skills:** skills that never loaded in the analyzed history.
 
@@ -62,7 +56,7 @@ Cite each finding with the session file, timestamp, and a short quote. Count how
 
 ## Compare with existing instructions
 
-Read `~/.claude/CLAUDE.md`, the `CLAUDE.md` files of projects in the history, `~/.claude/settings.json`, and the skills in `~/.claude/skills`. For each recurring problem, note whether an instruction already covers it. A covered problem that keeps happening says something different from an uncovered one. Also note instructions that are never relevant, that would not change the agent's default behavior, or that led to behavior the user corrected.
+Read the user's global and project instructions, settings, and skills. For each recurring problem, note whether an instruction already covers it. A covered problem that keeps happening says something different from an uncovered one. Also note instructions that are never relevant, that would not change the agent's default behavior, or that led to behavior the user corrected.
 
 ## Report
 
