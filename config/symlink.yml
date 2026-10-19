@@ -5,6 +5,8 @@
   LinkWin: "~/Documents/PowerShell/profile.ps1"
 "@/config/shell/bash/profile.mac.sh":
   LinkMac: "~/.bash_profile"
+"@/config/shell/bash/profile.wsl.sh":
+  LinkWsl: "~/.bash_profile"
 
 # Agents Skills
 "@/agents/skills":
