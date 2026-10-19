@@ -30,14 +30,6 @@ Do not run validation commands or checks unless necessary. When possible, run mu
 
 Before considering the work complete, verify that the result satisfies the user's actual request. Do not claim that it works without sufficient evidence.
 
-## Troubleshooting
-
-When something fails, investigate the actual cause.
-
-Reconsider earlier assumptions when evidence contradicts them.
-
-Do not mask symptoms with unnecessary workarounds.
-
 ## Communication
 
 Communicate clearly and directly in language the user can understand. Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
