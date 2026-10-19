@@ -220,7 +220,7 @@
     }
   ],
   "soundEffects": {
-    "emptyAudio": true,
+    "emptyAudio": false,
     "fail": true,
     "startRecording": false,
     "stopRecording": false
