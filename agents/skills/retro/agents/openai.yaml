@@ -1,0 +1,7 @@
+interface:
+  display_name: "Retro"
+  short_description: "Audit agent history for prompting patterns and mistakes"
+  default_prompt: "Use $retro to audit my agent history and recommend improvements."
+
+policy:
+  allow_implicit_invocation: false
