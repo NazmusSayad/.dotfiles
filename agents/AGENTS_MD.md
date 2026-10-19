@@ -32,7 +32,7 @@ Before considering the work complete, verify that the result satisfies the user'
 
 ## Communication
 
-Communicate clearly and directly in language the user can understand. Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
+Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
 
 Keep only useful details. Avoid unnecessary jargon and technical details unless they improve clarity or help the user act.
 
