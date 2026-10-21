@@ -14,6 +14,7 @@
       "id": "909c98fb-6032-45e3-af98-22357fdfbae3",
       "provider": "claude",
       "name": "Personal",
+      "color": null,
       "configDir": {
         "macos": null,
         "linux": null,
@@ -26,6 +27,7 @@
       "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
       "provider": "claude",
       "name": "Work",
+      "color": "#2562EB",
       "configDir": {
         "macos": "/Users/sayad/.claude-extra",
         "linux": "/home/sayad/.claude-extra",
