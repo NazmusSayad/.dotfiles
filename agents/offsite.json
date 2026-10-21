@@ -61,7 +61,7 @@
         "effort": "high"
       },
       "claude-haiku-5-5": {
-        "hidden": false,
+        "hidden": true,
         "effort": "high"
       }
     },
