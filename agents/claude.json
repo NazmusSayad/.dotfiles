@@ -58,7 +58,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "fable",
+  "model": "opus",
   "enableAllProjectMcpServers": false,
   "skillOverrides": {
     "plugin-authoring": "off"
