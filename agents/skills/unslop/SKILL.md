@@ -1,66 +1,30 @@
 ---
 name: unslop
-description: Writing guidelines for removing AI patterns and adding human voice. Use when writing, editing, or reviewing substantive content such as summaries and reports, or when the user asks to improve, simplify, or make text more concise.
+description: Writing guidelines for making text useful to the reader. Use when answering or explaining something to the user, when writing, editing, or reviewing substantive content such as summaries and reports, or when the user asks to improve, simplify, or make text more concise.
 ---
 
 ## Audience and purpose
 
 Identify what the audience needs to understand or accomplish, choose a form and structure that supports that goal, and write at their level. Include only the context, terminology, technical depth, and examples they need. Include implementation details only when they help achieve that goal. Ask the user only when the audience or purpose cannot be determined.
 
-Lead with the reader's needed outcome or information, then explain why when useful. Make the path to that outcome clear. Use direct language, clear headings, and the smallest useful accurate examples.
+Lead with the reader's needed outcome or information, then explain why when useful. Make the path to that outcome clear. Use direct language and the smallest useful accurate examples.
 
 ## Process
 
 - Scan for the patterns below.
-- Rewrite. Preserve meaning, match intended tone.
-- Add soul (see next section).
-- Self-audit: "What makes this obviously AI generated?" Fix remaining tells.
-
-## Adding soul
-
-Removing patterns is half the job. Sterile, voiceless writing is just as obvious.
-
-- **Have opinions.** React to facts instead of neutrally listing pros and cons.
-- **Vary rhythm.** Short sentences. Then longer ones that take their time. Mix it up.
-- **Acknowledge complexity.** "Impressive but also kind of unsettling" beats "impressive."
-- **Use "I" when it fits.** First person isn't unprofessional.
-- **Let some mess in.** Perfect structure feels algorithmic.
-- **Be specific.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am."
+- Rewrite. Keep only what the reader needs, match intended tone.
 
 ## Patterns to detect and fix
 
-### Content
+### Clarity
 
-- **Significance inflation.** "pivotal moment", "testament to", "evolving landscape", "setting the stage for", "indelible mark", "deeply rooted". Cut puffery, state what happened.
-- **Notability name-dropping.** Listing media outlets without context. Pick one, say what was said.
-- **Superficial -ing phrases.** "highlighting...", "ensuring...", "reflecting...", "showcasing...", "fostering...". Delete or expand with real sources.
-- **Promotional language.** "nestled", "vibrant", "breathtaking", "groundbreaking", "renowned", "stunning", "must-visit". Use neutral descriptions.
 - **Vague attributions.** "Experts believe", "Industry reports suggest", "Some critics argue". Name the source or delete.
-- **Formulaic challenges.** "Despite challenges... continues to thrive." Replace with specific facts.
-
-### Language
-
-- **AI vocabulary.** Additionally, crucial, delve, enduring, enhance, fostering, garner, interplay, intricate, landscape (abstract), pivotal, showcase, tapestry (abstract), testament, underscore, vibrant. Replace with plain words.
-- **Fancy ways to say "is".** "serves as", "stands as", "boasts", "features". Just say "is" or "has".
-- **"Not just X, but Y."** State the point directly instead.
-- **Rule of three.** Forcing ideas into groups of three. Use the natural number.
 - **Synonym cycling.** Protagonist, main character, central figure, hero all in one paragraph. Pick one, repeat it.
-- **False ranges.** "from X to Y" where X and Y aren't on a meaningful scale. List topics directly.
-
-### Style
-
-- **Em dash overuse.** Avoid em dashes entirely. Use periods or commas only (no parentheses, no en dashes, no hyphen-as-dash substitutes). If a thought needs separation, end the sentence or use a comma.
-- **Colon overuse.** Colons are fine before a list or example. Not as mid-sentence connectors. "If you're coming from traditional automation: instead of registering event handlers, you describe conditions" adds nothing with the colon. Rewrite to let the point stand on its own without comparison framing. "Describing when the scheduler should fire works best as plain English." Same meaning, no crutch punctuation.
-- **Boldface overuse.** Don't bold every proper noun or acronym.
-- **Inline-header lists.** The tell is a bold label and colon that restates the line: "**Performance:** Performance improved...". Convert those to prose. A bold lead-in that ends in a period, names the item, and is followed by genuinely new detail ("**Schema in TypeScript.** Tables live in one file.") is fine, not a tell.
 - **Unnecessary numbering.** Do not number headings, sections, or list items by default, whether in documents or replies to the user. Use numbering only when it serves a clear purpose for the reader.
-- **Title case headings.** Use sentence case.
-- **Curly quotes.** Replace with straight quotes.
 
 ### Communication artifacts
 
 - **Chatbot phrases.** "I hope this helps!", "Let me know if...", "Of course!", "Certainly!", "Found the smoking gun!" Remove.
-- **Cutoff disclaimers.** "While specific details are limited..." Find sources or remove.
 - **Sycophantic tone.** "Great question! You're absolutely right!" Respond directly.
 
 ### Filler
