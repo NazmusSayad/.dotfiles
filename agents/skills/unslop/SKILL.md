@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Writing guidelines for making text useful to the reader. Use when answering or explaining something to the user, when writing, editing, or reviewing substantive content such as summaries and reports, or when the user asks to improve, simplify, or make text more concise.
+description: Makes responses useful. Use when explaining or reporting, or when the user asks to simplify or shorten text.
 ---
 
 ## Audience and purpose
