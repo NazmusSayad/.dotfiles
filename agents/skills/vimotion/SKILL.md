@@ -1,6 +1,6 @@
 ---
 name: vimotion
-description: Makes a complete video with story, music and motion in Remotion. Use when creating an edited video.
+description: Makes a complete video with story, music and motion in Remotion. Use when creating an edited video with remotion.
 ---
 
 ## Rules
