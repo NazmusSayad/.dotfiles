@@ -1,0 +1,6 @@
+interface:
+  display_name: "Soul"
+  short_description: "Make writing read as human, not AI"
+
+policy:
+  allow_implicit_invocation: false

@@ -1,4 +1,4 @@
 interface:
   display_name: "Unslop"
-  short_description: "Rewrite text with a clear, human voice"
+  short_description: "Make text useful to the reader"
   default_prompt: "Use $unslop to make this writing clearer and more natural."
