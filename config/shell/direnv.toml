@@ -1,7 +1,7 @@
 [global]
-hide_env_diff = true
+log_format = "-"
 disable_stdin = true
-log_format = "󱥈 %s"
+hide_env_diff = true
 
 [whitelist]
 prefix = ["~/Desktop"]
