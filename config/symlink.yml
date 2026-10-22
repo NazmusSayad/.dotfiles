@@ -13,7 +13,6 @@
   - "~/.agents/skills"
   - "~/.claude/skills"
   - "~/.claude-extra/skills"
-  - "~/.claude-test/skills"
   - "~/.gemini/antigravity-cli/skills"
 
 # AGENTS.md, CLAUDE.md
@@ -23,14 +22,12 @@
   # "@/agents/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
   - "~/.claude-extra/CLAUDE.md"
-  - "~/.claude-test/CLAUDE.md"
 
 # Claude Code
 "@/agents/mods": "~/.claude.mods"
 "@/agents/claude.json":
   - "~/.claude/settings.json"
   - "~/.claude-extra/settings.json"
-  - "~/.claude-test/settings.json"
 
 # Claude Accounts
 "~/.claude/history.jsonl":
