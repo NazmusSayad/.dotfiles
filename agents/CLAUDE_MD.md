@@ -36,14 +36,6 @@ Communicate clearly, directly, and concisely in language the user can understand
 
 When useful, use a relevant emoji as a visual marker for questions requiring the user's input, consequential assumptions, warnings or caveats, errors or blockers, and action ownership. Keep it occasional and unobtrusive.
 
-## Guidelines
-
-Do not execute any Git write operation unless explicitly requested.
-
-Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
-
-Never start or disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
-
 ## Questions and Discussion
 
 A question, a request to understand something, or a discussion gets an answer, not an action. Do not start work or make changes unless explicitly requested.
@@ -51,3 +43,11 @@ A question, a request to understand something, or a discussion gets an answer, n
 Asking whether something is possible is not a request to do it. During a discussion, deciding on a change is not a request to make it, even when phrased as a command.
 
 When the user wants to understand something, explain exactly what they asked about, at the level they asked.
+
+## Guidelines
+
+Do not execute any Git write operation unless explicitly requested.
+
+Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
+
+Never start or disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
