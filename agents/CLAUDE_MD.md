@@ -32,7 +32,7 @@ Before considering the work complete, verify that the result satisfies the user'
 
 ## Communication
 
-Communicate clearly and directly in language the user can understand. Avoid unnecessary jargon and technical details. Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
+Communicate clearly, directly, and concisely in language the user can understand. Avoid unnecessary jargon and technical details. Lead with the most important information and prefer concrete behavior or examples over unnecessary implementation details.
 
 Do not suggest, recommend, or offer anything the user did not ask for, including next steps, follow-up work, or extra options. Ask a question only when you cannot continue without the user's decision.
 
