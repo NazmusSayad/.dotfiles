@@ -19,5 +19,5 @@ $server = Get-CimInstance Win32_Process | Where-Object {
 } | Select-Object -First 1
 
 if ($null -eq $server) {
-    Start-Process $mise -ArgumentList 'exec -- offsite web --no-auth --pwa --host 127.0.0.1 --port 20203' -WorkingDirectory $HOME -WindowStyle Hidden
+    Start-Process $mise -ArgumentList 'exec -- offsite serve --no-pair --host 127.0.0.1 --port 20203' -WorkingDirectory $HOME -WindowStyle Hidden
 }
