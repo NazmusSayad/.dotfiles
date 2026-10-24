@@ -3,9 +3,9 @@ protocol: http2
 edge:
   - region1.v2.argotunnel.com:7844
 ingress:
-  - hostname: offsitewin.sayad.cc
+  - hostname: win.sayad.cc
     service: http://127.0.0.1:20203
-  - hostname: offsitewsl.sayad.cc
+  - hostname: wsl.sayad.cc
     service: http://127.0.0.1:10101
   - hostname: "*.sayad.cc"
     service: http://127.0.0.1:10100
