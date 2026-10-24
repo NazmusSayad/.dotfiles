@@ -126,9 +126,11 @@ compile = false
 
 [settings]
 yes = true
-cache_prune_age = "7d"
+cache_prune_age = "1d"
 
+auto_update = false
 auto_install = false
+
 exec_auto_install = true
 not_found_auto_install = true
 trusted_config_paths = ["~/Desktop"]
