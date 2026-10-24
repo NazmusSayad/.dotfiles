@@ -7,6 +7,9 @@ opencode-openai:
     minDuration: 1440
 
 claude:
+  - dir: "~/.claude"
+    model: "claude-haiku-5-5"
+    minDuration: 30
   - dir: "~/.claude-extra"
     model: "claude-haiku-5-5"
     minDuration: 30
