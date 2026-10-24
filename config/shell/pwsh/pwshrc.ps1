@@ -9,6 +9,6 @@ dotsh init pwsh --home $dotfilesDir | Out-String -Width ([int]::MaxValue) | Invo
 direnv hook pwsh | Out-String -Width ([int]::MaxValue) | Invoke-Expression
 
 shaka pwsh | Out-String -Width ([int]::MaxValue) | Invoke-Expression
+starship init powershell | Out-String -Width ([int]::MaxValue) | Invoke-Expression
 zoxide init powershell | Out-String -Width ([int]::MaxValue) | Invoke-Expression
 zoxide add "$PWD" 2>$null
-starship init powershell | Out-String -Width ([int]::MaxValue) | Invoke-Expression
