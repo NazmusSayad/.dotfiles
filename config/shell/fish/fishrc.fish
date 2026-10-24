@@ -22,9 +22,9 @@ dotsh init fish --home "$dotfiles_dir" | source
 direnv hook fish | source
 
 shaka fish | source
-zoxide init fish | source
 starship init fish | source
 
+zoxide init fish | source
 zoxide add $PWD 2>/dev/null
 function on_cd --on-variable PWD
     zoxide add $PWD 2>/dev/null

@@ -14,17 +14,18 @@ eval "$(dotsh init bash --home "${DOTFILES_DIR:-$HOME/.dotfiles}")"
 eval "$(direnv hook bash)"
 
 eval "$(shaka bash)"
+eval "$(starship init bash)"
+PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+
 eval "$(zoxide init bash)"
 if [[ "$OS" == "Windows_NT" ]]; then
 	__zoxide_pwd() { \command cygpath -w "$(\builtin pwd -L)"; }
 fi
-eval "$(starship init bash)"
 
 zoxide add "$PWD" 2>/dev/null
 on_cd() {
 	zoxide add "$PWD" 2>/dev/null
 }
-PROMPT_COMMAND="on_cd${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 
 claude() {
 	local config="${CLAUDE_CONFIG_DIR:-$HOME}/.claude.json"
