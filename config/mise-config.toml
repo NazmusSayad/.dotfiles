@@ -20,7 +20,7 @@ cmake = "latest"
 
 # Shell
 "npm:offsite" =  "latest"
-"github:nazmussayad/sshtty" = "latest"
+gsudo = { version = "latest", os = ["windows"] }
 
 # File System
 jq = "latest"
@@ -35,6 +35,7 @@ superfile = "latest"
 "github:microsoft/edit" = "latest"
 
 # Activities
+hyperfine = "latest"
 fastfetch = "latest"
 "github:wakatime/wakatime-cli" = "latest"
 
@@ -84,7 +85,6 @@ cloudflared = { version = "latest", os = ["macos", "linux"] }
 
 # Dev
 sqlite = "latest"
-hyperfine = "latest"
 lazydocker = "latest"
 "npm:husky" = "latest"
 "npm:prettier" = "latest"
