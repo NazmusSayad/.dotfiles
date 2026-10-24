@@ -15,6 +15,9 @@ eval "$(direnv hook bash)"
 
 eval "$(shaka bash)"
 eval "$(zoxide init bash)"
+if [[ "$OS" == "Windows_NT" ]]; then
+	__zoxide_pwd() { \command cygpath -w "$(\builtin pwd -L)"; }
+fi
 eval "$(starship init bash)"
 
 zoxide add "$PWD" 2>/dev/null
