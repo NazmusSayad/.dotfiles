@@ -7,7 +7,7 @@ if command -q uname; and test (uname) = Darwin
 else if test (uname) = Linux
     "$HOME/.local/bin/mise" activate fish | source
 else if test "$OS" = Windows_NT
-    dotsh fish (mise env --dotenv) | source
+    mise activate fish | source
 
     function __windows_terminal_report_cwd --on-event fish_prompt
         printf '\e]9;9;%s\e\\' (cygpath -w "$PWD" -C ANSI)

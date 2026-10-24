@@ -1,7 +1,7 @@
 if ([Environment]::CommandLine -match '-NonI') { return }
 
 pwshac | Out-String -Width ([int]::MaxValue) | Invoke-Expression
-dotsh pwsh (mise env --dotenv) | Out-String -Width ([int]::MaxValue) | Invoke-Expression
+mise activate pwsh | Out-String -Width ([int]::MaxValue) | Invoke-Expression
 
 $dotfilesDir = if ($env:DOTFILES_DIR) { $env:DOTFILES_DIR } else { "$HOME/.dotfiles" }
 dotsh init pwsh --home $dotfilesDir | Out-String -Width ([int]::MaxValue) | Invoke-Expression
