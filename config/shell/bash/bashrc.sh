@@ -6,7 +6,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(uname)" == "Linux" ]]; then
 	eval "$("$HOME/.local/bin/mise" activate bash)"
 elif [[ "$OS" == "Windows_NT" ]]; then
-	eval "$(dotsh bash "$(mise env --dotenv)")"
+	eval "$(mise activate bash)"
 	PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "`cygpath -w "$PWD" -C ANSI`"'
 fi
 
