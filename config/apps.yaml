@@ -17,7 +17,6 @@ scoop:
 
   # Shells
   - ttyd
-  - gsudo
   - zoxide
   - direnv
   - starship
