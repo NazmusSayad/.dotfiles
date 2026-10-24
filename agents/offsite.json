@@ -7,7 +7,7 @@
   "workingDir": {
     "macos": "~/Desktop",
     "linux": "~/Desktop",
-    "windows": null
+    "windows": "~/Desktop"
   },
   "claudeAccounts": [
     {
@@ -31,7 +31,7 @@
       "configDir": {
         "macos": "/Users/sayad/.claude-extra",
         "linux": "/home/sayad/.claude-extra",
-        "windows": null
+        "windows": "C:\\Users\\sayad\\.claude-extra"
       },
       "enabled": true,
       "hiddenModels": {}
