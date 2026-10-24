@@ -78,7 +78,7 @@
     "shell": {
       "macos": "fish",
       "linux": "fish",
-      "windows": "fish"
+      "windows": "pwsh"
     },
     "behavior": {
       "terminalIdentity": "offsite",
