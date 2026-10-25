@@ -89,8 +89,8 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "openrouter-mini",
-      "enhancementType": "normal",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementType": "text-lv2",
       "hotkeyHold.macos": [
         "ShiftLeft+ControlLeft",
         "ShiftLeft+MetaLeft",
