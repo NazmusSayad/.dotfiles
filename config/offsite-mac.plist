@@ -18,7 +18,7 @@
     <string>10101</string>
     <string>--no-auth</string>
     <string>--connect</string>
-    <string>http://127.0.0.1:47841,https://of.sayad.cc</string>
+    <string>http://127.0.0.1:10101,https://of.sayad.cc</string>
   </array>
   <key>WorkingDirectory</key>
   <string>/Users/sayad</string>
