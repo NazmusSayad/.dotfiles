@@ -11,11 +11,11 @@
     <string>--</string>
     <string>offsite</string>
     <string>web</string>
-    <string>--pwa</string>
     <string>--host</string>
     <string>127.0.0.1</string>
     <string>--port</string>
     <string>10101</string>
+    <string>--pwa</string>
     <string>--no-auth</string>
     <string>--connect</string>
     <string>http://127.0.0.1:10101,https://of.sayad.cc</string>
