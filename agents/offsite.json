@@ -43,7 +43,7 @@
   },
   "newThreads": {
     "provider": "claude",
-    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
+    "accountId": "713ac460-5175-421b-83b9-fa0a7d7545b7",
     "models": {
       "claude": null,
       "codex": null,
