@@ -15,9 +15,9 @@ if ($LASTEXITCODE -ne 0) { throw 'Failed to start offsite in Ubuntu.' }
 $mise = (Get-Command mise -ErrorAction Stop).Source
 
 $server = Get-CimInstance Win32_Process | Where-Object {
-    $_.CommandLine -match 'offsite.*--port\s+20203\b'
+    $_.CommandLine -match 'offsite.*--port\s+10102\b'
 } | Select-Object -First 1
 
 if ($null -eq $server) {
-    Start-Process $mise -ArgumentList 'exec -- offsite serve --no-pair --host 127.0.0.1 --port 20203' -WorkingDirectory $HOME -WindowStyle Hidden
+    Start-Process $mise -ArgumentList 'exec -- offsite serve --no-pair --host 127.0.0.1 --port 10102' -WorkingDirectory $HOME -WindowStyle Hidden
 }
