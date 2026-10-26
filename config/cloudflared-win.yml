@@ -4,9 +4,9 @@ edge:
   - region1.v2.argotunnel.com:7844
 ingress:
   - hostname: win.sayad.cc
-    service: http://127.0.0.1:10102
+    service: http://127.0.0.1:20202
   - hostname: wsl.sayad.cc
-    service: http://127.0.0.1:10101
+    service: http://127.0.0.1:20201
   - hostname: "*.sayad.cc"
-    service: http://127.0.0.1:10100
+    service: http://127.0.0.1:20200
   - service: http_status:404

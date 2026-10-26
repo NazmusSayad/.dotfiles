@@ -26,8 +26,8 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as the native `Clo
 - `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - offsite data: `/home/sayad/.offsite`. Claude Code data: `/home/sayad/.claude`. Keep both in Linux, not on a Windows mount.
-- offsite listener: `127.0.0.1:10101` inside Ubuntu, the port the tunnel sends `offsitewsl.sayad.cc` to.
-- sshtty listener: `127.0.0.1:10102` on Windows for `sshwin.sayad.cc`.
+- offsite listener: `127.0.0.1:20201` inside Ubuntu, the port the tunnel sends `offsitewsl.sayad.cc` to.
+- sshtty listener: `127.0.0.1:20202` on Windows for `sshwin.sayad.cc`.
 - offsite and sshtty have no login of their own. Cloudflare Access is the only thing protecting their hostnames, so keep it on and keep both on `127.0.0.1`.
 - Tunnel: `Desktop`, UUID `b61784bd-cd62-431d-9718-720b95f14339`, running on Windows.
 
@@ -63,7 +63,7 @@ sudo systemctl status offsite --no-pager
 journalctl -u offsite -n 50 --no-pager
 ```
 
-offsite: http://127.0.0.1:10101 in WSL, https://offsitewsl.sayad.cc remotely. sshtty: http://127.0.0.1:10102 on Windows, https://sshwin.sayad.cc remotely.
+offsite: http://127.0.0.1:20201 in WSL, https://offsitewsl.sayad.cc remotely. sshtty: http://127.0.0.1:20202 on Windows, https://sshwin.sayad.cc remotely.
 
 The services start when Ubuntu boots. It does not boot Ubuntu when Windows starts, and systemd services do not keep WSL alive on their own. This was observed during setup: WSL shut down the service after the last session ended.
 
@@ -86,10 +86,10 @@ For a foreground session, stop the service first, then run:
 
 ```bash
 cd ~
-mise exec -- offsite serve --no-pair --host 127.0.0.1 --port 10101
+mise exec -- offsite serve --no-pair --host 127.0.0.1 --port 20201
 ```
 
-On Windows, sshtty on port `10102` is a hidden process, not a service. To restart it, stop its processes and run `start.ps1` again. To update it, run `mise upgrade github:nazmussayad/sshtty` in PowerShell, then restart it.
+On Windows, sshtty on port `20202` is a hidden process, not a service. To restart it, stop its processes and run `start.ps1` again. To update it, run `mise upgrade github:nazmussayad/sshtty` in PowerShell, then restart it.
 
 ## Tunnel routing
 
@@ -99,11 +99,11 @@ On Windows, sshtty on port `10102` is a hidden process, not a service. To restar
 tunnel: Desktop
 ingress:
   - hostname: sshwin.sayad.cc
-    service: http://127.0.0.1:10102
+    service: http://127.0.0.1:20202
   - hostname: offsitewsl.sayad.cc
-    service: http://127.0.0.1:10101
+    service: http://127.0.0.1:20201
   - hostname: "*.sayad.cc"
-    service: http://127.0.0.1:10100
+    service: http://127.0.0.1:20200
   - service: http_status:404
 ```
 
@@ -120,7 +120,7 @@ cloudflared tunnel route dns Desktop *.sayad.cc
 
 ### Any local port
 
-`https://<port>.sayad.cc` opens `localhost:<port>` on Windows or Ubuntu. The tunnel sends `*.sayad.cc` to Caddy at `127.0.0.1:10100`, and `../caddy-win.caddyfile` forwards each request to the port in the first label. Caddy sends `Host: localhost:<port>`, so dev servers that only accept `localhost` work.
+`https://<port>.sayad.cc` opens `localhost:<port>` on Windows or Ubuntu. The tunnel sends `*.sayad.cc` to Caddy at `127.0.0.1:20200`, and `../caddy-win.caddyfile` forwards each request to the port in the first label. Caddy sends `Host: localhost:<port>`, so dev servers that only accept `localhost` work.
 
 Caddy is installed with winget and runs as the auto-start `Caddy` Windows service under LocalSystem, restarting after failures with a 20-second delay. The service was created with:
 
@@ -241,7 +241,7 @@ Use `ni`, `nr`, and `nlx` for project package workflows. `npm:offsite` is a mise
 
 ## Troubleshooting
 
-- Windows localhost fails: check `systemctl status offsite` inside Ubuntu first, then `curl -I http://127.0.0.1:10101` in both environments, and `curl -I http://127.0.0.1:10102` on Windows.
+- Windows localhost fails: check `systemctl status offsite` inside Ubuntu first, then `curl -I http://127.0.0.1:20201` in both environments, and `curl -I http://127.0.0.1:20202` on Windows.
 - Localhost works but the hostname returns 404: the connector may still be using the old ingress configuration.
 - The hostname returns 502: cloudflared cannot reach offsite or sshtty. Check that Ubuntu is running for offsite, and that the server is listening on its port.
 - The hostname returns 525: check the DNS route. The hostname may be reaching a different origin instead of this tunnel.
