@@ -1,5 +1,5 @@
 tunnel: Mac
 ingress:
   - hostname: of.sayad.cc
-    service: http://127.0.0.1:20201
+    service: http://127.0.0.1:10101
   - service: http_status:404
