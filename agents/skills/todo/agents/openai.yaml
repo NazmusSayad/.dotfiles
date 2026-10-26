@@ -1,0 +1,7 @@
+interface:
+  display_name: "TODO"
+  short_description: "Plan a list of items step by step"
+  default_prompt: "Use $todo to plan these items step by step with me."
+
+policy:
+  allow_implicit_invocation: false
