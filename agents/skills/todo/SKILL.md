@@ -26,6 +26,7 @@ Create `docs/<topic>-plan.md` in the current project.
 - Each step has these sections:
   - `### Context`: the facts needed to do the step, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
+  - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the step has tasks.
   - `### Note`: only when needed, for items that are skipped or postponed ("Later, not now: …", "Skipped for now, discuss later: …").
 - If the user sets a rule for the whole plan (for example a naming rule), put it at the top.
 
@@ -54,17 +55,21 @@ Go one step per turn, in order. Keep each turn short. Long, technical replies fr
 
 **Blockers:**
 - **<topic>:** <what stops the work, and who or what can unblock it>
+
+**Risks:**
+- **<topic>:** <a major problem the change could cause, and how to avoid it>
 ```
 
-- **Questions** are decisions the user has to make. **Blockers** are things that stop the work, such as a missing API, access or information.
-- Show **Questions** and **Blockers** only when they have content. Don't end with "OK with this?".
+- **Questions** are decisions the user has to make. **Blockers** are things that stop the work, such as a missing API, access or information. **Risks** are major problems the change could cause, such as breaking an existing feature or losing data.
+- Show **Questions**, **Blockers** and **Risks** only when they have content. Don't end with "OK with this?".
 - Leave out technical details unless the user needs them to decide.
 - If something already works, say so and suggest nothing, or only a quick check.
 - Answer the user's questions directly, after checking the code.
 
 After each answer:
 1. Write exactly what the user decided into that step's **Tasks** as unchecked checkboxes, and nothing more. Postponed or skipped items go under **Note**.
-2. Say in one line what you added, then present the next step.
+2. Write how to check those tasks under **Verification**.
+3. Say in one line what you added, then present the next step.
 
 When every step is done, list the notes that were left for later.
 
