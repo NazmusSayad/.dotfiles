@@ -159,6 +159,7 @@ minimum_release_age_excludes = [
   "npm:mytokens",
   "npm:create-src",
   "npm:opencode-ext",
+  "github:NazmusSayad/agent-slack",
 
   # My Rust Tools
   "cargo:dotsh",
