@@ -16,8 +16,6 @@ openai:
       context: 270000
     - id: gpt-6.1-terra
       context: 270000
-    - id: gpt-6-luna
-      context: 270000
 
 ~agents:
   plan:
