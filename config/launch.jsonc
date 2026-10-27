@@ -52,5 +52,17 @@
       "$DOTFILES_DIR\\config\\wsl\\start.ps1"
     ],
     "AsUser": true
+  },
+
+  {
+    "Path": "~/scoop/apps/sftpgo/current/sftpgo.exe",
+    "Args": [
+      "serve",
+      "--config-dir",
+      "$DOTFILES_DIR\\.local\\sftpgo",
+      "--config-file",
+      "$DOTFILES_DIR\\config\\sftpgo-win.json"
+    ],
+    "AsUser": true
   }
 ]
