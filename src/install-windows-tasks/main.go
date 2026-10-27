@@ -45,7 +45,7 @@ func main() {
 			},
 		}),
 
-		"__SLACK STARTUP TASK___": helpers.GenerateWindowsTaskXML(helpers.WindowsTaskOptions{
+		"__SLACK MANAGER TASK__": helpers.GenerateWindowsTaskXML(helpers.WindowsTaskOptions{
 			Author: "Nazmus Sayad",
 			Mode:   helpers.WindowsTaskRunLevelLeastPrivilege,
 			Triggers: []helpers.WindowsTaskTrigger{
@@ -84,7 +84,7 @@ func main() {
 			Actions: []helpers.WindowsTaskAction{
 				{
 					Command:   runHidden,
-					Arguments: []string{"slack-startup.exe"},
+					Arguments: []string{"slack-manager.exe"},
 				},
 			},
 		}),

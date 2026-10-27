@@ -27,7 +27,7 @@ I don't want everyone to copy this entire repo and use it because it is my own o
   Streamlined Git commands for common tasks like cloning repositories, checking out branches, pulling changes, and managing your repositories more efficiently.
 
 - **Smart Slack Integration**
-  Automatically start or stop Slack based on your work schedule. Set your office hours, weekends, and off days, and Slack will manage itself accordingly.
+  Automatically set your Slack status to active or away based on each workspace's work schedule. Set office hours, weekends, and off days per workspace, and your status will follow them.
 
 - **Automated Startup Tasks**
   Configure applications and scripts to run automatically on system startup, with support for both user and administrator privileges.
@@ -115,8 +115,8 @@ and more...
 
 **Slack Management:**
 
-- `slack-status` / `ss` - Change Slack auto-start behavior (Always/Work Hours/Disabled)
-- Slack will automatically start/stop based on your configured work schedule
+- `slack-status` / `ss` - Change Slack status behavior (Always Active/Office Hours/Never)
+- `slack-manager` runs in the background and sets each workspace to active/away using `agent-slack`
 
 **System Setup:**
 
@@ -133,7 +133,6 @@ Common files to edit:
 - `config/apps.yaml` - Applications and packages to install (Windows Winget/Scoop/MSYS2)
 - `config/Brewfile` - Packages to install (macOS Homebrew)
 - `config/symlink.yml` - Config files linked into your system
-- `config/slack-status.yml` - Slack startup schedule
 - `config/shell/` - Shell aliases, prompt, and terminal settings
 - `config/vscode/` - VS Code settings, keybindings, extensions, and synced state
 

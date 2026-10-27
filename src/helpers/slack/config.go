@@ -41,21 +41,23 @@ type OutputSlackConfig struct {
 	OfficeTimeWeekends []time.Weekday
 }
 
-func ReadSlackConfig() OutputSlackConfig {
-	configInput := helpers.ReadConfig[inputSlackConfig](
-		"@/config/slack-status.yml",
+func ReadSlackConfig() map[string]OutputSlackConfig {
+	configInput := helpers.ReadConfig[map[string]inputSlackConfig](
+		"$SYSTEM_FILE_DIR/slack-manager.yml",
 		helpers.ReadConfigOptions{Silent: true},
 	)
 
-	weekends := generateWeekends(configInput.OfficeTimeWeekends)
-	offDays := generateOffDays(configInput.OfficeTimeOffDays)
-
-	return OutputSlackConfig{
-		OfficeTimeStart:    configInput.OfficeTimeStart,
-		OfficeTimeFinish:   configInput.OfficeTimeFinish,
-		OfficeTimeWeekends: weekends,
-		OfficeTimeOffDays:  offDays,
+	configs := make(map[string]OutputSlackConfig, len(configInput))
+	for workspace, input := range configInput {
+		configs[workspace] = OutputSlackConfig{
+			OfficeTimeStart:    input.OfficeTimeStart,
+			OfficeTimeFinish:   input.OfficeTimeFinish,
+			OfficeTimeWeekends: generateWeekends(input.OfficeTimeWeekends),
+			OfficeTimeOffDays:  generateOffDays(input.OfficeTimeOffDays),
+		}
 	}
+
+	return configs
 }
 
 func GenerateOffDaysHash(month time.Month, day int) string {

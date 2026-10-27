@@ -6,5 +6,5 @@ import (
 
 func main() {
 	config := slack.GetSlackStartupConfig()
-	slack.SlackLaunch(config)
+	slack.SlackUpdatePresence(config)
 }
