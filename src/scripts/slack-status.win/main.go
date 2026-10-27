@@ -5,7 +5,6 @@ import (
 	"io"
 
 	slack "dotfiles/src/helpers/slack"
-	"dotfiles/src/utils"
 
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
@@ -14,22 +13,15 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func formatOfficeTime() string {
-	config := slack.ReadSlackConfig()
-	timeString := utils.HourToAmPm(config.OfficeTimeStart) + "-" + utils.HourToAmPm(config.OfficeTimeFinish)
-
-	return timeString
-}
-
 func main() {
 	initialStatus := slack.GetSlackStartupConfig()
 	renderSlackStatus("Current Slack Status", initialStatus, false)
 	fmt.Println()
 
 	items := []list.Item{
-		statusItem{"Always Active", "Always keep slack running", slack.SlackStatusAlways},
-		statusItem{"Office Hours", "Office Hours: " + formatOfficeTime(), slack.SlackStatusWorkTime},
-		statusItem{"Never", "Keep slack disabled", slack.SlackStatusDisabled},
+		statusItem{"Always Active", "Always show as active", slack.SlackStatusAlways},
+		statusItem{"Office Hours", "Active during each workspace's office hours", slack.SlackStatusWorkTime},
+		statusItem{"Never", "Always show as away", slack.SlackStatusDisabled},
 	}
 
 	delegate := inlineDelegate{
@@ -88,7 +80,7 @@ func renderSlackStatus(label string, status slack.SlackStatus, launch bool) {
 
 	if launch {
 		slack.WriteSlackStartupConfig(status)
-		slack.SlackLaunch(status)
+		slack.SlackUpdatePresence(status)
 	}
 }
 
