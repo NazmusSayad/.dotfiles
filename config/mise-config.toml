@@ -112,6 +112,7 @@ yt-dlp = "latest"
 "npm:uni-run" = "latest"
 "npm:create-src" = "latest"
 "npm:opencode-ext" = "latest"
+"github:NazmusSayad/agent-slack" = "latest"
 
 # Browsers
 "npm:@playwright/cli" = "latest"
