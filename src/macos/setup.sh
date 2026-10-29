@@ -10,10 +10,46 @@ chsh -s "$bash_path"
 echo "Configuring macOS settings..."
 sudo scutil --set ComputerName Omnitrix
 sudo scutil --set LocalHostName Omnitrix
-sudo launchctl disable system/com.apple.assistantd
 sudo spctl --master-disable
 sudo mdutil -a -i off
 sudo mdutil -a -E
+sudo cp ./config/mdutil-mac.plist /Library/LaunchDaemons/cc.sayad.mdutil.plist
+sudo launchctl bootout system/cc.sayad.mdutil 2>/dev/null
+sudo launchctl bootstrap system /Library/LaunchDaemons/cc.sayad.mdutil.plist
+
+echo "Disabling background services..."
+disabled_user_services=(
+	com.apple.ReportCrash
+	com.apple.diagnostics_agent
+	com.apple.photoanalysisd
+	com.apple.mediaanalysisd
+	com.apple.suggestd
+	com.apple.parsecd
+	com.apple.Siri.agent
+	com.apple.assistantd
+	com.apple.ScreenTimeAgent
+	com.apple.gamed
+	com.apple.familycircled
+	com.apple.rapportd
+	com.apple.sharingd
+	com.apple.cloudphotod
+	com.apple.icloudmailagent
+	com.apple.helpd
+	com.apple.tipsd
+)
+disabled_system_services=(
+	com.apple.ReportCrash.Root
+	com.apple.analyticsd
+	com.apple.spindump
+	com.apple.rapportd
+	com.apple.AirPlayXPCHelper
+)
+for service in "${disabled_user_services[@]}"; do
+	launchctl disable "gui/$(id -u)/$service"
+done
+for service in "${disabled_system_services[@]}"; do
+	sudo launchctl disable "system/$service"
+done
 
 echo "Configuring Finder and Dock settings..."
 chflags nohidden ~/Library
@@ -216,6 +252,8 @@ defaults write com.apple.HIToolbox AppleFnUsageType -int 0
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+
+defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail AutoFetch -bool false
 
 launchctl disable "gui/$(id -u)/com.google.GoogleUpdater.wake"
 
