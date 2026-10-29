@@ -59,7 +59,7 @@
     "claude": {
       "claude-opus-5-5": {
         "hidden": false,
-        "effort": "xhigh"
+        "effort": "high"
       },
       "claude-fable-5-1": {
         "hidden": false,
