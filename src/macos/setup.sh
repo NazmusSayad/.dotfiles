@@ -11,6 +11,7 @@ echo "Configuring macOS settings..."
 sudo scutil --set ComputerName Omnitrix
 sudo scutil --set LocalHostName Omnitrix
 sudo spctl --master-disable
+sudo nvram StartupMute=%01
 sudo mdutil -a -i off
 sudo mdutil -a -E
 sudo cp ./config/mdutil-mac.plist /Library/LaunchDaemons/cc.sayad.mdutil.plist
