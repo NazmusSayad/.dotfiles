@@ -80,6 +80,8 @@ hs.hotkey.bind({}, "f13", function()
   hs.eventtap.keyStroke({ "cmd", "shift" }, "4", 0)
 end)
 
+hs.execute([[/usr/bin/hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006F}]}']])
+
 -- F20 holds Cmd and presses Tab, releases Cmd on key up
 local switcherHeld = false
 switcherTap = hs.eventtap.new({
