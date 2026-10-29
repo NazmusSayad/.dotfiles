@@ -1,0 +1,7 @@
+interface:
+  display_name: "Arch"
+  short_description: "Explain architecture options so the reader can choose"
+  default_prompt: "Use $arch to write this architecture explanation or option comparison."
+
+policy:
+  allow_implicit_invocation: false
