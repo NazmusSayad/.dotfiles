@@ -76,6 +76,7 @@ rust = "stable"
 rust-analyzer = "latest"
 
 # Cloud
+aws = { version = "latest", symlink_bins = "true", os = ["macos"] }
 cloudflared = { version = "latest", os = ["macos", "linux"] }
 "github:openclaw/gogcli" = "latest"
 
@@ -114,6 +115,7 @@ yt-dlp = "latest"
 "npm:opencode-ext" = "latest"
 
 # Communication
+"npm:@schpet/linear-cli" = "latest"
 "github:stablyai/agent-slack" = { version = "latest", os = ["macos"] }
 "github:NazmusSayad/agent-slack" = { version = "latest", os = ["windows"] }
 
