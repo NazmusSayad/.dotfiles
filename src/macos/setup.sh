@@ -150,7 +150,7 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
 defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 0
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3.0
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 1.5
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
@@ -176,7 +176,6 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
 defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
-defaults write NSScrollViewRubberbanding -int 0
 
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
@@ -185,8 +184,6 @@ defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 defaults write com.apple.HIToolbox AppleFnUsageType -int 0
 
 defaults write NSGlobalDomain AppleLiveTextEnabled -bool false
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
-defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
