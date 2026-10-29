@@ -1,7 +1,7 @@
 {
     "name": "Basic",
     "AuxAudioDevice1": {
-        "prev_ver": 537001986,
+        "prev_ver": 553648128,
         "name": "Input",
         "uuid": "a129f4f4-16f4-45b3-82ce-18e7c2e7b28a",
         "id": "coreaudio_input_capture",
@@ -23,17 +23,20 @@
         "hotkeys": {
             "libobs.mute": [],
             "libobs.unmute": [],
+            "libobs.monitor-on": [],
+            "libobs.monitor-off": [],
             "libobs.push-to-mute": [],
             "libobs.push-to-talk": []
         },
         "deinterlace_mode": 0,
         "deinterlace_field_order": 0,
         "monitoring_type": 0,
+        "monitoring_enabled": false,
         "private_settings": {}
     },
     "sources": [
         {
-            "prev_ver": 537001986,
+            "prev_ver": 553648128,
             "name": "Built-in Display",
             "uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
             "id": "screen_capture",
@@ -55,19 +58,22 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {
                 "mixer_pinned": false,
                 "mixer_hidden": true
             }
         },
         {
-            "prev_ver": 537001986,
+            "prev_ver": 553648128,
             "name": "External Display",
             "uuid": "4d923b62-db57-47bd-85de-bf1281e6d317",
             "id": "screen_capture",
@@ -89,18 +95,21 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {
                 "mixer_hidden": true
             }
         },
         {
-            "prev_ver": 537001986,
+            "prev_ver": 553648128,
             "name": "Output",
             "uuid": "d6931488-764f-428f-bf73-a92b38f374ba",
             "id": "sck_audio_capture",
@@ -120,16 +129,19 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001986,
+            "prev_ver": 553648128,
             "name": "Camera",
             "uuid": "96245b46-7fa8-47ef-be5d-e24184bc85c9",
             "id": "macos-avcapture",
@@ -152,16 +164,19 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001986,
+            "prev_ver": 553648128,
             "name": "Landscape",
             "uuid": "6936f226-fa1e-4af6-97a5-ff013d16c9b4",
             "id": "scene",
@@ -191,7 +206,7 @@
                         "id": 6,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
+                            "x": -199.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -199,8 +214,8 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.770370364189148,
+                            "y": 0.770370364189148
                         },
                         "scale_rel": {
                             "x": 1.0,
@@ -246,7 +261,7 @@
                         "id": 5,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
+                            "x": -199.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -254,16 +269,16 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.770370364189148,
+                            "y": 0.770370364189148
                         },
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 3840.0,
-                            "y": 2160.0
+                            "x": 2958.0,
+                            "y": 1664.0
                         },
                         "bounds_rel": {
                             "x": 3.555555582046509,
@@ -283,7 +298,7 @@
                     {
                         "name": "Built-in Display",
                         "source_uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
-                        "visible": false,
+                        "visible": true,
                         "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
@@ -301,7 +316,7 @@
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
+                            "x": -199.0,
                             "y": 0.0
                         },
                         "pos_rel": {
@@ -309,16 +324,16 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 0.9999999403953552,
-                            "y": 0.9999999403953552
+                            "x": 0.770370364189148,
+                            "y": 0.770370364189148
                         },
                         "scale_rel": {
                             "x": 0.770370364189148,
                             "y": 0.770370364189148
                         },
                         "bounds": {
-                            "x": 3840.0,
-                            "y": 2160.0
+                            "x": 2958.0,
+                            "y": 1664.0
                         },
                         "bounds_rel": {
                             "x": 3.555555582046509,
@@ -356,16 +371,16 @@
                         "id": 8,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 3163.0,
-                            "y": 1779.0
+                            "x": 2237.5,
+                            "y": 1370.5
                         },
                         "pos_rel": {
                             "x": 1.150925874710083,
                             "y": 0.6472222805023193
                         },
                         "scale": {
-                            "x": 0.3526041805744171,
-                            "y": 0.35277777910232544
+                            "x": 0.2716358006000519,
+                            "y": 0.27176955342292786
                         },
                         "scale_rel": {
                             "x": 0.3526041805744171,
@@ -417,6 +432,7 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         }
@@ -437,7 +453,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -12,
+    "scaling_level": -8,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
