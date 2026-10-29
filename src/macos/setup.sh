@@ -8,6 +8,8 @@ fi
 chsh -s "$bash_path"
 
 echo "Configuring macOS settings..."
+sudo scutil --set ComputerName Omnitrix
+sudo scutil --set LocalHostName Omnitrix
 sudo launchctl disable system/com.apple.assistantd
 sudo spctl --master-disable
 sudo mdutil -a -i off
@@ -40,6 +42,7 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownl
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool false
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool false
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool false
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool false
 sudo softwareupdate --schedule off
 
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -52,6 +55,23 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.applicationaccess allowPasswordAutoFill -bool false
 defaults write com.apple.applicationaccess safariAllowAutoFill -bool false
 defaults write com.apple.Safari AutoFillPasswords -bool false
+
+defaults write com.apple.assistant.support "Assistant Enabled" -bool false
+defaults write com.apple.EmojiPreferences GenmojiSuggestions -bool false
+
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
+defaults -currentHost write com.apple.controlcenter AirplayReceiverEnabled -bool false
+defaults write com.apple.AdLib allowApplePersonalizedAdvertising -bool false
+defaults write com.apple.controlcenter ShowLiveActivitiesAtLockScreen -bool false
+defaults write NSGlobalDomain shouldShowRSVPDataDetectors -bool false
+
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
+defaults write com.apple.TextInputMenu visible -bool false
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
+defaults write com.apple.menuextra.clock ShowAMPM -bool true
+
+defaults write com.apple.Spotlight EnabledPreferenceRules -array "Custom.relatedContents" "System.files" "System.folders" "System.iphoneApps" "System.menuItems"
 
 sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
 
@@ -131,6 +151,11 @@ defaults write com.apple.spaces spans-displays -bool false
 
 defaults write com.apple.WindowManager StandardHideWidgets -bool true
 defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+defaults write com.apple.WindowManager HideDesktop -bool true
+defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
+
+defaults write NSGlobalDomain AppleInterfaceStyle -string Dark
+defaults write NSGlobalDomain AppleIconAppearanceTheme -string RegularDark
 
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -158,6 +183,11 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture 
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 0
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 0
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool false
+defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -bool true
+defaults write com.apple.AppleMultitouchTrackpad ActuateDetents -bool false
+defaults write com.apple.dock showDesktopGestureEnabled -bool false
 
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -192,6 +222,15 @@ launchctl disable "gui/$(id -u)/com.google.GoogleUpdater.wake"
 echo "Opening Chrome configuration profile..."
 open ./config/chrome/com.google.Chrome.mobileconfig
 defaults write com.google.Chrome BackgroundModeEnabled -bool false
+
+defaults write com.caldis.Mos reverse -bool true
+defaults write com.caldis.Mos smooth -bool true
+defaults write com.caldis.Mos speed -float 2.5
+defaults write com.caldis.Mos step -float 0.1
+defaults write com.caldis.Mos duration -float 1.5
+defaults write com.caldis.Mos hideStatusItem -bool true
+defaults write com.caldis.Mos updateCheckOnAppStart -bool false
+defaults write org.hammerspoon.Hammerspoon MJShowMenuIconKey -bool false
 
 killall Dock
 killall Finder

@@ -146,6 +146,8 @@
   LinkWin: "~/.wslconfig"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
+"@/config/tinycast.plist":
+  CopyMac: "~/Library/Preferences/com.tinycast.app.plist"
 
 # System
 "@/config/Windhawk.json":
