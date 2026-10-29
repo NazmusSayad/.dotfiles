@@ -1,3 +1,0 @@
-Step: 0.1
-Speed: 2.5
-Duration: 1.5
