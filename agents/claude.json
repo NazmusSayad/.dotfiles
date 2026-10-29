@@ -58,7 +58,7 @@
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
   "skillOverrides": {
     "plugin-authoring": "off"
