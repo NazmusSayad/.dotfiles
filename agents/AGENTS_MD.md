@@ -40,7 +40,7 @@ When useful, use a relevant emoji as a visual marker for questions requiring the
 
 A question, a request to understand something, or a discussion gets an answer, not an action. Do not start work or make changes unless explicitly requested.
 
-Asking whether something is possible is not a request to do it. During a discussion, deciding on a change is not a request to make it, even when phrased as a command.
+Asking whether something is possible is not a request to do it. Deciding on a change is not a request to make it, even when phrased as a command.
 
 When the user wants to understand something, explain exactly what they asked about, at the level they asked.
 
