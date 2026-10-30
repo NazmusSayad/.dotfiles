@@ -262,7 +262,7 @@ echo "Opening Chrome configuration profile..."
 open ./config/chrome/com.google.Chrome.mobileconfig
 defaults write com.google.Chrome BackgroundModeEnabled -bool false
 
-defaults write com.caldis.Mos reverse -bool true
+defaults write com.caldis.Mos reverse -bool false
 defaults write com.caldis.Mos smooth -bool true
 defaults write com.caldis.Mos speed -float 2.5
 defaults write com.caldis.Mos step -float 0.1
