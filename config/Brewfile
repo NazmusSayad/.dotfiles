@@ -74,7 +74,7 @@ brew "shfmt"
 brew "fvm"
 
 # Mobile Apps
-tap "facebook/fb"
+tap "meta/fb"
 brew "idb-companion"
 cask "android-studio"
 
