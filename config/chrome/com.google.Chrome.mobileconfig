@@ -19,11 +19,125 @@
 			<array>
 				<string>http://192.168.0.102:20201</string>
 				<string>http://192.168.0.102:20202</string>
+				<string>ws://192.168.0.102:20201</string>
+				<string>ws://192.168.0.102:20202</string>
 			</array>
 			<key>LocalNetworkAccessAllowedForUrls</key>
 			<array>
 				<string>https://of.sayad.cc</string>
 			</array>
+			<key>LocalNetworkAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>LoopbackNetworkAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>InsecureContentAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>AudioCaptureAllowedUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>VideoCaptureAllowedUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>AutomaticDownloadsAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>AutomaticFullscreenAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>AutoplayAllowlist</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>ClipboardAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>CookiesAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>IdleDetectionAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>ImagesAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>JavaScriptAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>JavaScriptJitAllowedForSites</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>JavaScriptOptimizerAllowedForSites</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>LocalFontsAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>NotificationsAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>PopupsAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>SensorsAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>SerialAllowAllPortsForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>WebHidAllowAllDevicesForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>WebUsbAskForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>FileSystemReadAskForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>FileSystemWriteAskForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>WindowManagementAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>DefaultGeolocationSetting</key>
+			<integer>1</integer>
+			<key>GeolocationBlockedForUrls</key>
+			<array>
+				<string>*</string>
+			</array>
+			<key>PreciseGeolocationAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
+			<key>AdsSettingForIntrusiveAdsSites</key>
+			<integer>1</integer>
 			<key>BackgroundModeEnabled</key>
 			<false/>
 			<key>BrowserGuestModeEnabled</key>
