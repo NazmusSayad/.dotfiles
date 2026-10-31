@@ -15,6 +15,15 @@
 			<integer>1</integer>
 			<key>PayloadDisplayName</key>
 			<string>Google Chrome Policies</string>
+			<key>OverrideSecurityRestrictionsOnInsecureOrigin</key>
+			<array>
+				<string>http://192.168.0.102:20201</string>
+				<string>http://192.168.0.102:20202</string>
+			</array>
+			<key>LocalNetworkAccessAllowedForUrls</key>
+			<array>
+				<string>https://of.sayad.cc</string>
+			</array>
 			<key>BackgroundModeEnabled</key>
 			<false/>
 			<key>BrowserGuestModeEnabled</key>
