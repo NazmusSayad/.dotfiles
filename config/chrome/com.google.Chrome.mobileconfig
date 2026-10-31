@@ -15,6 +15,15 @@
 			<integer>1</integer>
 			<key>PayloadDisplayName</key>
 			<string>Google Chrome Policies</string>
+			<key>OverrideSecurityRestrictionsOnInsecureOrigin</key>
+			<array>
+				<string>http://<redacted>:20201</string>
+				<string>http://<redacted>:20202</string>
+			</array>
+			<key>LocalNetworkAccessAllowedForUrls</key>
+			<array>
+				<string>https://<redacted></string>
+			</array>
 			<key>BackgroundModeEnabled</key>
 			<false/>
 			<key>BrowserGuestModeEnabled</key>
