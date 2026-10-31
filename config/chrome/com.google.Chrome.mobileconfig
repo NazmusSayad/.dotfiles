@@ -126,16 +126,6 @@
 			<array>
 				<string>https://<redacted></string>
 			</array>
-			<key>DefaultGeolocationSetting</key>
-			<integer>1</integer>
-			<key>GeolocationBlockedForUrls</key>
-			<array>
-				<string>*</string>
-			</array>
-			<key>PreciseGeolocationAllowedForUrls</key>
-			<array>
-				<string>https://<redacted></string>
-			</array>
 			<key>AdsSettingForIntrusiveAdsSites</key>
 			<integer>1</integer>
 			<key>BackgroundModeEnabled</key>
