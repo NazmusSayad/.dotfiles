@@ -65,6 +65,7 @@ brew "gnupg"
 # AI & Code Editors
 cask "visual-studio-code@insiders"
 cask "visual-studio-code"
+cask "cuadriver"
 
 # Development
 cask "tablepro"
