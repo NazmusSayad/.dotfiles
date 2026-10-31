@@ -26,9 +26,9 @@ OpenCode is not part of this setup. The `Desktop` tunnel runs as the native `Clo
 - `~/.bashrc` links to the shared `../shell/bashrc.sh`. On Linux it activates mise, loads environment files, and initializes direnv, Shaka, zoxide, and Starship.
 - Shaka uses the shared `../shell/alias.json` config. This provides `oc` for `opencode --standalone`.
 - offsite data: `/home/sayad/.offsite`. Claude Code data: `/home/sayad/.claude`. Keep both in Linux, not on a Windows mount.
-- offsite listener: `127.0.0.1:20201` inside Ubuntu, the port the tunnel sends `<redacted>` to.
-- sshtty listener: `127.0.0.1:20202` on Windows for `<redacted>`.
-- offsite and sshtty have no login of their own. Cloudflare Access is the only thing protecting their hostnames, so keep it on and keep both on `127.0.0.1`.
+- offsite listener: `0.0.0.0:20201` inside Ubuntu, the port the tunnel sends `<redacted>` to.
+- sshtty listener: `0.0.0.0:20202` on Windows for `<redacted>`.
+- offsite and sshtty have no login of their own. Cloudflare Access protects their hostnames, so keep it on. Both listen on `0.0.0.0`, so anything that can reach these ports directly bypasses Cloudflare Access.
 - Tunnel: `Desktop`, UUID `<redacted>`, running on Windows.
 
 The machine already had WSL 2 for Docker Desktop. Leave the `docker-desktop` distro alone. Ubuntu is now the default distro.
@@ -86,7 +86,7 @@ For a foreground session, stop the service first, then run:
 
 ```bash
 cd ~
-mise exec -- offsite serve --no-pair --host 127.0.0.1 --port 20201
+mise exec -- offsite serve --no-pair --host 0.0.0.0 --port 20201
 ```
 
 On Windows, sshtty on port `20202` is a hidden process, not a service. To restart it, stop its processes and run `start.ps1` again. To update it, run `mise upgrade github:nazmussayad/sshtty` in PowerShell, then restart it.
