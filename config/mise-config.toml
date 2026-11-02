@@ -45,7 +45,7 @@ make = "latest"
 ninja = "latest"
 
 # AI Coding
-codex = { version = "latest", os = ["linux"] }
+codex = "latest"
 "github:anthropics/claude-code" = "latest"
 "http:opencode" = { version = "latest", version_list_url = "https://opencode.ai/update/api/latest/cli/opencode", version_json_path = ".version", url = 'https://opencode.ai/files/bin/{{ version }}/opencode-{{ os(macos="darwin") }}-{{ arch() }}.{{ os(linux="tar.gz", macos="zip", windows="zip") }}' }
 
