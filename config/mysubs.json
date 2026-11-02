@@ -4,11 +4,12 @@
   "detect": false,
   "accounts": [
     {
+      "alias": "c",
       "provider": "claude",
-      "configDir": "~/.claude",
-      "alias": "c"
+      "configDir": "~/.claude"
     },
     {
+      "alias": "w",
       "provider": "claude",
       "configDir": "~/.claude-extra",
       "info": "Work"
