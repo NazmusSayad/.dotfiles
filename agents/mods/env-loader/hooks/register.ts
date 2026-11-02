@@ -4,7 +4,7 @@ const ENV = `load_env() {
   eval "$(direnv export bash 2>/dev/null)"
   eval "$(dotsh bash "$(mise env --dotenv 2>/dev/null)")"
   local paths="$(mise env --paths 2>/dev/null | paste -sd: -)"
-  [ -n "$paths" ] && export PATH="$paths:$PATH"
+  if [ -n "$paths" ]; then export PATH="$paths:$PATH"; fi
 }
 cd() { builtin cd "$@" && load_env; }
 load_env`
