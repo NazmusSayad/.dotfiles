@@ -37,6 +37,7 @@ superfile = "latest"
 # Activities
 hyperfine = "latest"
 fastfetch = "latest"
+bottom = "latest"
 "github:wakatime/wakatime-cli" = "latest"
 
 # Workflow
