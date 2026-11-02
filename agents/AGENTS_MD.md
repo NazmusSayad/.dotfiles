@@ -46,8 +46,6 @@ When the user wants to understand something, explain exactly what they asked abo
 
 ## Guidelines
 
-Do not execute any Git write operation unless explicitly requested.
+Do not execute any Git write operation unless explicitly requested. Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
 
-Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
-
-Never start or disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user rather than interfering with it.
+Do not disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user.
