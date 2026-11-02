@@ -9,8 +9,6 @@ Identify what the audience needs to understand or accomplish, choose a form and 
 
 Lead with the reader's needed outcome or information, then explain why when useful. Make the path to that outcome clear. Use direct language and the smallest useful accurate examples.
 
-Aim for concise, not short. Every word should earn its place, but never drop information, steps, or context the reader needs. A concise text can be longer than the original.
-
 ## Process
 
 - Scan for the patterns below.
