@@ -1,0 +1,7 @@
+[[row]]
+  [[row.child]]
+  type = "cpu"
+
+[[row]]
+  [[row.child]]
+  type = "mem"
