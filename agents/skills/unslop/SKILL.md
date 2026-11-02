@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Makes responses useful. Use when explaining or reporting, or when the user asks to simplify or shorten text.
+description: Makes responses useful. Use when explaining or reporting, or when the user asks to simplify text or make it concise.
 ---
 
 ## Audience and purpose
@@ -8,6 +8,8 @@ description: Makes responses useful. Use when explaining or reporting, or when t
 Identify what the audience needs to understand or accomplish, choose a form and structure that supports that goal, and write at their level. Include only the context, terminology, technical depth, and examples they need. Include implementation details only when they help achieve that goal. Ask the user only when the audience or purpose cannot be determined.
 
 Lead with the reader's needed outcome or information, then explain why when useful. Make the path to that outcome clear. Use direct language and the smallest useful accurate examples.
+
+Aim for concise, not short. Every word should earn its place, but never drop information, steps, or context the reader needs. A concise text can be longer than the original.
 
 ## Process
 
@@ -40,7 +42,7 @@ Lead with the reader's needed outcome or information, then explain why when usef
 ### Plain speech
 
 - **Say what it does, not how it feels.** "the database stays close at hand", "SQL you can read", "types that follow your schema" name a feeling. The fix names the mechanism or a number: "`.toSQL()` returns the exact string sent to the database", "a column rename fails the build". Ask what the sentence tells the reader to do or know, then write that. If you can't restate it as a concrete instruction, fact, or number, cut it. One more check: if the sentence could appear unchanged in another project's docs, it says nothing about this one. Cut it.
-- **Shorten or split dense sentences.** If the reader has to backtrack to parse a sentence, break it in two or drop clauses. One idea per sentence.
+- **Split dense sentences.** If the reader has to backtrack to parse a sentence, break it in two or drop clauses the reader doesn't need. One idea per sentence.
 - **Active voice.** Prefer it. Catch "is/are/was/were + past participle" and name the actor: "queries are validated" becomes "the compiler validates queries", "the file is parsed by the loader" becomes "the loader parses the file". Passive is fine only when the actor is unknown or genuinely doesn't matter.
 - **Cut adverbs, or use a stronger verb.** "runs quickly" becomes "is fast" or the number. "significantly improves" becomes the measured delta. An adverb propping up a weak verb means the verb is wrong.
 - **Prefer the plain word.** "utilize" becomes "use", "leverage" becomes "use", "facilitate" becomes "help", "numerous" becomes "many", "in the event that" becomes "if". The fancier synonym is rarely clearer.
