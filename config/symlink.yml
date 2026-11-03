@@ -95,8 +95,8 @@
   Copy: "~/.config/btop/btop.conf"
 "@/config/shell/bottom.toml":
   Link: "~/.config/bottom/bottom.toml"
-  LinkMac: "~/Library/Application Support/bottom/bottom.toml"
   LinkWin: "~/AppData/Roaming/bottom/bottom.toml"
+  LinkMac: "~/Library/Application Support/bottom/bottom.toml"
 
 # Terminal Emulators
 "@/config/shell/ghostty.conf":

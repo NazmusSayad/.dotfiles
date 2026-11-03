@@ -5,3 +5,7 @@
 [[row]]
   [[row.child]]
   type = "mem"
+
+[cpu]
+# One of "all" (default), "average"/"avg"
+default = "average"
