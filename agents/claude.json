@@ -52,9 +52,7 @@
       "DesignSync",
       "ReportFindings",
       "ScheduleWakeup",
-      "RemoteTrigger",
-      "EnterWorktree",
-      "ExitWorktree"
+      "RemoteTrigger"
     ],
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
@@ -89,9 +87,7 @@
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": [
-      "Working"
-    ]
+    "verbs": ["Working"]
   },
   "modelSettings": {
     "claude-opus-5-5": {
