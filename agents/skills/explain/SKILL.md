@@ -1,6 +1,6 @@
 ---
-name: unslop
-description: Makes responses useful. Use when explaining or reporting, or when the user asks to simplify text or make it concise.
+name: explain
+description: Use when explaining, reporting, or writing a long reply about a report, finding, plan, etc. to the user.
 ---
 
 ## Audience and purpose

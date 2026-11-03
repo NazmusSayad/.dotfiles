@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain"
+  short_description: "Make text useful to the reader"
+  default_prompt: "Use $explain to make this writing clearer and more natural."
