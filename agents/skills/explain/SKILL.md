@@ -38,11 +38,11 @@ Write whole sentences, not arrow chains or fragments.
 
 ## Leave out what the user does not need
 
-Say each thing once. Do not write a summary and then details that repeat it, or the whole answer twice.
+Say each thing once. Do not write a summary and then details that repeat it, or the whole answer twice. When the user found an explanation unclear, explain it a different way instead of rewording it.
 
 Cut clauses the user can work out from the rest, even an effect. "The deploy failed" already tells them the old code is still running; do not add "so dev still runs the old code".
 
-Leave out warnings, side findings, suggestions, offers, and questions the user did not ask for, unless they change what the user should do next.
+Leave out warnings, side findings, suggestions, offers, and questions the user did not ask for, unless they change what the user should do next. Leave out anything the user said they do not want, everywhere it appears and in later replies, not only where they pointed.
 
 ## Push back without repeating
 
