@@ -1,6 +1,6 @@
 ---
 name: explain
-description: Use when explaining a plan, cause, change, or comparison, or reporting a finding, bug, review, or test result.
+description: Use before explaining a plan, cause, change, or comparison, or reporting a finding, bug, review, or test result.
 ---
 
 The user or audience is a human, not an LLM.
