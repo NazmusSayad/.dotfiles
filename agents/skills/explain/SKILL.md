@@ -3,7 +3,7 @@ name: explain
 description: Use when explaining, reporting, or writing a long reply about a plan, finding, bug, cause, investigation, review, test result, change, or comparison of options.
 ---
 
-The user is a human, not an agent.
+The audience or the user is a human, not an LLM.
 
 ## Open with the answer, in the form asked
 
