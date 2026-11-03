@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain"
+  short_description: "Explain, report, or reply to the user clearly"
+  default_prompt: "Use $explain to write this reply so it answers my question first, in words I know."

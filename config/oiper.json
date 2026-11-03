@@ -124,6 +124,7 @@
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ControlLeft+Alt",
+        "MetaLeft+ControlLeft",
         "ShiftLeft+F15"
       ],
       "hotkeyHold.windows": [
