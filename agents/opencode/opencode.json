@@ -12,6 +12,11 @@
   "plugins": ["-opencode.browser"],
   "mcp": {
     "servers": {
+      "cua-driver": {
+        "disabled": true,
+        "type": "local",
+        "command": ["/opt/homebrew/bin/cua-driver", "mcp"]
+      },
       "chrome-devtools": {
         "disabled": true,
         "type": "local",
