@@ -12,6 +12,7 @@
 "@/agents/skills":
   - "~/.agents/skills"
   - "~/.claude/skills"
+  - "~/.claude-cre/skills"
   - "~/.claude-extra/skills"
   - "~/.gemini/antigravity-cli/skills"
 
@@ -21,51 +22,77 @@
   - "~/.gemini/GEMINI.md"
   # "@/agents/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
+  - "~/.claude-cre/CLAUDE.md"
   - "~/.claude-extra/CLAUDE.md"
 
 # Claude Code
 "@/agents/mods": "~/.claude.mods"
 "@/agents/claude.json":
   - "~/.claude/settings.json"
+  - "~/.claude-cre/settings.json"
   - "~/.claude-extra/settings.json"
 
 # Claude Accounts
 "~/.claude/history.jsonl":
   Create: File
-  Link: "~/.claude-extra/history.jsonl"
+  Link:
+    - "~/.claude-cre/history.jsonl"
+    - "~/.claude-extra/history.jsonl"
 "~/.claude/jobs":
   Create: Folder
-  Link: "~/.claude-extra/jobs"
+  Link:
+    - "~/.claude-cre/jobs"
+    - "~/.claude-extra/jobs"
 "~/.claude/plans":
   Create: Folder
-  Link: "~/.claude-extra/plans"
+  Link:
+    - "~/.claude-cre/plans"
+    - "~/.claude-extra/plans"
 "~/.claude/tasks":
   Create: Folder
-  Link: "~/.claude-extra/tasks"
+  Link:
+    - "~/.claude-cre/tasks"
+    - "~/.claude-extra/tasks"
 "~/.claude/cache":
   Create: Folder
-  Link: "~/.claude-extra/cache"
+  Link:
+    - "~/.claude-cre/cache"
+    - "~/.claude-extra/cache"
 "~/.claude/state":
   Create: Folder
-  Link: "~/.claude-extra/state"
+  Link:
+    - "~/.claude-cre/state"
+    - "~/.claude-extra/state"
 "~/.claude/plugins":
   Create: Folder
-  Link: "~/.claude-extra/plugins"
+  Link:
+    - "~/.claude-cre/plugins"
+    - "~/.claude-extra/plugins"
 "~/.claude/projects":
   Create: Folder
-  Link: "~/.claude-extra/projects"
+  Link:
+    - "~/.claude-cre/projects"
+    - "~/.claude-extra/projects"
 "~/.claude/sessions":
   Create: Folder
-  Link: "~/.claude-extra/sessions"
+  Link:
+    - "~/.claude-cre/sessions"
+    - "~/.claude-extra/sessions"
 "~/.claude/paste-cache":
   Create: Folder
-  Link: "~/.claude-extra/paste-cache"
+  Link:
+    - "~/.claude-cre/paste-cache"
+    - "~/.claude-extra/paste-cache"
 "~/.claude/session-env":
   Create: Folder
-  Link: "~/.claude-extra/session-env"
+  Link:
+    - "~/.claude-cre/session-env"
+    - "~/.claude-extra/session-env"
 "~/.claude/shell-snapshots":
   Create: Folder
-  Link: "~/.claude-extra/shell-snapshots"
+  Link:
+    - "~/.claude-cre/shell-snapshots"
+    - "~/.claude-extra/shell-snapshots"
 
 # OpenCode
 "@/agents/opencode/plugins": "~/.config/opencode/plugins"
