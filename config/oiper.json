@@ -123,6 +123,7 @@
       "enhancementLlmId": "openrouter-kimi",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
+        "ControlLeft+Alt",
         "ShiftLeft+F15"
       ],
       "hotkeyHold.windows": [
