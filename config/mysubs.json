@@ -4,9 +4,15 @@
   "detect": false,
   "accounts": [
     {
-      "alias": "c",
+      "alias": "s",
       "provider": "claude",
       "configDir": "~/.claude"
+    },
+    {
+      "alias": "c",
+      "provider": "claude",
+      "configDir": "~/.claude-cre",
+      "info": "Creative"
     },
     {
       "alias": "w",
