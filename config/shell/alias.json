@@ -6,8 +6,8 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
+  "cc-wm": "CLAUDE_CONFIG_DIR=~/.claude-wm claude",
   "cc-cre": "CLAUDE_CONFIG_DIR=~/.claude-cre claude",
-  "cc-extra": "CLAUDE_CONFIG_DIR=~/.claude-extra claude",
 
   "r": "nr",
   "nid": "ni -D",
