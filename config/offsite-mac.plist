@@ -6,19 +6,9 @@
   <string>local.dotfiles.offsite</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/sayad/.local/bin/mise</string>
-    <string>exec</string>
-    <string>--</string>
-    <string>offsite</string>
-    <string>web</string>
-    <string>--host</string>
-    <string>127.0.0.1</string>
-    <string>--port</string>
-    <string>10101</string>
-    <string>--pwa</string>
-    <string>--no-auth</string>
-    <string>--connect</string>
-    <string>http://127.0.0.1:10101,https://<redacted></string>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <string>exec mise exec -- offsite web --host 127.0.0.1 --port 10101 --pwa --no-auth --connect http://127.0.0.1:10101,https://<redacted></string>
   </array>
   <key>WorkingDirectory</key>
   <string>/Users/sayad</string>
