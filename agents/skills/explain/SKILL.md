@@ -3,46 +3,62 @@ name: explain
 description: Use when explaining, reporting, or writing a long reply about a report, finding, plan, etc. to the user.
 ---
 
-## Audience and purpose
+The user is a human, not an agent.
 
-Identify what the audience needs to understand or accomplish, choose a form and structure that supports that goal, and write at their level. Include only the context, terminology, technical depth, and examples they need. Include implementation details only when they help achieve that goal. Ask the user only when the audience or purpose cannot be determined.
+## Open with the answer, in the form asked
 
-Lead with the reader's needed outcome or information, then explain why when useful. Make the path to that outcome clear. Use direct language and the smallest useful accurate examples.
+Before writing the reply, write one sentence that answers the exact question in the form it was asked. That sentence opens the reply, and everything after it must earn its place.
 
-## Process
+- A yes/no question gets yes or no: "Yes, much better than before, though not in every case.", not a per-case test report.
+- "Can I fix it?" gets whether they can: "It's a library bug, but you can work around it."
+- "What's the issue?" gets the fact that went wrong, not the story of how: "The account service deploy failed.", not four steps of how the deploy tool skipped it.
+- A requested number, table, diagram, or sentence count gets exactly that shape, with the columns or parts the user named.
 
-- Scan for the patterns below.
-- Rewrite. Keep only what the reader needs, match intended tone.
+If you cannot write that sentence, you have not understood the question. Settle it from the conversation, and ask one short question only when the possible readings lead to different answers.
 
-## Patterns to detect and fix
+## Answer their question, not a neighbouring one
 
-### Clarity
+Do not answer a neighbouring question: how it works when they asked why, a fix when they asked what is wrong, a new feature when they asked for a small change, or your own reading of a vague phrase instead of theirs.
 
-- **Vague attributions.** "Experts believe", "Industry reports suggest", "Some critics argue". Name the source or delete.
-- **Synonym cycling.** Protagonist, main character, central figure, hero all in one paragraph. Pick one, repeat it.
-- **Unnecessary numbering.** Do not number headings, sections, or list items by default, whether in documents or replies to the user. Use numbering only when it serves a clear purpose for the reader.
+When you restate the user's request, use their words, and never turn it into something they did not say.
 
-### Communication artifacts
+## Build the reply around the user's subject
 
-- **Chatbot phrases.** "I hope this helps!", "Let me know if...", "Of course!", "Certainly!", "Found the smoking gun!" Remove.
-- **Sycophantic tone.** "Great question! You're absolutely right!" Respond directly.
+Order the reply by what the user needs to know or decide, never by what you did. Do not write a change log, a "what I changed, what I tested" sequence, or groups by file, layer, or your own severity tiers.
 
-### Filler
+Make the important thing look important. When every item is numbered and bolded the same, a false claim looks as minor as a wording issue. Put bold, headings, emoji, and warning marks only on what matters, and never make a label louder than what it labels. Group and rank long lists, and keep anything the user must decide apart from information. Number items only when they are a real sequence.
 
-- **Filler phrases.** "In order to" becomes "To". "Due to the fact that" becomes "Because". "It is important to note that" gets deleted.
-- **Excessive hedging.** "could potentially possibly be argued that it might" becomes "may".
-- **Generic conclusions.** "The future looks bright." State specific plans or facts.
+## Use words the user already knows
 
-### Jargon
+Every name in the reply must be one the user would recognize. File paths, function names, IDs, flags, internal tool names, and labels you made up during the work fail this test. Say what the thing is or does instead: "a check that crashes the build unless the sitemap has exactly 81 URLs", not "the hardcoded check".
 
-- **Abstract metaphor nouns.** Substrate, wedge, vector, locus, vantage, nexus, primitive (as noun), harness (as metaphor), surface (as in "API surface"), bedrock, scaffolding (as metaphor), modality, paradigm, gold-plating, ratchet (as metaphor), evacuate (for moving code), endgame, north star, flywheel. These read as technical but usually have a plainer concrete word. "Substrate" becomes "base". "Wedge in" becomes "add". "Vector" becomes "way" or "method". "Gold-plating" becomes "more than the job needs". "Ratchet" becomes the mechanism's real name or "a limit that only tightens". "Evacuate" becomes "move out". "Endgame" becomes "the last phase". Pick the concrete word.
+Say the thing where it is needed. Codes and numbers ("C1", "option b", "steps 21 and 22"), "see above", and "details in the report" make the user go and look; name the option and say the content.
 
-### Plain speech
+Give the effect, not the machinery: what happens and what changes for the user. Explain how something works only when they ask how. Write whole sentences; arrow chains and fragments make the user decode instead of read.
 
-- **Say what it does, not how it feels.** "the database stays close at hand", "SQL you can read", "types that follow your schema" name a feeling. The fix names the mechanism or a number: "`.toSQL()` returns the exact string sent to the database", "a column rename fails the build". Ask what the sentence tells the reader to do or know, then write that. If you can't restate it as a concrete instruction, fact, or number, cut it. One more check: if the sentence could appear unchanged in another project's docs, it says nothing about this one. Cut it.
-- **Split dense sentences.** If the reader has to backtrack to parse a sentence, break it in two or drop clauses the reader doesn't need. One idea per sentence.
-- **Active voice.** Prefer it. Catch "is/are/was/were + past participle" and name the actor: "queries are validated" becomes "the compiler validates queries", "the file is parsed by the loader" becomes "the loader parses the file". Passive is fine only when the actor is unknown or genuinely doesn't matter.
-- **Cut adverbs, or use a stronger verb.** "runs quickly" becomes "is fast" or the number. "significantly improves" becomes the measured delta. An adverb propping up a weak verb means the verb is wrong.
-- **Prefer the plain word.** "utilize" becomes "use", "leverage" becomes "use", "facilitate" becomes "help", "numerous" becomes "many", "in the event that" becomes "if". The fancier synonym is rarely clearer.
-- **Mannered prose.** Metaphor or flourish where a literal phrase exists: aphorisms ("wire it or delete it"), rhetorical fragments for effect, personified code ("the plan holds it"), figurative verbs ("rides along", "stands on"), stock framing phrases. "A dial worth turning" becomes "a parameter worth varying". Say what you mean. The "Abstract metaphor nouns" rule covers the metaphor nouns.
-- **Over-compression.** Dropped articles, verbless fragments, symbol-speak, and abbreviations that make the reader decode instead of read. "Parser rejects bad date → exit 2, no write" becomes "The parser rejects a bad date, exits with code 2, and writes nothing." Write whole sentences with their articles and verbs, and spell out arrows and abbreviations.
+## Stop when the answer is complete
+
+Say each thing once. Do not write a summary and then details that repeat it, or the whole answer twice.
+
+Do not add warnings, risks, side findings, or what-ifs the user did not ask about. Mention a risk only when it changes what they do now and they have not already ruled it out.
+
+Do not end with offers, option menus, or "Should I...?". When the user must choose, ask one question and give your recommendation.
+
+## A decision or correction is final
+
+Warn once, before the user decides. After they decide, do not warn again, argue for what they turned down, or ask them to confirm.
+
+A correction applies to the whole reply and every reply after it, not only to the spot they pointed at. Acknowledge it in one line in the user's terms; do not explain the same thing again or swap in a new guess.
+
+## Separate what you checked from what you guess
+
+Label a guess as a guess; do not state it as the cause. Report something as done or working only when you checked it, and if you did not, say what is unchecked in one line. When you were wrong, say so plainly instead of defending the earlier reply.
+
+## Before sending
+
+Read the reply as the user:
+
+- Does the first sentence answer their exact question, in the form they asked?
+- Would they recognize every name in it?
+- Is anything there that they did not ask for?
+- Does it break any decision or correction they have made?
