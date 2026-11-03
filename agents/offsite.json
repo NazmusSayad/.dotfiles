@@ -23,6 +23,18 @@
       "enabled": true
     },
     {
+      "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
+      "provider": "claude",
+      "name": "Work",
+      "color": "#2562EB",
+      "configDir": {
+        "macos": "/Users/sayad/.claude-wm",
+        "linux": "/home/sayad/.claude-wm",
+        "windows": "C:\\Users\\sayad\\.claude-wm"
+      },
+      "enabled": true
+    },
+    {
       "id": "611812fd-9528-477e-b524-ebfe11111ef3",
       "provider": "claude",
       "name": "Creative",
@@ -31,18 +43,6 @@
         "macos": "/Users/sayad/.claude-cre",
         "linux": "/home/sayad/.claude-cre",
         "windows": "C:\\Users\\sayad\\.claude-cre"
-      },
-      "enabled": true
-    },
-    {
-      "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
-      "provider": "claude",
-      "name": "Work",
-      "color": "#2562EB",
-      "configDir": {
-        "macos": "/Users/sayad/.claude-extra",
-        "linux": "/home/sayad/.claude-extra",
-        "windows": "C:\\Users\\sayad\\.claude-extra"
       },
       "enabled": true
     }

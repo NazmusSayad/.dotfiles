@@ -9,16 +9,16 @@
       "configDir": "~/.claude"
     },
     {
+      "alias": "w",
+      "provider": "claude",
+      "configDir": "~/.claude-wm",
+      "info": "Work"
+    },
+    {
       "alias": "c",
       "provider": "claude",
       "configDir": "~/.claude-cre",
       "info": "Creative"
-    },
-    {
-      "alias": "w",
-      "provider": "claude",
-      "configDir": "~/.claude-extra",
-      "info": "Work"
     }
   ]
 }
