@@ -1,6 +1,6 @@
 ---
 name: explain
-description: Use when explaining, reporting, or writing a long reply about a report, finding, plan, etc. to the user.
+description: Use when explaining, reporting, or writing a long reply about a plan, finding, bug, cause, investigation, review, test result, change, or comparison of options.
 ---
 
 The user is a human, not an agent.
