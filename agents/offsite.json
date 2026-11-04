@@ -53,15 +53,6 @@
     "codex": false,
     "opencode": false
   },
-  "newThreads": {
-    "provider": "claude",
-    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
-    "models": {
-      "claude": null,
-      "codex": null,
-      "opencode": null
-    }
-  },
   "commitMessage": {
     "provider": "claude",
     "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
