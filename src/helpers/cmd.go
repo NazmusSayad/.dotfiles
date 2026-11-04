@@ -76,7 +76,7 @@ func ExecNativeCommand(args []string, options ...ExecCommandOptions) error {
 			os.Exit(1)
 		}
 
-		args = append([]string{"gsudo", "--integrity", "Medium"}, args...)
+		args = append([]string{"gsudo", "--direct", "--integrity", "Medium"}, args...)
 	}
 
 	cmd := exec.Command(args[0], args[1:]...)
