@@ -43,6 +43,7 @@ scoop:
   - pandoc
   - ffmpeg
   - imagemagick
+  - extras/sharex
 
   # Communication
   - extras/slack
@@ -83,7 +84,6 @@ winget:
 
   # Media Tools
   - OBSProject.OBSStudio
-  - ShareX.ShareX
   - RARLab.WinRAR
   - ThioJoe.SvgThumbnailExtension
   - id: 9NBLGGH68TW4
