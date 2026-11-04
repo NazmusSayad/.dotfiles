@@ -1,6 +1,6 @@
 ---
 name: explain
-description: Makes replies useful to the user. Use before explaining a plan, cause, or change, answering a question, writing a summary, reporting a finding, bug, or review, etc.
+description: Makes replies useful to the user. MUST USE for explaining a plan, cause, or change, answering a question, writing a summary, reporting a finding, bug, or review, etc.
 ---
 
 The user or audience is a human, not an LLM.
