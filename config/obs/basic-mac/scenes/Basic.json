@@ -1,7 +1,7 @@
 {
     "name": "Basic",
     "AuxAudioDevice1": {
-        "prev_ver": 553648128,
+        "prev_ver": 553648129,
         "name": "Input",
         "uuid": "a129f4f4-16f4-45b3-82ce-18e7c2e7b28a",
         "id": "coreaudio_input_capture",
@@ -36,7 +36,7 @@
     },
     "sources": [
         {
-            "prev_ver": 553648128,
+            "prev_ver": 553648129,
             "name": "Built-in Display",
             "uuid": "88a5d5ac-900f-4ce6-b47c-49d9dbd85f0a",
             "id": "screen_capture",
@@ -73,7 +73,7 @@
             }
         },
         {
-            "prev_ver": 553648128,
+            "prev_ver": 553648129,
             "name": "External Display",
             "uuid": "4d923b62-db57-47bd-85de-bf1281e6d317",
             "id": "screen_capture",
@@ -109,7 +109,7 @@
             }
         },
         {
-            "prev_ver": 553648128,
+            "prev_ver": 553648129,
             "name": "Output",
             "uuid": "d6931488-764f-428f-bf73-a92b38f374ba",
             "id": "sck_audio_capture",
@@ -141,7 +141,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 553648128,
+            "prev_ver": 553648129,
             "name": "Camera",
             "uuid": "96245b46-7fa8-47ef-be5d-e24184bc85c9",
             "id": "macos-avcapture",
@@ -176,7 +176,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 553648128,
+            "prev_ver": 553648129,
             "name": "Landscape",
             "uuid": "6936f226-fa1e-4af6-97a5-ff013d16c9b4",
             "id": "scene",
@@ -243,7 +243,7 @@
                     {
                         "name": "External Display",
                         "source_uuid": "4d923b62-db57-47bd-85de-bf1281e6d317",
-                        "visible": true,
+                        "visible": false,
                         "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
@@ -481,8 +481,8 @@
         }
     },
     "resolution": {
-        "x": 3840,
-        "y": 2160
+        "x": 2560,
+        "y": 1664
     },
     "migration_resolution": {
         "x": 2560,
