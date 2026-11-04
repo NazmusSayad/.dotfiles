@@ -87,7 +87,7 @@
   },
   "delivery": "steer",
   "autoSkipQuestionTimeout": 180,
-  "autoPermissionMode": "allow",
+  "autoPermissionMode": "bypass",
   "autoPermissionTimeout": 15,
   "terminal": {
     "shell": {
