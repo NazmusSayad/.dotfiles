@@ -192,7 +192,7 @@
 "$SYSTEM_FILE_DIR/AIMP":
   LinkWin: "$APPDATA/AIMP"
 "$SYSTEM_FILE_DIR/WinRar.ini":
-  LinkWin: "~/scoop/apps/winrar/current/WinRar.ini"
+  LinkWin: "$APPDATA/WinRAR/WinRAR.ini"
 "$SYSTEM_FILE_DIR/qBittorrent.ini":
   CopyWin: "$APPDATA/qBittorrent/qBittorrent.ini"
 

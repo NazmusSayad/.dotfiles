@@ -32,20 +32,17 @@ scoop:
   - ripgrep
   - byenow
   - rip
-  - sftpgo
 
   # Zip and Image
   - zip
   - unzip
   - extras/rufus
-  - extras/winrar
   - extras/anyburn
 
   # Media
   - pandoc
   - ffmpeg
   - imagemagick
-  - extras/sharex
 
   # Communication
   - extras/slack
@@ -81,10 +78,13 @@ winget:
   - CaddyServer.Caddy
   - Cloudflare.cloudflared
   - qBittorrent.qBittorrent
+  - drakkan.SFTPGo
   - Tonec.InternetDownloadManager
 
   # Media Tools
   - OBSProject.OBSStudio
+  - ShareX.ShareX
+  - RARLab.WinRAR
   - ThioJoe.SvgThumbnailExtension
   - id: 9NBLGGH68TW4
     name: Pictureflect Photo Viewer

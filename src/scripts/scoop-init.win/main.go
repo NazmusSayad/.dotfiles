@@ -7,7 +7,7 @@ import (
 func main() {
 	helpers.ExecNativeCommand([]string{
 		"powershell", "-NoProfile", "-Command",
-		"Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression",
+		"Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression; scoop config no_junction true",
 	}, helpers.ExecCommandOptions{
 		Exit: true,
 	})
