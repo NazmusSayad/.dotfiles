@@ -21,7 +21,7 @@
   },
 
   {
-    "Path": "~/scoop/apps/sharex/current/ShareX.exe",
+    "Path": "$PROGRAMFILES/ShareX/ShareX.exe",
     "AsAdmin": true
   },
 
@@ -55,7 +55,7 @@
   },
 
   {
-    "Path": "~/scoop/apps/sftpgo/current/sftpgo.exe",
+    "Path": "$PROGRAMFILES/SFTPGo/sftpgo.exe",
     "Args": [
       "serve",
       "--config-dir",

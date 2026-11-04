@@ -117,6 +117,9 @@ func homebrewSync() {
 
 func windowsSync() {
 	// Scoop
+	fmt.Println("◯", aurora.Faint("Configuring Scoop..."))
+	runCommand([]string{"scoop", "config", "no_junction", "true"})
+
 	fmt.Println("✘", aurora.Faint("Uninstalling Scoop Apps..."))
 	runCommand([]string{"scoop-prune"})
 

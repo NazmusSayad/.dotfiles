@@ -24,6 +24,6 @@
     "name": "users.json"
   },
   "smtp": {
-    "templates_path": "C:\\Users\\sayad\\scoop\\apps\\sftpgo\\current\\templates"
+    "templates_path": "C:\\ProgramData\\SFTPGo\\templates"
   }
 }
