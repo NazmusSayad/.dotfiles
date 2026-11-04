@@ -21,7 +21,7 @@
   },
 
   {
-    "Path": "$PROGRAMFILES/ShareX/ShareX.exe",
+    "Path": "~/scoop/shims/sharex.exe",
     "AsAdmin": true
   },
 
