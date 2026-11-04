@@ -119,4 +119,4 @@ switcherTap = hs.eventtap.new({
   return false
 end)
 
-switcherTap:start()
+-- switcherTap:start()
