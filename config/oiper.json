@@ -65,18 +65,30 @@
     "autoSubmit.macos": "Disabled",
     "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "cerebras-gpt-oss-120b",
+    "enhancementType": "text-lv2",
     "hotkeyHold.macos": [
-      "ShiftRight+ControlRight",
-      "ShiftRight+MetaRight"
+      "ShiftLeft+ControlLeft",
+      "ShiftLeft+MetaLeft",
+      "F15"
     ],
     "hotkeyHold.windows": [
-      "AltGr+MetaRight"
+      "ShiftLeft+ControlLeft",
+      "ShiftLeft+MetaLeft",
+      "F15"
     ],
-    "hotkeyToggle.macos": [],
+    "hotkeyToggle.macos": [
+      "ShiftRight+ControlLeft",
+      "ShiftRight+MetaLeft"
+    ],
+    "hotkeyToggle.windows": [
+      "ShiftRight+ControlLeft",
+      "ShiftRight+MetaLeft"
+    ],
     "id": "default",
     "language": "en",
     "mode": "cloud",
-    "name": "Default",
+    "name": "English",
+    "overlayStyle": "block",
     "transcribeAsrId": "groq-whisper",
     "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
   },
@@ -90,30 +102,18 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
-      "enhancementType": "text-lv2",
       "hotkeyHold.macos": [
-        "ShiftLeft+ControlLeft",
-        "ShiftLeft+MetaLeft",
-        "F15"
+        "ShiftRight+ControlRight",
+        "ShiftRight+MetaRight"
       ],
       "hotkeyHold.windows": [
-        "ShiftLeft+ControlLeft",
-        "ShiftLeft+MetaLeft",
-        "F15"
+        "AltGr+MetaRight"
       ],
-      "hotkeyToggle.macos": [
-        "ShiftRight+ControlLeft",
-        "ShiftRight+MetaLeft"
-      ],
-      "hotkeyToggle.windows": [
-        "ShiftRight+ControlLeft",
-        "ShiftRight+MetaLeft"
-      ],
-      "id": "basic-profile",
+      "hotkeyToggle.macos": [],
+      "id": "transcribe-profile",
       "language": "en",
       "mode": "cloud",
-      "name": "English",
-      "overlayStyle": "block",
+      "name": "Transcribe",
       "transcribeAsrId": "groq-whisper",
       "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
     },
@@ -145,6 +145,22 @@
       "overlayStyle": "bars",
       "transcribeAsrId": "elevenlabs-scribe",
       "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
+    },
+    {
+      "autoSubmit.macos": "Disabled",
+      "defaultForApps": [
+        {
+          "appName": "OffSite"
+        }
+      ],
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementType": "text-lv2",
+      "id": "01M6PT5X4D82HRBH06PKGJBHG0",
+      "language": "en",
+      "mode": "cloud",
+      "name": "OffSite",
+      "overlayShowName": true,
+      "transcribeAsrId": "groq-whisper"
     }
   ],
   "snippets": [
