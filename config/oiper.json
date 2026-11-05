@@ -120,7 +120,8 @@
     {
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
-      "enhancementLlmId": "openrouter-kimi",
+      "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "enhancementType": "text-lv1",
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ControlLeft+Alt",
@@ -154,12 +155,13 @@
         }
       ],
       "enhancementLlmId": "cerebras-gpt-oss-120b",
-      "enhancementType": "text-lv2",
+      "enhancementType": "text-lv1",
       "id": "01M6PT5X4D82HRBH06PKGJBHG0",
       "language": "en",
       "mode": "cloud",
       "name": "OffSite",
       "overlayShowName": true,
+      "overlayStyle": "line",
       "transcribeAsrId": "groq-whisper"
     }
   ],
