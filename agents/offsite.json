@@ -1,70 +1,51 @@
 {
-  "claudeBaseDir": {
-    "macos": null,
-    "linux": null,
-    "windows": null
-  },
-  "workingDir": {
-    "macos": "~/Desktop",
-    "linux": "~/Desktop",
-    "windows": "~/Desktop"
-  },
-  "claudeAccounts": [
-    {
-      "id": "909c98fb-6032-45e3-af98-22357fdfbae3",
-      "provider": "claude",
-      "name": "Sayad",
-      "color": null,
-      "configDir": {
-        "macos": null,
-        "linux": null,
-        "windows": null
-      },
-      "enabled": true
+  "version": 2,
+  "claude": {
+    "enabled": true,
+    "baseDir": {
+      "macos": null,
+      "linux": null,
+      "windows": null
     },
-    {
-      "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
-      "provider": "claude",
-      "name": "Work",
-      "color": "#2562EB",
-      "configDir": {
-        "macos": "/Users/sayad/.claude-wm",
-        "linux": "/home/sayad/.claude-wm",
-        "windows": "C:\\Users\\sayad\\.claude-wm"
+    "accounts": [
+      {
+        "id": "909c98fb-6032-45e3-af98-22357fdfbae3",
+        "provider": "claude",
+        "name": "Sayad",
+        "color": null,
+        "configDir": {
+          "macos": null,
+          "linux": null,
+          "windows": null
+        },
+        "enabled": true
       },
-      "enabled": true
-    },
-    {
-      "id": "611812fd-9528-477e-b524-ebfe11111ef3",
-      "provider": "claude",
-      "name": "Creative",
-      "color": "#6748FD",
-      "configDir": {
-        "macos": "/Users/sayad/.claude-cre",
-        "linux": "/home/sayad/.claude-cre",
-        "windows": "C:\\Users\\sayad\\.claude-cre"
+      {
+        "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
+        "provider": "claude",
+        "name": "Work",
+        "color": "#2562EB",
+        "configDir": {
+          "macos": "/Users/sayad/.claude-wm",
+          "linux": "/home/sayad/.claude-wm",
+          "windows": "C:\\Users\\sayad\\.claude-wm"
+        },
+        "enabled": true
       },
-      "enabled": true
-    }
-  ],
-  "codexAccounts": [],
-  "enabledProviders": {
-    "claude": true,
-    "codex": false,
-    "opencode": false
-  },
-  "commitMessage": {
-    "provider": "claude",
-    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
-    "model": "claude-haiku-5-5"
-  },
-  "titleGeneration": {
-    "provider": "claude",
-    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
-    "model": "claude-haiku-5-5"
-  },
-  "models": {
-    "claude": {
+      {
+        "id": "611812fd-9528-477e-b524-ebfe11111ef3",
+        "provider": "claude",
+        "name": "Creative",
+        "color": "#6748FD",
+        "configDir": {
+          "macos": "/Users/sayad/.claude-cre",
+          "linux": "/home/sayad/.claude-cre",
+          "windows": "C:\\Users\\sayad\\.claude-cre"
+        },
+        "enabled": true
+      }
+    ],
+    "models": {
       "claude-opus-5-5": {
         "hidden": false,
         "effort": "xhigh"
@@ -81,9 +62,31 @@
         "hidden": true,
         "effort": "high"
       }
-    },
-    "codex": {},
-    "opencode": {}
+    }
+  },
+  "codex": {
+    "enabled": false,
+    "accounts": [],
+    "models": {}
+  },
+  "opencode": {
+    "enabled": false,
+    "models": {}
+  },
+  "workingDir": {
+    "macos": "~/Desktop",
+    "linux": "~/Desktop",
+    "windows": "~/Desktop"
+  },
+  "commitMessage": {
+    "provider": "claude",
+    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
+    "model": "claude-haiku-5-5"
+  },
+  "titleGeneration": {
+    "provider": "claude",
+    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
+    "model": "claude-haiku-5-5"
   },
   "delivery": "steer",
   "autoSkipQuestionTimeout": 180,
