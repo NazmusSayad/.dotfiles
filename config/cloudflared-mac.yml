@@ -2,4 +2,6 @@ tunnel: Mac
 ingress:
   - hostname: <redacted>
     service: http://127.0.0.1:10101
+  - hostname: <redacted>
+    service: ssh://127.0.0.1:22
   - service: http_status:404

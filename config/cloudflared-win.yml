@@ -7,6 +7,10 @@ ingress:
     service: http://127.0.0.1:20202
   - hostname: <redacted>
     service: http://127.0.0.1:20201
+  - hostname: <redacted>
+    service: ssh://127.0.0.1:22
+  - hostname: <redacted>
+    service: ssh://127.0.0.1:2222
   - hostname: "<redacted>"
     service: http://127.0.0.1:20200
   - service: http_status:404

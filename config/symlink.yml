@@ -201,6 +201,10 @@
   LinkMac: "~/.cloudflared/config.yml"
 "@/config/cloudflared-mac.plist":
   CopyMac: "~/Library/LaunchAgents/local.dotfiles.cloudflared.plist"
+"@/config/ssh-mac":
+  LinkMac: "~/.ssh/config"
+"@/config/ssh-win":
+  CopyWin: "~/.ssh/config"
 "@/config/offsite-mac.plist":
   CopyMac: "~/Library/LaunchAgents/local.dotfiles.offsite.plist"
 "@/config/wsl/wslconfig.ini":

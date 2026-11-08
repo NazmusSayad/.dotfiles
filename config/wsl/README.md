@@ -102,6 +102,10 @@ ingress:
     service: http://127.0.0.1:20202
   - hostname: <redacted>
     service: http://127.0.0.1:20201
+  - hostname: <redacted>
+    service: ssh://127.0.0.1:22
+  - hostname: <redacted>
+    service: ssh://127.0.0.1:2222
   - hostname: "<redacted>"
     service: http://127.0.0.1:20200
   - service: http_status:404
@@ -181,6 +185,25 @@ sudo powershell.exe -NoProfile -Command "Restart-Service Cloudflared"
 ```
 
 The connector logs are in `%ProgramData%\cloudflared\logs\cloudflared.log`, with automatic size-based rotation. Service startup and failure events are also recorded in the Windows Application event log under `Cloudflared`.
+
+## SSH
+
+`<redacted>` and `<redacted>` are SSH routes on the `Desktop` tunnel. `<redacted>` reaches the Windows OpenSSH server on port `22`. `<redacted>` reaches OpenSSH inside Ubuntu on port `2222`, because mirrored networking shares port `22` with Windows. Clients connect through `cloudflared access ssh`, configured in `../ssh-mac`, `../ssh-win`, and `../ssh-wsl`.
+
+Install the Ubuntu SSH server. Set the port first, or the package fails to start on port `22`:
+
+```bash
+sudo install -D -m 644 /mnt/f/.dotfiles/config/wsl/sshd.conf /etc/ssh/sshd_config.d/10-dotfiles.conf
+sudo apt install openssh-server
+```
+
+The server accepts keys only. Add the Mac's public key to `~/.ssh/authorized_keys`.
+
+SSH rejects config files that everyone can write, which includes everything under `/mnt/f`. Install the client config as a copy:
+
+```bash
+install -m 644 /mnt/f/.dotfiles/config/ssh-wsl ~/.ssh/config
+```
 
 ## Recreate the Linux tool setup
 
