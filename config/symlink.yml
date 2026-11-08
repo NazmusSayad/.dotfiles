@@ -93,6 +93,36 @@
   Link:
     - "~/.claude-wm/shell-snapshots"
     - "~/.claude-cre/shell-snapshots"
+"~/.claude/file-history":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/file-history"
+    - "~/.claude-cre/file-history"
+"~/.claude/todos":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/todos"
+    - "~/.claude-cre/todos"
+"~/.claude/teams":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/teams"
+    - "~/.claude-cre/teams"
+"~/.claude/agents":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/agents"
+    - "~/.claude-cre/agents"
+"~/.claude/commands":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/commands"
+    - "~/.claude-cre/commands"
+"~/.claude/output-styles":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/output-styles"
+    - "~/.claude-cre/output-styles"
 
 # OpenCode
 "@/agents/opencode/plugins": "~/.config/opencode/plugins"
