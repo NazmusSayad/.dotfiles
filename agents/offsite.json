@@ -71,7 +71,7 @@
       },
       "claude-fable-5-1": {
         "hidden": false,
-        "effort": "high"
+        "effort": "xhigh"
       },
       "claude-sonnet-5-5": {
         "hidden": true,
