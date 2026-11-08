@@ -205,6 +205,9 @@
   LinkMac: "~/.ssh/config"
 "@/config/ssh-win":
   CopyWin: "~/.ssh/config"
+"@/config/sshd-mac.conf":
+  CopyMac: "/etc/ssh/sshd_config.d/10-dotfiles.conf"
+  InheritPerm: true
 "@/config/offsite-mac.plist":
   CopyMac: "~/Library/LaunchAgents/local.dotfiles.offsite.plist"
 "@/config/wsl/wslconfig.ini":

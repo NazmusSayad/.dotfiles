@@ -49,7 +49,7 @@ func CopyFile(source string, target string, inheritPerm bool) error {
 	}
 
 	if inheritPerm {
-		inheritDirOwnership(createdDirs)
+		inheritOwnership(target, createdDirs)
 	}
 
 	return nil
