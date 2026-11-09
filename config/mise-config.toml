@@ -116,7 +116,7 @@ yt-dlp = "latest"
 
 # Communication
 "npm:@schpet/linear-cli" = "latest"
-"github:stablyai/agent-slack" = { version = "latest", os = ["macos"] }
+"github:stablyai/agent-slack" = { version = "latest", os = ["macos", "linux"] }
 "github:NazmusSayad/agent-slack" = { version = "latest", os = ["windows"] }
 
 # Browsers
