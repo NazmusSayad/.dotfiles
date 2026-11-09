@@ -83,8 +83,8 @@ func initAndroidSdkEnv() {
 }
 
 func initDotEnv() error {
-	sharedEnvPath := helpers.ResolvePath("@/.env")
-	localEnvPath := helpers.ResolvePath("@/.local/.env")
+	sharedEnvPath := helpers.ResolvePath("#/.env")
+	localEnvPath := helpers.ResolvePath("#/.local/.env")
 	env := make(map[string]string)
 	for _, path := range []string{sharedEnvPath, localEnvPath} {
 		values, err := godotenv.Read(path)

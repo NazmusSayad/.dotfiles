@@ -34,5 +34,9 @@ func ResolvePath(input string) string {
 		input = filepath.Join(dotfilesPath, input[1:])
 	}
 
+	if strings.HasPrefix(input, "#/") {
+		input = filepath.Join(homeDir, ".dotsys", input[1:])
+	}
+
 	return os.ExpandEnv(input)
 }

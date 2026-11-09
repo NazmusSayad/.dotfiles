@@ -6,6 +6,7 @@ import (
 	"sort"
 
 	helpers "dotfiles/src/helpers"
+	"dotfiles/src/utils"
 	"gopkg.in/yaml.v3"
 )
 
@@ -95,6 +96,16 @@ func (e Entry) resolve() ([]string, []string) {
 
 func ReadConfigs() []Config {
 	rawConfigs := helpers.ReadConfig[map[string]Entry]("@/config/symlink.yml")
+
+	if utils.IsFileExists(helpers.ResolvePath("#/symlink.yml")) {
+		privateConfigs := helpers.ReadConfig[map[string]Entry]("#/symlink.yml")
+		for source, entry := range privateConfigs {
+			if _, exists := rawConfigs[source]; exists {
+				panic(fmt.Sprintf("SYMLINK: duplicate source %q in #/symlink.yml", source))
+			}
+			rawConfigs[source] = entry
+		}
+	}
 
 	sources := make([]string, 0, len(rawConfigs))
 	for source := range rawConfigs {

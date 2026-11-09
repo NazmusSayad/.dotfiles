@@ -190,23 +190,8 @@
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/mysubs.json": "~/.config/mysubs/config.json"
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
-"@/config/cloudflared-win.yml":
-  LinkWin: "~/.cloudflared/config.yml"
-"@/config/cloudflared-mac.yml":
-  LinkMac: "~/.cloudflared/config.yml"
-"@/config/cloudflared-mac.plist":
-  CopyMac: "~/Library/LaunchAgents/local.dotfiles.cloudflared.plist"
-"@/config/ssh-mac":
-  LinkMac: "~/.ssh/config"
-"@/config/ssh-win":
-  CopyWin: "~/.ssh/config"
-"@/config/sshd-mac.conf":
-  CopyMac: "/etc/ssh/sshd_config.d/10-dotfiles.conf"
-  InheritPerm: true
 "@/config/offsite-mac.plist":
   CopyMac: "~/Library/LaunchAgents/local.dotfiles.offsite.plist"
-"@/config/wsl/wslconfig.ini":
-  LinkWin: "~/.wslconfig"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 "@/config/tinycast.plist":

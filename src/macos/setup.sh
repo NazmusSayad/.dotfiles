@@ -259,7 +259,7 @@ defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.
 launchctl disable "gui/$(id -u)/com.google.GoogleUpdater.wake"
 
 echo "Opening Chrome configuration profile..."
-open ./config/chrome/com.google.Chrome.mobileconfig
+open ~/.dotsys/config/com.google.Chrome.mobileconfig
 defaults write com.google.Chrome BackgroundModeEnabled -bool false
 
 defaults write com.caldis.Mos reverse -bool false

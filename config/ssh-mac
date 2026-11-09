@@ -1,4 +1,0 @@
-Include /Users/sayad/.colima/ssh_config
-
-Host <redacted> <redacted>
-  ProxyCommand cloudflared access ssh --hostname %h
