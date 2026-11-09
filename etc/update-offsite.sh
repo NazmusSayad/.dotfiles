@@ -10,11 +10,11 @@ cd ~
 
 mac() { mise "$@"; }
 win() { ssh -o BatchMode=yes -o ConnectTimeout=8 <redacted> "mise $*"; }
-wsl() { ssh -o BatchMode=yes -o ConnectTimeout=8 <redacted> "wsl.exe -d Ubuntu-26.04 -u sayad --cd ~ -- /home/sayad/.local/bin/mise $*"; }
+wsl() { ssh -o BatchMode=yes -o ConnectTimeout=8 <redacted> "/home/sayad/.local/bin/mise $*"; }
 
 flush_mac() { sync; }
 flush_win() { ssh -o BatchMode=yes -o ConnectTimeout=8 <redacted> "powershell -NoProfile -Command Write-VolumeCache C"; }
-flush_wsl() { ssh -o BatchMode=yes -o ConnectTimeout=8 <redacted> "wsl.exe -d Ubuntu-26.04 -u root -- sync"; }
+flush_wsl() { ssh -o BatchMode=yes -o ConnectTimeout=8 <redacted> sync; }
 
 echo "Updating offsite to $target on mac, win and wsl..."
 pending="mac win wsl"

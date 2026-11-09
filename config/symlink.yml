@@ -98,11 +98,6 @@
   Link:
     - "~/.claude-wm/file-history"
     - "~/.claude-cre/file-history"
-"~/.claude/todos":
-  Create: Folder
-  Link:
-    - "~/.claude-wm/todos"
-    - "~/.claude-cre/todos"
 "~/.claude/teams":
   Create: Folder
   Link:
