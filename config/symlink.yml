@@ -20,7 +20,6 @@
 "@/agents/AGENTS_MD.md":
   - "~/.config/opencode/AGENTS.md"
   - "~/.gemini/GEMINI.md"
-  # "@/agents/CLAUDE_MD.md":
   - "~/.claude/CLAUDE.md"
   - "~/.claude-wm/CLAUDE.md"
   - "~/.claude-cre/CLAUDE.md"
