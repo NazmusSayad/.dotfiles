@@ -47,8 +47,8 @@ ninja = "latest"
 
 # AI Coding
 codex = "latest"
+"github:anomalyco/opencode" = "2"
 "github:anthropics/claude-code" = "latest"
-"http:opencode" = { version = "latest", version_list_url = "https://opencode.ai/update/api/latest/cli/opencode", version_json_path = ".version", url = 'https://opencode.ai/files/bin/{{ version }}/opencode-{{ os(macos="darwin") }}-{{ arch() }}.{{ os(linux="tar.gz", macos="zip", windows="zip") }}' }
 
 # JS/TS Runtime
 node = "lts"
@@ -153,7 +153,7 @@ minimum_release_age_excludes = [
   "pnpm",
 
   # AI Coding
-  "http:opencode",
+  "github:anomalyco/opencode",
   "github:anthropics/claude-code",
   "github:google-antigravity/antigravity-cli",
 
