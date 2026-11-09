@@ -31,6 +31,7 @@ lsd = "latest"
 fzf = "latest"
 yazi = "latest"
 superfile = "latest"
+"github:restic/restic" = "latest"
 "github:bootandy/dust" = "latest"
 "github:microsoft/edit" = "latest"
 
