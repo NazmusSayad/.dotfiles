@@ -1,0 +1,106 @@
+"@/agents/mods": "~/.claude.mods"
+
+# Skills
+"~/.agents/skills":
+  - "~/.claude/skills"
+  - "~/.claude-wm/skills"
+  - "~/.claude-cre/skills"
+
+# CLAUDE.md
+"@/agents/AGENTS_MD.md":
+  - "~/.claude/CLAUDE.md"
+  - "~/.claude-wm/CLAUDE.md"
+  - "~/.claude-cre/CLAUDE.md"
+
+# Settings
+"@/agents/claude.json":
+  - "~/.claude/settings.json"
+  - "~/.claude-wm/settings.json"
+  - "~/.claude-cre/settings.json"
+
+# Claude Accounts
+"~/.claude/history.jsonl":
+  Create: File
+  Link:
+    - "~/.claude-wm/history.jsonl"
+    - "~/.claude-cre/history.jsonl"
+"~/.claude/jobs":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/jobs"
+    - "~/.claude-cre/jobs"
+"~/.claude/plans":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/plans"
+    - "~/.claude-cre/plans"
+"~/.claude/tasks":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/tasks"
+    - "~/.claude-cre/tasks"
+"~/.claude/cache":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/cache"
+    - "~/.claude-cre/cache"
+"~/.claude/state":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/state"
+    - "~/.claude-cre/state"
+"~/.claude/plugins":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/plugins"
+    - "~/.claude-cre/plugins"
+"~/.claude/projects":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/projects"
+    - "~/.claude-cre/projects"
+"~/.claude/sessions":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/sessions"
+    - "~/.claude-cre/sessions"
+"~/.claude/paste-cache":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/paste-cache"
+    - "~/.claude-cre/paste-cache"
+"~/.claude/session-env":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/session-env"
+    - "~/.claude-cre/session-env"
+"~/.claude/shell-snapshots":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/shell-snapshots"
+    - "~/.claude-cre/shell-snapshots"
+"~/.claude/file-history":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/file-history"
+    - "~/.claude-cre/file-history"
+"~/.claude/teams":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/teams"
+    - "~/.claude-cre/teams"
+"~/.claude/agents":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/agents"
+    - "~/.claude-cre/agents"
+"~/.claude/commands":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/commands"
+    - "~/.claude-cre/commands"
+"~/.claude/output-styles":
+  Create: Folder
+  Link:
+    - "~/.claude-wm/output-styles"
+    - "~/.claude-cre/output-styles"
