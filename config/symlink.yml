@@ -86,8 +86,6 @@
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/mysubs.json": "~/.config/mysubs/config.json"
 "@/config/mytokens-group.json": "~/.mytokens/groups.json"
-"@/config/offsite-mac.plist":
-  CopyMac: "~/Library/LaunchAgents/local.dotfiles.offsite.plist"
 "@/config/gityo.json": "~/.config/gityo.json"
 "@/config/nirc": "~/.nirc"
 "@/config/tinycast.plist":
