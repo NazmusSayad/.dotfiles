@@ -3,9 +3,6 @@
 
 A_MenuMaskKey := "vkE8"
 
-::@env::<redacted>
-::@mail::<redacted>
-
 !Space::+!F
 #PrintScreen::#^+PrintScreen
 #c::Send "{Blind}{vkE8}{LWin up}{Ctrl down}c{Ctrl up}{LWin down}{vkE8}"
