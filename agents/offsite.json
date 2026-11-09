@@ -47,20 +47,16 @@
     ],
     "models": {
       "claude-opus-5-5": {
-        "hidden": false,
-        "effort": "xhigh"
+        "hidden": false
       },
       "claude-fable-5-1": {
-        "hidden": false,
-        "effort": "high"
+        "hidden": false
       },
       "claude-sonnet-5-5": {
-        "hidden": true,
-        "effort": "high"
+        "hidden": true
       },
       "claude-haiku-5-5": {
-        "hidden": true,
-        "effort": "high"
+        "hidden": true
       }
     }
   },
