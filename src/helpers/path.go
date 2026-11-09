@@ -35,7 +35,19 @@ func ResolvePath(input string) string {
 	}
 
 	if strings.HasPrefix(input, "#/") {
-		input = filepath.Join(homeDir, ".dotsys", input[1:])
+		dotsysPath := os.Getenv("DOTSYS_DIR")
+
+		if dotsysPath == "" {
+			homeDirPath := filepath.Join(homeDir, ".dotsys")
+
+			if utils.IsFileExists(homeDirPath) {
+				dotsysPath = homeDirPath
+			} else {
+				panic("DOTSYS_DIR environment variable is not set")
+			}
+		}
+
+		input = filepath.Join(dotsysPath, input[1:])
 	}
 
 	return os.ExpandEnv(input)

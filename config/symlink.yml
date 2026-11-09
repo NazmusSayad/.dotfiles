@@ -101,14 +101,6 @@
 "@/config/US Simplified.keylayout":
   CopyMac: "~/Library/Keyboard Layouts/US Simplified.keylayout"
 
-# Private
-"$SYSTEM_FILE_DIR/AIMP":
-  LinkWin: "$APPDATA/AIMP"
-"$SYSTEM_FILE_DIR/WinRar.ini":
-  LinkWin: "$APPDATA/WinRAR/WinRAR.ini"
-"$SYSTEM_FILE_DIR/qBittorrent.ini":
-  CopyWin: "$APPDATA/qBittorrent/qBittorrent.ini"
-
 # Code Editor
 "@/config/vscode/settings.jsonc":
   LinkWin:
