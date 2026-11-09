@@ -1,6 +1,6 @@
 "@/agents/mods": "~/.claude.mods"
 
-# Skills
+# Skills and CLAUDE.md
 "~/.agents/skills":
   - "~/.claude/skills"
   - "~/.claude-wm/skills"

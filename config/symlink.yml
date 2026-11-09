@@ -8,12 +8,9 @@
 "@/config/shell/bash/profile.wsl.sh":
   LinkWsl: "~/.bash_profile"
 
-# Agents Skills
-"@/agents/skills/*":
-  - "~/.agents/skills"
-  - "~/.gemini/antigravity-cli/skills"
-
-# AGENTS.md, CLAUDE.md
+# Skills and AGENTS.md
+"@/agents/skills/*": "~/.agents/skills"
+"#/agents/skills/*": "~/.agents/skills"
 "@/agents/AGENTS_MD.md":
   - "~/.config/opencode/AGENTS.md"
   - "~/.gemini/GEMINI.md"
