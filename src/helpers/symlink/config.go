@@ -2,8 +2,11 @@ package symlink
 
 import (
 	"fmt"
+	"maps"
+	"os"
 	"runtime"
-	"sort"
+	"slices"
+	"strings"
 
 	helpers "dotfiles/src/helpers"
 	"dotfiles/src/utils"
@@ -34,6 +37,7 @@ type Config struct {
 	CopyTargets []string
 	InheritPerm bool
 	Create      string
+	Expanded    bool
 }
 
 type Entry struct {
@@ -95,44 +99,82 @@ func (e Entry) resolve() ([]string, []string) {
 }
 
 func ReadConfigs() []Config {
-	rawConfigs := helpers.ReadConfig[map[string]Entry]("@/config/symlink.yml")
-
-	if utils.IsFileExists(helpers.ResolvePath("#/symlink.yml")) {
-		privateConfigs := helpers.ReadConfig[map[string]Entry]("#/symlink.yml")
-		for source, entry := range privateConfigs {
-			if _, exists := rawConfigs[source]; exists {
-				panic(fmt.Sprintf("SYMLINK: duplicate source %q in #/symlink.yml", source))
-			}
-			rawConfigs[source] = entry
+	entries := map[string][]Entry{}
+	for _, path := range []string{"@/config/symlink.yml", "@/config/symlink.claude.yml", "#/symlink.yml", "#/symlink.claude.yml"} {
+		if strings.HasPrefix(path, "#/") && !utils.IsFileExists(helpers.ResolvePath(path)) {
+			continue
+		}
+		for source, entry := range helpers.ReadConfig[map[string]Entry](path) {
+			entries[source] = append(entries[source], entry)
 		}
 	}
 
-	sources := make([]string, 0, len(rawConfigs))
-	for source := range rawConfigs {
-		sources = append(sources, source)
-	}
-	sort.Strings(sources)
-
 	var configs []Config
-	for _, source := range sources {
-		linkTargets, copyTargets := rawConfigs[source].resolve()
-		if len(linkTargets) == 0 && len(copyTargets) == 0 {
+	for _, source := range slices.Sorted(maps.Keys(entries)) {
+		config := Config{Source: source, Create: entries[source][0].Create, InheritPerm: entries[source][0].InheritPerm}
+		for _, entry := range entries[source] {
+			if entry.Create != config.Create || entry.InheritPerm != config.InheritPerm {
+				panic(fmt.Sprintf("SYMLINK: conflicting Create or InheritPerm for %s", source))
+			}
+			linkTargets, copyTargets := entry.resolve()
+			config.LinkTargets = append(config.LinkTargets, linkTargets...)
+			config.CopyTargets = append(config.CopyTargets, copyTargets...)
+		}
+		if len(config.LinkTargets) == 0 && len(config.CopyTargets) == 0 {
 			continue
 		}
 
-		switch rawConfigs[source].Create {
+		switch config.Create {
 		case "", "Folder", "File":
 		default:
-			panic(fmt.Sprintf("SYMLINK: invalid Create value %q for %s", rawConfigs[source].Create, source))
+			panic(fmt.Sprintf("SYMLINK: invalid Create value %q for %s", config.Create, source))
 		}
 
-		configs = append(configs, Config{
-			Source:      source,
-			LinkTargets: linkTargets,
-			CopyTargets: copyTargets,
-			InheritPerm: rawConfigs[source].InheritPerm,
-			Create:      rawConfigs[source].Create,
-		})
+		if strings.HasSuffix(source, "/*") {
+			configs = append(configs, expandFolder(config)...)
+		} else {
+			configs = append(configs, config)
+		}
+	}
+
+	targetSources := map[string]string{}
+	for _, config := range configs {
+		for _, target := range slices.Concat(config.LinkTargets, config.CopyTargets) {
+			if other, exists := targetSources[target]; exists {
+				panic(fmt.Sprintf("SYMLINK: %s is a target of both %s and %s", target, other, config.Source))
+			}
+			targetSources[target] = config.Source
+		}
+	}
+
+	return configs
+}
+
+func expandFolder(config Config) []Config {
+	if config.Create != "" {
+		panic(fmt.Sprintf("SYMLINK: Create is not allowed with %s", config.Source))
+	}
+
+	folder := strings.TrimSuffix(config.Source, "*")
+	items, err := os.ReadDir(helpers.ResolvePath(folder))
+	if err != nil {
+		panic(fmt.Sprintf("SYMLINK: cannot read %s: %v", folder, err))
+	}
+
+	var configs []Config
+	for _, item := range items {
+		if strings.HasPrefix(item.Name(), ".") {
+			continue
+		}
+
+		itemConfig := Config{Source: folder + item.Name(), InheritPerm: config.InheritPerm, Expanded: true}
+		for _, target := range config.LinkTargets {
+			itemConfig.LinkTargets = append(itemConfig.LinkTargets, target+"/"+item.Name())
+		}
+		for _, target := range config.CopyTargets {
+			itemConfig.CopyTargets = append(itemConfig.CopyTargets, target+"/"+item.Name())
+		}
+		configs = append(configs, itemConfig)
 	}
 
 	return configs

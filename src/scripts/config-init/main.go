@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"slices"
 	"strings"
@@ -43,6 +44,20 @@ func main() {
 			}
 		}
 
+		if config.Expanded {
+			for _, target := range slices.Concat(config.LinkTargets, config.CopyTargets) {
+				targetDir := filepath.Dir(helpers.ResolvePath(target))
+				info, err := os.Lstat(targetDir)
+				if err == nil && info.Mode()&os.ModeSymlink != 0 {
+					if err := os.Remove(targetDir); err != nil {
+						fmt.Println(aurora.Red("UNEXPECTED: Error removing linked folder: " + targetDir))
+						os.Exit(1)
+					}
+					fmt.Println(aurora.Yellow("Replaced linked folder with a real folder: " + targetDir))
+				}
+			}
+		}
+
 		for _, target := range config.LinkTargets {
 			targetPath := helpers.ResolvePath(target)
 			if helpers.GenerateSymlink(sourcePath, targetPath, config.InheritPerm) == nil {
@@ -65,10 +80,16 @@ func main() {
 	if !helpers.IsWSL() {
 		lockFile, _ := os.ReadFile(helpers.ResolvePath("@/.local/symlink.lock"))
 		for _, file := range strings.Split(string(lockFile), "\n") {
-			if file != "" && !slices.Contains(newlyCreatedFiles, file) {
-				fmt.Println(aurora.Yellow("Deleting stale link: " + file))
-				os.RemoveAll(file)
+			if file == "" || slices.Contains(newlyCreatedFiles, file) {
+				continue
 			}
+			if slices.ContainsFunc(newlyCreatedFiles, func(created string) bool {
+				return strings.HasPrefix(created, file+string(filepath.Separator))
+			}) {
+				continue
+			}
+			fmt.Println(aurora.Yellow("Deleting stale link: " + file))
+			os.RemoveAll(file)
 		}
 
 		lockPath := helpers.ResolvePath("@/.local/symlink.lock")
