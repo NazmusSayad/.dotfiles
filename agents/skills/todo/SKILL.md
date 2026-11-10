@@ -64,10 +64,10 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 ```
 
 - **Solutions** are how to meet the item. If something that already exists meets it, that is the solution; point to it instead of inventing a new one. If the solution is obvious, give the obvious one.
-- **Questions** are decisions the user has to make.
+- **Questions** are real decisions the user has to make between two or more options. Never ask the user to approve the TODO or the solution, such as "Go ahead with this?" or "OK with this?", in **Questions** or anywhere else. The user will say if they disagree.
 - **Blockers** are things that stop the work, such as a missing API, access or information.
 - **Risks** are major problems the change could cause, such as breaking an existing feature or losing data.
-- Show **Solutions**, **Questions**, **Blockers** and **Risks** only when they have content. Don't end with "OK with this?".
+- Show **Solutions**, **Questions**, **Blockers** and **Risks** only when they have content.
 - Leave out technical details unless the user needs them to decide.
 - If something already works, say so and suggest nothing, or only a quick check.
 - Answer the user's questions directly, after checking the code.
