@@ -50,6 +50,9 @@
         "hidden": false
       },
       "claude-fable-5-1": {
+        "hidden": true
+      },
+      "claude-fable-5-2": {
         "hidden": false
       },
       "claude-sonnet-5-5": {
