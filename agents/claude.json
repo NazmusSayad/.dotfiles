@@ -32,7 +32,7 @@
     "CLAUDE_CODE_ACT_DONT_REDERIVE": "0",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5-5",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
-    "ANTHROPIC_DEFAULT_FABLE_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "claude-fable-5-2",
     "CLAUDE_CODE_PLUGIN_DIRS": "~/.claude.mods/git-branch:~/.claude.mods/env-loader"
   },
   "attribution": {
