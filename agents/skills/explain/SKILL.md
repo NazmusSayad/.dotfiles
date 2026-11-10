@@ -7,7 +7,7 @@ The user or audience is a human, not an LLM.
 
 ## Open with the answer, in the form asked
 
-Before writing the reply, write one sentence that answers the exact question in the form it was asked. That sentence opens the reply; details can follow when they help.
+Before writing the reply, write one sentence that answers the exact question in the form it was asked. That sentence opens the reply. A reply can be anything from one word to many pages: when a word, a sentence, or a few lines answer the question, stop there, and add details only when the user needs them.
 
 - A yes/no question opens with yes or no: "Yes, much better than before, though not in every case."
 - "Can I fix it?" opens with whether they can: "Yes. This is a bug in the library, but you can work around it."
@@ -59,6 +59,7 @@ Read the reply as the user:
 
 - Does the first sentence answer their exact question, in the form they asked?
 - Would they recognize the names in it?
+- Would a shorter reply answer them just as well?
 - Is anything there that they did not ask for, or could work out themselves?
 - Is it built from their question, or from what you found?
 - Does it repeat a concern you already raised, or one the user declined?
