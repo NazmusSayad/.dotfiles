@@ -83,7 +83,7 @@
     }
   },
   "pluginSuggestionMarketplaces": [],
-  "outputStyle": "Consice",
+  "outputStyle": "Concise",
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
