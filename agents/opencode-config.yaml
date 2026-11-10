@@ -12,13 +12,6 @@ opencode:
     - id: glm-5.3-flash-free
       context: 300000
 
-openai:
-  models:
-    - id: gpt-6.1-sol
-      context: 270000
-    - id: gpt-6.1-terra
-      context: 270000
-
 ~agents:
   plan:
     permissions:

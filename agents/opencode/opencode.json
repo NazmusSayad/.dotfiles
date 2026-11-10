@@ -15,7 +15,13 @@
       "cua-driver": {
         "disabled": true,
         "type": "local",
-        "command": ["/opt/homebrew/bin/cua-driver", "mcp"]
+        "command": [
+          "cua-driver",
+          "mcp",
+          "--permission-mode",
+          "unrestricted",
+          "--dangerously-bypass-approvals"
+        ]
       },
       "chrome-devtools": {
         "disabled": true,
