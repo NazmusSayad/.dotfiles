@@ -6,6 +6,10 @@ disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
+## Working scope
+
+Understand the scope before you do anything else. The scope can be a PR, a commit, a branch, specific files or folders, or the whole repository. If the user did not state the scope, or the request can mean more than one scope, ask the user and wait for the answer. Do not guess. Then work only inside that scope.
+
 ## Goal
 
 Find a simpler design for the code in scope and change the code to it. Local tidying, such as inlining a helper or removing a variable, is not the goal. Look for changes that remove whole mechanisms: paths, copies of state, events, layers, and special cases.

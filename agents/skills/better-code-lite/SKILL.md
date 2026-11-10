@@ -6,6 +6,10 @@ disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
+## Working scope
+
+Understand the scope before you do anything else. The scope can be a PR, a commit, a branch, specific files or folders, or the whole repository. If the user did not state the scope, or the request can mean more than one scope, ask the user and wait for the answer. Do not guess. Then work only inside that scope.
+
 ## Remove unnecessary parts
 
 Trace references and dependencies before deciding code is unused. Public APIs, routes, and configuration can expose code without local callers. Preserve stored data and schemas needed by the behavior that remains.
