@@ -1,6 +1,6 @@
 {
-  "oc": "opencode --standalone",
-  "occ": "opencode --standalone --continue",
+  "oc": "opencode",
+  "occ": "opencode --continue",
 
   "cc": "claude",
   "ccr": "claude --resume",
