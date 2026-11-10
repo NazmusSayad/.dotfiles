@@ -69,7 +69,7 @@ Go one step per turn, in order. Keep each turn short. Long, technical replies fr
 After each answer:
 1. Write exactly what the user decided into that step's **Tasks** as unchecked checkboxes, and nothing more. Postponed or skipped items go under **Note**.
 2. Write how to check those tasks under **Verification**.
-3. Say in one line what you added, then present the next step.
+3. Say in one line what you added. If this step still has open questions or blockers, present this step again in the format above. Present the next step only when nothing in this step is open, or when the user says to move on.
 
 When every step is done, list the notes that were left for later.
 
