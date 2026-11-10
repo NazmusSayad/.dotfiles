@@ -21,12 +21,12 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 Create `docs/<topic>-plan.md` in the current project.
 
 - Title, then a line linking the sources.
-- One step per item on the user's list, in their order and wording: `## Step N — <item>`.
-- Related items not on the list go last, as extra steps marked "(not in the list)".
-- Each step has these sections:
-  - `### Context`: the facts needed to do the step, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
+- One issue per item on the user's list, in their order and wording: `## Issue N — <item>`.
+- Related items not on the list go last, as extra issues marked "(not in the list)".
+- Each issue has these sections:
+  - `### Context`: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
-  - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the step has tasks.
+  - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
   - `### Note`: only when needed, for items that are skipped or postponed ("Later, not now: …", "Skipped for now, discuss later: …").
 - If the user sets a rule for the whole plan (for example a naming rule), put it at the top.
 
@@ -34,16 +34,16 @@ Create `docs/<topic>-plan.md` in the current project.
 
 Keep it short:
 - where the plan file is;
-- one or two lines per step on where things stand;
+- one or two lines per issue on where things stand;
 - a ⚠️ for anything that will break;
 - the open questions.
 
-## Discussing the steps
+## Discussing the issues
 
-Go one step per turn, in order. Keep each turn short. Long, technical replies frustrate the user.
+Go one issue per turn, in order. Keep each turn short. Long, technical replies frustrate the user.
 
 ```
-**Step N: <title>**
+**Issue N: <title>**
 
 <What the item is about and where things stand now. As short as possible without losing any important detail.>
 
@@ -67,10 +67,10 @@ Go one step per turn, in order. Keep each turn short. Long, technical replies fr
 - Answer the user's questions directly, after checking the code.
 
 After each answer:
-1. Write exactly what the user decided into that step's **Tasks** as unchecked checkboxes, and nothing more. Postponed or skipped items go under **Note**.
+1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Postponed or skipped items go under **Note**.
 2. Write how to check those tasks under **Verification**.
-3. Say in one line what you added. If this step still has open questions or blockers, present this step again in the format above. Present the next step only when nothing in this step is open, or when the user says to move on.
+3. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
 
-When every step is done, list the notes that were left for later.
+When every issue is done, list the notes that were left for later.
 
 Don't implement anything until the user says to start.
