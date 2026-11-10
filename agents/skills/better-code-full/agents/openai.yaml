@@ -1,0 +1,7 @@
+interface:
+  display_name: "Better Code Full"
+  short_description: "Rethink the design and make it simpler without changing behavior"
+  default_prompt: "Use $better-code-full to simplify the design of this code without changing its behavior."
+
+policy:
+  allow_implicit_invocation: false

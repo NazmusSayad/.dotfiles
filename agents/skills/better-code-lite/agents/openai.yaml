@@ -1,0 +1,7 @@
+interface:
+  display_name: "Better Code Lite"
+  short_description: "Remove unnecessary code and simplify what remains"
+  default_prompt: "Use $better-code-lite to simplify this code without changing its behavior."
+
+policy:
+  allow_implicit_invocation: false

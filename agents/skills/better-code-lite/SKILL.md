@@ -1,5 +1,5 @@
 ---
-name: cleanup
+name: better-code-lite
 description: Removes unnecessary code and content, simplifies what remains, and clears out the leftovers without losing required behavior or details.
 
 disable-model-invocation: true
