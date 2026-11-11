@@ -1,5 +1,7 @@
 .DS_Store
 
+.t3/
+.offsite/
 .worktree/
 .worktrees/
 
