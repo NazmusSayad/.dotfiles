@@ -46,6 +46,8 @@
     "deny": [
       "EnterPlanMode",
       "ExitPlanMode",
+      "EnterWorktree",
+      "ExitWorktree",
       "NotebookEdit",
       "SendFeedback",
       "ShareOnboardingGuide",
