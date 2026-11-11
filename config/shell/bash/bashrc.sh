@@ -10,7 +10,7 @@ elif [[ "$OS" == "Windows_NT" ]]; then
 	PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "`cygpath -w "$PWD" -C ANSI`"'
 fi
 
-eval "$(dotsh init bash --home "${DOTSYS_DIR:-$HOME/.dotsys}")"
+eval "$(dotsh init bash --home "${DOTFILES_DIR:-$HOME/.dotfiles}/.dotsys")"
 eval "$(direnv hook bash)"
 
 eval "$(shaka bash)"

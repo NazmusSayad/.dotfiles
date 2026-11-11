@@ -49,7 +49,7 @@
       "-ExecutionPolicy",
       "Bypass",
       "-File",
-      "$DOTSYS_DIR\\wsl\\start.ps1"
+      "$DOTFILES_DIR\\.dotsys\\wsl\\start.ps1"
     ],
     "AsUser": true
   },

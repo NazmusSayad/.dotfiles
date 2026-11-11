@@ -14,11 +14,11 @@ else if test "$OS" = Windows_NT
     end
 end
 
-set -l dotsys_dir "$HOME/.dotsys"
-if test -n "$DOTSYS_DIR"
-    set dotsys_dir "$DOTSYS_DIR"
+set -l dotfiles_dir "$HOME/.dotfiles"
+if test -n "$DOTFILES_DIR"
+    set dotfiles_dir "$DOTFILES_DIR"
 end
-dotsh init fish --home "$dotsys_dir" | source
+dotsh init fish --home "$dotfiles_dir/.dotsys" | source
 direnv hook fish | source
 
 shaka fish | source
