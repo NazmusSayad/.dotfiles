@@ -9,8 +9,8 @@ lazygit = "latest"
 delta = "latest"
 git-lfs = "latest"
 difftastic = "latest"
-"github:unhappychoice/gitlogue" = "latest"
-# "github:JoaoOliveira889/monogit" = "latest"
+"npm:husky" = "latest"
+hk = "latest"
 
 # System
 cmake = "latest"
@@ -88,7 +88,6 @@ cloudflared = { version = "latest", os = ["macos", "linux"] }
 # Dev
 sqlite = "latest"
 lazydocker = "latest"
-"npm:husky" = "latest"
 "npm:prettier" = "latest"
 "npm:lint-staged" = "latest"
 "npm:concurrently" = "latest"

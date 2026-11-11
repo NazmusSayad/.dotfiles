@@ -1,0 +1,16 @@
+#!/bin/sh
+refs="$(cut -d' ' -f3)"
+[ "$1" = committed ] || exit 0
+[ -n "$DOTFILES_SYNC" ] && exit 0
+case "$GIT_REFLOG_ACTION" in pull*) ;; *) exit 0 ;; esac
+echo "$refs" | grep -qx ORIG_HEAD || exit 0
+root="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd -P)"
+from="$(git rev-parse --show-toplevel)"
+if [ "$from" = "$root" ]; then repo="$root/.dotsys"
+elif [ "$from" = "$root/.dotsys" ]; then repo="$root"
+else echo "dotfiles: unknown repo $from" >&2; exit 0
+fi
+unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE
+export DOTFILES_SYNC=1
+git -C "$repo" pull </dev/null || echo "dotfiles: failed to pull $repo" >&2
+exit 0

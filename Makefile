@@ -1,4 +1,4 @@
-.PHONY: skills compile git macos shell
+.PHONY: skills compile git macos shell init
 
 skills:
 	bash ./etc/bundle-skills.sh
@@ -14,3 +14,7 @@ shell:
 
 macos: git shell
 	bash ./src/macos/setup.sh
+
+init:
+	ln -sf ../../.githooks/pre-push ../../.githooks/reference-transaction .git/hooks/
+	ln -sf ../../../.githooks/pre-push ../../../.githooks/reference-transaction .dotsys/.git/hooks/

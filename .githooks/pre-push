@@ -1,0 +1,16 @@
+#!/bin/sh
+[ -n "$DOTFILES_SYNC" ] && exit 0
+root="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd -P)"
+from="$(git rev-parse --show-toplevel)"
+if [ "$from" = "$root" ]; then repo="$root/.dotsys"
+elif [ "$from" = "$root/.dotsys" ]; then repo="$root"
+else echo "dotfiles: unknown repo $from" >&2; exit 0
+fi
+unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE
+export DOTFILES_SYNC=1
+if [ -n "$(git -C "$repo" status --porcelain)" ]; then
+  (cd "$repo" && gityo --yolo --all) </dev/null
+else
+  git -C "$repo" push </dev/null
+fi || echo "dotfiles: failed to push $repo" >&2
+exit 0
