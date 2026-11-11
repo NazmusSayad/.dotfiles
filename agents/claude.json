@@ -50,6 +50,7 @@
       "ExitWorktree",
       "NotebookEdit",
       "SendFeedback",
+      "EndConversation",
       "ShareOnboardingGuide",
       "DesignSync",
       "ReportFindings",
