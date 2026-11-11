@@ -5,7 +5,7 @@ refs="$(cut -d' ' -f3)"
 case "$GIT_REFLOG_ACTION" in pull*) ;; *) exit 0 ;; esac
 echo "$refs" | grep -qx ORIG_HEAD || exit 0
 root="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd -P)"
-from="$(git rev-parse --show-toplevel)"
+from="$(cd "$(git rev-parse --show-toplevel)" && pwd -P)"
 if [ "$from" = "$root" ]; then repo="$root/.dotsys"
 elif [ "$from" = "$root/.dotsys" ]; then repo="$root"
 else echo "dotfiles: unknown repo $from" >&2; exit 0
