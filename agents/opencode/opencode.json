@@ -15,13 +15,7 @@
       "cua-driver": {
         "disabled": true,
         "type": "local",
-        "command": [
-          "cua-driver",
-          "mcp",
-          "--permission-mode",
-          "unrestricted",
-          "--dangerously-bypass-approvals"
-        ]
+        "command": ["cua-driver", "mcp"]
       },
       "chrome-devtools": {
         "disabled": true,
