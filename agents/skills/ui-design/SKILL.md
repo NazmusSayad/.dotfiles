@@ -35,7 +35,7 @@ Do not wrap every section or content item in a card, or nest cards inside cards.
 
 Do not leave side-by-side columns or cards with visibly unbalanced heights or large empty areas beneath one side.
 
-Do not use large explanatory text blocks when a small diagram would communicate the same information more clearly.
+Do not add text the user does not need. Use a small diagram instead of a large text block when it explains more clearly.
 
 Do not number sections, headings, cards, or content items by default or use numbers as decoration. Use numbering only when it serves a clear purpose for the user.
 
