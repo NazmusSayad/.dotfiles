@@ -35,7 +35,7 @@ Do not wrap every section or content item in a card, or nest cards inside cards.
 
 Do not leave side-by-side columns or cards with visibly unbalanced heights or large empty areas beneath one side.
 
-Do not add text the user does not need. Use a small diagram instead of a large text block when it explains more clearly.
+Write interface text the way established products do: name each control with the familiar term users expect, not a phrase describing how it works. Do not explain internals, tell users how to use the interface, restate a title, label, or button, or mention things that are not happening. Use a small diagram instead of a large text block when it explains more clearly.
 
 Do not number sections, headings, cards, or content items by default or use numbers as decoration. Use numbering only when it serves a clear purpose for the user.
 
