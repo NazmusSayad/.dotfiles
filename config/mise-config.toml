@@ -80,6 +80,7 @@ rust-analyzer = "latest"
 # Cloud
 aws = { version = "latest", symlink_bins = "true", os = ["macos"] }
 cloudflared = { version = "latest", os = ["macos", "linux"] }
+"npm:vercel" = "latest"
 
 # Security
 "osv-scanner" = "latest"
