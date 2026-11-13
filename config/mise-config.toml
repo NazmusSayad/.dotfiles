@@ -19,7 +19,6 @@ cmake = "latest"
 "cargo:pwshac" = { version = "latest", os = ["windows"] }
 
 # Shell
-"npm:offsite" =  "latest"
 gsudo = { version = "latest", os = ["windows"] }
 
 # File System
@@ -50,6 +49,7 @@ ninja = "latest"
 codex = "latest"
 "github:anomalyco/opencode" = "2"
 "github:anthropics/claude-code" = "latest"
+"github:NazmusSayad/offsite" = "latest"
 
 # JS/TS Runtime
 node = "lts"
@@ -163,11 +163,11 @@ minimum_release_age_excludes = [
   "npm:manygit",
   "npm:netserv",
   "npm:uni-run",
-  "npm:offsite",
   "npm:mysubs",
   "npm:mytokens",
   "npm:create-src",
   "npm:opencode-ext",
+  "github:NazmusSayad/offsite",
   "github:NazmusSayad/agent-slack",
 
   # My Rust Tools
