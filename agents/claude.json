@@ -14,6 +14,9 @@
     "ENABLE_CLAUDEAI_MCP_SERVERS": "false",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
     "CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS": "1",
+    "CLAUDE_CODE_BASH_EDIT_DIFF": "0",
+    "BASH_DEFAULT_TIMEOUT_MS": "300000",
+    "BASH_MAX_TIMEOUT_MS": "3600000",
     "DISABLE_FEEDBACK_COMMAND": "1",
     "CLAUDE_CODE_SEND_FEEDBACK": "0",
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
@@ -33,8 +36,7 @@
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5-5",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
     "ANTHROPIC_DEFAULT_FABLE_MODEL": "claude-fable-5-2",
-    "CLAUDE_CODE_PLUGIN_DIRS": "~/.claude.mods/git-branch:~/.claude.mods/env-loader",
-    "BASH_MAX_TIMEOUT_MS": "3600000"
+    "CLAUDE_CODE_PLUGIN_DIRS": "~/.claude.mods/git-branch:~/.claude.mods/env-loader"
   },
   "attribution": {
     "commit": "",
