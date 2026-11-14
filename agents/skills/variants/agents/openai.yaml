@@ -1,0 +1,7 @@
+interface:
+  display_name: "Variants"
+  short_description: "Create several different variants of one idea with subagents"
+  default_prompt: "Use $variants to create five different variants of this."
+
+policy:
+  allow_implicit_invocation: false
