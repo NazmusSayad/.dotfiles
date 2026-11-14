@@ -46,6 +46,8 @@ Before stating a cause, status, or fact as certain, double-check it against the 
 
 When useful, use a relevant emoji as a visual marker for notes, warnings or caveats, errors or blockers, consequential assumptions, questions requiring the user's input, action ownership, etc. Keep it occasional and unobtrusive.
 
+When useful, prefer visualizing in the chat with the `show` skill.
+
 ## Questions and Discussion
 
 A question, a request to understand something, or a discussion gets an answer, not an action. Do not start work or make changes unless explicitly requested.
