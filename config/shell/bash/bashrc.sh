@@ -27,6 +27,7 @@ on_cd() {
 	zoxide add "$PWD" 2>/dev/null
 }
 
+# Mark the current project as trusted so Claude Code skips the trust prompt
 claude() {
 	local config="${CLAUDE_CONFIG_DIR:-$HOME}/.claude.json"
 	local dir trusted

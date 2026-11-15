@@ -30,6 +30,7 @@ function on_cd --on-variable PWD
     zoxide add $PWD 2>/dev/null
 end
 
+# Mark the current project as trusted so Claude Code skips the trust prompt
 function claude
     set -l config "$HOME/.claude.json"
     if test -n "$CLAUDE_CONFIG_DIR"
