@@ -8,7 +8,7 @@ metadata: { opencode/autoinvoke: false }
 
 ## Working scope
 
-Understand the scope before you do anything else. The scope can be a PR, a commit, a branch, specific files or folders, or the whole repository. If the user did not state the scope, or the request can mean more than one scope, ask the user and wait for the answer. Do not guess. Then work only inside that scope.
+Understand the scope before you do anything else. The scope can be a PR, a commit, a branch, specific files or folders, or the whole repository. If the user did not state the scope, default to the changes made in the current chat. If the scope is unclear, ask the user and wait for the answer. Do not guess. Then work only inside that scope.
 
 ## Remove unnecessary parts
 

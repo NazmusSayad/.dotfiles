@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "claude": {
     "enabled": true,
     "baseDir": {
@@ -61,26 +61,24 @@
       "claude-haiku-5-5": {
         "hidden": true
       }
-    }
+    },
+    "smallModel": "claude-haiku-5-5"
   },
   "codex": {
     "enabled": false,
     "accounts": [],
-    "models": {}
+    "models": {},
+    "smallModel": null
   },
   "opencode": {
     "enabled": false,
-    "models": {}
+    "models": {},
+    "smallModel": null
   },
   "workingDir": {
     "macos": "~/Desktop",
     "linux": "~/Desktop",
     "windows": "~/Desktop"
-  },
-  "smallModel": {
-    "provider": "claude",
-    "accountId": "909c98fb-6032-45e3-af98-22357fdfbae3",
-    "model": "claude-haiku-5-5"
   },
   "delivery": "steer",
   "autoSkipQuestionTimeout": 180,
