@@ -52,9 +52,8 @@ codex = "latest"
 "github:NazmusSayad/offsite" = "latest"
 
 # JS/TS Runtime
-node = "lts"
+node = "latest"
 bun = "latest"
-deno = "latest"
 
 # JS/TS Tools
 pnpm = "latest"
