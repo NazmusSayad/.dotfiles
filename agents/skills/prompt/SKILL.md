@@ -64,6 +64,10 @@ Evaluate the prompt according to its job. Use real or representative inputs and 
 
 Do not turn one failure or successful fix into a universal rule without evidence of a broader pattern. Every instruction should have a clear behavioral purpose grounded in intent, context, scope, or evidence. Remove anything that cannot meet that test.
 
+## Updating, Modifying or Fixing existing instructions
+
+When existing instructions need to change, whether to fix a failure or to add behavior, change the instructions that govern that behavior instead of adding rules on top of them. A rule added to counter an instruction leaves the cause in place, and the two then compete. Rewrite what needs rewriting, at whatever scope the change requires, but rewriting is not the goal: the goal is instructions that produce the intended behavior.
+
 ## Writing a skill
 
 A skill is a prompt too, so everything above applies. The description of an automatically invoked skill has two sentences: the first says what the skill is, and the second names the situations that need it. The description of a manually invoked skill is one sentence that says what the skill does. When a skill grows out of real work, keep what generalizes to the whole class of tasks and leave out the details of the work it came from.
