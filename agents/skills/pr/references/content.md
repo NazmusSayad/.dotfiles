@@ -48,7 +48,11 @@ Add screenshots whenever the change is visible and the environment can take them
 
 Add a video recording when screenshots can't show the change, because it moves or spans several steps. Start from a screen the reviewer knows and show only the steps that matter.
 
-Never add attachment files to git. `gh` supports attachments (gh 2.99.0 or later): reference each file by its path in the body and pass the same path to `--attach` on `gh pr create` or `gh pr edit`. `gh` uploads the file and replaces the path with its link, so it shows where you placed it.
+Never add attachment files to git.
+
+## Attachments with `gh`
+
+`gh` uploads images and videos with `--attach` on `gh pr create` and `gh pr edit` (gh 2.99.0 or later). Place each file in the body as a Markdown image, `![alt text](./path/to/file.png)`, and pass the same path to `--attach`. `gh` rewrites that reference to the uploaded file, so it shows where you placed it. A path written any other way stays as plain text, and the file is appended to the end of the body. Paths in a `--body-file` are relative to its directory, then to the working directory. Video renders as a player and has no alt text.
 
 ## Diagrams
 

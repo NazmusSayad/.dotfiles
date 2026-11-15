@@ -32,7 +32,7 @@ Ask how you would build the same behavior from the start with what you know now.
 - Several places merge or filter the same data in their own way. Do it in one place.
 - Separate kinds, events, or types exist for cases that one general rule covers.
 - A lookup, query, or subscription exists only to feed another step that could get the value directly.
-- Code repeated across implementations, such as providers or handlers, does the same work. Share it when that removes real repetition.
+- Logic repeated across implementations, such as providers or handlers, does the same work. Share the logic, not code that only looks the same.
 - A layer, wrapper, or indirection only forwards to another.
 
 Before you keep a mechanism, find out why it exists. Code that looks unnecessary often protects behavior, such as an instant open from a cache, an optimistic update, or a provider difference. Keep it when removing it would change behavior.
