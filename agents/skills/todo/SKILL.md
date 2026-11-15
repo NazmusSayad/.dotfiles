@@ -6,6 +6,8 @@ disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
+This skill is for planning only. Don't implement anything until the user says to start; the only file you write is the plan.
+
 ## Input
 
 The user gives a short list of items. They may point to a repo, docs, files or a past session for context.
@@ -14,15 +16,13 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 
 1. Gather the sources the user points to. Pull the repos they name. Read their docs first, and read code only where the docs are missing or unclear. If the user uploads files, compare them with the repo copies and use the newest.
 2. For each item, find the code or area it touches. Note what already works, what is missing, and what will break. Check the code before saying something already works.
-3. Also note related things that aren't on the user's list.
 
 ## Plan file
 
 Create `docs/<topic>-plan.md` in the current project.
 
 - Title, then a line linking the sources.
-- One issue per item on the user's list, in their order and wording: `## Issue N — <item>`.
-- Related items not on the list go last, as extra issues marked "(not in the list)".
+- One issue per item on the user's list, in their order and wording: `## Issue N — <item>`. Nothing that isn't on the list.
 - Each issue has these sections:
   - `### Context`: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
@@ -78,5 +78,3 @@ After each answer:
 3. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
 
 When every issue is done, list the notes that were left for later.
-
-Don't implement anything until the user says to start.

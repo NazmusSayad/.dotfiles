@@ -8,7 +8,7 @@ metadata: { opencode/autoinvoke: false }
 
 ## Purpose
 
-The audit is a report that helps the user understand what keeps going wrong between them and their agents. It is not a fix. Do not edit instructions, skills, settings, hooks, or project files, and do not offer to apply changes; the only file you write is the report. A finding may say what would help, but its job is to explain the problem and its cause clearly enough that the user can decide what to do.
+The audit is a report that helps the user understand what keeps going wrong between them and their agents. It is not a fix. Do not edit instructions, skills, settings, hooks, or project files, and do not offer to apply changes; the only files you write are the report's. A finding may say what would help, but its job is to explain the problem and its cause clearly enough that the user can decide what to do.
 
 The most important findings are repeated ones: mistakes the agent made again and again, and problems the user's prompting caused again and again. One-off incidents matter only when they were costly.
 
@@ -60,20 +60,33 @@ Read the user's global and project instructions, settings, and skills. For each 
 
 ## Report
 
-Write the report to `~/.claude/audits/<YYYY-MM-DD>.md`. Start with the coverage: the sessions, prompts, projects, and date range analyzed, plus anything skipped.
+Write the report as three files in `~/.claude/audits/<YYYY-MM-DD>/`. Each problem goes in exactly one of them:
 
-Then include these sections, each ordered by how much the problem costs the user, weighing frequency and impact:
+- `overview.md`: behaviors that could happen in any project. An incident from one project belongs here when its cause is a general behavior: state the behavior in terms that would explain incidents in any project, and cite the incident as evidence.
+- `projects.md`: problems that depend on the facts of one project or machine and would not apply elsewhere.
+- `skills.md`: problems with the user's skills and global instructions.
+
+Group findings by the behavior or cause behind them, not by symptom, so one behavior is one finding with its incidents as evidence. When a finding says what would help, say it at that level, not as a patch for one incident. Order findings in every section by how much they cost the user, weighing frequency and impact.
+
+### overview.md
+
+Start with the coverage: the sessions, prompts, projects, machines, and date range analyzed, plus anything skipped. Then:
 
 1. **Repeated agent mistakes:** wrong results the agent keeps producing, how often, where, and whether an existing instruction should have prevented them.
 2. **Behavior issues:** how the agent keeps working against the user's intent, how often, where, and whether an existing instruction should have prevented it.
 3. **Repeated prompting problems:** what in the user's prompts keeps causing misunderstandings or rework, how often, with examples of the prompt and what it led to.
 4. **Communication issues:** the kinds of replies that confused the user or missed the point, with examples.
-5. **Tooling issues:** failing tools, tool misuse, and tool economy, with how often each occurred and what it cost.
-6. **Skill loading problems:** missed loads, wrong loads, and unused skills.
-7. **Environment gaps:** navigation, missing checks, information access, and repeated workflows.
-8. **Instruction issues:** existing instructions that are weak, conflicting, unused, or counterproductive.
-9. **Rework hotspots:** the sessions that cost the most in back-and-forth, retries, and compactions, and what went wrong in each.
+5. **Tooling issues:** failing tools, tool misuse, and tool economy that are not tied to one project, with how often each occurred and what it cost.
+6. **Environment gaps:** navigation, missing checks, information access, and repeated workflows that are not tied to one project.
 
-If earlier reports exist in `~/.claude/audits/`, end with **Change since the last audit:** for each problem in the most recent earlier report whose scope overlaps this one, say whether it is resolved, still happening, or worse, and mark which problems in this report are new.
+### projects.md
 
-In the chat, summarize the few most important repeated problems and link the report.
+One section per project or machine that has problems of its own: navigation, missing checks, information access, its own tooling problems, repeated workflows, its instruction files that are weak, conflicting, unused, or counterproductive, and its costliest sessions in back-and-forth, retries, and compactions, with what went wrong in each.
+
+### skills.md
+
+One section for each skill with problems, then one for the global instructions. Each section stands on its own: how often it loaded in the sessions where it applied, missed and wrong loads, rules that were broken or led to behavior the user corrected, rules that conflict, principles the user keeps restating that it should state, and what would make it work better. Then list the skills with no problems and the skills never used, so every skill the user has appears.
+
+If earlier audits exist in `~/.claude/audits/`, end each file with **Change since the last audit:** for each problem in the most recent earlier audit that belongs in this file and whose scope overlaps this one, say whether it is resolved, still happening, or worse, and mark which problems in this file are new.
+
+In the chat, summarize the few most important repeated problems and link the three files.

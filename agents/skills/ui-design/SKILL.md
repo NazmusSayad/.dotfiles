@@ -1,6 +1,6 @@
 ---
 name: ui-design
-description: UI design and review for web interfaces. Use when creating, styling, redesigning, or critiquing websites, product UI, and components.
+description: UI design and review for any interface, web or native. Use before creating or changing how anything looks, including small fixes to an existing screen such as layout, spacing, icons, text, or styling, and when reviewing UI.
 ---
 
 ## Product
@@ -44,3 +44,7 @@ Do not fill sections with repeated "Learn more" buttons or buttons that merely j
 Do not fabricate product interfaces or substitute simulated screens for the actual product UI.
 
 Do not create, draw, or hand-code brand logos from scratch instead of using the real logo from an official source or a library.
+
+## Verification
+
+Verify the work whenever possible before saying it's done. Check every changed state in each theme for glitches, flickers, and layout breaks.

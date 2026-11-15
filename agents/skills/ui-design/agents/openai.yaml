@@ -1,4 +1,4 @@
 interface:
   display_name: "UI Design"
-  short_description: "Design and review clear web interfaces"
-  default_prompt: "Use $ui-design to design or review this web interface."
+  short_description: "Design, change, and review interfaces"
+  default_prompt: "Use $ui-design to design, change, or review this interface."
