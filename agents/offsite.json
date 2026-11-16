@@ -62,7 +62,7 @@
         "hidden": true
       }
     },
-    "smallModel": "claude-haiku-5-5"
+    "smallModel": null
   },
   "codex": {
     "enabled": false,
