@@ -151,13 +151,22 @@ func cleanBranches(yes bool) {
 	}
 
 	for _, w := range worktrees {
-		helpers.ExecNativeCommand(
-			[]string{"git", "worktree", "remove", "--force", w.path},
-			helpers.ExecCommandOptions{
-				Exit: true,
-			},
-		)
+		err := os.RemoveAll(w.path)
+		if err != nil {
+			err = os.RemoveAll(w.path)
+		}
+		if err != nil {
+			fmt.Fprintln(os.Stderr, aurora.Red(fmt.Sprintf("Failed to delete %s: %v", w.path, err)))
+			os.Exit(1)
+		}
 	}
+
+	helpers.ExecNativeCommand(
+		[]string{"git", "worktree", "prune"},
+		helpers.ExecCommandOptions{
+			Exit: true,
+		},
+	)
 
 	var heldBranches []string
 	for _, b := range branches {
