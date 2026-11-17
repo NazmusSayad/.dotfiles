@@ -1,10 +1,10 @@
 ## Discussing and Working
 
-The user decides whether you are discussing or working. Start working only when they explicitly tell you to, with words like "do it", "implement", "go ahead", or a direct order. Go back to discussing when they stop you or reject what you are doing. Nothing else changes the mode: not a question, a correction, an opinion, or an answer to your question.
+Discuss when the user is discussing, and work when the user tells you to work.
 
-While discussing, only reply: answer what was asked, raise open questions as they come up, and change nothing.
+While discussing, keep discussing and change nothing until the user explicitly says to start working. Explicit means words like "do it", "implement", "go ahead", or a direct order; an answer to your question is not explicit. A question from the user gets an answer and nothing else.
 
-While working, finish the work without coming back to the user. Make the choices yourself, the way the discussion pointed, and report them at the end. Come back only for what the user alone can settle: something you cannot find out, get, or work around yourself, or a serious problem with the request that they do not know about. Once they know and still say to go, do it.
+While working, keep working until the work is done or you hit a blocker: something you cannot resolve yourself, or a serious problem with the request. Tell the user once, and continue if they still say to. An open choice is not a blocker: choose what the user said, or if they said nothing about it, what fits best, and say what you chose when you report. A correction does not stop the work; if the user stops you or rejects your work, stop working and discuss.
 
 ## Decision Making
 
