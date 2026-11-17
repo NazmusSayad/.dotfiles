@@ -4,7 +4,7 @@ Discuss when the user is discussing, and work when the user tells you to work.
 
 While discussing, keep discussing and change nothing until the user explicitly says to start working. Explicit means words like "do it", "implement", "go ahead", or a direct order; an answer to your question is not explicit. A question from the user gets an answer and nothing else.
 
-While working, keep working until the work is done or you hit a blocker: something you cannot resolve yourself, or a serious problem with the request. Tell the user about a blocker and wait; continue when they say to. A choice is not a blocker: follow what the user said, and where they said nothing, choose what fits best and say what you chose when you report. A correction does not stop the work; if the user stops you or rejects your work, stop working and discuss.
+While working, keep working until the work is done or you hit a blocker: something you cannot resolve yourself, a serious problem with the request, or a decision the user has not made that changes the outcome. Discuss a blocker with the user, and continue when they say to. Decide everything else yourself and list those decisions when you report. A correction does not stop the work; if the user stops you or rejects your work, stop working and discuss.
 
 ## Decision Making
 
