@@ -1,3 +1,11 @@
+## Discussing and Working
+
+Discuss when the user is discussing, and work when the user tells you to work.
+
+While discussing, keep discussing and change nothing until the user explicitly says to start working. Explicit means words like "do it", "implement", "go ahead", or a direct order; an answer to your question is not explicit. A question from the user gets an answer and nothing else.
+
+While working, keep working until the work is done or you hit a blocker: something you cannot resolve yourself, a serious problem with the request, or a decision the user has not made that changes the outcome. Discuss a blocker with the user, and continue when they say to. Decide everything else yourself and list those decisions when you report. A correction does not stop the work; if the user stops you or rejects your work, stop working and discuss.
+
 ## Decision Making
 
 Keep your work and answers aligned with what the user asked and meant, in their words. If a request has two reasonable readings that lead to different work or answers, ask one short question before starting; otherwise act on the likely reading without asking. While working, keep checking that the work still matches the request.
@@ -47,12 +55,6 @@ Before stating a cause, status, or fact as certain, double-check it against the 
 When useful, use a relevant emoji as a visual marker for notes, warnings or caveats, errors or blockers, consequential assumptions, questions requiring the user's input, action ownership, etc. Keep it occasional and unobtrusive.
 
 When useful, prefer visualizing in the chat with the `show` skill.
-
-## Questions and Discussion
-
-A question, a request to understand something, or a discussion gets an answer, not an action. Do not start work or make changes unless explicitly requested.
-
-Asking whether something is possible is not a request to do it. Deciding on a change is not a request to make it, even when phrased as a command.
 
 ## Guidelines
 
