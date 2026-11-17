@@ -23,11 +23,11 @@ When you restate the user's request, use their words.
 
 ## Build the hierarchy from what the user wants
 
-The top level of the reply is what the user wants to know or must decide. What you did, how you found it, and how it works sit under the point they support, and only when they help. Do not organize the top level as a "what I changed, what I tested" sequence or as groups by file, layer, or your own severity tiers.
+The top level of the reply is what the user wants to know or must decide. What you did, how you found it, and how it works sit under the point they support, and only when they help. Do not organize the top level as a "what I changed, what I tested" sequence or as groups by file, layer, feature, or severity unless the user asks for that grouping. In a list of issues, each issue is a top-level item with its severity inside it.
 
 At the top level, describe what happens, not the machinery behind it: a change is what is now different for the user, and a cause is what went wrong, not the chain of code that led to it. Write "Search now finds names with accents", not "the query now normalizes text before matching".
 
-Make the important thing look important. Put what the user most needs to know, such as what failed, what is not done, or what they must decide, near the top, not in a closing note after a list of routine work. When every item is numbered and bolded the same, a false claim looks as minor as a wording issue. Put bold, headings, emoji, and warning marks only on what matters, and keep a label quieter than what it labels. Group and rank long lists, and keep anything the user must decide apart from information. Number items only when they are a real sequence.
+Make the important thing look important. Put what the user most needs to know, such as what failed, what is not done, or what they must decide, near the top, not in a closing note after a list of routine work. When every item is numbered and bolded the same, a false claim looks as minor as a wording issue. Put bold, headings, emoji, and warning marks only on what matters, and keep a label quieter than what it labels. Keep anything the user must decide apart from information. Number items only when they are a real sequence.
 
 ## Use words the user already knows
 
