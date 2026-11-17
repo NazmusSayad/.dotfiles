@@ -12,11 +12,15 @@
   - "~/.claude-wm/CLAUDE.md"
   - "~/.claude-cre/CLAUDE.md"
 
+# CLAUDE Test
+"@/agents/AGENTS_TEST.md": "~/.claude-test/CLAUDE.md"
+
 # Settings
 "@/agents/claude.json":
   - "~/.claude/settings.json"
   - "~/.claude-wm/settings.json"
   - "~/.claude-cre/settings.json"
+  - "~/.claude-test/settings.json"
 
 # Claude Accounts
 "~/.claude/history.jsonl":
