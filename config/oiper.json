@@ -36,23 +36,28 @@
       "provider": "cerebras"
     },
     {
-      "id": "openrouter-kimi",
-      "model": "moonshotai/kimi-k2-0905:nitro",
-      "provider": "openrouter"
-    },
-    {
-      "id": "openrouter-mini",
+      "id": "openrouter-gpt-oss-120b",
       "model": "openai/gpt-oss-120b:nitro",
       "provider": "openrouter"
     },
     {
-      "id": "openrouter-mercury-2.5",
+      "id": "openrouter-gpt-6-luna",
+      "model": "openai/gpt-6-luna:nitro",
+      "provider": "openrouter"
+    },
+    {
+      "id": "openrouter-deepseek-flash",
+      "model": "deepseek/deepseek-v4.1-flash-1017:nitro",
+      "provider": "openrouter"
+    },
+    {
+      "id": "openrouter-mercury",
       "model": "inception/mercury-2.5:nitro",
       "provider": "openrouter"
     },
     {
-      "id": "openrouter-qwen3-vl-8b-instruct",
-      "model": "qwen/qwen3-vl-8b-instruct:nitro",
+      "id": "openrouter-minimax",
+      "model": "minimax/minimax-m3.1-flash:nitro",
       "provider": "openrouter"
     },
     {
@@ -149,7 +154,7 @@
     },
     {
       "autoSubmit.macos": "Disabled",
-      "enhancementLlmId": "openrouter-mini",
+      "enhancementLlmId": "openrouter-minimax",
       "enhancementType": "text-lv2",
       "id": "01M6PT5X4D82HRBH06PKGJBHG0",
       "language": "en",
