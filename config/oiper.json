@@ -38,32 +38,26 @@
     {
       "id": "openrouter-gpt-oss-120b",
       "model": "openai/gpt-oss-120b:nitro",
-      "provider": "openrouter"
+      "provider": "openrouter",
+      "options": { "reasoning": { "effort": "minimal" } }
     },
     {
       "id": "openrouter-gpt-6-luna",
       "model": "openai/gpt-6-luna:nitro",
-      "provider": "openrouter"
+      "provider": "openrouter",
+      "options": { "reasoning": { "effort": "none" } }
     },
     {
       "id": "openrouter-deepseek-flash",
       "model": "deepseek/deepseek-v4.1-flash-1017:nitro",
-      "provider": "openrouter"
-    },
-    {
-      "id": "openrouter-mercury",
-      "model": "inception/mercury-2.5:nitro",
-      "provider": "openrouter"
+      "provider": "openrouter",
+      "options": { "reasoning": { "effort": "none" } }
     },
     {
       "id": "openrouter-minimax",
       "model": "minimax/minimax-m3.1-flash:nitro",
-      "provider": "openrouter"
-    },
-    {
-      "id": "openrouter-nemotron-3-nano-30b-a3b",
-      "model": "nvidia/nemotron-3-nano-30b-a3b:nitro",
-      "provider": "openrouter"
+      "provider": "openrouter",
+      "options": { "reasoning": { "effort": "minimal" } }
     }
   ],
   "defaultProfile": {
@@ -71,24 +65,14 @@
     "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "cerebras-gpt-oss-120b",
     "enhancementType": "text-lv2",
-    "hotkeyHold.macos": [
-      "ShiftLeft+ControlLeft",
-      "ShiftLeft+MetaLeft",
-      "F15"
-    ],
+    "hotkeyHold.macos": ["ShiftLeft+ControlLeft", "ShiftLeft+MetaLeft", "F15"],
     "hotkeyHold.windows": [
       "ShiftLeft+ControlLeft",
       "ShiftLeft+MetaLeft",
       "F15"
     ],
-    "hotkeyToggle.macos": [
-      "ShiftRight+ControlLeft",
-      "ShiftRight+MetaLeft"
-    ],
-    "hotkeyToggle.windows": [
-      "ShiftRight+ControlLeft",
-      "ShiftRight+MetaLeft"
-    ],
+    "hotkeyToggle.macos": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
+    "hotkeyToggle.windows": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
     "id": "default",
     "language": "en",
     "mode": "cloud",
@@ -107,13 +91,8 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
-      "hotkeyHold.macos": [
-        "ShiftRight+ControlRight",
-        "ShiftRight+MetaRight"
-      ],
-      "hotkeyHold.windows": [
-        "AltGr+MetaRight"
-      ],
+      "hotkeyHold.macos": ["ShiftRight+ControlRight", "ShiftRight+MetaRight"],
+      "hotkeyHold.windows": ["AltGr+MetaRight"],
       "hotkeyToggle.macos": [],
       "id": "transcribe-profile",
       "language": "en",
@@ -133,16 +112,9 @@
         "MetaLeft+ControlLeft",
         "ShiftLeft+F15"
       ],
-      "hotkeyHold.windows": [
-        "ShiftLeft+Alt",
-        "ShiftLeft+F15"
-      ],
-      "hotkeyToggle.macos": [
-        "ShiftRight+Alt"
-      ],
-      "hotkeyToggle.windows": [
-        "ShiftRight+Alt"
-      ],
+      "hotkeyHold.windows": ["ShiftLeft+Alt", "ShiftLeft+F15"],
+      "hotkeyToggle.macos": ["ShiftRight+Alt"],
+      "hotkeyToggle.windows": ["ShiftRight+Alt"],
       "id": "prompt-profile",
       "language": "bn",
       "mode": "cloud",
@@ -247,10 +219,6 @@
   },
   "whisperBackend.macos": "auto",
   "whisperBackend.windows": "auto",
-  "words": [
-    "NazmusSayad",
-    "OiPer",
-    "Claude"
-  ],
+  "words": ["NazmusSayad", "OiPer", "Claude"],
   "writeClipboard": false
 }
