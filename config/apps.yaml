@@ -114,9 +114,6 @@ winget:
   - id: Microsoft.VisualStudioCode
     scope: User
     interactiveInstall: true
-  - id: Microsoft.VisualStudioCode.Insiders
-    scope: User
-    interactiveInstall: true
 
   # Runtime SDKs
   - KhronosGroup.VulkanSDK
