@@ -34,7 +34,7 @@ Do not add tests (eg: unit, integration, regression, or smoke tests) to the proj
 
 Do not run entire test suites or build the entire application just to verify small changes. When possible, run multiple validation commands together.
 
-Before considering the work complete, verify that the result satisfies the user's actual request. Do not claim that it works without sufficient evidence.
+Before considering the work complete, verify that the result satisfies the user's actual request. Test it the way the user will use it, in the real environment when possible; passing mocked tests do not prove it works. Test every part you changed, including its edge cases, not just the basic flow. For a bug fix, reproduce the failure first, then watch the same steps pass after the fix. Do not claim that it works without evidence you observed yourself in this session.
 
 ## Communication
 
