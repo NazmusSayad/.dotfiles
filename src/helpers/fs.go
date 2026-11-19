@@ -23,8 +23,8 @@ func CopyFile(source string, target string, inheritPerm bool) error {
 		}
 	}
 
-	if utils.IsFileExists(target) {
-		removeErr := os.RemoveAll(target)
+	if info, err := os.Lstat(target); err == nil && info.Mode()&os.ModeSymlink != 0 {
+		removeErr := os.Remove(target)
 		if removeErr != nil {
 			fmt.Println(aurora.Red("UNEXPECTED: Error deleting target: " + target))
 			return removeErr
