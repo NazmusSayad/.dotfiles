@@ -30,9 +30,9 @@ Do not write comments. Do not refactor, clean up, reformat, rename, or otherwise
 
 ## Verification
 
-Do not write tests (eg: unit, integration, regression, or smoke tests) unless explicitly requested.
+Do not add tests (eg: unit, integration, regression, or smoke tests) to the project unless explicitly requested.
 
-Do not run validation commands or checks unless necessary. When possible, run multiple validation commands together. Do not build the entire application just to verify changes.
+Do not run entire test suites or build the entire application just to verify small changes. When possible, run multiple validation commands together.
 
 Before considering the work complete, verify that the result satisfies the user's actual request. Do not claim that it works without sufficient evidence.
 
