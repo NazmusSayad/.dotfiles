@@ -84,7 +84,7 @@ func main() {
 				continue
 			}
 			if slices.ContainsFunc(newlyCreatedFiles, func(created string) bool {
-				return strings.HasPrefix(created, file+string(filepath.Separator))
+				return strings.HasPrefix(filepath.Clean(created), filepath.Clean(file)+string(filepath.Separator))
 			}) {
 				continue
 			}
