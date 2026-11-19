@@ -22,7 +22,7 @@ Read the task, the sources it points to, and how the project builds, ships, and 
 
 The end goal is the only finish line. Code that passes checks, a push, a merge, or a started deploy is not the end goal. Keep the whole end goal; do not redefine success around a smaller, safer, or easier-to-test version of it.
 
-- Fix every issue you find within the task, in your change, in the setup, or in what testing shows, and fix the same issue wherever else it appears. This includes issues you find after you reach the end goal. Do not report an issue and leave it, and do not ask whether to fix it.
+- Fix every issue that stops the end goal or that your work caused, in your change, in the setup, or in what testing shows, and fix the same issue wherever else it appears. This includes issues you find after you reach the end goal. Do not report an issue and leave it, and do not ask whether to fix it.
 - Do not fix issues that are unrelated to the task, even when the fix looks small and harmless. An issue is related when your work caused it, when it stops the end goal, or when it is the same issue you are fixing. Leave everything else as it is, even if it looks wrong.
 - When the user names a problem without a solution, find the solution yourself. When the user gives a solution, plan, or workflow, follow it, even when it replaces a solution you planned, a decision you made, or work you already did. Drop everything that does not follow it, however much there is. Do it another way only when the user's way is impossible, and say why in the report.
 - A change is not done until it has gone through every step to the end goal again, such as building, shipping, and testing. You can batch changes and go through the steps once for all of them. A new request from the user during the run keeps the constraints, and keeps the end goal unless the user sets a different one.
@@ -50,7 +50,7 @@ Every testing method needed to prove the result is part of the request, such as 
 A decision or a step you have not done before is not a blocker.
 
 - For a decision, choose the simplest option that reaches the end goal without risking regressions, and note it for the report.
-- For a missing step, tool, device, account, or access, find out how this project already does it. Read its docs and scripts, then search earlier sessions of this project (`~/.claude*/projects/<project>/*.jsonl`) for the same situation, and do what worked there. If nothing shows the way, use the simplest method that works.
+- For a missing step, tool, device, account, or access, find out how this project already does it. Read its docs and scripts, then search earlier sessions of this project for the same situation, and do what worked there. If nothing shows the way, use the simplest method that works.
 
 A real blocker is one that only the user can remove, such as a credential only they have, a payment, or a captcha, and that stays the same after you have tried every other route. Hard, slow, or uncertain work is not a blocker. Before you stop for a real blocker, finish everything else that is possible. Then ask with the question tool, so the user sees that the work is waiting, and put everything they need in the question: what blocks you, what you tried, and the options with your recommendation first.
 
