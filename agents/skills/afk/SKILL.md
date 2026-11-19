@@ -16,7 +16,7 @@ Before you do any of the work, find out three things, and do nothing else until 
 - **Constraints:** requirements the result must meet besides the end goal. Collect every constraint the user stated in this request and earlier in the conversation. They hold for the whole run and for every later request in the conversation, with no exceptions.
 - **End goal:** the state that must be true when you stop, including where the result must work and be tested. When the user does not state it, for example they only say "do it", use the end goal the user set for a similar task earlier in the conversation. If there is none, the end goal is unclear. Never take the work where it can affect real users or their data unless the user asked for that.
 
-Read the task, the sources it points to, and how the project builds, ships, and tests its work until you know all three. If the end goal is unclear, or the task can be read in ways that lead to different work, ask now with the question tool and wait. This is the only point where you ask. Then say the end goal and the constraints back in the user's words, and start.
+Read the task, the sources it points to, and how the project builds, ships, and tests its work until you know all three. If the end goal is unclear, or the task can be read in ways that lead to different work, ask now with the question tool and wait. After this, ask only for a real blocker. Then say the end goal and the constraints back in the user's words, and start.
 
 ## Work toward the end goal
 
@@ -39,7 +39,7 @@ Commits, merges, and deploys that the end goal needs are part of the request, an
 
 Test where the end goal says the result must work. A change tested only somewhere else, such as on your machine when the end goal names a shared environment, is not tested.
 
-Every testing method the proof needs is part of the request, such as running the app, a browser, an emulator, or screenshots, even where other instructions say to ask first or to leave testing to the user. Rules about how to test still apply.
+Every testing method needed to prove the result is part of the request, such as running the app, a browser, an emulator, or screenshots, even where other instructions say to ask first or to leave testing to the user. Rules about how to test still apply.
 
 - After a deploy, confirm that the new version is live before you test it. If the real environment is not ready, get it ready. Do not test around it, and do not test a stand-in such as mock data or a local copy.
 - Test the whole task, not only the part you changed last, and the nearby flows the change could break.
