@@ -1,0 +1,7 @@
+interface:
+  display_name: "AFK"
+  short_description: "Take a task to its end goal on its own"
+  default_prompt: "Use $afk to take this task to its end goal and fix everything in the way."
+
+policy:
+  allow_implicit_invocation: false
