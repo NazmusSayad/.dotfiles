@@ -38,5 +38,5 @@ func ResolvePath(input string) string {
 		input = filepath.Join(dotfilesPath, input[1:])
 	}
 
-	return os.ExpandEnv(input)
+	return filepath.Clean(os.ExpandEnv(input))
 }
