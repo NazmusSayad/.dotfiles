@@ -10,9 +10,6 @@ claude:
   - dir: "~/.claude"
     model: "claude-haiku-5-5"
     minDuration: 30
-  - dir: "~/.claude-wm"
-    model: "claude-haiku-5-5"
-    minDuration: 30
   - dir: "~/.claude-cre"
     model: "claude-haiku-5-5"
     minDuration: 30

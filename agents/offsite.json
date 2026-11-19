@@ -31,18 +31,6 @@
           "windows": "C:\\Users\\sayad\\.claude-cre"
         },
         "enabled": true
-      },
-      {
-        "id": "713ac460-5175-421b-83b9-fa0a7d7545b7",
-        "provider": "claude",
-        "name": "Work",
-        "color": "#2562EB",
-        "configDir": {
-          "macos": "/Users/sayad/.claude-wm",
-          "linux": "/home/sayad/.claude-wm",
-          "windows": "C:\\Users\\sayad\\.claude-wm"
-        },
-        "enabled": true
       }
     ],
     "models": {
