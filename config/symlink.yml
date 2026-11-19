@@ -35,6 +35,7 @@
 # CLAUDE
 "@/agents/mods": "~/.claude.mods"
 "@/agents/AGENTS_TEST.md": "~/.claude-test/CLAUDE.md"
+"@/agents/claude.json": "~/.claude-test/settings.json"
 
 # OffSite
 "@/agents/offsite.json": "~/.offsite/config.json"

@@ -100,13 +100,16 @@ func (e Entry) resolve() ([]string, []string) {
 
 func ReadConfigs() []Config {
 	entries := map[string][]Entry{}
-	for _, path := range []string{"@/config/symlink.yml", "@/config/symlink.claude.yml", "#/symlink.yml", "#/symlink.claude.yml"} {
+	for _, path := range []string{"@/config/symlink.yml", "#/symlink.yml"} {
 		if strings.HasPrefix(path, "#/") && !utils.IsFileExists(helpers.ResolvePath(path)) {
 			continue
 		}
 		for source, entry := range helpers.ReadConfig[map[string]Entry](path) {
 			entries[source] = append(entries[source], entry)
 		}
+	}
+	for source, entry := range readClaudeAccounts() {
+		entries[source] = append(entries[source], entry)
 	}
 
 	var configs []Config
