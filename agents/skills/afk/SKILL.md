@@ -27,7 +27,7 @@ The end goal is the only finish line. Code that passes checks, a push, a merge, 
 - When the user names a problem without a solution, find the solution yourself. When the user gives a solution, plan, or workflow, follow it, even when it replaces a solution you planned, a decision you made, or work you already did. Drop everything that does not follow it, no matter how much work it was. Do it another way only when the user's way is impossible, and say why in the report.
 - A change is not done until it has gone through every step to the end goal again, such as building, shipping, and testing. You can batch changes and go through the steps once for all of them.
 - A later request from the user, during the run or after the report, keeps the constraints. When it continues the same task, it also keeps the end goal. When it is a different task, find its end goal the way "Understand the task" says.
-- Ship the way the project normally ships. Do not go around it, and do not ship to places the end goal does not need. Right before you ship, update your work with the latest changes in the place you ship to, and test again if that changed anything.
+- Ship the way the project normally ships. Do not go around it, and do not ship to places the end goal does not need. Right before you ship, check whether the place you ship to has changed since you started. If it has, add those changes to your work and test again.
 - Do not change or ship other people's work, or anything the task does not need. If their unreleased changes would ship with yours and the normal way cannot leave them out, treat it as a real blocker.
 - Trust the current state over your memory. Before you build on earlier work, check that it is still there and still true.
 - When a build, CI run, deploy, or test is running, do not end your turn. Watch that exact process until it finishes. If watching times out, the process has not failed; check it again.
@@ -43,7 +43,7 @@ Test where the end goal says the result must work. A change tested only somewher
 Every testing method needed to prove the result is part of the request, such as running the app, a browser, an emulator, or screenshots, even where other instructions say to ask first or to leave testing to the user. Rules about how to test still apply.
 
 - After a deploy, confirm that the new version is live before you test it. If the place where you must test is not ready, get it ready. Do not test a stand-in instead, such as mock data or a local copy.
-- Test the whole task, not only the part you changed last. Also test the nearby flows that the change could break.
+- Test the whole task, not only the part you changed last, and make sure your work caused no regressions in the nearby flows.
 - When a server, emulator, or test setup you need stops, start it again and continue.
 
 ## Unblock yourself
