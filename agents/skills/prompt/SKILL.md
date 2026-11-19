@@ -1,9 +1,6 @@
 ---
 name: prompt
-description: Creates and revises agent-facing prompts, including skills, system instructions, agent files, task prompts, and reusable rules.
-
-disable-model-invocation: true
-metadata: { opencode/autoinvoke: false }
+description: Use when writing or revising a task prompt, skill, system prompt, agent file, or other instructions for an AI agent.
 ---
 
 ## Audience
