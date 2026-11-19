@@ -1,5 +1,3 @@
-"@/agents/mods": "~/.claude.mods"
-
 # Skills and CLAUDE.md
 "~/.agents/skills":
   - "~/.claude/skills"
@@ -11,9 +9,6 @@
   - "~/.claude/CLAUDE.md"
   - "~/.claude-wm/CLAUDE.md"
   - "~/.claude-cre/CLAUDE.md"
-
-# CLAUDE Test
-"@/agents/AGENTS_TEST.md": "~/.claude-test/CLAUDE.md"
 
 # Settings
 "@/agents/claude.json":

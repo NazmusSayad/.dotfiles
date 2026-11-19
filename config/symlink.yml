@@ -32,6 +32,10 @@
   CopyWin: "$APPDATA/ai.opencode.desktop/default.dat"
   CopyMac: "~/Library/Application Support/ai.opencode.desktop/default.dat"
 
+# CLAUDE
+"@/agents/mods": "~/.claude.mods"
+"@/agents/AGENTS_TEST.md": "~/.claude-test/CLAUDE.md"
+
 # OffSite
 "@/agents/offsite.json": "~/.offsite/config.json"
 
