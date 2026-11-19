@@ -26,9 +26,9 @@
         "name": "Creative",
         "color": "#6748FD",
         "configDir": {
-          "macos": "/Users/sayad/.claude-cre",
-          "linux": "/home/sayad/.claude-cre",
-          "windows": "C:\\Users\\sayad\\.claude-cre"
+          "macos": "/Users/sayad/.claude-c",
+          "linux": "/home/sayad/.claude-c",
+          "windows": "C:\\Users\\sayad\\.claude-c"
         },
         "enabled": true
       }
