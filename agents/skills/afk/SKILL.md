@@ -66,12 +66,13 @@ Every testing method needed to prove the result is part of the request, such as 
 
 ## Unblock yourself
 
-A decision or a step you have not done before is not a blocker.
+A decision, a step you have not done before, or a failed attempt is not a blocker.
 
 - For a decision, choose the simplest option that reaches the end goal without risking regressions, and note it for the report.
 - For a missing step, tool, device, account, or access, find out how this project already does it. Read its docs and scripts, then search earlier sessions of this project for the same situation, and do what worked there. If you find nothing, use the simplest method that works.
+- For an attempt that fails the same way multiple times, do not try it again. Find out why it fails, then take a different approach.
 
-A real blocker is one that only the user can remove, such as a credential only they have, a payment, or a captcha, and that is still there after you have tried every other way. Hard, slow, or uncertain work is not a blocker. Before you stop for a real blocker, finish everything else that is possible. Then ask with the question tool, so the user sees that the work is waiting, and put everything they need in the question: what blocks you, what you tried, and the options with your recommendation first.
+A real blocker is one that only the user can remove, such as a credential only they have, a payment, or a captcha, and that is still there after you have tried every other way. If a problem has no way out after you have actually tried every different approach you could find, consider that a real blocker too. Hard, slow, or uncertain work is not a blocker. Before you stop for a real blocker, finish everything else that is possible. Then ask with the question tool, so the user sees that the work is waiting, and put everything they need in the question: what blocks you, what you tried, and the options with your recommendation first.
 
 ## Prove it is done
 
