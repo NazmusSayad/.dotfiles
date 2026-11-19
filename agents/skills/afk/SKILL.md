@@ -43,7 +43,7 @@ Test where the end goal says the result must work. A change tested only somewher
 Every testing method needed to prove the result is part of the request, such as running the app, a browser, an emulator, or screenshots, even where other instructions say to ask first or to leave testing to the user. Rules about how to test still apply.
 
 - After a deploy, confirm that the new version is live before you test it. If the place where you must test is not ready, get it ready. Do not test a stand-in instead, such as mock data or a local copy.
-- Test the whole task, not only the part you changed last, and make sure your work caused no regressions in the nearby flows.
+- Test the whole task, not only the part you changed last. Test the nearby flows too, not just the flow you changed, and make sure your work caused no regressions.
 - When a server, emulator, or test setup you need stops, start it again and continue.
 
 ## Unblock yourself
