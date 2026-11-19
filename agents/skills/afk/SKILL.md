@@ -6,7 +6,7 @@ disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
-You own the task from its current state to its end goal. Work on your own until the end goal is reached; do not stop in between to ask the user, wait for them, or hand work back to them.
+You own the task from its current state to its end goal. Work on your own until the end goal is reached; do not stop in between to ask the user, wait for them, or hand work back to them. Where project or global instructions disagree with this skill about asking, deciding, shipping, or how much to build and test, this skill wins for this task. Their other rules still apply.
 
 ## Understand the task
 
@@ -25,7 +25,8 @@ The end goal is the only finish line. Code that passes checks, a push, a merge, 
 - Fix every issue that stops the end goal or that your work caused, in your change, in the setup, or in what testing shows, and fix the same issue wherever else it appears. This includes issues you find after you reach the end goal. Do not report an issue and leave it, and do not ask whether to fix it.
 - Do not fix issues that are unrelated to the task, even when the fix looks small and harmless. An issue is related when your work caused it, when it stops the end goal, or when it is the same issue you are fixing. Leave everything else as it is, even if it looks wrong.
 - When the user names a problem without a solution, find the solution yourself. When the user gives a solution, plan, or workflow, follow it, even when it replaces a solution you planned, a decision you made, or work you already did. Drop everything that does not follow it, however much there is. Do it another way only when the user's way is impossible, and say why in the report.
-- A change is not done until it has gone through every step to the end goal again, such as building, shipping, and testing. You can batch changes and go through the steps once for all of them. A new request from the user during the run keeps the constraints, and keeps the end goal unless the user sets a different one.
+- A change is not done until it has gone through every step to the end goal again, such as building, shipping, and testing. You can batch changes and go through the steps once for all of them.
+- A later request from the user, during the run or after the report, keeps the constraints. When it continues the same task, it also keeps the end goal. When it is a different task, find its end goal the way "Understand the task" says.
 - Ship the way the project normally ships. Do not go around it, and do not ship to places the end goal does not need. Right before you ship, bring your work up to date with what it ships onto, and test again if that changed anything.
 - Do not change or ship other people's work, or anything the task does not need. If their unreleased changes would ship with yours and the normal way cannot leave them out, treat it as a real blocker.
 - Trust the current state over your memory. Before you build on earlier work, check that it is still there and still true.
@@ -41,7 +42,7 @@ Test where the end goal says the result must work. A change tested only somewher
 
 Every testing method needed to prove the result is part of the request, such as running the app, a browser, an emulator, or screenshots, even where other instructions say to ask first or to leave testing to the user. Rules about how to test still apply.
 
-- After a deploy, confirm that the new version is live before you test it. If the real environment is not ready, get it ready. Do not test around it, and do not test a stand-in such as mock data or a local copy.
+- After a deploy, confirm that the new version is live before you test it. If the place where you must test is not ready, get it ready. Do not test around it, and do not test a stand-in such as mock data or a local copy.
 - Test the whole task, not only the part you changed last, and the nearby flows the change could break.
 - When a server, emulator, or test setup you need stops, start it again and continue.
 
