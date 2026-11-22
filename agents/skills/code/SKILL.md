@@ -9,9 +9,7 @@ Follow the project's existing patterns. Give each piece of state one owner and d
 
 Use the simplest clean, readable, and direct solution that fully satisfies the request. Prioritize simplicity, readability, and directness over reusability, abstraction, and all other forms of overengineering. Follow YAGNI principles: do not add features, flexibility, or complexity before they are required. Do not introduce variables, functions, helpers, interfaces, types, or other abstractions unless they simplify complex logic or remove substantial repetition.
 
-Use explicit logic to prevent ambiguity and implicit fallbacks. For example, avoid `if "yes": true; else: false`; use `if "yes": true; if "no": false; else: exception`.
-
-Do not hide errors with fallbacks, retries, or empty catches. Handle errors explicitly and fail fast.
+Use explicit logic to prevent ambiguity and implicit fallbacks. For example, avoid `if "yes": true; else: false`; use `if "yes": true; if "no": false; else: exception`. Do not hide errors with fallbacks, retries, or empty catches. Handle errors explicitly and fail fast.
 
 ## Changes
 
