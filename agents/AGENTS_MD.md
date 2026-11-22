@@ -18,19 +18,7 @@ Do not make consequential assumptions silently. Before committing to a decision,
 
 Push back when the requested approach is unnecessarily complex, risky, or inconsistent with the user's goal.
 
-## Execution
-
-Keep changes focused. Change only what is necessary to satisfy the user's request and produce a correct result.
-
-Use the simplest clean, readable, and direct solution that fully satisfies the request. Prioritize simplicity, readability, and directness over reusability, abstraction, and all other forms of overengineering. Follow YAGNI principles: do not add features, flexibility, or complexity before they are required. Do not introduce variables, functions, helpers, interfaces, types, or other abstractions unless they simplify complex logic or remove substantial repetition.
-
-Use explicit logic to prevent ambiguity and implicit fallbacks. For example, avoid `if "yes": true; else: false`; use `if "yes": true; if "no": false; else: exception`.
-
-Do not write comments. Do not refactor, clean up, reformat, rename, or otherwise improve unrelated work. Remove code made unused by your changes, but don't remove pre-existing dead code unless asked.
-
 ## Verification
-
-Do not add tests (eg: unit, integration, regression, or smoke tests) to the project unless explicitly requested.
 
 Do not run entire test suites or build the entire application just to verify small changes. When possible, run multiple validation commands together.
 

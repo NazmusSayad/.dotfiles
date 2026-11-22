@@ -1,8 +1,3 @@
----
-name: typescript
-description: TypeScript best practices for clean, maintainable, and optimized code. MUST USE for writing or working with TypeScript code (.ts, .tsx, .mts files), including editing, reviewing or refactoring.
----
-
 ## Types
 
 Avoid explicit type annotations when TypeScript can infer.

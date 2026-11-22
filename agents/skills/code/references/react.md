@@ -1,8 +1,3 @@
----
-name: react
-description: React code style, conventions, best practices, and patterns for building clean, efficient, and scalable applications. MUST USE for writing or working with any React code, components, hooks, or JSX (.jsx, .tsx files), including editing, reviewing or refactoring.
----
-
 ## Hooks and state
 
 - Do not use `useEffect` for simple state updates or derived state.
