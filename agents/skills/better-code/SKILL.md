@@ -19,7 +19,7 @@ Do not refactor, clean up, reformat, rename, or otherwise improve unrelated work
 
 ## Comments and Tests
 
-Do not write comments unless the code does something it cannot explain by itself.
+Do not write comments unless the code contradicts how it reads.
 
 Do not add tests (eg: unit, integration, regression, or smoke tests) to the project unless explicitly requested.
 
