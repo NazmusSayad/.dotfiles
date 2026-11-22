@@ -1,5 +1,3 @@
-// agents-server owns the agents database on the Windows host. agents-push and
-// agents-pull start it: locally on Windows and WSL, over SSH from other devices.
 package main
 
 import (
@@ -30,15 +28,15 @@ const schema = `
 CREATE TABLE IF NOT EXISTS files (
 	id         INTEGER PRIMARY KEY,
 	device     TEXT    NOT NULL,
-	path       TEXT    NOT NULL,           -- relative to ~/.claude, with / separators
-	kind       TEXT    NOT NULL,           -- 'lines' (.jsonl) or 'blob'
-	project    TEXT,                       -- project folder name under projects/
-	session    TEXT,                       -- session id the file belongs to
+	path       TEXT    NOT NULL,
+	kind       TEXT    NOT NULL,
+	project    TEXT,
+	session    TEXT,
 	size       INTEGER NOT NULL,
-	hash       TEXT    NOT NULL,           -- sha256 of the whole file
-	mtime      INTEGER NOT NULL,           -- modified time on the device, unix ms
+	hash       TEXT    NOT NULL,
+	mtime      INTEGER NOT NULL,
 	tail_open  INTEGER NOT NULL DEFAULT 0, -- 1 when the file does not end with a newline
-	content    BLOB,                       -- file bytes, blobs only
+	content    BLOB,
 	created_at INTEGER NOT NULL,
 	updated_at INTEGER NOT NULL,
 	UNIQUE (device, path)
@@ -48,7 +46,7 @@ CREATE INDEX IF NOT EXISTS files_project ON files (device, project);
 
 CREATE TABLE IF NOT EXISTS lines (
 	file_id INTEGER NOT NULL REFERENCES files (id) ON DELETE CASCADE,
-	n       INTEGER NOT NULL,              -- line number, from 0
+	n       INTEGER NOT NULL,
 	json    TEXT    NOT NULL,
 	PRIMARY KEY (file_id, n)
 ) WITHOUT ROWID;
@@ -225,7 +223,6 @@ func handlePush(db *sql.DB, conn *agentstore.Conn, device string) {
 	for {
 		var upload agentstore.Upload
 		if err := conn.Receive(&upload); err != nil {
-			// The device went away. Keep what arrived completely.
 			logf("push from %s stopped: %v", device, err)
 			_ = tx.Commit()
 			return
@@ -268,8 +265,6 @@ func handlePush(db *sql.DB, conn *agentstore.Conn, device string) {
 	_ = conn.Send(result)
 }
 
-// applyUploadSafely applies one upload so that it is either fully stored or
-// not stored at all.
 func applyUploadSafely(tx *sql.Tx, device string, upload *agentstore.Upload) (string, error) {
 	if _, err := tx.Exec(`SAVEPOINT upload`); err != nil {
 		return "", err
@@ -392,9 +387,6 @@ func lineCount(tx *sql.Tx, fileID int64) (int64, error) {
 	return count, err
 }
 
-// insertLines stores data as lines starting at line number next. When the
-// stored file ends without a newline, the first piece of data continues that
-// last line. It returns whether the file still ends without a newline.
 func insertLines(tx *sql.Tx, fileID int64, next int64, tailOpen bool, data []byte) (bool, error) {
 	if len(data) == 0 {
 		return tailOpen, nil

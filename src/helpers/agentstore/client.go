@@ -20,7 +20,6 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-// Parts of ~/.claude that are stored. history.jsonl is pushed but never pulled.
 var claudeItems = []string{
 	"projects",
 	"history.jsonl",
@@ -80,8 +79,6 @@ func connect(device string) *link {
 	return startRemote(command)
 }
 
-// startLocal runs agents-server on this machine and talks to it through its
-// standard input and output.
 func startLocal(command []string) *link {
 	cmd := exec.Command(command[0], command[1:]...)
 	cmd.Stderr = os.Stderr
@@ -99,9 +96,6 @@ func startLocal(command []string) *link {
 	return &link{conn: NewConn(stdout, stdin), stdin: stdin, cmds: []*exec.Cmd{cmd}}
 }
 
-// startRemote starts agents-server on the Windows host over SSH, then reaches
-// it through an SSH tunnel. Data is not piped through the SSH command itself
-// because the host's PowerShell shell corrupts piped input.
 func startRemote(command []string) *link {
 	sshEnv := helpers.CLAUDE_DEVICES[helpers.CLAUDE_HOST_DEVICE].SSHEnv
 	address := os.Getenv(sshEnv)
@@ -234,8 +228,6 @@ func listLocal(root string) []localFile {
 	return files
 }
 
-// planUpload decides what to send for one local file, or returns nil when the
-// stored copy is already up to date.
 func planUpload(file localFile, stored *FileState) (*Upload, error) {
 	if stored != nil && stored.Size == file.size && stored.Mtime == file.mtime {
 		return nil, nil
@@ -405,9 +397,6 @@ func Pull() {
 	fmt.Println(aurora.Green(fmt.Sprintf("Pulled %s into %s: %d restored, %d extended", device, root, restored, extended)))
 }
 
-// applyFile writes a pulled file without ever removing local content: missing
-// files are created, and a local .jsonl is only extended when it is the start
-// of the stored copy.
 func applyFile(root string, file File) (string, error) {
 	rel := filepath.FromSlash(file.Path)
 	if !filepath.IsLocal(rel) {
