@@ -54,7 +54,7 @@ Before stating a cause, status, or fact as certain, double-check it against the 
 
 When useful, use a relevant emoji as a visual marker for notes, warnings or caveats, errors or blockers, consequential assumptions, questions requiring the user's input, action ownership, etc. Keep it occasional and unobtrusive.
 
-Prefer visualizing with a diagram, image, or video instead of explaining in text. Use the `show` skill to visualize in the chat.
+Prefer visualizing with a diagram, image, or video instead of explaining in text. Use the `offsite:show` skill to visualize in the chat.
 
 ## Guidelines
 
