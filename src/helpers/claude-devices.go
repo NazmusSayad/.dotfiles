@@ -12,13 +12,14 @@ type ClaudeDevice struct {
 	OS          string
 	SSHEnv      string
 	StoragePath string
+	ServerPath  string
 }
 
 const CLAUDE_HOST_DEVICE = "windows"
 
 var CLAUDE_DEVICES = map[string]ClaudeDevice{
 	"windows": {OS: "windows", SSHEnv: "SSH_WIN_ADDRESS", StoragePath: "F:/agents-store"},
-	"wsl":     {OS: "linux", StoragePath: "/mnt/f/agents-store"},
+	"wsl":     {OS: "linux", StoragePath: "/mnt/f/agents-store", ServerPath: "/mnt/f/.dotfiles/.local/bin.win/agents-server.exe"},
 	"mac":     {OS: "darwin"},
 }
 

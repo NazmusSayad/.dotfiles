@@ -67,7 +67,10 @@ func serverCommand(device string) []string {
 		return strings.Fields(command)
 	}
 	if device == "wsl" {
-		return []string{"agents-server.exe"}
+		if path, err := exec.LookPath("agents-server.exe"); err == nil {
+			return []string{path}
+		}
+		return []string{helpers.CLAUDE_DEVICES[device].ServerPath}
 	}
 	return []string{"agents-server"}
 }
