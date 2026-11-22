@@ -12,6 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -164,10 +165,14 @@ func (l *link) close() {
 	}
 }
 
-func (l *link) hello(op string, device string) State {
+func (l *link) sendHello(op string, device string) {
 	if err := l.conn.Send(Hello{Version: ProtocolVersion, Token: l.token, Op: op, Device: device}); err != nil {
 		fatal("Failed to reach agents-server: " + err.Error())
 	}
+}
+
+func (l *link) hello(op string, device string) State {
+	l.sendHello(op, device)
 	var state State
 	if err := l.conn.Receive(&state); err != nil {
 		fatal("Failed to read from agents-server: " + err.Error())
@@ -257,17 +262,25 @@ func planUpload(file localFile, stored *FileState) (*Upload, error) {
 }
 
 func Push() {
+	started := time.Now()
 	device := helpers.DetectClaudeDevice()
 	root := claudeDir()
 	if _, err := os.Stat(root); err != nil {
 		fatal("No Claude data found in " + root)
 	}
 
+	fmt.Println(aurora.Faint("Reading " + root))
 	local := listLocal(root)
 	if len(local) == 0 {
 		fatal("No Claude data found in " + root)
 	}
+	var localBytes int64
+	for _, file := range local {
+		localBytes += file.size
+	}
+	fmt.Printf("Found %d files (%s)\n", len(local), formatBytes(localBytes))
 
+	fmt.Println(aurora.Faint("Connecting to agents-server"))
 	l := connect(device)
 	defer l.close()
 	state := l.hello("push", device)
@@ -277,9 +290,20 @@ func Push() {
 		stored[state.Files[i].Path] = &state.Files[i]
 	}
 
-	var readErrors []string
-	sent := 0
+	var changed []localFile
+	var changedBytes int64
 	for _, file := range local {
+		if known := stored[file.rel]; known == nil || known.Size != file.size || known.Mtime != file.mtime {
+			changed = append(changed, file)
+			changedBytes += file.size
+		}
+	}
+	fmt.Printf("Stored for %s: %d files. Changed since then: %d files (%s)\n", device, len(state.Files), len(changed), formatBytes(changedBytes))
+
+	var readErrors []string
+	var sentBytes int64
+	width := len(strconv.Itoa(len(changed)))
+	for i, file := range changed {
 		upload, err := planUpload(file, stored[file.rel])
 		if err != nil {
 			if !errors.Is(err, fs.ErrNotExist) {
@@ -293,14 +317,29 @@ func Push() {
 		if err := l.conn.Send(upload); err != nil {
 			fatal("Failed to send " + file.rel + ": " + err.Error())
 		}
-		sent++
-		if sent%1000 == 0 {
-			fmt.Println(aurora.Faint(fmt.Sprintf("%d files sent", sent)))
+		sentBytes += int64(len(upload.Data))
+
+		var label aurora.Value
+		switch {
+		case upload.Mode == ModeTouch:
+			label = aurora.Faint("time    ")
+		case upload.Mode == ModeAppend:
+			label = aurora.Blue("grown   ")
+		case stored[file.rel] == nil:
+			label = aurora.Green("new     ")
+		default:
+			label = aurora.Yellow("replaced")
 		}
+		fmt.Printf("%s %s %s %s\n",
+			aurora.Faint(fmt.Sprintf("[%*d/%d %s]", width, i+1, len(changed), formatBytes(sentBytes))),
+			label, file.rel, aurora.Faint(formatBytes(int64(len(upload.Data)))))
 	}
 
 	if err := l.conn.Send(Upload{Done: true}); err != nil {
 		fatal("Failed to finish push: " + err.Error())
+	}
+	if len(changed) > 0 {
+		fmt.Println(aurora.Faint("Waiting for agents-server to save"))
 	}
 	var result PushResult
 	if err := l.conn.Receive(&result); err != nil {
@@ -311,23 +350,26 @@ func Push() {
 	}
 
 	for _, message := range append(readErrors, result.Errors...) {
-		fmt.Println(aurora.Yellow("Skipped " + message))
+		fmt.Println(aurora.Red("Skipped " + message))
 	}
 	fmt.Println(aurora.Green(fmt.Sprintf(
-		"Pushed %s: %d new, %d grown, %d replaced, %d unchanged with new time (%s)",
-		device, result.Added, result.Appended, result.Replaced, result.Touched, formatBytes(result.Bytes),
+		"Pushed %s: %d new, %d grown, %d replaced, %d with only a new time (%s in %s)",
+		device, result.Added, result.Appended, result.Replaced, result.Touched, formatBytes(result.Bytes), formatDuration(time.Since(started)),
 	)))
 }
 
 func Pull() {
+	started := time.Now()
 	device := helpers.DetectClaudeDevice()
 	root := claudeDir()
 
+	fmt.Println(aurora.Faint("Connecting to agents-server"))
 	l := connect(device)
 	defer l.close()
 	state := l.hello("pull", device)
 
 	var wants []string
+	var wantBytes int64
 	for _, stored := range state.Files {
 		if pullSkip[stored.Path] {
 			continue
@@ -339,21 +381,25 @@ func Pull() {
 		info, err := os.Lstat(filepath.Join(root, rel))
 		switch {
 		case errors.Is(err, fs.ErrNotExist):
-			wants = append(wants, stored.Path)
 		case err != nil:
 			continue
 		case stored.Kind == KindLines && info.Mode().IsRegular() && info.Size() < stored.Size:
-			wants = append(wants, stored.Path)
+		default:
+			continue
 		}
+		wants = append(wants, stored.Path)
+		wantBytes += stored.Size
 	}
+	fmt.Printf("Stored for %s: %d files. Missing or shorter in %s: %d files (%s)\n", device, len(state.Files), root, len(wants), formatBytes(wantBytes))
 
 	if err := l.conn.Send(Want{Paths: wants}); err != nil {
 		fatal("Failed to send pull request: " + err.Error())
 	}
 
-	var restored, extended int
-	var differ, failed []string
-	for {
+	var restored, extended, differ, failed int
+	var receivedBytes int64
+	width := len(strconv.Itoa(len(wants)))
+	for count := 1; ; count++ {
 		var file File
 		if err := l.conn.Receive(&file); err != nil {
 			fatal("Failed to read from agents-server: " + err.Error())
@@ -364,37 +410,51 @@ func Pull() {
 		if file.Done {
 			break
 		}
+		receivedBytes += int64(len(file.Data))
 
 		outcome, err := applyFile(root, file)
+		var label aurora.Value
 		switch {
 		case err != nil:
-			failed = append(failed, file.Path+": "+err.Error())
+			failed++
+			label = aurora.Red("failed  ")
 		case outcome == "restored":
 			restored++
+			label = aurora.Green("restored")
 		case outcome == "extended":
 			extended++
+			label = aurora.Blue("extended")
 		case outcome == "differ":
-			differ = append(differ, file.Path)
+			differ++
+			label = aurora.Yellow("kept    ")
+		default:
+			label = aurora.Faint("current ")
 		}
-		if (restored+extended)%1000 == 0 && outcome != "" && outcome != "differ" {
-			fmt.Println(aurora.Faint(fmt.Sprintf("%d files written", restored+extended)))
+		line := fmt.Sprintf("%s %s %s %s",
+			aurora.Faint(fmt.Sprintf("[%*d/%d %s]", width, count, len(wants), formatBytes(receivedBytes))),
+			label, file.Path, aurora.Faint(formatBytes(int64(len(file.Data)))))
+		switch {
+		case err != nil:
+			line += " " + aurora.Red(err.Error()).String()
+		case outcome == "differ":
+			line += " " + aurora.Yellow("local copy differs, left as is").String()
 		}
+		fmt.Println(line)
 	}
 
-	for _, message := range failed {
-		fmt.Println(aurora.Red("Failed " + message))
+	summary := fmt.Sprintf("Pulled %s into %s: %d restored, %d extended", device, root, restored, extended)
+	if differ > 0 {
+		summary += fmt.Sprintf(", %d kept because the local copy differs", differ)
 	}
-	if len(differ) > 0 {
-		fmt.Println(aurora.Yellow(fmt.Sprintf("Left %d local %s as is, they differ from the stored copy:", len(differ), plural(len(differ), "file", "files"))))
-		for i, path := range differ {
-			if i == 20 {
-				fmt.Println(aurora.Yellow(fmt.Sprintf("  and %d more", len(differ)-20)))
-				break
-			}
-			fmt.Println(aurora.Yellow("  " + path))
-		}
+	if failed > 0 {
+		summary += fmt.Sprintf(", %d failed", failed)
 	}
-	fmt.Println(aurora.Green(fmt.Sprintf("Pulled %s into %s: %d restored, %d extended", device, root, restored, extended)))
+	summary += " (" + formatDuration(time.Since(started)) + ")"
+	if failed > 0 {
+		fmt.Println(aurora.Red(summary))
+	} else {
+		fmt.Println(aurora.Green(summary))
+	}
 }
 
 func applyFile(root string, file File) (string, error) {
@@ -483,9 +543,25 @@ func formatBytes(n int64) string {
 	return fmt.Sprintf("%d B", n)
 }
 
-func plural(n int, one string, many string) string {
-	if n == 1 {
-		return one
+func formatDuration(d time.Duration) string {
+	if d < time.Minute {
+		return d.Round(100 * time.Millisecond).String()
 	}
-	return many
+	return d.Round(time.Second).String()
+}
+
+func FetchStats() Stats {
+	device := helpers.DetectClaudeDevice()
+	l := connect(device)
+	defer l.close()
+	l.sendHello("stats", device)
+
+	var stats Stats
+	if err := l.conn.Receive(&stats); err != nil {
+		fatal("Failed to read from agents-server: " + err.Error())
+	}
+	if stats.Err != "" {
+		fatal(stats.Err)
+	}
+	return stats
 }

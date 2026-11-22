@@ -6,6 +6,7 @@ import (
 	"crypto/sha256"
 	"database/sql"
 	"encoding/hex"
+	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -14,6 +15,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 
@@ -91,7 +93,7 @@ func main() {
 	}
 
 	if !*listen {
-		serve(db, dbErr, os.Stdin, os.Stdout, "")
+		serve(db, *dbPath, dbErr, os.Stdin, os.Stdout, "")
 		return
 	}
 
@@ -117,7 +119,7 @@ func main() {
 	}
 	listener.Close()
 	defer conn.Close()
-	serve(db, dbErr, conn, conn, token)
+	serve(db, *dbPath, dbErr, conn, conn, token)
 }
 
 func openDB(path string) (*sql.DB, error) {
@@ -136,7 +138,7 @@ func openDB(path string) (*sql.DB, error) {
 	return db, nil
 }
 
-func serve(db *sql.DB, dbErr error, r io.Reader, w io.Writer, token string) {
+func serve(db *sql.DB, dbPath string, dbErr error, r io.Reader, w io.Writer, token string) {
 	conn := agentstore.NewConn(r, w)
 
 	var hello agentstore.Hello
@@ -159,11 +161,23 @@ func serve(db *sql.DB, dbErr error, r io.Reader, w io.Writer, token string) {
 	case hello.Device == "":
 		fail("no device given")
 		return
-	case hello.Op != "push" && hello.Op != "pull":
+	case hello.Op != "push" && hello.Op != "pull" && hello.Op != "stats":
 		fail("unknown operation " + hello.Op)
 		return
 	case dbErr != nil:
 		fail(dbErr.Error())
+		return
+	}
+
+	if hello.Op == "stats" {
+		stats, err := collectStats(db)
+		if err != nil {
+			stats = agentstore.Stats{Err: "agents-server: " + err.Error()}
+		}
+		stats.Storage = dbPath
+		if err := conn.Send(stats); err != nil {
+			logf("failed to send stats: %v", err)
+		}
 		return
 	}
 
@@ -548,4 +562,99 @@ func nullable(value string) any {
 func hashOf(data []byte) string {
 	sum := sha256.Sum256(data)
 	return hex.EncodeToString(sum[:])
+}
+
+type usageEntry struct {
+	Type      string `json:"type"`
+	Timestamp string `json:"timestamp"`
+	RequestID string `json:"requestId"`
+	Message   struct {
+		ID    string `json:"id"`
+		Model string `json:"model"`
+		Usage *struct {
+			InputTokens              int64 `json:"input_tokens"`
+			OutputTokens             int64 `json:"output_tokens"`
+			CacheCreationInputTokens int64 `json:"cache_creation_input_tokens"`
+			CacheReadInputTokens     int64 `json:"cache_read_input_tokens"`
+		} `json:"usage"`
+	} `json:"message"`
+}
+
+func collectStats(db *sql.DB) (agentstore.Stats, error) {
+	rows, err := db.Query(`SELECT f.device, l.file_id, l.n, l.json FROM lines l JOIN files f ON f.id = l.file_id
+		WHERE f.path LIKE 'projects/%' AND l.json LIKE '%"usage"%' AND l.json LIKE '%"assistant"%'`)
+	if err != nil {
+		return agentstore.Stats{}, err
+	}
+	defer rows.Close()
+
+	var stats agentstore.Stats
+	responses := map[string]*agentstore.StatsGroup{}
+	for rows.Next() {
+		var (
+			device string
+			fileID int64
+			n      int64
+			line   string
+		)
+		if err := rows.Scan(&device, &fileID, &n, &line); err != nil {
+			return agentstore.Stats{}, err
+		}
+
+		var parsed usageEntry
+		if err := json.Unmarshal([]byte(line), &parsed); err != nil {
+			stats.UnreadableLines++
+			continue
+		}
+		usage := parsed.Message.Usage
+		if parsed.Type != "assistant" || usage == nil || parsed.Message.Model == "" || parsed.Message.Model == "<synthetic>" {
+			continue
+		}
+
+		key := strconv.FormatInt(fileID, 10) + ":" + strconv.FormatInt(n, 10)
+		if parsed.Message.ID != "" {
+			key = parsed.Message.ID + ":" + parsed.RequestID
+		}
+		if existing, ok := responses[key]; ok {
+			existing.Input = max(existing.Input, usage.InputTokens)
+			existing.Output = max(existing.Output, usage.OutputTokens)
+			existing.CacheWrite = max(existing.CacheWrite, usage.CacheCreationInputTokens)
+			existing.CacheRead = max(existing.CacheRead, usage.CacheReadInputTokens)
+			continue
+		}
+
+		month := "unknown"
+		if timestamp, err := time.Parse(time.RFC3339, parsed.Timestamp); err == nil {
+			month = timestamp.Local().Format("2006-01")
+		}
+		responses[key] = &agentstore.StatsGroup{
+			Device: device, Model: parsed.Message.Model, Month: month, Requests: 1,
+			Input: usage.InputTokens, Output: usage.OutputTokens,
+			CacheWrite: usage.CacheCreationInputTokens, CacheRead: usage.CacheReadInputTokens,
+		}
+	}
+	if err := rows.Err(); err != nil {
+		return agentstore.Stats{}, err
+	}
+
+	groups := map[[3]string]*agentstore.StatsGroup{}
+	for _, response := range responses {
+		groupKey := [3]string{response.Device, response.Model, response.Month}
+		group := groups[groupKey]
+		if group == nil {
+			group = &agentstore.StatsGroup{Device: response.Device, Model: response.Model, Month: response.Month}
+			groups[groupKey] = group
+		}
+		group.Requests += response.Requests
+		group.Input += response.Input
+		group.Output += response.Output
+		group.CacheWrite += response.CacheWrite
+		group.CacheRead += response.CacheRead
+	}
+	for _, group := range groups {
+		stats.Groups = append(stats.Groups, *group)
+	}
+
+	err = db.QueryRow(`SELECT COUNT(DISTINCT session) FROM files WHERE path LIKE 'projects/%' AND session IS NOT NULL`).Scan(&stats.Sessions)
+	return stats, err
 }

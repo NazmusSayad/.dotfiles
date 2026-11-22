@@ -76,6 +76,25 @@ type File struct {
 	Err   string
 }
 
+type StatsGroup struct {
+	Device     string
+	Model      string
+	Month      string
+	Requests   int64
+	Input      int64
+	Output     int64
+	CacheWrite int64
+	CacheRead  int64
+}
+
+type Stats struct {
+	Groups          []StatsGroup
+	Sessions        int
+	Storage         string
+	UnreadableLines int
+	Err             string
+}
+
 type Conn struct {
 	w   *bufio.Writer
 	enc *gob.Encoder

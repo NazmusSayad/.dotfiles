@@ -1,18 +1,11 @@
 package main
 
 import (
-	"bufio"
-	"bytes"
 	"cmp"
-	"encoding/json"
-	"errors"
 	"fmt"
 	"html/template"
-	"io"
-	"io/fs"
 	"maps"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"slices"
 	"strconv"
@@ -20,32 +13,10 @@ import (
 	"time"
 
 	"dotfiles/src/helpers"
-	"dotfiles/src/utils"
+	"dotfiles/src/helpers/agentstore"
 
 	"github.com/logrusorgru/aurora/v4"
 )
-
-type snapshot struct {
-	ID       string    `json:"id"`
-	Time     time.Time `json:"time"`
-	Hostname string    `json:"hostname"`
-}
-
-type entry struct {
-	Type      string `json:"type"`
-	Timestamp string `json:"timestamp"`
-	RequestID string `json:"requestId"`
-	Message   struct {
-		ID    string `json:"id"`
-		Model string `json:"model"`
-		Usage *struct {
-			InputTokens              int64 `json:"input_tokens"`
-			OutputTokens             int64 `json:"output_tokens"`
-			CacheCreationInputTokens int64 `json:"cache_creation_input_tokens"`
-			CacheReadInputTokens     int64 `json:"cache_read_input_tokens"`
-		} `json:"usage"`
-	} `json:"message"`
-}
 
 type tokens struct {
 	Requests   int64
@@ -55,176 +26,33 @@ type tokens struct {
 	CacheRead  int64
 }
 
-type response struct {
-	Device string
-	Model  string
-	Month  string
-	Tokens tokens
-}
-
 func main() {
-	if !utils.IsCommandInPath("restic") {
-		fmt.Println(aurora.Red("Error: restic not installed"))
-		os.Exit(1)
-	}
-
-	repository := helpers.ClaudeStorage(helpers.DetectClaudeDevice())
-
-	listCmd := exec.Command("restic", "snapshots", "--repo", repository, "--insecure-no-password", "--tag", "claude", "--json")
-	listCmd.Stderr = os.Stderr
-	listOut, err := listCmd.Output()
-	if err != nil {
-		fmt.Println(aurora.Red("Error: Failed to list snapshots: " + err.Error()))
-		os.Exit(1)
-	}
-
-	var snapshots []snapshot
-	if err := json.Unmarshal(listOut, &snapshots); err != nil {
-		fmt.Println(aurora.Red("Error: Failed to parse snapshots: " + err.Error()))
-		os.Exit(1)
-	}
-
-	if len(snapshots) == 0 {
-		fmt.Println(aurora.Red("Error: No pushes found in " + repository))
-		os.Exit(1)
-	}
-
-	slices.SortFunc(snapshots, func(a, b snapshot) int {
-		return a.Time.Compare(b.Time)
-	})
-
-	cacheDir := helpers.ResolvePath("~/.cache/agents-stats")
-	if err := os.MkdirAll(cacheDir, 0o755); err != nil {
-		panic(err)
-	}
-
-	rawDir := filepath.Join(cacheDir, "raw")
-	restoredFile := filepath.Join(cacheDir, ".restored")
-	restoredIDs := map[string]bool{}
-	if utils.IsFileExists(restoredFile) {
-		restoredData, err := os.ReadFile(restoredFile)
-		if err != nil {
-			panic(err)
-		}
-		for _, id := range strings.Fields(string(restoredData)) {
-			restoredIDs[id] = true
-		}
-	}
-
-	for _, snap := range snapshots {
-		if restoredIDs[snap.ID] {
-			continue
-		}
-
-		helpers.ExecNativeCommand(
-			[]string{"restic", "restore", "--repo", repository, "--insecure-no-password", snap.ID + ":/projects", "--target", filepath.Join(rawDir, snap.Hostname), "--include", "*.jsonl", "--overwrite", "if-newer", "--quiet"},
-			helpers.ExecCommandOptions{Exit: true},
-		)
-
-		file, err := os.OpenFile(restoredFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
-		if err != nil {
-			panic(err)
-		}
-		if _, err := file.WriteString(snap.ID + "\n"); err != nil {
-			panic(err)
-		}
-		file.Close()
-	}
-
-	responses := map[string]*response{}
-	var unreadableLines int
-
-	err = filepath.WalkDir(rawDir, func(path string, dirEntry fs.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
-		if dirEntry.IsDir() || filepath.Ext(path) != ".jsonl" {
-			return nil
-		}
-
-		relPath, err := filepath.Rel(rawDir, path)
-		if err != nil {
-			return err
-		}
-		device, _, found := strings.Cut(relPath, string(filepath.Separator))
-		if !found {
-			return fmt.Errorf("unexpected file outside a device folder: %s", path)
-		}
-
-		file, err := os.Open(path)
-		if err != nil {
-			return err
-		}
-		defer file.Close()
-
-		reader := bufio.NewReaderSize(file, 1024*1024)
-		for lineNumber := 1; ; lineNumber++ {
-			line, readErr := reader.ReadBytes('\n')
-			if len(line) > 0 && bytes.Contains(line, []byte(`"assistant"`)) && bytes.Contains(line, []byte(`"usage"`)) {
-				var parsed entry
-				if err := json.Unmarshal(line, &parsed); err != nil {
-					unreadableLines++
-				} else if parsed.Type == "assistant" && parsed.Message.Usage != nil && parsed.Message.Model != "" && parsed.Message.Model != "<synthetic>" {
-					usage := parsed.Message.Usage
-					current := tokens{
-						Requests:   1,
-						Input:      usage.InputTokens,
-						Output:     usage.OutputTokens,
-						CacheWrite: usage.CacheCreationInputTokens,
-						CacheRead:  usage.CacheReadInputTokens,
-					}
-
-					var key string
-					if parsed.Message.ID != "" {
-						key = parsed.Message.ID + ":" + parsed.RequestID
-					} else {
-						key = path + ":" + strconv.Itoa(lineNumber)
-					}
-
-					if existing, ok := responses[key]; ok {
-						existing.Tokens.Input = max(existing.Tokens.Input, current.Input)
-						existing.Tokens.Output = max(existing.Tokens.Output, current.Output)
-						existing.Tokens.CacheWrite = max(existing.Tokens.CacheWrite, current.CacheWrite)
-						existing.Tokens.CacheRead = max(existing.Tokens.CacheRead, current.CacheRead)
-					} else {
-						month := "unknown"
-						if timestamp, err := time.Parse(time.RFC3339, parsed.Timestamp); err == nil {
-							month = timestamp.Local().Format("2006-01")
-						}
-						responses[key] = &response{Device: device, Model: parsed.Message.Model, Month: month, Tokens: current}
-					}
-				}
-			}
-
-			if errors.Is(readErr, io.EOF) {
-				return nil
-			}
-			if readErr != nil {
-				return readErr
-			}
-		}
-	})
-	if err != nil {
-		panic(err)
-	}
+	stats := agentstore.FetchStats()
 
 	var total tokens
 	byDevice := map[string]*tokens{}
 	byModel := map[string]*tokens{}
 	byMonth := map[string]*tokens{}
-	for _, resp := range responses {
-		addTokens(&total, resp.Tokens)
-		addTokens(groupTokens(byDevice, resp.Device), resp.Tokens)
-		addTokens(groupTokens(byModel, resp.Model), resp.Tokens)
-		addTokens(groupTokens(byMonth, resp.Month), resp.Tokens)
+	for _, group := range stats.Groups {
+		current := tokens{
+			Requests:   group.Requests,
+			Input:      group.Input,
+			Output:     group.Output,
+			CacheWrite: group.CacheWrite,
+			CacheRead:  group.CacheRead,
+		}
+		addTokens(&total, current)
+		addTokens(groupTokens(byDevice, group.Device), current)
+		addTokens(groupTokens(byModel, group.Model), current)
+		addTokens(groupTokens(byMonth, group.Month), current)
 	}
 
 	monthNames := slices.Sorted(maps.Keys(byMonth))
 	data := report{
-		Storage:         repository,
+		Storage:         stats.Storage,
 		Generated:       time.Now().Format("2006-01-02 15:04"),
-		Pushes:          len(snapshots),
-		UnreadableLines: unreadableLines,
+		Sessions:        formatCount(int64(stats.Sessions)),
+		UnreadableLines: stats.UnreadableLines,
 		Total:           makeRow("Total", total, total),
 		Sections: []section{
 			{Title: "Devices", Label: "Device", Rows: makeRows(byDevice, sortedByTotal(byDevice), total)},
@@ -269,7 +97,7 @@ type section struct {
 type report struct {
 	Storage         string
 	Generated       string
-	Pushes          int
+	Sessions        string
 	UnreadableLines int
 	Total           row
 	Sections        []section
@@ -422,7 +250,7 @@ var reportTemplate = template.Must(template.New("report").Parse(`<!doctype html>
 <main>
   <h1>Claude tokens</h1>
   <p class="total">{{.Total.Total}}</p>
-  <p class="meta"><span>{{.Total.Requests}} requests</span><span>{{.Pushes}} pushes</span><span>{{.Storage}}</span><span>Generated {{.Generated}}</span></p>
+  <p class="meta"><span>{{.Total.Requests}} requests</span><span>{{.Sessions}} sessions</span><span>{{.Storage}}</span><span>Generated {{.Generated}}</span></p>
 
   <dl class="breakdown">
     <div><dt>Input</dt><dd>{{.Total.Input}}</dd></div>
