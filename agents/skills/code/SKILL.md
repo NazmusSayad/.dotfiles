@@ -23,8 +23,6 @@ Keep changes focused. Change only what is necessary to satisfy the user's reques
 
 Do not refactor, clean up, reformat, rename, or otherwise improve unrelated work. Remove code made unused by your changes, but don't remove pre-existing dead code unless asked.
 
-Remove code made unused by your changes, but don't remove pre-existing dead code unless asked.
-
 ## TypeScript
 
 Before working with TypeScript (`.ts`, `.tsx`, `.mts`), read [references/typescript.md](references/typescript.md).
