@@ -21,19 +21,6 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-var claudeItems = []string{
-	"projects",
-	"history.jsonl",
-	"file-history",
-	"plans",
-	"tasks",
-	"paste-cache",
-}
-
-var pullSkip = map[string]bool{
-	"history.jsonl": true,
-}
-
 const tempPrefix = ".agents-pull-"
 
 type localFile struct {
@@ -55,32 +42,22 @@ func fatal(message string) {
 	os.Exit(1)
 }
 
-func claudeDir() string {
-	if dir := os.Getenv("AGENTS_CLAUDE_DIR"); dir != "" {
-		return helpers.ResolvePath(dir)
+func serverCommand(config Config, device string) []string {
+	command := []string{"agents-server"}
+	if override := os.Getenv("AGENTS_SERVER"); override != "" {
+		command = strings.Fields(override)
+	} else if device == "wsl" {
+		command = []string{config.WSLServer}
 	}
-	return helpers.ResolvePath("~/.claude")
+	return append(command, "--db", config.Database)
 }
 
-func serverCommand(device string) []string {
-	if command := os.Getenv("AGENTS_SERVER"); command != "" {
-		return strings.Fields(command)
-	}
-	if device == "wsl" {
-		if path, err := exec.LookPath("agents-server.exe"); err == nil {
-			return []string{path}
-		}
-		return []string{helpers.CLAUDE_DEVICES[device].ServerPath}
-	}
-	return []string{"agents-server"}
-}
-
-func connect(device string) *link {
-	command := serverCommand(device)
+func connect(config Config, device string) *link {
+	command := serverCommand(config, device)
 	if device == helpers.CLAUDE_HOST_DEVICE || device == "wsl" {
 		return startLocal(command)
 	}
-	return startRemote(command)
+	return startRemote(config, command)
 }
 
 func startLocal(command []string) *link {
@@ -100,14 +77,17 @@ func startLocal(command []string) *link {
 	return &link{conn: NewConn(stdout, stdin), stdin: stdin, cmds: []*exec.Cmd{cmd}}
 }
 
-func startRemote(command []string) *link {
-	sshEnv := helpers.CLAUDE_DEVICES[helpers.CLAUDE_HOST_DEVICE].SSHEnv
-	address := os.Getenv(sshEnv)
+func startRemote(config Config, command []string) *link {
+	address := os.Getenv(config.Host)
 	if address == "" {
-		fatal(sshEnv + " must be set")
+		fatal(config.Host + " must be set")
 	}
 
-	server := exec.Command("ssh", "-n", "-o", "BatchMode=yes", address, strings.Join(command, " ")+" --listen")
+	remote := command[0]
+	for _, arg := range append(command[1:], "--listen") {
+		remote += " '" + strings.ReplaceAll(arg, "'", "''") + "'"
+	}
+	server := exec.Command("ssh", "-n", "-o", "BatchMode=yes", address, remote)
 	server.Stderr = os.Stderr
 	serverOut, err := server.StdoutPipe()
 	if err != nil {
@@ -198,9 +178,10 @@ func hashOf(data []byte) string {
 	return hex.EncodeToString(sum[:])
 }
 
-func listLocal(root string) []localFile {
+func listLocal(config Config) []localFile {
+	root := config.ClaudeDir
 	var files []localFile
-	for _, item := range claudeItems {
+	for _, item := range config.Items {
 		err := filepath.WalkDir(filepath.Join(root, item), func(path string, entry fs.DirEntry, err error) error {
 			if err != nil {
 				if errors.Is(err, fs.ErrNotExist) {
@@ -212,7 +193,7 @@ func listLocal(root string) []localFile {
 				return nil
 			}
 			name := entry.Name()
-			if strings.HasSuffix(name, ".wakatime") || strings.HasPrefix(name, tempPrefix) {
+			if config.skips(name) || strings.HasPrefix(name, tempPrefix) {
 				return nil
 			}
 			info, err := entry.Info()
@@ -264,16 +245,16 @@ func planUpload(file localFile, stored *FileState) (*Upload, error) {
 	return upload, nil
 }
 
-func Push() {
+func Push(config Config) {
 	started := time.Now()
 	device := helpers.DetectClaudeDevice()
-	root := claudeDir()
+	root := config.ClaudeDir
 	if _, err := os.Stat(root); err != nil {
 		fatal("No Claude data found in " + root)
 	}
 
 	fmt.Println(aurora.Faint("Reading " + root))
-	local := listLocal(root)
+	local := listLocal(config)
 	if len(local) == 0 {
 		fatal("No Claude data found in " + root)
 	}
@@ -284,7 +265,7 @@ func Push() {
 	fmt.Printf("Found %d files (%s)\n", len(local), formatBytes(localBytes))
 
 	fmt.Println(aurora.Faint("Connecting to agents-server"))
-	l := connect(device)
+	l := connect(config, device)
 	defer l.close()
 	state := l.hello("push", device)
 
@@ -361,20 +342,20 @@ func Push() {
 	)))
 }
 
-func Pull() {
+func Pull(config Config) {
 	started := time.Now()
 	device := helpers.DetectClaudeDevice()
-	root := claudeDir()
+	root := config.ClaudeDir
 
 	fmt.Println(aurora.Faint("Connecting to agents-server"))
-	l := connect(device)
+	l := connect(config, device)
 	defer l.close()
 	state := l.hello("pull", device)
 
 	var wants []string
 	var wantBytes int64
 	for _, stored := range state.Files {
-		if pullSkip[stored.Path] {
+		if !config.pulls(stored.Path) {
 			continue
 		}
 		rel := filepath.FromSlash(stored.Path)
@@ -553,9 +534,9 @@ func formatDuration(d time.Duration) string {
 	return d.Round(time.Second).String()
 }
 
-func FetchStats() Stats {
+func FetchStats(config Config) Stats {
 	device := helpers.DetectClaudeDevice()
-	l := connect(device)
+	l := connect(config, device)
 	defer l.close()
 	l.sendHello("stats", device)
 

@@ -1,7 +1,11 @@
 package main
 
-import "dotfiles/src/helpers/agentstore"
+import (
+	"os"
+
+	"dotfiles/src/helpers/agentstore"
+)
 
 func main() {
-	agentstore.Push()
+	agentstore.Push(agentstore.LoadConfig(os.Args[1:]))
 }

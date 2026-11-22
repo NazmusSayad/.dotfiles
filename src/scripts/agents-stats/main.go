@@ -27,7 +27,7 @@ type tokens struct {
 }
 
 func main() {
-	stats := agentstore.FetchStats()
+	stats := agentstore.FetchStats(agentstore.LoadConfig(os.Args[1:]))
 
 	var total tokens
 	byDevice := map[string]*tokens{}

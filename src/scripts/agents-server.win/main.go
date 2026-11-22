@@ -24,8 +24,6 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-const defaultDB = "D:/Store/agents.db"
-
 const schema = `
 CREATE TABLE IF NOT EXISTS files (
 	id         INTEGER PRIMARY KEY,
@@ -79,15 +77,15 @@ func logf(format string, args ...any) {
 }
 
 func main() {
-	defaultPath := defaultDB
-	if env := os.Getenv("AGENTS_DB"); env != "" {
-		defaultPath = env
-	}
 	listen := flag.Bool("listen", false, "accept one connection on a local port instead of using standard input and output")
-	dbPath := flag.String("db", defaultPath, "database file")
+	dbPath := flag.String("db", "", "database file")
 	flag.Parse()
 
-	db, dbErr := openDB(*dbPath)
+	var db *sql.DB
+	dbErr := errors.New("no database given, pass --db")
+	if *dbPath != "" {
+		db, dbErr = openDB(*dbPath)
+	}
 	if db != nil {
 		defer db.Close()
 	}
