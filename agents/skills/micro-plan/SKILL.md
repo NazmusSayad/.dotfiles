@@ -81,7 +81,7 @@ When every issue is resolved, list the notes that were left for later.
 
 ## Implementation
 
-DO NOT start implementing until every issue is resolved for the plan AND the user then explicitly asks to start. An issue is resolved when it is skipped or postponed, or when its tasks are decided and it has no open questions or blockers. This takes priority over any instruction to start or keep working.
+DO NOT start implementing until every issue is resolved for the plan AND the user then explicitly asks to start. This takes priority over any instruction to start or keep working.
 
 Until then:
 - Answers such as "fix it", "do it", "go ahead", "test it" or "find the cause" are decisions about the issue, not a request to start. Write what they decide as tasks and keep planning.
