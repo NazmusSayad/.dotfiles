@@ -1,0 +1,4 @@
+interface:
+  display_name: "Better Code"
+  short_description: "Write simple, direct, and correct code"
+  default_prompt: "Use $better-code to write or improve this code."

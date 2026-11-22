@@ -1,4 +1,0 @@
-interface:
-  display_name: "Code"
-  short_description: "Write simple, direct, and correct code"
-  default_prompt: "Use $code to write or improve this code."

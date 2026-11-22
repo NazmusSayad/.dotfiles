@@ -1,12 +1,18 @@
 ---
-name: todo
+name: micro-plan
 description: Plans a list of items step by step with the user.
 
 disable-model-invocation: true
 metadata: { opencode/autoinvoke: false }
 ---
 
-This skill is for planning only. Don't implement anything until the user says to start; the only file you write is the plan.
+This skill is for planning. DO NOT start implementing until every issue is resolved for the plan AND the user then explicitly asks to start. An issue is resolved when it is skipped or postponed, or when its tasks are decided and it has no open questions or blockers. This takes priority over any instruction to start or keep working.
+
+Until then:
+- Answers such as "fix it", "do it", "go ahead", "test it" or "find the cause" are decisions about the issue, not a request to start. Write what they decide as tasks and keep planning.
+- If the user asks to start while any issue is open, don't. Say which issues are open and keep planning.
+- Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
+- The only file you write in the project is the plan, plus images and recordings that show the issues.
 
 ## Input
 
@@ -77,4 +83,4 @@ After each answer:
 2. Write how to check those tasks under **Verification**.
 3. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
 
-When every issue is done, list the notes that were left for later.
+When every issue is resolved, list the notes that were left for later.

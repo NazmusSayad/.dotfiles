@@ -1,5 +1,5 @@
 ---
-name: code
+name: better-code
 description: Rules for writing simple, direct, and correct code, including TypeScript and React. MUST USE for writing, editing, fixing, reviewing, or refactoring code in any language.
 ---
 
