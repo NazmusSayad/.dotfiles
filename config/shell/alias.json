@@ -6,8 +6,6 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
-  "cc-c": "CLAUDE_CONFIG_DIR=~/.claude-c claude",
-
   "r": "nr",
   "nid": "ni -D",
   "pab": "pnpm approve-builds --all",
