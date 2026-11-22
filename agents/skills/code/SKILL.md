@@ -13,15 +13,17 @@ Use explicit logic to prevent ambiguity and implicit fallbacks. For example, avo
 
 Do not hide errors with fallbacks, retries, or empty catches. Handle errors explicitly and fail fast.
 
-Do not write comments unless the code does something it cannot explain by itself.
-
-Do not add tests (eg: unit, integration, regression, or smoke tests) to the project unless explicitly requested.
-
 ## Changes
 
 Keep changes focused. Change only what is necessary to satisfy the user's request and produce a correct result.
 
 Do not refactor, clean up, reformat, rename, or otherwise improve unrelated work. Remove code made unused by your changes, but don't remove pre-existing dead code unless asked.
+
+## Comments and Tests
+
+Do not write comments unless the code does something it cannot explain by itself.
+
+Do not add tests (eg: unit, integration, regression, or smoke tests) to the project unless explicitly requested.
 
 ## TypeScript
 
