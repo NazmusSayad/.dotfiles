@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
+	"net"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -42,22 +43,37 @@ func fatal(message string) {
 	os.Exit(1)
 }
 
-func serverCommand(config Config, device string) []string {
+func serverCommand(config Config, insideWindowsStore bool) []string {
 	command := []string{"agents-server"}
 	if override := os.Getenv("AGENTS_SERVER"); override != "" {
 		command = strings.Fields(override)
-	} else if device == "wsl" {
-		command = []string{config.WSLServer}
+	} else if insideWindowsStore {
+		command = []string{"agents-server.exe"}
 	}
 	return append(command, "--db", config.Database)
 }
 
-func connect(config Config, device string) *link {
-	command := serverCommand(config, device)
-	if device == helpers.CLAUDE_HOST_DEVICE || device == "wsl" {
-		return startLocal(command)
+func connect(config Config) (*link, string) {
+	machines := helpers.ReadMachines()
+	current := helpers.CurrentMachine(machines)
+	store := helpers.WorkstationMachine(machines)
+	insideWindowsStore := current.WSL && current.Name == store.Name && store.OS == "windows"
+	command := serverCommand(config, insideWindowsStore)
+	if current.Alias == store.Alias || insideWindowsStore {
+		return startLocal(command), current.Alias
 	}
-	return startRemote(config, command)
+	return startRemote(store, command), current.Alias
+}
+
+func sshHost(machine helpers.Machine) string {
+	for _, address := range machine.SSH {
+		host, _, _ := strings.Cut(address, ":")
+		if net.ParseIP(host) == nil {
+			return address
+		}
+	}
+	fatal(machine.Alias + " has no SSH hostname in machines.yml")
+	return ""
 }
 
 func startLocal(command []string) *link {
@@ -77,15 +93,28 @@ func startLocal(command []string) *link {
 	return &link{conn: NewConn(stdout, stdin), stdin: stdin, cmds: []*exec.Cmd{cmd}}
 }
 
-func startRemote(config Config, command []string) *link {
-	address := os.Getenv(config.Host)
-	if address == "" {
-		fatal(config.Host + " must be set")
+func startRemote(store helpers.Machine, command []string) *link {
+	address := sshHost(store)
+
+	var escapedQuote string
+	switch store.OS {
+	case "windows":
+		escapedQuote = "''"
+	case "linux", "darwin":
+		escapedQuote = `'\''`
+	default:
+		fatal("agents-server cannot run on " + store.OS)
+	}
+	quote := func(arg string) string {
+		return "'" + strings.ReplaceAll(arg, "'", escapedQuote) + "'"
 	}
 
 	remote := command[0]
 	for _, arg := range append(command[1:], "--listen") {
-		remote += " '" + strings.ReplaceAll(arg, "'", "''") + "'"
+		remote += " " + quote(arg)
+	}
+	if store.OS != "windows" {
+		remote = "bash -lc " + quote(remote)
 	}
 	server := exec.Command("ssh", "-n", "-o", "BatchMode=yes", address, remote)
 	server.Stderr = os.Stderr
@@ -247,7 +276,6 @@ func planUpload(file localFile, stored *FileState) (*Upload, error) {
 
 func Push(config Config) {
 	started := time.Now()
-	device := helpers.DetectClaudeDevice()
 	root := config.ClaudeDir
 	if _, err := os.Stat(root); err != nil {
 		fatal("No Claude data found in " + root)
@@ -265,7 +293,7 @@ func Push(config Config) {
 	fmt.Printf("Found %d files (%s)\n", len(local), formatBytes(localBytes))
 
 	fmt.Println(aurora.Faint("Connecting to agents-server"))
-	l := connect(config, device)
+	l, device := connect(config)
 	defer l.close()
 	state := l.hello("push", device)
 
@@ -344,11 +372,10 @@ func Push(config Config) {
 
 func Pull(config Config) {
 	started := time.Now()
-	device := helpers.DetectClaudeDevice()
 	root := config.ClaudeDir
 
 	fmt.Println(aurora.Faint("Connecting to agents-server"))
-	l := connect(config, device)
+	l, device := connect(config)
 	defer l.close()
 	state := l.hello("pull", device)
 
@@ -535,8 +562,7 @@ func formatDuration(d time.Duration) string {
 }
 
 func FetchStats(config Config) Stats {
-	device := helpers.DetectClaudeDevice()
-	l := connect(config, device)
+	l, device := connect(config)
 	defer l.close()
 	l.sendHello("stats", device)
 

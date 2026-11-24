@@ -11,7 +11,7 @@
     "Wait": true
   },
   {
-    "Path": "@/.local/bin.win/windows-env.exe",
+    "Path": "@/.local/bin.windows/windows-env.exe",
     "Wait": true
   },
   {

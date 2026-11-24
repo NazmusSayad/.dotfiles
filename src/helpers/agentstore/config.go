@@ -11,8 +11,6 @@ const defaultConfigPath = "@/config/agents-store.yml"
 
 type Config struct {
 	Database  string   `yaml:"database"`
-	Host      string   `yaml:"host"`
-	WSLServer string   `yaml:"wslServer"`
 	ClaudeDir string   `yaml:"claudeDir"`
 	Items     []string `yaml:"items"`
 	Skip      []string `yaml:"skip"`
@@ -32,10 +30,6 @@ func LoadConfig(args []string) Config {
 	switch {
 	case config.Database == "":
 		fatal("database is missing in " + path)
-	case config.Host == "":
-		fatal("host is missing in " + path)
-	case config.WSLServer == "":
-		fatal("wslServer is missing in " + path)
 	case config.ClaudeDir == "":
 		fatal("claudeDir is missing in " + path)
 	case len(config.Items) == 0:

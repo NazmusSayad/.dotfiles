@@ -15,6 +15,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"runtime"
 	"strconv"
 	"strings"
 	"time"
@@ -78,20 +79,21 @@ func logf(format string, args ...any) {
 
 func main() {
 	listen := flag.Bool("listen", false, "accept one connection on a local port instead of using standard input and output")
-	dbPath := flag.String("db", "", "database file")
+	dbFlag := flag.String("db", "", "database file")
 	flag.Parse()
+	dbPath := localPath(*dbFlag)
 
 	var db *sql.DB
 	dbErr := errors.New("no database given, pass --db")
-	if *dbPath != "" {
-		db, dbErr = openDB(*dbPath)
+	if dbPath != "" {
+		db, dbErr = openDB(dbPath)
 	}
 	if db != nil {
 		defer db.Close()
 	}
 
 	if !*listen {
-		serve(db, *dbPath, dbErr, os.Stdin, os.Stdout, "")
+		serve(db, dbPath, dbErr, os.Stdin, os.Stdout, "")
 		return
 	}
 
@@ -117,7 +119,18 @@ func main() {
 	}
 	listener.Close()
 	defer conn.Close()
-	serve(db, *dbPath, dbErr, conn, conn, token)
+	serve(db, dbPath, dbErr, conn, conn, token)
+}
+
+func localPath(path string) string {
+	if runtime.GOOS == "windows" {
+		return path
+	}
+	drive, rest, found := strings.Cut(path, ":/")
+	if found && len(drive) == 1 {
+		return "/mnt/" + strings.ToLower(drive) + "/" + rest
+	}
+	return path
 }
 
 func openDB(path string) (*sql.DB, error) {

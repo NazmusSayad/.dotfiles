@@ -44,6 +44,15 @@ if [ -f ./.dotsys/ssh/authorized_keys ]; then
 	install -m 600 ./.dotsys/ssh/authorized_keys "$HOME/.ssh/authorized_keys"
 fi
 
+echo "Mounting Windows D: drive at /mnt/d..."
+d_drive="UUID=01DC2CA9456E1650"
+sudo mkdir -p /mnt/d
+if ! grep -q "^$d_drive " /etc/fstab; then
+	echo "$d_drive /mnt/d ntfs3 uid=$(id -u),gid=$(id -g),nofail 0 0" | sudo tee -a /etc/fstab >/dev/null
+	sudo systemctl daemon-reload
+fi
+mountpoint -q /mnt/d || sudo mount /mnt/d || echo "Skipped: mount /mnt/d (turn off Windows Fast Startup if the drive is locked)"
+
 echo "Configuring Cloudflare tunnel..."
 cf() { mise exec -- cloudflared "$@"; }
 tunnel_name=Linux

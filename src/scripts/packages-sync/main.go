@@ -68,7 +68,7 @@ func wslSync() {
 		"--user", "sayad",
 		"--cd", "~",
 		"--exec", "/bin/bash", "-lc",
-		`cd "$HOME/.dotfiles" && "$HOME/.local/bin/mise" exec -- ./.local/bin.wsl/psy`,
+		`cd "$HOME/.dotfiles" && "$HOME/.local/bin/mise" exec -- ./.local/bin.linux/psy`,
 	)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

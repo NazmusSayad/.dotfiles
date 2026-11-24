@@ -22,21 +22,8 @@ func main() {
 	}
 
 	sourceDir := filepath.Join(cwd, constants.SCRIPTS_SOURCE_DIR)
-	var outputDir string
-	switch runtime.GOOS {
-	case "windows":
-		outputDir = filepath.Join(cwd, ".local", "bin.win")
-	case "darwin":
-		outputDir = filepath.Join(cwd, ".local", "bin.mac")
-	case "linux":
-		if helpers.IsWSL() {
-			outputDir = filepath.Join(cwd, ".local", "bin.wsl")
-		} else {
-			outputDir = filepath.Join(cwd, ".local", "bin.linux")
-		}
-	default:
-		panic("unsupported platform: " + runtime.GOOS)
-	}
+	outputDir := filepath.Join(cwd, ".local", "bin."+runtime.GOOS)
+	isWorkstation := helpers.CurrentMachine(helpers.ReadMachines()).Workstation
 
 	if err := os.RemoveAll(outputDir); err != nil {
 		panic(err)
@@ -67,6 +54,11 @@ func main() {
 				continue
 			}
 			scriptName = strings.TrimSuffix(entryName, ".mac")
+		} else if strings.HasSuffix(entryName, ".workstation") {
+			if !isWorkstation {
+				continue
+			}
+			scriptName = strings.TrimSuffix(entryName, ".workstation")
 		}
 
 		if scriptName == "" {
