@@ -50,7 +50,7 @@
 
   "claude-link": "rm -f ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
   "claude-skills": "mkdir -p ./.claude && rm -rf ./.claude/skills && ln -s ../.agents/skills ./.claude/skills",
-  "claude-cua": "claude mcp add --scope project cua-computer-use -- cua-driver mcp --claude-code-computer-use-compat",
+  "claude-cua": "claude mcp add --scope project cua-computer-use -- cua-driver mcp",
   "claude-chrome": "claude mcp add --scope project chrome-devtools -- chrome-devtools-mcp --viewport-size=1440x900 --headless --isolated",
 
   "q": { "cmd": "clear", "cmd.pwsh": "Clear-Host" },
