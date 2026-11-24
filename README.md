@@ -96,7 +96,7 @@ Once installed, you can use these commands from anywhere in your terminal:
 
 **Package Management:**
 
-- `packages-sync` / `psy` - Sync configured packages
+- `packages-sync` / `psy` - Sync configured packages; pass managers to sync only those, e.g. `psy mise scoop` (`brew`, `scoop`, `pacman`, `apt`, `snap`, `deb`, `mise`)
 - `winget-install` / `wgi` - Install configured Winget applications (Windows)
 - `winget-upgrade` / `wgu` - Update configured Winget applications (Windows)
 - `scoop-install` - Install configured Scoop packages (Windows)

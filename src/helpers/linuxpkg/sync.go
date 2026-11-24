@@ -12,82 +12,122 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-func Sync() {
+func Sync(managers []string) {
 	config := readConfig()
 	lock := readLock()
+	syncApt := slices.Contains(managers, "apt")
+	syncSnap := slices.Contains(managers, "snap")
+	syncDeb := slices.Contains(managers, "deb")
 
-	fmt.Println("✘", aurora.Faint("Uninstalling apt and deb packages..."))
-	removeAptApps(config, lock)
-	fmt.Println()
+	if syncApt {
+		fmt.Println("✘", aurora.Faint("Uninstalling apt packages..."))
+		removeAptApps(config, lock)
+		fmt.Println()
+	}
 
-	fmt.Println("✘", aurora.Faint("Uninstalling snap packages..."))
-	removeSnapApps(config, lock)
-	fmt.Println()
+	if syncDeb {
+		fmt.Println("✘", aurora.Faint("Uninstalling deb packages..."))
+		removeDebApps(config, lock)
+		fmt.Println()
+	}
 
-	fmt.Println("✘", aurora.Faint("Autoremove apt dependencies..."))
-	runAsAdmin("apt-get", "autoremove", "--purge", "-y")
-	fmt.Println()
+	if syncSnap {
+		fmt.Println("✘", aurora.Faint("Uninstalling snap packages..."))
+		removeSnapApps(config, lock)
+		fmt.Println()
+	}
 
-	fmt.Println("△", aurora.Faint("Updating apt..."))
-	runAsAdmin("apt-get", "update")
-	fmt.Println()
+	if syncApt || syncDeb {
+		fmt.Println("✘", aurora.Faint("Autoremove apt dependencies..."))
+		runAsAdmin("apt-get", "autoremove", "--purge", "-y")
+		fmt.Println()
 
-	fmt.Println("▼", aurora.Faint("Installing apt packages..."))
-	installAptApps(config, lock)
-	fmt.Println()
+		fmt.Println("△", aurora.Faint("Updating apt..."))
+		runAsAdmin("apt-get", "update")
+		fmt.Println()
+	}
 
-	fmt.Println("▼", aurora.Faint("Installing snap packages..."))
-	installSnapApps(config, lock)
-	fmt.Println()
+	if syncApt {
+		fmt.Println("▼", aurora.Faint("Installing apt packages..."))
+		installAptApps(config, lock)
+		fmt.Println()
+	}
 
-	fmt.Println("▼", aurora.Faint("Installing deb packages..."))
-	installDebApps(config, lock)
-	fmt.Println()
+	if syncSnap {
+		fmt.Println("▼", aurora.Faint("Installing snap packages..."))
+		installSnapApps(config, lock)
+		fmt.Println()
+	}
 
-	fmt.Println("△", aurora.Faint("Upgrading apt packages..."))
-	runAsAdmin("apt-get", "upgrade", "-y")
-	fmt.Println()
+	if syncDeb {
+		fmt.Println("▼", aurora.Faint("Installing deb packages..."))
+		installDebApps(config, lock)
+		fmt.Println()
+	}
 
-	fmt.Println("△", aurora.Faint("Upgrading snap packages..."))
-	runAsAdmin("snap", "refresh")
-	fmt.Println()
+	if syncApt {
+		fmt.Println("△", aurora.Faint("Upgrading apt packages..."))
+		runAsAdmin("apt-get", "upgrade", "-y")
+		fmt.Println()
+	}
+
+	if syncSnap {
+		fmt.Println("△", aurora.Faint("Upgrading snap packages..."))
+		runAsAdmin("snap", "refresh")
+		fmt.Println()
+	}
 }
 
-func removeAptApps(config appsConfig, lock appsLock) {
-	removedAptIDs := []string{}
-	for id := range lock.Apt {
-		if !slices.Contains(config.Apt, id) {
-			removedAptIDs = append(removedAptIDs, id)
-		}
-	}
-
-	removedDebIDs := []string{}
-	for id := range lock.Deb {
-		if !slices.ContainsFunc(config.Deb, func(app debApp) bool { return app.ID == id }) {
-			removedDebIDs = append(removedDebIDs, id)
-		}
-	}
-
+// Marked auto so the autoremove step purges them, keeping any still needed by other packages
+func markRemovedForAutoremove(lockedApps map[string]lockEntry, configIDs []string) ([]string, error) {
+	removedIDs := []string{}
 	installedIDs := []string{}
-	for _, id := range slices.Concat(removedAptIDs, removedDebIDs) {
+	for id := range lockedApps {
+		if slices.Contains(configIDs, id) {
+			continue
+		}
+
+		removedIDs = append(removedIDs, id)
 		if getDpkgVersion(id) != "" {
 			installedIDs = append(installedIDs, id)
 		}
 	}
 
-	// Marked auto so the autoremove step purges them, keeping any still needed by other packages
 	if len(installedIDs) > 0 {
 		fmt.Println(aurora.Faint("- Removing " + strings.Join(installedIDs, ", ")))
-		if runAsAdmin(append([]string{"apt-mark", "auto"}, installedIDs...)...) != nil {
-			return
+		if err := runAsAdmin(append([]string{"apt-mark", "auto"}, installedIDs...)...); err != nil {
+			return nil, err
 		}
 	}
 
-	for _, id := range removedAptIDs {
+	return removedIDs, nil
+}
+
+func removeAptApps(config appsConfig, lock appsLock) {
+	removedIDs, err := markRemovedForAutoremove(lock.Apt, config.Apt)
+	if err != nil {
+		return
+	}
+
+	for _, id := range removedIDs {
 		delete(lock.Apt, id)
 	}
 
-	for _, id := range removedDebIDs {
+	writeLock(lock)
+}
+
+func removeDebApps(config appsConfig, lock appsLock) {
+	configIDs := []string{}
+	for _, app := range config.Deb {
+		configIDs = append(configIDs, app.ID)
+	}
+
+	removedIDs, err := markRemovedForAutoremove(lock.Deb, configIDs)
+	if err != nil {
+		return
+	}
+
+	for _, id := range removedIDs {
 		for _, source := range lock.Deb[id].AptSources {
 			fmt.Println(aurora.Faint("- Removing apt source " + source))
 			runAsAdmin("rm", "-f", source)
