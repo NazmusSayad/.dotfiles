@@ -45,7 +45,7 @@ func changePowerState(restart bool) error {
 			action = "reboot"
 		}
 
-		if err := ExecNativeCommand([]string{"systemctl", action}, ExecCommandOptions{AsAdmin: true}); err != nil {
+		if err := ExecNativeCommand([]string{"systemctl", action, "-i"}, ExecCommandOptions{AsAdmin: true}); err != nil {
 			return fmt.Errorf("failed to %s Linux: %w", action, err)
 		}
 
