@@ -397,9 +397,9 @@
   "explorer.copyPathSeparator": "/",
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
-  "workbench.activityBar.location": "hidden",
   "security.promptForLocalFileProtocolHandling": false,
   "security.allowedUNCHosts": [
     "wsl.localhost"
-  ]
+  ],
+  "workbench.activityBar.location": "hidden"
 }
