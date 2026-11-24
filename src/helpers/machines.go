@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/fs"
 	"maps"
+	"net"
 	"os"
 	"path/filepath"
 	"slices"
@@ -22,6 +23,8 @@ type Machine struct {
 	OS          string   `yaml:"OS"`
 	WSL         bool     `yaml:"WSL"`
 	Name        string   `yaml:"Name"`
+	Description string   `yaml:"Description"`
+	Notes       []string `yaml:"Notes"`
 	Workstation bool     `yaml:"Workstation"`
 	Offline     bool     `yaml:"Offline"`
 	SSH         []string `yaml:"SSH"`
@@ -35,7 +38,21 @@ func ReadMachines() []Machine {
 			machines = append(machines, machine)
 		}
 	}
+	slices.SortFunc(machines, func(a, b Machine) int {
+		return strings.Compare(a.ID, b.ID)
+	})
 	return machines
+}
+
+func (machine Machine) SSHHost() string {
+	for _, address := range machine.SSH {
+		host, _, _ := strings.Cut(address, ":")
+		if net.ParseIP(host) == nil {
+			return address
+		}
+	}
+	exitWithError(machine.ID + " has no SSH hostname in machines.yml")
+	return ""
 }
 
 func CurrentMachine(machines []Machine) Machine {

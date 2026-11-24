@@ -1,7 +1,7 @@
 .PHONY: skills compile git macos linux shell init
 
 skills:
-	bash ./etc/bundle-skills.sh
+	go run ./src/build-skills/main.go
 
 compile:
 	go run ./src/compile-scripts/main.go

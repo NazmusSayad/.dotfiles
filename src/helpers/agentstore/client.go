@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"net"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -65,17 +64,6 @@ func connect(config Config) (*link, string) {
 	return startRemote(store, command), current.ID
 }
 
-func sshHost(machine helpers.Machine) string {
-	for _, address := range machine.SSH {
-		host, _, _ := strings.Cut(address, ":")
-		if net.ParseIP(host) == nil {
-			return address
-		}
-	}
-	fatal(machine.ID + " has no SSH hostname in machines.yml")
-	return ""
-}
-
 func startLocal(command []string) *link {
 	cmd := exec.Command(command[0], command[1:]...)
 	cmd.Stderr = os.Stderr
@@ -94,7 +82,7 @@ func startLocal(command []string) *link {
 }
 
 func startRemote(store helpers.Machine, command []string) *link {
-	address := sshHost(store)
+	address := store.SSHHost()
 
 	var escapedQuote string
 	switch store.OS {

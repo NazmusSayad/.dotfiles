@@ -13,14 +13,7 @@
 # Skills and AGENTS.md
 "@/agents/skills/*": "~/.agents/skills"
 "#/agents/skills/*": "~/.agents/skills"
-"#/agents/skills.mac/*":
-  LinkMac: "~/.agents/skills"
-"#/agents/skills.win/*":
-  LinkWin: "~/.agents/skills"
-"#/agents/skills.wsl/*":
-  LinkWsl: "~/.agents/skills"
-"#/agents/skills.linux/*":
-  LinkLinux: "~/.agents/skills"
+"@/.local/skills/*": "~/.agents/skills"
 "@/agents/AGENTS_MD.md":
   - "~/.config/opencode/AGENTS.md"
   - "~/.gemini/GEMINI.md"
