@@ -35,6 +35,12 @@ if [ -f ./.dotsys/ssh/sshd-linux.conf ]; then
 	sudo systemctl restart ssh.socket
 fi
 
+echo "Installing SSH authorized keys..."
+if [ -f ./.dotsys/ssh/authorized_keys ]; then
+	mkdir -p -m 700 "$HOME/.ssh"
+	install -m 600 ./.dotsys/ssh/authorized_keys "$HOME/.ssh/authorized_keys"
+fi
+
 echo "Configuring Cloudflare tunnel..."
 cf() { mise exec -- cloudflared "$@"; }
 tunnel_name=Linux
