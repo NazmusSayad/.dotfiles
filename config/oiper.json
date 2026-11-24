@@ -66,11 +66,17 @@
     "enhancementLlmId": "cerebras-gpt-oss-120b",
     "enhancementType": "text-lv2",
     "hotkeyHold.macos": ["ShiftLeft+ControlLeft", "ShiftLeft+MetaLeft", "F15"],
+    "hotkeyHold.linux": [
+      "ShiftLeft+ControlLeft",
+      "ShiftLeft+MetaLeft",
+      "F15"
+    ],
     "hotkeyHold.windows": [
       "ShiftLeft+ControlLeft",
       "ShiftLeft+MetaLeft",
       "F15"
     ],
+    "hotkeyToggle.linux": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
     "hotkeyToggle.macos": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
     "hotkeyToggle.windows": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
     "id": "default",
@@ -91,6 +97,7 @@
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
+      "hotkeyHold.linux": ["AltGr+MetaRight"],
       "hotkeyHold.macos": ["ShiftRight+ControlRight", "ShiftRight+MetaRight"],
       "hotkeyHold.windows": ["AltGr+MetaRight"],
       "hotkeyToggle.macos": [],
@@ -106,6 +113,7 @@
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "text-lv1",
+      "hotkeyHold.linux": ["ShiftLeft+Alt", "ShiftLeft+F15"],
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ControlLeft+Alt",
@@ -113,6 +121,7 @@
         "ShiftLeft+F15"
       ],
       "hotkeyHold.windows": ["ShiftLeft+Alt", "ShiftLeft+F15"],
+      "hotkeyToggle.linux": ["ShiftRight+Alt"],
       "hotkeyToggle.macos": ["ShiftRight+Alt"],
       "hotkeyToggle.windows": ["ShiftRight+Alt"],
       "id": "prompt-profile",
