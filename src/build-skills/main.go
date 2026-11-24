@@ -14,16 +14,19 @@ import (
 )
 
 func main() {
-	outputDir := helpers.ResolvePath("@/.local/skills")
-	if err := os.RemoveAll(outputDir); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(outputDir, 0o755); err != nil {
-		panic(err)
-	}
+	bundleSkills(resetDir("@/.local/skills-bundle"))
+	writeFleetSkill(resetDir("@/.local/skills"))
+}
 
-	bundleSkills(outputDir)
-	writeFleetSkill(outputDir)
+func resetDir(path string) string {
+	dir := helpers.ResolvePath(path)
+	if err := os.RemoveAll(dir); err != nil {
+		panic(err)
+	}
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		panic(err)
+	}
+	return dir
 }
 
 func bundleSkills(outputDir string) {
@@ -38,7 +41,7 @@ func bundleSkills(outputDir string) {
 			continue
 		}
 		zipSkill(skillsDir, entry.Name(), filepath.Join(outputDir, entry.Name()+".zip"))
-		fmt.Println("Bundled " + entry.Name() + " -> .local/skills/" + entry.Name() + ".zip")
+		fmt.Println("Bundled " + entry.Name() + " -> .local/skills-bundle/" + entry.Name() + ".zip")
 	}
 }
 
