@@ -9,20 +9,22 @@ import (
 )
 
 type ClaudeDevice struct {
-	OS string
+	OS  string
+	WSL bool
 }
 
 const CLAUDE_HOST_DEVICE = "windows"
 
 var CLAUDE_DEVICES = map[string]ClaudeDevice{
 	"windows": {OS: "windows"},
-	"wsl":     {OS: "linux"},
+	"wsl":     {OS: "linux", WSL: true},
+	"linux":   {OS: "linux"},
 	"mac":     {OS: "darwin"},
 }
 
 func DetectClaudeDevice() string {
 	for id, device := range CLAUDE_DEVICES {
-		if device.OS == runtime.GOOS {
+		if device.OS == runtime.GOOS && device.WSL == IsWSL() {
 			return id
 		}
 	}

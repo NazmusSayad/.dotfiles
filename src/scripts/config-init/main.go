@@ -18,7 +18,8 @@ import (
 )
 
 func main() {
-	if !helpers.IsWSL() {
+	// Linux targets all live in $HOME; sudo would reset HOME to /root
+	if runtime.GOOS != "linux" {
 		helpers.EnsureAdminExecution()
 	}
 	if err := helpers.ValidateInvokingUser(); err != nil {

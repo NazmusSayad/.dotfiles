@@ -29,7 +29,11 @@ func main() {
 	case "darwin":
 		outputDir = filepath.Join(cwd, ".local", "bin.mac")
 	case "linux":
-		outputDir = filepath.Join(cwd, ".local", "bin.wsl")
+		if helpers.IsWSL() {
+			outputDir = filepath.Join(cwd, ".local", "bin.wsl")
+		} else {
+			outputDir = filepath.Join(cwd, ".local", "bin.linux")
+		}
 	default:
 		panic("unsupported platform: " + runtime.GOOS)
 	}

@@ -26,7 +26,7 @@ func main() {
 	}
 
 	// Mise
-	if runtime.GOOS == "darwin" {
+	if runtime.GOOS != "windows" {
 		fmt.Println("△", aurora.Faint("Updating Mise..."))
 		runCommand(
 			[]string{"mise", "self-update", "--yes"},

@@ -45,9 +45,11 @@ type Entry struct {
 	Copy        StringOrArray `yaml:"Copy"`
 	LinkWin     StringOrArray `yaml:"LinkWin"`
 	LinkMac     StringOrArray `yaml:"LinkMac"`
+	LinkLinux   StringOrArray `yaml:"LinkLinux"`
 	LinkWsl     StringOrArray `yaml:"LinkWsl"`
 	CopyWin     StringOrArray `yaml:"CopyWin"`
 	CopyMac     StringOrArray `yaml:"CopyMac"`
+	CopyLinux   StringOrArray `yaml:"CopyLinux"`
 	CopyWsl     StringOrArray `yaml:"CopyWsl"`
 	Create      string        `yaml:"Create"`
 	InheritPerm bool          `yaml:"InheritPerm"`
@@ -91,6 +93,13 @@ func (e Entry) resolve() ([]string, []string) {
 			}
 			if len(e.CopyWsl) > 0 {
 				copyTargets = e.CopyWsl
+			}
+		} else {
+			if len(e.LinkLinux) > 0 {
+				linkTargets = e.LinkLinux
+			}
+			if len(e.CopyLinux) > 0 {
+				copyTargets = e.CopyLinux
 			}
 		}
 	}

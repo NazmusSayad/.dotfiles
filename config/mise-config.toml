@@ -20,6 +20,10 @@ cmake = "latest"
 
 # Shell
 gsudo = { version = "latest", os = ["windows"] }
+"github:fish-shell/fish-shell" = { version = "latest", os = ["linux"] }
+starship = { version = "latest", os = ["linux"] }
+zoxide = { version = "latest", os = ["linux"] }
+direnv = { version = "latest", os = ["linux"] }
 
 # File System
 jq = "latest"
@@ -38,6 +42,7 @@ superfile = "latest"
 hyperfine = "latest"
 fastfetch = "latest"
 bottom = "latest"
+btop = { version = "latest", os = ["linux"] }
 "github:wakatime/wakatime-cli" = "latest"
 
 # Workflow

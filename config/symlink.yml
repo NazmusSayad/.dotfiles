@@ -7,6 +7,8 @@
   LinkMac: "~/.bash_profile"
 "@/config/shell/bash/profile.wsl.sh":
   LinkWsl: "~/.bash_profile"
+"@/config/shell/bash/profile.linux.sh":
+  LinkLinux: "~/.bash_profile"
 
 # Skills and AGENTS.md
 "@/agents/skills/*": "~/.agents/skills"
@@ -50,6 +52,8 @@
   LinkWin: "~/.config/fastfetch/config.jsonc"
 "@/config/shell/fastfetch-mac.jsonc":
   LinkMac: "~/.config/fastfetch/config.jsonc"
+"@/config/shell/fastfetch-linux.jsonc":
+  LinkLinux: "~/.config/fastfetch/config.jsonc"
 "@/config/shell/btop.conf":
   Copy: "~/.config/btop/btop.conf"
 "@/config/shell/bottom.toml":
@@ -60,6 +64,8 @@
 # Terminal Emulators
 "@/config/shell/ghostty.conf":
   LinkMac: "~/.config/ghostty/config"
+"@/config/shell/ghostty-linux.conf":
+  LinkLinux: "~/.config/ghostty/config"
 "@/config/shell/cmux.json":
   CopyMac: "~/.config/cmux/cmux.json"
 "@/config/windows-terminal.json":
@@ -88,6 +94,7 @@
   CopyMac: "~/.docker/config.json"
 "@/config/pnpm.yaml":
   LinkWsl: "~/.config/pnpm/config.yaml"
+  LinkLinux: "~/.config/pnpm/config.yaml"
   LinkMac: "~/Library/Preferences/pnpm/config.yaml"
 "@/config/pnpm-win.yaml":
   LinkWin: "$LOCALAPPDATA/pnpm/config.yaml"
@@ -118,10 +125,16 @@
   LinkMac:
     - "~/Library/Application Support/Code/User/settings.json"
     - "~/Library/Application Support/Code - Insiders/User/settings.json"
+  LinkLinux:
+    - "~/.config/Code/User/settings.json"
+    - "~/.config/Code - Insiders/User/settings.json"
 "@/config/vscode/keybindings.jsonc":
   LinkWin:
     - "$APPDATA/Code/User/keybindings.json"
     - "$APPDATA/Code - Insiders/User/keybindings.json"
+  LinkLinux:
+    - "~/.config/Code/User/keybindings.json"
+    - "~/.config/Code - Insiders/User/keybindings.json"
 "@/config/vscode/mac-keybindings.jsonc":
   LinkMac:
     - "~/Library/Application Support/Code/User/keybindings.json"

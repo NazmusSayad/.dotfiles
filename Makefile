@@ -1,4 +1,4 @@
-.PHONY: skills compile git macos shell init
+.PHONY: skills compile git macos linux shell init
 
 skills:
 	bash ./etc/bundle-skills.sh
@@ -14,6 +14,10 @@ shell:
 
 macos: git shell
 	bash ./src/macos/setup.sh
+
+# fish comes from mise, so `make shell` runs after config-init and psy
+linux: git
+	bash ./src/linux/setup.sh
 
 init:
 	MSYS=winsymlinks:nativestrict ln -sf ../../.githooks/pre-push ../../.githooks/reference-transaction .git/hooks/

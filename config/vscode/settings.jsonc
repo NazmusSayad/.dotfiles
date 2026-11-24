@@ -77,6 +77,8 @@
   },
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.external.linuxExec": "ghostty",
+  "terminal.integrated.defaultProfile.linux": "fish",
   "terminal.external.windowsExec": "wt.exe",
   "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.windows": {
@@ -401,7 +403,6 @@
   "explorer.copyPathSeparator": "/",
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
-  "workbench.activityBar.location": "hidden",
   "security.promptForLocalFileProtocolHandling": false,
   "security.allowedUNCHosts": [
     "wsl.localhost"
