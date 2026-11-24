@@ -1,3 +1,3 @@
 CLAUDE.md: "@/agents/AGENTS_MD.md"
 claude.json: "@/agents/claude.json"
-accounts: []
+accounts: ["c"]
