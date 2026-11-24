@@ -15,7 +15,6 @@ shell:
 macos: git shell
 	bash ./src/macos/setup.sh
 
-# fish comes from mise, so `make shell` runs after config-init and psy
 linux: git
 	bash ./src/linux/setup.sh
 

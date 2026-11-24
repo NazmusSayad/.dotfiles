@@ -1,6 +1,20 @@
 #!/bin/bash
 
+# Full native Linux setup. Run as your user: sudo is used only for apt/snap.
 # Package priority on Linux: mise (config/mise-config.toml) > snap > apt
+
+set -e
+
+if [ "$EUID" -eq 0 ]; then
+	echo "Run 'make linux' without sudo; it asks for your password when needed." >&2
+	exit 1
+fi
+
+cd "$(dirname "${BASH_SOURCE[0]}")/../.."
+export PATH="$HOME/.local/bin:$PATH"
+
+echo "Requesting sudo for apt and snap..."
+sudo -v
 
 echo "Installing apt packages..."
 # No mise/snap source for a C toolchain; cargo:dotsh and cargo:shaka need it
@@ -9,6 +23,23 @@ sudo apt-get install -y build-essential
 
 echo "Installing snap packages..."
 sudo snap install code --classic
+
+echo "Installing mise..."
+if [ ! -x "$HOME/.local/bin/mise" ]; then
+	curl -fsSL https://mise.run | sh
+fi
+
+echo "Compiling scripts..."
+mise exec go@latest -- go run ./src/compile-scripts/main.go
+
+echo "Linking config files..."
+./.local/bin.linux/config-init
+
+echo "Installing mise packages..."
+mise exec -- ./.local/bin.linux/psy
+
+echo "Configuring shell..."
+mise exec -- bash ./etc/shell-config.sh
 
 echo "Installing FiraCode Nerd Font..."
 font_dir="$HOME/.local/share/fonts/FiraCode"
@@ -51,4 +82,4 @@ gset org.gtk.Settings.FileChooser show-hidden true
 gset org.gnome.nautilus.preferences default-folder-viewer icon-view
 
 echo
-echo "Next: ./.local/bin.linux/config-init && ./.local/bin.linux/psy && make shell"
+echo "Done. Open a new terminal."

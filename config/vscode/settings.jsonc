@@ -77,8 +77,6 @@
   },
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.external.linuxExec": "ghostty",
-  "terminal.integrated.defaultProfile.linux": "fish",
   "terminal.external.windowsExec": "wt.exe",
   "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.windows": {
@@ -154,10 +152,8 @@
     "other": true
   },
   "files.associations": {
-    "*.env": "dotenv",
-    "*.env.*": "dotenv",
-    "*.envrc": "shellscript",
-    "*.envrc.*": "shellscript",
+    ".env*": "dotenv",
+    ".envrc": "shellscript",
     "*.code-snippets": "jsonc"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -345,8 +341,6 @@
   "cSpell.language": "en,en-US,lorem",
   "cSpell.userWords": [
     "dotenv",
-    "envrc",
-    "mlflow",
     "gityo",
     "HugeIcons",
     "Nazmus",
@@ -403,6 +397,7 @@
   "explorer.copyPathSeparator": "/",
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
+  "workbench.activityBar.location": "hidden",
   "security.promptForLocalFileProtocolHandling": false,
   "security.allowedUNCHosts": [
     "wsl.localhost"
