@@ -35,6 +35,9 @@ if [ -f ./.dotsys/ssh/sshd-linux.conf ]; then
 	sudo systemctl restart ssh.socket
 fi
 
+# ssh rejects a group-writable config, and Ubuntu's umask makes checkouts 664
+[ -f ./.dotsys/ssh/ssh-linux ] && chmod 644 ./.dotsys/ssh/ssh-linux
+
 echo "Installing SSH authorized keys..."
 if [ -f ./.dotsys/ssh/authorized_keys ]; then
 	mkdir -p -m 700 "$HOME/.ssh"
