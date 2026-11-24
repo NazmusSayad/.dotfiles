@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Full native Linux setup. Run as your user: sudo is used only for apt/snap.
+# Native Linux system setup. Run as your user: sudo is used only where needed.
+# Run after compile, config-init and psy, like `make macos`.
 # Package priority on Linux: mise (config/mise-config.toml) > snap > apt
 
 set -e
@@ -13,33 +14,45 @@ fi
 cd "$(dirname "${BASH_SOURCE[0]}")/../.."
 export PATH="$HOME/.local/bin:$PATH"
 
-echo "Requesting sudo for apt and snap..."
-sudo -v
-
-echo "Installing apt packages..."
-# No mise/snap source for a C toolchain; cargo:dotsh and cargo:shaka need it
-sudo apt-get update
-sudo apt-get install -y build-essential
-
-echo "Installing snap packages..."
-sudo snap install code --classic
-
 echo "Installing mise..."
 if [ ! -x "$HOME/.local/bin/mise" ]; then
 	curl -fsSL https://mise.run | sh
 fi
 
-echo "Compiling scripts..."
-mise exec go@latest -- go run ./src/compile-scripts/main.go
+echo "Requesting sudo for apt, SSH server and tunnel startup..."
+sudo -v
 
-echo "Linking config files..."
-./.local/bin.linux/config-init
+echo "Installing apt packages..."
+# No mise/snap source: C toolchain (for cargo:dotsh/shaka) and SSH server
+sudo apt-get update
+sudo apt-get install -y build-essential openssh-server
 
-echo "Installing mise packages..."
-mise exec -- ./.local/bin.linux/psy
+echo "Configuring SSH server..."
+if [ -f ./.dotsys/ssh/sshd-linux.conf ]; then
+	sudo install -m 644 ./.dotsys/ssh/sshd-linux.conf /etc/ssh/sshd_config.d/10-dotfiles.conf
+	sudo systemctl daemon-reload
+	sudo systemctl enable --now ssh.socket
+	sudo systemctl restart ssh.socket
+fi
 
-echo "Configuring shell..."
-mise exec -- bash ./etc/shell-config.sh
+echo "Configuring Cloudflare tunnel..."
+cf() { mise exec -- cloudflared "$@"; }
+tunnel_name=Linux
+if [ ! -f "$HOME/.cloudflared/cert.pem" ]; then
+	cf tunnel login
+fi
+if [ -z "$(cf tunnel list --name "$tunnel_name" -o json | jq -r '.[0].id // empty')" ]; then
+	cf tunnel create "$tunnel_name"
+fi
+tunnel_id="$(cf tunnel list --name "$tunnel_name" -o json | jq -r '.[0].id')"
+if [ ! -f "$HOME/.cloudflared/$tunnel_id.json" ]; then
+	cf tunnel token --cred-file "$HOME/.cloudflared/$tunnel_id.json" "$tunnel_name"
+fi
+cf tunnel route dns "$tunnel_name" linux.sayad.cc || true
+sudo loginctl enable-linger "$USER"
+systemctl --user daemon-reload
+systemctl --user enable --now cloudflared
+systemctl --user restart cloudflared
 
 echo "Installing FiraCode Nerd Font..."
 font_dir="$HOME/.local/share/fonts/FiraCode"

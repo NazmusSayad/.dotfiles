@@ -15,7 +15,7 @@ shell:
 macos: git shell
 	bash ./src/macos/setup.sh
 
-linux: git
+linux: git shell
 	bash ./src/linux/setup.sh
 
 init:
