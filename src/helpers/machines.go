@@ -9,10 +9,10 @@ import (
 )
 
 type Machine struct {
+	ID          string   `yaml:"-"`
 	OS          string   `yaml:"OS"`
 	WSL         bool     `yaml:"WSL"`
 	Name        string   `yaml:"Name"`
-	Alias       string   `yaml:"Alias"`
 	Workstation bool     `yaml:"Workstation"`
 	Offline     bool     `yaml:"Offline"`
 	SSH         []string `yaml:"SSH"`
@@ -20,8 +20,9 @@ type Machine struct {
 
 func ReadMachines() []Machine {
 	var machines []Machine
-	for _, machine := range ReadConfig[map[string]Machine]("#/machines.yml") {
+	for id, machine := range ReadConfig[map[string]Machine]("#/machines.yml") {
 		if !machine.Offline {
+			machine.ID = id
 			machines = append(machines, machine)
 		}
 	}

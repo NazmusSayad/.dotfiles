@@ -59,10 +59,10 @@ func connect(config Config) (*link, string) {
 	store := helpers.WorkstationMachine(machines)
 	insideWindowsStore := current.WSL && current.Name == store.Name && store.OS == "windows"
 	command := serverCommand(config, insideWindowsStore)
-	if current.Alias == store.Alias || insideWindowsStore {
-		return startLocal(command), current.Alias
+	if current.ID == store.ID || insideWindowsStore {
+		return startLocal(command), current.ID
 	}
-	return startRemote(store, command), current.Alias
+	return startRemote(store, command), current.ID
 }
 
 func sshHost(machine helpers.Machine) string {
@@ -72,7 +72,7 @@ func sshHost(machine helpers.Machine) string {
 			return address
 		}
 	}
-	fatal(machine.Alias + " has no SSH hostname in machines.yml")
+	fatal(machine.ID + " has no SSH hostname in machines.yml")
 	return ""
 }
 
