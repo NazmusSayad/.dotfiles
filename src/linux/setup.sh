@@ -87,6 +87,7 @@ gset org.gnome.desktop.interface enable-hot-corners false
 gset org.gnome.desktop.peripherals.keyboard repeat true
 gset org.gnome.desktop.peripherals.keyboard repeat-interval 30
 gset org.gnome.desktop.peripherals.keyboard delay 375
+gset org.gnome.desktop.input-sources xkb-options "['ctrl:swap_lwin_lctl', 'ctrl:swap_rwin_rctl']"
 gset org.gnome.desktop.peripherals.touchpad tap-to-click true
 
 gset org.gnome.desktop.session idle-delay 300
