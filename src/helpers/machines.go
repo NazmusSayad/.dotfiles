@@ -61,10 +61,18 @@ func CurrentMachine(machines []Machine) Machine {
 	}
 
 	ids := slices.Sorted(maps.Keys(byID))
+	width := 0
+	for _, id := range ids {
+		width = max(width, len(id))
+	}
+	var options []huh.Option[string]
+	for _, id := range ids {
+		options = append(options, huh.NewOption(fmt.Sprintf("%-*s  %s", width, id, aurora.Faint(byID[id].Name)), id))
+	}
 	var picked string
 	err = huh.NewSelect[string]().
-		Title("Which machine is this? Offline machines are not listed").
-		Options(huh.NewOptions(ids...)...).
+		Title(aurora.Blue("Which machine is this?").String()).
+		Options(options...).
 		Value(&picked).
 		WithTheme(HuhTheme()).
 		Run()
