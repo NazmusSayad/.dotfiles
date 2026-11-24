@@ -33,36 +33,45 @@ type Release struct {
 	Assets      []Asset `json:"assets"`
 }
 
-func getLatestReleaseZipURL(repoURL, pattern string) (Asset, error) {
+func GetLatestGithubRelease(repoURL string) (Release, error) {
 	parts := strings.Split(strings.TrimSuffix(strings.TrimPrefix(repoURL, "https://github.com/"), "/"), "/")
 	if len(parts) < 2 {
-		return Asset{}, fmt.Errorf("invalid GitHub URL format")
+		return Release{}, fmt.Errorf("invalid GitHub URL format")
 	}
 	owner, repo := parts[0], parts[1]
 
+	apiURL := fmt.Sprintf("https://api.github.com/repos/%s/%s/releases/latest", owner, repo)
+	resp, err := http.Get(apiURL)
+	if err != nil {
+		return Release{}, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return Release{}, fmt.Errorf("received status code %d", resp.StatusCode)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return Release{}, err
+	}
+
+	var release Release
+	if err := json.Unmarshal(body, &release); err != nil {
+		return Release{}, err
+	}
+
+	return release, nil
+}
+
+func getLatestReleaseZipURL(repoURL, pattern string) (Asset, error) {
 	re, err := regexp.Compile(pattern)
 	if err != nil {
 		return Asset{}, fmt.Errorf("invalid regex pattern: %v", err)
 	}
 
-	apiURL := fmt.Sprintf("https://api.github.com/repos/%s/%s/releases/latest", owner, repo)
-	resp, err := http.Get(apiURL)
+	release, err := GetLatestGithubRelease(repoURL)
 	if err != nil {
-		return Asset{}, err
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return Asset{}, fmt.Errorf("received status code %d", resp.StatusCode)
-	}
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return Asset{}, err
-	}
-
-	var release Release
-	if err := json.Unmarshal(body, &release); err != nil {
 		return Asset{}, err
 	}
 

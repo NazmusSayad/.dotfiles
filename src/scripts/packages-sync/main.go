@@ -7,6 +7,7 @@ import (
 	"runtime"
 
 	"dotfiles/src/helpers"
+	"dotfiles/src/helpers/linuxpkg"
 
 	"github.com/logrusorgru/aurora/v4"
 )
@@ -17,6 +18,10 @@ func main() {
 		homebrewSync()
 	case "windows":
 		windowsSync()
+	case "linux":
+		if !helpers.IsWSL() {
+			linuxpkg.Sync()
+		}
 	}
 
 	githubToken := helpers.GetGitHubToken()
