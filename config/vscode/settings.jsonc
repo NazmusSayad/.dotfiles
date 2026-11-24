@@ -152,8 +152,10 @@
     "other": true
   },
   "files.associations": {
-    ".env*": "dotenv",
-    ".envrc": "shellscript",
+    "*.env": "dotenv",
+    "*.env.*": "dotenv",
+    "*.envrc": "shellscript",
+    "*.envrc.*": "shellscript",
     "*.code-snippets": "jsonc"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -341,6 +343,8 @@
   "cSpell.language": "en,en-US,lorem",
   "cSpell.userWords": [
     "dotenv",
+    "envrc",
+    "mlflow",
     "gityo",
     "HugeIcons",
     "Nazmus",
