@@ -1,6 +1,4 @@
 database: D:/Store/agents.db
-host: SSH_WIN_ADDRESS
-wslServer: /mnt/f/.dotfiles/.local/bin.win/agents-server.exe
 claudeDir: ~/.claude
 items:
   - projects
