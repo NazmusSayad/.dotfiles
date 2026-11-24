@@ -102,6 +102,7 @@
   LinkWin: "$LOCALAPPDATA/pnpm/config.yaml"
 "@/config/oiper.json":
   LinkWin: "$APPDATA/com.oiper.desktop/config.json"
+  LinkLinux: "~/.config/com.oiper.desktop/config.json"
   LinkMac: "~/Library/Application Support/com.oiper.desktop/config.json"
 "@/config/uni-run.json": "~/.uni-run.json"
 "@/config/mysubs.json": "~/.config/mysubs/config.json"
