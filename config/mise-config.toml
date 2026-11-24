@@ -128,6 +128,7 @@ yt-dlp = "latest"
 "npm:@playwright/cli" = { version = "latest", postinstall = "playwright-cli install-browser chromium" }
 "npm:@playwright/mcp" = "latest"
 "npm:chrome-devtools-mcp" = "latest"
+"npm:@agent-sh/computer-use-linux" = { version = "latest", os = ["linux"] }
 
 [env]
 PLAYWRIGHT_MCP_BROWSER = "chromium"

@@ -94,6 +94,7 @@ gset org.gnome.desktop.session idle-delay 300
 gset org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
 gset org.gnome.desktop.privacy report-technical-problems false
 gset org.gnome.desktop.privacy send-software-usage-stats false
+gset org.gnome.desktop.sound event-sounds false
 
 gset org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gset org.gnome.shell.extensions.dash-to-dock autohide true
@@ -104,5 +105,10 @@ gset org.gtk.gtk4.Settings.FileChooser show-hidden true
 gset org.gtk.Settings.FileChooser show-hidden true
 gset org.gnome.nautilus.preferences default-folder-viewer icon-view
 
+echo "Configuring computer-use-linux..."
+# Turns on the AT-SPI accessibility bridge and installs the GNOME window-control extension
+mise exec -- computer-use-linux setup >/dev/null || echo "Skipped: computer-use-linux setup"
+mise exec -- computer-use-linux setup-window-targeting >/dev/null || echo "Skipped: computer-use-linux setup-window-targeting"
+
 echo
-echo "Done. Open a new terminal."
+echo "Done. Log out and back in, then open a new terminal."
