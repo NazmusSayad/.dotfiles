@@ -90,13 +90,13 @@ func writeFleetSkill(outputDir string) {
 	skill.WriteString("name: fleet\n")
 	skill.WriteString("description: Use when a task needs to reach or run something on another of the user's machines.\n")
 	skill.WriteString("---\n\n")
-	fmt.Fprintf(&skill, "You are on %s (%s). %s Run local commands directly.\n", current.ID, current.Name, current.Description)
+	fmt.Fprintf(&skill, "You are on %s (name: %s).\n", osLabel(current), current.Name)
 
 	for _, machine := range machines {
 		if machine.ID == current.ID {
 			continue
 		}
-		fmt.Fprintf(&skill, "\n## %s (%s)\n\n%s\n\n", machine.ID, machine.Name, machine.Description)
+		fmt.Fprintf(&skill, "\n## %s (name: %s)\n\n%s\n\n", osLabel(machine), machine.Name, machine.Description)
 		fmt.Fprintf(&skill, "- SSH: %s\n", sshCommand(machine))
 		for _, note := range machine.Notes {
 			fmt.Fprintf(&skill, "- %s\n", note)
@@ -113,6 +113,21 @@ func writeFleetSkill(outputDir string) {
 		panic(err)
 	}
 	fmt.Println("Wrote fleet for " + current.ID + " -> .local/skills/fleet/SKILL.md")
+}
+
+func osLabel(machine helpers.Machine) string {
+	switch {
+	case machine.OS == "darwin":
+		return "macOS"
+	case machine.OS == "windows":
+		return "Windows"
+	case machine.OS == "linux" && machine.WSL:
+		return "WSL"
+	case machine.OS == "linux":
+		return "Linux"
+	default:
+		panic("fleet: unsupported OS " + machine.OS + " for " + machine.ID)
+	}
 }
 
 func sshCommand(machine helpers.Machine) string {
