@@ -90,8 +90,12 @@ gset org.gnome.desktop.peripherals.keyboard delay 375
 gset org.gnome.desktop.input-sources xkb-options "['ctrl:swap_lwin_lctl', 'ctrl:swap_rwin_rctl']"
 gset org.gnome.desktop.peripherals.touchpad tap-to-click true
 
-gset org.gnome.desktop.session idle-delay 300
+gset org.gnome.desktop.session idle-delay 900
+gset org.gnome.desktop.screensaver lock-enabled false
+gset org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
+gset org.gnome.desktop.lockdown disable-lock-screen true
 gset org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
+gset org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type nothing
 gset org.gnome.desktop.privacy report-technical-problems false
 gset org.gnome.desktop.privacy send-software-usage-stats false
 gset org.gnome.desktop.sound event-sounds false
