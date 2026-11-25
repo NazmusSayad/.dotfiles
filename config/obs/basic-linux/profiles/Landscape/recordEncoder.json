@@ -1,0 +1,4 @@
+{
+    "rate_control": "CQP",
+    "qp": 20
+}

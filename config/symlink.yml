@@ -75,6 +75,10 @@
   CopyMac: "~/Library/Application Support/obs-studio/basic"
 "@/config/obs/user-mac.ini":
   CopyMac: "~/Library/Application Support/obs-studio/user.ini"
+"@/config/obs/basic-linux":
+  CopyLinux: "~/.config/obs-studio/basic"
+"@/config/obs/user-linux.ini":
+  CopyLinux: "~/.config/obs-studio/user.ini"
 
 # mpv
 "@/config/mpv":

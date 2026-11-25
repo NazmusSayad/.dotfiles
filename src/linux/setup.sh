@@ -79,6 +79,13 @@ systemctl --user daemon-reload
 systemctl --user enable --now cloudflared
 systemctl --user restart cloudflared
 
+echo "Starting OpenLogi agent..."
+if systemctl --user cat openlogi-agent.service >/dev/null 2>&1; then
+	systemctl --user enable --now openlogi-agent.service
+else
+	echo "Skipped: OpenLogi not installed (run 'psy deb' first)"
+fi
+
 echo "Installing FiraCode Nerd Font..."
 font_dir="$HOME/.local/share/fonts/FiraCode"
 if [ ! -d "$font_dir" ]; then

@@ -22,6 +22,9 @@ apt:
   - pandoc
   - id: obs-studio
     recommends: false
+  - id: obs-plugins
+    recommends: false
+  - intel-media-va-driver-non-free
 
   # Internet
   - qbittorrent
@@ -88,3 +91,6 @@ deb:
   - id: oi-per
     github: https://github.com/oiper/desktop
     asset: _amd64\.deb$
+  - id: openlogi
+    github: https://github.com/AprilNEA/OpenLogi
+    asset: linux-amd64\.deb$
