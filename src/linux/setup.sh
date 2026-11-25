@@ -141,6 +141,9 @@ gset org.gtk.gtk4.Settings.FileChooser show-hidden true
 gset org.gtk.Settings.FileChooser show-hidden true
 gset org.gnome.nautilus.preferences default-folder-viewer icon-view
 
+gset io.github.celluloid-player.Celluloid always-use-floating-controls false
+gset io.github.celluloid-player.Celluloid autofit-enable false
+gset io.github.celluloid-player.Celluloid draggable-video-area-enable true
 gset io.github.celluloid-player.Celluloid mpv-config-enable true
 gset io.github.celluloid-player.Celluloid mpv-config-file "file://$HOME/.config/mpv/mpv.conf"
 
