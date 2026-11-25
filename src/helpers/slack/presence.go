@@ -67,7 +67,7 @@ func SlackUpdatePresence(status SlackStatus) {
 
 func setPresence(workspace string, presence string) {
 	err := helpers.ExecNativeCommand(
-		[]string{"agent-slack", "user", "presence", presence, "--workspace", workspace},
+		[]string{"custom-agent-slack", "user", "presence", presence, "--workspace", workspace},
 		helpers.ExecCommandOptions{Silent: true},
 	)
 	if err != nil {

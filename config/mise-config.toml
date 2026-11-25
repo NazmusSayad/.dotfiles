@@ -126,8 +126,8 @@ yt-dlp = "latest"
 
 # Communication
 "npm:@schpet/linear-cli" = "latest"
-"github:stablyai/agent-slack" = { version = "latest", os = ["macos", "linux"] }
-"github:NazmusSayad/agent-slack" = { version = "latest", os = ["windows"] }
+"github:stablyai/agent-slack" = "latest"
+"github:NazmusSayad/agent-slack" = { version = "latest", bin = "custom-agent-slack" }
 
 # Browsers
 "npm:@playwright/cli" = { version = "latest", postinstall = "playwright-cli install-browser chromium" }

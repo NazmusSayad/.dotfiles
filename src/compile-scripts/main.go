@@ -66,6 +66,9 @@ func main() {
 		}
 
 		aliasName := constants.BIN_SCRIPTS[scriptName].Exe
+		if runtime.GOOS == "linux" && constants.BIN_SCRIPTS[scriptName].LinuxExe != "" {
+			aliasName = constants.BIN_SCRIPTS[scriptName].LinuxExe
+		}
 		if aliasName != "" {
 			buildScript(sourceDir, outputDir, entryName, aliasName)
 		} else {

@@ -403,5 +403,6 @@
   "security.allowedUNCHosts": [
     "wsl.localhost"
   ],
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "window.customTitleBarVisibility": "windowed"
 }

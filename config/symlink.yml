@@ -97,6 +97,12 @@
 "@/config/kanata/kanata.service":
   LinkLinux: "~/.config/systemd/user/kanata.service"
 
+# Slack Manager
+"@/config/slack-manager/slack-manager.service":
+  LinkLinux: "~/.config/systemd/user/slack-manager.service"
+"@/config/slack-manager/slack-manager.timer":
+  LinkLinux: "~/.config/systemd/user/slack-manager.timer"
+
 # IINA
 "@/config/iina.plist":
   CopyMac: "~/Library/Preferences/com.colliderli.iina.plist"
