@@ -113,7 +113,7 @@ and more...
 
 **Slack Management:**
 
-- `slack-status` (`ss` on Windows and macOS) - Change Slack status behavior (Always Active/Office Hours/Never)
+- `slack-status` (`ss` on Windows) - Change Slack status behavior (Always Active/Office Hours/Never)
 - `slack-manager` runs in the background (Windows task, Linux systemd timer) and sets each workspace to active/away using `custom-agent-slack`
 
 **System Setup:**
