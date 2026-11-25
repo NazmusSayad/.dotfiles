@@ -79,6 +79,8 @@
 # mpv
 "@/config/mpv":
   LinkLinux: "~/.config/mpv"
+"@/config/mpv/scripts":
+  LinkLinux: "~/.config/celluloid/scripts"
 
 # Git
 "@/config/global.gitignore": "~/.gitignore"

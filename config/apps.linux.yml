@@ -17,7 +17,7 @@ apt:
 
   # Media
   - ffmpeg
-  - mpv
+  - celluloid
   - imagemagick
   - pandoc
   - obs-studio

@@ -141,6 +141,9 @@ gset org.gtk.gtk4.Settings.FileChooser show-hidden true
 gset org.gtk.Settings.FileChooser show-hidden true
 gset org.gnome.nautilus.preferences default-folder-viewer icon-view
 
+gset io.github.celluloid-player.Celluloid mpv-config-enable true
+gset io.github.celluloid-player.Celluloid mpv-config-file "file://$HOME/.config/mpv/mpv.conf"
+
 echo "Configuring computer-use-linux..."
 # Turns on the AT-SPI accessibility bridge and installs the GNOME window-control extension
 mise exec -- computer-use-linux setup >/dev/null || echo "Skipped: computer-use-linux setup"
