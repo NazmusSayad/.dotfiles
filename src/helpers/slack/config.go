@@ -43,7 +43,7 @@ type OutputSlackConfig struct {
 
 func ReadSlackConfig() map[string]OutputSlackConfig {
 	configInput := helpers.ReadConfig[map[string]inputSlackConfig](
-		"#/windows/slack-manager.yml",
+		"#/slack-manager.yml",
 		helpers.ReadConfigOptions{Silent: true},
 	)
 

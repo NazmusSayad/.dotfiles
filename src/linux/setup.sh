@@ -112,6 +112,14 @@ else
 	echo "Skipped: kanata service not linked (run config-init first)"
 fi
 
+echo "Starting Slack manager timer..."
+if [ -f "$HOME/.config/systemd/user/slack-manager.timer" ]; then
+	systemctl --user daemon-reload
+	systemctl --user enable --now slack-manager.timer
+else
+	echo "Skipped: slack-manager timer not linked (run config-init first)"
+fi
+
 echo "Installing FiraCode Nerd Font..."
 font_dir="$HOME/.local/share/fonts/FiraCode"
 if [ ! -d "$font_dir" ]; then

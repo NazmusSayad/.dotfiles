@@ -1,0 +1,7 @@
+[Unit]
+Description=Set Slack presence from each workspace's office hours
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/mise exec -- %h/.dotfiles/.local/bin.linux/slack-manager
+WorkingDirectory=%h

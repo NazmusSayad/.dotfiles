@@ -1,0 +1,10 @@
+[Unit]
+Description=Run slack-manager at startup, every hour and after missed runs
+
+[Timer]
+OnStartupSec=1min
+OnCalendar=*-*-* *:01:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

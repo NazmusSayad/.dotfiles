@@ -2,6 +2,7 @@ package constants
 
 type BinScript struct {
 	Exe       string
+	LinuxExe  string
 	StartMenu string
 }
 
@@ -35,7 +36,8 @@ var BIN_SCRIPTS = map[string]BinScript{
 	},
 
 	"slack-status": {
-		Exe: "ss",
+		Exe:      "ss",
+		LinuxExe: "slack-status",
 	},
 
 	"gpg-unlock": {
