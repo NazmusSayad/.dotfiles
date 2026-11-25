@@ -44,6 +44,8 @@ force_sensing = 0
 MiddleClick = "None"
 GestureButton = "MiddleClick"
 DpiToggle = "MiddleClick"
+Back = "MouseBack"
+Forward = "MouseForward"
 
 [devices."serial:2611zaa1e6m8".identity]
 display_name = "MX Master 4"
@@ -52,6 +54,7 @@ kind = "mouse"
 
 # Window navigation gestures on the thumb rest
 [devices."serial:2611zaa1e6m8".bindings.HapticPanel]
+Click = "None"
 Left = "PreviousDesktop"
 Right = "NextDesktop"
 
@@ -130,9 +133,6 @@ RunShellCommand = 'gdbus call --session --dest org.gnome.Shell --object-path /or
 
 [devices."serial:2611zaa1e6m8".bindings.HapticPanel.Down ]
 CustomShortcut = "Cmd+A"
-
-[devices."serial:2611zaa1e6m8".bindings.HapticPanel.Click ]
-RunShellCommand = 'gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.freedesktop.DBus.Properties.Set org.gnome.Shell OverviewActive "<$(gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.freedesktop.DBus.Properties.Get org.gnome.Shell OverviewActive | grep -q true && echo false || echo true)>"'
 
 [devices."serial:2611zaa1e6m8".per_app_bindings."com.mitchellh.ghostty".Back ]
 CustomShortcut = "Super+Shift+Tab"

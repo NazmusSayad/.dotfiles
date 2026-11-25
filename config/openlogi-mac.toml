@@ -51,6 +51,8 @@ kind = "mouse"
 MiddleClick = "None"
 GestureButton = "MiddleClick"
 DpiToggle = "MiddleClick"
+Back = "MouseBack"
+Forward = "MouseForward"
 
 [devices."serial:2611zaa1e6m8".identity.model_info]
 entity_count = 4
@@ -68,7 +70,7 @@ model_ids = [
 extended_model_id = 0
 
 [devices."serial:2611zaa1e6m8".bindings.HapticPanel]
-Click = "MissionControl"
+Click = "None"
 Up = "MissionControl"
 Down = "AppExpose"
 Left = "PreviousDesktop"
