@@ -146,7 +146,7 @@ func removeSnapApps(config appsConfig, lock appsLock) {
 
 		if isSnapInstalled(id) {
 			fmt.Println(aurora.Faint("- Removing snap " + id))
-			if runAsAdmin("snap", "remove", id) != nil {
+			if runAsAdmin("snap", "remove", "--purge", id) != nil {
 				continue
 			}
 		}

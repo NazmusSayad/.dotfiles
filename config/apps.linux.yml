@@ -17,6 +17,7 @@ apt:
 
   # Media
   - ffmpeg
+  - mpv
   - imagemagick
   - pandoc
   - obs-studio
@@ -62,7 +63,6 @@ apt:
   - libevdev-dev
 
 snap:
-  - vlc
   - slack
   - localsend
   - id: ghostty
