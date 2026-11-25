@@ -76,6 +76,10 @@
 "@/config/obs/user-mac.ini":
   CopyMac: "~/Library/Application Support/obs-studio/user.ini"
 
+# mpv
+"@/config/mpv":
+  LinkLinux: "~/.config/mpv"
+
 # Git
 "@/config/global.gitignore": "~/.gitignore"
 "@/config/monogit.json":
