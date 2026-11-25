@@ -33,16 +33,38 @@ repeat_boost = 135
 
 [devices."serial:2611zaa1e6m8"]
 dpi = 1400
+invert_scroll = true
+scroll_resolution = "low"
 
 [devices."serial:2611zaa1e6m8".smartshift]
 mode = "ratchet"
 auto_disengage = 15
 tunable_torque = 30
 
+[devices."serial:2611zaa1e6m8".identity]
+display_name = "MX Master 4"
+codename = "MX Master 4"
+kind = "mouse"
+
 [devices."serial:2611zaa1e6m8".bindings]
 MiddleClick = "None"
 GestureButton = "MiddleClick"
 DpiToggle = "MiddleClick"
+
+[devices."serial:2611zaa1e6m8".identity.model_info]
+entity_count = 4
+unit_id = [
+    0,
+    0,
+    0,
+    0,
+]
+model_ids = [
+    45122,
+    0,
+    0,
+]
+extended_model_id = 0
 
 [devices."serial:2611zaa1e6m8".bindings.HapticPanel]
 Click = "MissionControl"
@@ -51,10 +73,72 @@ Down = "AppExpose"
 Left = "PreviousDesktop"
 Right = "NextDesktop"
 
+[devices."serial:2611zaa1e6m8".identity.model_info.transports]
+usb = false
+equad = false
+btle = true
+bluetooth = false
+
 [devices."serial:2611zaa1e6m8".per_app_bindings."com.microsoft.VSCode"]
-Back = { CustomShortcut = "Ctrl+-" }
-Forward = { CustomShortcut = "Ctrl+Shift+-" }
+
+[devices."serial:2611zaa1e6m8".identity.capabilities]
+buttons = true
+pointer = true
+lighting = false
+scroll_inversion = true
+hires_wheel = true
+thumbwheel = true
+haptic_feedback = true
+haptic_panel = true
+dpi_gestures = true
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = true
+virtual_thumbwheel = false
+pointer_scaling = false
+force_sensing = true
+disable_keys = false
+onboard_profiles = false
+button_spy = false
+sidetone = false
 
 [devices."serial:2611zaa1e6m8".per_app_bindings."com.mitchellh.ghostty"]
-Back = { CustomShortcut = "Cmd+Shift+[" }
-Forward = { CustomShortcut = "Cmd+Shift+]" }
+
+[devices."serial:2611zaa1e6m8".links."receiver:810d785bd72315ac:slot:2".capabilities]
+buttons = true
+pointer = true
+lighting = false
+scroll_inversion = true
+hires_wheel = true
+thumbwheel = true
+haptic_feedback = true
+haptic_panel = true
+dpi_gestures = true
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = true
+virtual_thumbwheel = false
+pointer_scaling = false
+force_sensing = true
+disable_keys = false
+onboard_profiles = false
+button_spy = false
+sidetone = false
+
+[devices."serial:2611zaa1e6m8".per_app_bindings."com.microsoft.VSCode".Back ]
+CustomShortcut = "Ctrl+-"
+
+[devices."serial:2611zaa1e6m8".per_app_bindings."com.microsoft.VSCode".Forward ]
+CustomShortcut = "Ctrl+Shift+-"
+
+[devices."serial:2611zaa1e6m8".per_app_bindings."com.mitchellh.ghostty".Back ]
+CustomShortcut = "Cmd+Shift+["
+
+[devices."serial:2611zaa1e6m8".per_app_bindings."com.mitchellh.ghostty".Forward ]
+CustomShortcut = "Cmd+Shift+]"
+
+[keyboard]
