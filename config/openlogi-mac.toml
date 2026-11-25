@@ -35,6 +35,7 @@ repeat_boost = 135
 dpi = 1400
 invert_scroll = true
 scroll_resolution = "low"
+force_sensing = 0
 
 [devices."serial:2611zaa1e6m8".smartshift]
 mode = "ratchet"
