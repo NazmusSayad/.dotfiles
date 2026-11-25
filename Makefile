@@ -17,6 +17,7 @@ macos: git shell
 
 linux: git shell
 	bash ./src/linux/setup.sh
+	bash ./.dotsys/linux/setup.sh
 
 init:
 	MSYS=winsymlinks:nativestrict ln -sf ../../.githooks/pre-push ../../.githooks/reference-transaction .git/hooks/
