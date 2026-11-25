@@ -6,6 +6,9 @@
   "ccr": "claude --resume",
   "ccc": "claude --continue",
 
+  "ag": "antigravity --dangerously-skip-permissions",
+  "agc": "antigravity --dangerously-skip-permissions --continue",
+
   "cc-c": "CLAUDE_CONFIG_DIR=~/.claude-c claude",
 
   "r": "nr",
@@ -51,7 +54,10 @@
   "claude-link": "rm -f ./CLAUDE.md && ln -s ./AGENTS.md ./CLAUDE.md",
   "claude-skills": "mkdir -p ./.claude && rm -rf ./.claude/skills && ln -s ../.agents/skills ./.claude/skills",
   "claude-cua": "claude mcp add --scope project cua-computer-use -- cua-driver mcp",
-  "claude-cul": { "cmd": "claude mcp add --scope project computer-use-linux -- computer-use-linux mcp", "platform": "linux" },
+  "claude-cul": {
+    "cmd": "claude mcp add --scope project computer-use-linux -- computer-use-linux mcp",
+    "platform": "linux"
+  },
   "claude-chrome": "claude mcp add --scope project chrome-devtools -- chrome-devtools-mcp --viewport-size=1440x900 --headless --isolated",
 
   "q": { "cmd": "clear", "cmd.pwsh": "Clear-Host" },
