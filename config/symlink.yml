@@ -91,6 +91,12 @@
 "@/config/openlogi-linux.toml":
   LinkLinux: "~/.config/openlogi/config.toml"
 
+# Kanata
+"@/config/kanata/kanata.kbd":
+  LinkLinux: "~/.config/kanata/kanata.kbd"
+"@/config/kanata/kanata.service":
+  LinkLinux: "~/.config/systemd/user/kanata.service"
+
 # IINA
 "@/config/iina.plist":
   CopyMac: "~/Library/Preferences/com.colliderli.iina.plist"

@@ -1,0 +1,13 @@
+[Unit]
+Description=Kanata keyboard remapper
+# Take the keyboard before login apps like OiPer start
+Before=xdg-desktop-autostart.target
+
+[Service]
+ExecStart=%h/.local/bin/mise exec github:jtroo/kanata -- kanata_linux_x64 --cfg %h/.config/kanata/kanata.kbd
+WorkingDirectory=%h
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

@@ -103,6 +103,15 @@ else
 	echo "Skipped: OpenLogi not installed (run 'psy deb' first)"
 fi
 
+echo "Starting kanata keyboard remapper..."
+# Keychron keys: Caps Lock (F20) as Alt+Tab, Print Screen key (F13) as Print (config/kanata)
+if [ -f "$HOME/.config/systemd/user/kanata.service" ]; then
+	systemctl --user daemon-reload
+	systemctl --user enable --now kanata.service
+else
+	echo "Skipped: kanata service not linked (run config-init first)"
+fi
+
 echo "Installing FiraCode Nerd Font..."
 font_dir="$HOME/.local/share/fonts/FiraCode"
 if [ ! -d "$font_dir" ]; then

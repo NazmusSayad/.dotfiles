@@ -17,6 +17,7 @@ cmake = "latest"
 "cargo:dotsh" = "latest"
 "cargo:shaka" = "latest"
 "cargo:pwshac" = { version = "latest", os = ["windows"] }
+"github:jtroo/kanata" = { version = "latest", os = ["linux"] }
 
 # Shell
 gsudo = { version = "latest", os = ["windows"] }

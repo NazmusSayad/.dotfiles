@@ -1,0 +1,16 @@
+;; Keychron Q3: Caps Lock sends F20, the Print Screen key sends F13 (Keychron Launcher keymap)
+
+(defcfg
+  process-unmapped-keys no
+  ;; The physical Keychron only: OiPer copies keyboards under the same name and reads kanata's output instead
+  linux-dev (/dev/input/by-id/usb-Keychron_Keychron_Q3-event-kbd /dev/input/by-id/usb-Keychron_Keychron_Q3-if02-event-kbd)
+  linux-continue-if-no-devs-found yes
+)
+
+(defsrc f20 f13)
+
+(deflayer base
+  ;; Alt+Tab like Windows: holds Alt and taps Tab once, so the switcher stays open until release; Shift goes backwards
+  (multi lalt (macro tab))
+  prnt
+)
