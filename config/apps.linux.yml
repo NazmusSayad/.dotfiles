@@ -5,8 +5,39 @@ apt:
   - build-essential
   - openssh-server
 
+  # Shells
+  - ttyd
+
+  # File System
+  - ripgrep
+
+  # Zip
+  - 7zip
+  - unrar
+
+  # Media
+  - ffmpeg
+  - imagemagick
+  - pandoc
+  - obs-studio
+
+  # Internet
+  - qbittorrent
+
+  # Dev
+  - shfmt
+  - mkcert
+
+  # Docker
+  - docker.io
+  - docker-compose-v2
+  - docker-buildx
+
   # Desktop
   - gnome-shell-extension-manager
+
+  # Fonts
+  - fonts-ibm-plex
 
   # Android Emulator
   - libxcb-cursor0
@@ -32,6 +63,8 @@ apt:
 
 snap:
   - vlc
+  - slack
+  - localsend
   - id: ghostty
     classic: true
 

@@ -44,6 +44,13 @@ if [ -f ./.dotsys/ssh/authorized_keys ]; then
 	install -m 600 ./.dotsys/ssh/authorized_keys "$HOME/.ssh/authorized_keys"
 fi
 
+echo "Adding $USER to the docker group..."
+if getent group docker >/dev/null; then
+	sudo usermod -aG docker "$USER"
+else
+	echo "Skipped: docker group not found (run 'psy apt' first)"
+fi
+
 echo "Mounting Windows D: drive at /mnt/d..."
 d_drive="UUID=01DC2CA9456E1650"
 sudo mkdir -p /mnt/d
