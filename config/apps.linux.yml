@@ -20,7 +20,8 @@ apt:
   - celluloid
   - imagemagick
   - pandoc
-  - obs-studio
+  - id: obs-studio
+    recommends: false
 
   # Internet
   - qbittorrent
@@ -61,6 +62,13 @@ apt:
   - libdbus-1-dev
   - libvulkan-dev
   - libevdev-dev
+
+apt-exclude:
+  - vlc
+  - vlc-bin
+  - vlc-plugin-qt
+  - vlc-plugin-skins2
+  - vlc-l10n
 
 snap:
   - slack

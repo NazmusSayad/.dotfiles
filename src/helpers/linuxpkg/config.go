@@ -1,10 +1,28 @@
 package linuxpkg
 
 import (
+	"slices"
+
 	"dotfiles/src/helpers"
 
 	"gopkg.in/yaml.v3"
 )
+
+type aptApp struct {
+	ID         string `yaml:"id"`
+	Recommends bool   `yaml:"recommends"`
+}
+
+func (app *aptApp) UnmarshalYAML(node *yaml.Node) error {
+	app.Recommends = true
+	if node.Kind == yaml.ScalarNode {
+		app.ID = node.Value
+		return nil
+	}
+
+	type plainApp aptApp
+	return node.Decode((*plainApp)(app))
+}
 
 type snapApp struct {
 	ID      string `yaml:"id"`
@@ -30,11 +48,29 @@ type debApp struct {
 }
 
 type appsConfig struct {
-	Apt  []string  `yaml:"apt"`
-	Snap []snapApp `yaml:"snap"`
-	Deb  []debApp  `yaml:"deb"`
+	Apt        []aptApp  `yaml:"apt"`
+	AptExclude []string  `yaml:"apt-exclude"`
+	Snap       []snapApp `yaml:"snap"`
+	Deb        []debApp  `yaml:"deb"`
 }
 
 func readConfig() appsConfig {
-	return helpers.ReadConfig[appsConfig]("@/config/apps.linux.yml")
+	config := helpers.ReadConfig[appsConfig]("@/config/apps.linux.yml")
+
+	for _, id := range config.AptExclude {
+		if slices.Contains(config.aptIDs(), id) {
+			panic("CONFIG: " + id + " is in both apt and apt-exclude")
+		}
+	}
+
+	return config
+}
+
+func (config appsConfig) aptIDs() []string {
+	ids := []string{}
+	for _, app := range config.Apt {
+		ids = append(ids, app.ID)
+	}
+
+	return ids
 }

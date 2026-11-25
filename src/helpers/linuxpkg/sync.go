@@ -38,10 +38,6 @@ func Sync(managers []string) {
 	}
 
 	if syncApt || syncDeb {
-		fmt.Println("✘", aurora.Faint("Autoremove apt dependencies..."))
-		runAsAdmin("apt-get", "autoremove", "--purge", "-y")
-		fmt.Println()
-
 		fmt.Println("△", aurora.Faint("Updating apt..."))
 		runAsAdmin("apt-get", "update")
 		fmt.Println()
@@ -68,6 +64,16 @@ func Sync(managers []string) {
 	if syncApt {
 		fmt.Println("△", aurora.Faint("Upgrading apt packages..."))
 		runAsAdmin("apt-get", "upgrade", "-y")
+		fmt.Println()
+
+		fmt.Println("✘", aurora.Faint("Removing excluded apt packages..."))
+		removeExcludedAptApps(config)
+		fmt.Println()
+	}
+
+	if syncApt || syncDeb {
+		fmt.Println("✘", aurora.Faint("Autoremove apt dependencies..."))
+		runAsAdmin("apt-get", "autoremove", "--purge", "-y")
 		fmt.Println()
 	}
 
@@ -104,7 +110,7 @@ func markRemovedForAutoremove(lockedApps map[string]lockEntry, configIDs []strin
 }
 
 func removeAptApps(config appsConfig, lock appsLock) {
-	removedIDs, err := markRemovedForAutoremove(lock.Apt, config.Apt)
+	removedIDs, err := markRemovedForAutoremove(lock.Apt, config.aptIDs())
 	if err != nil {
 		return
 	}
@@ -158,25 +164,58 @@ func removeSnapApps(config appsConfig, lock appsLock) {
 }
 
 func installAptApps(config appsConfig, lock appsLock) {
-	missingIDs := []string{}
-	for _, id := range config.Apt {
-		if getDpkgVersion(id) == "" {
-			missingIDs = append(missingIDs, id)
+	missingApps := []aptApp{}
+	withRecommends := []string{}
+	withoutRecommends := []string{}
+	for _, app := range config.Apt {
+		if getDpkgVersion(app.ID) == "" {
+			missingApps = append(missingApps, app)
+		}
+
+		if app.Recommends {
+			withRecommends = append(withRecommends, app.ID)
+		} else {
+			withoutRecommends = append(withoutRecommends, app.ID)
 		}
 	}
 
-	if runAsAdmin(append([]string{"apt-get", "install", "-y"}, config.Apt...)...) != nil {
-		return
+	if len(withRecommends) > 0 {
+		if runAsAdmin(append([]string{"apt-get", "install", "-y"}, withRecommends...)...) != nil {
+			return
+		}
 	}
 
-	for _, id := range missingIDs {
-		lock.Apt[id] = lockEntry{
-			Version:     getDpkgVersion(id),
-			InstalledAt: time.Now().Format(time.RFC3339),
+	if len(withoutRecommends) > 0 {
+		if runAsAdmin(append([]string{"apt-get", "install", "-y", "--no-install-recommends"}, withoutRecommends...)...) != nil {
+			return
+		}
+	}
+
+	for _, app := range missingApps {
+		lock.Apt[app.ID] = lockEntry{
+			Version:      getDpkgVersion(app.ID),
+			NoRecommends: !app.Recommends,
+			InstalledAt:  time.Now().Format(time.RFC3339),
 		}
 	}
 
 	writeLock(lock)
+}
+
+func removeExcludedAptApps(config appsConfig) {
+	installedIDs := []string{}
+	for _, id := range config.AptExclude {
+		if getDpkgVersion(id) != "" {
+			installedIDs = append(installedIDs, id)
+		}
+	}
+
+	if len(installedIDs) == 0 {
+		return
+	}
+
+	fmt.Println(aurora.Faint("- Removing " + strings.Join(installedIDs, ", ")))
+	runAsAdmin(append([]string{"apt-get", "purge", "-y"}, installedIDs...)...)
 }
 
 func installSnapApps(config appsConfig, lock appsLock) {

@@ -13,13 +13,14 @@ import (
 const lockPath = "@/.local/apps.linux.lock"
 
 type lockEntry struct {
-	Version     string   `yaml:"version,omitempty"`
-	Channel     string   `yaml:"channel,omitempty"`
-	Classic     bool     `yaml:"classic,omitempty"`
-	URL         string   `yaml:"url,omitempty"`
-	GitHub      string   `yaml:"github,omitempty"`
-	AptSources  []string `yaml:"aptSources,omitempty"`
-	InstalledAt string   `yaml:"installedAt"`
+	Version      string   `yaml:"version,omitempty"`
+	Channel      string   `yaml:"channel,omitempty"`
+	Classic      bool     `yaml:"classic,omitempty"`
+	NoRecommends bool     `yaml:"noRecommends,omitempty"`
+	URL          string   `yaml:"url,omitempty"`
+	GitHub       string   `yaml:"github,omitempty"`
+	AptSources   []string `yaml:"aptSources,omitempty"`
+	InstalledAt  string   `yaml:"installedAt"`
 }
 
 type appsLock struct {
