@@ -1,0 +1,57 @@
+schema_version = 11
+
+[app_settings]
+launch_at_login = true
+check_for_updates = false
+auto_install_updates = false
+update_prompt_seen = true
+show_in_menu_bar = true
+capture_mouse_events = true
+smooth_scroll = false
+vertical_scroll_sensitivity = 14
+thumbwheel_sensitivity = 14
+app_icon = "openlogi"
+auto_download_assets = true
+asset_source = "automatic"
+appearance = "system"
+ui_scale = "normal"
+device_view_mode = "grid"
+mouse_profile_target = "pointer"
+low_battery_notifications = false
+lock_key_notifications = false
+animate_desktop_switch = true
+theme_dark = "OpenLogi Dark"
+ui_radius = 12
+
+[app_settings.momentum_scrolling]
+enabled = false
+pixels_per_notch = 28
+glide_shape = "smooth"
+max_glide_speed = 8000
+glide_ms = 400
+repeat_boost = 135
+
+# MX Master 4, same settings as Logi Options+ on the Mac
+[devices."serial:2611zaa1e6m8"]
+dpi = 1400
+smartshift = { mode = "ratchet", auto_disengage = 15, tunable_torque = 30 }
+
+# Shortcuts: GNOME swaps Ctrl and Super (xkb-options in setup.sh), and that
+# applies to keys OpenLogi sends too: write Cmd to get Super, Super to get Ctrl
+[devices."serial:2611zaa1e6m8".bindings]
+MiddleClick = "None"
+GestureButton = "MiddleClick"
+DpiToggle = "MiddleClick"
+
+# Window navigation gestures on the thumb rest
+[devices."serial:2611zaa1e6m8".bindings.HapticPanel]
+Click = { RunShellCommand = 'gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.freedesktop.DBus.Properties.Set org.gnome.Shell OverviewActive "<$(gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.freedesktop.DBus.Properties.Get org.gnome.Shell OverviewActive | grep -q true && echo false || echo true)>"' }
+Up = { RunShellCommand = 'gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.freedesktop.DBus.Properties.Set org.gnome.Shell OverviewActive "<$(gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.freedesktop.DBus.Properties.Get org.gnome.Shell OverviewActive | grep -q true && echo false || echo true)>"' }
+Down = { CustomShortcut = "Cmd+A" }
+Left = "PreviousDesktop"
+Right = "NextDesktop"
+
+# Previous and next tab (Ctrl+Shift+Tab and Ctrl+Tab)
+[devices."serial:2611zaa1e6m8".per_app_bindings."com.mitchellh.ghostty"]
+Back = { CustomShortcut = "Super+Shift+Tab" }
+Forward = { CustomShortcut = "Super+Tab" }

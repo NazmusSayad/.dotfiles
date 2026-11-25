@@ -82,6 +82,23 @@ systemctl --user restart cloudflared
 echo "Starting OpenLogi agent..."
 if systemctl --user cat openlogi-agent.service >/dev/null 2>&1; then
 	systemctl --user enable --now openlogi-agent.service
+	# GNOME extension that tells OpenLogi the focused app, for per-app buttons
+	openlogi_ext=openlogi-frontmost@openlogi.dev
+	openlogi_ext_dir="$HOME/.local/share/gnome-shell/extensions/$openlogi_ext"
+	openlogi_ext_url="https://raw.githubusercontent.com/AprilNEA/OpenLogi/v$(dpkg-query -W -f='${Version}' openlogi)/crates/openlogi-hook/gnome-shell-extension/$openlogi_ext"
+	mkdir -p "$openlogi_ext_dir"
+	for file in metadata.json extension.js ringAnimation.js; do
+		curl -fsSL -o "$openlogi_ext_dir/$file" "$openlogi_ext_url/$file"
+	done
+	# A new extension is only found after logging in again, so add it to the enabled list directly
+	if ! gnome-extensions enable "$openlogi_ext" 2>/dev/null; then
+		enabled_exts="$(gsettings get org.gnome.shell enabled-extensions)"
+		case "$enabled_exts" in
+		*"'$openlogi_ext'"*) ;;
+		"@as []") gsettings set org.gnome.shell enabled-extensions "['$openlogi_ext']" ;;
+		*) gsettings set org.gnome.shell enabled-extensions "${enabled_exts%]}, '$openlogi_ext']" ;;
+		esac
+	fi
 else
 	echo "Skipped: OpenLogi not installed (run 'psy deb' first)"
 fi
