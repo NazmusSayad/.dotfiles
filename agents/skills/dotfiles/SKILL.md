@@ -1,6 +1,6 @@
 ---
 name: dotfiles
-description: The user's rules to install and set versions of tools. Use when a task needs a tool that is missing or has the wrong version, or when you install, upgrade, or remove a tool.
+description: The user's rules for tools and environment variables. Use when you install a tool, change a tool version, or set environment variables.
 ---
 
 ## Package/Tool Managers
@@ -12,3 +12,7 @@ description: The user's rules to install and set versions of tools. Use when a t
 ## Local first
 
 If the tool is not in the global mise config, install it in the project with mise. If the project needs a different version than the global one, set that version in the project with mise. Do not change the global mise config unless the user tells you to.
+
+## Environments
+
+Use the environment files that the framework supports, for example `.env` or `.env.local`. If the variables must be in the shell, use `.envrc` with direnv.
