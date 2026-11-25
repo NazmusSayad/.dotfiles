@@ -88,8 +88,10 @@
   LinkLinux: "~/.config/celluloid/scripts"
 
 # OpenLogi
-"@/config/openlogi/config.toml":
-  CopyLinux: "~/.config/openlogi/config.toml"
+"@/config/openlogi-linux.toml":
+  LinkLinux: "~/.config/openlogi/config.toml"
+"@/config/openlogi-mac.toml":
+  LinkMac: "~/.config/openlogi/config.toml"
 
 # IINA
 "@/config/iina.plist":

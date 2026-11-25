@@ -6,3 +6,6 @@
 
 .experiment
 node_modules
+
+# OpenLogi writes a lock file next to its linked config
+config/openlogi-*.toml.lock

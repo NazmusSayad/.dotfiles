@@ -29,7 +29,7 @@ cask "ghostty"
 
 # System
 brew "mole"
-cask "logi-options+"
+cask "openlogi"
 cask "hammerspoon"
 cask "mos"
 
