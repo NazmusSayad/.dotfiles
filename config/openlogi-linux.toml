@@ -33,7 +33,7 @@ repeat_boost = 135
 
 # MX Master 4, same settings as Logi Options+ on the Mac
 [devices."serial:2611zaa1e6m8"]
-dpi = 1000
+dpi = 1100
 smooth_wheel = true
 thumbwheel_sensitivity = 15
 force_sensing = 4190
