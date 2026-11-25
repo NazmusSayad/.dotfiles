@@ -104,6 +104,9 @@ yt-dlp = "latest"
 "npm:serve" = "latest"
 "npm:live-server" = "latest"
 
+# App
+"npm:@mobilenext/mobile-mcp" = "latest"
+
 # AI
 "npm:skills" = "latest"
 "npm:devrage" = "latest"
