@@ -36,7 +36,7 @@ repeat_boost = 135
 dpi = 1400
 smooth_wheel = true
 thumbwheel_sensitivity = 15
-force_sensing = 0
+force_sensing = 4190
 
 # Shortcuts: GNOME swaps Ctrl and Super (xkb-options in setup.sh), and that
 # applies to keys OpenLogi sends too: write Cmd to get Super, Super to get Ctrl
