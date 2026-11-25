@@ -83,6 +83,22 @@ if [ ! -d "$font_dir" ]; then
 	rm -rf "$tmp_dir"
 fi
 
+echo "Configuring Android Studio and emulator..."
+# kvm group: hardware-accelerated emulator; inotify: Android Studio file watching
+sudo usermod -aG kvm "$USER"
+echo 'fs.inotify.max_user_watches = 524288' | sudo tee /etc/sysctl.d/60-android-studio.conf >/dev/null
+sudo sysctl -p /etc/sysctl.d/60-android-studio.conf >/dev/null
+# React Native DevTools (Electron) needs user namespaces for its sandbox
+sudo tee /etc/apparmor.d/react-native-devtools >/dev/null <<'EOF'
+abi <abi/5.0>,
+include <tunables/global>
+
+profile react-native-devtools "@{HOME}/.cache/dotslash/**/React Native DevTools" flags=(unconfined) {
+  userns,
+}
+EOF
+sudo apparmor_parser -r /etc/apparmor.d/react-native-devtools
+
 echo "Configuring GNOME settings..."
 gset() {
 	gsettings set "$@" 2>/dev/null || echo "Skipped: gsettings set $*"

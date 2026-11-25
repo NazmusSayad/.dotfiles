@@ -8,6 +8,9 @@ apt:
   # Desktop
   - gnome-shell-extension-manager
 
+  # Android Emulator
+  - libxcb-cursor0
+
   # Build Libraries
   - pkg-config
   - clang
@@ -28,6 +31,7 @@ apt:
   - libevdev-dev
 
 snap:
+  - vlc
   - id: ghostty
     classic: true
 
@@ -38,6 +42,8 @@ deb:
     url: https://update.code.visualstudio.com/latest/linux-deb-x64/stable
   - id: urserver
     url: https://www.unifiedremote.com/download/linux-x64-deb
+  - id: freedownloadmanager
+    url: https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb
   - id: oi-per
     github: https://github.com/oiper/desktop
     asset: _amd64\.deb$
