@@ -47,7 +47,7 @@ brew "7-zip"
 brew "ripgrep"
 
 # Media
-cask "vlc"
+cask "iina"
 cask "obs"
 brew "ffmpeg"
 brew "imagemagick"

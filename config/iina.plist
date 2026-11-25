@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSFullScreenMenuItemEverywhere</key>
+	<false/>
+	<key>PluginEnabled.io.iina.opensub</key>
+	<true/>
+	<key>PluginEnabled.io.iina.user-script</key>
+	<true/>
+	<key>PluginEnabled.io.iina.ytdl</key>
+	<true/>
+	<key>PluginOrder</key>
+	<array>
+		<string>io.iina.opensub</string>
+		<string>io.iina.ytdl</string>
+		<string>io.iina.user-script</string>
+	</array>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>actionAfterLaunch</key>
+	<integer>2</integer>
+	<key>alwaysOpenInNewWindow</key>
+	<integer>0</integer>
+	<key>compactUI</key>
+	<integer>1</integer>
+	<key>controlBarAutoHideTimeout</key>
+	<integer>1</integer>
+	<key>controlBarPositionHorizontal</key>
+	<real>0.5</real>
+	<key>controlBarPositionVertical</key>
+	<real>0.099609375</real>
+	<key>enableAdvancedSettings</key>
+	<true/>
+	<key>enableToneMappingTargetPeakOverride</key>
+	<false/>
+	<key>initialWindowSizePosition</key>
+	<string></string>
+	<key>logLevel</key>
+	<integer>3</integer>
+	<key>pauseWhenMinimized</key>
+	<integer>1</integer>
+	<key>quitWhenNoOpenedWindow</key>
+	<integer>1</integer>
+	<key>resizeWindowTiming</key>
+	<integer>2</integer>
+	<key>screenshotCopyToClipboard</key>
+	<integer>1</integer>
+	<key>subAutoLoadIINA</key>
+	<integer>0</integer>
+	<key>useUserDefinedConfDir</key>
+	<true/>
+	<key>userDefinedConfDir</key>
+	<string>~/.config/mpv/</string>
+</dict>
+</plist>

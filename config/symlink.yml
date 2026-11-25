@@ -79,8 +79,13 @@
 # mpv
 "@/config/mpv":
   LinkLinux: "~/.config/mpv"
+  LinkMac: "~/.config/mpv"
 "@/config/mpv/scripts":
   LinkLinux: "~/.config/celluloid/scripts"
+
+# IINA
+"@/config/iina.plist":
+  CopyMac: "~/Library/Preferences/com.colliderli.iina.plist"
 
 # Git
 "@/config/global.gitignore": "~/.gitignore"
