@@ -77,6 +77,8 @@
   },
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.external.linuxExec": "Ghostty",
+  "terminal.integrated.defaultProfile.linux": "fish",
   "terminal.external.windowsExec": "wt.exe",
   "terminal.integrated.defaultProfile.windows": "Fish (MSYS2)",
   "terminal.integrated.profiles.windows": {
