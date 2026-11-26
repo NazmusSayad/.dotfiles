@@ -19,7 +19,7 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 
 ## Plan file
 
-Create `docs/<topic>-plan.md` in the current project.
+Create `.local/<topic>-plan.md` in the current project.
 
 - Title, then a line linking the sources.
 - One issue per item on the user's list, in their order and wording: `## Issue N — <item>`. Nothing that isn't on the list.
