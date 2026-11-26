@@ -53,6 +53,10 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 ```markdown
 ## **#<N>** <title>
 
+❓ <N> questions\
+🚫 <N> blockers\
+⚠️ <N> risks
+
 <What the item is about and where things stand now, with its attachments such as images or videos, if any. As short as possible without losing any important detail.>
 
 ### 📋 TODO
@@ -81,13 +85,17 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 - **Blockers** are things that stop the work, such as a missing API, access or information.
 - **Risks** are major problems the change could cause, such as breaking an existing feature or losing data.
 - Show **Solutions**, **Questions**, **Blockers** and **Risks** only when they have content.
+- The lines under the title count the questions, blockers and risks in this reply. Show a line only for a part that is there.
 - Leave out technical details unless the user needs them to decide.
 - If something already works, say so and suggest nothing, or only a quick check.
 - Answer the user's questions directly, after checking the code.
 
 After each answer:
 
-1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Only what the user leaves for later goes under **Note**, and only what they ask to know or see when it is done goes under **Report**.
+1. Write the user's answer into that issue, and nothing more:
+   - **Tasks**: exactly what they decided, as unchecked checkboxes.
+   - **Report**: only what they ask to know or see when the issue is done.
+   - **Note**: only what they leave for later.
 2. Write how to check those tasks under **Verification**.
 3. Update the issue's status.
 4. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
@@ -112,8 +120,9 @@ When the work is done, reply with only this and nothing else:
 ```markdown
 ## <plan file>
 
-| ✅ <N> done | ⏳ <N> remaining | ❌ <N> failed |
-|---|---|---|
+✅ <total tasks done in the plan> done\
+⏳ <total tasks remaining> remaining\
+❌ <total tasks failed> failed
 
 ### **#<N>** <title>
 
