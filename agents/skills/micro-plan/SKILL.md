@@ -51,6 +51,10 @@ Keep it short:
 Go one issue per turn, in order. Keep each turn short. Long, technical replies frustrate the user.
 
 ```markdown
+<One line about the previous issue, if you have anything to say about it.>
+
+---
+
 ## **#<N>** <title>
 
 ❓ <N> questions\
