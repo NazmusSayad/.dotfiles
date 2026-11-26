@@ -53,7 +53,7 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 ```markdown
 ## **#<N>** <title>
 
-<What the item is about and where things stand now. As short as possible without losing any important detail.>
+<What the item is about and where things stand now, with its attachments such as images or videos, if any. As short as possible without losing any important detail.>
 
 ### 📋 TODO
 
