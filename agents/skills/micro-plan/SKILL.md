@@ -51,27 +51,27 @@ Keep it short:
 Go one issue per turn, in order. Keep each turn short. Long, technical replies frustrate the user.
 
 ```markdown
-# #<N>: <title>
+## **#<N>** <title>
 
 <What the item is about and where things stand now. As short as possible without losing any important detail.>
 
-## 📋 TODO
+### 📋 TODO
 
 - **<where>:** <what changes, as the user will see it>
 
-## 💡 Solutions
+### 💡 Solutions
 
 - **<topic>:** <the solution, and why it fits>
 
-## ❓ Questions
+### ❓ Questions
 
 - **<topic>:** <the question, and your recommendation>
 
-## 🚫 Blockers
+### 🚫 Blockers
 
 - **<topic>:** <what stops the work, and who or what can unblock it>
 
-## ⚠️ Risks
+### ⚠️ Risks
 
 - **<topic>:** <a major problem the change could cause, and how to avoid it>
 ```
@@ -115,7 +115,7 @@ When the work is done, reply with only this and nothing else:
 | ✅ <N> done | ⏳ <N> remaining | ❌ <N> failed |
 |---|---|---|
 
-### #<N>: <title>
+### **#<N>** <title>
 
 <What this issue's Report asks for.>
 ```
