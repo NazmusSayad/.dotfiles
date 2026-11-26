@@ -141,7 +141,7 @@ Until then:
 
 ## Report
 
-When the work is done, reply with only this and nothing else:
+When the work is done, reply with only this and nothing else. Add an issue only if its Report section has something in it.
 
 ```markdown
 ## <plan file>
