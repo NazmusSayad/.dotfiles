@@ -1,5 +1,3 @@
-# Plan files
-
 Create the plan as a folder in the current project:
 
 ```
@@ -17,6 +15,8 @@ Create the plan as a folder in the current project:
 - Put each issue's images and recordings in its folder.
 
 ## README.md
+
+The overview of the plan. Keep it up to date with the user's feedback.
 
 - Title, then a line linking the sources.
 - A rule for the whole plan goes here only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
@@ -37,6 +37,8 @@ Create the plan as a folder in the current project:
 
 ## issues/<issue-name>/README.md
 
+The plan for one issue. Keep it up to date with the user's feedback and the progress of its tasks.
+
 - **Title**: the issue title, in the user's wording.
 - **Status**: under the title, as `**Status:** Open`. Every issue starts `Open`.
   - `Open`: not discussed yet, or still has questions.
@@ -46,7 +48,7 @@ Create the plan as a folder in the current project:
   - `Blocked`: waiting on something outside.
 - **Details**: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
 - **Tasks**: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
-- **Verification**: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
+- **Verification**: how to check that the tasks work in the proper environment, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
 - **Report**: only what the user asks to know or see when the issue is done, such as a before/after video.
 - **Note**: only when needed, for what the user leaves for later or mentions in passing ("Later, not now: …", "Skipped for now, discuss later: …", "Waits on #2").
 - **Context**: additional context or references, such as links to related issues, or a note that the issue is blocked by another issue. Leave it empty if there is none.

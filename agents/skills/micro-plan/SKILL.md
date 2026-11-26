@@ -25,19 +25,10 @@ Before you write any plan file, read `references/contents.md`. Create and update
 
 Before your first reply, read `references/communication.md`. Write every reply to the user exactly as it describes: the first reply, each issue, and the final report.
 
-## After each answer
+## Plan with the user
 
-Update that issue's file, and nothing more:
-
-- **Status**: its new status.
-- **Tasks**: exactly what the user decided, as unchecked checkboxes.
-- **Verification**: how to check those tasks in proper environment.
-- **Report**: only what the user asks to know or see when the issue is done.
-- **Note**: only what the user leaves for later or mentions in passing.
-
+Update that issue's file with what the user decided or said, as `references/contents.md` describes.
 Then continue the loop in **Discussing the issues** in `references/communication.md`.
-
-When every issue is resolved, list the notes that were left for later.
 
 ## Implementation
 
