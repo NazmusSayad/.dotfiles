@@ -82,9 +82,9 @@ When the work is done, reply with only this and nothing else:
 ```markdown
 ## <plan title>
 
-✅ <total tasks done, from every issue's Tasks> done\
-⏳ <total tasks remaining, from every issue's Tasks> remaining\
-❌ <total tasks failed, from every issue's Tasks> failed
+✅ <number of issues whose tasks and checks all passed> done\
+⏳ <number of issues not done yet, such as skipped or blocked ones> remaining\
+❌ <number of issues with a failed task or check> failed
 
 ### **#<N>** <title of each issue whose Report section has something in it>
 
