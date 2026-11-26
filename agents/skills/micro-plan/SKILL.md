@@ -139,6 +139,11 @@ Until then:
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
 - The only file you write in the project is the plan, plus images and recordings that show the issues.
 
+Once the user asks to start, implement the **Decided** issues one after another, or in parallel with subagents when you can. As you go:
+
+- Capture what each issue's Report needs.
+- Update the plan: tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
+
 ## Report
 
 When the work is done, reply with only this and nothing else:
