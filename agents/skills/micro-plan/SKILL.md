@@ -31,7 +31,7 @@ Update that issue's file, and nothing more:
 
 - **Status**: its new status.
 - **Tasks**: exactly what the user decided, as unchecked checkboxes.
-- **Verification**: how to check those tasks.
+- **Verification**: how to check those tasks in proper environment.
 - **Report**: only what the user asks to know or see when the issue is done.
 - **Note**: only what the user leaves for later or mentions in passing.
 
@@ -50,8 +50,8 @@ Until then:
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
 - The only files you write in the project are the plan files, plus images and recordings that show the issues.
 
-Once the user asks to start, implement the `Decided` issues one after another, or in parallel with subagents when you can. As you go:
+Once the user asks to start, implement the `Decided` issues one after another, or in parallel with subagents when you can. For each issue:
 
-- Capture what each issue's Report needs.
-- Update each issue's file: tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
-- After an issue's tasks, run its Verification. Tick each check that passes, and mark one that fails the same way as a failed task.
+1. **Execute** the issue's plan, such as writing the code and running its tests and lint. Tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
+2. **Verify** it once it is fully implemented: run its Verification in the proper environment, or however each check requires. Then mark each check the same way.
+3. **Report**: capture what its Report needs.
