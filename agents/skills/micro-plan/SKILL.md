@@ -33,6 +33,7 @@ Create `.local/<topic>-plan.md` in the current project.
   - `### Context`: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
   - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
+  - `### Report`: only what the user asks to know or see when the issue is done, such as a before/after video.
   - `### Note`: only when needed, for what the user leaves for later ("Later, not now: …", "Skipped for now, discuss later: …").
 - A rule for the whole plan goes at the top only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
 
@@ -48,24 +49,24 @@ Keep it short:
 
 Go one issue per turn, in order. Keep each turn short. Long, technical replies frustrate the user.
 
-```
-**Issue N: <title>**
+```markdown
+# #<N>: <title>
 
 <What the item is about and where things stand now. As short as possible without losing any important detail.>
 
-📋 **TODO:**
+## 📋 TODO
 - **<where>:** <what changes, as the user will see it>
 
-💡 **Solutions:**
+## 💡 Solutions
 - **<topic>:** <the solution, and why it fits>
 
-❓ **Questions:**
+## ❓ Questions
 - **<topic>:** <the question, and your recommendation>
 
-🚫 **Blockers:**
+## 🚫 Blockers
 - **<topic>:** <what stops the work, and who or what can unblock it>
 
-⚠️ **Risks:**
+## ⚠️ Risks
 - **<topic>:** <a major problem the change could cause, and how to avoid it>
 ```
 
@@ -79,7 +80,7 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 - Answer the user's questions directly, after checking the code.
 
 After each answer:
-1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Only what the user leaves for later goes under **Note**.
+1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Only what the user leaves for later goes under **Note**, and only what they ask to know or see when it is done goes under **Report**.
 2. Write how to check those tasks under **Verification**.
 3. Update the issue's status.
 4. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
@@ -95,3 +96,19 @@ Until then:
 - If the user asks to start while any issue is open, don't. Say which issues are open and keep planning.
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
 - The only file you write in the project is the plan, plus images and recordings that show the issues.
+
+## Report
+
+When the work is done, reply with only this and nothing else:
+
+```markdown
+# <plan file>
+
+✅ <N> tasks done
+⏳ <N> tasks remaining
+❌ <N> tasks failed
+
+## #<N>: <title>
+
+<What this issue's Report asks for.>
+```
