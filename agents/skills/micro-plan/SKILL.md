@@ -100,7 +100,7 @@ Update that issue in the plan, and nothing more:
 - **Report**: only what the user asks to know or see when the issue is done.
 - **Note**: only what the user leaves for later.
 
-Then say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
+Then continue the loop in **Discussing the issues**.
 
 When every issue is resolved, list the notes that were left for later.
 
