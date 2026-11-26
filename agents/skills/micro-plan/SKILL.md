@@ -33,7 +33,7 @@ Create `.local/<topic>-plan.md` in the current project.
   - `### Context`: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
   - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
-  - `### Note`: only when needed, for items that are skipped or postponed ("Later, not now: …", "Skipped for now, discuss later: …").
+  - `### Note`: only when needed, for what the user leaves for later ("Later, not now: …", "Skipped for now, discuss later: …").
 - A rule for the whole plan goes at the top only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
 
 ## First reply
@@ -79,7 +79,7 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 - Answer the user's questions directly, after checking the code.
 
 After each answer:
-1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Postponed or skipped items go under **Note**.
+1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Only what the user leaves for later goes under **Note**.
 2. Write how to check those tasks under **Verification**.
 3. Update the issue's status.
 4. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
