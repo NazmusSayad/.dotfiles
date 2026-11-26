@@ -141,7 +141,7 @@ Until then:
 
 ## Report
 
-When the work is done, reply with only this and nothing else. Add an issue only if its Report section has something in it.
+When the work is done, reply with only this and nothing else:
 
 ```markdown
 ## <plan file>
@@ -150,7 +150,11 @@ When the work is done, reply with only this and nothing else. Add an issue only 
 ⏳ <total tasks remaining> remaining\
 ❌ <total tasks failed> failed
 
-### **#<N>** <title>
+### **#<N>** <title of each issue whose Report section has something in it>
 
-<What this issue's Report asks for.>
+<What that issue's Report asks for.>
+
+### ⏭️ Skipped
+
+- **#<N>** <title of each skipped issue>
 ```
