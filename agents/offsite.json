@@ -1,24 +1,11 @@
 {
   "version": 4,
   "claude": {
-    "enabled": true,
-    "baseDir": {
-      "macos": null,
-      "linux": null,
-      "windows": null
-    },
     "accounts": [
       {
         "id": "909c98fb-6032-45e3-af98-22357fdfbae3",
         "provider": "claude",
-        "name": "Sayad",
-        "color": null,
-        "configDir": {
-          "macos": null,
-          "linux": null,
-          "windows": null
-        },
-        "enabled": true
+        "name": "Sayad"
       }
     ],
     "models": {
@@ -37,46 +24,30 @@
       "claude-haiku-5-5": {
         "hidden": true
       }
-    },
-    "smallModel": null
+    }
   },
   "codex": {
-    "enabled": false,
-    "accounts": [],
-    "models": {},
-    "smallModel": null
+    "enabled": false
   },
   "opencode": {
-    "enabled": false,
-    "models": {},
-    "smallModel": null
+    "enabled": false
   },
   "workingDir": {
     "macos": "~/Desktop",
     "linux": "~/Desktop",
     "windows": "~/Desktop"
   },
-  "delivery": "steer",
-  "autoSkipQuestionTimeout": 180,
-  "autoPermissionMode": "bypass",
-  "autoPermissionTimeout": 15,
-  "offsiteSkills": true,
   "terminal": {
     "shell": {
       "macos": "fish",
       "linux": "fish",
       "windows": "pwsh"
-    },
-    "behavior": {
-      "terminalIdentity": "offsite",
-      "shellIntegration": true
     }
   },
   "dictation": {
     "workflowId": "offsite-profile"
   },
   "finishedCheck": {
-    "openRouterModel": "typesafe/jev-1.14",
-    "openRouterKeyEnv": null
+    "openRouterModel": "typesafe/jev-1.14"
   }
 }
