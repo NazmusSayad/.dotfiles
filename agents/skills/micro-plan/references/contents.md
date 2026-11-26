@@ -4,15 +4,15 @@ Create the plan as a folder in the current project:
 
 ```
 .local/plans/<YYYY-MM-DD>-<topic>/
-├── plan.md
-├── <issue-name>.md
+├── README.md
+├── issue-<issue-name>.md
 └── …
 ```
 
-- `<issue-name>` is the item in a few lowercase words joined by hyphens.
+- Every issue file starts with `issue-`. `<issue-name>` is the item in a few lowercase words joined by hyphens.
 - Never put numbers in the file names.
 
-## plan.md
+## README.md
 
 - Title, then a line linking the sources.
 - A rule for the whole plan goes here only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
@@ -27,11 +27,11 @@ Create the plan as a folder in the current project:
 
 ## Issues
 
-1. [<issue title>](<issue-name>.md)
-2. [<issue title>](<issue-name>.md)
+1. [<issue title>](issue-<issue-name>.md)
+2. [<issue title>](issue-<issue-name>.md)
 ```
 
-## <issue-name>.md
+## issue-<issue-name>.md
 
 - **Title**: the issue title, in the user's wording.
 - **Status**: under the title, as `**Status:** Open`. Every issue starts `Open`.
