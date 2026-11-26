@@ -135,7 +135,7 @@ DO NOT start implementing until no issue is **Open** AND the user then explicitl
 Until then:
 
 - Answers such as "fix it", "do it", "go ahead", "test it" or "find the cause" are decisions about the issue, not a request to start. Write what they decide as tasks and keep planning.
-- If the user asks to start while any issue is open, don't. Say which issues are open and keep planning.
+- If the user asks to start while any issue is **Open**, don't. Say which issues are open and keep planning.
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
 - The only file you write in the project is the plan, plus images and recordings that show the issues.
 
