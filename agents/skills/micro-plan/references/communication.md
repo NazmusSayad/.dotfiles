@@ -96,5 +96,5 @@ When the work is done, reply with only this and nothing else:
 
 ### ❌ Failed
 
-- **#<N>** <title of each issue with a failed task>: <the failed task, and why it failed>
+- **#<N>** <title of each issue with a failed task or check>: <what failed, and why>
 ```

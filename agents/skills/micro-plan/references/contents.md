@@ -48,7 +48,7 @@ The plan for one issue. Keep it up to date with the user's feedback and the prog
   - `Blocked`: waiting on something outside.
 - **Details**: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
 - **Tasks**: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
-- **Verification**: how to check that the tasks work in the proper environment, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
+- **Verification**: how to check by hand that the tasks really work, each an unchecked checkbox, such as using the change in the browser or sending a real request in the proper environment. It is not a static check such as lint, formatting or type checks. Write it once the issue has tasks.
 - **Report**: only what the user asks to know or see when the issue is done, such as a before/after video.
 - **Note**: only when needed, for what the user leaves for later or mentions in passing ("Later, not now: …", "Skipped for now, discuss later: …", "Waits on #2").
 - **Context**: additional context or references, such as links to related issues, or a note that the issue is blocked by another issue. Leave it empty if there is none.
@@ -68,7 +68,7 @@ The plan for one issue. Keep it up to date with the user's feedback and the prog
 
 ## Verification
 
-- [ ] <how to check that a task works>
+- [ ] <a hands-on check that a task works, such as in the browser>
 
 ## Report
 

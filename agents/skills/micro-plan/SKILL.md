@@ -27,7 +27,7 @@ Before your first reply, read `references/communication.md`. Write every reply t
 
 ## Plan with the user
 
-Update that issue's file with what the user decided or said, as `references/contents.md` describes.
+After each reply from the user, update the file of the issue you are discussing with what they decided or said, and the Verification for its tasks, as `references/contents.md` describes.
 Then continue the loop in **Discussing the issues** in `references/communication.md`.
 
 ## Implementation
@@ -43,6 +43,7 @@ Until then:
 
 Once the user asks to start, implement the `Decided` issues one after another, or in parallel with subagents when you can. For each issue:
 
-1. **Execute** the issue's plan, such as writing the code and running its tests and lint. Tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
-2. **Verify** it once it is fully implemented: run its Verification in the proper environment, or however each check requires. Then mark each check the same way.
-3. **Report**: capture what its Report needs.
+1. **Capture** the current state first, if the issue's Report asks for anything from before the change.
+2. **Execute** the issue's plan, such as writing the code and running its tests and lint. Tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
+3. **Verify** it once it is fully implemented: run its Verification in the proper environment, or however each check requires. Then mark each check the same way.
+4. **Report**: capture what its Report needs.
