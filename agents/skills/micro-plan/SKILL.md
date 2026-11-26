@@ -17,12 +17,15 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 1. Gather the sources the user points to. Pull the repos they name. Read their docs first, and read code only where the docs are missing or unclear. If the user uploads files, compare them with the repo copies and use the newest.
 2. For each item, find the code or area it touches. Note what already works, what is missing, and what will break. Check the code before saying something already works.
 
+## Plan files
+
+Create the plan as described in `references/contents.md`.
 
 ## First reply
 
 Keep it short:
 
-- where the plan file is;
+- where the plan is;
 - one or two lines per issue on where things stand;
 - a ⚠️ for anything that will break;
 - the open questions.
@@ -97,7 +100,7 @@ While you and the user are still discussing that issue, use this one instead, wi
 
 ## After each answer
 
-Update that issue in the plan, and nothing more:
+Update that issue's file, and nothing more:
 
 - **Status**: its new status.
 - **Tasks**: exactly what the user decided, as unchecked checkboxes.
@@ -118,19 +121,19 @@ Until then:
 - Answers such as "fix it", "do it", "go ahead", "test it" or "find the cause" are decisions about the issue, not a request to start. Write what they decide as tasks and keep planning.
 - If the user asks to start while any issue is **Open**, don't. Say which issues are open and keep planning.
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
-- The only file you write in the project is the plan, plus images and recordings that show the issues.
+- The only files you write in the project are the plan files, plus images and recordings that show the issues.
 
 Once the user asks to start, implement the **Decided** issues one after another, or in parallel with subagents when you can. As you go:
 
 - Capture what each issue's Report needs.
-- Update the plan: tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
+- Update each issue's file: tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
 
 ## Report
 
 When the work is done, reply with only this and nothing else:
 
 ```markdown
-## <plan file>
+## <plan title>
 
 ✅ <total tasks done in the plan> done\
 ⏳ <total tasks remaining> remaining\
