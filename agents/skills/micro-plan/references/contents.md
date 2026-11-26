@@ -5,18 +5,22 @@ Create the plan as a folder in the current project:
 ```
 .local/plans/<YYYY-MM-DD>-<topic>/
 ├── README.md
-├── issue-<issue-name>.md
-└── …
+└── issues/
+    ├── <issue-name>/
+    │   ├── README.md
+    │   └── <images and recordings for this issue>
+    └── …
 ```
 
-- Every issue file starts with `issue-`. `<issue-name>` is the item in a few lowercase words joined by hyphens.
-- Never put numbers in the file names.
+- `<issue-name>` is the issue title in a few lowercase words joined by hyphens.
+- Never put numbers in file or folder names.
+- Put each issue's images and recordings in its folder.
 
 ## README.md
 
 - Title, then a line linking the sources.
 - A rule for the whole plan goes here only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
-- Then a link to each issue file: one issue per item on the user's list, in their order and wording. Nothing that isn't on the list. An issue's number (`#<N>` in replies) is its place in this list.
+- Then a link to each issue's `README.md`: one issue per item on the user's list, in their order and wording. Nothing that isn't on the list. An issue's number (`#<N>` in replies) is its place in this list.
 
 ```markdown
 # <title>
@@ -27,11 +31,11 @@ Create the plan as a folder in the current project:
 
 ## Issues
 
-1. [<issue title>](issue-<issue-name>.md)
-2. [<issue title>](issue-<issue-name>.md)
+1. [<issue title>](issues/<issue-name>/README.md)
+2. [<issue title>](issues/<issue-name>/README.md)
 ```
 
-## issue-<issue-name>.md
+## issues/<issue-name>/README.md
 
 - **Title**: the issue title, in the user's wording.
 - **Status**: under the title, as `**Status:** Open`. Every issue starts `Open`.
@@ -44,7 +48,7 @@ Create the plan as a folder in the current project:
 - **Tasks**: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
 - **Verification**: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
 - **Report**: only what the user asks to know or see when the issue is done, such as a before/after video.
-- **Note**: only when needed, for what the user leaves for later ("Later, not now: …", "Skipped for now, discuss later: …").
+- **Note**: only when needed, for what the user leaves for later or mentions in passing ("Later, not now: …", "Skipped for now, discuss later: …", "Waits on #2").
 - **Context**: additional context or references, such as links to related issues, or a note that the issue is blocked by another issue. Leave it empty if there is none.
 
 ```markdown
@@ -70,7 +74,7 @@ Create the plan as a folder in the current project:
 
 ## Note
 
-<What the user left for later.>
+<What the user left for later or mentioned in passing.>
 
 ## Context
 

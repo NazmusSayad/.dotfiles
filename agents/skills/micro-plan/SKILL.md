@@ -33,7 +33,7 @@ Update that issue's file, and nothing more:
 - **Tasks**: exactly what the user decided, as unchecked checkboxes.
 - **Verification**: how to check those tasks.
 - **Report**: only what the user asks to know or see when the issue is done.
-- **Note**: only what the user leaves for later.
+- **Note**: only what the user leaves for later or mentions in passing.
 
 Then continue the loop in **Discussing the issues** in `references/communication.md`.
 
@@ -41,16 +41,17 @@ When every issue is resolved, list the notes that were left for later.
 
 ## Implementation
 
-DO NOT start implementing until no issue is **Open** AND the user then explicitly asks to start. This takes priority over any instruction to start or keep working.
+DO NOT start implementing until no issue is `Open` AND the user then explicitly asks to start. This takes priority over any instruction to start or keep working.
 
 Until then:
 
 - Answers such as "fix it", "do it", "go ahead", "test it" or "find the cause" are decisions about the issue, not a request to start. Write what they decide as tasks and keep planning.
-- If the user asks to start while any issue is **Open**, don't. Say which issues are open and keep planning.
+- If the user asks to start while any issue is `Open`, don't. Say which issues are open and keep planning.
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
 - The only files you write in the project are the plan files, plus images and recordings that show the issues.
 
-Once the user asks to start, implement the **Decided** issues one after another, or in parallel with subagents when you can. As you go:
+Once the user asks to start, implement the `Decided` issues one after another, or in parallel with subagents when you can. As you go:
 
 - Capture what each issue's Report needs.
 - Update each issue's file: tick each task that is done (`- [x] …`), and mark a task that fails with ❌ and why (`- [ ] ❌ … — <why>`).
+- After an issue's tasks, run its Verification. Tick each check that passes, and mark one that fails the same way as a failed task.
