@@ -37,9 +37,3 @@ Before stating a cause, status, or fact as certain, double-check it against the 
 When useful, use a relevant emoji as a visual marker for notes, warnings or caveats, errors or blockers, consequential assumptions, questions requiring the user's input, action ownership, etc. Keep it occasional and unobtrusive.
 
 Prefer visualizing with a diagram, image, or video instead of explaining in text. Use the `offsite:chat` skill to visualize in the chat.
-
-## Guidelines
-
-Do not execute any Git write operation unless explicitly requested. Avoid using Git for ordinary file operations or exploring Git history unless requested or strictly necessary.
-
-Do not disrupt development servers and watch modes unless explicitly requested. If something conflicts or behaves unexpectedly, notify the user.
