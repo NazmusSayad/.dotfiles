@@ -38,35 +38,56 @@
     {
       "id": "openrouter-gpt-oss-120b",
       "model": "openai/gpt-oss-120b:nitro",
-      "provider": "openrouter",
-      "options": { "reasoning": { "effort": "minimal" } }
+      "options": {
+        "reasoning": {
+          "effort": "minimal"
+        }
+      },
+      "provider": "openrouter"
     },
     {
       "id": "openrouter-gpt-6-luna",
       "model": "openai/gpt-6-luna:nitro",
-      "provider": "openrouter",
-      "options": { "reasoning": { "effort": "none" } }
+      "options": {
+        "reasoning": {
+          "effort": "none"
+        }
+      },
+      "provider": "openrouter"
     },
     {
       "id": "openrouter-deepseek-flash",
       "model": "deepseek/deepseek-v4.1-flash-1017:nitro",
-      "provider": "openrouter",
-      "options": { "reasoning": { "effort": "none" } }
+      "options": {
+        "reasoning": {
+          "effort": "none"
+        }
+      },
+      "provider": "openrouter"
     },
     {
       "id": "openrouter-minimax",
       "model": "minimax/minimax-m3.1-flash:nitro",
-      "provider": "openrouter",
-      "options": { "reasoning": { "effort": "minimal" } }
+      "options": {
+        "reasoning": {
+          "effort": "minimal"
+        }
+      },
+      "provider": "openrouter"
     }
   ],
   "defaultProfile": {
+    "autoSubmit.linux": "Disabled",
     "autoSubmit.macos": "Disabled",
     "autoSubmit.windows": "Disabled",
     "enhancementLlmId": "cerebras-gpt-oss-120b",
     "enhancementType": "text-lv2",
-    "hotkeyHold.macos": ["ShiftLeft+ControlLeft", "ShiftLeft+MetaLeft", "F15"],
     "hotkeyHold.linux": [
+      "ShiftLeft+ControlLeft",
+      "ShiftLeft+MetaLeft",
+      "F15"
+    ],
+    "hotkeyHold.macos": [
       "ShiftLeft+ControlLeft",
       "ShiftLeft+MetaLeft",
       "F15"
@@ -76,9 +97,18 @@
       "ShiftLeft+MetaLeft",
       "F15"
     ],
-    "hotkeyToggle.linux": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
-    "hotkeyToggle.macos": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
-    "hotkeyToggle.windows": ["ShiftRight+ControlLeft", "ShiftRight+MetaLeft"],
+    "hotkeyToggle.linux": [
+      "ShiftRight+ControlLeft",
+      "ShiftRight+MetaLeft"
+    ],
+    "hotkeyToggle.macos": [
+      "ShiftRight+ControlLeft",
+      "ShiftRight+MetaLeft"
+    ],
+    "hotkeyToggle.windows": [
+      "ShiftRight+ControlLeft",
+      "ShiftRight+MetaLeft"
+    ],
     "id": "default",
     "language": "en",
     "mode": "cloud",
@@ -89,17 +119,26 @@
   },
   "enableMultipleHotkeys": true,
   "historyRetentionDays": 0,
+  "injectionMethod.linux": "Ctrl+Shift+V",
   "injectionMethod.macos": "Ctrl+V",
   "injectionMethod.windows": "Ctrl+V",
   "localModelLoading": "on-recording-start",
   "profiles": [
     {
+      "autoSubmit.linux": "Disabled",
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
-      "hotkeyHold.linux": ["AltGr+MetaRight"],
-      "hotkeyHold.macos": ["ShiftRight+ControlRight", "ShiftRight+MetaRight"],
-      "hotkeyHold.windows": ["AltGr+MetaRight"],
+      "hotkeyHold.linux": [
+        "AltGr+MetaRight"
+      ],
+      "hotkeyHold.macos": [
+        "ShiftRight+ControlRight",
+        "ShiftRight+MetaRight"
+      ],
+      "hotkeyHold.windows": [
+        "AltGr+MetaRight"
+      ],
       "hotkeyToggle.macos": [],
       "id": "transcribe-profile",
       "language": "en",
@@ -109,21 +148,34 @@
       "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
     },
     {
+      "autoSubmit.linux": "Disabled",
       "autoSubmit.macos": "Disabled",
       "autoSubmit.windows": "Disabled",
       "enhancementLlmId": "cerebras-gpt-oss-120b",
       "enhancementType": "text-lv1",
-      "hotkeyHold.linux": ["ShiftLeft+Alt", "ShiftLeft+F15"],
+      "hotkeyHold.linux": [
+        "ShiftLeft+Alt",
+        "ShiftLeft+F15"
+      ],
       "hotkeyHold.macos": [
         "ShiftLeft+Alt",
         "ControlLeft+Alt",
         "MetaLeft+ControlLeft",
         "ShiftLeft+F15"
       ],
-      "hotkeyHold.windows": ["ShiftLeft+Alt", "ShiftLeft+F15"],
-      "hotkeyToggle.linux": ["ShiftRight+Alt"],
-      "hotkeyToggle.macos": ["ShiftRight+Alt"],
-      "hotkeyToggle.windows": ["ShiftRight+Alt"],
+      "hotkeyHold.windows": [
+        "ShiftLeft+Alt",
+        "ShiftLeft+F15"
+      ],
+      "hotkeyToggle.linux": [
+        "ShiftRight+Alt"
+      ],
+      "hotkeyToggle.macos": [
+        "ShiftRight+Alt"
+      ],
+      "hotkeyToggle.windows": [
+        "ShiftRight+Alt"
+      ],
       "id": "prompt-profile",
       "language": "bn",
       "mode": "cloud",
@@ -134,6 +186,7 @@
       "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
     },
     {
+      "autoSubmit.linux": "Disabled",
       "autoSubmit.macos": "Disabled",
       "enhancementLlmId": "openrouter-minimax",
       "enhancementType": "text-lv2",
@@ -226,8 +279,13 @@
     "startRecording": false,
     "stopRecording": false
   },
+  "whisperBackend.linux": "auto",
   "whisperBackend.macos": "auto",
   "whisperBackend.windows": "auto",
-  "words": ["NazmusSayad", "OiPer", "Claude"],
+  "words": [
+    "NazmusSayad",
+    "OiPer",
+    "Claude"
+  ],
   "writeClipboard": false
 }
