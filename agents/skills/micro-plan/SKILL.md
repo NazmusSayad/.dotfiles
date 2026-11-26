@@ -34,7 +34,7 @@ Create `.local/<topic>-plan.md` in the current project.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
   - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
   - `### Note`: only when needed, for items that are skipped or postponed ("Later, not now: …", "Skipped for now, discuss later: …").
-- If the user sets a rule for the whole plan (for example a naming rule), put it at the top.
+- A rule for the whole plan goes at the top only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
 
 ## First reply
 
