@@ -95,7 +95,7 @@ While you and the user are still discussing that issue, use this one instead, wi
 
 ## 💬 #<N> <title>
 
-### ❓ Questions (<N> of <total> remaining)
+### ❓ Questions (<open questions> of <all questions this issue had> remaining)
 
 - **<topic>:** <the question, and your recommendation>
 
