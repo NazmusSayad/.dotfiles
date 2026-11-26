@@ -21,9 +21,9 @@ When a question can be read more than one way, settle it from the conversation. 
 
 When you restate the user's request, use their words.
 
-## Build the hierarchy from what the user wants
+## Build the hierarchy from what the user asked
 
-The top level of the reply is what the user wants to know or must decide. What you did, how you found it, and how it works sit under the point they support, and only when they help. Do not organize the top level as a "what I changed, what I tested" sequence or as groups by file, layer, feature, or severity unless the user asks for that grouping. In a list of issues, each issue is a top-level item with its severity inside it.
+The top level of the reply is what the user asked for. When that is a set of issues, tasks, or similar items, each item is the top level: give it its own heading with its details under it, not a bullet. Do not put items under a shared heading, even when they belong to one feature or cause, unless the user asks for groups or there are dozens of items. When the user asks for groups, the groups are the top level and the items sit under them. What you did, how you found it, and how it works sit under the point they support, and only when they help.
 
 At the top level, describe what happens, not the machinery behind it: a change is what is now different for the user, and a cause is what went wrong, not the chain of code that led to it. Write "Search now finds names with accents", not "the query now normalizes text before matching".
 
