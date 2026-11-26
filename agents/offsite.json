@@ -30,12 +30,7 @@
     "enabled": false
   },
   "opencode": {
-    "enabled": false,
-    "models": {
-      "cerebras/gpt-oss-120b": {
-        "hidden": true
-      }
-    }
+    "enabled": false
   },
   "workingDir": {
     "macos": "~/Desktop",
