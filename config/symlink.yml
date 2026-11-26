@@ -36,7 +36,9 @@
 
 # OffSite
 "@/agents/offsite.json": "~/.offsite/config.json"
-"@/agents/offsite.desktop.json": "~/.offsite/config.local.json"
+"@/agents/offsite.desktop.json":
+  LinkWin: "~/.offsite/config.local.json"
+  LinkLinux: "~/.offsite/config.local.json"
 
 # Terminal
 "@/config/shell/alias.json": "~/.config/shaka/config.json"
