@@ -23,6 +23,12 @@ Create `.local/<topic>-plan.md` in the current project.
 
 - Title, then a line linking the sources.
 - One issue per item on the user's list, in their order and wording: `## Issue N — <item>`. Nothing that isn't on the list.
+- Under each issue title, its status: `**Status:** Open`. Every issue starts **Open**.
+  - **Open**: not discussed yet, or still has questions.
+  - **Decided**: its tasks are agreed.
+  - **Skipped**: left for later, to discuss again.
+  - **Dropped**: not needed, cancelled, or already fine as it is.
+  - **Blocked**: waiting on something outside.
 - Each issue has these sections:
   - `### Context`: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
   - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
@@ -75,7 +81,8 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 After each answer:
 1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Postponed or skipped items go under **Note**.
 2. Write how to check those tasks under **Verification**.
-3. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
+3. Update the issue's status.
+4. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
 
 When every issue is resolved, list the notes that were left for later.
 
