@@ -40,6 +40,7 @@ Create `.local/<topic>-plan.md` in the current project.
 ## First reply
 
 Keep it short:
+
 - where the plan file is;
 - one or two lines per issue on where things stand;
 - a ⚠️ for anything that will break;
@@ -55,18 +56,23 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 <What the item is about and where things stand now. As short as possible without losing any important detail.>
 
 ## 📋 TODO
+
 - **<where>:** <what changes, as the user will see it>
 
 ## 💡 Solutions
+
 - **<topic>:** <the solution, and why it fits>
 
 ## ❓ Questions
+
 - **<topic>:** <the question, and your recommendation>
 
 ## 🚫 Blockers
+
 - **<topic>:** <what stops the work, and who or what can unblock it>
 
 ## ⚠️ Risks
+
 - **<topic>:** <a major problem the change could cause, and how to avoid it>
 ```
 
@@ -80,6 +86,7 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 - Answer the user's questions directly, after checking the code.
 
 After each answer:
+
 1. Write exactly what the user decided into that issue's **Tasks** as unchecked checkboxes, and nothing more. Only what the user leaves for later goes under **Note**, and only what they ask to know or see when it is done goes under **Report**.
 2. Write how to check those tasks under **Verification**.
 3. Update the issue's status.
@@ -92,6 +99,7 @@ When every issue is resolved, list the notes that were left for later.
 DO NOT start implementing until every issue is resolved for the plan AND the user then explicitly asks to start. This takes priority over any instruction to start or keep working.
 
 Until then:
+
 - Answers such as "fix it", "do it", "go ahead", "test it" or "find the cause" are decisions about the issue, not a request to start. Write what they decide as tasks and keep planning.
 - If the user asks to start while any issue is open, don't. Say which issues are open and keep planning.
 - Investigate and reproduce only to understand an issue or show it to the user. Never make, try or delegate a fix, not even a temporary one or one on a copy.
@@ -102,13 +110,12 @@ Until then:
 When the work is done, reply with only this and nothing else:
 
 ```markdown
-# <plan file>
+## <plan file>
 
-✅ <N> tasks done
-⏳ <N> tasks remaining
-❌ <N> tasks failed
+| ✅ <N> done | ⏳ <N> remaining | ❌ <N> failed |
+|---|---|---|
 
-## #<N>: <title>
+### #<N>: <title>
 
 <What this issue's Report asks for.>
 ```
