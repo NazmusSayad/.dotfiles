@@ -154,7 +154,11 @@ When the work is done, reply with only this and nothing else:
 
 <What that issue's Report asks for.>
 
-### ⏭️ Skipped
+### ⏳ Remaining
 
-- **#<N>** <title of each skipped issue>
+- **#<N>** <title of each issue not done yet, such as a skipped or blocked one>
+
+### ❌ Failed
+
+- **#<N>** <title of each issue with a failed task>: <the failed task, and why it failed>
 ```
