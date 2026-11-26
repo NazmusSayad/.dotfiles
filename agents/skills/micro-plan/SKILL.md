@@ -19,7 +19,7 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 
 ## Plan files
 
-Create the plan as described in `references/contents.md`.
+Before you write any plan file, read `references/contents.md`. Create and update the plan files exactly as it describes: the same folder, file names, sections and order.
 
 ## First reply
 
