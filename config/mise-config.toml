@@ -135,9 +135,6 @@ yt-dlp = "latest"
 "npm:chrome-devtools-mcp" = "latest"
 "npm:@agent-sh/computer-use-linux" = { version = "latest", os = ["linux"] }
 
-[env]
-PLAYWRIGHT_MCP_BROWSER = "chromium"
-
 [settings.npm]
 package_manager = "pnpm"
 

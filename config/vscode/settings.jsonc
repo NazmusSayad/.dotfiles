@@ -343,6 +343,7 @@
   "cSpell.language": "en,en-US,lorem",
   "cSpell.userWords": [
     "dotenv",
+    "elevenlabs",
     "gityo",
     "HugeIcons",
     "Nazmus",
@@ -350,7 +351,8 @@
     "opencode",
     "openrouter",
     "Sayad",
-    "uigraph"
+    "uigraph",
+    "Vite"
   ],
   "cSpell.enabledNotifications": {
     "Lines too Long": false,

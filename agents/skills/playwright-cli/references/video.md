@@ -31,13 +31,13 @@ For a quick recording of steps you run as commands, use `video-start`, `video-ch
   For scrolls not tied to an element, use `window.scrollBy({ top, behavior: "smooth" })` with the same `scrollend` wait. If the page sets `scroll-behavior` or `prefers-reduced-motion` in a way that disables smooth scrolling, stop and tell the user instead of recording jumps.
 
 - Use `pressSequentially(text, { delay: 60 })` for natural typing and `waitForTimeout(500)` to `waitForTimeout(1500)` between steps.
-- Give `start` an absolute `.webm` path under `.playwright-cli/<group>/`, then convert it to `.mp4` with `ffmpeg` and delete the `.webm`.
+- Give `start` an absolute `.webm` path under `.local/pw/<group>/`, then convert it to `.mp4` with `ffmpeg` and delete the `.webm`.
 
 ```bash
 playwright-cli run-code "$(cat <<'EOF'
 async (page) => {
   await page.screencast.start({
-    path: "/path/to/project/.playwright-cli/todo/add-item.webm",
+    path: "/path/to/project/.local/pw/todo/add-item.webm",
     size: { width: 1440, height: 810 },
     fps: 60
   })
