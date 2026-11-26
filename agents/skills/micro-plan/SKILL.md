@@ -17,25 +17,6 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 1. Gather the sources the user points to. Pull the repos they name. Read their docs first, and read code only where the docs are missing or unclear. If the user uploads files, compare them with the repo copies and use the newest.
 2. For each item, find the code or area it touches. Note what already works, what is missing, and what will break. Check the code before saying something already works.
 
-## Plan file
-
-Create `.local/<topic>-plan.md` in the current project.
-
-- Title, then a line linking the sources.
-- One issue per item on the user's list, in their order and wording: `## Issue N — <item>`. Nothing that isn't on the list.
-- Under each issue title, its status: `**Status:** Open`. Every issue starts **Open**.
-  - **Open**: not discussed yet, or still has questions.
-  - **Decided**: its tasks are agreed.
-  - **Skipped**: left for later, to discuss again.
-  - **Dropped**: not needed, cancelled, or already fine as it is.
-  - **Blocked**: waiting on something outside.
-- Each issue has these sections:
-  - `### Context`: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
-  - `### Tasks`: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
-  - `### Verification`: how to check that the tasks work, each an unchecked checkbox, such as a browser check or a request to send. Leave it empty until the issue has tasks.
-  - `### Report`: only what the user asks to know or see when the issue is done, such as a before/after video.
-  - `### Note`: only when needed, for what the user leaves for later ("Later, not now: …", "Skipped for now, discuss later: …").
-- A rule for the whole plan goes at the top only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
 
 ## First reply
 
