@@ -50,8 +50,10 @@ Keep it short:
 
 Go one issue per turn, in order. Keep each turn short. Long, technical replies frustrate the user.
 
+The first time you present an issue, or when the user asks to see it again, use this structure:
+
 ```markdown
-<One line about the previous issue, if you have anything to say about it.>
+<One line on what you did with the user's last reply, if you have anything to say about it.>
 
 ---
 
@@ -82,6 +84,24 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 ### ⚠️ Risks
 
 - **<topic>:** <a major problem the change could cause, and how to avoid it>
+```
+
+While you and the user are still discussing that issue, use this one instead, with only what is still open:
+
+```markdown
+<One line on what you did with the user's last reply, if you have anything to say about it.>
+
+---
+
+## 💬 #<N> <title>
+
+### ❓ Questions (<N> of <total> remaining)
+
+- **<topic>:** <the question, and your recommendation>
+
+### 🚫 Blockers
+
+- **<topic>:** <what stops the work, and who or what can unblock it>
 ```
 
 - **Solutions** are how to meet the item. If something that already exists meets it, that is the solution; point to it instead of inventing a new one. If the solution is obvious, give the obvious one.
