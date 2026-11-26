@@ -90,15 +90,17 @@ Go one issue per turn, in order. Keep each turn short. Long, technical replies f
 - If something already works, say so and suggest nothing, or only a quick check.
 - Answer the user's questions directly, after checking the code.
 
-After each answer:
+## After each answer
 
-1. Write the user's answer into that issue, and nothing more:
-   - **Tasks**: exactly what they decided, as unchecked checkboxes.
-   - **Report**: only what they ask to know or see when the issue is done.
-   - **Note**: only what they leave for later.
-2. Write how to check those tasks under **Verification**.
-3. Update the issue's status.
-4. Say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
+Update that issue in the plan, and nothing more:
+
+- **Status**: its new status.
+- **Tasks**: exactly what the user decided, as unchecked checkboxes.
+- **Verification**: how to check those tasks.
+- **Report**: only what the user asks to know or see when the issue is done.
+- **Note**: only what the user leaves for later.
+
+Then say in one line what you added. If this issue still has open questions or blockers, present this issue again in the format above. Present the next issue only when nothing in this issue is open, or when the user says to move on.
 
 When every issue is resolved, list the notes that were left for later.
 
