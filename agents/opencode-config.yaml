@@ -5,9 +5,9 @@ cerebras:
 
 opencode:
   models:
-    - id: glm-5.3-flash-free
+    - id: mimo-v2.6-flash-free
     - id: deepseek-v4.1-flash-free
-    - id: minimax-m3.1-flash-free
+    - id: hy4-flash-free
       context: 300000
 
 ~agents:
