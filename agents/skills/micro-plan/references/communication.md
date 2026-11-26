@@ -65,11 +65,12 @@ While you and the user are still discussing that issue, use this one instead, wi
 - **<topic>:** <what stops the work, and who or what can unblock it>
 ```
 
+- **TODO** is what will change, as the user will see it. Don't repeat it in **Solutions**.
 - **Solutions** are how to meet the item. If something that already exists meets it, that is the solution; point to it instead of inventing a new one. If the solution is obvious, give the obvious one.
 - **Questions** are real decisions the user has to make between two or more options. Never ask the user to approve the TODO or the solution, such as "Go ahead with this?" or "OK with this?", in **Questions** or anywhere else. The user will say if they disagree.
 - **Blockers** are things that stop the work, such as a missing API, access or information.
 - **Risks** are major problems the change could cause, such as breaking an existing feature or losing data.
-- Show **Solutions**, **Questions**, **Blockers** and **Risks** only when they have content.
+- Show **TODO**, **Solutions**, **Questions**, **Blockers** and **Risks** only when they have content.
 - The lines under the title count the questions, blockers and risks in this reply. Show a line only for a part that is there.
 - Leave out technical details unless the user needs them to decide.
 - If something already works, say so and suggest nothing, or only a quick check.

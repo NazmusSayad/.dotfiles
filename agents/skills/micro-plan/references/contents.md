@@ -42,12 +42,12 @@ The plan for one issue. Keep it up to date with the user's feedback and the prog
 - **Title**: the issue title, in the user's wording.
 - **Status**: under the title, as `**Status:** Open`. Every issue starts `Open`.
   - `Open`: not discussed yet, or still has questions.
-  - `Decided`: its tasks are agreed.
+  - `Decided`: its questions and blockers are resolved.
   - `Skipped`: left for later, to discuss again.
   - `Dropped`: not needed, cancelled, or already fine as it is.
   - `Blocked`: waiting on something outside.
 - **Details**: the facts needed to do the issue, such as what changed or was asked, the rules, and the details. Write enough that nobody has to go back to the sources.
-- **Tasks**: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty.** The user decides the tasks; only write what they agreed to.
+- **Tasks**: the tasks, each an unchecked checkbox (`- [ ] …`). **Leave it empty until the issue is `Decided`.** Then write its TODO as the user last saw it, with what they decided, and nothing else.
 - **Verification**: how to check by hand that the tasks really work, each an unchecked checkbox, such as using the change in the browser or sending a real request in the proper environment. It is not a static check such as lint, formatting or type checks. Write it once the issue has tasks.
 - **Report**: only what the user asks to know or see when the issue is done, such as a before/after video.
 - **Note**: only when needed, for what the user leaves for later or mentions in passing ("Later, not now: …", "Skipped for now, discuss later: …", "Waits on #2").

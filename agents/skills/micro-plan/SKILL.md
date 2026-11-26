@@ -14,7 +14,7 @@ The user gives a short list of items. They may point to a repo, docs, files or a
 
 ## Research
 
-1. Gather the sources the user points to. Pull the repos they name. Read their docs first, and read code only where the docs are missing or unclear. If the user uploads files, compare them with the repo copies and use the newest.
+1. Gather the sources the user points to. Read their docs first, and read code only where the docs are missing or unclear. If the user uploads files, compare them with the repo copies and use the newest.
 2. For each item, find the code or area it touches. Note what already works, what is missing, and what will break. Check the code before saying something already works.
 
 ## Plan files
