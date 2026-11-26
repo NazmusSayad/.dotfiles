@@ -18,9 +18,22 @@ Create the plan as a folder in the current project:
 - A rule for the whole plan goes here only when the user sets it for this plan (for example a naming rule). Don't carry rules over from other plans or sources.
 - Then a link to each issue file: one issue per item on the user's list, in their order and wording. Nothing that isn't on the list. An issue's number (`#<N>` in replies) is its place in this list.
 
+```markdown
+# <title>
+
+<A line linking the sources.>
+
+<Rules the user set for this plan, if any.>
+
+## Issues
+
+1. [<issue title>](<issue-name>.md)
+2. [<issue title>](<issue-name>.md)
+```
+
 ## <issue-name>.md
 
-- Title: the item, in the user's wording.
+- Title: the issue title, in the user's wording.
 - Under the title, its status: `**Status:** Open`. Every issue starts **Open**.
   - **Open**: not discussed yet, or still has questions.
   - **Decided**: its tasks are agreed.
@@ -34,3 +47,33 @@ Create the plan as a folder in the current project:
   - `## Report`: only what the user asks to know or see when the issue is done, such as a before/after video.
   - `## Note`: only when needed, for what the user leaves for later ("Later, not now: …", "Skipped for now, discuss later: …").
   - `## Context`: Additional context, such as links to related issues, or a note that the issue is blocked by another issue. Leave it empty if there is no additional context.
+
+```markdown
+# <issue title>
+
+**Status:** Open
+
+## Details
+
+<The facts needed to do the issue.>
+
+## Tasks
+
+- [ ] <a task the user agreed to>
+
+## Verification
+
+- [ ] <how to check that a task works>
+
+## Report
+
+<What the user asked to know or see when the issue is done.>
+
+## Note
+
+<What the user left for later.>
+
+## Context
+
+<Related issues, or the issue that blocks this one.>
+```
