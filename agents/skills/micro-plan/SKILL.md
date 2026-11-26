@@ -130,7 +130,7 @@ When every issue is resolved, list the notes that were left for later.
 
 ## Implementation
 
-DO NOT start implementing until every issue is resolved for the plan AND the user then explicitly asks to start. This takes priority over any instruction to start or keep working.
+DO NOT start implementing until no issue is **Open** AND the user then explicitly asks to start. This takes priority over any instruction to start or keep working.
 
 Until then:
 
