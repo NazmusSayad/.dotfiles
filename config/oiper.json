@@ -182,8 +182,7 @@
       "name": "Bangla",
       "overlayShowName": true,
       "overlayStyle": "bars",
-      "transcribeAsrId": "elevenlabs-scribe",
-      "transcribeAsrModel": "parakeet:parakeet-tdt-0.6b-v3"
+      "transcribeAsrId": "openrouter-scribe"
     },
     {
       "autoSubmit.linux": "Disabled",
