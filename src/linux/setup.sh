@@ -11,6 +11,17 @@ if [ "$EUID" -eq 0 ]; then
 	exit 1
 fi
 
+# Adds an item to a gsettings string list, like enabled-extensions, unless it is already there
+gsettings_list_add() {
+	local list
+	list="$(gsettings get "$1" "$2")"
+	case "$list" in
+	*"'$3'"*) ;;
+	"@as []") gsettings set "$1" "$2" "['$3']" ;;
+	*) gsettings set "$1" "$2" "${list%]}, '$3']" ;;
+	esac
+}
+
 cd "$(dirname "${BASH_SOURCE[0]}")/../.."
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -82,14 +93,7 @@ if systemctl --user cat openlogi-agent.service >/dev/null 2>&1; then
 		curl -fsSL -o "$openlogi_ext_dir/$file" "$openlogi_ext_url/$file"
 	done
 	# A new extension is only found after logging in again, so add it to the enabled list directly
-	if ! gnome-extensions enable "$openlogi_ext" 2>/dev/null; then
-		enabled_exts="$(gsettings get org.gnome.shell enabled-extensions)"
-		case "$enabled_exts" in
-		*"'$openlogi_ext'"*) ;;
-		"@as []") gsettings set org.gnome.shell enabled-extensions "['$openlogi_ext']" ;;
-		*) gsettings set org.gnome.shell enabled-extensions "${enabled_exts%]}, '$openlogi_ext']" ;;
-		esac
-	fi
+	gnome-extensions enable "$openlogi_ext" 2>/dev/null || gsettings_list_add org.gnome.shell enabled-extensions "$openlogi_ext"
 else
 	echo "Skipped: OpenLogi not installed (run 'psy deb' first)"
 fi
@@ -106,6 +110,14 @@ fi
 echo "Starting Vicinae launcher..."
 if command -v vicinae >/dev/null; then
 	systemctl --user enable --now vicinae.service
+	# GNOME extension that lets Vicinae see the clipboard (without it, Clipboard History says "Clipboard monitoring unavailable")
+	vicinae_ext=vicinae@dagimg-dot
+	vicinae_ext_url="$(curl -fsSL https://api.github.com/repos/vicinaehq/gnome-extension/releases/latest | jq -r '.assets[] | select(.name | endswith(".zip")) | .browser_download_url' | head -1)"
+	vicinae_ext_zip="$(mktemp --suffix=.zip)"
+	curl -fsSL -o "$vicinae_ext_zip" "$vicinae_ext_url"
+	gnome-extensions install --force "$vicinae_ext_zip"
+	rm -f "$vicinae_ext_zip"
+	gnome-extensions enable "$vicinae_ext" 2>/dev/null || gsettings_list_add org.gnome.shell enabled-extensions "$vicinae_ext"
 else
 	echo "Skipped: Vicinae not installed"
 fi
@@ -186,19 +198,22 @@ gset io.github.celluloid-player.Celluloid draggable-video-area-enable true
 gset io.github.celluloid-player.Celluloid mpv-config-enable true
 gset io.github.celluloid-player.Celluloid mpv-config-file "file://$HOME/.config/mpv/mpv.conf"
 
-# Vicinae can't register global shortcuts on GNOME, so a GNOME shortcut opens it with Super+Space
-# (the physical Ctrl key + Space, since Ctrl and Win are swapped). Only one keyboard layout, so Super+Space doesn't need to switch layouts
+# Adds a GNOME keyboard shortcut: id, name, command, key
+gnome_shortcut() {
+	local path=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/$1/
+	gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$path" name "$2"
+	gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$path" command "$3"
+	gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$path" binding "$4"
+	gsettings_list_add org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$path" 2>/dev/null || echo "Skipped: shortcut $2"
+}
+
+# Vicinae can't register global shortcuts on GNOME, so GNOME shortcuts open it. Super is the physical Ctrl key, since Ctrl and Win are swapped
+# Only one keyboard layout, so Super+Space doesn't need to switch layouts
 gset org.gnome.desktop.wm.keybindings switch-input-source "['XF86Keyboard']"
-vicinae_kb=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/vicinae/
-gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$vicinae_kb" name Vicinae
-gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$vicinae_kb" command "vicinae toggle"
-gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$vicinae_kb" binding "<Super>space"
-custom_kbs="$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings)"
-case "$custom_kbs" in
-*"'$vicinae_kb'"*) ;;
-"@as []") gset org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$vicinae_kb']" ;;
-*) gset org.gnome.settings-daemon.plugins.media-keys custom-keybindings "${custom_kbs%]}, '$vicinae_kb']" ;;
-esac
+gnome_shortcut vicinae Vicinae "vicinae toggle" "<Super>space"
+# Clipboard history on Super+V like Windows' Win+V; the notification list keeps Super+M
+gset org.gnome.shell.keybindings toggle-message-tray "['<Super>m']"
+gnome_shortcut vicinae-clipboard "Vicinae Clipboard History" "vicinae deeplink vicinae://launch/clipboard/history" "<Super>v"
 
 echo "Configuring computer-use-linux..."
 # Turns on the AT-SPI accessibility bridge and installs the GNOME window-control extension
