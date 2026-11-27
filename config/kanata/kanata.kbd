@@ -7,10 +7,19 @@
   linux-continue-if-no-devs-found yes
 )
 
-(defsrc f20 f13)
+(defsrc f20 f13 lalt ralt spc)
 
 (deflayer base
   ;; Alt+Tab like Windows: holds Alt and taps Tab once, so the switcher stays open until release; Shift goes backwards
   (multi lalt (macro tab))
   prnt
+  lalt
+  ralt
+  spc
+)
+
+;; Alt+Space sends Ctrl+Shift+I (Alt is released first)
+(defoverrides
+  (lalt spc) (lctl lsft i)
+  (ralt spc) (lctl lsft i)
 )
