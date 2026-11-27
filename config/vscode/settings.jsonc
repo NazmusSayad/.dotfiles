@@ -40,6 +40,7 @@
   "workbench.editor.preventPinnedEditorClose": "keyboard",
   "workbench.layoutControl.enabled": false,
   "window.menuBarVisibility": "compact",
+  "window.customMenuBarAltFocus": false,
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
@@ -402,9 +403,7 @@
   "excalidraw.theme": "dark",
   "task.autoDetect": "off",
   "security.promptForLocalFileProtocolHandling": false,
-  "security.allowedUNCHosts": [
-    "wsl.localhost"
-  ],
+  "security.allowedUNCHosts": ["wsl.localhost"],
   "workbench.activityBar.location": "hidden",
   "window.customTitleBarVisibility": "windowed"
 }
