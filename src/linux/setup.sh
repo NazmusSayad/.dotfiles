@@ -103,6 +103,13 @@ else
 	echo "Skipped: kanata service not linked (run config-init first)"
 fi
 
+echo "Starting Vicinae launcher..."
+if command -v vicinae >/dev/null; then
+	systemctl --user enable --now vicinae.service
+else
+	echo "Skipped: Vicinae not installed"
+fi
+
 echo "Starting Slack manager timer..."
 if [ -f "$HOME/.config/systemd/user/slack-manager.timer" ]; then
 	systemctl --user daemon-reload
@@ -178,6 +185,20 @@ gset io.github.celluloid-player.Celluloid autofit-enable false
 gset io.github.celluloid-player.Celluloid draggable-video-area-enable true
 gset io.github.celluloid-player.Celluloid mpv-config-enable true
 gset io.github.celluloid-player.Celluloid mpv-config-file "file://$HOME/.config/mpv/mpv.conf"
+
+# Vicinae can't register global shortcuts on GNOME, so a GNOME shortcut opens it with Super+Space
+# (the physical Ctrl key + Space, since Ctrl and Win are swapped). Only one keyboard layout, so Super+Space doesn't need to switch layouts
+gset org.gnome.desktop.wm.keybindings switch-input-source "['XF86Keyboard']"
+vicinae_kb=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/vicinae/
+gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$vicinae_kb" name Vicinae
+gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$vicinae_kb" command "vicinae toggle"
+gset "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$vicinae_kb" binding "<Super>space"
+custom_kbs="$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings)"
+case "$custom_kbs" in
+*"'$vicinae_kb'"*) ;;
+"@as []") gset org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$vicinae_kb']" ;;
+*) gset org.gnome.settings-daemon.plugins.media-keys custom-keybindings "${custom_kbs%]}, '$vicinae_kb']" ;;
+esac
 
 echo "Configuring computer-use-linux..."
 # Turns on the AT-SPI accessibility bridge and installs the GNOME window-control extension
