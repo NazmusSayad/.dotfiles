@@ -47,11 +47,18 @@ type debApp struct {
 	Asset  string `yaml:"asset"`
 }
 
+type scriptApp struct {
+	ID        string `yaml:"id"`
+	Install   string `yaml:"install"`
+	Uninstall string `yaml:"uninstall"`
+}
+
 type appsConfig struct {
-	Apt        []aptApp  `yaml:"apt"`
-	AptExclude []string  `yaml:"apt-exclude"`
-	Snap       []snapApp `yaml:"snap"`
-	Deb        []debApp  `yaml:"deb"`
+	Apt        []aptApp    `yaml:"apt"`
+	AptExclude []string    `yaml:"apt-exclude"`
+	Snap       []snapApp   `yaml:"snap"`
+	Deb        []debApp    `yaml:"deb"`
+	Script     []scriptApp `yaml:"script"`
 }
 
 func readConfig() appsConfig {
@@ -60,6 +67,12 @@ func readConfig() appsConfig {
 	for _, id := range config.AptExclude {
 		if slices.Contains(config.aptIDs(), id) {
 			panic("CONFIG: " + id + " is in both apt and apt-exclude")
+		}
+	}
+
+	for _, app := range config.Script {
+		if app.ID == "" || app.Install == "" || app.Uninstall == "" {
+			panic("CONFIG: script app " + app.ID + " needs id, install and uninstall")
 		}
 	}
 

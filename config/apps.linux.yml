@@ -92,3 +92,8 @@ deb:
   - id: openlogi
     github: https://github.com/AprilNEA/OpenLogi
     asset: linux-amd64\.deb$
+
+script:
+  - id: vicinae
+    install: curl -fsSL https://vicinae.com/install | bash
+    uninstall: curl -fsSL https://vicinae.com/install | bash -s -- --uninstall

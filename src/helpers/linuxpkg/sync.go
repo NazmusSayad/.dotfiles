@@ -18,6 +18,7 @@ func Sync(managers []string) {
 	syncApt := slices.Contains(managers, "apt")
 	syncSnap := slices.Contains(managers, "snap")
 	syncDeb := slices.Contains(managers, "deb")
+	syncScript := slices.Contains(managers, "script")
 
 	if syncApt {
 		fmt.Println("✘", aurora.Faint("Uninstalling apt packages..."))
@@ -34,6 +35,12 @@ func Sync(managers []string) {
 	if syncSnap {
 		fmt.Println("✘", aurora.Faint("Uninstalling snap packages..."))
 		removeSnapApps(config, lock)
+		fmt.Println()
+	}
+
+	if syncScript {
+		fmt.Println("✘", aurora.Faint("Uninstalling script apps..."))
+		removeScriptApps(config, lock)
 		fmt.Println()
 	}
 
@@ -58,6 +65,12 @@ func Sync(managers []string) {
 	if syncDeb {
 		fmt.Println("▼", aurora.Faint("Installing deb packages..."))
 		installDebApps(config, lock)
+		fmt.Println()
+	}
+
+	if syncScript {
+		fmt.Println("▼", aurora.Faint("Installing and updating script apps..."))
+		installScriptApps(config, lock)
 		fmt.Println()
 	}
 
@@ -158,6 +171,23 @@ func removeSnapApps(config appsConfig, lock appsLock) {
 		}
 
 		delete(lock.Snap, id)
+	}
+
+	writeLock(lock)
+}
+
+func removeScriptApps(config appsConfig, lock appsLock) {
+	for id, entry := range lock.Script {
+		if slices.ContainsFunc(config.Script, func(app scriptApp) bool { return app.ID == id }) {
+			continue
+		}
+
+		fmt.Println(aurora.Faint("- Removing script app " + id))
+		if runAsAdmin("bash", "-o", "pipefail", "-c", entry.Uninstall) != nil {
+			continue
+		}
+
+		delete(lock.Script, id)
 	}
 
 	writeLock(lock)
@@ -310,6 +340,21 @@ func installDebApps(config appsConfig, lock appsLock) {
 			URL:         url,
 			GitHub:      app.GitHub,
 			AptSources:  aptSources,
+			InstalledAt: time.Now().Format(time.RFC3339),
+		}
+		writeLock(lock)
+	}
+}
+
+func installScriptApps(config appsConfig, lock appsLock) {
+	for _, app := range config.Script {
+		fmt.Println(aurora.Faint("- Running install script of " + app.ID))
+		if runAsAdmin("bash", "-o", "pipefail", "-c", app.Install) != nil {
+			continue
+		}
+
+		lock.Script[app.ID] = lockEntry{
+			Uninstall:   app.Uninstall,
 			InstalledAt: time.Now().Format(time.RFC3339),
 		}
 		writeLock(lock)

@@ -14,7 +14,7 @@ import (
 	"github.com/logrusorgru/aurora/v4"
 )
 
-var packageManagers = []string{"brew", "scoop", "pacman", "apt", "snap", "deb", "mise"}
+var packageManagers = []string{"brew", "scoop", "pacman", "apt", "snap", "deb", "script", "mise"}
 
 func main() {
 	requested := os.Args[1:]
@@ -51,7 +51,7 @@ func main() {
 	if slices.Contains(selected, "pacman") {
 		pacmanSync()
 	}
-	if slices.Contains(selected, "apt") || slices.Contains(selected, "snap") || slices.Contains(selected, "deb") {
+	if slices.Contains(selected, "apt") || slices.Contains(selected, "snap") || slices.Contains(selected, "deb") || slices.Contains(selected, "script") {
 		linuxpkg.Sync(selected)
 	}
 	if slices.Contains(selected, "mise") {
@@ -71,7 +71,7 @@ func isAvailable(manager string) bool {
 		return runtime.GOOS == "darwin"
 	case "scoop", "pacman":
 		return runtime.GOOS == "windows"
-	case "apt", "snap", "deb":
+	case "apt", "snap", "deb", "script":
 		return runtime.GOOS == "linux" && !helpers.IsWSL()
 	}
 

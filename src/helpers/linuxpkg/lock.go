@@ -20,13 +20,15 @@ type lockEntry struct {
 	URL          string   `yaml:"url,omitempty"`
 	GitHub       string   `yaml:"github,omitempty"`
 	AptSources   []string `yaml:"aptSources,omitempty"`
+	Uninstall    string   `yaml:"uninstall,omitempty"`
 	InstalledAt  string   `yaml:"installedAt"`
 }
 
 type appsLock struct {
-	Apt  map[string]lockEntry `yaml:"apt"`
-	Snap map[string]lockEntry `yaml:"snap"`
-	Deb  map[string]lockEntry `yaml:"deb"`
+	Apt    map[string]lockEntry `yaml:"apt"`
+	Snap   map[string]lockEntry `yaml:"snap"`
+	Deb    map[string]lockEntry `yaml:"deb"`
+	Script map[string]lockEntry `yaml:"script"`
 }
 
 func readLock() appsLock {
@@ -48,6 +50,9 @@ func readLock() appsLock {
 	}
 	if lock.Deb == nil {
 		lock.Deb = map[string]lockEntry{}
+	}
+	if lock.Script == nil {
+		lock.Script = map[string]lockEntry{}
 	}
 
 	return lock
