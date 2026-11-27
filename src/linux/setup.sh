@@ -51,15 +51,6 @@ else
 	echo "Skipped: docker group not found (run 'psy apt' first)"
 fi
 
-echo "Mounting Windows D: drive at /mnt/d..."
-d_drive="UUID=01DC2CA9456E1650"
-sudo mkdir -p /mnt/d
-if ! grep -q "^$d_drive " /etc/fstab; then
-	echo "$d_drive /mnt/d ntfs3 uid=$(id -u),gid=$(id -g),nofail 0 0" | sudo tee -a /etc/fstab >/dev/null
-	sudo systemctl daemon-reload
-fi
-mountpoint -q /mnt/d || sudo mount /mnt/d || echo "Skipped: mount /mnt/d (turn off Windows Fast Startup if the drive is locked)"
-
 echo "Configuring Cloudflare tunnel..."
 cf() { mise exec -- cloudflared "$@"; }
 tunnel_name=Linux

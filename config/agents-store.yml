@@ -1,4 +1,4 @@
-database: D:/Store/agents.db
+database: /run/media/sayad/Master/Store/agents.db
 claudeDir: ~/.claude
 items:
   - projects
