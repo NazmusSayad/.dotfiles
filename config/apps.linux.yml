@@ -26,9 +26,6 @@ apt:
     recommends: false
   - intel-media-va-driver-non-free
 
-  # Internet
-  - qbittorrent
-
   # Dev
   - shfmt
   - mkcert
@@ -40,6 +37,7 @@ apt:
 
   # Desktop
   - gnome-shell-extension-manager
+  - wl-clipboard
 
   # Fonts
   - fonts-ibm-plex
