@@ -19,7 +19,8 @@
 )
 
 ;; Alt+Space sends Ctrl+Shift+I (Alt is released first)
+;; Sends Win (lmet), since GNOME swaps Ctrl and Win after kanata (xkb ctrl:swap_lwin_lctl in src/linux/setup.sh)
 (defoverrides
-  (lalt spc) (lctl lsft i)
-  (ralt spc) (lctl lsft i)
+  (lalt spc) (lmet lsft i)
+  (ralt spc) (lmet lsft i)
 )
