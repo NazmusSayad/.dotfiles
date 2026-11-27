@@ -26,17 +26,14 @@ type Machine struct {
 	Description string   `yaml:"Description"`
 	Notes       []string `yaml:"Notes"`
 	Workstation bool     `yaml:"Workstation"`
-	Offline     bool     `yaml:"Offline"`
 	SSH         []string `yaml:"SSH"`
 }
 
 func ReadMachines() []Machine {
 	var machines []Machine
 	for id, machine := range ReadConfig[map[string]Machine]("#/machines.yml") {
-		if !machine.Offline {
-			machine.ID = id
-			machines = append(machines, machine)
-		}
+		machine.ID = id
+		machines = append(machines, machine)
 	}
 	slices.SortFunc(machines, func(a, b Machine) int {
 		return strings.Compare(a.ID, b.ID)
@@ -71,7 +68,7 @@ func CurrentMachine(machines []Machine) Machine {
 	}
 
 	if saved != "" {
-		fmt.Println(aurora.Yellow(path + " says " + saved + ", which is not an online machine in machines.yml"))
+		fmt.Println(aurora.Yellow(path + " says " + saved + ", which is not a machine in machines.yml"))
 	}
 	if !term.IsTerminal(os.Stdin.Fd()) {
 		exitWithError("no machine picked in " + path + ". Run any dotfiles script in a terminal on this machine to pick it")
@@ -123,7 +120,7 @@ func onlyMachine(machines []Machine, description string, match func(Machine) boo
 		}
 	}
 	if len(found) != 1 {
-		exitWithError(fmt.Sprintf("machines.yml has %d online machines for %s, expected 1", len(found), description))
+		exitWithError(fmt.Sprintf("machines.yml has %d machines for %s, expected 1", len(found), description))
 	}
 	return found[0]
 }
